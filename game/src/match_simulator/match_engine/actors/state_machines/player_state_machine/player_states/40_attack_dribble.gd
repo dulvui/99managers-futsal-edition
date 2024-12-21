@@ -6,5 +6,5 @@ class_name PlayerStateAttackDribble
 extends StateMachineState
 
 
-func update() -> void:
+func execute() -> void:
 	pass

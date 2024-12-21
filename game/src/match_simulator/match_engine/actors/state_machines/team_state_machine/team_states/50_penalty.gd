@@ -6,7 +6,7 @@ class_name TeamStatePenalty
 extends StateMachineState
 
 
-func update() -> void:
+func execute() -> void:
 	# if team has ball
 		# move player to penalty spot
 		# shoot

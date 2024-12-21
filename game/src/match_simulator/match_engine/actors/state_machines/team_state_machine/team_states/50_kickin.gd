@@ -6,7 +6,7 @@ class_name TeamStateKickin
 extends StateMachineState
 
 
-func update() -> void:
+func execute() -> void:
 	# if team has ball
 		# move player to ball
 		# pass to other player

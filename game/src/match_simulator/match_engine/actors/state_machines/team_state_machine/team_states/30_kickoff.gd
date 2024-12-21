@@ -6,7 +6,7 @@ class_name TeamStateKickoff
 extends StateMachineState
 
 
-func update() -> void:
+func execute() -> void:
 	# if team has ball
 		# move player to center
 		# pass to other player

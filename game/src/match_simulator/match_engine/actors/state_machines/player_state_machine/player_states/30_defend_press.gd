@@ -6,5 +6,5 @@ class_name PlayerStateDefendPress
 extends StateMachineState
 
 
-func update() -> void:
+func execute() -> void:
 	pass

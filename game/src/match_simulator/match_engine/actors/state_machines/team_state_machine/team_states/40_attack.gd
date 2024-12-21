@@ -6,7 +6,7 @@ class_name TeamStateAttack
 extends StateMachineState
 
 
-func update() -> void:
+func execute() -> void:
 	# move players with no ball into positions
 	change_to(TeamStateGoal.new())
 	change_to(TeamStateKickin.new())

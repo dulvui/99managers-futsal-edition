@@ -7,7 +7,7 @@ extends StateMachineState
 
 
 
-func update() -> void:
+func execute() -> void:
 	# if team has ball
 		# celebrate
 	# else

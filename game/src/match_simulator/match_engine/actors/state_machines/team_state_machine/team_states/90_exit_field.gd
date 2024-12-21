@@ -6,7 +6,7 @@ class_name TeamStateExitField
 extends StateMachineState
 
 
-func update() -> void:
+func execute() -> void:
 	# if team has won
 		# celebrate
 	# elif not has won

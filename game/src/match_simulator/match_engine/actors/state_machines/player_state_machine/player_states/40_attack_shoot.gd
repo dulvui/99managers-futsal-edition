@@ -6,5 +6,5 @@ class_name PlayerStateAttackShoot
 extends StateMachineState
 
 
-func update() -> void:
+func execute() -> void:
 	pass

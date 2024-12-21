@@ -6,7 +6,7 @@ class_name TeamStateCorner
 extends StateMachineState
 
 
-func update() -> void:
+func execute() -> void:
 	# if team has ball
 		# move player to corner position
 		# pass/cross
