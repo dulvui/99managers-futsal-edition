@@ -6,10 +6,15 @@ class_name TeamStateKickoff
 extends StateMachineState
 
 
+func enter() -> void:
+	# move player to center
+	var team: SimTeam = (owner as TeamStateMachine).team
+	team.players[-1].set_destination(owner.field.ball.pos)
+
+
 func execute() -> void:
-	# if team has ball
-		# move player to center
-		# pass to other player
-	change_to(TeamStateAttack.new())
+	var team: SimTeam = (owner as TeamStateMachine).team
+	if team.players[-1].destination_reached():
+		change_to(TeamStateAttack.new())
 	# else
-	change_to(TeamStateDefend.new())
+	# change_to(TeamStateDefend.new())

@@ -7,10 +7,12 @@ extends StateMachineState
 
 
 func execute() -> void:
-	# move players to center
-	pass
-
 	# move players to positon
 	# if reached
-	# change_to(TeamStateKickoff.new())
+	var team: SimTeam = (owner as TeamStateMachine).team
+	for player: SimPlayer in team.players:
+		if not player.state_machine.state is PlayerStateWait:
+			return
+	
+	change_to(TeamStateKickoff.new())
 

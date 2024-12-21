@@ -7,4 +7,5 @@ extends StateMachineState
 
 
 func execute() -> void:
-	pass
+	(owner as PlayerStateMachine).player.set_destination(owner.field.ball.pos)
+
