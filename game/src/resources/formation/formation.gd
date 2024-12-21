@@ -75,22 +75,18 @@ func get_start_pos(field_size: Vector2, index: int, left_side: bool) -> Vector2:
 	var pos: Vector2 = Vector2.ZERO
 
 	if index < goalkeeper:
-		print("golakppeer")
 		pos = Vector2(field_size.x / 8, field_size.y / 2)
 	elif index < defense + goalkeeper:
-		print("defense")
 		index -= goalkeeper
 		pos = Vector2(field_size.x / 4, field_size.y / defense * index)
 		# centre position and move slightly towards own half (field_size.x / 20)
 		pos += Vector2(-field_size.x / 20, field_size.y / defense / 2)
 	elif index < defense + center + goalkeeper:
-		print("center")
 		index -= goalkeeper + defense
 		pos = Vector2(field_size.x / 3, field_size.y / center * index)
 		# centre position and move slightly towards own half (field_size.x / 20)
 		pos += Vector2(-field_size.x / 20, field_size.y / center / 2)
 	else:
-		print("attack")
 		index -= goalkeeper + defense + center
 		pos = Vector2(field_size.x / 2, field_size.y / attack * index)
 		# centre position and move slightly towards own half (field_size.x / 20)
@@ -100,7 +96,6 @@ func get_start_pos(field_size: Vector2, index: int, left_side: bool) -> Vector2:
 	if not left_side:
 		pos = field_size - pos
 
-	print(pos)
 	return pos
 
 
