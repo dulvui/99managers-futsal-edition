@@ -3,14 +3,13 @@
 # SPDX-License-Identifier: AGPL-3.0-or-later
 
 class_name TeamStateEnterField
-extends StateMachineState
+extends TeamStateMachineState
 
 
 func execute() -> void:
 	# move players to positon
 	# if reached
-	var team: SimTeam = (owner as TeamStateMachine).team
-	for player: SimPlayer in team.players:
+	for player: SimPlayer in owner.team.players:
 		if not player.state_machine.state is PlayerStateWait:
 			return
 	

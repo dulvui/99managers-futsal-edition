@@ -3,15 +3,15 @@
 # SPDX-License-Identifier: AGPL-3.0-or-later
 
 class_name PlayerStateEnterField
-extends StateMachineState
+extends PlayerStateMachineState
 
 
 func enter() -> void:
 	# move to center
-	(owner as PlayerStateMachine).player.set_destination(owner.field.center)
+	owner.player.set_destination(owner.field.center)
 
 
 func execute() -> void:
 	# start positon is reached
-	if (owner as PlayerStateMachine).player.destination_reached():
+	if owner.player.destination_reached():
 		change_to(PlayerStateStartPosition.new())

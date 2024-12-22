@@ -3,7 +3,7 @@
 # SPDX-License-Identifier: AGPL-3.0-or-later
 
 class_name PlayerStateAttackShoot
-extends StateMachineState
+extends PlayerStateMachineState
 
 
 func execute() -> void:

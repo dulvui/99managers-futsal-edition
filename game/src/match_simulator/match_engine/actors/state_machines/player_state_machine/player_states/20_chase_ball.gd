@@ -3,9 +3,9 @@
 # SPDX-License-Identifier: AGPL-3.0-or-later
 
 class_name PlayerStateChaseBall
-extends StateMachineState
+extends PlayerStateMachineState
 
 
 func execute() -> void:
-	(owner as PlayerStateMachine).player.set_destination(owner.field.ball.pos)
+	owner.player.set_destination(owner.field.ball.pos)
 

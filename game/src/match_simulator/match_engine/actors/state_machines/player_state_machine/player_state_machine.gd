@@ -12,3 +12,8 @@ func _init(p_field: SimField, p_player: SimPlayer) -> void:
 	super(p_field)
 	player = p_player
 	set_state(PlayerStateEnterField.new())
+
+
+func set_state(p_state: StateMachineState) -> void:
+	(p_state as PlayerStateMachineState).owner = self
+	super(p_state)

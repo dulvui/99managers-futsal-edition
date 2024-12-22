@@ -3,7 +3,7 @@
 # SPDX-License-Identifier: AGPL-3.0-or-later
 
 class_name TeamStateCorner
-extends StateMachineState
+extends TeamStateMachineState
 
 
 func execute() -> void:

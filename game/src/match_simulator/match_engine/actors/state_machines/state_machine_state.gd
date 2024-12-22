@@ -5,10 +5,6 @@
 class_name StateMachineState
 
 
-var name: String
-var owner: StateMachine
-
-
 func execute() -> void:
 	pass
 
@@ -18,11 +14,9 @@ func enter() -> void:
 
 
 func exit() -> void:
-	owner.previous_state = self
+	pass
 
 
-func change_to(new_state: StateMachineState) -> void:
-	exit()
-	new_state.owner = owner
-	owner.set_state(new_state)
+func change_to(_next_state: StateMachineState) -> void:
+	pass
 

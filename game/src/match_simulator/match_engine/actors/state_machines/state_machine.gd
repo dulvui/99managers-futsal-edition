@@ -28,8 +28,9 @@ func execute() -> void:
 
 
 func set_state(p_state: StateMachineState) -> void:
+	if state:
+		previous_state = state
 	state = p_state
-	state.owner = self
 	state.enter()
 	_buffer_append()
 
