@@ -33,7 +33,7 @@ func _ready() -> void:
 	visual_ball.setup(sim_ball, 0.25)
 
 	sim_player = SimPlayer.new()
-	sim_player.setup(Player.new(), sim_ball, sim_field, true)
+	sim_player.setup(Player.new(),sim_field, true)
 
 	visual_player.setup(sim_player, visual_ball, Color.RED, timer.wait_time)
 
@@ -46,14 +46,13 @@ func _ready() -> void:
 func _on_timer_timeout() -> void:
 	sim_ball.update()
 
-	sim_player.update(true)
+	sim_player.update()
 
 	visual_ball.update(timer.wait_time)
 	visual_player.update(timer.wait_time)
 
 
 func player_moves_to_ball() -> void:
-	sim_player.state_machine.state = PlayerStateMachine.State.IDLE
 	sim_player.set_pos(Vector2(300, 400))
 	sim_player.set_destination(Vector2(900, 400))
 
@@ -64,6 +63,5 @@ func player_moves() -> void:
 
 
 func player_dribble() -> void:
-	sim_player.state_machine.state = PlayerStateMachine.State.DRIBBLE
 	sim_player.set_pos(sim_field.center - Vector2(20, 0))
 	sim_player.set_destination(sim_ball.pos)
