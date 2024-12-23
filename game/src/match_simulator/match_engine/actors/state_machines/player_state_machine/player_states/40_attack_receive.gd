@@ -6,5 +6,12 @@ class_name PlayerStateAttackReceive
 extends PlayerStateMachineState
 
 
+func enter() -> void:
+	owner.player.stop()
+
+
 func execute() -> void:
-	pass
+	if owner.player.is_touching_ball():
+		owner.field.ball.stop()
+		owner.team.player_control = owner.player
+		set_state(PlayerStateAttackPass.new())

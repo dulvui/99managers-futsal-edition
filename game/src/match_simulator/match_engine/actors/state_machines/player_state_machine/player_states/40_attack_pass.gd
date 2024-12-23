@@ -7,4 +7,5 @@ extends PlayerStateMachineState
 
 
 func execute() -> void:
-	pass
+	owner.team.random_pass()
+	set_state(PlayerStateWait.new())

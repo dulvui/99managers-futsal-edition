@@ -17,6 +17,6 @@ func exit() -> void:
 	pass
 
 
-func change_to(_next_state: StateMachineState) -> void:
+func set_state(_next_state: StateMachineState) -> void:
 	pass
 

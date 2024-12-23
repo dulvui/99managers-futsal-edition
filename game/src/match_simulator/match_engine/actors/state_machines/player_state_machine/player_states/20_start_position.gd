@@ -15,4 +15,4 @@ func enter() -> void:
 func execute() -> void:
 	
 	if owner.player.destination_reached():
-		change_to(PlayerStateWait.new())
+		set_state(PlayerStateWait.new())

@@ -6,11 +6,13 @@ class_name PlayerStateMachine
 extends StateMachine
 
 var player: SimPlayer
+var team: SimTeam
 
 
-func _init(p_field: SimField, p_player: SimPlayer) -> void:
+func _init(p_field: SimField, p_player: SimPlayer, p_team: SimTeam) -> void:
 	super(p_field)
 	player = p_player
+	team = p_team
 	set_state(PlayerStateEnterField.new())
 
 

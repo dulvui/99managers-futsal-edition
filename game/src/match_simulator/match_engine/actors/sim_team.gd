@@ -22,6 +22,13 @@ var left_half: bool
 # false, if team is controlled by player
 var simulated: bool
 
+var team_opponents: SimTeam
+# key players
+var player_control: SimPlayer
+var player_support: SimPlayer
+var player_receive_ball: SimPlayer
+var player_nearest_to_ball: SimPlayer
+
 
 func setup(
 	p_res_team: Team,
@@ -46,7 +53,7 @@ func setup(
 	for player: Player in res_team.get_lineup_players():
 		# setup
 		var sim_player: SimPlayer = SimPlayer.new()
-		sim_player.setup(player, field, left_half)
+		sim_player.setup(player, self, field, left_half)
 		all_players.append(sim_player)
 		# player signals
 		# sim_player.short_pass.connect(pass_to_random_player.bind(sim_player))
@@ -66,11 +73,8 @@ func setup(
 	
 	# set goalkeeper flag
 	players[0].make_goalkeeper()
+	state_machine = TeamStateMachine.new(field, self)
 
-
-func setup_state_machine(team_opponents: SimTeam) -> void:
-	state_machine = TeamStateMachine.new(field, self, team_opponents)
-	
 
 func update() -> void:
 	state_machine.execute()
@@ -107,8 +111,34 @@ func check_changes() -> void:
 		change_request = false
 
 
-func pass_to_random_player(_passing_player: SimPlayer = null) -> void:
+func kickoff_pass() -> void:
 	stats.passes += 1
+	var random_player: int = RngUtil.match_rng.randi_range(1, 3)
+	player_control = null
+	player_receive_ball = players[random_player]
+	player_receive_ball.state_machine.set_state(PlayerStateAttackReceive.new())
+	field.ball.short_pass(player_receive_ball.pos, 40)
+
+
+func random_pass() -> void:
+	stats.passes += 1
+	var random_player: int = RngUtil.match_rng.randi_range(0, 4)
+	
+	# make sure player is not passing ball himself
+	if random_player == players.find(player_control):
+		random_player += 1
+		random_player %= 5
+	
+	player_control = null
+	player_receive_ball = players[random_player]
+	player_receive_ball.state_machine.set_state(PlayerStateAttackReceive.new())
+	field.ball.short_pass(player_receive_ball.pos, 40)
+
+
+func reset_key_players() -> void:
+	player_control = null
+	player_support = null
+	player_receive_ball = null
 
 
 func shoot_on_goal(_player: Player) -> void:

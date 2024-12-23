@@ -49,6 +49,7 @@ func _init() -> void:
 
 func setup(
 	p_player_res: Player,
+	p_team: SimTeam,
 	p_field: SimField,
 	p_left_half: bool,
 ) -> void:
@@ -56,7 +57,7 @@ func setup(
 	field = p_field
 	left_half = p_left_half
 	
-	state_machine = PlayerStateMachine.new(field, self)
+	state_machine = PlayerStateMachine.new(field, self, p_team)
 	
 	# goalkeeper properties
 	left_base = Vector2(field.line_left + 30, field.size.y / 2)
@@ -64,18 +65,7 @@ func setup(
 
 
 func update() -> void:
-	# TODO use this signals
-	
-	var touching_ball: bool = is_touching_ball()
-	if not has_ball and touching_ball:
-		# interception.emit()
-		field.ball.stop()
-		has_ball = true
-	elif has_ball and not touching_ball:
-		has_ball = false
-
 	state_machine.execute()
-
 	_move()
 
 

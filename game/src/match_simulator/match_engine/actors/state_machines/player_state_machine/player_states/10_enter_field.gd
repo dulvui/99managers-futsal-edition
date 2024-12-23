@@ -14,4 +14,4 @@ func enter() -> void:
 func execute() -> void:
 	# start positon is reached
 	if owner.player.destination_reached():
-		change_to(PlayerStateStartPosition.new())
+		set_state(PlayerStateStartPosition.new())

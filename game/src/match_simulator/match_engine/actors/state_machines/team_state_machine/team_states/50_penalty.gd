@@ -10,7 +10,7 @@ func execute() -> void:
 	# if team has ball
 		# move player to penalty spot
 		# shoot
-	change_to(TeamStateGoal.new())
-	change_to(TeamStateCorner.new())
-	change_to(TeamStateAttack.new())
-	change_to(TeamStateDefend.new())
+	set_state(TeamStateGoal.new())
+	set_state(TeamStateCorner.new())
+	set_state(TeamStateAttack.new())
+	set_state(TeamStateDefend.new())

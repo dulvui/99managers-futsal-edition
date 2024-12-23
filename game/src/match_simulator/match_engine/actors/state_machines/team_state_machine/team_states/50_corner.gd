@@ -12,5 +12,5 @@ func execute() -> void:
 		# pass/cross
 	# else
 		# mark players
-	change_to(TeamStateAttack.new())
-	change_to(TeamStateDefend.new())
+	set_state(TeamStateAttack.new())
+	set_state(TeamStateDefend.new())

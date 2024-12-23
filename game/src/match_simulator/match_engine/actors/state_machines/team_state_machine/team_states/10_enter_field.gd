@@ -7,7 +7,7 @@ extends TeamStateMachineState
 
 
 func enter() -> void:
-	owner.reset_key_players()
+	owner.team.reset_key_players()
 
 
 func execute() -> void:
@@ -17,5 +17,5 @@ func execute() -> void:
 		if not player.state_machine.state is PlayerStateWait:
 			return
 	
-	change_to(TeamStateKickoff.new())
+	set_state(TeamStateKickoff.new())
 

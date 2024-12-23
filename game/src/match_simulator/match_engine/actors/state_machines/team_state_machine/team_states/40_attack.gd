@@ -6,10 +6,15 @@ class_name TeamStateAttack
 extends TeamStateMachineState
 
 
+func enter() -> void:
+	pass
+
+
 func execute() -> void:
+	pass
 	# move players with no ball into positions
-	change_to(TeamStateGoal.new())
-	change_to(TeamStateKickin.new())
-	change_to(TeamStateCorner.new())
-	change_to(TeamStateFreeKick.new())
-	change_to(TeamStatePenalty.new())
+	# set_state(TeamStateGoal.new())
+	# set_state(TeamStateKickin.new())
+	# set_state(TeamStateCorner.new())
+	# set_state(TeamStateFreeKick.new())
+	# set_state(TeamStatePenalty.new())

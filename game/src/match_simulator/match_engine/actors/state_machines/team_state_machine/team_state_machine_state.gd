@@ -7,5 +7,5 @@ extends StateMachineState
 
 var owner: TeamStateMachine
 
-func change_to(next_state: StateMachineState) -> void:
+func set_state(next_state: StateMachineState) -> void:
 	owner.set_state(next_state)

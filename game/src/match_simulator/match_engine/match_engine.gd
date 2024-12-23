@@ -35,7 +35,6 @@ var interception_timer: int
 
 func setup(p_home_team: Team, p_away_team: Team, match_seed: int) -> void:
 	field = SimField.new()
-	field.setup()
 
 	field.goal_line_out.connect(_on_goal_line_out)
 	field.touch_line_out.connect(_on_touch_line_out)
@@ -60,8 +59,11 @@ func setup(p_home_team: Team, p_away_team: Team, match_seed: int) -> void:
 	away_team.setup(p_away_team, field, not home_plays_left, not home_has_ball)
 	away_team.interception.connect(_on_away_team_interception)
 
-	home_team.setup_state_machine(away_team)
-	away_team.setup_state_machine(home_team)
+	home_team.team_opponents =  away_team
+	away_team.team_opponents =  home_team
+
+	field.home_team = home_team
+	field.away_team = away_team
 
 	interception_timer = 0
 

@@ -9,11 +9,18 @@ extends TeamStateMachineState
 func enter() -> void:
 	# move player to center
 	if owner.team.has_ball:
-		owner.team.players[-1].set_destination(owner.field.ball.pos)
+		owner.team.player_control = owner.team.players[-1]
+		owner.team.player_control.set_destination(owner.field.ball.pos)
 
 
 func execute() -> void:
-	if owner.team.players[-1].destination_reached():
-		change_to(TeamStateAttack.new())
-	# else
-	change_to(TeamStateDefend.new())
+	if owner.team.has_ball:
+		if owner.team.player_control.destination_reached():
+			# start match time
+			owner.field.clock_running = true
+			# pass ball
+			owner.team.kickoff_pass()
+			set_state(TeamStateAttack.new())
+	# when time started, defend
+	elif owner.field.clock_running:
+		set_state(TeamStateDefend.new())

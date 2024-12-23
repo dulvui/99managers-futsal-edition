@@ -58,11 +58,13 @@ var clock_running: bool
 # add all resources here, so they can be accessedeasily
 # especiially inside the state machines
 var ball: SimBall
+var home_team: SimTeam
+var away_team: SimTeam
 
 # TODO create and add sectors
 
 
-func setup() -> void:
+func _init() -> void:
 	#size = sprite.texture.get_size()
 	size = Vector2(WIDTH + BORDER_SIZE * 2, HEIGHT + BORDER_SIZE * 2)
 
