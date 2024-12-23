@@ -8,7 +8,8 @@ extends TeamStateMachineState
 
 func enter() -> void:
 	# move player to center
-	owner.team.players[-1].set_destination(owner.field.ball.pos)
+	if owner.team.has_ball:
+		owner.team.players[-1].set_destination(owner.field.ball.pos)
 
 
 func execute() -> void:

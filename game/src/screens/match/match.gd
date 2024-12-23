@@ -99,8 +99,6 @@ func _ready() -> void:
 				players_bar.update_players()
 				formation.set_players()
 	)
-
-	
 	
 	# set colors
 	home_color.color = home_team.get_home_color()
@@ -227,10 +225,6 @@ func _on_pause_button_pressed() -> void:
 
 func _on_simulate_button_pressed() -> void:
 	match_simulator.simulate()
-
-
-func _on_start_timer_timeout() -> void:
-	match_simulator.start_match()
 
 
 func _on_match_simulator_half_time() -> void:

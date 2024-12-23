@@ -33,7 +33,6 @@ func setup(home_team: Team, away_team: Team, match_seed: int) -> void:
 	timer.wait_time = 1.0 / (Const.TICKS_PER_SECOND * Global.speed_factor)
 	add_child(timer)
 	timer.timeout.connect(_on_timer_timeout)
-	timer.start()
 	
 	match_engine = MatchEngine.new()
 	match_engine.setup(home_team, away_team, match_seed)
@@ -64,6 +63,8 @@ func setup(home_team: Team, away_team: Team, match_seed: int) -> void:
 
 	# reset match_paused
 	Global.match_paused = false
+	
+	timer.start()
 
 
 func simulate(end_time: int = Const.FULL_TIME_SECONDS) -> void:
@@ -128,11 +129,6 @@ func set_time() -> void:
 	timer.wait_time = 1.0 / (Const.TICKS_PER_SECOND * Global.speed_factor)
 
 
-func start_match() -> void:
-	action_message.emit("match started")
-	timer.start()
-
-
 func _on_timer_timeout() -> void:
 	match_engine.update()
 	visual_match.update(timer.wait_time)
@@ -144,13 +140,15 @@ func _tick() -> void:
 	# only update tiem on clock, after TICKS_PER_SECOND passed
 	if ticks == Const.TICKS_PER_SECOND:
 		ticks = 0
-		time += 1
 		update_time.emit()
-		# check half/end time
-		if time == Const.HALF_TIME_SECONDS:
-			timer.paused = true
-			half_time.emit()
-		elif time == Const.HALF_TIME_SECONDS * 2:
-			timer.stop()
-			match_end.emit()
+
+		if match_engine.field.clock_running:
+			time += 1
+			# check half/end time
+			if time == Const.HALF_TIME_SECONDS:
+				timer.paused = true
+				half_time.emit()
+			elif time == Const.HALF_TIME_SECONDS * 2:
+				timer.stop()
+				match_end.emit()
 
