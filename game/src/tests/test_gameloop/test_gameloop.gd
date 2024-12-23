@@ -22,6 +22,8 @@ func test() -> void:
 func test_full_season() -> void:
 	print("test: test full season...")
 
+	Tests.setup_mock_world(true)
+
 	while not Global.world.calendar.is_season_finished():
 		Global.world.calendar.next_day()
 		Global.world.random_results()

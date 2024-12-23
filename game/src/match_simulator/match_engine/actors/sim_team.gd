@@ -36,8 +36,6 @@ func setup(
 	left_half = p_left_half
 	simulated = p_simulated
 
-	state_machine = TeamStateMachine.new(field, self)
-
 	change_request = false
 
 	# check if team is player's team
@@ -68,6 +66,10 @@ func setup(
 	
 	# set goalkeeper flag
 	players[0].make_goalkeeper()
+
+
+func setup_state_machine(team_opponents: SimTeam) -> void:
+	state_machine = TeamStateMachine.new(field, self, team_opponents)
 	
 
 func update() -> void:

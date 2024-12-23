@@ -38,9 +38,9 @@ func tests_fast() -> void:
 
 func tests_intensive() -> void:
 	print("start tests: intenstive...")
-	test_gameloop.test()
 	test_match_engine.test()
 	test_benchmark.test()
+	test_gameloop.test()
 	print("start tests: intenstive done.")
 
 

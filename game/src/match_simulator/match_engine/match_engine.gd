@@ -60,6 +60,9 @@ func setup(p_home_team: Team, p_away_team: Team, match_seed: int) -> void:
 	away_team.setup(p_away_team, field, not home_plays_left, not home_has_ball)
 	away_team.interception.connect(_on_away_team_interception)
 
+	home_team.setup_state_machine(away_team)
+	away_team.setup_state_machine(home_team)
+
 	interception_timer = 0
 
 
@@ -88,6 +91,7 @@ func update() -> void:
 
 
 func simulate(matchz: Match) -> Match:
+	print("simulating match...")
 	var start_time: int = Time.get_ticks_msec()
 	setup(matchz.home, matchz.away, matchz.id)
 
@@ -100,6 +104,7 @@ func simulate(matchz: Match) -> Match:
 	
 	half_time()
 	# second half
+	print("half time...")
 	time = 0
 	while time < Const.HALF_TIME_SECONDS * Const.TICKS_PER_SECOND:
 		update()
@@ -115,6 +120,7 @@ func simulate(matchz: Match) -> Match:
 
 	print("result: " + matchz.get_result())
 	print("shots: h%d - a%d" % [home_team.stats.shots, away_team.stats.shots])
+	print("simulating match done.")
 	return matchz
 
 

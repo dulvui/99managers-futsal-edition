@@ -6,6 +6,10 @@ class_name TeamStateEnterField
 extends TeamStateMachineState
 
 
+func enter() -> void:
+	owner.reset_key_players()
+
+
 func execute() -> void:
 	# move players to positon
 	# if reached
