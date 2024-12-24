@@ -15,3 +15,7 @@ func execute() -> void:
 		owner.field.ball.stop()
 		owner.team.player_control = owner.player
 		set_state(PlayerStateAttackPass.new())
+
+
+func exit() -> void:
+	owner.team.player_receive_ball = null

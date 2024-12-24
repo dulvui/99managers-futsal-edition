@@ -7,7 +7,7 @@ extends TeamStateMachineState
 
 
 func enter() -> void:
-	# move player to center
+	# move player for kick off to center
 	if owner.team.has_ball:
 		owner.team.player_control = owner.team.players[-1]
 		owner.team.player_control.set_destination(owner.field.ball.pos)

@@ -2,10 +2,11 @@
 
 # SPDX-License-Identifier: AGPL-3.0-or-later
 
-class_name PlayerStateEnterField
+class_name PlayerStateKickoff
 extends PlayerStateMachineState
 
 
 func execute() -> void:
+	# start positon is reached
 	if owner.player.destination_reached():
-		set_state(PlayerStateWait.new())
+		set_state(PlayerStateStartPosition.new())
