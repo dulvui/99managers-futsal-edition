@@ -6,7 +6,7 @@ class_name TeamStateEnterField
 extends TeamStateMachineState
 
 
-const WAIT_BEFORE_KICKOFF: int = Const.TICKS_PER_SECOND * 4
+const WAIT: int = Const.TICKS_PER_SECOND * 4
 
 var ticks: int
 
@@ -28,15 +28,21 @@ func enter() -> void:
 		else:
 			start_position.x += 30
 
-		player.set_pos(start_position)
 
 		# move to center, but slightly shifted
 		var destination: Vector2 = owner.field.center
 		if owner.team.left_half:
-			destination.x -= (owner.team.players.find(player) + 1) * 10
+			destination.x -= (owner.team.players.find(player) + 1) * 30
 		else:
-			destination.x += (owner.team.players.find(player) + 1) * 10
+			destination.x += (owner.team.players.find(player) + 1) * 30
 		
+		# add some noise
+		start_position.x += RngUtil.match_noise(5, 5)
+		start_position.y += RngUtil.match_noise(5, 5)
+		destination.x += RngUtil.match_noise(5, 5)
+		destination.y += RngUtil.match_noise(5, 5)
+
+		player.set_pos(start_position)
 		player.set_destination(destination)
 
 
@@ -47,9 +53,8 @@ func execute() -> void:
 		if not player.state_machine.state is PlayerStateWait:
 			return
 	
-	# wait a bit in center, before kick off
+	# wait a bit in center, before moving to start positions
 	ticks += 1
-	print(ticks)
-	if ticks == WAIT_BEFORE_KICKOFF:
-		set_state(TeamStateKickoff.new())
+	if ticks == WAIT:
+		set_state(TeamStateStartPositions.new())
 

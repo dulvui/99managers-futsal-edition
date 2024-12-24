@@ -93,10 +93,11 @@ func set_pos(p_pos: Vector2 = pos) -> void:
 
 
 func set_destination(p_destination: Vector2) -> void:
-	if is_goalkeeper:
-		destination = get_penalty_area_bounds(p_destination)
-	else:
-		destination = bound_field(p_destination)
+	# if is_goalkeeper:
+	# 	destination = get_penalty_area_bounds(p_destination)
+	# else:
+	# 	destination = bound_field(p_destination)
+	destination = bound_field(p_destination)
 	speed = 20
 
 

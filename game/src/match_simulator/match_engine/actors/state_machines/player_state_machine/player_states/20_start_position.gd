@@ -8,8 +8,7 @@ extends PlayerStateMachineState
 
 func enter() -> void:
 	# move to position
-	var player: SimPlayer = owner.player
-	player.set_destination(player.start_pos)
+	owner.player.set_destination(owner.player.start_pos)
 
 
 func execute() -> void:
