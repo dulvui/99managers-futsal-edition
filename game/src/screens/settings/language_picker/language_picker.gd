@@ -13,6 +13,7 @@ const LANGUAGES: Dictionary = {
 	"it": "Italiano",
 	# "es": "Español",
 	"de": "Deutsch",
+	"ua": "Українська",
 }
 
 func _ready() -> void:
