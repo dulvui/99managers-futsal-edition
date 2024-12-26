@@ -61,7 +61,7 @@ var ball: SimBall
 var home_team: SimTeam
 var away_team: SimTeam
 
-# TODO create and add sectors
+var sectors: Array[SimFieldSector]
 
 
 func _init() -> void:
@@ -158,6 +158,14 @@ func _init() -> void:
 	ball.setup(self)
 
 	clock_running = false
+
+	# initizlize field sectors for best position calculations
+	sectors = []
+	for x: int in size.x / 20:
+		for y: int in size.y / 20:
+			var sector: SimFieldSector = SimFieldSector.new()
+			sector.setup(x, y)
+			sectors.append(sector)
 
 
 func get_corner_pos(ball_exit_pos: Vector2) -> Vector2:
