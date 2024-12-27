@@ -12,6 +12,10 @@ Join [Matrix](https://matrix.to/#/%23s9i.org:matrix.org) or [Discord](https://di
 
 Available on [Codeberg](https://codeberg.org/dulvui/99managers-futsal-edition) and [Github](https://github.com/dulvui/99managers-futsal-edition).
 
+<a href="https://hosted.weblate.org/engage/99-managers-futsal-edition/">
+<img src="https://hosted.weblate.org/widget/99-managers-futsal-edition/game/287x66-white.png" alt="Translation status" />
+</a>
+
 # Alpha version
 You can find the first versions of the game on [Github](https://github.com/dulvui/futsal-manager/releases).
 # FAQ
@@ -20,6 +24,11 @@ Check out my blog post for frequently asked questions about the game.
 
 # Roadmap
 Features/issues lists are visible in the [Roadmap](ROADMAP.md) 
+
+# Translations
+If you would like to add more languages or want to improve existing, you can do so on [Weblate](https://hosted.weblate.org/engage/99-managers-futsal-edition/).  
+Weblate is an Open Source translation tool and has a very generous free offering for Open Source projects like this one.  
+Thanks a lot Weblate!
 
 # Licenses and copyrights
 All source code is licensed under [AGPLv3](LICENSES/AGPL-3.0-or-later.txt)  
