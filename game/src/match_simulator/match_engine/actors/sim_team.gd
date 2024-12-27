@@ -154,15 +154,11 @@ func change_players_request() -> void:
 
 
 func nearest_player_to_ball() -> SimPlayer:
-	# TODO optimize me, use one copy and don't create new every time
-	# only on player change or simlar, create new copy
-	var players_copy: Array[SimPlayer] = players.duplicate()
-	players_copy.sort_custom(_sort_distance_to_ball)
-	return players_copy[0]
-
-
-func _sort_distance_to_ball(a: SimPlayer, b: SimPlayer) -> bool:
-	return a.distance_to_ball < b.distance_to_ball
+	var nearest: SimPlayer = player_control
+	for player: SimPlayer in players:
+		if player.distance_to_ball < nearest.distance_to_ball:
+			nearest = player
+	return nearest
 
 
 func _on_player_interception() -> void:

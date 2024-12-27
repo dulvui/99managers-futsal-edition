@@ -10,20 +10,7 @@ var field: SimField
 var home_team: SimTeam
 var away_team: SimTeam
 
-var home_plays_left: bool
-
 var ticks: int
-
-# for trajectory calculations
-var post_bottom: Vector2
-var post_top: Vector2
-var players: Array[SimPlayer]
-
-var goalkeeper: SimPlayer
-
-var shoot_trajectory_polygon: PackedVector2Array
-
-var nearest_player: SimPlayer
 
 # stats
 var possession_counter: float
@@ -43,12 +30,10 @@ func setup(p_home_team: Team, p_away_team: Team, match_seed: int) -> void:
 	ticks = 0
 	possession_counter = 0.0
 
-	shoot_trajectory_polygon = PackedVector2Array()
 
-	#RngUtil.match_rng.state = 0
 	RngUtil.match_rng.seed = hash(match_seed)
 
-	home_plays_left = RngUtil.match_rng.randi_range(0, 1) == 0
+	var home_plays_left: bool = RngUtil.match_rng.randi_range(0, 1) == 0
 	var home_has_ball: bool = RngUtil.match_rng.randi_range(0, 1) == 0
 
 	home_team = SimTeam.new()
@@ -71,7 +56,7 @@ func setup(p_home_team: Team, p_away_team: Team, match_seed: int) -> void:
 func update() -> void:
 	field.ball.update()
 
-	calc_distances()
+	field.calculator.update()
 
 	home_team.update()
 	away_team.update()
@@ -127,7 +112,7 @@ func simulate(matchz: Match) -> Match:
 
 
 func half_time() -> void:
-	home_plays_left = not home_plays_left
+	home_team.left_half = not home_team.left_half
 	field.ball.set_pos(field.center)
 
 	# stamina recovery 15 minutes
@@ -147,84 +132,11 @@ func full_time() -> void:
 		player.recover_stamina(recovery)
 
 
-func calc_distances() -> void:
-	for player: SimPlayer in home_team.players + away_team.players:
-		calc_distance_to_goal(player, home_team.left_half)
-		calc_distance_to_own_goal(player, home_team.left_half)
-		calc_player_to_ball_distance(player)
-	calc_free_shoot_trajectory()
-
-
-func calc_distance_to_goal(player: SimPlayer, left_half: bool) -> void:
-	if left_half:
-		player.distance_to_goal = calc_distance_to(player.pos, field.goal_right)
-	player.distance_to_goal = calc_distance_to(player.pos, field.goal_left)
-
-
-func calc_distance_to_own_goal(player: SimPlayer, left_half: bool) -> void:
-	if left_half:
-		player.distance_to_own_goal = calc_distance_to(player.pos, field.goal_left)
-	player.distance_to_own_goal = calc_distance_to(player.pos, field.goal_right)
-
-
-func calc_player_to_ball_distance(player: SimPlayer) -> void:
-	player.distance_to_ball = calc_distance_to(player.pos, field.ball.pos)
-
-
-func calc_distance_to(from: Vector2, to: Vector2) -> float:
-	return from.distance_squared_to(to)
-
-
-func calc_free_shoot_trajectory() -> void:
-	field.ball.players_in_shoot_trajectory = 0
-
-	if home_team.has_ball:
-		goalkeeper = away_team.players[0]
-		players = away_team.players
-	else:
-		goalkeeper = home_team.players[0]
-		players = home_team.players
-
-	if left_is_active_goal():
-		post_top = field.goal_post_top_left
-		post_bottom = field.goal_post_bottom_left
-	else:
-		post_top = field.goal_post_top_right
-		post_bottom = field.goal_post_bottom_right
-
-	# square from ball +/- 150 to goal posts and +/- 50 to ball
-	# used to check empty net and players in trajectory
-	# point_is_in_triangle() is too narrow
-	shoot_trajectory_polygon.clear()
-	shoot_trajectory_polygon.append(field.ball.pos + Vector2(0, 50))
-	shoot_trajectory_polygon.append(field.ball.pos + Vector2(0, -50))
-	shoot_trajectory_polygon.append(post_top + Vector2(0, -150))
-	shoot_trajectory_polygon.append(post_bottom + Vector2(0, 150))
-
-	field.ball.empty_net = not Geometry2D.is_point_in_polygon(goalkeeper.pos, shoot_trajectory_polygon)
-
-	for player: SimPlayer in players:
-		if Geometry2D.is_point_in_polygon(player.pos, shoot_trajectory_polygon):
-			field.ball.players_in_shoot_trajectory += 1
-
-
-func left_is_active_goal() -> bool:
-	if home_plays_left and home_team.has_ball:
-		return false
-	if home_plays_left and away_team.has_ball:
-		return true
-	if not home_plays_left and home_team.has_ball:
-		return true
-	return false
-
-
 func set_goalkeeper_ball(home: bool) -> void:
 	if home:
 		home_possess()
-		goalkeeper = home_team.players[0]
 	else:
 		away_possess()
-		goalkeeper = away_team.players[0]
 
 
 func set_corner(home: bool) -> void:
@@ -280,13 +192,13 @@ func _on_away_team_interception() -> void:
 
 func _on_goal_line_out() -> void:
 	if (
-		(home_team.has_ball and home_plays_left and field.ball.pos.x < 600)
-		or (home_team.has_ball and not home_plays_left and field.ball.pos.x > 600)
+		(home_team.has_ball and home_team.left_half and field.ball.pos.x < 600)
+		or (home_team.has_ball and not home_team.left_half and field.ball.pos.x > 600)
 	):
 		set_corner(false)
 	elif (
-		(away_team.has_ball and home_plays_left and field.ball.pos.x > 600)
-		or (home_team.has_ball and not home_plays_left and field.ball.pos.x < 600)
+		(away_team.has_ball and home_team.left_half and field.ball.pos.x > 600)
+		or (home_team.has_ball and not home_team.left_half and field.ball.pos.x < 600)
 	):
 		set_corner(true)
 
@@ -294,11 +206,11 @@ func _on_goal_line_out() -> void:
 	elif field.ball.pos.x < 600:
 		# left
 		field.ball.set_pos_xy(field.line_left + 40, field.size.y / 2)
-		set_goalkeeper_ball(home_plays_left)
+		set_goalkeeper_ball(home_team.left_half)
 	else:
 		# right
 		field.ball.set_pos_xy(field.line_right - 40, field.size.y / 2)
-		set_goalkeeper_ball(not home_plays_left)
+		set_goalkeeper_ball(not home_team.left_half)
 
 
 func _on_touch_line_out() -> void:

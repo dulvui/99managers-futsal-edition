@@ -61,8 +61,7 @@ var ball: SimBall
 var home_team: SimTeam
 var away_team: SimTeam
 
-var sectors: Array[SimFieldSector]
-
+var calculator: SimFieldCalculator
 
 func _init() -> void:
 	#size = sprite.texture.get_size()
@@ -158,14 +157,8 @@ func _init() -> void:
 	ball.setup(self)
 
 	clock_running = false
-
-	# initizlize field sectors for best position calculations
-	sectors = []
-	for x: int in size.x / 20:
-		for y: int in size.y / 20:
-			var sector: SimFieldSector = SimFieldSector.new()
-			sector.setup(x, y)
-			sectors.append(sector)
+	
+	calculator = SimFieldCalculator.new(self)
 
 
 func get_corner_pos(ball_exit_pos: Vector2) -> Vector2:
@@ -250,6 +243,5 @@ func check_ball_bounds() -> void:
 
 		goal_line_out.emit()
 		return
-
 
 
