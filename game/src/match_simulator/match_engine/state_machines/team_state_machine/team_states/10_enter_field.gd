@@ -6,7 +6,7 @@ class_name TeamStateEnterField
 extends TeamStateMachineState
 
 
-const WAIT: int = Const.TICKS_PER_SECOND * 4
+const WAIT: int = Const.TICKS_PER_SECOND * 1
 
 var ticks: int
 
@@ -15,8 +15,6 @@ func enter() -> void:
 	print("enter field")
 	ticks = 0
 
-	owner.team.reset_key_players()
-	
 	# move players to center bottom, and slightly shifted
 	for player: SimPlayer in owner.team.players:
 		var start_position: Vector2 = owner.field.center
