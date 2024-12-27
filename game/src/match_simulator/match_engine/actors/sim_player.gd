@@ -23,6 +23,7 @@ var last_pos: Vector2
 # movements
 var destination: Vector2
 var speed: int
+var head_look_direction: Vector2
 #TODO reduce radius with low stamina
 var interception_radius: int
 
@@ -42,6 +43,8 @@ func _init() -> void:
 	# initial test values
 	interception_radius = 30
 	has_ball = false
+
+	head_look_direction = Vector2.ZERO
 
 
 func setup(
