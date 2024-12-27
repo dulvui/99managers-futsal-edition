@@ -153,14 +153,6 @@ func change_players_request() -> void:
 			return
 
 
-func nearest_player_to_ball() -> SimPlayer:
-	var nearest: SimPlayer = player_control
-	for player: SimPlayer in players:
-		if player.distance_to_ball < nearest.distance_to_ball:
-			nearest = player
-	return nearest
-
-
 func _on_player_interception() -> void:
 	interception.emit()
 

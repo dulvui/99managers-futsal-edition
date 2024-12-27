@@ -9,3 +9,6 @@ extends PlayerStateMachineState
 func execute() -> void:
 	owner.player.set_destination(owner.field.ball.pos)
 
+	if owner.player.is_touching_ball():
+		owner.team.interception.emit()
+

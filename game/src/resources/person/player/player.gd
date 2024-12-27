@@ -83,57 +83,6 @@ func _init(
 	agent = p_agent
 
 
-func get_attack_attributes(attack: Action.Attack) -> int:
-	match attack:
-		Action.Attack.SHOOT:
-			# check sector and pick long_shoot
-			return attributes.technical.shooting
-		Action.Attack.PASS:
-			return attributes.technical.passing
-#		Action.Attack.CROSS:
-#			return attributes.technical.crossing
-		Action.Attack.DRIBBLE:
-			return attributes.technical.dribbling
-#		Action.Attack.HEADER:
-#			return attributes.technical.heading"]
-		Action.Attack.RUN:
-			var attacker_attributes: int = attributes.physical.pace
-			attacker_attributes += attributes.physical.acceleration
-			return attacker_attributes
-	# should never happen
-	return -1
-
-
-func get_defense_attributes(attack: Action.Attack) -> int:
-	match attack:
-		Action.Attack.SHOOT:
-			# check sector and pick long_shoot
-			return attributes.technical.blocking
-		Action.Attack.PASS:
-			return attributes.technical.interception
-#		Action.Attack.CROSS:
-#			return attributes.technical.interception"]
-		Action.Attack.DRIBBLE:
-			return attributes.technical.tackling
-#		Action.Attack.HEADER:
-#			return attributes.technical.heading"]
-		# use player preferences/attirbutes and team tactics pressing or wait
-		Action.Attack.RUN:
-			var defender_attributes: int
-			if randi() % 2 == 0:
-#					return Defense.RUN
-				defender_attributes = attributes.physical.pace
-				defender_attributes += attributes.physical.acceleration
-			else:
-#					return Defense.TACKLE
-				defender_attributes = attributes.technical.tackling
-				defender_attributes += attributes.physical.pace
-
-			return defender_attributes
-	# should never happen
-	return -1
-
-
 func get_goalkeeper_attributes() -> int:
 	return attributes.goalkeeper.sum()
 

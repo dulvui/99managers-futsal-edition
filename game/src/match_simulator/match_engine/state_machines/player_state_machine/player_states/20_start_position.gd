@@ -7,11 +7,13 @@ extends PlayerStateMachineState
 
 
 func enter() -> void:
-	# move to position
-	owner.player.set_destination(owner.player.start_pos)
+	# move to position and add some noise
+	var start_position: Vector2 = owner.player.start_pos
+	start_position.x += RngUtil.match_noise(5, 5)
+	start_position.y += RngUtil.match_noise(5, 5)
+	owner.player.set_destination(start_position)
 
 
 func execute() -> void:
-	
 	if owner.player.destination_reached():
 		set_state(PlayerStateWait.new())

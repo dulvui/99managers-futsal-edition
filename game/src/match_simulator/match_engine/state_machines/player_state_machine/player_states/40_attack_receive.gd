@@ -11,10 +11,13 @@ func enter() -> void:
 
 
 func execute() -> void:
+	# move slowly towards ball
+	owner.player.set_destination(owner.field.ball.pos, 5)
+
 	if owner.player.is_touching_ball():
 		owner.field.ball.stop()
 		owner.team.player_control = owner.player
-		set_state(PlayerStateAttackPass.new())
+		set_state(PlayerStateWait.new())
 
 
 func exit() -> void:

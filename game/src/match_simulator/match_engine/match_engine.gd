@@ -4,7 +4,7 @@
 
 class_name MatchEngine
 
-const INTERCEPTION_TIMER_START: int = 3
+const INTERCEPTION_TIMER_START: int = 8
 
 var field: SimField
 var home_team: SimTeam

@@ -12,6 +12,7 @@ var ticks: int
 
 
 func enter() -> void:
+	print("enter field")
 	ticks = 0
 
 	owner.team.reset_key_players()
@@ -50,11 +51,12 @@ func execute() -> void:
 	# move players to positon
 	# if reached
 	for player: SimPlayer in owner.team.players:
-		if not player.state_machine.state is PlayerStateWait:
+		if not player.destination_reached():
 			return
 	
 	# wait a bit in center, before moving to start positions
 	ticks += 1
 	if ticks == WAIT:
+		print("enter field done")
 		set_state(TeamStateStartPositions.new())
 

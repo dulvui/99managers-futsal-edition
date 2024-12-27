@@ -20,9 +20,6 @@ var direction: Vector2
 # left -1, right 1, no roatation 0
 var rotation: float
 
-var players_in_shoot_trajectory: int
-var empty_net: bool
-
 var field: SimField
 
 var clock_running: bool
@@ -82,7 +79,7 @@ func stop() -> void:
 
 func short_pass(p_destination: Vector2, force: float) -> void:
 	_random_rotation()
-	speed = force + 0.2  # ball moves a bit faster that the force is
+	speed = force
 	direction = pos.direction_to(p_destination)
 	state = State.PASS
 
@@ -92,22 +89,22 @@ func shoot(p_destination: Vector2, force: float) -> void:
 	speed = force + 4  # ball moves a bit faster that the force is
 	direction = pos.direction_to(p_destination)
 	state = State.SHOOT
-# func shoot_on_goal(player: Player) -> void:
-# 	var power: int = player.attributes.technical.shooting
-#
-# 	var random_target: Vector2
-# 	if left_half:
-# 		random_target = field.goal_right
-# 	else:
-# 		random_target = field.goal_left
-#
-# 	random_target += Vector2(
-# 		0, RngUtil.match_rng.randi_range(-field.GOAL_SIZE * 1.5, field.GOAL_SIZE * 1.5)
-# 	)
-#
-# 	field.ball.shoot(random_target, power * RngUtil.match_rng.randi_range(2, 6))
-#
-# 	stats.shots += 1
+
+
+func shoot_on_goal(player: Player, left_half: bool) -> void:
+	var power: int = player.attributes.technical.shooting
+
+	var random_target: Vector2
+	if left_half:
+		random_target = field.goal_right
+	else:
+		random_target = field.goal_left
+
+	random_target += Vector2(
+		0, RngUtil.match_rng.randi_range(-field.GOAL_SIZE * 1.5, field.GOAL_SIZE * 1.5)
+	)
+
+	field.ball.shoot(random_target, power * RngUtil.match_rng.randi_range(2, 6))
 
 
 func dribble(p_destination: Vector2, force: float) -> void:

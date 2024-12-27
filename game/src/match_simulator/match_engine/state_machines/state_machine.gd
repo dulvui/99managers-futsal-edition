@@ -29,6 +29,7 @@ func execute() -> void:
 
 func set_state(p_state: StateMachineState) -> void:
 	if state:
+		state.exit()
 		previous_state = state
 	state = p_state
 	state.enter()

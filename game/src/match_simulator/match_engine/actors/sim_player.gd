@@ -27,10 +27,7 @@ var speed: int
 var interception_radius: int
 
 # distances, calculated by action util
-var distance_to_goal: float
-var distance_to_own_goal: float
 var distance_to_ball: float
-var distance_to_player: float
 
 # goalkeeper properties
 var is_goalkeeper: bool
@@ -69,6 +66,10 @@ func update() -> void:
 	_move()
 
 
+func set_state(state: PlayerStateMachineState) -> void:
+	state_machine.set_state(state)
+
+
 func make_goalkeeper() -> void:
 	is_goalkeeper = true
 
@@ -92,13 +93,13 @@ func set_pos(p_pos: Vector2 = pos) -> void:
 	speed = 0
 
 
-func set_destination(p_destination: Vector2) -> void:
+func set_destination(p_destination: Vector2, p_speed: int = 20) -> void:
 	# if is_goalkeeper:
 	# 	destination = get_penalty_area_bounds(p_destination)
 	# else:
 	# 	destination = bound_field(p_destination)
 	destination = bound_field(p_destination)
-	speed = 20
+	speed = p_speed
 
 
 func destination_reached() -> bool:

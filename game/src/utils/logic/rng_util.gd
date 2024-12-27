@@ -42,6 +42,11 @@ func pick_random(array: Array[Variant]) -> Variant:
 func match_noise(value: int, noise: int) -> int:
 	return match_rng.randi_range(value - noise, value + noise)
 
+
+func match(value: int) -> bool:
+	return match_rng.randi_range(0, 100) < value
+
+
 func uuid() -> String:
 	# generate random seed like 26374-28372-887463
 	return (

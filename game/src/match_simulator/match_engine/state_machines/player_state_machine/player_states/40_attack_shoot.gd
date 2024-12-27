@@ -6,5 +6,11 @@ class_name PlayerStateAttackShoot
 extends PlayerStateMachineState
 
 
-func execute() -> void:
-	pass
+func enter() -> void:
+	owner.field.ball.shoot_on_goal(owner.player.player_res, owner.team.left_half)
+	set_state(PlayerStateWait.new())
+
+
+func exit() -> void:
+	owner.team.player_control = null
+

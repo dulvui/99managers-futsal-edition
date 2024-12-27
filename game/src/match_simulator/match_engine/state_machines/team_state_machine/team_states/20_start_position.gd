@@ -16,12 +16,7 @@ func enter() -> void:
 
 	# move players to start positions
 	for player: SimPlayer in owner.team.players:
-		var start_position: Vector2 = player.start_pos
-		# add some noise
-		start_position.x += RngUtil.match_noise(5, 5)
-		start_position.y += RngUtil.match_noise(5, 5)
-
-		player.set_destination(start_position)
+		player.set_state(PlayerStateStartPosition.new())
 
 
 func execute() -> void:

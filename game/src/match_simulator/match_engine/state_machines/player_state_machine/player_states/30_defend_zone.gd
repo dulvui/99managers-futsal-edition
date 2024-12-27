@@ -6,5 +6,10 @@ class_name PlayerStateDefendZone
 extends PlayerStateMachineState
 
 
+func enter() -> void:
+	owner.player.set_destination(owner.player.start_pos)
+
 func execute() -> void:
-	pass
+	if owner.player.destination_reached():
+		owner.player.stop()
+	

@@ -7,4 +7,24 @@ extends PlayerStateMachineState
 
 
 func execute() -> void:
-	pass
+	if owner.team.player_control == owner.player:
+		# check shoot
+		if RngUtil.match(10):
+			print("shoot")
+			set_state(PlayerStateAttackShoot.new())
+
+		# check pass
+		if RngUtil.match(90):
+			print("pass")
+			set_state(PlayerStateAttackPass.new())
+
+		# check dribble
+		print("dribble")
+		set_state(PlayerStateAttackDribble.new())
+	elif owner.team.has_ball:
+		# if good positon, become supporting player	
+		print("support")
+	else:
+		print("defend")
+		# set_state(PlayerStateDefendZone.new())
+

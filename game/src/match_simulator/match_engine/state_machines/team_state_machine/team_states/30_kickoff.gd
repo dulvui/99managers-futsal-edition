@@ -15,7 +15,7 @@ func enter() -> void:
 
 func execute() -> void:
 	if owner.team.has_ball:
-		if owner.team.player_control.destination_reached():
+		if owner.team.player_control and owner.team.player_control.destination_reached():
 			# start match time
 			owner.field.clock_running = true
 			# pass ball
