@@ -6,5 +6,9 @@ class_name PlayerStateCorner
 extends PlayerStateMachineState
 
 
+func _init() -> void:
+	super("PlayerStateCorner")
+
+
 func execute() -> void:
 	pass

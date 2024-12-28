@@ -6,6 +6,10 @@ class_name TeamStateExitField
 extends TeamStateMachineState
 
 
+func _init() -> void:
+	super("TeamStateExitField")
+
+
 func execute() -> void:
 	# if team has won
 		# celebrate

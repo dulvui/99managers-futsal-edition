@@ -4,7 +4,11 @@
 
 class_name TeamStateFreeKick
 extends TeamStateMachineState
-	
+
+
+func _init() -> void:
+	super("TeamStateFreeKick")
+
 
 func execute() -> void:
 	# if team has ball

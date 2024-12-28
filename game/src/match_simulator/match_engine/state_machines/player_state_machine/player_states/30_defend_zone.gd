@@ -6,6 +6,10 @@ class_name PlayerStateDefendZone
 extends PlayerStateMachineState
 
 
+func _init() -> void:
+	super("PlayerStateDefendZone")
+
+
 func enter() -> void:
 	owner.player.set_destination(owner.player.start_pos)
 

@@ -6,6 +6,10 @@ class_name PlayerStateAttackPass
 extends PlayerStateMachineState
 
 
+func _init() -> void:
+	super("PlayerStateAttackPass")
+
+
 func execute() -> void:
 	owner.team.random_pass()
 	owner.team.player_control = null

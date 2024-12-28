@@ -6,5 +6,9 @@ class_name PlayerStateAttackSupport
 extends PlayerStateMachineState
 
 
+func _init() -> void:
+	super("PlayerStateAttackSupport")
+
+
 func execute() -> void:
 	pass

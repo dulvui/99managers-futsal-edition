@@ -6,6 +6,10 @@ class_name TeamStateKickin
 extends TeamStateMachineState
 
 
+func _init() -> void:
+	super("TeamStateKickin")
+
+
 func execute() -> void:
 	# if team has ball
 		# move player to ball

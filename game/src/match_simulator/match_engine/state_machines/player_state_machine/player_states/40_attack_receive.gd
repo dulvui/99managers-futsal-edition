@@ -6,6 +6,10 @@ class_name PlayerStateAttackReceive
 extends PlayerStateMachineState
 
 
+func _init() -> void:
+	super("PlayerStateAttackReceive")
+
+
 func enter() -> void:
 	owner.player.stop()
 

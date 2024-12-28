@@ -6,5 +6,9 @@ class_name PlayerStateGoalkeeperFollowBall
 extends PlayerStateMachineState
 
 
+func _init() -> void:
+	super("PlayerStateGoalkeeperFollowBall")
+
+
 func execute() -> void:
 	pass

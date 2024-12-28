@@ -6,6 +6,10 @@ class_name PlayerStateWait
 extends PlayerStateMachineState
 
 
+func _init() -> void:
+	super("PlayerStateWait")
+
+
 func execute() -> void:
 	if owner.team.player_control == owner.player:
 		# check shoot

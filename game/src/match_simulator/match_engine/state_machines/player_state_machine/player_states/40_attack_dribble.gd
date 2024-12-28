@@ -6,6 +6,10 @@ class_name PlayerStateAttackDribble
 extends PlayerStateMachineState
 
 
+func _init() -> void:
+	super("PlayerStateAttackDribble")
+
+
 func enter() -> void:
 	if owner.team.left_half:
 		owner.field.ball.dribble(owner.player.pos + Vector2(50, 0), 10)

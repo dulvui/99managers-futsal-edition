@@ -5,3 +5,9 @@
 class_name PlayerStateEnterField
 extends PlayerStateMachineState
 
+
+func _init() -> void:
+	super("PlayerStateEnterField")
+
+
+

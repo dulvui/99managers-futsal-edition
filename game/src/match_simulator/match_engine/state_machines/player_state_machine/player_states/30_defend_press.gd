@@ -6,5 +6,9 @@ class_name PlayerStateDefendPress
 extends PlayerStateMachineState
 
 
+func _init() -> void:
+	super("PlayerStateDefendPress")
+
+
 func execute() -> void:
 	pass

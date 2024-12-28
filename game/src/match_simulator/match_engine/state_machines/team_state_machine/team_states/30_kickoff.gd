@@ -6,6 +6,10 @@ class_name TeamStateKickoff
 extends TeamStateMachineState
 
 
+func _init() -> void:
+	super("TeamStateKickoff")
+
+
 func enter() -> void:
 	# move player for kick off to center
 	if owner.team.has_ball:

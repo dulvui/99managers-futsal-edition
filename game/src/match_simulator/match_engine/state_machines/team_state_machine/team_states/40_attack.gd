@@ -6,6 +6,10 @@ class_name TeamStateAttack
 extends TeamStateMachineState
 
 
+func _init() -> void:
+	super("TeamStateAttack")
+
+
 func enter() -> void:
 	pass
 

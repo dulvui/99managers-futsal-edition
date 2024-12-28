@@ -6,6 +6,10 @@ class_name PlayerStateKickoff
 extends PlayerStateMachineState
 
 
+func _init() -> void:
+	super("PlayerStateKickoff")
+
+
 func execute() -> void:
 	if owner.field.clock_running:
 		set_state(PlayerStateWait.new())

@@ -6,6 +6,10 @@ class_name PlayerStateStartPosition
 extends PlayerStateMachineState
 
 
+func _init() -> void:
+	super("PlayerStateStartPosition")
+
+
 func enter() -> void:
 	# move to position and add some noise
 	var start_position: Vector2 = owner.player.start_pos

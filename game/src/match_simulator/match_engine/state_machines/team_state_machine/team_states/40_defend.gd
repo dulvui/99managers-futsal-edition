@@ -6,6 +6,10 @@ class_name TeamStateDefend
 extends TeamStateMachineState
 
 
+func _init() -> void:
+	super("TeamStateDefend")
+
+
 func enter() -> void:
 	# move players with no ball into positions
 	for player: SimPlayer in owner.team.players:

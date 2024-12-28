@@ -6,6 +6,9 @@ class_name TeamStateGoal
 extends TeamStateMachineState
 
 
+func _init() -> void:
+	super("TeamStateGoal")
+
 
 func execute() -> void:
 	# if team has ball

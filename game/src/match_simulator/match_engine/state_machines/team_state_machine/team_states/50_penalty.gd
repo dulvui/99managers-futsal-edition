@@ -6,6 +6,10 @@ class_name TeamStatePenalty
 extends TeamStateMachineState
 
 
+func _init() -> void:
+	super("TeamStatePenalty")
+
+
 func execute() -> void:
 	# if team has ball
 		# move player to penalty spot

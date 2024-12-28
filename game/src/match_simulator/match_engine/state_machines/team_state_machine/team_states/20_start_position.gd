@@ -11,6 +11,10 @@ const WAIT: int = Const.TICKS_PER_SECOND * 1
 var ticks: int
 
 
+func _init() -> void:
+	super("TeamStateStartPositions")
+
+
 func enter() -> void:
 	ticks = 0
 

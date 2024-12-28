@@ -6,6 +6,10 @@ class_name TeamStateCorner
 extends TeamStateMachineState
 
 
+func _init() -> void:
+	super("TeamStateCorner")
+
+
 func execute() -> void:
 	# if team has ball
 		# move player to corner position

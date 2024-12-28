@@ -6,5 +6,9 @@ class_name PlayerStateFreekick
 extends PlayerStateMachineState
 
 
+func _init() -> void:
+	super("PlayerStateFreekick")
+
+
 func execute() -> void:
 	pass
