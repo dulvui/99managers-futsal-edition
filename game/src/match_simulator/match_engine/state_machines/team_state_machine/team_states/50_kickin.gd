@@ -10,6 +10,6 @@ func execute() -> void:
 	# if team has ball
 		# move player to ball
 		# pass to other player
-	set_state(TeamStateAttack.new())
+	set_state(TeamStateAttack.new("TeamStateAttack"))
 	# else
-	set_state(TeamStateDefend.new())
+	set_state(TeamStateDefend.new("TeamStateDefend"))

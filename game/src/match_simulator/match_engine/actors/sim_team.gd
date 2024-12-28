@@ -116,7 +116,7 @@ func kickoff_pass() -> void:
 	var random_player: int = RngUtil.match_rng.randi_range(1, 3)
 	player_control = null
 	player_receive_ball = players[random_player]
-	player_receive_ball.state_machine.set_state(PlayerStateAttackReceive.new())
+	player_receive_ball.state_machine.set_state(PlayerStateAttackReceive.new("PlayerStateAttackReceive"))
 	field.ball.short_pass(player_receive_ball.pos, 40)
 
 
@@ -130,14 +130,14 @@ func random_pass() -> void:
 		random_player %= 5
 	
 	player_receive_ball = players[random_player]
-	player_receive_ball.state_machine.set_state(PlayerStateAttackReceive.new())
+	player_receive_ball.state_machine.set_state(PlayerStateAttackReceive.new("PlayerStateAttackReceive"))
 	field.ball.short_pass(player_receive_ball.pos, 40)
 
 
 func chase_ball() -> void:
 	if player_control != null:
 		if not player_control.state_machine.state is PlayerStateChaseBall:
-			player_control.set_state(PlayerStateChaseBall.new())
+			player_control.set_state(PlayerStateChaseBall.new("PlayerStateChaseBall"))
 	elif player_nearest_to_ball != null:
 		player_control = player_nearest_to_ball
 	else:

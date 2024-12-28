@@ -8,22 +8,26 @@ class_name StateMachineState
 var name: String
 
 
+func _init(p_name: String) -> void:
+	name = p_name
+
+
 func execute() -> void:
-	print("execute")
+	print("execute " + name)
 	pass
 
 
 func enter() -> void:
-	print("enter")
+	print("enter " + name)
 	pass
 
 
 func exit() -> void:
-	print("exit")
+	print("exit " + name)
 	pass
 
 
-func set_state(_next_state: StateMachineState) -> void:
-	print("set state")
+func set_state(p_next_state: StateMachineState) -> void:
+	print("set state " + p_next_state.name)
 	pass
 

@@ -20,7 +20,7 @@ func execute() -> void:
 			owner.field.clock_running = true
 			# pass ball
 			owner.team.kickoff_pass()
-			set_state(TeamStateAttack.new())
+			set_state(TeamStateAttack.new("TeamStateAttack"))
 	# when time started, defend
 	elif owner.field.clock_running:
-		set_state(TeamStateDefend.new())
+		set_state(TeamStateDefend.new("TeamStateDefend"))

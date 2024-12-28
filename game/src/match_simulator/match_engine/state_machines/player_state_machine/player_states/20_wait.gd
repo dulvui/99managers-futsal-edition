@@ -11,16 +11,16 @@ func execute() -> void:
 		# check shoot
 		if RngUtil.match(10):
 			print("shoot")
-			set_state(PlayerStateAttackShoot.new())
+			set_state(PlayerStateAttackShoot.new("PlayerStateAttackShoot"))
 
 		# check pass
 		if RngUtil.match(90):
 			print("pass")
-			set_state(PlayerStateAttackPass.new())
+			set_state(PlayerStateAttackPass.new("PlayerStateAttackPass"))
 
 		# check dribble
 		print("dribble")
-		set_state(PlayerStateAttackDribble.new())
+		set_state(PlayerStateAttackDribble.new("PlayerStateAttackDribble"))
 	elif owner.team.has_ball:
 		# if good positon, become supporting player	
 		return
@@ -28,5 +28,5 @@ func execute() -> void:
 	else:
 		return
 		# print("defend")
-		# set_state(PlayerStateDefendZone.new())
+		# set_state(PlayerStateDefendZone.new("PlayerStateDefendZone"))
 

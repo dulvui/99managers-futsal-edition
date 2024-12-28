@@ -9,7 +9,7 @@ extends PlayerStateMachineState
 func execute() -> void:
 	owner.team.random_pass()
 	owner.team.player_control = null
-	set_state(PlayerStateWait.new())
+	set_state(PlayerStateWait.new("PlayerStateWait"))
 
 
 func exit() -> void:

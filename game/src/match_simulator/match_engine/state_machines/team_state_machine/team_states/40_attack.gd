@@ -12,7 +12,7 @@ func enter() -> void:
 
 func execute() -> void:
 	if not owner.team.has_ball:
-		set_state(TeamStateDefend.new())
+		set_state(TeamStateDefend.new("TeamStateDefend"))
 	
 	# move players with no ball into positions
 	# set_state(TeamStateGoal.new())
