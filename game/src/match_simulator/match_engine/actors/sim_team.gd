@@ -134,6 +134,16 @@ func random_pass() -> void:
 	field.ball.short_pass(player_receive_ball.pos, 40)
 
 
+func chase_ball() -> void:
+	if player_control != null:
+		if not player_control.state_machine.state is PlayerStateChaseBall:
+			player_control.set_state(PlayerStateChaseBall.new())
+	elif player_nearest_to_ball != null:
+		player_control = player_nearest_to_ball
+	else:
+		print("no nearest player")
+
+
 func reset_key_players() -> void:
 	player_control = null
 	player_support = null

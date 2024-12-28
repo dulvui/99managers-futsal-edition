@@ -48,7 +48,6 @@ func enter() -> void:
 		player.head_look_direction = destination
 
 
-
 func execute() -> void:
 	# move players to positon
 	# if reached

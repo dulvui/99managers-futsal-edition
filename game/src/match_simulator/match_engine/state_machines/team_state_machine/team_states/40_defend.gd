@@ -15,6 +15,5 @@ func enter() -> void:
 func execute() -> void:
 	if owner.team.has_ball:
 		set_state(TeamStateAttack.new())
-	
-	if not owner.team.player_nearest_to_ball.state_machine.state is PlayerStateChaseBall:
-		owner.team.player_nearest_to_ball.set_state(PlayerStateChaseBall.new())
+
+	owner.team.chase_ball()

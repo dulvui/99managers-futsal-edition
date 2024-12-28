@@ -23,8 +23,10 @@ func execute() -> void:
 		set_state(PlayerStateAttackDribble.new())
 	elif owner.team.has_ball:
 		# if good positon, become supporting player	
-		print("support")
+		return
+		# print("support")
 	else:
-		print("defend")
+		return
+		# print("defend")
 		# set_state(PlayerStateDefendZone.new())
 

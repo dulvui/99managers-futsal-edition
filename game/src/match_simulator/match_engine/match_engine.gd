@@ -54,9 +54,7 @@ func setup(p_home_team: Team, p_away_team: Team, match_seed: int) -> void:
 
 
 func update() -> void:
-	field.ball.update()
-
-	field.calculator.update()
+	field.update()
 
 	home_team.update()
 	away_team.update()
@@ -75,6 +73,9 @@ func update() -> void:
 	else:
 		home_team.check_changes()
 		away_team.check_changes()
+	
+
+	assert(home_team.has_ball != away_team.has_ball)
 
 
 func simulate(matchz: Match) -> Match:

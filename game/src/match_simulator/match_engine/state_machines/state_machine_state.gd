@@ -5,6 +5,9 @@
 class_name StateMachineState
 
 
+var name: String
+
+
 func execute() -> void:
 	print("execute")
 	pass

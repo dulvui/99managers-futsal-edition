@@ -6,9 +6,14 @@ class_name PlayerStateChaseBall
 extends PlayerStateMachineState
 
 
+func enter() -> void:
+	print("player chase ball")
+
+
 func execute() -> void:
 	owner.player.set_destination(owner.field.ball.pos)
 
 	if owner.player.is_touching_ball():
+		owner.team.player_control = owner.player
 		owner.team.interception.emit()
 

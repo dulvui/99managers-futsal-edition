@@ -161,6 +161,11 @@ func _init() -> void:
 	calculator = SimFieldCalculator.new(self)
 
 
+func update() -> void:
+	calculator.update()
+	ball.update()
+
+
 func get_corner_pos(ball_exit_pos: Vector2) -> Vector2:
 	# start from top/left
 	var corner_pos: Vector2 = Vector2(0, 0)
