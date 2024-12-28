@@ -31,6 +31,7 @@ func setup(p_field: SimField) -> void:
 	last_pos = pos
 	state = State.STOP
 	clock_running = false
+	rotation = 0
 
 
 func set_pos(p_pos: Vector2) -> void:
@@ -50,12 +51,13 @@ func update() -> void:
 	else:
 		speed = 0
 	
-	if rotation > 0.1:
-		rotation -= 0.05
-	elif rotation < 0.1:
-		rotation += 0.05
-	else:
-		rotation = 0
+	if rotation != 0:
+		if rotation > 0.1:
+			rotation -= 0.05
+		elif rotation < 0.1:
+			rotation += 0.05
+		else:
+			rotation = 0
 	
 	# print("ball state %s"%State.keys()[state])
 
