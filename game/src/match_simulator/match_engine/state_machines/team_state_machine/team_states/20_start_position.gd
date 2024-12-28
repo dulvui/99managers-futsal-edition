@@ -16,7 +16,7 @@ func enter() -> void:
 
 	# move players to start positions
 	for player: SimPlayer in owner.team.players:
-		player.set_state(PlayerStateStartPosition.new("PlayerStateStartPosition"))
+		player.set_state(PlayerStateStartPosition.new())
 
 
 func execute() -> void:
@@ -29,5 +29,5 @@ func execute() -> void:
 	# wait a bit in center, before kick off
 	ticks += 1
 	if ticks == WAIT:
-		set_state(TeamStateKickoff.new("TeamStateKickoff"))
+		set_state(TeamStateKickoff.new())
 

@@ -12,7 +12,7 @@ func execute() -> void:
 		# shoot
 	# else
 		# some players make wall
-	set_state(TeamStateGoal.new("TeamStateGoal"))
-	set_state(TeamStateCorner.new("TeamStateCorner"))
-	set_state(TeamStateAttack.new("TeamStateAttack"))
-	set_state(TeamStateDefend.new("TeamStateDefend"))
+	set_state(TeamStateGoal.new())
+	set_state(TeamStateCorner.new())
+	set_state(TeamStateAttack.new())
+	set_state(TeamStateDefend.new())

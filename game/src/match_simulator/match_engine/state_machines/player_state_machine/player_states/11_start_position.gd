@@ -16,4 +16,4 @@ func enter() -> void:
 
 func execute() -> void:
 	if owner.player.destination_reached():
-		set_state(PlayerStateKickoff.new("PlayerStateKickoff"))
+		set_state(PlayerStateKickoff.new())

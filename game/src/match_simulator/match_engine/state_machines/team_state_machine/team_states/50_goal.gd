@@ -12,4 +12,4 @@ func execute() -> void:
 		# celebrate
 	# else
 		# players are sad
-	set_state(TeamStateKickoff.new("TeamStateKickoff"))
+	set_state(TeamStateKickoff.new())

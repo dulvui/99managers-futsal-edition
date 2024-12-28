@@ -8,4 +8,4 @@ extends PlayerStateMachineState
 
 func execute() -> void:
 	if owner.field.clock_running:
-		set_state(PlayerStateWait.new("PlayerStateWait"))
+		set_state(PlayerStateWait.new())

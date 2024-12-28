@@ -9,11 +9,11 @@ extends TeamStateMachineState
 func enter() -> void:
 	# move players with no ball into positions
 	for player: SimPlayer in owner.team.players:
-		player.set_state(PlayerStateStartPosition.new("PlayerStateStartPosition"))
+		player.set_state(PlayerStateStartPosition.new())
 
 
 func execute() -> void:
 	if owner.team.has_ball:
-		set_state(TeamStateAttack.new("TeamStateAttack"))
+		set_state(TeamStateAttack.new())
 
 	owner.team.chase_ball()

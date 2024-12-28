@@ -11,7 +11,7 @@ var team: SimTeam
 func _init(p_field: SimField, p_team: SimTeam) -> void:
 	super(p_field)
 	team = p_team
-	set_state(TeamStateEnterField.new("TeamStateEnterField"))
+	set_state(TeamStateEnterField.new())
 
 
 func set_state(p_state: StateMachineState) -> void:
