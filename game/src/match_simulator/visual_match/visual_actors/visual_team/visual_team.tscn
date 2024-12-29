@@ -15,3 +15,17 @@ script = ExtResource("1_e5wh8")
 [node name="VisualPlayer4" parent="." instance=ExtResource("3_ycu0j")]
 
 [node name="VisualPlayer5" parent="." instance=ExtResource("3_ycu0j")]
+
+[node name="HomeStateMachine" type="Label" parent="."]
+unique_name_in_owner = true
+offset_left = 315.0
+offset_top = 556.0
+offset_right = 355.0
+offset_bottom = 578.0
+
+[node name="AwayStateMachine" type="Label" parent="."]
+unique_name_in_owner = true
+offset_left = 729.0
+offset_top = 566.0
+offset_right = 769.0
+offset_bottom = 588.0

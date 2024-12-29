@@ -39,6 +39,18 @@ visible = false
 scale = Vector2(0.027261, 0.027261)
 texture = ExtResource("6_a5ogg")
 
+[node name="StateMachine" type="Label" parent="."]
+unique_name_in_owner = true
+offset_left = -46.0
+offset_top = 48.0
+offset_right = 48.0
+offset_bottom = 74.0
+size_flags_vertical = 1
+text = "Name
+"
+horizontal_alignment = 1
+vertical_alignment = 1
+
 [node name="Info" type="MarginContainer" parent="."]
 anchors_preset = 7
 anchor_left = 0.5
