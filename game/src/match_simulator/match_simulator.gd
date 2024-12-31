@@ -18,9 +18,11 @@ var timer: Timer
 
 var match_engine: MatchEngine
 
-@onready var visual_match: VisualMatch = $SubViewportContainer/SubViewport/VisualMatch
-@onready var sub_viewport: SubViewport = $SubViewportContainer/SubViewport
-@onready var camera: Camera2D = $SubViewportContainer/SubViewport/Camera2D
+@onready var visual_match: VisualMatch = %VisualMatch
+@onready var sub_viewport: SubViewport = %SubViewport
+@onready var camera: Camera2D = %Camera2D
+@onready var visual_state_machine: VisualStateMachine = %VisualStateMachine
+
 
 
 func _physics_process(delta: float) -> void:
@@ -47,9 +49,12 @@ func setup(home_team: Team, away_team: Team, match_seed: int) -> void:
 			visual_match.away_team.change_players(match_engine.away_team)
 	)
 
-	# set up visual match
+	# setup visual match
 	# get colors
 	visual_match.setup(match_engine, timer.wait_time)
+
+	# visual state machine for debug
+	visual_state_machine.setup(visual_match.home_team, visual_match.away_team)
 
 	# adjust sub viewport to field size + borders
 	sub_viewport.size = visual_match.visual_field.field.size

@@ -26,7 +26,6 @@ var last_pos: Vector2
 
 @onready var sprites: Node2D = $Sprites
 @onready var name_label: Label = $Info/NameLabel
-@onready var state_machine_label: Label = %StateMachine
 
 
 func _physics_process(delta: float) -> void:
@@ -39,8 +38,6 @@ func _physics_process(delta: float) -> void:
 			sprites.look_at(ball.position)
 		else:
 			sprites.look_at(sim_player.head_look_direction)
-		
-		state_machine_label.text = sim_player.state_machine.state.name
 
 
 func setup(

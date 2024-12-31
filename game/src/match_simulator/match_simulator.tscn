@@ -1,7 +1,8 @@
-[gd_scene load_steps=3 format=3 uid="uid://bubq3rsb3hm6e"]
+[gd_scene load_steps=4 format=3 uid="uid://bubq3rsb3hm6e"]
 
 [ext_resource type="Script" path="res://src/match_simulator/match_simulator.gd" id="1_tnm3q"]
 [ext_resource type="PackedScene" uid="uid://b3xqapw5jfje0" path="res://src/match_simulator/visual_match/visual_match.tscn" id="2_1u7kc"]
+[ext_resource type="PackedScene" uid="uid://bmanseg4hklw5" path="res://src/match_simulator/visual_match/visual_state_machine/visual_state_machine.tscn" id="3_yckuk"]
 
 [node name="MatchSimulator" type="Control"]
 layout_mode = 3
@@ -22,6 +23,7 @@ grow_vertical = 2
 stretch = true
 
 [node name="SubViewport" type="SubViewport" parent="SubViewportContainer"]
+unique_name_in_owner = true
 disable_3d = true
 handle_input_locally = false
 size = Vector2i(1920, 1080)
@@ -29,9 +31,14 @@ size_2d_override_stretch = true
 render_target_update_mode = 4
 
 [node name="VisualMatch" parent="SubViewportContainer/SubViewport" instance=ExtResource("2_1u7kc")]
+unique_name_in_owner = true
 
 [node name="Camera2D" type="Camera2D" parent="SubViewportContainer/SubViewport"]
+unique_name_in_owner = true
 position = Vector2(0, -0.000244141)
 zoom = Vector2(1.5, 1.5)
 position_smoothing_enabled = true
 position_smoothing_speed = 15.0
+
+[node name="VisualStateMachine" parent="SubViewportContainer/SubViewport" instance=ExtResource("3_yckuk")]
+unique_name_in_owner = true

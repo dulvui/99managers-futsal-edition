@@ -13,9 +13,6 @@ var team: SimTeam
 @onready var player4: VisualPlayer = $VisualPlayer4
 @onready var player5: VisualPlayer = $VisualPlayer5
 
-@onready var home_state_machine: Label = %HomeStateMachine
-@onready var away_state_machine: Label = %AwayStateMachine
-
 
 func setup(
 	p_team: SimTeam, visual_ball: VisualBall, shirt_color: Color, update_interval: float
@@ -34,12 +31,6 @@ func update(update_interval: float) -> void:
 	player3.update(update_interval)
 	player4.update(update_interval)
 	player5.update(update_interval)
-
-	if team.left_half:
-		home_state_machine.text = team.state_machine.state.name
-	else:
-		away_state_machine.text = team.state_machine.state.name
-
 
 
 func change_players(sim_team: SimTeam) -> void:
