@@ -12,17 +12,20 @@ func _init() -> void:
 
 func execute() -> void:
 	if owner.team.player_control == owner.player:
+		# check shoot
 		if RngUtil.match(10):
 			print("shoot")
 			set_state(PlayerStateAttackShoot.new())
 			return
 
-		if RngUtil.match(40):
-			print("dribble")
-			set_state(PlayerStateAttackDribble.new())
+		# check pass
+		if RngUtil.match(95):
+			print("pass")
+			set_state(PlayerStateAttackPass.new())
 			return
 
-		print("pass")
+		# check dribble
+		print("dribble")
 		set_state(PlayerStateAttackPass.new())
 		return
 	elif owner.team.has_ball:
