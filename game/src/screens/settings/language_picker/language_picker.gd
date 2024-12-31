@@ -8,7 +8,7 @@ signal language_change
 
 const LANGUAGES: Dictionary = {
 	"en": "English",
-	# "pt": "Portuguese",
+	"pt": "Portuguese",
 	# "pt_BR": "Portuguese (BR)",
 	"it": "Italiano",
 	# "es": "Español",
