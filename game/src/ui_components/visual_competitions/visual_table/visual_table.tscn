@@ -48,7 +48,7 @@ label_settings = ExtResource("2_ia1mi")
 [node name="Loose" type="Label" parent="."]
 custom_minimum_size = Vector2(60, 0)
 layout_mode = 2
-text = "LOOSE"
+text = "LOST"
 label_settings = ExtResource("2_ia1mi")
 
 [node name="Goals" type="Label" parent="."]
@@ -60,7 +60,7 @@ label_settings = ExtResource("2_ia1mi")
 [node name="GoalsAgainst" type="Label" parent="."]
 custom_minimum_size = Vector2(60, 0)
 layout_mode = 2
-text = "GOALS_AGAINST"
+text = "GOALS_CONCEDED"
 label_settings = ExtResource("2_ia1mi")
 
 [node name="Points" type="Label" parent="."]
