@@ -44,6 +44,7 @@ func set_pos_xy(x: float, y: float) -> void:
 func update() -> void:
 	if speed > 0:
 		move()
+		field.clock_running = true
 	else:
 		speed = 0
 	

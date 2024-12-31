@@ -21,7 +21,6 @@ func execute() -> void:
 		if owner.team.player_control.destination_reached():
 			owner.team.player_control.set_state(PlayerStateAttackPass.new())
 			set_state(TeamStateAttack.new())
-			owner.field.clock_running = true
 			return
 	else:
 		set_state(TeamStateDefend.new())
