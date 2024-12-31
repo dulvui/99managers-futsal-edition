@@ -1,0 +1,17 @@
+[remap]
+
+importer="csv_translation"
+type="Translation"
+uid="uid://c71fxv8yatmhm"
+
+[deps]
+
+files=["res://translations/apc.apc.translation"]
+
+source_file="res://translations/apc.csv"
+dest_files=["res://translations/apc.apc.translation"]
+
+[params]
+
+compress=true
+delimiter=0
