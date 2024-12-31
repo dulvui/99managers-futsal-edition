@@ -22,6 +22,7 @@ func execute() -> void:
 		owner.field.ball.stop()
 		owner.team.player_control = owner.player
 		set_state(PlayerStateWait.new())
+		return
 
 
 func exit() -> void:

@@ -13,3 +13,4 @@ func _init() -> void:
 func execute() -> void:
 	if owner.field.clock_running:
 		set_state(PlayerStateWait.new())
+		return

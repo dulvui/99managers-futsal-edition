@@ -25,6 +25,8 @@ func execute() -> void:
 			# pass ball
 			owner.team.kickoff_pass()
 			set_state(TeamStateAttack.new())
+			return
 	# when time started, defend
 	elif owner.field.clock_running:
 		set_state(TeamStateDefend.new())
+		return

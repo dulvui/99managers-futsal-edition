@@ -16,6 +16,7 @@ func enter() -> void:
 	else:
 		owner.field.ball.dribble(owner.player.pos + Vector2(-50, 0), 10)
 	set_state(PlayerStateWait.new())
+	return
 
 
 func exit() -> void:

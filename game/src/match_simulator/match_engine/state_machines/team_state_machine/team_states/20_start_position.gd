@@ -34,4 +34,5 @@ func execute() -> void:
 	ticks += 1
 	if ticks == WAIT:
 		set_state(TeamStateKickoff.new())
+		return
 

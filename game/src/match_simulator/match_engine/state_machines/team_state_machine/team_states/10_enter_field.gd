@@ -66,6 +66,7 @@ func execute() -> void:
 	if ticks == WAIT:
 		print("enter field done")
 		set_state(TeamStateStartPositions.new())
+		return
 
 
 func exit() -> void:

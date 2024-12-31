@@ -27,8 +27,8 @@ func _process(_delta: float) -> void:
 		
 		var away_player: VisualPlayer = away_team.get("player" + str(i + 1))
 		var away_label: Label = away_player_states[i]
+		away_label.global_position = away_player.global_position
 		away_label.text = away_player.sim_player.state_machine.state.name
-		away_label.global_position = away_player.global_position + Vector2(0, 50)
 
 
 func setup(p_home_team: VisualTeam, p_away_team: VisualTeam) -> void:

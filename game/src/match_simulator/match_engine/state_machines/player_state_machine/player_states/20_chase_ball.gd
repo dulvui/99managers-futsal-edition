@@ -20,5 +20,6 @@ func execute() -> void:
 	if owner.player.is_touching_ball():
 		owner.team.player_control = owner.player
 		owner.team.interception.emit()
-		set_state(PlayerStateChaseBall.new())
+		set_state(PlayerStateWait.new())
+		return
 

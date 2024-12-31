@@ -19,5 +19,6 @@ func enter() -> void:
 func execute() -> void:
 	if owner.team.has_ball:
 		set_state(TeamStateAttack.new())
+		return
 
 	owner.team.chase_ball()
