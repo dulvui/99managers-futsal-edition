@@ -164,41 +164,10 @@ func _init() -> void:
 func update() -> void:
 	calculator.update()
 	ball.update()
+	_check_ball_bounds()
 
 
-func get_corner_pos(ball_exit_pos: Vector2) -> Vector2:
-	# start from top/left
-	var corner_pos: Vector2 = Vector2(0, 0)
-
-	if ball_exit_pos.x > size.x / 2:
-		corner_pos.x = line_right
-
-	if ball_exit_pos.y > size.y / 2:
-		corner_pos.y = line_bottom  # bottom
-
-	return corner_pos
-
-
-func is_goal(ball_last_pos: Vector2, ball_pos: Vector2) -> Variant:
-	var intersection: Variant
-
-	# left
-	if ball_pos.x < size.x / 2:
-		intersection = Geometry2D.segment_intersects_segment(
-			ball_last_pos, ball_pos, goal_post_bottom_left, goal_post_top_left
-		)
-	# right
-	else:
-		intersection = Geometry2D.segment_intersects_segment(
-			ball_last_pos, ball_pos, goal_post_bottom_right, goal_post_top_right
-		)
-
-	if intersection and intersection.y < goal_post_bottom and intersection.y > goal_post_top:
-		return intersection
-	return null
-
-
-func check_ball_bounds() -> void:
+func _check_ball_bounds() -> void:
 	# kick in / y axis
 	if ball.pos.y < line_top:
 		var intersection: Variant = Geometry2D.segment_intersects_segment(
@@ -223,7 +192,7 @@ func check_ball_bounds() -> void:
 	if ball.pos.x < line_left or ball.pos.x > line_right:
 		clock_running = false
 		# TODO check if ball.post was hit => reflect
-		var goal_intersection: Variant = is_goal(ball.last_pos, ball.pos)
+		var goal_intersection: Variant = _is_goal(ball.last_pos, ball.pos)
 		if goal_intersection:
 			ball.set_pos(center)
 			goal.emit()
@@ -248,5 +217,24 @@ func check_ball_bounds() -> void:
 
 		goal_line_out.emit()
 		return
+
+
+func _is_goal(ball_last_pos: Vector2, ball_pos: Vector2) -> Variant:
+	var intersection: Variant
+
+	# left
+	if ball_pos.x < size.x / 2:
+		intersection = Geometry2D.segment_intersects_segment(
+			ball_last_pos, ball_pos, goal_post_bottom_left, goal_post_top_left
+		)
+	# right
+	else:
+		intersection = Geometry2D.segment_intersects_segment(
+			ball_last_pos, ball_pos, goal_post_bottom_right, goal_post_top_right
+		)
+
+	if intersection and intersection.y < goal_post_bottom and intersection.y > goal_post_top:
+		return intersection
+	return null
 
 

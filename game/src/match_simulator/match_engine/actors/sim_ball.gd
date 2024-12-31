@@ -22,15 +22,11 @@ var rotation: float
 
 var field: SimField
 
-var clock_running: bool
-
-
 func setup(p_field: SimField) -> void:
 	field = p_field
 	pos = field.center
 	last_pos = pos
 	state = State.STOP
-	clock_running = false
 	rotation = 0
 
 

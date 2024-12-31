@@ -87,7 +87,7 @@ func simulate(matchz: Match) -> Match:
 	var time: int = 0
 	while time < Const.HALF_TIME_SECONDS * Const.TICKS_PER_SECOND:
 		update()
-		if field.ball.clock_running:
+		if field.clock_running:
 			time += 1
 	
 	half_time()
@@ -96,7 +96,7 @@ func simulate(matchz: Match) -> Match:
 	time = 0
 	while time < Const.HALF_TIME_SECONDS * Const.TICKS_PER_SECOND:
 		update()
-		if field.ball.clock_running:
+		if field.clock_running:
 			time += 1
 	full_time()
 
@@ -221,6 +221,9 @@ func _on_touch_line_out() -> void:
 	else:
 		home_possess()
 		home_team.stats.kick_ins += 1
+	
+	home_team.set_state(TeamStateKickin.new())
+	away_team.set_state(TeamStateKickin.new())
 
 
 func _on_goal() -> void:

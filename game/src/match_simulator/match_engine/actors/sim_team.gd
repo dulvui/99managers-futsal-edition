@@ -92,6 +92,10 @@ func update() -> void:
 	_auto_change()
 
 
+func set_state(state: TeamStateMachineState) -> void:
+	state_machine.set_state(state)
+
+
 func check_changes() -> void:
 	if change_request:
 		# adjust all_players order to res teams players order

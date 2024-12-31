@@ -10,10 +10,18 @@ func _init() -> void:
 	super("TeamStateKickin")
 
 
+func enter() -> void:
+	if owner.team.has_ball:
+		owner.team.player_nearest_to_ball.set_destination(owner.field.ball.pos)
+		owner.team.player_control = owner.team.player_nearest_to_ball
+
+
 func execute() -> void:
-	# if team has ball
-		# move player to ball
-		# pass to other player
-	set_state(TeamStateAttack.new())
-	# else
-	set_state(TeamStateDefend.new())
+	if owner.team.has_ball:
+		if owner.team.player_control.destination_reached():
+			owner.team.player_control.set_state(PlayerStateAttackPass.new())
+			set_state(TeamStateAttack.new())
+			owner.field.clock_running = true
+			return
+	else:
+		set_state(TeamStateDefend.new())
