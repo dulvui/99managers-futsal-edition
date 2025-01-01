@@ -139,7 +139,7 @@ func random_pass() -> void:
 
 
 func chase_ball() -> void:
-	if player_control != null:
+	if player_control != null and not player_control.is_goalkeeper:
 		if not player_control.state_machine.state is PlayerStateChaseBall:
 			player_control.set_state(PlayerStateChaseBall.new())
 	elif player_nearest_to_ball != null:

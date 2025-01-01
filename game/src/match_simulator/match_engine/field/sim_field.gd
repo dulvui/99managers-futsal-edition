@@ -167,6 +167,12 @@ func update() -> void:
 	_check_ball_bounds()
 
 
+func bound(pos: Vector2) -> Vector2:
+	pos.x = maxi(mini(int(pos.x), int(line_right)), 1)
+	pos.y = maxi(mini(int(pos.y), int(line_bottom)), 1)
+	return pos
+
+
 func _check_ball_bounds() -> void:
 	# kick in / y axis
 	if ball.pos.y < line_top:
@@ -237,4 +243,23 @@ func _is_goal(ball_last_pos: Vector2, ball_pos: Vector2) -> Variant:
 		return intersection
 	return null
 
+
+func _get_penalty_area_bounds(pos: Vector2, left_half: bool) -> Vector2:
+	if pos.y > penalty_area_y_top + 10:
+		pos.y = penalty_area_y_top + 10
+	elif pos.y < penalty_area_y_bottom - 10:
+		pos.y = penalty_area_y_bottom - 10
+
+	if left_half:
+		if pos.x > penalty_area_left_x + 10:
+			pos.x = penalty_area_left_x + 10
+		elif pos.x < -10:
+			pos.x = -10
+	else:
+		if pos.x < penalty_area_right_x - 10:
+			pos.x = penalty_area_right_x - 10
+		elif pos.x > size.x + BORDER_SIZE + 10:
+			pos.x = size.x + BORDER_SIZE + 10
+
+	return pos
 

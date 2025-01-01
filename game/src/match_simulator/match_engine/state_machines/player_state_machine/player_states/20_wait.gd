@@ -11,6 +11,12 @@ func _init() -> void:
 
 
 func execute() -> void:
+	if owner.player.is_goalkeeper:
+		set_state(PlayerStateGoalkeeperFollowBall.new())
+		return
+
+
+
 	if owner.team.player_control == owner.player:
 		# check shoot
 		if RngUtil.match(10):
