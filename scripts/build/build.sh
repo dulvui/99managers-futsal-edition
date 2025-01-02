@@ -13,6 +13,18 @@ else
 fi
 echo "Checking if .env exists done."
 
+
+echo "Update version to current date..."
+
+# create backup of project.godot file
+cp $GAME_PATH/project.godot $GAME_PATH/project.godot.backup
+
+DATE=$(date +%Y%m%d%H%M)
+echo $DATE
+sed -i 's;config/version="development";config/version="'$DATE'";' $GAME_PATH/project.godot
+
+echo "Update version to current date done."
+
 echo "Building..."
 
 rm -rf builds
@@ -41,6 +53,8 @@ echo "Building MacOS done."
 
 echo "Cleaning up..."
 rm $GAME_PATH/export_presets.cfg
+# restore backup
+mv $GAME_PATH/project.godot.backup $GAME_PATH/project.godot
 echo "Cleaning up done."
 
 echo "Building done."

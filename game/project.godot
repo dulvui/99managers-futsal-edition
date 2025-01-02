@@ -11,14 +11,14 @@ config_version=5
 [application]
 
 config/name="99 Managers Futsal Edition"
-config/version="0.2.4"
+config/version="202501022352"
 run/main_scene="res://src/screens/splash/splash_screen.tscn"
 config/use_custom_user_dir=true
 config/custom_user_dir_name="99managers-futsal-edition"
 config/features=PackedStringArray("4.3")
 boot_splash/bg_color=Color(0, 0, 0, 1)
 boot_splash/image="res://icon_dark.png"
-config/icon="res://icon.png"
+config/icon="res://icon_dark.png"
 
 [autoload]
 
@@ -134,6 +134,10 @@ ui_down={
 [internationalization]
 
 locale/translations=PackedStringArray("res://translations/de.de.translation", "res://translations/en.en.translation", "res://translations/it.it.translation", "res://translations/uk.ua.translation", "res://translations/apc.apc.translation", "res://translations/pt.pt.translation", "res://translations/es.es.translation")
+
+[locale]
+
+translations=PackedStringArray("res://assets/i18n/FutsalManagerI18N - Sheet1.de.translation", "res://assets/i18n/FutsalManagerI18N - Sheet1.en.translation", "res://assets/i18n/FutsalManagerI18N - Sheet1.it.translation")
 
 [physics]
 
