@@ -135,10 +135,6 @@ ui_down={
 
 locale/translations=PackedStringArray("res://translations/de.de.translation", "res://translations/en.en.translation", "res://translations/it.it.translation", "res://translations/uk.ua.translation", "res://translations/apc.apc.translation", "res://translations/pt.pt.translation", "res://translations/es.es.translation")
 
-[locale]
-
-translations=PackedStringArray("res://assets/i18n/FutsalManagerI18N - Sheet1.de.translation", "res://assets/i18n/FutsalManagerI18N - Sheet1.en.translation", "res://assets/i18n/FutsalManagerI18N - Sheet1.it.translation")
-
 [physics]
 
 2d/default_gravity_vector=Vector2(0, 0)
