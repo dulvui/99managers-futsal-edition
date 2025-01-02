@@ -134,6 +134,10 @@ func random_pass() -> void:
 		random_player %= 5
 	
 	player_receive_ball = players[random_player]
+	
+	if player_receive_ball == null:
+		return
+
 	player_receive_ball.state_machine.set_state(PlayerStateAttackReceive.new())
 	field.ball.short_pass(player_receive_ball.pos, 40)
 
