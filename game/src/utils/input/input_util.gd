@@ -37,7 +37,7 @@ func _ready() -> void:
 	
 	viewport = get_viewport()
 	viewport.gui_focus_changed.connect(_on_gui_focus_change)
-
+	
 	timer = Timer.new()
 	add_child(timer)
 	
@@ -87,6 +87,12 @@ func set_type(p_type: Type) -> void:
 	type_changed.emit(type)
 
 	timer.start(DETECTION_TIMEOUT)
+
+	# hide mouse if not keyabord
+	if type != Type.KEYBOARD:
+		Input.set_mouse_mode(Input.MOUSE_MODE_HIDDEN)
+	else:
+		Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
 
 
 func _verify_focus() -> void:
