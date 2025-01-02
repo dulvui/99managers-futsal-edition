@@ -11,7 +11,7 @@ const LANGUAGES: Dictionary = {
 	"pt": "Portuguese",
 	# "pt_BR": "Portuguese (BR)",
 	"it": "Italiano",
-	# "es": "Español",
+	"es": "Español",
 	"de": "Deutsch",
 	"ua": "Українська",
 }

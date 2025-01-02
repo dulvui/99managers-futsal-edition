@@ -6,7 +6,10 @@ uid="uid://cut1h8t8uogmx"
 
 [deps]
 
+files=["res://translations/es.es.translation"]
+
 source_file="res://translations/es.csv"
+dest_files=["res://translations/es.es.translation"]
 
 [params]
 
