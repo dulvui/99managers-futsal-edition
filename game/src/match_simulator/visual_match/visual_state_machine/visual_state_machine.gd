@@ -32,6 +32,10 @@ func _process(_delta: float) -> void:
 
 
 func setup(p_home_team: VisualTeam, p_away_team: VisualTeam) -> void:
+
+	if not DebugUtil.visual_state_machine:
+		queue_free()
+
 	home_team = p_home_team
 	away_team = p_away_team
 

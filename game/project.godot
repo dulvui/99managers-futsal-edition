@@ -40,6 +40,7 @@ InputUtil="*res://src/utils/input/input_util.gd"
 SoundUtil="*res://src/utils/ui/sound_util.gd"
 JoypadAxisUtil="*res://src/utils/input/joypad_axis_util.gd"
 JoypadUtil="*res://src/utils/input/joypad_util.gd"
+DebugUtil="*res://src/utils/debug_util.gd"
 
 [debug]
 
