@@ -9,6 +9,8 @@ class_name SimFieldCalculator
 # can later made dynamic by team tactics long/short pass
 const PERFECT_PASS_DISTANCE: int = 30
 
+const BEST_SECTOR_UPDATE_FREQUENCY: int = Const.TICKS_PER_SECOND * 2
+
 var field: SimField
 
 var sectors: Array[SimFieldSector]
@@ -19,6 +21,9 @@ var best_sector: SimFieldSector
 var post_bottom: Vector2
 var post_top: Vector2
 var players: Array[SimPlayer]
+
+
+var ticks: int
 
 
 func _init(p_field: SimField) -> void:
@@ -38,7 +43,11 @@ func _init(p_field: SimField) -> void:
 
 func update() -> void:
 	_calc_player_distances()
-	# _calc_best_supporting_sector()
+
+	ticks += 1
+	if ticks == BEST_SECTOR_UPDATE_FREQUENCY:
+		ticks = 0
+		_calc_best_supporting_sector()
 
 
 func _calc_best_supporting_sector() -> void:
