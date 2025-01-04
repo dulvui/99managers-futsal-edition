@@ -15,7 +15,7 @@ The script can be found in `scripts/translations`, but is not complete yet.
 
 ## Contributors
 Thanks a lot to all contributors that added new languages and improved the languages in the game!  
-As soon as I understand how to get a scripted contributors list from Weblate (propbabpy trough the API),
+As soon as I understand how to get a scripted contributors list from Weblate (probably trough the API),
 I will create a script that adds all contributors here and to the game.
 
 
