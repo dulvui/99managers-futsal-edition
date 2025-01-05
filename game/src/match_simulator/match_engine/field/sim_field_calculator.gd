@@ -7,9 +7,9 @@ class_name SimFieldCalculator
 
 
 # can later made dynamic by team tactics long/short pass
+const SECTOR_SIZE: int = 40
 const PERFECT_PASS_DISTANCE: int = 30
-
-const BEST_SECTOR_UPDATE_FREQUENCY: int = Const.TICKS_PER_SECOND * 2
+const BEST_SECTOR_UPDATE_FREQUENCY: int = Const.TICKS_PER_SECOND * 3
 
 var field: SimField
 
@@ -32,10 +32,10 @@ func _init(p_field: SimField) -> void:
 
 	# initialize field sectors for best position calculations
 	sectors = []
-	for x: int in field.size.x / 20:
-		for y: int in field.size.y / 20:
+	for x: int in range(SECTOR_SIZE, field.size.x, SECTOR_SIZE):
+		for y: int in range(SECTOR_SIZE, field.size.x, SECTOR_SIZE):
 			var sector: SimFieldSector = SimFieldSector.new()
-			sector.setup(x, y)
+			sector.setup(x,  y)
 			sectors.append(sector)
 	
 	best_sector = sectors[0]
@@ -69,6 +69,7 @@ func _calc_best_supporting_sector() -> void:
 		sector.score += 100.0 / (players_in_shoot_trajectory + 1)
 
 		if sector.score > best_sector.score:
+			print(sector.score)
 			best_sector = sector
 
 
