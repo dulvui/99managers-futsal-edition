@@ -152,6 +152,19 @@ func chase_ball() -> void:
 		print("no nearest player")
 
 
+func find_nearest_player_to(position: Vector2, exclude: Array[SimPlayer]) -> SimPlayer:
+	var nearest: SimPlayer = null
+	for player: SimPlayer in players:
+		if not player in exclude:
+			if nearest == null:
+				nearest = player
+				continue
+			
+			if player.pos.distance_squared_to(position) < nearest.pos.distance_squared_to(position):
+				nearest = player
+	return nearest
+
+
 func reset_key_players() -> void:
 	player_control = null
 	player_support = null

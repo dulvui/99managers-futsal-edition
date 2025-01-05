@@ -152,11 +152,15 @@ func set_corner(home: bool) -> void:
 func home_possess() -> void:
 	home_team.has_ball = true
 	away_team.has_ball = false
+	# recacluate best sector, after flags change
+	field.force_update_calculator()
 
 
 func away_possess() -> void:
 	away_team.has_ball = true
 	home_team.has_ball = false
+	# recacluate best sector, after flags change
+	field.force_update_calculator()
 
 
 func _on_home_team_possess() -> void:

@@ -41,11 +41,11 @@ func _init(p_field: SimField) -> void:
 	best_sector = sectors[0]
 
 
-func update() -> void:
+func update(force: bool = false) -> void:
 	_calc_player_distances()
 
 	ticks += 1
-	if ticks == BEST_SECTOR_UPDATE_FREQUENCY:
+	if ticks == BEST_SECTOR_UPDATE_FREQUENCY or force:
 		ticks = 0
 		_calc_best_supporting_sector()
 

@@ -63,6 +63,7 @@ var away_team: SimTeam
 
 var calculator: SimFieldCalculator
 
+
 func _init() -> void:
 	#size = sprite.texture.get_size()
 	size = Vector2(WIDTH + BORDER_SIZE * 2, HEIGHT + BORDER_SIZE * 2)
@@ -165,6 +166,10 @@ func update() -> void:
 	calculator.update()
 	ball.update()
 	_check_ball_bounds()
+
+
+func force_update_calculator() -> void:
+	calculator.update(true)
 
 
 func bound(pos: Vector2) -> Vector2:
