@@ -106,13 +106,7 @@ static func create_mock_team(nr: int = randi_range(1, 99)) -> Team:
 	var team: Team = Team.new()
 	team.name = "Mock Team " + str(nr)
 	# set random team colors
-	team.colors = [
-		Color(
-			RngUtil.rng.randf_range(0, 1),
-			RngUtil.rng.randf_range(0, 1),
-			RngUtil.rng.randf_range(0, 1)
-		)
-	]
+	team.colors = [Color.RED]
 	team.colors.append(team.colors[0].inverted())
 
 	for i: int in range(1, Const.LINEUP_PLAYERS_AMOUNT + 8):
