@@ -15,6 +15,9 @@ func enter() -> void:
 	if owner.team.has_ball:
 		owner.team.player_control = owner.team.players[-1]
 		owner.team.player_control.set_destination(owner.field.ball.pos)
+	else:
+		for player: SimPlayer in owner.team.players:
+			player.set_state(PlayerStateWait.new())
 
 
 func execute() -> void:
