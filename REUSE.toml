@@ -15,10 +15,20 @@ path = [
     "**.import",
     "game/export_presets.**",
     "game/themes/**",
-    "game/translations/translations.csv",
+    "scripts/**"
 ]
 precedence = "aggregate"
 SPDX-FileCopyrightText = "2022 Simon Dalvai <info@simondalvai.org>"
+SPDX-License-Identifier = "AGPL-3.0-or-later"
+
+# Translations with Weblate https://hosted.weblate.org/projects/99-managers-futsal-edition/game/
+[[annotations]]
+path = [
+    "game/translations/**",
+    "translations/**",
+]
+precedence = "aggregate"
+SPDX-FileCopyrightText = "2022 Simon Dalvai <info@simondalvai.org> and contributors"
 SPDX-License-Identifier = "AGPL-3.0-or-later"
 
 [[annotations]]
@@ -92,14 +102,14 @@ precedence = "aggregate"
 SPDX-FileCopyrightText = "Copyright (c) Yukari 'Shinmera' Hafner"
 SPDX-License-Identifier = "OFL-1.1"
 
-# Roboto font https://fonts.google.com/specimen/Roboto
+# Inter font https://rsms.me/inter/
 [[annotations]]
 path = [
-    "game/assets/fonts/roboto/**",
+    "game/assets/fonts/inter/**",
 ]
 precedence = "aggregate"
-SPDX-FileCopyrightText = "Copyright (c) 2011 Google Inc."
-SPDX-License-Identifier = "Apache-2.0"
+SPDX-FileCopyrightText = "Copyright 2020 The Inter Project Authors (https://github.com/rsms/inter)"
+SPDX-License-Identifier = "OFL-1.1"
 
 # https://openclipart.org/detail/222076/white-mouse-cursor-arrow
 [[annotations]]

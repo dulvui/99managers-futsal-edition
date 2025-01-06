@@ -1,7 +1,7 @@
 [gd_resource type="FontVariation" load_steps=2 format=3 uid="uid://j3o56lsudgvn"]
 
-[ext_resource type="FontFile" uid="uid://bsr8akfyxoj1u" path="res://assets/fonts/roboto/Roboto-Regular.ttf" id="1_mr8k4"]
+[ext_resource type="FontFile" uid="uid://dgdewi1l0jt3n" path="res://assets/fonts/inter/Inter-VariableFont.ttf" id="1_x42cv"]
 
 [resource]
-base_font = ExtResource("1_mr8k4")
+base_font = ExtResource("1_x42cv")
 baseline_offset = 0.06

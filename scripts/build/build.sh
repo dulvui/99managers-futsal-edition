@@ -1,7 +1,7 @@
 #!/bin/bash
 # SPDX-FileCopyrightText: 2023 Simon Dalvai <info@simondalvai.org>
 
-# SPDX-License-Identifier: CC0-1.0
+# SPDX-License-Identifier: AGPL-3.0-or-later
 
 echo "Checking if .env exists..."
 if [ -f ".env" ]; then
