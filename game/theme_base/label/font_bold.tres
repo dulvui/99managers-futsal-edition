@@ -1,7 +1,7 @@
 [gd_resource type="FontVariation" load_steps=2 format=3 uid="uid://f7o270axt21i"]
 
-[ext_resource type="FontFile" uid="uid://8fsdciljqd8d" path="res://assets/fonts/roboto/Roboto-Bold.ttf" id="1_o1igq"]
+[ext_resource type="FontFile" uid="uid://dgdewi1l0jt3n" path="res://assets/fonts/inter/Inter-VariableFont.ttf" id="1_jkmko"]
 
 [resource]
-base_font = ExtResource("1_o1igq")
+base_font = ExtResource("1_jkmko")
 baseline_offset = 0.06
