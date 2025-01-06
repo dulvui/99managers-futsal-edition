@@ -422,6 +422,10 @@ func _get_contract(person: Person) -> Contract:
 func _get_person_name(nation: Nation) -> String:
 	# TODO randomly use names from other nations, with low probability
 	var nation_string: String = nation.name.to_lower()
+	
+	# check if names exist for nation, if not, pick random
+	if not names.has(nation_string):
+		nation_string = RngUtil.pick_random(names.keys())
 
 	if Global.generation_player_names == Const.PlayerNames.MALE:
 		var size: int = (names[nation_string]["first_names_male"] as Array).size()
@@ -451,6 +455,10 @@ func _get_person_surname(world: World, nation: Nation) -> String:
 		nation = RngUtil.pick_random(world.get_all_nations())
 
 	var nation_string: String = nation.name.to_lower()
+	
+	# check if names exist for nation, if not, pick random
+	if not names.has(nation_string):
+		nation_string = RngUtil.pick_random(names.keys())
 
 	var size: int = (names[nation_string]["last_names"] as Array).size()
 	return names[nation_string]["last_names"][RngUtil.rng.randi() % size]
@@ -652,7 +660,9 @@ func _load_person_names(world: World) -> void:
 		var names_file: FileAccess = FileAccess.open(
 			NAMES_DIR + nation.name.to_lower() + ".json", FileAccess.READ
 		)
-		names[nation.name.to_lower()] = JSON.parse_string(names_file.get_as_text())
+		# check first if file exists
+		if names_file:
+			names[nation.name.to_lower()] = JSON.parse_string(names_file.get_as_text())
 
 
 func _get_budget(prestige: int) -> int:
@@ -778,7 +788,7 @@ func _initialize_city(
 	# check if team is backup team
 	if league_name.to_lower().strip_edges() == "backup":
 		nation.backup_teams.append(team)
-	else:
+	elif league_name.length() > 0:
 		# setup league, if not done yet or last league is full
 		var league: League
 		var league_filter: Array[League] = nation.leagues.filter(

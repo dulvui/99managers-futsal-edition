@@ -50,6 +50,10 @@ func get_league_by_pyramid_level(pyramid_level: int) -> League:
 func get_continental_cup_qualified_teams() -> Array[Team]:
 	var teams: Array[Team]
 
+	# return empty, if no league exist for nation
+	if leagues.size() == 0:
+		return []
+
 	var league: League = get_league_by_pyramid_level(1)
 	var table: Array[TableValues] = league.table().to_sorted_array()
 	
