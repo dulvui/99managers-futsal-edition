@@ -22,8 +22,8 @@ config/icon="res://icon_dark.png"
 
 [autoload]
 
-Main="*res://src/screens/main.tscn"
 Const="*res://src/const.gd"
+Main="*res://src/screens/main.tscn"
 Global="*res://src/global.gd"
 BackupUtil="*res://src/utils/backup_util.gd"
 ResUtil="*res://src/utils/res_util.gd"

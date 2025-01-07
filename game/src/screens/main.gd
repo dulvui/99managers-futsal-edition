@@ -51,6 +51,13 @@ func show_loading_screen(p_scene_name_on_load: String = "") -> void:
 	scene_fade.fade_out()
 
 
+func check_layout_direction() -> void:
+	if Global.language == "apc":
+		layout_direction = LAYOUT_DIRECTION_RTL
+	else:
+		layout_direction = LAYOUT_DIRECTION_INHERITED
+
+
 func _append_scene_to_buffer(scene_path: String) -> void:
 	previous_scenes.append(scene_path)
 	if previous_scenes.size() > 5:

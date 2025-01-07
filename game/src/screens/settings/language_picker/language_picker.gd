@@ -14,6 +14,7 @@ const LANGUAGES: Dictionary = {
 	"es": "Español",
 	"de": "Deutsch",
 	"ua": "Українська",
+	"apc": "اللهجة الشامية",
 }
 
 func _ready() -> void:
@@ -32,5 +33,6 @@ func _ready() -> void:
 
 func _on_button_pressed(language_key: String) -> void:
 	Global.set_lang(language_key)
+	Main.check_layout_direction()
 	language_change.emit()
 

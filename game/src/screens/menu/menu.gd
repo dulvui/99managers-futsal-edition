@@ -29,6 +29,8 @@ func _ready() -> void:
 
 
 	save_state.setup(Global.save_states.get_active())
+	
+	Main.check_layout_direction()
 
 
 func _on_new_game_pressed() -> void:
