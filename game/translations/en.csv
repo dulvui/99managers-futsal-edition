@@ -133,9 +133,9 @@ GENERATION_SEED_DESCRIPTION,GENERATION_SEED_DESCRIPTION
 PLAYED,Played
 WIN,Win
 DRAW,Draw
-LOST,Loose
+LOST,Loss
 GOALS,Goals
-GOALS_CONCEDED,Goals against
+GOALS_CONCEDED,Goals conceded
 POINTS,Points
 TACTIC_OFFENSE,Offensive tactic
 TACTIC_DEFENSE,Defensive tactic
@@ -168,7 +168,7 @@ SAVING_GAME,Saving your game…
 EXIT,Exit
 RANDOM,Random
 DEFAULT,Default
-INITIALIZE_GAME,Initlializing game…
+INITIALIZE_GAME,Initializing game…
 GENERATING_PLAYERS,Generating all players…
 SELECT,Select
 BUDGET,Budget

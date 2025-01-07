@@ -1,277 +1,277 @@
-"keys","pt"
-"CREATE_MANAGER","Criar Treinador"
-"MANAGER","Treinador"
-"NAME","Nome"
-"SURNAME","Sobrenome"
-"YOUR_NAME","O teu nome"
-"YOUR_SURNAME","O teu sobrenome"
-"PLAYER_NAMES","Nomes dos jogadores"
-"BIRTH_DATE","Data de nascimento"
-"START_YEAR","Ano de início"
-"FAV_TEAM","Equipa Favorita"
-"NATIONALITY","Nacionalidade"
-"BACK","Retroceder"
-"CONTINUE","Continuar"
-"CANCEL","Cancelar"
-"FIELD","Campo"
-"STATS","Estatísticas"
-"POSSESSION","Posse de bola"
-"SHOTS","Remates"
-"SHOTS_ON_TARGET","Remates à baliza"
-"FOULS","Faltas"
-"FREE_KICKS","Livres"
-"PAUSE","Pausa"
-"PENALTIES","Penáltis"
-"PENALTIES_10M","Livres de 10 metros"
-"TACKLES","Desarmes"
-"TACKLES_SUCCESS","Desarmes bem sucedidos"
-"PASSES","Passes"
-"PASSES_SUCCESS","Passes bem sucedidos"
-"KICK_INS","Reposições"
-"CORNERS","Cantos"
-"YELLOW_CARDS","Cartões Amarelos"
-"RED_CARDS","Cartões Vermelhos"
-"SIMULATE","Simular"
-"EVENTS","Eventos"
-"TACTICS","Tácticas"
-"FORMATION","Formação"
-"COMMENTARY","Comentário"
-"CHANGE_STRATEGY","Mudar estratégia"
-"AUTO","Automático"
-"MANUAL","Manual"
-"START","Iniciar"
-"CALENDAR","Calendário"
-"TABLE","Tabela"
-"EMAIL","E-Mail"
-"SEARCH_PLAYER","Procurar jogador"
-"MENU","Menu"
-"SETTINGS","Definições"
-"START_MATCH","Iniciar partida"
-"NEXT_DAY","Próximo dia"
-"NEXT_MATCH","Próximo jogo"
-"WELCOME","Bem-vindo"
-"MALE","Masculino"
-"FEMALE","Feminino"
-"MIXED","Misturado"
-"WORLD","Mundo"
-"CONTINENTS","Continentes"
-"ITALY","Itália"
-"SPAIN","Espanha"
-"ROMANIA","Roménia"
-"NEW_GAME","Novo jogo"
-"LOAD_GAME","Carregar jogo"
-"DARK","Escuro"
-"LIGHT","Claro"
-"SOLARIZED_LIGHT","Claro ensolarado"
-"SOLARIZED_DARK","Escuro ensolarado"
-"HACKER","Hacker"
-"RED","Vermelho"
-"CUSTOM","Personalizar"
-"DEFAULT_SETTINGS","Definições padrão"
-"THEME","Tema"
-"RESOLUTION","Resolução"
-"VERSION","Versão"
-"DELETE","Eliminar"
-"TEAM","Equipa"
-"TABLE_PLACEMENT","Posição na tabela"
-"LAST_SAVE","Última gravação"
-"CREATED","Criado"
-"GAME_DATE","Data no jogo"
-"STAR","Estrela"
-"SUBJECT","Sujeito"
-"FROM","De"
-"TO","Para"
-"DATE","Data"
-"UNREAD","Não lido"
-"STARRED","Marcado"
-"SEARCH","Procurar"
-"INFO","Informação"
-"PLAYERS","Jogadores"
-"PLAYER","Jogador"
-"SEED","Sorteio"
-"START_DATE","Data inicial"
-"COPY","Copiar"
-"MONDAY","Segunda-feira"
-"TUESDAY","terça-feira"
-"WEDNESDAY","Quarta-feira"
-"THURSDAY","Quinta-feira"
-"FRIDAY","Sexta-feira"
-"SATURDAY","Sábado"
-"SUNDAY","Domingo"
-"MON","Seg"
-"TUE","Ter"
-"WED","Qua"
-"THU","Qui"
-"FRI","Sex"
-"SAT","Sáb"
-"SUN","Dom"
-"JANUARY","Janeiro"
-"FEBRUARY","Fevereiro"
-"MARCH","Março"
-"APRIL","Abril"
-"MAY","Maio"
-"JUNE","Junho"
-"JULY","Julho"
-"AUGUST","Agosto"
-"SEPTEMBER","Setembro"
-"OCTOBER","Outubro"
-"NOVEMBER","Novembro"
-"DECEMBER","Dezembro"
-"JAN","Jan"
-"FEB","Fev"
-"MAR","Mar"
-"APR","Abr"
-"JUN","Jun"
-"JUL","Jul"
-"AUG","Ago"
-"SEP","Set"
-"OCT","Out"
-"NOV","Nov"
-"DEC","Dez"
-"GENERATION_SEED","Criação de Sorteio"
-"GENERATION_SEED_DESCRIPTION","Descrição de criação de sorteio"
-"PLAYED","Jogado"
-"WIN","Vitória"
-"DRAW","Empate"
-"LOST","Derrota"
-"GOALS","Golos marcados"
-"GOALS_CONCEDED","Golos sofridos"
-"POINTS","Pontos"
-"TACTIC_OFFENSE","Sistema ofensivo"
-"TACTIC_DEFENSE","Método defensivo"
-"INTENSITY","Intensidade"
-"MARKING","Marcação"
-"PRESSING","Pressão"
-"CUT_INSIDE","Cortar para dentro"
-"ROTATION","Rotação"
-"ZONE","Zona"
-"FULL_COURT","Campo inteiro"
-"HALF_COURT","Meio-campo"
-"NO_PRESS","Sem pressão"
-"SUBS","Substituições"
-"REST","Descansar"
-"ALL_POS","Todas as posições"
-"G","GR"
-"DL","DE"
-"DR","DD"
-"DC","DC"
-"C","C"
-"WL","AE"
-"WR","AD"
-"PL","PE"
-"PR","PR"
-"PC","PC"
-"ALL_LEAGUES","Todas as ligas"
-"ALL_TEAMS","Todas as equipas"
-"LOADING_GAME","A carregar o teu jogo…"
-"SAVING_GAME","A guardar o teu jogo…"
-"EXIT","Sair"
-"RANDOM","Aleatório"
-"DEFAULT","Padrão"
-"INITIALIZE_GAME","A iniciar o jogo…"
-"GENERATING_PLAYERS","A gerar todos os jogadores…"
-"SELECT","Selecionar"
-"BUDGET","Orçamento"
-"SALARY_BUDGET","Orçamento para salários"
-"STADIUM","Pavilhão"
-"PRESTIGE","Prestígio"
-"POSITION","Posição"
-"VALUE","Valor"
-"SCALE","Escala"
-"GENERAL_SETTINGS","Geral"
-"INPUT_SETTINGS","Inserir"
-"NO_JOYPAD_CONNECTED","Comando não conectado"
-"INTERFACE_SETTINGS","Interface"
-"THEMES","Temas"
-"FONT_COLOR","Cor da fonte"
-"BUTTONS_COLOR","Cor dos butões"
-"BACKGROUND_COLOR","Cor do fundo"
-"VIM_MODE","Modo Vim"
-"CHANGE","Alterar"
-"PERSONS","Pessoas"
-"YEAR","Ano"
-"COMPETITIONS","Competições"
-"TODAY","Hoje"
-"NO_MATCH","Sem correspondência"
-"TRANSFERMARKET","Mercado de transferências"
-"NO_TEAM_FOUND","Nenhuma equipa encontrada"
-"NO_COMPETITION_FOUND","Nenhuma competição encontrada"
-"YES","Sim"
-"NO","Não"
-"EXIT_GAME","Sair do jogo?"
-"RESTORE_DEFAULTS","Restaurar definições padrão?"
-"RESTORE_DEFAULTS_TEXT","Todas as alterações serão perdidas e restauradas para os valores padrão."
-"SAVE_TEXT","Guardar jogo antes de sair para o menu?"
-"PLAYER_SETTINGS","Definições de jogadores"
-"CHOOSE_TEAM","Escolhe a tua equipa"
-"SAVE_STATES","Guardar estados"
-"FINANCES","Finanças"
-"WATCHLIST","Lista preferencial"
-"SCOUTS","Olheiros"
-"SCOUT","Olheiro"
-"JOBS","Trabalhos"
-"HALL_OF_FAME","Quadro de Honra"
-"HOME","Casa"
-"AWAY","Fora"
-"GAME_SETTINGS","Definições de Jogo"
-"WORST","Pior"
-"BAD ","Mau"
-"NEUTRAL","Neutro"
-"GOOD","Bom"
-"BEST","Melhor"
-"INJURED","Lesionado"
-"RECOVER","Recuperar"
-"MAKE_OFFER","Fazer proposta"
-"TRANSFERLIST","Lista de transferências"
-"SCREEN_FADE_ANIMATION","Animação de ecrã"
-"MORALITY","Moral"
-"NATION","Nação"
-"GENERAL","Geral"
-"PHYSICAL","Físico"
-"PACE","Velocidade"
-"ACCELERATION","Aceleração"
-"STAMINA","Resistência"
-"STRENGTH","Força"
-"AGILITY","Agilidade"
-"JUMP","Salto"
-"TECHNICAL","Técnico"
-"CROSSING","Cruzamento"
-"PASSING","Passe"
-"LONG_PASSING","Passes longos"
-"TACKLING","Desarme"
-"HEADING","Cabeceamento"
-"INTERCEPTION","Interceção"
-"SHOOTING","Remate"
-"LONG_SHOOTING","Remates longos"
-"PENALTY","Penálti"
-"FINISHING","Finalização"
-"DRIBBLING","Drible"
-"BLOCKING","Bloqueios"
-"MENTAL","Mental"
-"AGGRESSION","Agressividade"
-"ANTICIPATION","Antecipação"
-"DECISIONS","Decisões"
-"CONCENTRATION","Concentração"
-"TEAMWORK","Trabalho em Equipa"
-"VISION","Visão"
-"WORK_RATE","Índice de trabalho"
-"OFFENSIVE_MOVEMENT","Movimento ofensivo"
-"GOALKEEPER","Guarda Redes"
-"ACTION","Ação"
-"AGE","Idade"
-"AGENT","Agente"
-"AMOUNT","Quantidade"
-"ATTACK","Ataque"
-"ATTRIBUTES","Atributos"
-"AUDIO","Áudio"
-"BACKUP","Restauro"
-"BITCOIN","Bitcoin"
-"BLOCK","Bloquear"
-"BUY","Comprar"
-"CENTER","Centro"
-"CITY","Cidade"
-"COMPETITION","Competição"
-"CONFIRM","Confirmar"
-"CONTRACT","Contrato"
-"CONTINENT","Continente"
-"NOTES","Notas"
+keys,pt
+CREATE_MANAGER,Criar Treinador
+MANAGER,Treinador
+NAME,Nome
+SURNAME,Sobrenome
+YOUR_NAME,O teu nome
+YOUR_SURNAME,O teu sobrenome
+PLAYER_NAMES,Nomes dos jogadores
+BIRTH_DATE,Data de nascimento
+START_YEAR,Ano de início
+FAV_TEAM,Equipa Favorita
+NATIONALITY,Nacionalidade
+BACK,Retroceder
+CONTINUE,Continuar
+CANCEL,Cancelar
+FIELD,Campo
+STATS,Estatísticas
+POSSESSION,Posse de bola
+SHOTS,Remates
+SHOTS_ON_TARGET,Remates à baliza
+FOULS,Faltas
+FREE_KICKS,Livres
+PAUSE,Pausa
+PENALTIES,Penáltis
+PENALTIES_10M,Livres de 10 metros
+TACKLES,Desarmes
+TACKLES_SUCCESS,Desarmes bem sucedidos
+PASSES,Passes
+PASSES_SUCCESS,Passes bem sucedidos
+KICK_INS,Reposições
+CORNERS,Cantos
+YELLOW_CARDS,Cartões Amarelos
+RED_CARDS,Cartões Vermelhos
+SIMULATE,Simular
+EVENTS,Eventos
+TACTICS,Tácticas
+FORMATION,Formação
+COMMENTARY,Comentário
+CHANGE_STRATEGY,Mudar estratégia
+AUTO,Automático
+MANUAL,Manual
+START,Iniciar
+CALENDAR,Calendário
+TABLE,Tabela
+EMAIL,E-Mail
+SEARCH_PLAYER,Procurar jogador
+MENU,Menu
+SETTINGS,Definições
+START_MATCH,Iniciar partida
+NEXT_DAY,Próximo dia
+NEXT_MATCH,Próximo jogo
+WELCOME,Bem-vindo
+MALE,Masculino
+FEMALE,Feminino
+MIXED,Misturado
+WORLD,Mundo
+CONTINENTS,Continentes
+ITALY,Itália
+SPAIN,Espanha
+ROMANIA,Roménia
+NEW_GAME,Novo jogo
+LOAD_GAME,Carregar jogo
+DARK,Escuro
+LIGHT,Claro
+SOLARIZED_LIGHT,Claro ensolarado
+SOLARIZED_DARK,Escuro ensolarado
+HACKER,Hacker
+RED,Vermelho
+CUSTOM,Personalizar
+DEFAULT_SETTINGS,Definições padrão
+THEME,Tema
+RESOLUTION,Resolução
+VERSION,Versão
+DELETE,Eliminar
+TEAM,Equipa
+TABLE_PLACEMENT,Posição na tabela
+LAST_SAVE,Última gravação
+CREATED,Criado
+GAME_DATE,Data no jogo
+STAR,Estrela
+SUBJECT,Sujeito
+FROM,De
+TO,Para
+DATE,Data
+UNREAD,Não lido
+STARRED,Marcado
+SEARCH,Procurar
+INFO,Informação
+PLAYERS,Jogadores
+PLAYER,Jogador
+SEED,Sorteio
+START_DATE,Data inicial
+COPY,Copiar
+MONDAY,Segunda-feira
+TUESDAY,terça-feira
+WEDNESDAY,Quarta-feira
+THURSDAY,Quinta-feira
+FRIDAY,Sexta-feira
+SATURDAY,Sábado
+SUNDAY,Domingo
+MON,Seg
+TUE,Ter
+WED,Qua
+THU,Qui
+FRI,Sex
+SAT,Sáb
+SUN,Dom
+JANUARY,Janeiro
+FEBRUARY,Fevereiro
+MARCH,Março
+APRIL,Abril
+MAY,Maio
+JUNE,Junho
+JULY,Julho
+AUGUST,Agosto
+SEPTEMBER,Setembro
+OCTOBER,Outubro
+NOVEMBER,Novembro
+DECEMBER,Dezembro
+JAN,Jan
+FEB,Fev
+MAR,Mar
+APR,Abr
+JUN,Jun
+JUL,Jul
+AUG,Ago
+SEP,Set
+OCT,Out
+NOV,Nov
+DEC,Dez
+GENERATION_SEED,Criação de Sorteio
+GENERATION_SEED_DESCRIPTION,Descrição de criação de sorteio
+PLAYED,Jogado
+WIN,Vitória
+DRAW,Empate
+LOST,Derrota
+GOALS,Golos marcados
+GOALS_CONCEDED,Golos sofridos
+POINTS,Pontos
+TACTIC_OFFENSE,Sistema ofensivo
+TACTIC_DEFENSE,Método defensivo
+INTENSITY,Intensidade
+MARKING,Marcação
+PRESSING,Pressão
+CUT_INSIDE,Cortar para dentro
+ROTATION,Rotação
+ZONE,Zona
+FULL_COURT,Campo inteiro
+HALF_COURT,Meio-campo
+NO_PRESS,Sem pressão
+SUBS,Substituições
+REST,Descansar
+ALL_POS,Todas as posições
+G,GR
+DL,DE
+DR,DD
+DC,DC
+C,C
+WL,AE
+WR,AD
+PL,PE
+PR,PR
+PC,PC
+ALL_LEAGUES,Todas as ligas
+ALL_TEAMS,Todas as equipas
+LOADING_GAME,A carregar o teu jogo…
+SAVING_GAME,A guardar o teu jogo…
+EXIT,Sair
+RANDOM,Aleatório
+DEFAULT,Padrão
+INITIALIZE_GAME,A iniciar o jogo…
+GENERATING_PLAYERS,A gerar todos os jogadores…
+SELECT,Selecionar
+BUDGET,Orçamento
+SALARY_BUDGET,Orçamento para salários
+STADIUM,Pavilhão
+PRESTIGE,Prestígio
+POSITION,Posição
+VALUE,Valor
+SCALE,Escala
+GENERAL_SETTINGS,Geral
+INPUT_SETTINGS,Inserir
+NO_JOYPAD_CONNECTED,Comando não conectado
+INTERFACE_SETTINGS,Interface
+THEMES,Temas
+FONT_COLOR,Cor da fonte
+BUTTONS_COLOR,Cor dos butões
+BACKGROUND_COLOR,Cor do fundo
+VIM_MODE,Modo Vim
+CHANGE,Alterar
+PERSONS,Pessoas
+YEAR,Ano
+COMPETITIONS,Competições
+TODAY,Hoje
+NO_MATCH,Sem correspondência
+TRANSFERMARKET,Mercado de transferências
+NO_TEAM_FOUND,Nenhuma equipa encontrada
+NO_COMPETITION_FOUND,Nenhuma competição encontrada
+YES,Sim
+NO,Não
+EXIT_GAME,Sair do jogo?
+RESTORE_DEFAULTS,Restaurar definições padrão?
+RESTORE_DEFAULTS_TEXT,Todas as alterações serão perdidas e restauradas para os valores padrão.
+SAVE_TEXT,Guardar jogo antes de sair para o menu?
+PLAYER_SETTINGS,Definições de jogadores
+CHOOSE_TEAM,Escolhe a tua equipa
+SAVE_STATES,Guardar estados
+FINANCES,Finanças
+WATCHLIST,Lista preferencial
+SCOUTS,Olheiros
+SCOUT,Olheiro
+JOBS,Trabalhos
+HALL_OF_FAME,Quadro de Honra
+HOME,Casa
+AWAY,Fora
+GAME_SETTINGS,Definições de Jogo
+WORST,Pior
+BAD ,Mau
+NEUTRAL,Neutro
+GOOD,Bom
+BEST,Melhor
+INJURED,Lesionado
+RECOVER,Recuperar
+MAKE_OFFER,Fazer proposta
+TRANSFERLIST,Lista de transferências
+SCREEN_FADE_ANIMATION,Animação de ecrã
+MORALITY,Moral
+NATION,Nação
+GENERAL,Geral
+PHYSICAL,Físico
+PACE,Velocidade
+ACCELERATION,Aceleração
+STAMINA,Resistência
+STRENGTH,Força
+AGILITY,Agilidade
+JUMP,Salto
+TECHNICAL,Técnico
+CROSSING,Cruzamento
+PASSING,Passe
+LONG_PASSING,Passes longos
+TACKLING,Desarme
+HEADING,Cabeceamento
+INTERCEPTION,Interceção
+SHOOTING,Remate
+LONG_SHOOTING,Remates longos
+PENALTY,Penálti
+FINISHING,Finalização
+DRIBBLING,Drible
+BLOCKING,Bloqueios
+MENTAL,Mental
+AGGRESSION,Agressividade
+ANTICIPATION,Antecipação
+DECISIONS,Decisões
+CONCENTRATION,Concentração
+TEAMWORK,Trabalho em Equipa
+VISION,Visão
+WORK_RATE,Índice de trabalho
+OFFENSIVE_MOVEMENT,Movimento ofensivo
+GOALKEEPER,Guarda Redes
+ACTION,Ação
+AGE,Idade
+AGENT,Agente
+AMOUNT,Quantidade
+ATTACK,Ataque
+ATTRIBUTES,Atributos
+AUDIO,Áudio
+BACKUP,Restauro
+BITCOIN,Bitcoin
+BLOCK,Bloquear
+BUY,Comprar
+CENTER,Centro
+CITY,Cidade
+COMPETITION,Competição
+CONFIRM,Confirmar
+CONTRACT,Contrato
+CONTINENT,Continente
+NOTES,Notas
