@@ -1,398 +1,398 @@
-CONTINENT,NATION,LEAGUE,CITY
-Europe,Portugal,Liga Futsal 1,Lisbon
-Europe,Portugal,Liga Futsal 1,Porto
-Europe,Portugal,Liga Futsal 1,Vila Nova de Gaia
-Europe,Portugal,Liga Futsal 1,Amadora
-Europe,Portugal,Liga Futsal 1,Braga
-Europe,Portugal,Liga Futsal 1,Coimbra
-Europe,Portugal,Liga Futsal 1,Funchal
-Europe,Portugal,Liga Futsal 1,Setúbal
-Europe,Portugal,Liga Futsal 1,Almada
-Europe,Portugal,Liga Futsal 1,Agualva-Cacém
-Europe,Portugal,Liga Futsal 2,Queluz
-Europe,Portugal,Liga Futsal 2,Rio Tinto
-Europe,Portugal,Liga Futsal 2,Barreiro
-Europe,Portugal,Liga Futsal 2,Aveiro
-Europe,Portugal,Liga Futsal 2,Viseu
-Europe,Portugal,Liga Futsal 2,Odivelas
-Europe,Portugal,Liga Futsal 2,Guimarães
-Europe,Portugal,Liga Futsal 2,Leiria
-Europe,Portugal,Liga Futsal 2,Faro
-Europe,Portugal,Liga Futsal 2,Matosinhos
-Europe,Portugal,Liga Futsal 3,Loures
-Europe,Portugal,Liga Futsal 3,Portimão
-Europe,Portugal,Liga Futsal 3,Póvoa de Varzim
-Europe,Portugal,Liga Futsal 3,Amora
-Europe,Portugal,Liga Futsal 3,Maia
-Europe,Portugal,Liga Futsal 3,Évora
-Europe,Portugal,Liga Futsal 3,Montijo
-Europe,Portugal,Liga Futsal 3,Ponta Delgada
-Europe,Portugal,Liga Futsal 3,Santa Maria da Feira
-Europe,Portugal,Liga Futsal 3,Ermesinde
-Europe,Portugal,Backup,Viana do Castelo
-Europe,Portugal,Backup,Vila Nova de Famalicão
-Europe,Portugal,Backup,Castelo Branco
-Europe,Spain,Liga 1,Barcelona
-Europe,Spain,Liga 1,Madrid
-Europe,Spain,Liga 1,Valencia
-Europe,Spain,Liga 1,Seville
-Europe,Spain,Liga 1,Bilbao
-Europe,Spain,Liga 1,Málaga
-Europe,Spain,Liga 1,Asturias
-Europe,Spain,Liga 1,Alicante
-Europe,Spain,Liga 1,Las Palmas
-Europe,Spain,Liga 1,Zaragoza
-Europe,Spain,Liga 2,Murcia
-Europe,Spain,Liga 2,Santa Cruz de Tenerife
-Europe,Spain,Liga 2,Granada
-Europe,Spain,Liga 2,Palma de Mallorca
-Europe,Spain,Liga 2,Vigo
-Europe,Spain,Liga 2,Cartagena
-Europe,Spain,Liga 2,Cádiz
-Europe,Spain,Liga 2,San Sebastián
-Europe,Spain,Liga 2,A Coruña
-Europe,Spain,Liga 2,Valladolid
-Europe,Spain,Liga 3,Tarragona
-Europe,Spain,Liga 3,Córdoba
-Europe,Spain,Liga 3,Pamplona
-Europe,Spain,Liga 3,Castellón de la Plana
-Europe,Spain,Liga 3,Bay of Santander
-Europe,Spain,Liga 3,Alzira-Xàtiva
-Europe,Spain,Liga 3,Vitoria-Gasteiz
-Europe,Spain,Liga 3,Algeciras-La Línea
-Europe,Spain,Liga 3,Huelva
-Europe,Spain,Liga 3,Almería
-Europe,Spain,Backup,Salamanca
-Europe,Spain,Backup,Jerez de la Frontera
-Europe,Spain,Backup,León
-Europe,Italy,Serie a,Rome
-Europe,Italy,Serie a,Milan
-Europe,Italy,Serie a,Naples
-Europe,Italy,Serie a,Turin
-Europe,Italy,Serie a,Palermo
-Europe,Italy,Serie a,Genoa
-Europe,Italy,Serie a,Bologna
-Europe,Italy,Serie a,Florence
-Europe,Italy,Serie a,Bari
-Europe,Italy,Serie a,Catania
-Europe,Italy,Serie b,Bolzano
-Europe,Italy,Serie b,Trento
-Europe,Italy,Serie b,Verona
-Europe,Italy,Serie b,Palermo
-Europe,Italy,Serie b,Latina
-Europe,Italy,Serie b,Pisa
-Europe,Italy,Serie b,Livorno
-Europe,Italy,Serie b,Rovereto
-Europe,Italy,Serie b,Reggio Calabria
-Europe,Italy,Serie b,Messina
-Europe,Italy,Serie c1,Laives
-Europe,Italy,Serie c1,Brunico
-Europe,Italy,Serie c1,Salerno
-Europe,Italy,Serie c1,Monza
-Europe,Italy,Serie c1,Foggia
-Europe,Italy,Serie c1,Siracusa
-Europe,Italy,Serie c1,Ferrara
-Europe,Italy,Serie c1,Pescara
-Europe,Italy,Serie c1,Andria
-Europe,Italy,Serie c1,Lecce
-Europe,Italy,Serie c2,Udine
-Europe,Italy,Serie c2,Sassari
-Europe,Italy,Serie c2,Cesena
-Europe,Italy,Serie c2,Venezia
-Europe,Italy,Serie c2,Bergamo
-Europe,Italy,Serie c2,Ancona
-Europe,Italy,Serie c2,Ravenna
-Europe,Italy,Serie c2,Cesenatico
-Europe,Italy,Serie c2,Novara
-Europe,Italy,Serie c2,Arezzo
-Europe,Italy,Backup,Pescara
-Europe,Italy,Backup,Cagliari
-Europe,Italy,Backup,Rimini
-Europe,Romania,Campeonat a,Bucharest
-Europe,Romania,Campeonat a,Cluj-Napoca
-Europe,Romania,Campeonat a,Iași
-Europe,Romania,Campeonat a,Constanța
-Europe,Romania,Campeonat a,Timișoara
-Europe,Romania,Campeonat a,Brașov
-Europe,Romania,Campeonat a,Craiova
-Europe,Romania,Campeonat a,Galați
-Europe,Romania,Campeonat a,Oradea
-Europe,Romania,Campeonat a,Ploiești
-Europe,Romania,Campeonat b,Brăila
-Europe,Romania,Campeonat b,Arad
-Europe,Romania,Campeonat b,Pitești
-Europe,Romania,Campeonat b,Bacău
-Europe,Romania,Campeonat b,Sibiu
-Europe,Romania,Campeonat b,Târgu Mureș
-Europe,Romania,Campeonat b,Baia Mare
-Europe,Romania,Campeonat b,Buzău
-Europe,Romania,Campeonat b,Râmnicu Vâlcea
-Europe,Romania,Campeonat b,Satu Mare
-Europe,Romania,Campeonat c1,Botoșani
-Europe,Romania,Campeonat c1,Suceava
-Europe,Romania,Campeonat c1,Drobeta-Turnu Severin
-Europe,Romania,Campeonat c1,Piatra Neamț
-Europe,Romania,Campeonat c1,Bistrița
-Europe,Romania,Campeonat c1,Târgu Jiu
-Europe,Romania,Campeonat c1,Târgoviște
-Europe,Romania,Campeonat c1,Focșani
-Europe,Romania,Campeonat c1,Tulcea
-Europe,Romania,Campeonat c1,Alba Iulia
-Europe,Romania,Backup,Slatina
-Europe,Romania,Backup,Vaslui
-Europe,Romania,Backup,Reșița
-Europe,Albania,,
-Europe,Andorra,,
-Europe,Armenia,,
-Europe,Austria,,
-Europe,Azerbaijan,,
-Europe,Belarus,,
-Europe,Belgium,,
-Europe,Bosnia and Herzegovina,,
-Europe,Bulgaria,,
-Europe,Croatia,,
-Europe,Cyprus,,
-Europe,Czech Republic,,
-Europe,Denmark,,
-Europe,Estonia,,
-Europe,Finland,,
-Europe,France,,
-Europe,Georgia,,
-Europe,Germany,,
-Europe,Greece,,
-Europe,Hungary,,
-Europe,Iceland,,
-Europe,Ireland,,
-Europe,Latvia,,
-Europe,Liechtenstein,,
-Europe,Lithuania,,
-Europe,Luxembourg,,
-Europe,Macedonia,,
-Europe,Malta,,
-Europe,Moldova,,
-Europe,Monaco,,
-Europe,Montenegro,,
-Europe,Netherlands,,
-Europe,Norway,,
-Europe,Poland,,
-Europe,Portugal,,
-Europe,San Marino,,
-Europe,Serbia,,
-Europe,Slovakia,,
-Europe,Slovenia,,
-Europe,Sweden,,
-Europe,Switzerland,,
-Europe,Ukraine,,
-Europe,United Kingdom,,
-Europe,Vatican City,,
-South America,Brazil,Campeonato 1,São Paulo
-South America,Brazil,Campeonato 1,Rio de Janeiro
-South America,Brazil,Campeonato 1,Brasília
-South America,Brazil,Campeonato 1,Fortaleza
-South America,Brazil,Campeonato 1,Salvador
-South America,Brazil,Campeonato 1,Belo Horizonte
-South America,Brazil,Campeonato 1,Manaus
-South America,Brazil,Campeonato 1,Curitiba
-South America,Brazil,Campeonato 1,Recife
-South America,Brazil,Campeonato 1,Goiânia
-South America,Brazil,Campeonato 2,Porto Alegre
-South America,Brazil,Campeonato 2,Belém
-South America,Brazil,Campeonato 2,Guarulhos
-South America,Brazil,Campeonato 2,Campinas
-South America,Brazil,Campeonato 2,São Luís
-South America,Brazil,Campeonato 2,Maceió
-South America,Brazil,Campeonato 2,Campo Grande
-South America,Brazil,Campeonato 2,São Gonçalo
-South America,Brazil,Campeonato 2,Teresina
-South America,Brazil,Campeonato 2,João Pessoa
-South America,Brazil,Campeonato 3,São Bernardo do Campo
-South America,Brazil,Campeonato 3,Duque de Caxias
-South America,Brazil,Campeonato 3,Nova Iguaçu
-South America,Brazil,Campeonato 3,Natal
-South America,Brazil,Campeonato 3,Santo André
-South America,Brazil,Campeonato 3,Osasco
-South America,Brazil,Campeonato 3,Sorocaba
-South America,Brazil,Campeonato 3,Uberlândia
-South America,Brazil,Campeonato 3,Ribeirão Preto
-South America,Brazil,Campeonato 3,São José dos Campos
-South America,Brazil,Backup,Cuiabá
-South America,Brazil,Backup,Jaboatão dos Guararapes
-South America,Brazil,Backup,Contagem
-South America,Argentina,Division 1,Buenos Aires
-South America,Argentina,Division 1,Córdoba
-South America,Argentina,Division 1,Rosario
-South America,Argentina,Division 1,La Plata
-South America,Argentina,Division 1,Mar del Plata
-South America,Argentina,Division 1,San Miguel de Tucumán
-South America,Argentina,Division 1,Salta
-South America,Argentina,Division 1,Santa Fe de la Vera Cruz
-South America,Argentina,Division 1,Vicente López Partido
-South America,Argentina,Division 1,Corrientes
-South America,Argentina,Division 2,Pilar
-South America,Argentina,Division 2,Bahía Blanca
-South America,Argentina,Division 2,Resistencia
-South America,Argentina,Division 2,Posadas
-South America,Argentina,Division 2,San Salvador de Jujuy
-South America,Argentina,Division 2,Santiago del Estero
-South America,Argentina,Division 2,Paraná
-South America,Argentina,Division 2,Merlo
-South America,Argentina,Division 2,Neuquén
-South America,Argentina,Division 2,Quilmes
-South America,Argentina,Division 3,Banfield
-South America,Argentina,Division 3,Formosa
-South America,Argentina,Division 3,José C. Paz
-South America,Argentina,Division 3,Lanús
-South America,Argentina,Division 3,Godoy Cruz
-South America,Argentina,Division 3,Las Heras
-South America,Argentina,Division 3,La Rioja
-South America,Argentina,Division 3,Gregorio de Laferrère
-South America,Argentina,Division 3,Comodoro Rivadavia
-South America,Argentina,Division 3,San Luis
-South America,Argentina,Backup,Ituzaingó
-South America,Argentina,Backup,Berazategui
-South America,Argentina,Backup,González Catán
-South America,Bolivia,,
-South America,Chile,,
-South America,Colombia,,
-South America,Ecuador,,
-South America,Guyana,,
-South America,Paraguay,,
-South America,Peru,,
-South America,Suriname,,
-South America,Uruguay,,
-South America,Venezuela,,
-North America,Antigua and Barbuda,,
-North America,Bahamas,,
-North America,Barbados,,
-North America,Belize,,
-North America,Canada,,
-North America,Costa Rica,,
-North America,Cuba,,
-North America,Dominica,,
-North America,Dominican Republic,,
-North America,El Salvador,,
-North America,Grenada,,
-North America,Guatemala,,
-North America,Haiti,,
-North America,Honduras,,
-North America,Jamaica,,
-North America,Mexico,,
-North America,Nicaragua,,
-North America,Panama,,
-North America,Saint Kitts and Nevis,,
-North America,Saint Lucia,,
-North America,Saint Vincent and the Grenadines,,
-North America,Trinidad and Tobago,,
-North America,USA,,
-Oceania,Australia,,
-Oceania,Fiji,,
-Oceania,Kiribati,,
-Oceania,Marshall Islands,,
-Oceania,Micronesia,,
-Oceania,Nauru,,
-Oceania,New Zealand,,
-Oceania,Palau,,
-Oceania,Papua New Guinea,,
-Oceania,Samoa,,
-Oceania,Solomon Islands,,
-Oceania,Tonga,,
-Oceania,Tuvalu,,
-Oceania,Vanuatu,,
-Africa,Algeria,,
-Africa,Angola,,
-Africa,Benin,,
-Africa,Botswana,,
-Africa,Burkina,,
-Africa,Burundi,,
-Africa,Cameroon,,
-Africa,Cape Verde,,
-Africa,Central African Republic,,
-Africa,Chad,,
-Africa,Comoros,,
-Africa,Congo,,
-Africa,Democratic Republic of Congo,,
-Africa,Djibouti,,
-Africa,Egypt,,
-Africa,Equatorial Guinea,,
-Africa,Eritrea,,
-Africa,Ethiopia,,
-Africa,Gabon,,
-Africa,Gambia,,
-Africa,Ghana,,
-Africa,Guinea,,
-Africa,Guinea-Bissau,,
-Africa,Ivory Coast,,
-Africa,Kenya,,
-Africa,Lesotho,,
-Africa,Liberia,,
-Africa,Libya,,
-Africa,Madagascar,,
-Africa,Malawi,,
-Africa,Mali,,
-Africa,Mauritania,,
-Africa,Mauritius,,
-Africa,Morocco,,
-Africa,Mozambique,,
-Africa,Namibia,,
-Africa,Niger,,
-Africa,Nigeria,,
-Africa,Rwanda,,
-Africa,Sao Tome and Principe,,
-Africa,Senegal,,
-Africa,Seychelles,,
-Africa,Sierra Leone,,
-Africa,Somalia,,
-Africa,South Africa,,
-Africa,South Sudan,,
-Africa,Sudan,,
-Africa,Swaziland,,
-Africa,Tanzania,,
-Africa,Togo,,
-Africa,Tunisia,,
-Africa,Uganda,,
-Africa,Zambia,,
-Africa,Zimbabwe,,
-Asia,Afghanistan,,
-Asia,Bahrain,,
-Asia,Bangladesh,,
-Asia,Bhutan,,
-Asia,Brunei,,
-Asia,Burma (Myanmar),,
-Asia,Cambodia,,
-Asia,China,,
-Asia,East Timor,,
-Asia,India,,
-Asia,Indonesia,,
-Asia,Iran,,
-Asia,Iraq,,
-Asia,Israel,,
-Asia,Japan,,
-Asia,Jordan,,
-Asia,Kazakhstan,,
-Asia,"Korea, North",,
-Asia,"Korea, South",,
-Asia,Kuwait,,
-Asia,Kyrgyzstan,,
-Asia,Laos,,
-Asia,Lebanon,,
-Asia,Malaysia,,
-Asia,Maldives,,
-Asia,Mongolia,,
-Asia,Nepal,,
-Asia,Oman,,
-Asia,Pakistan,,
-Asia,Philippines,,
-Asia,Qatar,,
-Asia,Russian Federation,,
-Asia,Saudi Arabia,,
-Asia,Singapore,,
-Asia,Sri Lanka,,
-Asia,Syria,,
-Asia,Tajikistan,,
-Asia,Thailand,,
-Asia,Turkey,,
-Asia,Turkmenistan,,
-Asia,United Arab Emirates,,
-Asia,Uzbekistan,,
-Asia,Vietnam,,
-Asia,Yemen,,
+CONTINENT,NATION,LEAGUE,CITY,TEAM
+Europe,Portugal,Liga Futsal 1,Lisbon,
+Europe,Portugal,Liga Futsal 1,Porto,
+Europe,Portugal,Liga Futsal 1,Vila Nova de Gaia,
+Europe,Portugal,Liga Futsal 1,Amadora,
+Europe,Portugal,Liga Futsal 1,Braga,
+Europe,Portugal,Liga Futsal 1,Coimbra,
+Europe,Portugal,Liga Futsal 1,Funchal,
+Europe,Portugal,Liga Futsal 1,Setúbal,
+Europe,Portugal,Liga Futsal 1,Almada,
+Europe,Portugal,Liga Futsal 1,Agualva-Cacém,
+Europe,Portugal,Liga Futsal 2,Queluz,
+Europe,Portugal,Liga Futsal 2,Rio Tinto,
+Europe,Portugal,Liga Futsal 2,Barreiro,
+Europe,Portugal,Liga Futsal 2,Aveiro,
+Europe,Portugal,Liga Futsal 2,Viseu,
+Europe,Portugal,Liga Futsal 2,Odivelas,
+Europe,Portugal,Liga Futsal 2,Guimarães,
+Europe,Portugal,Liga Futsal 2,Leiria,
+Europe,Portugal,Liga Futsal 2,Faro,
+Europe,Portugal,Liga Futsal 2,Matosinhos,
+Europe,Portugal,Liga Futsal 3,Loures,
+Europe,Portugal,Liga Futsal 3,Portimão,
+Europe,Portugal,Liga Futsal 3,Póvoa de Varzim,
+Europe,Portugal,Liga Futsal 3,Amora,
+Europe,Portugal,Liga Futsal 3,Maia,
+Europe,Portugal,Liga Futsal 3,Évora,
+Europe,Portugal,Liga Futsal 3,Montijo,
+Europe,Portugal,Liga Futsal 3,Ponta Delgada,
+Europe,Portugal,Liga Futsal 3,Santa Maria da Feira,
+Europe,Portugal,Liga Futsal 3,Ermesinde,
+Europe,Portugal,Backup,Viana do Castelo,
+Europe,Portugal,Backup,Vila Nova de Famalicão,
+Europe,Portugal,Backup,Castelo Branco,
+Europe,Spain,Liga 1,Barcelona,
+Europe,Spain,Liga 1,Madrid,
+Europe,Spain,Liga 1,Valencia,
+Europe,Spain,Liga 1,Seville,
+Europe,Spain,Liga 1,Bilbao,
+Europe,Spain,Liga 1,Málaga,
+Europe,Spain,Liga 1,Asturias,
+Europe,Spain,Liga 1,Alicante,
+Europe,Spain,Liga 1,Las Palmas,
+Europe,Spain,Liga 1,Zaragoza,
+Europe,Spain,Liga 2,Murcia,
+Europe,Spain,Liga 2,Santa Cruz de Tenerife,
+Europe,Spain,Liga 2,Granada,
+Europe,Spain,Liga 2,Palma de Mallorca,
+Europe,Spain,Liga 2,Vigo,
+Europe,Spain,Liga 2,Cartagena,
+Europe,Spain,Liga 2,Cádiz,
+Europe,Spain,Liga 2,San Sebastián,
+Europe,Spain,Liga 2,A Coruña,
+Europe,Spain,Liga 2,Valladolid,
+Europe,Spain,Liga 3,Tarragona,
+Europe,Spain,Liga 3,Córdoba,
+Europe,Spain,Liga 3,Pamplona,
+Europe,Spain,Liga 3,Castellón de la Plana,
+Europe,Spain,Liga 3,Bay of Santander,
+Europe,Spain,Liga 3,Alzira-Xàtiva,
+Europe,Spain,Liga 3,Vitoria-Gasteiz,
+Europe,Spain,Liga 3,Algeciras-La Línea,
+Europe,Spain,Liga 3,Huelva,
+Europe,Spain,Liga 3,Almería,
+Europe,Spain,Backup,Salamanca,
+Europe,Spain,Backup,Jerez de la Frontera,
+Europe,Spain,Backup,León,
+Europe,Italy,Serie a,Rome,
+Europe,Italy,Serie a,Milan,
+Europe,Italy,Serie a,Naples,
+Europe,Italy,Serie a,Turin,
+Europe,Italy,Serie a,Palermo,
+Europe,Italy,Serie a,Genoa,
+Europe,Italy,Serie a,Bologna,
+Europe,Italy,Serie a,Florence,
+Europe,Italy,Serie a,Bari,
+Europe,Italy,Serie a,Catania,
+Europe,Italy,Serie b,Bolzano,
+Europe,Italy,Serie b,Trento,
+Europe,Italy,Serie b,Verona,
+Europe,Italy,Serie b,Palermo,
+Europe,Italy,Serie b,Latina,
+Europe,Italy,Serie b,Pisa,
+Europe,Italy,Serie b,Livorno,
+Europe,Italy,Serie b,Rovereto,
+Europe,Italy,Serie b,Reggio Calabria,
+Europe,Italy,Serie b,Messina,
+Europe,Italy,Serie c1,Laives,
+Europe,Italy,Serie c1,Brunico,
+Europe,Italy,Serie c1,Salerno,
+Europe,Italy,Serie c1,Monza,
+Europe,Italy,Serie c1,Foggia,
+Europe,Italy,Serie c1,Siracusa,
+Europe,Italy,Serie c1,Ferrara,
+Europe,Italy,Serie c1,Pescara,
+Europe,Italy,Serie c1,Andria,
+Europe,Italy,Serie c1,Lecce,
+Europe,Italy,Serie c2,Udine,
+Europe,Italy,Serie c2,Sassari,
+Europe,Italy,Serie c2,Cesena,
+Europe,Italy,Serie c2,Venezia,
+Europe,Italy,Serie c2,Bergamo,
+Europe,Italy,Serie c2,Ancona,
+Europe,Italy,Serie c2,Ravenna,
+Europe,Italy,Serie c2,Cesenatico,
+Europe,Italy,Serie c2,Novara,
+Europe,Italy,Serie c2,Arezzo,
+Europe,Italy,Backup,Pescara,
+Europe,Italy,Backup,Cagliari,
+Europe,Italy,Backup,Rimini,
+Europe,Romania,Campeonat a,Bucharest,
+Europe,Romania,Campeonat a,Cluj-Napoca,
+Europe,Romania,Campeonat a,Iași,
+Europe,Romania,Campeonat a,Constanța,
+Europe,Romania,Campeonat a,Timișoara,
+Europe,Romania,Campeonat a,Brașov,
+Europe,Romania,Campeonat a,Craiova,
+Europe,Romania,Campeonat a,Galați,
+Europe,Romania,Campeonat a,Oradea,
+Europe,Romania,Campeonat a,Ploiești,
+Europe,Romania,Campeonat b,Brăila,
+Europe,Romania,Campeonat b,Arad,
+Europe,Romania,Campeonat b,Pitești,
+Europe,Romania,Campeonat b,Bacău,
+Europe,Romania,Campeonat b,Sibiu,
+Europe,Romania,Campeonat b,Târgu Mureș,
+Europe,Romania,Campeonat b,Baia Mare,
+Europe,Romania,Campeonat b,Buzău,
+Europe,Romania,Campeonat b,Râmnicu Vâlcea,
+Europe,Romania,Campeonat b,Satu Mare,
+Europe,Romania,Campeonat c1,Botoșani,
+Europe,Romania,Campeonat c1,Suceava,
+Europe,Romania,Campeonat c1,Drobeta-Turnu Severin,
+Europe,Romania,Campeonat c1,Piatra Neamț,
+Europe,Romania,Campeonat c1,Bistrița,
+Europe,Romania,Campeonat c1,Târgu Jiu,
+Europe,Romania,Campeonat c1,Târgoviște,
+Europe,Romania,Campeonat c1,Focșani,
+Europe,Romania,Campeonat c1,Tulcea,
+Europe,Romania,Campeonat c1,Alba Iulia,
+Europe,Romania,Backup,Slatina,
+Europe,Romania,Backup,Vaslui,
+Europe,Romania,Backup,Reșița,
+Europe,Albania,,,
+Europe,Andorra,,,
+Europe,Armenia,,,
+Europe,Austria,,,
+Europe,Azerbaijan,,,
+Europe,Belarus,,,
+Europe,Belgium,,,
+Europe,Bosnia and Herzegovina,,,
+Europe,Bulgaria,,,
+Europe,Croatia,,,
+Europe,Cyprus,,,
+Europe,Czech Republic,,,
+Europe,Denmark,,,
+Europe,Estonia,,,
+Europe,Finland,,,
+Europe,France,,,
+Europe,Georgia,,,
+Europe,Germany,,,
+Europe,Greece,,,
+Europe,Hungary,,,
+Europe,Iceland,,,
+Europe,Ireland,,,
+Europe,Latvia,,,
+Europe,Liechtenstein,,,
+Europe,Lithuania,,,
+Europe,Luxembourg,,,
+Europe,Macedonia,,,
+Europe,Malta,,,
+Europe,Moldova,,,
+Europe,Monaco,,,
+Europe,Montenegro,,,
+Europe,Netherlands,,,
+Europe,Norway,,,
+Europe,Poland,,,
+Europe,Portugal,,,
+Europe,San Marino,,,
+Europe,Serbia,,,
+Europe,Slovakia,,,
+Europe,Slovenia,,,
+Europe,Sweden,,,
+Europe,Switzerland,,,
+Europe,Ukraine,,,
+Europe,United Kingdom,,,
+Europe,Vatican City,,,
+South America,Brazil,Campeonato 1,São Paulo,
+South America,Brazil,Campeonato 1,Rio de Janeiro,
+South America,Brazil,Campeonato 1,Brasília,
+South America,Brazil,Campeonato 1,Fortaleza,
+South America,Brazil,Campeonato 1,Salvador,
+South America,Brazil,Campeonato 1,Belo Horizonte,
+South America,Brazil,Campeonato 1,Manaus,
+South America,Brazil,Campeonato 1,Curitiba,
+South America,Brazil,Campeonato 1,Recife,
+South America,Brazil,Campeonato 1,Goiânia,
+South America,Brazil,Campeonato 2,Porto Alegre,
+South America,Brazil,Campeonato 2,Belém,
+South America,Brazil,Campeonato 2,Guarulhos,
+South America,Brazil,Campeonato 2,Campinas,
+South America,Brazil,Campeonato 2,São Luís,
+South America,Brazil,Campeonato 2,Maceió,
+South America,Brazil,Campeonato 2,Campo Grande,
+South America,Brazil,Campeonato 2,São Gonçalo,
+South America,Brazil,Campeonato 2,Teresina,
+South America,Brazil,Campeonato 2,João Pessoa,
+South America,Brazil,Campeonato 3,São Bernardo do Campo,
+South America,Brazil,Campeonato 3,Duque de Caxias,
+South America,Brazil,Campeonato 3,Nova Iguaçu,
+South America,Brazil,Campeonato 3,Natal,
+South America,Brazil,Campeonato 3,Santo André,
+South America,Brazil,Campeonato 3,Osasco,
+South America,Brazil,Campeonato 3,Sorocaba,
+South America,Brazil,Campeonato 3,Uberlândia,
+South America,Brazil,Campeonato 3,Ribeirão Preto,
+South America,Brazil,Campeonato 3,São José dos Campos,
+South America,Brazil,Backup,Cuiabá,
+South America,Brazil,Backup,Jaboatão dos Guararapes,
+South America,Brazil,Backup,Contagem,
+South America,Argentina,Division 1,Buenos Aires,
+South America,Argentina,Division 1,Córdoba,
+South America,Argentina,Division 1,Rosario,
+South America,Argentina,Division 1,La Plata,
+South America,Argentina,Division 1,Mar del Plata,
+South America,Argentina,Division 1,San Miguel de Tucumán,
+South America,Argentina,Division 1,Salta,
+South America,Argentina,Division 1,Santa Fe de la Vera Cruz,
+South America,Argentina,Division 1,Vicente López Partido,
+South America,Argentina,Division 1,Corrientes,
+South America,Argentina,Division 2,Pilar,
+South America,Argentina,Division 2,Bahía Blanca,
+South America,Argentina,Division 2,Resistencia,
+South America,Argentina,Division 2,Posadas,
+South America,Argentina,Division 2,San Salvador de Jujuy,
+South America,Argentina,Division 2,Santiago del Estero,
+South America,Argentina,Division 2,Paraná,
+South America,Argentina,Division 2,Merlo,
+South America,Argentina,Division 2,Neuquén,
+South America,Argentina,Division 2,Quilmes,
+South America,Argentina,Division 3,Banfield,
+South America,Argentina,Division 3,Formosa,
+South America,Argentina,Division 3,José C. Paz,
+South America,Argentina,Division 3,Lanús,
+South America,Argentina,Division 3,Godoy Cruz,
+South America,Argentina,Division 3,Las Heras,
+South America,Argentina,Division 3,La Rioja,
+South America,Argentina,Division 3,Gregorio de Laferrère,
+South America,Argentina,Division 3,Comodoro Rivadavia,
+South America,Argentina,Division 3,San Luis,
+South America,Argentina,Backup,Ituzaingó,
+South America,Argentina,Backup,Berazategui,
+South America,Argentina,Backup,González Catán,
+South America,Bolivia,,,
+South America,Chile,,,
+South America,Colombia,,,
+South America,Ecuador,,,
+South America,Guyana,,,
+South America,Paraguay,,,
+South America,Peru,,,
+South America,Suriname,,,
+South America,Uruguay,,,
+South America,Venezuela,,,
+North America,Antigua and Barbuda,,,
+North America,Bahamas,,,
+North America,Barbados,,,
+North America,Belize,,,
+North America,Canada,,,
+North America,Costa Rica,,,
+North America,Cuba,,,
+North America,Dominica,,,
+North America,Dominican Republic,,,
+North America,El Salvador,,,
+North America,Grenada,,,
+North America,Guatemala,,,
+North America,Haiti,,,
+North America,Honduras,,,
+North America,Jamaica,,,
+North America,Mexico,,,
+North America,Nicaragua,,,
+North America,Panama,,,
+North America,Saint Kitts and Nevis,,,
+North America,Saint Lucia,,,
+North America,Saint Vincent and the Grenadines,,,
+North America,Trinidad and Tobago,,,
+North America,USA,,,
+Oceania,Australia,,,
+Oceania,Fiji,,,
+Oceania,Kiribati,,,
+Oceania,Marshall Islands,,,
+Oceania,Micronesia,,,
+Oceania,Nauru,,,
+Oceania,New Zealand,,,
+Oceania,Palau,,,
+Oceania,Papua New Guinea,,,
+Oceania,Samoa,,,
+Oceania,Solomon Islands,,,
+Oceania,Tonga,,,
+Oceania,Tuvalu,,,
+Oceania,Vanuatu,,,
+Africa,Algeria,,,
+Africa,Angola,,,
+Africa,Benin,,,
+Africa,Botswana,,,
+Africa,Burkina,,,
+Africa,Burundi,,,
+Africa,Cameroon,,,
+Africa,Cape Verde,,,
+Africa,Central African Republic,,,
+Africa,Chad,,,
+Africa,Comoros,,,
+Africa,Congo,,,
+Africa,Democratic Republic of Congo,,,
+Africa,Djibouti,,,
+Africa,Egypt,,,
+Africa,Equatorial Guinea,,,
+Africa,Eritrea,,,
+Africa,Ethiopia,,,
+Africa,Gabon,,,
+Africa,Gambia,,,
+Africa,Ghana,,,
+Africa,Guinea,,,
+Africa,Guinea-Bissau,,,
+Africa,Ivory Coast,,,
+Africa,Kenya,,,
+Africa,Lesotho,,,
+Africa,Liberia,,,
+Africa,Libya,,,
+Africa,Madagascar,,,
+Africa,Malawi,,,
+Africa,Mali,,,
+Africa,Mauritania,,,
+Africa,Mauritius,,,
+Africa,Morocco,,,
+Africa,Mozambique,,,
+Africa,Namibia,,,
+Africa,Niger,,,
+Africa,Nigeria,,,
+Africa,Rwanda,,,
+Africa,Sao Tome and Principe,,,
+Africa,Senegal,,,
+Africa,Seychelles,,,
+Africa,Sierra Leone,,,
+Africa,Somalia,,,
+Africa,South Africa,,,
+Africa,South Sudan,,,
+Africa,Sudan,,,
+Africa,Swaziland,,,
+Africa,Tanzania,,,
+Africa,Togo,,,
+Africa,Tunisia,,,
+Africa,Uganda,,,
+Africa,Zambia,,,
+Africa,Zimbabwe,,,
+Asia,Afghanistan,,,
+Asia,Bahrain,,,
+Asia,Bangladesh,,,
+Asia,Bhutan,,,
+Asia,Brunei,,,
+Asia,Burma (Myanmar),,,
+Asia,Cambodia,,,
+Asia,China,,,
+Asia,East Timor,,,
+Asia,India,,,
+Asia,Indonesia,,,
+Asia,Iran,,,
+Asia,Iraq,,,
+Asia,Israel,,,
+Asia,Japan,,,
+Asia,Jordan,,,
+Asia,Kazakhstan,,,
+Asia,"Korea, North",,,
+Asia,"Korea, South",,,
+Asia,Kuwait,,,
+Asia,Kyrgyzstan,,,
+Asia,Laos,,,
+Asia,Lebanon,,,
+Asia,Malaysia,,,
+Asia,Maldives,,,
+Asia,Mongolia,,,
+Asia,Nepal,,,
+Asia,Oman,,,
+Asia,Pakistan,,,
+Asia,Philippines,,,
+Asia,Qatar,,,
+Asia,Russian Federation,,,
+Asia,Saudi Arabia,,,
+Asia,Singapore,,,
+Asia,Sri Lanka,,,
+Asia,Syria,,,
+Asia,Tajikistan,,,
+Asia,Thailand,,,
+Asia,Turkey,,,
+Asia,Turkmenistan,,,
+Asia,United Arab Emirates,,,
+Asia,Uzbekistan,,,
+Asia,Vietnam,,,
+Asia,Yemen,,,

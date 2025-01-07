@@ -8,16 +8,18 @@ extends Node
 func initialize_matches(world: World = Global.world) -> void:
 	for continent: Continent in world.continents:
 		for nation: Nation in continent.nations:
-			# first, initialize leauge matches
-			for league: League in nation.leagues:
-				_initialize_club_league_matches(league, league.teams)
+			if nation.is_competitive():
+				# first, initialize leauge matches
+				for league: League in nation.leagues:
+					_initialize_club_league_matches(league, league.teams)
 
-			# seconldy, initialize national cups
-			_initialize_club_national_cup(nation)
+				# seconldy, initialize national cups
+				_initialize_club_national_cup(nation)
 
 		# third, initialize continental cups
-		_initialize_club_continental_cup(continent)
-		_initialize_nations_continental_cup(continent)
+		if continent.is_competitive():
+			_initialize_club_continental_cup(continent)
+			_initialize_nations_continental_cup(continent)
 
 	# last, initialize world cup
 	_initialize_world_cup(world)

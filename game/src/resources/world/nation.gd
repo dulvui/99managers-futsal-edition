@@ -51,7 +51,7 @@ func get_continental_cup_qualified_teams() -> Array[Team]:
 	var teams: Array[Team]
 
 	# return empty, if no league exist for nation
-	if leagues.size() == 0:
+	if not is_competitive():
 		return []
 
 	var league: League = get_league_by_pyramid_level(1)
@@ -73,3 +73,6 @@ func get_team_by_id(team_id: int) -> Team:
 	return null
 
 
+# to check if nation has competitions
+func is_competitive() -> bool:
+	return leagues.size() > 0

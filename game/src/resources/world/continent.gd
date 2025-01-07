@@ -21,3 +21,11 @@ func _init(
 	nations = p_nations
 	cup_clubs = p_cup_clubs
 	cup_nations = p_cup_nations
+
+
+# to check at least one nation of the continent has competitions
+func is_competitive() -> bool:
+	for nation: Nation in nations:
+		if nation.is_competitive():
+			return true
+	return false

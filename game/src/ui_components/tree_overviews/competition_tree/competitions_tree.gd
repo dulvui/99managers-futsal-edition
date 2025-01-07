@@ -47,18 +47,21 @@ func _initialize_tree(search_string: String = "") -> void:
 	var continents_item: TreeItem = _create_item("CONTINENTS", world_item)
 	# continents
 	for continent: Continent in Global.world.continents:
-		var continent_item: TreeItem = _create_item(continent.name, continents_item)
-		# nations
-		for nation: Nation in continent.nations:
-			var nation_item: TreeItem = _create_item(nation.name, continent_item)
-			# nation leagues
-			for league: League in nation.leagues:
-				_create_item(league.name, nation_item, league, search_string)
-			# nation cups
-			_create_item(nation.cup.name, nation_item, nation.cup, search_string)
-		# continental cups
-		_create_item(continent.cup_clubs.name, continent_item, continent.cup_clubs, search_string)
-		_create_item(continent.cup_nations.name, continent_item, continent.cup_nations, search_string)
+		if continent.is_competitive():
+			var continent_item: TreeItem = _create_item(continent.name, continents_item)
+			# nations
+			for nation: Nation in continent.nations:
+				# check if nation has leagues ecc..
+				if nation.is_competitive():
+					var nation_item: TreeItem = _create_item(nation.name, continent_item)
+					# nation leagues
+					for league: League in nation.leagues:
+						_create_item(league.name, nation_item, league, search_string)
+					# nation cups
+					_create_item(nation.cup.name, nation_item, nation.cup, search_string)
+			# continental cups
+			_create_item(continent.cup_clubs.name, continent_item, continent.cup_clubs, search_string)
+			_create_item(continent.cup_nations.name, continent_item, continent.cup_nations, search_string)
 	
 
 	# remove empty tree items
