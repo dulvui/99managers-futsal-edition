@@ -1,30 +1,30 @@
 # Short description
-Un gioco **Open Source** per la gestione di squadre di Futsal. 
-Crea una squadra di livello mondiale, trova nuovi talenti e la tattica adatta al tuo stile di gioco. 
-Diventa il **miglior manager di Futsal** e vinci tutte le competizioni a livello nazionale e internazionale.
+An **open-source** Futsal team-management game. Build a world-class Futsal team,
+find new talents and a tactic that fit's your play style. Become the **best
+Futsal Manager** and win all competitions.
 
 # Full description
-99 Managers Futsal Edition è un gioco di gestione sportiva open source,
-in cui controlli ogni aspetto di una squadra di futsal,
-dalle tattiche alle finanze e molto altro.
+99 Managers Futsal Edition is an open-source sports management game, where you
+control every aspect of a Futsal team, from tactics to finances and much more.
 
-**Lavoro in corso**  
-Il gameplay, l'interfaccia utente e le funzionalità cambieranno prima del rilascio finale.
+**Work in progress**\
+The gameplay, user interface, and features will change before the final release.
 
-**Compiti principali**  
-- Scegli la tattica e la formazione per ogni partita  
-- Sostituisci i giocatori durante le partite e guida la tua squadra alla vittoria  
-- Vinci la lega e i trofei a livello nazionale e internazionale  
-- Rimani aggiornato leggendo notizie e email
+**Main responsibilities**
+- Choose tactics and lineup for every game
+- Guide and change your players during the matches
+- Win the league and cups on a national and international level
+- Stay up to date by reading news and emails
 
-**Funzionalità speciali**  
-- Open Source sotto la licenza AGPL-3.0-or-later  
-- Squadre e giocatori di fantasia che possono essere condivisi con il seed di generazione  
-- Temi di interfaccia utente chiari e scuri  
+**Special features**
+- Open Source under AGPL-3.0-or-later license
+- Fantasy teams and players that can be shared with the generation seed
+- Light/dark themes
 
-**Maggiori informazioni su 99 Managers**  
-99 Managers sarà una serie di giochi di gestione sportiva per diversi sport di squadra.  
-È open source e rispetta anche la tua privacy, poiché non integra tracker o software simili che violano la privacy.  
-Open source significa che puoi visualizzare il codice sorgente del gioco e quindi vedere come è fatto.  
-Inoltre, puoi anche suggerire correzioni di bug e nuove funzionalità o creare la tua versione personalizzata del gioco.  
-Sviluppato con Godot Engine 4 e tanto amore.
+**More about 99 Managers**\
+99 Managers will be a series of sports management games for different team
+sports. It is open source and also respects your privacy, because it has no
+trackers or similar privacy-invading software integrated. Being open source
+means, that you can see the source code of the game and see how it is made.
+Besides that, you are also able to suggest bug fixes, new features or create
+your own customized version of the game. Made with Godot Engine 4 and much love.
