@@ -8,7 +8,7 @@ Werde der **beste Futsal-Manager** und gewinne alle Wettbewerbe auf nationaler u
 in dem du jeden Aspekt eines Futsal-Teams kontrollierst,
 von Taktiken über Finanzen und vielem mehr.
 
-**Noch in Arbeit**
+**Noch in Arbeit**  
 Das Gameplay, die Benutzeroberfläche und die Funktionen werden sich vor der endgültigen Veröffentlichung ändern.
 
 **Hauptaufgaben**

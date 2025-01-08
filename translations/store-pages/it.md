@@ -8,7 +8,7 @@ Diventa il **miglior manager di Futsal** e vinci tutte le competizioni a livello
 in cui controlli ogni aspetto di una squadra di futsal,
 dalle tattiche alle finanze e molto altro.
 
-**Lavoro in corso**
+**Lavoro in corso**  
 Il gameplay, l'interfaccia utente e le funzionalità cambieranno prima del rilascio finale.
 
 **Compiti principali**  
