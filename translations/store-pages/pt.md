@@ -1,0 +1,30 @@
+# Short description
+Um jogo **Open Source** para a gestão de equipas de Futsal.  
+Cria uma equipa de nível mundial, encontra novos talentos e a tática adequada para o teu estilo de jogo.  
+Torna-te no **melhor manager de Futsal** e ganha todas as competições a nível nacional e internacional.
+
+# Full description
+99 Managers Futsal Edition é um jogo de gestão desportiva Open Source,
+onde controlas cada aspecto de uma equipa de futsal,
+desde táticas até finanças e muito mais.
+
+**Ainda em desenvolvimento**  
+A gameplay, a interface do utilizador e as funcionalidades irão mudar antes do lançamento final.
+
+**Tarefas principais**  
+- Escolhe tática e alinhamento para cada jogo  
+- Substitui jogadores durante os jogos e leva a tua equipa à vitória  
+- Ganha a liga e taças a nível nacional e internacional  
+- Mantém-te informado lendo notícias e e-mails
+
+**Características especiais**  
+- Open Source sob a licença AGPL-3.0-or-later  
+- Equipas e jogadores de fantasia que podem ser partilhados com a seed de geração  
+- Temas de interface de utilizador claros e escuros  
+
+**Mais sobre 99 Managers**  
+99 Managers será uma série de jogos de gestão desportiva para diferentes desportos de equipa.  
+É de Open Source e também respeita a tua privacidade, uma vez que não integra rastreadores nem software semelhante que infrinja a privacidade.  
+Open Source significa que podes ver o código fonte do jogo e assim entender como está feito.  
+Além disso, também podes sugerir correções de erros e novas funcionalidades ou criar a tua própria versão personalizada do jogo.  
+Desenvolvido com Godot Engine 4 e muito amor.
