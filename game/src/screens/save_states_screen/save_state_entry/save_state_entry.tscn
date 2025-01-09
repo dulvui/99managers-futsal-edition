@@ -2,8 +2,8 @@
 
 [ext_resource type="Script" path="res://src/screens/save_states_screen/save_state_entry/save_state_entry.gd" id="1_yugvl"]
 [ext_resource type="LabelSettings" uid="uid://cc2vi4onhgmnw" path="res://theme_base/label/label_settings_bold.tres" id="2_mg3bp"]
-[ext_resource type="Script" path="res://src/ui_components/buttons/default_button.gd" id="3_ppk54"]
-[ext_resource type="PackedScene" uid="uid://bpvg2vhxml3a1" path="res://src/ui_components/confirm_dialog/default_confirm_dialog.tscn" id="4_pnma1"]
+[ext_resource type="Script" path="res://src/ui_components/base/defaults/default_button.gd" id="3_ppk54"]
+[ext_resource type="PackedScene" uid="uid://bpvg2vhxml3a1" path="res://src/ui_components/base/confirm_dialog/default_confirm_dialog.tscn" id="4_pnma1"]
 
 [node name="SaveState" type="VBoxContainer"]
 anchors_preset = -1

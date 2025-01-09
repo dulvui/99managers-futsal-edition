@@ -1,6 +1,6 @@
 [gd_scene load_steps=2 format=3 uid="uid://dshn3r4bo8k3o"]
 
-[ext_resource type="Script" path="res://src/ui_components/animations/scene_fade.gd" id="1_chix3"]
+[ext_resource type="Script" path="res://src/ui_components/base/animations/scene_fade.gd" id="1_chix3"]
 
 [node name="SceneFade" type="Panel"]
 visible = false

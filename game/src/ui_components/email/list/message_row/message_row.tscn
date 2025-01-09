@@ -1,7 +1,7 @@
 [gd_scene load_steps=3 format=3 uid="uid://br52lmgs03oix"]
 
 [ext_resource type="Script" path="res://src/ui_components/email/list/message_row/message_row.gd" id="1_qccam"]
-[ext_resource type="Script" path="res://src/ui_components/buttons/default_button.gd" id="2_7pg3l"]
+[ext_resource type="Script" path="res://src/ui_components/base/defaults/default_button.gd" id="2_7pg3l"]
 
 [node name="MessageRow" type="MarginContainer"]
 anchors_preset = -1

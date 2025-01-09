@@ -1,8 +1,9 @@
-[gd_scene load_steps=4 format=3 uid="uid://qppc6sbc1cn0"]
+[gd_scene load_steps=5 format=3 uid="uid://qppc6sbc1cn0"]
 
 [ext_resource type="Script" path="res://src/screens/setup/setup_manager/setup_manager.gd" id="2_f1nd3"]
-[ext_resource type="Script" path="res://src/ui_components/buttons/default_button.gd" id="2_lxnvk"]
+[ext_resource type="Script" path="res://src/ui_components/base/defaults/default_button.gd" id="2_lxnvk"]
 [ext_resource type="LabelSettings" uid="uid://b4gu78rjvdfx4" path="res://theme_base/label/label_settings_title.tres" id="2_qayv2"]
+[ext_resource type="Script" path="res://src/ui_components/base/defaults/default_option_button.gd" id="3_7ahrx"]
 
 [node name="SetupManager" type="Control"]
 layout_mode = 3
@@ -87,6 +88,7 @@ text = "NATIONALITY"
 [node name="Nationality" type="OptionButton" parent="VBoxContainer/Manager/Container"]
 unique_name_in_owner = true
 layout_mode = 2
+script = ExtResource("3_7ahrx")
 
 [node name="HSeparator" type="HSeparator" parent="VBoxContainer"]
 layout_mode = 2

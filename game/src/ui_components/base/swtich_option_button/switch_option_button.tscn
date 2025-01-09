@@ -1,7 +1,7 @@
 [gd_scene load_steps=3 format=3 uid="uid://b2mwv4cl5sm6t"]
 
-[ext_resource type="Script" path="res://src/ui_components/swtich_option_button/switch_option_button.gd" id="1_6xdk8"]
-[ext_resource type="Script" path="res://src/ui_components/buttons/default_button.gd" id="2_o8qi5"]
+[ext_resource type="Script" path="res://src/ui_components/base/swtich_option_button/switch_option_button.gd" id="1_6xdk8"]
+[ext_resource type="Script" path="res://src/ui_components/base/defaults/default_button.gd" id="2_o8qi5"]
 
 [node name="SwitchOptionsButton" type="MarginContainer"]
 custom_minimum_size = Vector2(200, 30)

@@ -1,7 +1,7 @@
 [gd_scene load_steps=4 format=3 uid="uid://b4oxudl2hadi7"]
 
 [ext_resource type="Script" path="res://src/ui_components/player_profile/statistics_view/statistics_view.gd" id="1_h1753"]
-[ext_resource type="PackedScene" uid="uid://b2mwv4cl5sm6t" path="res://src/ui_components/swtich_option_button/switch_option_button.tscn" id="2_fwxm2"]
+[ext_resource type="PackedScene" uid="uid://b2mwv4cl5sm6t" path="res://src/ui_components/base/swtich_option_button/switch_option_button.tscn" id="2_fwxm2"]
 [ext_resource type="PackedScene" uid="uid://b0fj7v850s6dy" path="res://src/ui_components/resource_view/resource_view.tscn" id="3_rrqxt"]
 
 [node name="STATISTICS" type="VBoxContainer"]

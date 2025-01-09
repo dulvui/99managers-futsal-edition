@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" path="res://src/ui_components/transfers/contract_offer/contract_offer.gd" id="1"]
 [ext_resource type="Theme" uid="uid://pt1hrfiuwfpg" path="res://theme_base/theme.tres" id="2"]
-[ext_resource type="Script" path="res://src/ui_components/buttons/default_button.gd" id="3_ycdro"]
+[ext_resource type="Script" path="res://src/ui_components/base/defaults/default_button.gd" id="3_ycdro"]
 
 [node name="ContractOffer" type="PanelContainer"]
 anchors_preset = 15

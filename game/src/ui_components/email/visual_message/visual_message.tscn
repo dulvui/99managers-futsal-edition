@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" path="res://src/ui_components/email/visual_message/visual_message.gd" id="1_t0t0y"]
 [ext_resource type="LabelSettings" uid="uid://cc2vi4onhgmnw" path="res://theme_base/label/label_settings_bold.tres" id="2_a6odb"]
-[ext_resource type="Script" path="res://src/ui_components/buttons/default_button.gd" id="3_6mero"]
+[ext_resource type="Script" path="res://src/ui_components/base/defaults/default_button.gd" id="3_6mero"]
 [ext_resource type="StyleBox" uid="uid://p2i8146lydw5" path="res://theme_base/styles/box/box_background_secondary.tres" id="3_judmv"]
 
 [node name="VisualMessage" type="Control"]

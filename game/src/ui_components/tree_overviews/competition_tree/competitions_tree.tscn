@@ -1,7 +1,7 @@
 [gd_scene load_steps=3 format=3 uid="uid://cw32i6hnqrgbi"]
 
 [ext_resource type="Script" path="res://src/ui_components/tree_overviews/competition_tree/competitions_tree.gd" id="1_ilhoh"]
-[ext_resource type="PackedScene" uid="uid://dqkcly2ad5fqy" path="res://src/ui_components/search_line_edit/search_line_edit.tscn" id="2_anjvg"]
+[ext_resource type="PackedScene" uid="uid://dqkcly2ad5fqy" path="res://src/ui_components/base/search_line_edit/search_line_edit.tscn" id="2_anjvg"]
 
 [node name="CompetitionsTree" type="VBoxContainer"]
 custom_minimum_size = Vector2(300, 0)

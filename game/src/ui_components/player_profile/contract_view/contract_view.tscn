@@ -2,7 +2,7 @@
 
 [ext_resource type="PackedScene" uid="uid://b0fj7v850s6dy" path="res://src/ui_components/resource_view/resource_view.tscn" id="1_j3ylg"]
 [ext_resource type="Script" path="res://src/ui_components/player_profile/contract_view/contract_view.gd" id="1_njuoh"]
-[ext_resource type="Script" path="res://src/ui_components/buttons/default_button.gd" id="3_yh7ku"]
+[ext_resource type="Script" path="res://src/ui_components/base/defaults/default_button.gd" id="3_yh7ku"]
 
 [node name="ContractView" type="VBoxContainer"]
 anchors_preset = 15

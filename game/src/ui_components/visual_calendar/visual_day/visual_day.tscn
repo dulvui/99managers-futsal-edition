@@ -2,7 +2,7 @@
 
 [ext_resource type="Theme" uid="uid://pt1hrfiuwfpg" path="res://theme_base/theme.tres" id="1_njb33"]
 [ext_resource type="Script" path="res://src/ui_components/visual_calendar/visual_day/visual_day.gd" id="2_ub0fh"]
-[ext_resource type="Script" path="res://src/ui_components/buttons/default_button.gd" id="3_8v23p"]
+[ext_resource type="Script" path="res://src/ui_components/base/defaults/default_button.gd" id="3_8v23p"]
 
 [node name="VisualDay" type="MarginContainer" groups=["visual-day"]]
 custom_minimum_size = Vector2(100, 100)

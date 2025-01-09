@@ -5,7 +5,7 @@
 [ext_resource type="LabelSettings" uid="uid://b4gu78rjvdfx4" path="res://theme_base/label/label_settings_title.tres" id="3_fm5r7"]
 [ext_resource type="PackedScene" uid="uid://bi1p42wfploqa" path="res://src/ui_components/tree_overviews/teams_tree/teams_tree.tscn" id="3_omqyr"]
 [ext_resource type="PackedScene" uid="uid://cdrmqgiuv6wf3" path="res://src/ui_components/team_profile/team_profile.tscn" id="3_sndt3"]
-[ext_resource type="Script" path="res://src/ui_components/buttons/default_button.gd" id="5_rq678"]
+[ext_resource type="Script" path="res://src/ui_components/base/defaults/default_button.gd" id="5_rq678"]
 
 [node name="TeamSelect" type="Control"]
 layout_mode = 3

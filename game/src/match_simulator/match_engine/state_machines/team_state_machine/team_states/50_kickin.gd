@@ -19,7 +19,6 @@ func enter() -> void:
 			player.set_state(PlayerStateWait.new())
 
 
-
 func execute() -> void:
 	if owner.team.has_ball:
 		if owner.team.player_control.destination_reached():

@@ -1,7 +1,7 @@
 [gd_scene load_steps=4 format=3 uid="uid://c51vyn54bk7q4"]
 
 [ext_resource type="Script" path="res://src/ui_components/visual_calendar/visual_calendar.gd" id="2_7vx37"]
-[ext_resource type="Script" path="res://src/ui_components/buttons/default_button.gd" id="2_nyqm0"]
+[ext_resource type="Script" path="res://src/ui_components/base/defaults/default_button.gd" id="2_nyqm0"]
 [ext_resource type="PackedScene" uid="uid://dv6e6h4lw1bqy" path="res://src/ui_components/visual_calendar/match_list/match_list.tscn" id="3_cy82g"]
 
 [node name="VisualCalendar" type="HBoxContainer"]

@@ -1,7 +1,7 @@
 [gd_scene load_steps=3 format=3 uid="uid://bj7f2r54xkpt1"]
 
 [ext_resource type="Script" path="res://src/ui_components/visual_formation/players_bar/players_bar.gd" id="1_ehtta"]
-[ext_resource type="PackedScene" uid="uid://b2mwv4cl5sm6t" path="res://src/ui_components/swtich_option_button/switch_option_button.tscn" id="2_2mrf7"]
+[ext_resource type="PackedScene" uid="uid://b2mwv4cl5sm6t" path="res://src/ui_components/base/swtich_option_button/switch_option_button.tscn" id="2_2mrf7"]
 
 [node name="PlayersBar" type="ScrollContainer"]
 clip_contents = false
