@@ -187,6 +187,10 @@ func _initialize_world_cup(world: World) -> void:
 		for nation: Nation in continent.nations:
 			teams.append(nation.team)
 	
+	# limit to 20 teams for now
+	# TODO choose best teams
+	teams = teams.slice(0, 20)
+	
 	world.world_cup.setup(teams)
 
 	# create matches for first round group a

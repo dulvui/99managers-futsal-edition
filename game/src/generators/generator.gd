@@ -64,8 +64,6 @@ func generate_world(use_test_file: bool = false) -> World:
 		date = Global.save_states.temp_state.start_date
 	else:
 		date = Time.get_date_dict_from_system()
-
-	print(date)
 	var max_date: Dictionary = date.duplicate()
 	max_date.month = 1
 	max_date.day = 1
