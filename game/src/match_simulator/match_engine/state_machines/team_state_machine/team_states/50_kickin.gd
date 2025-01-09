@@ -14,6 +14,10 @@ func enter() -> void:
 	if owner.team.has_ball:
 		owner.team.player_nearest_to_ball.set_destination(owner.field.ball.pos)
 		owner.team.player_control = owner.team.player_nearest_to_ball
+	else:
+		for player: SimPlayer in owner.team.players:
+			player.set_state(PlayerStateWait.new())
+
 
 
 func execute() -> void:
