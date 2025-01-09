@@ -56,6 +56,24 @@ var min_timestamp: int
 
 func generate_world(use_test_file: bool = false) -> World:
 	var world: World = _generate_world_from_csv(use_test_file)
+	
+	# create date ranges
+	# starts from current year and subtracts min/max years
+	# youngest player can be 15 and oldest 45
+	if Global.save_states and Global.save_states.temp_state:
+		date = Global.save_states.temp_state.start_date
+	else:
+		date = Time.get_date_dict_from_system()
+
+	print(date)
+	var max_date: Dictionary = date.duplicate()
+	max_date.month = 1
+	max_date.day = 1
+	max_date.year -= 15
+	max_timestamp = Time.get_unix_time_from_datetime_dict(max_date)
+	max_date.year -= 30
+	min_timestamp = Time.get_unix_time_from_datetime_dict(max_date)
+
 
 	# generate players
 	_load_person_names(world)
@@ -96,23 +114,7 @@ func _initialize_team(
 	league: League,
 	team: Team,
 ) -> void:
-	# create date ranges
-	# starts from current year and subtracts min/max years
-	# youngest player can be 15 and oldest 45
-	if Global.save_states and Global.save_states.temp_state:
-		date = Global.save_states.temp_state.start_date
-	else:
-		date = Time.get_date_dict_from_system()
-
 	var temp_team_prestige: int = _get_team_prestige(league.pyramid_level)
-
-	var max_date: Dictionary = date.duplicate()
-	max_date.month = 1
-	max_date.day = 1
-	max_date.year -= 15
-	max_timestamp = Time.get_unix_time_from_datetime_dict(max_date)
-	max_date.year -= 30
-	min_timestamp = Time.get_unix_time_from_datetime_dict(max_date)
 
 	# create team
 	_set_random_shirt_colors(team)
@@ -745,6 +747,11 @@ func _generate_world_from_csv(use_test_file: bool = false) -> World:
 			var league: String = line[2]
 			var city: String = line[3]
 			_initialize_city(world, continent, nation, league, city)
+	
+	# sort continents, nations alphabetically
+	world.continents.sort_custom(func(a: Continent, b: Continent) -> bool: return a.name < b.name)
+	for continent: Continent in world.continents:
+		continent.nations.sort_custom(func(a: Nation, b: Nation) -> bool: return a.name < b.name)
 
 	return world
 
