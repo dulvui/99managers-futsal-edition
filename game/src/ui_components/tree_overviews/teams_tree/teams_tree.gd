@@ -42,15 +42,17 @@ func _initialize_tree(search_string: String = "") -> void:
 	var continents_item: TreeItem = _create_item("CONTINENTS")
 	# continents
 	for continent: Continent in Global.world.continents:
-		var continent_item: TreeItem = _create_item(continent.name, continents_item)
-		# nations
-		for nation: Nation in continent.nations:
-			var nation_item: TreeItem = _create_item(nation.name, continent_item)
-			# nation leagues
-			for league: League in nation.leagues:
-				var league_item: TreeItem = _create_item(league.name, nation_item)
-				for team: Team in league.teams:
-					_create_item(team.name, league_item, team, search_string)
+		if continent.is_competitive():
+			var continent_item: TreeItem = _create_item(continent.name, continents_item)
+			# nations
+			for nation: Nation in continent.nations:
+				if nation.is_competitive():
+					var nation_item: TreeItem = _create_item(nation.name, continent_item)
+					# nation leagues
+					for league: League in nation.leagues:
+						var league_item: TreeItem = _create_item(league.name, nation_item)
+						for team: Team in league.teams:
+							_create_item(team.name, league_item, team, search_string)
 	
 	# remove empty tree items
 	if not search_string.is_empty():
