@@ -7,5 +7,6 @@ extends OptionButton
 
 
 func _ready() -> void:
-	get_popup().max_size = Vector2(400, 200)
+	# just limit y size, not x
+	get_popup().max_size = Vector2(1920, 200)
 
