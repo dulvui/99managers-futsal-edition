@@ -33,7 +33,7 @@ func set_state(p_state: StateMachineState) -> void:
 		previous_state = state
 	p_state.enter()
 	state = p_state
-	_buffer_append()
+	# _buffer_append()
 
 
 func _buffer_append() -> void:

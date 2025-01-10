@@ -13,21 +13,21 @@ func _init(p_name: String) -> void:
 
 
 func execute() -> void:
-	print("execute " + name)
+	# print("execute " + name)
 	pass
 
 
 func enter() -> void:
-	print("enter " + name)
+	# print("enter " + name)
 	pass
 
 
 func exit() -> void:
-	print("exit " + name)
+	# print("exit " + name)
 	pass
 
 
-func set_state(p_next_state: StateMachineState) -> void:
-	print("set state " + p_next_state.name)
+func set_state(_p_next_state: StateMachineState) -> void:
+	# print("set state " + p_next_state.name)
 	pass
 

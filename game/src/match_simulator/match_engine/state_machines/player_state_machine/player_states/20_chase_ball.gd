@@ -10,10 +10,6 @@ func _init() -> void:
 	super("PlayerStateChaseBall")
 
 
-func enter() -> void:
-	print("player chase ball")
-
-
 func execute() -> void:
 	owner.player.set_destination(owner.field.ball.pos)
 

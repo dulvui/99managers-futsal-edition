@@ -149,8 +149,8 @@ func chase_ball() -> void:
 			player_control.set_state(PlayerStateChaseBall.new())
 	elif player_nearest_to_ball != null:
 		player_control = player_nearest_to_ball
-	else:
-		print("no nearest player")
+	# else:
+	# 	print("no nearest player")
 
 
 func find_nearest_player_to(position: Vector2, exclude: Array[SimPlayer] = []) -> SimPlayer:

@@ -90,9 +90,9 @@ func simulate(matchz: Match) -> Match:
 		if field.clock_running:
 			time += 1
 	
+	print("half time...")
 	half_time()
 	# second half
-	print("half time...")
 	time = 0
 	while time < Const.HALF_TIME_SECONDS * Const.TICKS_PER_SECOND:
 		update()

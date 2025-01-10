@@ -186,7 +186,7 @@ func _check_ball_bounds() -> void:
 		)
 		if intersection:
 			ball.set_pos(intersection)
-			clock_running = false
+			# clock_running = false
 			touch_line_out.emit()
 			return
 	if ball.pos.y > line_bottom:
@@ -195,13 +195,13 @@ func _check_ball_bounds() -> void:
 		)
 		if intersection:
 			ball.set_pos(intersection)
-			clock_running = false
+			# clock_running = false
 			touch_line_out.emit()
 			return
 
 	# goal or corner / x axis
 	if ball.pos.x < line_left or ball.pos.x > line_right:
-		clock_running = false
+		# clock_running = false
 		# TODO check if ball.post was hit => reflect
 		var goal_intersection: Variant = _is_goal(ball.last_pos, ball.pos)
 		if goal_intersection:

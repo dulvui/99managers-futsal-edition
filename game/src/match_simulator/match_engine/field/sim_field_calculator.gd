@@ -7,9 +7,8 @@ class_name SimFieldCalculator
 
 
 # can later made dynamic by team tactics long/short pass
-const SECTOR_SIZE: int = 40
 const PERFECT_PASS_DISTANCE: int = 30
-const BEST_SECTOR_UPDATE_FREQUENCY: int = Const.TICKS_PER_SECOND * 3
+const BEST_SECTOR_UPDATE_FREQUENCY: int = Const.TICKS_PER_SECOND * 4
 
 var field: SimField
 
@@ -28,12 +27,13 @@ var ticks: int
 
 func _init(p_field: SimField) -> void:
 	field = p_field
-	
+
+	var sector_size: int = int(field.size.x / 6)
 
 	# initialize field sectors for best position calculations
 	sectors = []
-	for x: int in range(SECTOR_SIZE, field.size.x, SECTOR_SIZE):
-		for y: int in range(SECTOR_SIZE, field.size.x, SECTOR_SIZE):
+	for x: int in range(sector_size, field.size.x, sector_size):
+		for y: int in range(sector_size, field.size.y, sector_size):
 			var sector: SimFieldSector = SimFieldSector.new()
 			sector.setup(x,  y)
 			sectors.append(sector)
@@ -69,7 +69,6 @@ func _calc_best_supporting_sector() -> void:
 		sector.score += 100.0 / (players_in_shoot_trajectory + 1)
 
 		if sector.score > best_sector.score:
-			print(sector.score)
 			best_sector = sector
 
 
@@ -137,7 +136,7 @@ func _calc_players_in_pass_trajectory(position: Vector2) -> int:
 		players = field.home_team.players
 	
 	for player: SimPlayer in players:
-		if Geometry2D.segment_intersects_circle(field.ball.pos, position, player.pos, player.interception_radius):
+		if Geometry2D.segment_intersects_circle(field.ball.pos, position, player.pos, player.interception_radius) > -1:
 			players_in_trajectory += 1
 	
 	return players_in_trajectory
