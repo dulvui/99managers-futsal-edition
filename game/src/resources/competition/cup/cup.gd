@@ -89,8 +89,7 @@ func next_stage() -> void:
 			# group stage is over
 			setup_knockout()
 			MatchCombinationUtil.add_matches_to_calendar(self, get_matches())
-	else:
-		if knockout.prepare_next_round():
+	elif knockout.prepare_next_round():
 			# add next round matches calendar
 			MatchCombinationUtil.add_matches_to_calendar(self, get_matches())
 

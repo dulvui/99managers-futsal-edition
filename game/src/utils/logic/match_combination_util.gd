@@ -180,7 +180,7 @@ func _initialize_nations_continental_cup(p_continent: Continent) -> void:
 
 func _initialize_world_cup(world: World) -> void:
 	# setup cup
-	world.world_cup.name = tr("WORLD CUP")
+	world.world_cup.name = tr("WORLD_CUP")
 
 	var teams: Array[Team]
 	for continent: Continent in world.continents:
@@ -189,7 +189,8 @@ func _initialize_world_cup(world: World) -> void:
 	
 	# limit to 20 teams for now
 	# TODO choose best teams
-	teams = teams.slice(0, 20)
+	if teams.size() > 16:
+		teams = teams.slice(0, 16)
 	
 	world.world_cup.setup(teams)
 

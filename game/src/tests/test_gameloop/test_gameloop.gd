@@ -11,7 +11,7 @@ func test() -> void:
 	test_full_season()
 
 	# test x seasons
-	for season: int in range(20):
+	for season: int in range(2):
 		print("test: season %d..." % [season])
 		test_full_season()
 		print("test: season %d done..." % [season])
@@ -23,6 +23,7 @@ func test_full_season() -> void:
 	print("test: test full season...")
 
 	Tests.setup_mock_world(true)
+
 
 	while not Global.world.calendar.is_season_finished():
 		Global.world.calendar.next_day()

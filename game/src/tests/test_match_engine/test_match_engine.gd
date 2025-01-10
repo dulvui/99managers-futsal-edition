@@ -30,6 +30,7 @@ func test_deterministic_simulations() -> void:
 		matches.append(matchz)
 		matchz.setup(league.teams[0], league.teams[1], league.id, league.name)
 		match_engine.simulate(matchz)
+		print("test: match %d calculated"%int(i + 1))
 	
 	# check results
 	for i: int in AMOUNT:

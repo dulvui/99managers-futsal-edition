@@ -51,8 +51,14 @@ static func setup_mock_world(use_test_file: bool) -> bool:
 		Global.save_states.new_temp_state()
 		Global.manager = create_mock_manager()
 		Global.world = create_mock_world(use_test_file)
-		var league: League = Global.world.continents[0].nations[0].leagues[0]
-		var team: Team = league.teams[0]
+
+		var team: Team
+		for continent: Continent in Global.world.continents:
+			if continent.is_competitive():
+				for nation: Nation in continent.nations:
+					if nation.is_competitive():
+						team = nation.leagues[0].teams[0]
+		
 		Global.select_team(team)
 		Global.initialize_game()
 		Global.start_date = Time.get_datetime_dict_from_system()
@@ -66,7 +72,7 @@ static func find_next_matchday() -> void:
 		return
 
 	# search next match day
-	while Global.world.calendar.day().get_matches().size() == 0:
+	while Global.world.calendar.day().get_matches(Global.league.id).size() == 0:
 		Global.world.calendar.next_day()
 
 

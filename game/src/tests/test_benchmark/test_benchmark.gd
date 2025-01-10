@@ -18,9 +18,13 @@ func test() -> void:
 	MatchCombinationUtil.initialize_matches()
 
 	# set active team and league, so next match day can be found
-	Global.world.active_team_id = Global.world.continents[0].nations[0].leagues[0].teams[0].id
-	Global.team = Global.world.continents[0].nations[0].leagues[0].teams[0]
-	Global.league = Global.world.continents[0].nations[0].leagues[0]
+	for continent: Continent in Global.world.continents:
+		if continent.is_competitive():
+			for nation: Nation in continent.nations:
+				if nation.is_competitive():
+					Global.world.active_team_id = nation.leagues[0].teams[0].id
+					Global.team = nation.leagues[0].teams[0]
+					Global.league = nation.leagues[0]
 
 	Tests.find_next_matchday()
 

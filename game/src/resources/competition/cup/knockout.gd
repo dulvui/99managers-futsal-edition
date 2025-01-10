@@ -145,6 +145,10 @@ func get_matches(cup: Cup) -> Array[Array]:
 
 
 func prepare_next_round() -> bool:
+	if matches_by_round_a.size() * matches_by_round_b.size() == 0:
+		print("error during preparing next round of knockout, no matches found")
+		return false
+
 	var a_ready: bool = _prepare_next_round(matches_by_round_a[-1], teams_a)
 	var b_ready: bool = _prepare_next_round(matches_by_round_b[-1], teams_b)
 
