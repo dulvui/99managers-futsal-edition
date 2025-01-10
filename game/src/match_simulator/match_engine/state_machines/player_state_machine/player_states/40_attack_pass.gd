@@ -11,7 +11,7 @@ func _init() -> void:
 
 
 func execute() -> void:
-	owner.team.random_pass()
+	random_pass()
 	owner.team.player_control = null
 	set_state(PlayerStateWait.new())
 	return
@@ -19,3 +19,24 @@ func execute() -> void:
 
 func exit() -> void:
 	owner.team.player_control = null
+
+
+func random_pass() -> void:
+	owner.team.stats.passes += 1
+	var random_player: int = RngUtil.match_rng.randi_range(0, 4)
+	
+	# make sure player is not passing ball himself
+	if random_player == owner.team.players.find(owner.team.player_control):
+		random_player += 1
+		random_player %= 5
+	
+	owner.team.player_receive_ball = owner.team.players[random_player]
+	
+	if owner.team.player_receive_ball == null:
+		return
+
+	owner.field.ball.short_pass(owner.team.player_receive_ball.pos, 40)
+	
+	owner.team.player_receive_ball.state_machine.set_state(PlayerStateAttackReceive.new())
+
+

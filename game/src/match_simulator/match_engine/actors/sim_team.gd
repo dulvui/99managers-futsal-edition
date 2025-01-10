@@ -118,34 +118,6 @@ func check_changes() -> void:
 		change_request = false
 
 
-func kickoff_pass() -> void:
-	stats.passes += 1
-	var random_player: int = RngUtil.match_rng.randi_range(1, 3)
-	player_control = null
-	player_receive_ball = players[random_player]
-	player_receive_ball.state_machine.set_state(PlayerStateAttackReceive.new())
-	field.ball.short_pass(player_receive_ball.pos, 40)
-
-
-func random_pass() -> void:
-	stats.passes += 1
-	var random_player: int = RngUtil.match_rng.randi_range(0, 4)
-	
-	# make sure player is not passing ball himself
-	if random_player == players.find(player_control):
-		random_player += 1
-		random_player %= 5
-	
-	player_receive_ball = players[random_player]
-	
-	if player_receive_ball == null:
-		return
-
-	field.ball.short_pass(player_receive_ball.pos, 40)
-	
-	player_receive_ball.state_machine.set_state(PlayerStateAttackReceive.new())
-
-
 func find_nearest_player_to(position: Vector2, exclude: Array[SimPlayer] = []) -> SimPlayer:
 	var nearest: SimPlayer = null
 	for player: SimPlayer in players:
