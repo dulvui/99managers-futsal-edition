@@ -11,12 +11,12 @@ func test() -> void:
 	RngUtil.reset_seed("TestSeed", 0)
 
 	var generator: Generator = Generator.new()
-	var reference_world: World = generator.generate_world()
-	assert(reference_world.continents.size() > 0)
+	var world: World = generator.generate_world()
+	assert(world.continents.size() > 0)
 
 	print("test: required properties...")
 
-	for continent: Continent in reference_world.continents:
+	for continent: Continent in world.continents:
 		for nation: Nation in continent.nations:
 			for league: League in nation.leagues:
 				for team: Team in league.teams:
@@ -26,58 +26,67 @@ func test() -> void:
 
 	print("test: deterministic...")
 	# test deterministic generations x time
-	for i: int in range(3):
+	for i: int in range(2):
 		print("test: deterministic run " + str(i + 1))
 
 		RngUtil.reset_seed("TestSeed", 0)
 
 		var test_world: World = generator.generate_world()
 
-		assert(test_world.continents.size() == reference_world.continents.size())
+		# continents
+		assert(test_world.continents.size() == world.continents.size())
+		
+		# nations
+		for j: int in world.continents.size():
+			var continent: Continent = world.continents[j]
+			var nations_size: int = continent.nations.size()
 
-		assert(
-			test_world.continents[0].nations.size() == reference_world.continents[0].nations.size()
-		)
+			var test_continent: Continent = test_world.continents[j]
+			var test_nations_size: int = test_continent.nations.size()
 
-		assert(
-			(
-				test_world.continents[0].nations[0].leagues.size()
-				== reference_world.continents[0].nations[0].leagues.size()
-			)
-		)
+			assert(nations_size == test_nations_size)
+		
+			# leagues
+			for k: int in continent.nations.size():
+				var nation: Nation = continent.nations[k]
+				var leagues_size: int = nation.leagues.size()
 
-		assert(
-			(
-				test_world.continents[0].nations[0].leagues[0].teams.size()
-				== reference_world.continents[0].nations[0].leagues[0].teams.size()
-			)
-		)
+				var test_nation: Nation = test_continent.nations[k]
+				var test_leagues_size: int = test_nation.leagues.size()
 
-		assert(
-			(
-				test_world.continents[0].nations[0].leagues[0].teams[0].players.size()
-				== reference_world.continents[0].nations[0].leagues[0].teams[0].players.size()
-			)
-		)
+				assert(leagues_size == test_leagues_size)
 
-		assert(
-			(
-				test_world.continents[0].nations[0].leagues[0].teams[0].players[0].name
-				== reference_world.continents[0].nations[0].leagues[0].teams[0].players[0].name
-			)
-		)
-		assert(
-			(
-				test_world.continents[0].nations[0].leagues[0].teams[0].players[1].name
-				== reference_world.continents[0].nations[0].leagues[0].teams[0].players[1].name
-			)
-		)
-		assert(
-			(
-				test_world.continents[0].nations[0].leagues[0].teams[0].players[2].name
-				== reference_world.continents[0].nations[0].leagues[0].teams[0].players[2].name
-			)
-		)
+				# league teams
+				for l: int in nation.leagues.size():
+					var league: League = nation.leagues[l]
+					var teams_size: int = league.teams.size()
+
+					var test_league: League = test_nation.leagues[l]
+					var test_teams_size: int = test_league.teams.size()
+
+					assert(teams_size == test_teams_size)
+
+					# team players
+					for m: int in league.teams.size():
+						var team: Team = league.teams[m]
+						var player_size: int = team.players.size()
+
+						var test_team: Team = test_league.teams[m]
+						var test_player_size: int = test_team.players.size()
+
+						assert(player_size == test_player_size)
+
+						# player names
+						for o: int in team.players.size():
+							var player: Player = team.players[o]
+							var player_name: String = player.get_full_name()
+
+							var test_player: Player = test_team.players[o]
+							var test_player_name: String = test_player.get_full_name()
+
+							assert(player_name == test_player_name)
+
+
 	print("test: deterministic done.")
 
 	print("test: generator done.")
