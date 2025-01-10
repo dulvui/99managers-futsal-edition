@@ -31,22 +31,22 @@ size_flags_vertical = 3
 [node name="Competitions" type="VBoxContainer" parent="."]
 layout_mode = 2
 
-[node name="ActiveButton" type="Button" parent="Competitions"]
-unique_name_in_owner = true
-layout_mode = 2
-text = "LEAGUE"
-script = ExtResource("3_6km1j")
-
 [node name="SeasonsButton" parent="Competitions" instance=ExtResource("3_88ilj")]
 unique_name_in_owner = true
 custom_minimum_size = Vector2(0, 0)
 layout_mode = 2
 size_flags_horizontal = 3
 
+[node name="ActiveButton" type="Button" parent="Competitions"]
+unique_name_in_owner = true
+layout_mode = 2
+text = "LEAGUE"
+script = ExtResource("3_6km1j")
+
 [node name="CompetitionsTree" parent="Competitions" instance=ExtResource("4_113m2")]
 unique_name_in_owner = true
 layout_mode = 2
 
-[connection signal="pressed" from="Competitions/ActiveButton" to="." method="_on_active_button_pressed"]
 [connection signal="item_selected" from="Competitions/SeasonsButton" to="." method="_on_seasons_button_item_selected"]
+[connection signal="pressed" from="Competitions/ActiveButton" to="." method="_on_active_button_pressed"]
 [connection signal="competition_selected" from="Competitions/CompetitionsTree" to="." method="_on_competitions_tree_competition_selected"]

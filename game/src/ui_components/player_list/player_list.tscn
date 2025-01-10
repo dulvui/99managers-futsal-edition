@@ -1,10 +1,11 @@
-[gd_scene load_steps=6 format=3 uid="uid://mvca6wjq0pv6"]
+[gd_scene load_steps=7 format=3 uid="uid://mvca6wjq0pv6"]
 
 [ext_resource type="Theme" uid="uid://pt1hrfiuwfpg" path="res://theme_base/theme.tres" id="1_pb4bf"]
 [ext_resource type="Script" path="res://src/ui_components/player_list/player_list.gd" id="2_ajejk"]
 [ext_resource type="PackedScene" uid="uid://dqkcly2ad5fqy" path="res://src/ui_components/base/search_line_edit/search_line_edit.tscn" id="3_ha4c3"]
 [ext_resource type="PackedScene" uid="uid://b2mwv4cl5sm6t" path="res://src/ui_components/base/swtich_option_button/switch_option_button.tscn" id="3_x6w1m"]
 [ext_resource type="Script" path="res://src/ui_components/base/defaults/default_button.gd" id="4_k60vt"]
+[ext_resource type="Script" path="res://src/ui_components/base/defaults/default_option_button.gd" id="5_mvocu"]
 
 [node name="PlayerList" type="VBoxContainer"]
 anchors_preset = 15
@@ -40,12 +41,15 @@ theme_override_constants/separation = 10
 
 [node name="PositionSelect" type="OptionButton" parent="Filters2"]
 layout_mode = 2
+script = ExtResource("5_mvocu")
 
 [node name="LeagueSelect" type="OptionButton" parent="Filters2"]
 layout_mode = 2
+script = ExtResource("5_mvocu")
 
 [node name="TeamSelect" type="OptionButton" parent="Filters2"]
 layout_mode = 2
+script = ExtResource("5_mvocu")
 
 [node name="HSeparator" type="HSeparator" parent="."]
 layout_mode = 2

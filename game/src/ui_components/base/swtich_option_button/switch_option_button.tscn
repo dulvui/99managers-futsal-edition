@@ -1,7 +1,8 @@
-[gd_scene load_steps=3 format=3 uid="uid://b2mwv4cl5sm6t"]
+[gd_scene load_steps=4 format=3 uid="uid://b2mwv4cl5sm6t"]
 
 [ext_resource type="Script" path="res://src/ui_components/base/swtich_option_button/switch_option_button.gd" id="1_6xdk8"]
 [ext_resource type="Script" path="res://src/ui_components/base/defaults/default_button.gd" id="2_o8qi5"]
+[ext_resource type="Script" path="res://src/ui_components/base/defaults/default_option_button.gd" id="3_c4scu"]
 
 [node name="SwitchOptionsButton" type="MarginContainer"]
 custom_minimum_size = Vector2(200, 30)
@@ -33,6 +34,7 @@ custom_minimum_size = Vector2(100, 0)
 layout_mode = 2
 size_flags_horizontal = 3
 text_overrun_behavior = 3
+script = ExtResource("3_c4scu")
 
 [node name="Next" type="Button" parent="HBoxContainer"]
 layout_mode = 2
