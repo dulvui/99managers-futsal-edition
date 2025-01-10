@@ -28,6 +28,8 @@ var player_control: SimPlayer
 var player_support: SimPlayer
 var player_receive_ball: SimPlayer
 var player_nearest_to_ball: SimPlayer
+# used to reset key players with default value and not null value
+var player_empty: SimPlayer
 
 
 func setup(
@@ -74,6 +76,8 @@ func setup(
 	# set goalkeeper flag
 	players[0].make_goalkeeper()
 	state_machine = TeamStateMachine.new(field, self)
+
+	player_empty = SimPlayer.new()
 
 
 func update() -> void:
@@ -135,7 +139,7 @@ func random_pass() -> void:
 	
 	player_receive_ball = players[random_player]
 	
-	if player_receive_ball == null:
+	if player_receive_ball.is_empty():
 		return
 
 	player_receive_ball.state_machine.set_state(PlayerStateAttackReceive.new())
@@ -153,10 +157,10 @@ func chase_ball() -> void:
 
 
 func find_nearest_player_to(position: Vector2, exclude: Array[SimPlayer]) -> SimPlayer:
-	var nearest: SimPlayer = null
+	var nearest: SimPlayer = player_empty
 	for player: SimPlayer in players:
 		if not player in exclude:
-			if nearest == null:
+			if nearest.is_empty():
 				nearest = player
 				continue
 			
@@ -166,9 +170,10 @@ func find_nearest_player_to(position: Vector2, exclude: Array[SimPlayer]) -> Sim
 
 
 func reset_key_players() -> void:
-	player_control = null
-	player_support = null
-	player_receive_ball = null
+	player_control = player_empty
+	player_support = player_empty
+	player_receive_ball = player_empty
+	player_nearest_to_ball = player_empty
 
 
 func shoot_on_goal(_player: Player) -> void:

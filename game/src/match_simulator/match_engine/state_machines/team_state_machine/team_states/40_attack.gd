@@ -21,7 +21,7 @@ func execute() -> void:
 
 	# make player closest to best supporting position supporting player
 	# and move it there
-	if owner.team.player_support == null or owner.team.player_support == owner.team.player_control:
+	if owner.team.player_support.is_empty() or owner.team.player_support == owner.team.player_control:
 		# find nearest player to best supporting sector
 		var sector_position: Vector2 = owner.field.calculator.best_sector.position
 		var player: SimPlayer = owner.team.find_nearest_player_to(sector_position, [owner.team.player_control])

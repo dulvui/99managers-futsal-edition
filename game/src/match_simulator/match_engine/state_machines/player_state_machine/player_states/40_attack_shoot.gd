@@ -17,5 +17,5 @@ func enter() -> void:
 
 
 func exit() -> void:
-	owner.team.player_control = null
+	owner.team.player_control = owner.team.player_empty
 
