@@ -23,10 +23,13 @@ var left_half: bool
 var simulated: bool
 
 var team_opponents: SimTeam
-# key players
+# key players attack
 var player_control: SimPlayer
 var player_support: SimPlayer
 var player_receive_ball: SimPlayer
+# key players defense
+var player_chase: SimPlayer
+# key players generic
 var player_nearest_to_ball: SimPlayer
 
 
@@ -141,16 +144,6 @@ func random_pass() -> void:
 	field.ball.short_pass(player_receive_ball.pos, 40)
 	
 	player_receive_ball.state_machine.set_state(PlayerStateAttackReceive.new())
-
-
-func chase_ball() -> void:
-	if player_control != null and not player_control.is_goalkeeper:
-		if not player_control.state_machine.state is PlayerStateChaseBall:
-			player_control.set_state(PlayerStateChaseBall.new())
-	elif player_nearest_to_ball != null:
-		player_control = player_nearest_to_ball
-	# else:
-	# 	print("no nearest player")
 
 
 func find_nearest_player_to(position: Vector2, exclude: Array[SimPlayer] = []) -> SimPlayer:
