@@ -16,7 +16,6 @@ func _init() -> void:
 
 
 func enter() -> void:
-	print("enter field")
 	ticks = 0
 
 	# move players to center bottom, and slightly shifted
@@ -64,7 +63,6 @@ func execute() -> void:
 	# wait a bit in center, before moving to start positions
 	ticks += 1
 	if ticks == WAIT:
-		print("enter field done")
 		set_state(TeamStateStartPositions.new())
 		return
 

@@ -42,8 +42,6 @@ func _init(p_field: SimField) -> void:
 
 
 func update(force: bool = false) -> void:
-	_calc_player_distances()
-
 	ticks += 1
 	if ticks == BEST_SECTOR_UPDATE_FREQUENCY or force:
 		ticks = 0
@@ -72,33 +70,10 @@ func _calc_best_supporting_sector() -> void:
 			best_sector = sector
 
 
-func _calc_player_distances() -> void:
-	for player: SimPlayer in field.home_team.players + field.away_team.players:
-		_calc_player_to_ball_distance(player)
-
-	# calc home nearest player
-	var nearest: SimPlayer = field.home_team.players[0]
-	for player: SimPlayer in field.home_team.players:
-		if player.distance_to_ball < nearest.distance_to_ball:
-			nearest = player
-	field.home_team.player_nearest_to_ball = nearest
-
-	# calc away nearest player
-	nearest = field.away_team.players[0]
-	for player: SimPlayer in field.away_team.players:
-		if player.distance_to_ball < nearest.distance_to_ball:
-			nearest = player
-	field.away_team.player_nearest_to_ball = nearest
-
-
 func _calc_distance_to_goal(position: Vector2, left_half: bool) -> void:
 	if left_half:
 		return _calc_distance_to(position, field.goal_right)
 	return _calc_distance_to(position, field.goal_left)
-
-
-func _calc_player_to_ball_distance(player: SimPlayer) -> void:
-	player.distance_to_ball = _calc_distance_to(player.pos, field.ball.pos)
 
 
 func _calc_distance_to(from: Vector2, to: Vector2) -> float:

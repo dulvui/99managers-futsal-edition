@@ -27,9 +27,6 @@ var head_look_direction: Vector2
 #TODO reduce radius with low stamina
 var interception_radius: int
 
-# distances, calculated by action util
-var distance_to_ball: float
-
 # goalkeeper properties
 var is_goalkeeper: bool
 var left_base: Vector2
