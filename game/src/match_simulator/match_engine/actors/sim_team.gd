@@ -28,8 +28,6 @@ var player_control: SimPlayer
 var player_support: SimPlayer
 var player_receive_ball: SimPlayer
 var player_nearest_to_ball: SimPlayer
-# used to reset key players with default value and not null value
-var player_empty: SimPlayer
 
 
 func setup(
@@ -77,12 +75,8 @@ func setup(
 	players[0].make_goalkeeper()
 	state_machine = TeamStateMachine.new(field, self)
 
-	player_empty = SimPlayer.new()
-
 
 func update() -> void:
-	state_machine.execute()
-
 	for player: SimPlayer in players:
 		player.update()
 	
@@ -94,6 +88,8 @@ func update() -> void:
 	# check injuries
 
 	_auto_change()
+	
+	state_machine.execute()
 
 
 func set_state(state: TeamStateMachineState) -> void:
@@ -139,11 +135,12 @@ func random_pass() -> void:
 	
 	player_receive_ball = players[random_player]
 	
-	if player_receive_ball.is_empty():
+	if player_receive_ball == null:
 		return
 
-	player_receive_ball.state_machine.set_state(PlayerStateAttackReceive.new())
 	field.ball.short_pass(player_receive_ball.pos, 40)
+	
+	player_receive_ball.state_machine.set_state(PlayerStateAttackReceive.new())
 
 
 func chase_ball() -> void:
@@ -156,11 +153,11 @@ func chase_ball() -> void:
 		print("no nearest player")
 
 
-func find_nearest_player_to(position: Vector2, exclude: Array[SimPlayer]) -> SimPlayer:
-	var nearest: SimPlayer = player_empty
+func find_nearest_player_to(position: Vector2, exclude: Array[SimPlayer] = []) -> SimPlayer:
+	var nearest: SimPlayer = null
 	for player: SimPlayer in players:
 		if not player in exclude:
-			if nearest.is_empty():
+			if nearest == null:
 				nearest = player
 				continue
 			
@@ -169,11 +166,15 @@ func find_nearest_player_to(position: Vector2, exclude: Array[SimPlayer]) -> Sim
 	return nearest
 
 
+func set_nearest_player_to_ball() -> void:
+	player_nearest_to_ball = find_nearest_player_to(field.ball.pos)
+
+
 func reset_key_players() -> void:
-	player_control = player_empty
-	player_support = player_empty
-	player_receive_ball = player_empty
-	player_nearest_to_ball = player_empty
+	player_control = null
+	player_support = null
+	player_receive_ball = null
+	player_nearest_to_ball = null
 
 
 func shoot_on_goal(_player: Player) -> void:

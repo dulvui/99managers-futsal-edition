@@ -26,4 +26,4 @@ func execute() -> void:
 
 
 func exit() -> void:
-	owner.team.player_receive_ball = owner.team.player_empty
+	owner.team.player_receive_ball = null

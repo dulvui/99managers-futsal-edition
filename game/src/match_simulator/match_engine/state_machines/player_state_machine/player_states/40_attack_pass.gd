@@ -12,10 +12,10 @@ func _init() -> void:
 
 func execute() -> void:
 	owner.team.random_pass()
-	owner.team.player_control = owner.team.player_empty
+	owner.team.player_control = null
 	set_state(PlayerStateWait.new())
 	return
 
 
 func exit() -> void:
-	owner.team.player_control = owner.team.player_empty
+	owner.team.player_control = null

@@ -110,10 +110,6 @@ func stop() -> void:
 	last_pos = pos
 
 
-func is_empty() -> bool:
-	return player_res == null
-
-
 func recover_stamina(factor: int = 1) -> void:
 	player_res.recover_stamina(factor)
 

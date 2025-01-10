@@ -31,8 +31,8 @@ func set_state(p_state: StateMachineState) -> void:
 	if state:
 		state.exit()
 		previous_state = state
+	p_state.enter()
 	state = p_state
-	state.enter()
 	_buffer_append()
 
 
