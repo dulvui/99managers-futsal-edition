@@ -30,6 +30,7 @@ func _loaded(type: LoadingUtil.Type) -> void:
 
 func _on_visibility_changed() -> void:
 	if is_node_ready() and visible:
+		loading_progress_bar.value = 0
 		loading_progress_bar.indeterminate = LoadingUtil.indeterminate
 		message_label.text = LoadingUtil.message
 		loading_progress_bar.value = LoadingUtil.progress
