@@ -3,7 +3,7 @@
 # SPDX-License-Identifier: AGPL-3.0-or-later
 
 class_name MovingActor
-extends Node
+extends CollidingActor
 
 
 var pos: Vector2
@@ -41,22 +41,4 @@ func is_moving() -> bool:
 func stop() -> void:
 	speed = 0
 	last_pos = pos
-
-
-func collides(p_moving_actor: MovingActor) -> Vector2:
-	return Geometry2D.line_intersects_line(
-		last_pos,
-		pos,
-		p_moving_actor.last_pos,
-	    p_moving_actor.pos
-	)
-
-
-func will_collide(p_moving_actor: MovingActor) -> Vector2:
-	return Geometry2D.line_intersects_line(
-		pos,
-		next_pos,
-		p_moving_actor.pos,
-		p_moving_actor.next_pos
-	)
 
