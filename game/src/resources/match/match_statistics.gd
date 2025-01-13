@@ -11,6 +11,7 @@ var goals: int = 0
 var possession: int = 50
 var shots: int = 0
 var shots_on_target: int = 0
+var shots_hit_post: int = 0
 var passes: int = 0
 var passes_success: int = 0
 var kick_ins: int = 0
@@ -30,6 +31,7 @@ func _init(
 	p_possession: int = 50,
 	p_shots: int = 0,
 	p_shots_on_target: int = 0,
+	p_shots_hit_post: int = 0,
 	p_passes: int = 0,
 	p_passes_success: int = 0,
 	p_kick_ins: int = 0,
@@ -47,6 +49,7 @@ func _init(
 	possession = p_possession
 	shots = p_shots
 	shots_on_target = p_shots_on_target
+	shots_hit_post = p_shots_hit_post
 	passes = p_passes
 	passes_success = p_passes_success
 	kick_ins = p_kick_ins

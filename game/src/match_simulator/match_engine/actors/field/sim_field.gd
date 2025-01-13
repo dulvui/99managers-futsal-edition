@@ -72,6 +72,8 @@ func _init() -> void:
 
 	# goals
 	goals = SimGoals.new(self)
+	goals.post_hit_left.connect(_on_goals_post_hit_left)
+	goals.post_hit_right.connect(_on_goals_post_hit_right)
 
 	# penalty area
 	penalty_areas = SimPenaltyAreas.new(self, goals)
@@ -109,7 +111,10 @@ func update() -> void:
 	calculator.update()
 	ball.update()
 	_check_ball_bounds()
+
+	# collissions
 	_check_ball_wall_colissions()
+	goals.check_post_colissions(ball)
 
 
 func force_update_calculator() -> void:
@@ -129,26 +134,22 @@ func _check_ball_wall_colissions() -> void:
 		colission = wall_top.collides(ball.last_pos, ball.pos)
 		if colission != null:
 			ball.direction = colission
-			print("t")
 			return
 	else:
 		colission = wall_bottom.collides(ball.last_pos, ball.pos)
 		if colission != null:
 			ball.direction = colission
-			print("b")
 			return
 	
 	if ball.direction.x < 0:
 		colission = wall_left.collides(ball.last_pos, ball.pos)
 		if colission != null:
 			ball.direction = colission
-			print("l")
 			return
 	else:	
 		colission = wall_right.collides(ball.last_pos, ball.pos)
 		if colission != null:
 			ball.direction = colission
-			print("r")
 			return
 
 
@@ -204,3 +205,10 @@ func _check_ball_bounds() -> void:
 		goal_line_out.emit()
 		return
 
+
+func _on_goals_post_hit_left() -> void:
+	home_team.stats.shots_hit_post += 1
+
+
+func _on_goals_post_hit_right() -> void:
+	home_team.stats.shots_hit_post += 1
