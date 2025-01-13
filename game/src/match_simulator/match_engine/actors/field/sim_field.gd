@@ -11,7 +11,6 @@ signal goal
 const PIXEL_FACTOR: int = 28
 
 # in meters * PIXEL_FACTOR
-const GOAL_SIZE: int = 3 * PIXEL_FACTOR
 const BORDER_SIZE: int = 2 * PIXEL_FACTOR
 const WIDTH: int = 42 * PIXEL_FACTOR
 const HEIGHT: int = 25 * PIXEL_FACTOR
@@ -35,20 +34,7 @@ var line_bottom: int
 var line_left: int
 var line_right: int
 
-var goal_left: Vector2
-var goal_right: Vector2
-
-# y coordinates of goal posts
-var goal_post_top: int
-var goal_post_bottom: int
-
-# x,y coordinates of all goal posts
-var goal_post_top_left: Vector2
-var goal_post_top_right: Vector2
-
-var goal_post_bottom_left: Vector2
-var goal_post_bottom_right: Vector2
-
+var goals: SimGoals
 var penalty_areas: SimPenaltyAreas
 
 var clock_running: bool
@@ -61,7 +47,7 @@ var away_team: SimTeam
 
 var calculator: SimFieldCalculator
 
-
+# walls to limit ball space
 var wall_top: CollidingActor
 var wall_bottom: CollidingActor
 var wall_left: CollidingActor
@@ -84,21 +70,11 @@ func _init() -> void:
 	bottom_left = Vector2(line_left, line_bottom)
 	bottom_right = Vector2(line_right, line_bottom)
 
-	# goal
-	goal_left = Vector2(line_left, size.y / 2)
-	goal_right = Vector2(line_right, size.y / 2)
-
-	goal_post_bottom = (size.y / 2) + (GOAL_SIZE / 2)
-	goal_post_top = (size.y / 2) - (GOAL_SIZE / 2)
-
-	goal_post_top_left = Vector2(line_left, goal_post_top)
-	goal_post_bottom_left = Vector2(line_left, goal_post_bottom)
-	goal_post_top_right = Vector2(line_right, goal_post_top)
-	goal_post_bottom_right = Vector2(line_right, goal_post_bottom)
-
+	# goals
+	goals = SimGoals.new(self)
 
 	# penalty area
-	penalty_areas = SimPenaltyAreas.new(self)
+	penalty_areas = SimPenaltyAreas.new(self, goals)
 
 	# ball
 	ball = SimBall.new()
@@ -200,12 +176,13 @@ func _check_ball_bounds() -> void:
 	# goal or corner / x axis
 	if ball.pos.x < line_left or ball.pos.x > line_right:
 		# clock_running = false
-		# TODO check if ball.post was hit => reflect
-		var goal_intersection: Variant = _is_goal(ball.last_pos, ball.pos)
+		var goal_intersection: Variant = goals.is_goal(ball)
+
 		if goal_intersection:
 			ball.set_pos(center)
 			goal.emit()
 			return
+
 		# corner
 		if ball.pos.y < center.y:
 			# top
@@ -226,23 +203,4 @@ func _check_ball_bounds() -> void:
 
 		goal_line_out.emit()
 		return
-
-
-func _is_goal(ball_last_pos: Vector2, ball_pos: Vector2) -> Variant:
-	var intersection: Variant
-
-	# left
-	if ball_pos.x < size.x / 2:
-		intersection = Geometry2D.segment_intersects_segment(
-			ball_last_pos, ball_pos, goal_post_bottom_left, goal_post_top_left
-		)
-	# right
-	else:
-		intersection = Geometry2D.segment_intersects_segment(
-			ball_last_pos, ball_pos, goal_post_bottom_right, goal_post_top_right
-		)
-
-	if intersection and intersection.y < goal_post_bottom and intersection.y > goal_post_top:
-		return intersection
-	return null
 

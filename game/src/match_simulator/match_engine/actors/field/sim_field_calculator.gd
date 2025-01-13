@@ -72,8 +72,8 @@ func _calc_best_supporting_sector() -> void:
 
 func _calc_distance_to_goal(position: Vector2, left_half: bool) -> void:
 	if left_half:
-		return _calc_distance_to(position, field.goal_right)
-	return _calc_distance_to(position, field.goal_left)
+		return _calc_distance_to(position, field.goals.right)
+	return _calc_distance_to(position, field.goals.left)
 
 
 func _calc_distance_to(from: Vector2, to: Vector2) -> float:
@@ -84,11 +84,11 @@ func _calc_players_in_shoot_trajectory(position: Vector2) -> int:
 	var players_in_trajectory: int = 0
 	
 	if _left_is_active_goal():
-		post_top = field.goal_post_top_left
-		post_bottom = field.goal_post_bottom_left
+		post_top = field.goals.post_top_left
+		post_bottom = field.goals.post_bottom_left
 	else:
-		post_top = field.goal_post_top_right
-		post_bottom = field.goal_post_bottom_right
+		post_top = field.goals.post_top_right
+		post_bottom = field.goals.post_bottom_right
 
 	if field.home_team.has_ball:
 		players = field.away_team.players

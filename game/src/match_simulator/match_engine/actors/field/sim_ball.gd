@@ -95,12 +95,12 @@ func shoot_on_goal(player: Player, left_half: bool) -> void:
 
 	var random_target: Vector2
 	if left_half:
-		random_target = field.goal_right
+		random_target = field.goals.right
 	else:
-		random_target = field.goal_left
+		random_target = field.goals.left
 
 	random_target += Vector2(
-		0, RngUtil.match_rng.randi_range(-field.GOAL_SIZE * 1.5, field.GOAL_SIZE * 1.5)
+		0, RngUtil.match_rng.randi_range(-field.goals.size * 1.5, field.goals.size * 1.5)
 	)
 
 	shoot(random_target, power * RngUtil.match_rng.randi_range(2, 6))
