@@ -17,7 +17,8 @@ func _init(p_from: Vector2, p_to: Vector2) -> void:
 
 
 """
-Returns reflection normal Vector2 on colission and null if no collision happens
+Returns reflection normal Vector2 on colission,
+null if no collision happens
 """
 func collides(p_from: Vector2, p_to: Vector2) -> Variant:
 	if Geometry2D.segment_intersects_segment(from, to, p_from, p_to) == null:

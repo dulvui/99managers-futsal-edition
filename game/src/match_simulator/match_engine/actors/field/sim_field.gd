@@ -15,9 +15,11 @@ const GOAL_SIZE: int = 3 * PIXEL_FACTOR
 const BORDER_SIZE: int = 2 * PIXEL_FACTOR
 const WIDTH: int = 42 * PIXEL_FACTOR
 const HEIGHT: int = 25 * PIXEL_FACTOR
-const PANALTY_AREA_RADIUS: int = 5 * PIXEL_FACTOR
 const CENTER_CIRCLE_RADIUS: int = 3 * PIXEL_FACTOR
 const LINE_WIDTH: float = 0.10 * PIXEL_FACTOR  # in cm
+
+# distance between wall and line
+const WALL_DISTANCE: int = 40
 
 # Note: don't use Rect2, to keep simple and human-readable names for coordinates
 var size: Vector2  # with borders
@@ -47,13 +49,7 @@ var goal_post_top_right: Vector2
 var goal_post_bottom_left: Vector2
 var goal_post_bottom_right: Vector2
 
-var penalty_area_left_x: int
-var penalty_area_right_x: int
-var penalty_area_y_top: int
-var penalty_area_y_bottom: int
-
-var penalty_area_left: PackedVector2Array
-var penalty_area_right: PackedVector2Array
+var penalty_areas: SimPenaltyAreas
 
 var clock_running: bool
 
@@ -100,86 +96,43 @@ func _init() -> void:
 	goal_post_top_right = Vector2(line_right, goal_post_top)
 	goal_post_bottom_right = Vector2(line_right, goal_post_bottom)
 
+
 	# penalty area
-	penalty_area_left = PackedVector2Array()
-	penalty_area_right = PackedVector2Array()
+	penalty_areas = SimPenaltyAreas.new(self)
 
-	# create upper circle for penalty area
-	var points: int = 12
-	var curve: Curve2D = Curve2D.new()
-
-	penalty_area_left_x = line_left + PANALTY_AREA_RADIUS
-	penalty_area_right_x = line_right - PANALTY_AREA_RADIUS
-
-	penalty_area_y_bottom = goal_post_bottom_left.y - PANALTY_AREA_RADIUS
-	penalty_area_y_top = goal_post_top_left.y + PANALTY_AREA_RADIUS
-
-	# left
-	var start_point: Vector2 = Vector2(goal_post_top_left)
-	var end_point: Vector2 = Vector2(goal_post_top_left + Vector2(PANALTY_AREA_RADIUS, 0))
-
-	for i: int in points:
-		curve.add_point(
-			start_point + Vector2(0, -PANALTY_AREA_RADIUS).rotated((i / float(points)) * PI / 2)
-		)
-	curve.add_point(end_point)
-
-	start_point = Vector2(goal_post_bottom_left)
-	end_point = Vector2(goal_post_bottom_left + Vector2(0, PANALTY_AREA_RADIUS))
-
-	for i: int in range(points, points + points):
-		curve.add_point(
-			start_point + Vector2(0, -PANALTY_AREA_RADIUS).rotated((i / float(points)) * PI / 2)
-		)
-	curve.add_point(end_point)
-
-	penalty_area_left.append_array(curve.get_baked_points())
-
-	# right
-	curve.clear_points()
-	curve.add_point(end_point)
-
-	for i: int in range(points * 2, points * 3):
-		curve.add_point(
-			start_point + Vector2(0, -PANALTY_AREA_RADIUS).rotated((i / float(points)) * PI / 2)
-		)
-	curve.add_point(Vector2(goal_post_bottom_left - Vector2(PANALTY_AREA_RADIUS, 0)))
-
-	start_point = Vector2(goal_post_top_left)
-	end_point = Vector2(goal_post_top_left - Vector2(0, PANALTY_AREA_RADIUS))
-
-	curve.add_point(Vector2(goal_post_top_left - Vector2(PANALTY_AREA_RADIUS, 0)))
-	for i: int in range(points * 3, points * 4):
-		curve.add_point(
-			start_point + Vector2(0, -PANALTY_AREA_RADIUS).rotated((i / float(points)) * PI / 2)
-		)
-	curve.add_point(end_point)
-
-	penalty_area_right.append_array(curve.get_baked_points())
-
-	# move to opposite site
-	for i in penalty_area_right.size():
-		penalty_area_right[i] += Vector2(WIDTH, 0)
-	
-
+	# ball
 	ball = SimBall.new()
 	ball.setup(self)
-
-	clock_running = false
 	
+	# clock flag
+	clock_running = false
+
+	# field calculator
 	calculator = SimFieldCalculator.new(self)
 
 	# walls
-	wall_top = CollidingActor.new(top_left, top_right)
-	wall_bottom = CollidingActor.new(bottom_left, bottom_right)
-	wall_left = CollidingActor.new(top_left, bottom_left)
-	wall_right = CollidingActor.new(top_right, bottom_right)
+	wall_top = CollidingActor.new(
+		top_left + Vector2(-WALL_DISTANCE, -WALL_DISTANCE),
+		top_right + Vector2(WALL_DISTANCE, -WALL_DISTANCE)
+	)
+	wall_bottom = CollidingActor.new(
+		bottom_left + Vector2(-WALL_DISTANCE, WALL_DISTANCE),
+		bottom_right + Vector2(WALL_DISTANCE, WALL_DISTANCE)
+	)
+	wall_left = CollidingActor.new(
+		top_left + Vector2(-WALL_DISTANCE, -WALL_DISTANCE),
+		bottom_left + Vector2(-WALL_DISTANCE, WALL_DISTANCE)
+	)
+	wall_right = CollidingActor.new(
+		top_right + Vector2(WALL_DISTANCE, -WALL_DISTANCE),
+		bottom_right + Vector2(WALL_DISTANCE, WALL_DISTANCE)
+	)
 
 
 func update() -> void:
 	calculator.update()
 	ball.update()
-	# _check_ball_bounds()
+	_check_ball_bounds()
 	_check_ball_wall_colissions()
 
 
@@ -292,24 +245,4 @@ func _is_goal(ball_last_pos: Vector2, ball_pos: Vector2) -> Variant:
 	if intersection and intersection.y < goal_post_bottom and intersection.y > goal_post_top:
 		return intersection
 	return null
-
-
-func _get_penalty_area_bounds(pos: Vector2, left_half: bool) -> Vector2:
-	if pos.y > penalty_area_y_top + 10:
-		pos.y = penalty_area_y_top + 10
-	elif pos.y < penalty_area_y_bottom - 10:
-		pos.y = penalty_area_y_bottom - 10
-
-	if left_half:
-		if pos.x > penalty_area_left_x + 10:
-			pos.x = penalty_area_left_x + 10
-		elif pos.x < -10:
-			pos.x = -10
-	else:
-		if pos.x < penalty_area_right_x - 10:
-			pos.x = penalty_area_right_x - 10
-		elif pos.x > size.x + BORDER_SIZE + 10:
-			pos.x = size.x + BORDER_SIZE + 10
-
-	return pos
 
