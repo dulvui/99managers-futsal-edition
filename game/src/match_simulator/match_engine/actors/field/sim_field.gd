@@ -22,10 +22,12 @@ const LINE_WIDTH: float = 0.10 * PIXEL_FACTOR  # in cm
 # Note: don't use Rect2, to keep simple and human-readable names for coordinates
 var size: Vector2  # with borders
 var center: Vector2
+# corners
 var top_left: Vector2
 var top_right: Vector2
 var bottom_left: Vector2
 var bottom_right: Vector2
+# lines
 var line_top: int
 var line_bottom: int
 var line_left: int
@@ -62,6 +64,12 @@ var home_team: SimTeam
 var away_team: SimTeam
 
 var calculator: SimFieldCalculator
+
+
+var wall_top: CollidingActor
+var wall_bottom: CollidingActor
+var wall_left: CollidingActor
+var wall_right: CollidingActor
 
 
 func _init() -> void:
@@ -161,11 +169,18 @@ func _init() -> void:
 	
 	calculator = SimFieldCalculator.new(self)
 
+	# walls
+	wall_top = CollidingActor.new(top_left, top_right)
+	wall_bottom = CollidingActor.new(bottom_left, bottom_right)
+	wall_left = CollidingActor.new(top_left, bottom_left)
+	wall_right = CollidingActor.new(top_right, bottom_right)
+
 
 func update() -> void:
 	calculator.update()
 	ball.update()
-	_check_ball_bounds()
+	# _check_ball_bounds()
+	_check_ball_wall_colissions()
 
 
 func force_update_calculator() -> void:
@@ -176,6 +191,36 @@ func bound(pos: Vector2) -> Vector2:
 	pos.x = maxi(mini(int(pos.x), int(line_right)), 1)
 	pos.y = maxi(mini(int(pos.y), int(line_bottom)), 1)
 	return pos
+
+
+func _check_ball_wall_colissions() -> void:
+	var colission: Variant
+
+	if ball.direction.y < 0:
+		colission = wall_top.collides(ball.last_pos, ball.pos)
+		if colission != null:
+			ball.direction = colission
+			print("t")
+			return
+	else:
+		colission = wall_bottom.collides(ball.last_pos, ball.pos)
+		if colission != null:
+			ball.direction = colission
+			print("b")
+			return
+	
+	if ball.direction.x < 0:
+		colission = wall_left.collides(ball.last_pos, ball.pos)
+		if colission != null:
+			ball.direction = colission
+			print("l")
+			return
+	else:	
+		colission = wall_right.collides(ball.last_pos, ball.pos)
+		if colission != null:
+			ball.direction = colission
+			print("r")
+			return
 
 
 func _check_ball_bounds() -> void:

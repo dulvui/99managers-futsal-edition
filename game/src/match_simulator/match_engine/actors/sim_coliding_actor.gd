@@ -3,30 +3,25 @@
 # SPDX-License-Identifier: AGPL-3.0-or-later
 
 class_name CollidingActor
-extends Node
+
+var from: Vector2
+var to: Vector2
+var normal: Vector2
 
 
-var pos: Vector2
-var last_pos: Vector2
-var next_pos: Vector2
-var speed: float
-var direction: Vector2
+
+func _init(p_from: Vector2, p_to: Vector2) -> void:
+	from = p_from
+	to = p_to
+	normal = from.direction_to(to)
 
 
-func collides(p_moving_actor: CollidingActor) -> Vector2:
-	return Geometry2D.line_intersects_line(
-		last_pos,
-		pos,
-		p_moving_actor.last_pos,
-	    p_moving_actor.pos
-	)
+"""
+Returns reflection normal Vector2 on colission and null if no collision happens
+"""
+func collides(p_from: Vector2, p_to: Vector2) -> Variant:
+	if Geometry2D.segment_intersects_segment(from, to, p_from, p_to) == null:
+		return null
 
-
-func will_collide(p_moving_actor: CollidingActor) -> Vector2:
-	return Geometry2D.line_intersects_line(
-		pos,
-		next_pos,
-		p_moving_actor.pos,
-		p_moving_actor.next_pos
-	)
-
+	return p_from.direction_to(p_to).reflect(normal)
+ 

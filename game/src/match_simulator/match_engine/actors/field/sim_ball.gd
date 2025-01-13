@@ -103,7 +103,7 @@ func shoot_on_goal(player: Player, left_half: bool) -> void:
 		0, RngUtil.match_rng.randi_range(-field.GOAL_SIZE * 1.5, field.GOAL_SIZE * 1.5)
 	)
 
-	field.ball.shoot(random_target, power * RngUtil.match_rng.randi_range(2, 6))
+	shoot(random_target, power * RngUtil.match_rng.randi_range(2, 6))
 
 
 func dribble(p_destination: Vector2, force: float) -> void:
