@@ -16,6 +16,7 @@ run/main_scene="res://src/screens/splash/splash_screen.tscn"
 config/use_custom_user_dir=true
 config/custom_user_dir_name="99managers-futsal-edition"
 config/features=PackedStringArray("4.3")
+run/max_fps=60
 boot_splash/bg_color=Color(0, 0, 0, 1)
 boot_splash/image="res://icon_dark.png"
 config/icon="res://icon_dark.png"
