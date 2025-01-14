@@ -30,10 +30,10 @@ func setup(p_home_team: Team, p_away_team: Team, match_seed: int) -> void:
 	ticks = 0
 	possession_counter = 0.0
 
-
 	RngUtil.match_rng.seed = hash(match_seed)
 
-	var home_plays_left: bool = RngUtil.match_rng.randi_range(0, 1) == 0
+	# var home_plays_left: bool = RngUtil.match_rng.randi_range(0, 1) == 0
+	var home_plays_left: bool = true
 	var home_has_ball: bool = RngUtil.match_rng.randi_range(0, 1) == 0
 
 	home_team = SimTeam.new()
@@ -133,13 +133,6 @@ func full_time() -> void:
 		player.recover_stamina(recovery)
 
 
-func set_goalkeeper_ball(home: bool) -> void:
-	if home:
-		home_possess()
-	else:
-		away_possess()
-
-
 func home_possess() -> void:
 	home_team.has_ball = true
 	away_team.has_ball = false
@@ -148,8 +141,8 @@ func home_possess() -> void:
 
 
 func away_possess() -> void:
-	away_team.has_ball = true
 	home_team.has_ball = false
+	away_team.has_ball = true
 	# recacluate best sector, after flags change
 	field.force_update_calculator()
 
@@ -187,30 +180,49 @@ func _on_away_team_interception() -> void:
 
 
 func _on_goal_line_out() -> void:
-	# corner
-	if home_team.has_ball:
-		if (home_team.left_half and field.ball.pos.x < 600) or (not home_team.left_half and field.ball.pos.x > 600):
-			away_possess()
-			away_team.stats.corners += 1
-			home_team.set_state(TeamStateCorner.new())
-			away_team.set_state(TeamStateCorner.new())
+	# ball exits left side
+	if field.ball.pos.x < field.size.x / 2:
+		# home team corner
+		if away_team.has_ball and away_team.left_half:
+			_corner_home()
 			return
-	elif (away_team.left_half and field.ball.pos.x < 600) or (not away_team.left_half and field.ball.pos.x > 600):
-		home_possess()
-		home_team.stats.corners += 1
-		home_team.set_state(TeamStateCorner.new())
-		away_team.set_state(TeamStateCorner.new())
-		return
+		
+		# away team corner
+		if home_team.has_ball and home_team.left_half:
+			_corner_away()
+			return
+		
+		# goalkeeper ball
+		field.ball.set_pos_xy(field.line_left + 40, field.center.y)
 
-	# goalkeeper ball
-	if field.ball.pos.x < 600:
-		# left
-		field.ball.set_pos_xy(field.line_left + 40, field.size.y / 2)
-		set_goalkeeper_ball(home_team.left_half)
+	# ball exits right side
 	else:
-		# right
-		field.ball.set_pos_xy(field.line_right - 40, field.size.y / 2)
-		set_goalkeeper_ball(not home_team.left_half)
+		# home team corner
+		if away_team.has_ball and not away_team.left_half:
+			_corner_home()
+			return
+		
+		# away team corner
+		if home_team.has_ball and not home_team.left_half:
+			_corner_away()
+			return
+		
+		# goalkeeper ball
+		field.ball.set_pos_xy(field.line_right - 40, field.center.y)
+
+
+func _corner_home() -> void:
+	home_possess()
+	home_team.stats.corners += 1
+	home_team.set_state(TeamStateCorner.new())
+	away_team.set_state(TeamStateCorner.new())
+
+
+func _corner_away() -> void:
+	away_possess()
+	away_team.stats.corners += 1
+	home_team.set_state(TeamStateCorner.new())
+	away_team.set_state(TeamStateCorner.new())
 
 
 func _on_touch_line_out() -> void:
