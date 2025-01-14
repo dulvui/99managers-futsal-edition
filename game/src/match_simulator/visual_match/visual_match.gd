@@ -5,14 +5,23 @@
 class_name VisualMatch
 extends Node2D
 
+var match_engine: MatchEngine
 
 @onready var home_team: VisualTeam = $VisualTeamHome
 @onready var away_team: VisualTeam = $VisualTeamAway
 @onready var visual_ball: VisualBall = $VisualBall
 @onready var visual_field: VisualField = $VisualField
 
+# used for debugging and to see real ball position and not interpolations
+@onready var visual_ball_real: Sprite2D = $VisualBallReal
 
-func setup(match_engine: MatchEngine, update_interval: float) -> void:
+
+func _physics_process(_delta: float) -> void:
+	visual_ball_real.position = match_engine.field.ball.pos
+
+
+func setup(p_match_engine: MatchEngine, update_interval: float) -> void:
+	match_engine = p_match_engine
 	visual_field.setup(match_engine.field)
 	visual_ball.setup(match_engine.field.ball, update_interval)
 	
