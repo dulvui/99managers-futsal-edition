@@ -3,6 +3,7 @@
 # SPDX-License-Identifier: AGPL-3.0-or-later
 
 class_name SimPlayer
+extends MovingActor
 
 # signal short_pass
 # signal shoot
@@ -18,14 +19,9 @@ var state_machine: PlayerStateMachine
 
 # positions
 var start_pos: Vector2
-var pos: Vector2
-var last_pos: Vector2
 # movements
 var destination: Vector2
-var speed: int
 var head_look_direction: Vector2
-#TODO reduce radius with low stamina
-var interception_radius: int
 
 # goalkeeper properties
 var is_goalkeeper: bool
@@ -36,9 +32,9 @@ var left_half: bool
 var has_ball: bool
 
 
-func _init() -> void:
+func _init(p_radius: float = 30) -> void:
+	super(p_radius)
 	# initial test values
-	interception_radius = 30
 	has_ball = false
 
 	head_look_direction = Vector2.ZERO
@@ -63,7 +59,7 @@ func setup(
 
 func update() -> void:
 	state_machine.execute()
-	_move()
+	move()
 
 
 func set_state(state: PlayerStateMachineState) -> void:
@@ -75,7 +71,7 @@ func make_goalkeeper() -> void:
 
 
 func is_touching_ball() -> bool:
-	return field.ball.is_touching(pos, interception_radius)
+	return collides(field.ball)
 
 
 func is_intercepting_ball() -> bool:
@@ -102,16 +98,11 @@ func destination_reached() -> bool:
 	return pos == destination
 
 
-func stop() -> void:
-	speed = 0
-	last_pos = pos
-
-
 func recover_stamina(factor: int = 1) -> void:
 	player_res.recover_stamina(factor)
 
 
-func _move() -> void:
+func move() -> void:
 	if speed > 0:
 		last_pos = pos
 		pos = pos.move_toward(destination, speed * Const.SPEED)

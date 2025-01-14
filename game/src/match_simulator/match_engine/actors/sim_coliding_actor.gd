@@ -4,10 +4,10 @@
 
 class_name CollidingActor
 
+
 var from: Vector2
 var to: Vector2
 var normal: Vector2
-
 
 
 func _init(p_from: Vector2, p_to: Vector2) -> void:

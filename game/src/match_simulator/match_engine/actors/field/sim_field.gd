@@ -79,7 +79,7 @@ func _init() -> void:
 	penalty_areas = SimPenaltyAreas.new(self, goals)
 
 	# ball
-	ball = SimBall.new()
+	ball = SimBall.new(5)
 	ball.setup(self)
 	
 	# clock flag

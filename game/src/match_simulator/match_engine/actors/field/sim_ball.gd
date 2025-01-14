@@ -3,6 +3,7 @@
 # SPDX-License-Identifier: AGPL-3.0-or-later
 
 class_name SimBall
+extends MovingActor
 
 
 enum State { PASS, SHOOT, STOP, DRIBBLE, GOALKEEPER, OUT }
@@ -11,12 +12,6 @@ const DECELERATION: float = 2
 
 var state: State
 
-var pos: Vector2
-# to save last position and be able to get segment between ticks, for interceptions
-var last_pos: Vector2
-
-var speed: float
-var direction: Vector2
 # left -1, right 1, no roatation 0
 var rotation: float
 
@@ -65,17 +60,6 @@ func move() -> void:
 	speed -= DECELERATION
 
 
-func is_moving() -> bool:
-	return speed > 0
-
-
-func stop() -> void:
-	rotation = 0
-	speed = 0
-	last_pos = pos
-	state = State.STOP
-
-
 func short_pass(p_destination: Vector2, force: float) -> void:
 	_random_rotation()
 	speed = force
@@ -110,10 +94,6 @@ func dribble(p_destination: Vector2, force: float) -> void:
 	speed = force
 	direction = pos.direction_to(p_destination)
 	state = State.DRIBBLE
-
-
-func is_touching(player_pos: Vector2, player_radius: int) -> bool:
-	return Geometry2D.is_point_in_circle(pos, player_pos, player_radius)
 
 
 func _random_rotation() -> void:
