@@ -140,15 +140,6 @@ func set_goalkeeper_ball(home: bool) -> void:
 		away_possess()
 
 
-func set_corner(home: bool) -> void:
-	if home:
-		home_possess()
-		home_team.stats.corners += 1
-	else:
-		away_possess()
-		away_team.stats.corners += 1
-
-
 func home_possess() -> void:
 	home_team.has_ball = true
 	away_team.has_ball = false
@@ -200,12 +191,14 @@ func _on_goal_line_out() -> void:
 		(home_team.has_ball and home_team.left_half and field.ball.pos.x < 600)
 		or (home_team.has_ball and not home_team.left_half and field.ball.pos.x > 600)
 	):
-		set_corner(false)
+		home_possess()
+		home_team.stats.corners += 1
 	elif (
 		(away_team.has_ball and home_team.left_half and field.ball.pos.x > 600)
 		or (home_team.has_ball and not home_team.left_half and field.ball.pos.x < 600)
 	):
-		set_corner(true)
+		away_possess()
+		away_team.stats.corners += 1
 
 	# goalkeeper ball
 	elif field.ball.pos.x < 600:
