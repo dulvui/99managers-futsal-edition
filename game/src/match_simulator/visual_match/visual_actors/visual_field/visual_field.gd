@@ -67,13 +67,13 @@ func setup(p_field: SimField) -> void:
 	# penalty area lines
 	var penalty_area_line_left: Line2D = Line2D.new()
 	penalty_area_line_left.width = field.LINE_WIDTH
-	for point: Vector2 in field.penalty_areas.home:
+	for point: Vector2 in field.penalty_areas.left:
 		penalty_area_line_left.add_point(point)
 	lines.add_child(penalty_area_line_left)
 
 	var penalty_area_line_right: Line2D = Line2D.new()
 	penalty_area_line_right.width = field.LINE_WIDTH
-	for point: Vector2 in field.penalty_areas.away:
+	for point: Vector2 in field.penalty_areas.right:
 		penalty_area_line_right.add_point(point)
 	lines.add_child(penalty_area_line_right)
 

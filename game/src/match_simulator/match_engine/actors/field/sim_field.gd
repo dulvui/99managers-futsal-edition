@@ -8,9 +8,9 @@ signal goal_line_out
 signal touch_line_out
 signal goal
 
+# 1 meter = x PIXEL_FACTOR
 const PIXEL_FACTOR: int = 28
 
-# in meters * PIXEL_FACTOR
 const BORDER_SIZE: int = 2 * PIXEL_FACTOR
 const WIDTH: int = 42 * PIXEL_FACTOR
 const HEIGHT: int = 25 * PIXEL_FACTOR
@@ -18,7 +18,7 @@ const CENTER_CIRCLE_RADIUS: int = 3 * PIXEL_FACTOR
 const LINE_WIDTH: float = 0.10 * PIXEL_FACTOR  # in cm
 
 # distance between wall and line
-const WALL_DISTANCE: int = 40
+const WALL_DISTANCE: int = 5 * PIXEL_FACTOR
 
 # Note: don't use Rect2, to keep simple and human-readable names for coordinates
 var size: Vector2  # with borders
@@ -114,6 +114,7 @@ func update() -> void:
 
 	# collissions
 	_check_ball_wall_colissions()
+	_check_player_colissions()
 	goals.check_post_colissions(ball)
 
 
@@ -125,32 +126,6 @@ func bound(pos: Vector2) -> Vector2:
 	pos.x = maxi(mini(int(pos.x), int(line_right)), 1)
 	pos.y = maxi(mini(int(pos.y), int(line_bottom)), 1)
 	return pos
-
-
-func _check_ball_wall_colissions() -> void:
-	var colission: Variant
-
-	if ball.direction.y < 0:
-		colission = wall_top.collides(ball.last_pos, ball.pos)
-		if colission != null:
-			ball.direction = colission
-			return
-	else:
-		colission = wall_bottom.collides(ball.last_pos, ball.pos)
-		if colission != null:
-			ball.direction = colission
-			return
-	
-	if ball.direction.x < 0:
-		colission = wall_left.collides(ball.last_pos, ball.pos)
-		if colission != null:
-			ball.direction = colission
-			return
-	else:	
-		colission = wall_right.collides(ball.last_pos, ball.pos)
-		if colission != null:
-			ball.direction = colission
-			return
 
 
 func _check_ball_bounds() -> void:
@@ -212,3 +187,39 @@ func _on_goals_post_hit_left() -> void:
 
 func _on_goals_post_hit_right() -> void:
 	home_team.stats.shots_hit_post += 1
+
+
+func _check_ball_wall_colissions() -> void:
+	var colission: Variant
+
+	if ball.direction.y < 0:
+		colission = wall_top.collides(ball.last_pos, ball.pos)
+		if colission != null:
+			ball.direction = colission
+			return
+	else:
+		colission = wall_bottom.collides(ball.last_pos, ball.pos)
+		if colission != null:
+			ball.direction = colission
+			return
+	
+	if ball.direction.x < 0:
+		colission = wall_left.collides(ball.last_pos, ball.pos)
+		if colission != null:
+			ball.direction = colission
+			return
+	else:	
+		colission = wall_right.collides(ball.last_pos, ball.pos)
+		if colission != null:
+			ball.direction = colission
+			return
+
+
+func _check_player_colissions() -> void:
+	if clock_running:
+		for player: SimPlayer in home_team.players:
+			for player2: SimPlayer in away_team.players:
+				if player.collides(player2):
+					player.stop()
+
+
