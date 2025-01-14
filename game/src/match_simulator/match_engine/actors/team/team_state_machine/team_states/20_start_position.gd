@@ -19,14 +19,14 @@ func enter() -> void:
 	ticks = 0
 
 	# move players to start positions
-	for player: SimPlayer in owner.team.players:
+	for player: SimPlayer in owner.players:
 		player.set_state(PlayerStateStartPosition.new())
 
 
 func execute() -> void:
 	# move players to positon
 	# if reached
-	for player: SimPlayer in owner.team.players:
+	for player: SimPlayer in owner.players:
 		if not player.destination_reached():
 			return
 	

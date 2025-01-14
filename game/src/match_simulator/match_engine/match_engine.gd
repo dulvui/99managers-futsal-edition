@@ -187,21 +187,23 @@ func _on_away_team_interception() -> void:
 
 
 func _on_goal_line_out() -> void:
-	if (
-		(home_team.has_ball and home_team.left_half and field.ball.pos.x < 600)
-		or (home_team.has_ball and not home_team.left_half and field.ball.pos.x > 600)
-	):
+	# corner
+	if home_team.has_ball:
+		if (home_team.left_half and field.ball.pos.x < 600) or (not home_team.left_half and field.ball.pos.x > 600):
+			away_possess()
+			away_team.stats.corners += 1
+			home_team.set_state(TeamStateCorner.new())
+			away_team.set_state(TeamStateCorner.new())
+			return
+	elif (away_team.left_half and field.ball.pos.x < 600) or (not away_team.left_half and field.ball.pos.x > 600):
 		home_possess()
 		home_team.stats.corners += 1
-	elif (
-		(away_team.has_ball and home_team.left_half and field.ball.pos.x > 600)
-		or (home_team.has_ball and not home_team.left_half and field.ball.pos.x < 600)
-	):
-		away_possess()
-		away_team.stats.corners += 1
+		home_team.set_state(TeamStateCorner.new())
+		away_team.set_state(TeamStateCorner.new())
+		return
 
 	# goalkeeper ball
-	elif field.ball.pos.x < 600:
+	if field.ball.pos.x < 600:
 		# left
 		field.ball.set_pos_xy(field.line_left + 40, field.size.y / 2)
 		set_goalkeeper_ball(home_team.left_half)

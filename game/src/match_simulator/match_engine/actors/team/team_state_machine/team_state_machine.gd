@@ -7,10 +7,12 @@ extends StateMachine
 
 
 var team: SimTeam
+var players: Array[SimPlayer]
 
 func _init(p_field: SimField, p_team: SimTeam) -> void:
 	super(p_field)
 	team = p_team
+	players = team.players
 	set_state(TeamStateEnterField.new())
 
 

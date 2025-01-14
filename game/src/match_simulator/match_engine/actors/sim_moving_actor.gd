@@ -48,9 +48,6 @@ func stop() -> void:
 	last_pos = pos
 
 
-"""
-Returns true on colission
-"""
 func collides(actor: MovingActor) -> bool:
 	# return actor.pos.distance_to(pos) < actor.radius + radius
 	return actor.pos.distance_squared_to(pos) < actor.radius + radius

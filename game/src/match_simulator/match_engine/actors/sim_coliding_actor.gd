@@ -16,10 +16,6 @@ func _init(p_from: Vector2, p_to: Vector2) -> void:
 	normal = from.direction_to(to)
 
 
-"""
-Returns reflection normal Vector2 on colission,
-null if no collision happens
-"""
 func collides(p_from: Vector2, p_to: Vector2) -> Variant:
 	if Geometry2D.segment_intersects_segment(from, to, p_from, p_to) == null:
 		return null
