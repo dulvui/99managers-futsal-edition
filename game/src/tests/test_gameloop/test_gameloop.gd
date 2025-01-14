@@ -3,7 +3,7 @@
 # SPDX-License-Identifier: AGPL-3.0-or-later
 
 class_name TestGameloop
-extends Node
+extends Test
 
 
 func test() -> void:
@@ -16,7 +16,7 @@ func test() -> void:
 		test_full_season()
 		print("test: season %d done..." % [season])
 
-	print("test: game loop.")
+	print("test: game loop done.")
 
 
 func test_full_season() -> void:
@@ -31,4 +31,4 @@ func test_full_season() -> void:
 
 	Global.next_season()
 
-	print("test: test full season done...")
+	print("test: test full season done.")

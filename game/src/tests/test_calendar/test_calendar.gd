@@ -3,13 +3,13 @@
 # SPDX-License-Identifier: AGPL-3.0-or-later
 
 class_name TestCalendar
-extends Node
+extends Test
 
 
 func test() -> void:
 	print("test: calendar...")
 	test_months_and_days_size()
-	print("test: calendar.")
+	print("test: calendar done.")
 
 
 func test_months_and_days_size() -> void:

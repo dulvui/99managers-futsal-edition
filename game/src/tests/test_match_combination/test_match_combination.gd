@@ -3,7 +3,7 @@
 # SPDX-License-Identifier: AGPL-3.0-or-later
 
 class_name TestMatchCombination
-extends Node
+extends Test
 
 const TEAMS: int = 10
 

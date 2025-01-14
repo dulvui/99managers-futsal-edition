@@ -3,7 +3,8 @@
 # SPDX-License-Identifier: AGPL-3.0-or-later
 
 class_name TestBenchmark
-extends Node
+extends Test
+
 
 var match_engine: MatchEngine
 var generator: Generator
