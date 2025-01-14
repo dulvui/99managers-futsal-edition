@@ -15,7 +15,7 @@ var radius: float
 
 
 func _init(p_radius: float) -> void:
-	radius = p_radius
+	radius = pow(p_radius, 2)
 
 
 func set_pos(p_pos: Vector2) -> void:
@@ -51,6 +51,6 @@ func stop() -> void:
 """
 Returns true on colission
 """
-# func collides(p_pos: Vector2, p_radius: float) -> bool:
 func collides(actor: MovingActor) -> bool:
-	return actor.pos.distance_to(pos) < actor.radius + radius
+	# return actor.pos.distance_to(pos) < actor.radius + radius
+	return actor.pos.distance_squared_to(pos) < actor.radius + radius
