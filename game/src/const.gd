@@ -54,7 +54,7 @@ const SCREEN_DASHBOARD: String = "res://src/screens/dashboard/dashboard.tscn"
 const SCREEN_SETUP_TEAM: String = "res://src/screens/setup/setup_team/setup_team.tscn"
 const SCREEN_SETUP_WORLD: String = "res://src/screens/setup/setup_world/setup_world.tscn"
 const SCREEN_SETUP_MANAGER: String = "res://src/screens/setup/setup_manager/setup_manager.tscn"
-const SCREEN_SETUP_LANGUAGE: String = "res://src/screens/setup_language/setup_language.tscn"
+const SCREEN_SETUP_LANGUAGE: String = "res://src/screens/setup/setup_language/setup_language.tscn"
 const SCREEN_MATCH: String = "res://src/screens/match/match.tscn"
 const SCREEN_SAVE_STATES: String = "res://src/screens/save_states_screen/save_states_screen.tscn"
 # scenes

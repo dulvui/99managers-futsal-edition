@@ -1,4 +1,4 @@
-[gd_scene load_steps=20 format=3 uid="uid://c8mhb22bae1my"]
+[gd_scene load_steps=21 format=3 uid="uid://c8mhb22bae1my"]
 
 [ext_resource type="Theme" uid="uid://pt1hrfiuwfpg" path="res://theme_base/theme.tres" id="1"]
 [ext_resource type="Script" path="res://src/screens/dashboard/dashboard.gd" id="2"]
@@ -15,6 +15,7 @@
 [ext_resource type="PackedScene" uid="uid://ccipqeqmthtfr" path="res://src/ui_components/transfers/contract_offer/contract_offer.tscn" id="9"]
 [ext_resource type="PackedScene" uid="uid://dtvkd1ks3xiqc" path="res://src/ui_components/player_profile/player_profile.tscn" id="11_838pl"]
 [ext_resource type="PackedScene" uid="uid://bpvg2vhxml3a1" path="res://src/ui_components/base/confirm_dialog/default_confirm_dialog.tscn" id="14_t4c55"]
+[ext_resource type="PackedScene" uid="uid://dwyn5mtdb3qra" path="res://src/ui_components/visual_finances/visual_finances.tscn" id="15_jfh6w"]
 
 [sub_resource type="InputEventJoypadButton" id="InputEventJoypadButton_3gkim"]
 button_index = 9
@@ -118,7 +119,6 @@ custom_minimum_size = Vector2(180, 0)
 layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 4
-disabled = true
 text = "FINANCES"
 alignment = 0
 script = ExtResource("3_kbasy")
@@ -434,6 +434,10 @@ unique_name_in_owner = true
 visible = false
 layout_mode = 2
 
+[node name="Finances" parent="MarginContainer/HBoxContainer/MainContainer/MarginContainer2/Content" instance=ExtResource("15_jfh6w")]
+unique_name_in_owner = true
+layout_mode = 2
+
 [node name="SaveConfirmDialog" parent="." instance=ExtResource("14_t4c55")]
 unique_name_in_owner = true
 visible = false
@@ -443,6 +447,7 @@ show_cancel = true
 [connection signal="pressed" from="MarginContainer/HBoxContainer/PanelContainer/MarginContainer/Buttons/EmailButton" to="." method="_on_email_button_pressed"]
 [connection signal="pressed" from="MarginContainer/HBoxContainer/PanelContainer/MarginContainer/Buttons/CalendarButton" to="." method="_on_calendar_button_pressed"]
 [connection signal="pressed" from="MarginContainer/HBoxContainer/PanelContainer/MarginContainer/Buttons/CompetitionsButton" to="." method="_on_competitions_button_pressed"]
+[connection signal="pressed" from="MarginContainer/HBoxContainer/PanelContainer/MarginContainer/Buttons/FinancesButton" to="." method="_on_finances_button_pressed"]
 [connection signal="pressed" from="MarginContainer/HBoxContainer/PanelContainer/MarginContainer/Buttons/FormationButton" to="." method="_on_formation_button_pressed"]
 [connection signal="pressed" from="MarginContainer/HBoxContainer/PanelContainer/MarginContainer/Buttons/PlayersButton" to="." method="_on_players_button_pressed"]
 [connection signal="pressed" from="MarginContainer/HBoxContainer/PanelContainer/MarginContainer/Buttons/SearchPlayerButton" to="." method="_on_search_player_button_pressed"]

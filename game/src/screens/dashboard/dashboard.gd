@@ -16,6 +16,7 @@ enum ContentViews {
 	PLAYER_OFFER,
 	CONTRACT_OFFER,
 	PLAYER_PROFILE,
+	FINANCES,
 }
 
 const DASHBOARD_DAY_DELAY: float = 0.5
@@ -53,6 +54,7 @@ var active_view: ContentViews = ContentViews.EMAIL
 @onready var player_offer: PlayerOffer = %PlayerOffer
 @onready var contract_offer: ContractOffer = %ContractOffer
 @onready var player_profile: PlayerProfile = %PlayerProfile
+@onready var finances: VisualFinances = %Finances
 
 # confirm dialogs
 @onready var save_confirm_dialog: DefaultConfirmDialog = %SaveConfirmDialog
@@ -136,6 +138,10 @@ func _on_players_button_pressed() -> void:
 	_show_active_view(ContentViews.PLAYERS)
 
 
+func _on_finances_button_pressed() -> void:
+	_show_active_view(ContentViews.FINANCES)
+
+
 func _on_all_player_list_select_player(player: Player) -> void:
 	player_profile.set_player(player)
 	_show_active_view(ContentViews.PLAYER_PROFILE)
@@ -185,6 +191,8 @@ func _show_active_view(p_active_view: int = -1, from_history: bool = false) -> v
 			player_profile.show()
 		ContentViews.CONTRACT_OFFER:
 			contract_offer.show()
+		ContentViews.FINANCES:
+			finances.show()
 		_:
 			email.show()
 
@@ -338,4 +346,6 @@ func _on_save_confirm_dialog_confirmed() -> void:
 
 func _on_save_confirm_dialog_denied() -> void:
 	Main.change_scene(Const.SCREEN_MENU)
+
+
 

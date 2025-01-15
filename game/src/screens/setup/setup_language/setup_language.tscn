@@ -2,7 +2,7 @@
 
 [ext_resource type="LabelSettings" uid="uid://b4gu78rjvdfx4" path="res://theme_base/label/label_settings_title.tres" id="2_30t4x"]
 [ext_resource type="PackedScene" uid="uid://djrvl8pvkr7aa" path="res://src/screens/settings/language_picker/language_picker.tscn" id="2_pkp0m"]
-[ext_resource type="Script" path="res://src/screens/setup_language/setup_language.gd" id="6"]
+[ext_resource type="Script" path="res://src/screens/setup/setup_language/setup_language.gd" id="6"]
 
 [node name="StartLanguage" type="Control"]
 layout_mode = 3

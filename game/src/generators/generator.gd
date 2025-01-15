@@ -408,7 +408,8 @@ func _get_random_morality() -> Player.Morality:
 
 func _get_contract(person: Person) -> Contract:
 	var contract: Contract = Contract.new()
-	contract.income = person.prestige * person.get_age(date)  # TODO use better logic
+	var age_factor: int = _get_age_factor(person.get_age(date))
+	contract.income = (person.prestige + age_factor) * 1000
 	contract.start_date = date
 	contract.end_date = date
 	contract.bonus_goal = 0
