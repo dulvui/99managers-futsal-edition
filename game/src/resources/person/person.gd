@@ -12,6 +12,7 @@ enum Role {
 	PRESIDENT,
 	SCOUT,
 	AGENT,
+	MEDICAL,
 }
 
 @export var id: int
@@ -59,7 +60,3 @@ func get_full_name() -> String:
 
 func get_age(date: Dictionary) -> int:
 	return date.year - birth_date.year
-
-
-func get_salary() -> int:
-	return contract.income

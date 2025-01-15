@@ -9,13 +9,17 @@ extends JSONResource
 # 1 is best, bigger is lower league
 @export var pyramid_level: int
 @export var name: String
+# total price money
+@export var price_money: int
 
 
 func _init(
 	p_id: int = IdUtil.next_id(IdUtil.Types.COMPETITION),
 	p_pyramid_level: int = 1,
 	p_name: String = "",
+	p_price_money: int = 0,
 ) -> void:
 	id = p_id
 	pyramid_level = p_pyramid_level
 	name = p_name
+	price_money = p_price_money

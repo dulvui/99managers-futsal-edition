@@ -134,8 +134,11 @@ func _initialize_team(
 
 	# calc budget, after players/stuff have been created
 	# so budget will alwyas be bigger as minimum needed
-	team.budget = _get_budget(temp_team_prestige)
-	team.salary_budget = _get_salary_budget(team.players, team.staff, temp_team_prestige)
+	team.finances.expenses = _get_salary_budget(team.players, team.staff)
+	# calulate balance
+	team.finances.balance = team.finances.expenses
+	# add random bonus depending on team prestige
+	team.finances.balance += RngUtil.rng.randi_range(temp_team_prestige * 1_000, temp_team_prestige * 100_000)
 
 
 func _assign_players_to_team(
@@ -665,24 +668,15 @@ func _load_person_names(world: World) -> void:
 			names[nation.name.to_lower()] = JSON.parse_string(names_file.get_as_text())
 
 
-func _get_budget(prestige: int) -> int:
-	return RngUtil.rng.randi_range(prestige * 10000, prestige * 100000)
-
-
-func _get_salary_budget(players: Array[Player], staff: Staff, prestige: int) -> int:
+func _get_salary_budget(players: Array[Player], staff: Staff) -> int:
 	var salary_budget: int = 0
 
 	# sum up all players salary
 	for player: Player in players:
-		salary_budget += player.get_salary()
+		salary_budget += player.contract.income
 
 	# sum up staff salary
-	salary_budget += staff.manager.get_salary()
-	salary_budget += staff.scout.get_salary()
-	salary_budget += staff.president.get_salary()
-
-	# add random increase
-	salary_budget += RngUtil.rng.randi_range(prestige * 1000, prestige * 10000)
+	salary_budget += staff.get_salary()
 
 	return salary_budget
 

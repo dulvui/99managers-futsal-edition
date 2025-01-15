@@ -2,10 +2,10 @@
 
 # SPDX-License-Identifier: AGPL-3.0-or-later
 
-# set flags to control debug logs and visuals
 extends Node
 
 
+# set flags to control debug logs and visuals
 var visual_state_machine: bool
 var match_engine: bool
 
@@ -14,6 +14,7 @@ func _ready() -> void:
 	visual_state_machine = true
 	match_engine = true
 	
+	# always reset flags, if not open in editor
 	if not OS.has_feature("editor"):
 		visual_state_machine = false
 		match_engine = false

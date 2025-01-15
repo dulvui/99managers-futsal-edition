@@ -8,8 +8,7 @@ extends JSONResource
 @export var id: int
 @export var name: String
 @export var formation: Formation
-@export var budget: int
-@export var salary_budget: int
+@export var finances: Finances
 # 0 to 4 active, 5 to 12 subs, 12 to x rest
 @export var players: Array[Player]
 
@@ -25,8 +24,7 @@ func _init(
 	p_id: int = IdUtil.next_id(IdUtil.Types.TEAM),
 	p_players: Array[Player] = [],
 	p_name: String = "",
-	p_budget: int = 0,
-	p_salary_budget: int = 0,
+	p_finances: Finances = Finances.new(),
 	p_formation: Formation = Formation.new(),
 	p_staff: Staff = Staff.new(),
 	p_stadium: Stadium = Stadium.new(),
@@ -35,8 +33,7 @@ func _init(
 ) -> void:
 	id = p_id
 	name = p_name
-	budget = p_budget
-	salary_budget = p_salary_budget
+	finances = p_finances
 	players = p_players
 	staff = p_staff
 	stadium = p_stadium
@@ -114,5 +111,5 @@ func get_prestige_stars() -> String:
 	var star_factor: int = Const.MAX_PRESTIGE / relation
 	var stars: int = max(1, get_prestige() / star_factor)
 	var spaces: int = 5 - stars
-	# creates right padding ex: "***  "
+	# creates right padding example: '***  '
 	return "*".repeat(stars) + "  ".repeat(spaces)
