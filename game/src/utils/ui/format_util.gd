@@ -10,7 +10,7 @@ const SIGNS: Array = ["€", "$", "£", "₿"]
 
 
 func get_sign(amount: int) -> String:
-	return str(amount) + " " + SIGNS[Global.currency]
+	return format_number(amount) + " " + SIGNS[Global.currency]
 
 
 func format_date(p_date: Dictionary) -> String:
@@ -23,3 +23,17 @@ func format_date(p_date: Dictionary) -> String:
 		+ " "
 		+ str(p_date.year)
 	)
+
+
+func format_number(number: int) -> String:
+	var formatted: String = str(number)
+	var string: String = str(number)
+
+	for i: int in range(string.length(), 0, -3):
+		formatted = formatted.substr(0 , i) + " " + formatted.substr(i)
+	
+	formatted = formatted.rstrip(" ")
+	# print(string + " becomes '" + formatted + "'")
+	return formatted
+	
+

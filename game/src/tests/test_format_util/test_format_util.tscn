@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://vm4k835pvvn5"]
+
+[ext_resource type="Script" path="res://src/tests/test_format_util/test_format_util.gd" id="1_j85mk"]
+
+[node name="TestFormatUtil" type="Node"]
+script = ExtResource("1_j85mk")

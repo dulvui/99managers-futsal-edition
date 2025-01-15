@@ -3,7 +3,7 @@
 # SPDX-License-Identifier: AGPL-3.0-or-later
 
 class_name TestRestUtil
-extends Node
+extends Test
 
 
 func test() -> void:
@@ -15,5 +15,5 @@ func test() -> void:
 	var world: World = World.new()
 	world.from_json(world_dict)
 
-	assert(world.continents.size() == world_reference.continents.size())
+	assert(world.continents.size() == world_reference.continents.size(), "WRONG")
 	print("test: res util done.")
