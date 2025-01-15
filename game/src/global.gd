@@ -106,11 +106,15 @@ func next_season() -> void:
 	current_season += 1
 
 	# TODO
-	# financial stuff
 	# set new goals for manager
 	# player contracts
 	# transfer markets
 	# save competition results in history
+	
+	if world.calendar.day().weekday == "MON":
+		# update finances
+		for t: Team in world.get_all_teams():
+			t.finances.update_season(t)
 
 	PlayerProgress.players_progress_season()
 
