@@ -9,6 +9,8 @@ extends Control
 @onready var balance: Label = %Balance
 @onready var expenses: Label = %Expenses
 @onready var income: Label = %Income
+@onready var salary_budget: Label = %SalaryBudget
+@onready var remaining_salary_budget: Label = %RemainingSalaryBudget
 
 
 func _ready() -> void:
@@ -18,8 +20,11 @@ func _ready() -> void:
 
 
 func setup(team: Team = Global.team) -> void:
-	balance.text = FormatUtil.currency(team.finances.balance)
-	expenses.text = FormatUtil.currency(team.finances.expenses)
-	income.text = FormatUtil.currency(team.finances.income)
+	balance.text = FormatUtil.currency(team.finances.balance[-1])
+	expenses.text = FormatUtil.currency(team.finances.expenses[-1])
+	income.text = FormatUtil.currency(team.finances.income[-1])
+
+	salary_budget.text = FormatUtil.currency(team.finances.get_salary_budget())
+	remaining_salary_budget.text = FormatUtil.currency(team.finances.get_remaining_salary_budget())
 
 

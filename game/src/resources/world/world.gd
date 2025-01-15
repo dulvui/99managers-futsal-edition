@@ -98,7 +98,6 @@ func get_league_by_team_id(team_id: int) -> League:
 	return null
 
 
-
 func get_competition_by_id(competition_id: int) -> Competition:
 	if world_cup.id == competition_id:
 		return world_cup
@@ -212,6 +211,15 @@ func get_all_cups() -> Array[Cup]:
 		for nation: Nation in contient.nations:
 			cups.append(nation.cup)
 	return cups
+
+
+func get_all_teams(include_national_teams: bool = false) -> Array[Team]:
+	var teams: Array[Team] = []
+
+	for nation: Nation in get_all_nations():
+		teams.append_array(nation.get_all_teams(include_national_teams))
+
+	return teams
 
 
 func promote_and_delegate_teams() -> void:

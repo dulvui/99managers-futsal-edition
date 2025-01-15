@@ -134,11 +134,11 @@ func _initialize_team(
 
 	# calc budget, after players/stuff have been created
 	# so budget will alwyas be bigger as minimum needed
-	team.finances.expenses = _get_salary_budget(team.players, team.staff)
+	team.finances.expenses[-1] = _get_salary_budget(team.players, team.staff)
 	# calulate balance
-	team.finances.balance = team.finances.expenses
+	team.finances.balance[-1] = team.finances.expenses[-1]
 	# add random bonus depending on team prestige
-	team.finances.balance += RngUtil.rng.randi_range(temp_team_prestige * 1_000, temp_team_prestige * 100_000)
+	team.finances.balance[-1] += RngUtil.rng.randi_range(temp_team_prestige * 1_000, temp_team_prestige * 100_000)
 
 
 func _assign_players_to_team(

@@ -49,17 +49,17 @@ func set_player(new_player: Player) -> void:
 	player = new_player
 	info_label.text = "The player " + player.name + " has a value of " + str(player.value)
 
-	if player.value <= Global.team.finances.balance:
+	if player.value <= Global.team.finances.balance[-1]:
 		amount = player.value
 	else:
-		amount = Global.team.finances.balance
+		amount = Global.team.finances.balance[-1]
 
 	total = amount
 	amount_label.text = str(amount)
 
 
 func _on_more_pressed() -> void:
-	if amount < team.finances.balance:
+	if amount < team.finances.balance[-1]:
 		amount += 1000
 		amount_label.text = str(amount)
 
@@ -122,8 +122,8 @@ func _on_amount_text_changed(new_text: String) -> void:
 		amount_label.text = oldtext
 
 	amount = int(amount_label.text)
-	if amount > team.finances.balance:
-		amount = team.finances.balance
+	if amount > team.finances.balance[-1]:
+		amount = team.finances.balance[-1]
 		amount_label.text = str(amount)
 
 	_calc_total()

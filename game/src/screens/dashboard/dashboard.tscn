@@ -430,6 +430,7 @@ layout_mode = 2
 
 [node name="Finances" parent="MarginContainer/HBoxContainer/MainContainer/MarginContainer2/Content" instance=ExtResource("15_jfh6w")]
 unique_name_in_owner = true
+visible = false
 layout_mode = 2
 
 [node name="SaveConfirmDialog" parent="." instance=ExtResource("14_t4c55")]

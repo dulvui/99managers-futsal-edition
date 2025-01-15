@@ -73,6 +73,18 @@ func get_team_by_id(team_id: int) -> Team:
 	return null
 
 
+func get_all_teams(include_national_team: bool = false) -> Array[Team]:
+	var teams: Array[Team] = []
+	
+	if include_national_team:
+		teams.append(team)
+
+	for league: League in leagues:
+		teams.append_array(league.teams)
+
+	return teams
+
+
 # to check if nation has competitions
 func is_competitive() -> bool:
 	return leagues.size() > 0

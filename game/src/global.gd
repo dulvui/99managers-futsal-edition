@@ -94,6 +94,13 @@ func next_day() -> void:
 
 	TransferUtil.update_day()
 
+	# new week starts
+	if world.calendar.day().weekday == "MON":
+		# update finances
+		for t: Team in world.get_all_teams():
+			t.finances.update_week(t)
+
+
 
 func next_season() -> void:
 	current_season += 1

@@ -10,6 +10,8 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
 script = ExtResource("1_1umup")
 
 [node name="Main" type="VBoxContainer" parent="."]
@@ -24,7 +26,7 @@ grow_vertical = 2
 layout_mode = 2
 
 [node name="BalanceLabel" type="Label" parent="Main/Balance"]
-custom_minimum_size = Vector2(240, 0)
+custom_minimum_size = Vector2(400, 0)
 layout_mode = 2
 text = "BALANCE"
 label_settings = ExtResource("2_c73cx")
@@ -38,7 +40,7 @@ text = "100 000 €"
 layout_mode = 2
 
 [node name="ExpensesLabel" type="Label" parent="Main/Expenses"]
-custom_minimum_size = Vector2(240, 0)
+custom_minimum_size = Vector2(400, 0)
 layout_mode = 2
 text = "EXPENSES"
 label_settings = ExtResource("2_c73cx")
@@ -48,11 +50,39 @@ unique_name_in_owner = true
 layout_mode = 2
 text = "100 000 €"
 
+[node name="SalaryBudget" type="HBoxContainer" parent="Main"]
+layout_mode = 2
+
+[node name="SalaryBudgetLabel" type="Label" parent="Main/SalaryBudget"]
+custom_minimum_size = Vector2(400, 0)
+layout_mode = 2
+text = "SALARY_BUDGET"
+label_settings = ExtResource("2_c73cx")
+
+[node name="SalaryBudget" type="Label" parent="Main/SalaryBudget"]
+unique_name_in_owner = true
+layout_mode = 2
+text = "100 000 €"
+
+[node name="RemainingSalaryBudget" type="HBoxContainer" parent="Main"]
+layout_mode = 2
+
+[node name="RemainingSalaryBudgetLabel" type="Label" parent="Main/RemainingSalaryBudget"]
+custom_minimum_size = Vector2(400, 0)
+layout_mode = 2
+text = "REAMAINING_SALARY_BUDGET"
+label_settings = ExtResource("2_c73cx")
+
+[node name="RemainingSalaryBudget" type="Label" parent="Main/RemainingSalaryBudget"]
+unique_name_in_owner = true
+layout_mode = 2
+text = "100 000 €"
+
 [node name="Income" type="HBoxContainer" parent="Main"]
 layout_mode = 2
 
 [node name="IncomeLabel" type="Label" parent="Main/Income"]
-custom_minimum_size = Vector2(240, 0)
+custom_minimum_size = Vector2(400, 0)
 layout_mode = 2
 text = "INCOME"
 label_settings = ExtResource("2_c73cx")
