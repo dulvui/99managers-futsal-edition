@@ -33,7 +33,6 @@ var active_view: ContentViews = ContentViews.EMAIL
 # top bar
 @onready var continue_button: Button = %ContinueButton
 @onready var next_match_button: Button = %NextMatchButton
-@onready var budget_label: Label = %Budget
 @onready var date_label: Label = %Date
 @onready var manager_label: Label = %ManagerName
 @onready var team_label: Label = %TeamName
@@ -95,7 +94,6 @@ func _process(_delta: float) -> void:
 		email_button.text = "[" + str(EmailUtil.count_unread_messages()) + "] " + tr("EMAIL")
 	else:
 		email_button.text = tr("EMAIL")
-	budget_label.text = FormatUtil.get_sign(team.finances.balance)
 
 
 func _on_search_action() -> void:

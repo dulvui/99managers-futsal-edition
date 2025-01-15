@@ -307,12 +307,6 @@ layout_mode = 2
 text = "Bolzano Futsal"
 label_settings = ExtResource("4_bc3th")
 
-[node name="Budget" type="Label" parent="MarginContainer/HBoxContainer/MainContainer/PanelContainer/MarginContainer/TopBar"]
-unique_name_in_owner = true
-layout_mode = 2
-text = "400.000 $"
-label_settings = ExtResource("4_bc3th")
-
 [node name="VSeparator" type="VSeparator" parent="MarginContainer/HBoxContainer/MainContainer/PanelContainer/MarginContainer/TopBar"]
 self_modulate = Color(1, 1, 1, 0)
 layout_mode = 2
