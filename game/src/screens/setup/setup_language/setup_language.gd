@@ -4,8 +4,6 @@
 
 extends Control
 
-@onready var scene_fade: SceneFade = %SceneFade
-
 func _ready() -> void:
 	InputUtil.start_focus(self)
 
