@@ -55,11 +55,17 @@ func update_week(team: Team) -> void:
 
 func update_season(team: Team) -> void:
 
-	var total_income: int = income.reduce(func(accum: int, number: int) -> int: return accum + number, 0)
-	var total_expenses: int = expenses.reduce(func(accum: int, number: int) -> int: return accum + number, 0)
+	var total_income: int = 0
+	for i: int in income:
+		total_income += i
+
+	var total_expenses: int = 0
+	for i: int in expenses:
+		total_expenses += i
+	
 	var total_profit: int = total_income - total_expenses
 
-	# caclulate taxes, base on profits, and can't be less than 0
+	# calculate taxes, base on profits, and can't be less than 0
 	income_tax = max(0, total_profit / 100 * 28)
 
 	# save to history
