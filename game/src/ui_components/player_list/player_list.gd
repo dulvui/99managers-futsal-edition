@@ -136,6 +136,9 @@ func _setup_columns() -> void:
 				# for dates
 				if typeof(value) == Variant.Type.TYPE_DICTIONARY:
 					return value
+				# for income
+				if "income" in c.name:
+					return FormatUtil.get_sign(value)
 				return str(value)
 			_add_column("CONTRACT", c.name, stats)
 
