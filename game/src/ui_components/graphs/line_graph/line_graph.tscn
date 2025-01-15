@@ -1,0 +1,22 @@
+[gd_scene load_steps=2 format=3 uid="uid://dvwdmsha3ewmw"]
+
+[ext_resource type="Script" path="res://src/ui_components/graphs/line_graph/line_graph.gd" id="1_r7xfx"]
+
+[node name="LineGraph" type="SubViewportContainer"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+script = ExtResource("1_r7xfx")
+
+[node name="SubViewport" type="SubViewport" parent="."]
+unique_name_in_owner = true
+handle_input_locally = false
+size = Vector2i(1920, 1080)
+render_target_update_mode = 4
+
+[node name="Canvas" type="Node2D" parent="SubViewport"]
+unique_name_in_owner = true

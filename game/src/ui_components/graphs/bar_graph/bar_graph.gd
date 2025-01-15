@@ -1,0 +1,53 @@
+# SPDX-FileCopyrightText: 2025 Simon Dalvai <info@simondalvai.org>
+
+# SPDX-License-Identifier: AGPL-3.0-or-later
+
+class_name BarGraph
+extends VBoxContainer
+
+
+@onready var positive_values: HBoxContainer = %PositiveValues
+@onready var negative_values: HBoxContainer = %NegativeValues
+
+
+func _ready() -> void:
+	# setup automatically, if run in editor and is run by 'Run current scene'
+	if OS.has_feature("editor") and get_parent() == get_tree().root:
+		setup([1, 2, 3, 0 , -1], "hello", "world")
+
+
+func setup(
+	values: Array[int],
+	_x_axis: String = "",
+	_y_axis: String = ""
+) -> void:
+
+	# find min/max value
+	var max_value: int = 0
+	for value: int in values:
+		if value > max_value:
+			max_value = value
+
+	# create bars
+	for value: int in values:
+		var bar: ProgressBar = ProgressBar.new()
+		bar.max_value = max_value
+		bar.value = abs(value)
+		bar.tooltip_text = str(value)
+		bar.show_percentage = false
+		bar.size_flags_vertical = Control.SIZE_FILL
+		bar.size_flags_horizontal = Control.SIZE_EXPAND_FILL
+		
+		var placeholder: Control = Control.new()
+		placeholder.size_flags_horizontal = Control.SIZE_EXPAND_FILL
+		placeholder.size_flags_vertical = Control.SIZE_EXPAND_FILL
+
+		if value >= 0:
+			bar.fill_mode = ProgressBar.FillMode.FILL_BOTTOM_TO_TOP
+			positive_values.add_child(bar)
+			negative_values.add_child(placeholder)
+		else:
+			bar.fill_mode = ProgressBar.FillMode.FILL_TOP_TO_BOTTOM
+			negative_values.add_child(bar)
+			positive_values.add_child(placeholder)
+
