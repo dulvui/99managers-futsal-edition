@@ -93,7 +93,7 @@ func _process(_delta: float) -> void:
 		email_button.text = "[" + str(EmailUtil.count_unread_messages()) + "] " + tr("EMAIL")
 	else:
 		email_button.text = tr("EMAIL")
-	budget_label.text = FormatUtil.get_sign(team.budget)
+	budget_label.text = FormatUtil.get_sign(team.finances.balance)
 
 
 func _on_search_action() -> void:

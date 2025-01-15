@@ -88,7 +88,7 @@ text = "GENERATION_SEED"
 [node name="GenerationSeedDescription" type="Label" parent="VBoxContainer/Seed"]
 custom_minimum_size = Vector2(0, 180)
 layout_mode = 2
-text = "This seed is used to generate all start values of the game, like player names, attributes or team budgets. The same seed will reproduce the exact same start values on any other device it's used, so you can reuse and share this seed.
+text = "This seed is used to generate all start values of the game, like player names, attributes or team.finances.balances. The same seed will reproduce the exact same start values on any other device it's used, so you can reuse and share this seed.
 You can find it later in the settings of the game."
 autowrap_mode = 2
 
