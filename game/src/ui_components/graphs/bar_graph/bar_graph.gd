@@ -13,7 +13,10 @@ extends VBoxContainer
 func _ready() -> void:
 	# setup automatically, if run in editor and is run by 'Run current scene'
 	if OS.has_feature("editor") and get_parent() == get_tree().root:
-		setup([1, 2, 3, 0 , -1], "hello", "world")
+		var test_values: Array[int] = []
+		for i: int in 100:
+			test_values.append(randi_range(-100, 100))
+		setup(test_values, "hello", "world")
 
 
 func setup(
@@ -38,9 +41,13 @@ func setup(
 		bar.size_flags_vertical = Control.SIZE_FILL
 		bar.size_flags_horizontal = Control.SIZE_EXPAND_FILL
 		
-		var placeholder: Control = Control.new()
+		var placeholder: ProgressBar = ProgressBar.new()
+		placeholder.max_value = max_value
+		placeholder.value = 0
+		placeholder.tooltip_text = str(value)
+		placeholder.show_percentage = false
+		placeholder.size_flags_vertical = Control.SIZE_FILL
 		placeholder.size_flags_horizontal = Control.SIZE_EXPAND_FILL
-		placeholder.size_flags_vertical = Control.SIZE_EXPAND_FILL
 
 		if value >= 0:
 			bar.fill_mode = ProgressBar.FillMode.FILL_BOTTOM_TO_TOP
