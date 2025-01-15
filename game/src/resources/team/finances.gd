@@ -48,3 +48,6 @@ func update_season(team: Team) -> void:
 
 	# TODO taxes
 
+
+func get_salary_budget() -> int:
+	return balance + income - expenses

@@ -36,7 +36,7 @@ func setup(p_transfer: Transfer) -> void:
 
 
 func _on_income_more_pressed() -> void:
-	if income < team.salary_budget:
+	if income < team.finances.get_salary_budget():
 		income += 1000
 	income_label.text = str(income)
 
