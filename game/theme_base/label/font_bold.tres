@@ -4,4 +4,8 @@
 
 [resource]
 base_font = ExtResource("1_jkmko")
+variation_opentype = {
+1869640570: 14,
+2003265652: 600
+}
 baseline_offset = 0.06
