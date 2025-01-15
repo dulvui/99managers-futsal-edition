@@ -58,7 +58,7 @@ func get_axis_icon(axis: JoyAxis) -> Texture:
 	return null
 
 
-func get_sign(input_event: InputEvent) -> String:
+func currency(input_event: InputEvent) -> String:
 	if active_joypad:
 		if input_event is InputEventJoypadButton:
 			var joypad_button: InputEventJoypadButton = input_event as InputEventJoypadButton

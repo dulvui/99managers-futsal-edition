@@ -71,6 +71,7 @@ func _ready() -> void:
 	all_players_list.setup()
 	player_list.setup(Global.team.id)
 	formation.setup(false)
+	finances.setup(Global.team)
 
 	if Global.world.calendar.is_match_day():
 		continue_button.text = "START_MATCH"

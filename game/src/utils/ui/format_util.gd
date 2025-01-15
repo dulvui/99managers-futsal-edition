@@ -9,7 +9,7 @@ enum Currencies { EURO, DOLLAR, POUND, BITCOIN }
 const SIGNS: Array = ["€", "$", "£", "₿"]
 
 
-func get_sign(amount: int) -> String:
+func currency(amount: int) -> String:
 	return format_number(amount) + " " + SIGNS[Global.currency]
 
 
