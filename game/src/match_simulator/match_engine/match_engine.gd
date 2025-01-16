@@ -23,9 +23,11 @@ var interception_timer: int
 func setup(p_home_team: Team, p_away_team: Team, match_seed: int) -> void:
 	field = SimField.new()
 
-	field.goal_line_out.connect(_on_goal_line_out)
 	field.touch_line_out.connect(_on_touch_line_out)
-	field.goal.connect(_on_goal)
+	field.goal_line_out_left.connect(_on_goal_line_out_left)
+	field.goal_line_out_right.connect(_on_goal_line_out_right)
+	field.goal_left.connect(_on_goal_left)
+	field.goal_right.connect(_on_goal_right)
 
 	ticks = 0
 	possession_counter = 0.0
@@ -176,36 +178,34 @@ func _on_away_team_interception() -> void:
 	away_possess()
 
 
-func _on_goal_line_out() -> void:
-	# ball exits left side
-	if field.ball.pos.x < field.size.x / 2:
-		# home team corner
-		if away_team.has_ball and away_team.left_half:
-			_corner_home()
-			return
-		
-		# away team corner
-		if home_team.has_ball and home_team.left_half:
-			_corner_away()
-			return
-		
-		# goalkeeper ball
-		field.ball.set_pos_xy(field.line_left + 40, field.center.y)
+func _on_goal_line_out_left() -> void:
+	# home team corner
+	if away_team.has_ball and away_team.left_half:
+		_corner_home()
+		return
+	
+	# away team corner
+	if home_team.has_ball and home_team.left_half:
+		_corner_away()
+		return
+	
+	# goalkeeper ball
+	field.ball.set_pos_xy(field.line_left + 40, field.center.y)
 
-	# ball exits right side
-	else:
-		# home team corner
-		if away_team.has_ball and not away_team.left_half:
-			_corner_home()
-			return
-		
-		# away team corner
-		if home_team.has_ball and not home_team.left_half:
-			_corner_away()
-			return
-		
-		# goalkeeper ball
-		field.ball.set_pos_xy(field.line_right - 40, field.center.y)
+
+func _on_goal_line_out_right() -> void:
+	# home team corner
+	if away_team.has_ball and not away_team.left_half:
+		_corner_home()
+		return
+	
+	# away team corner
+	if home_team.has_ball and not home_team.left_half:
+		_corner_away()
+		return
+	
+	# goalkeeper ball
+	field.ball.set_pos_xy(field.line_right - 40, field.center.y)
 
 
 func _corner_home() -> void:
@@ -234,17 +234,26 @@ func _on_touch_line_out() -> void:
 	away_team.set_state(TeamStateKickin.new())
 
 
-func _on_goal() -> void:
+func _on_goal_left() -> void:
 	home_team.set_state(TeamStateGoal.new())
 	away_team.set_state(TeamStateGoal.new())
 
-	if home_team.has_ball:
+	if away_team.left_half:
 		home_team.stats.goals += 1
 		away_possess()
 	else:
 		away_team.stats.goals += 1
 		home_possess()
 
-	#print("%s : %s"%[home_team.stats.goals, away_team.stats.goals])
 
+func _on_goal_right() -> void:
+	home_team.set_state(TeamStateGoal.new())
+	away_team.set_state(TeamStateGoal.new())
+
+	if home_team.left_half:
+		home_team.stats.goals += 1
+		away_possess()
+	else:
+		away_team.stats.goals += 1
+		home_possess()
 

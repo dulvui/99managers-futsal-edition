@@ -111,19 +111,20 @@ func _init(field: SimField) -> void:
 	)
 
 
-func is_goal(ball: SimBall) -> Variant:
-	var intersection: Variant
-
-	# left
-	if ball.direction.x < 0:
-		intersection = Geometry2D.segment_intersects_segment(
-			ball.last_pos, ball.pos, post_bottom_left, post_top_left
-		)
-	# right
-	else:
-		intersection = Geometry2D.segment_intersects_segment(
+func is_goal_right(ball: SimBall) -> Variant:
+	var intersection: Variant = Geometry2D.segment_intersects_segment(
 			ball.last_pos, ball.pos, post_bottom_right, post_top_right
-		)
+	)
+
+	if intersection and intersection.y < post_bottom and intersection.y > post_top:
+		return intersection
+	return null
+
+
+func is_goal_left(ball: SimBall) -> Variant:
+	var intersection: Variant = Geometry2D.segment_intersects_segment(
+			ball.last_pos, ball.pos, post_bottom_left, post_top_left
+	)
 
 	if intersection and intersection.y < post_bottom and intersection.y > post_top:
 		return intersection

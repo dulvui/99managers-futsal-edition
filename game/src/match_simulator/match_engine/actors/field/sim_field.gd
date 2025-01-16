@@ -4,9 +4,14 @@
 
 class_name SimField
 
-signal goal_line_out
 signal touch_line_out
-signal goal
+
+signal goal_line_out_left
+signal goal_line_out_right
+
+signal goal_left
+signal goal_right
+
 
 # 1 meter = x PIXEL_FACTOR
 const PIXEL_FACTOR: int = 28
@@ -150,34 +155,39 @@ func _check_ball_bounds() -> void:
 			return
 
 	# goal or corner / x axis
-	if ball.pos.x < line_left or ball.pos.x > line_right:
+	if ball.pos.x < line_left:
 		clock_running = false
-		var goal_intersection: Variant = goals.is_goal(ball)
+		var goal_intersection: Variant = goals.is_goal_left(ball)
 
 		if goal_intersection:
-			ball.set_pos(center)
-			goal.emit()
+			goal_left.emit()
 			return
 
 		# corner
 		if ball.pos.y < center.y:
-			# top
-			if ball.pos.x < center.x:
-				# left
-				ball.set_pos(top_left)
-			else:
-				# right
-				ball.set_pos(top_right)
+			ball.set_pos(top_left)
 		else:
-			# bottom
-			if ball.pos.x < center.x:
-				# left
-				ball.set_pos(bottom_left)
-			else:
-				# right
-				ball.set_pos(bottom_right)
+			ball.set_pos(bottom_left)
 
-		goal_line_out.emit()
+		goal_line_out_left.emit()
+		return
+	
+	if ball.pos.x > line_right:
+		clock_running = false
+		var goal_intersection: Variant = goals.is_goal_right(ball)
+
+		if goal_intersection:
+			ball.set_pos(center)
+			goal_right.emit()
+			return
+
+		# corner
+		if ball.pos.y < center.y:
+			ball.set_pos(top_right)
+		else:
+			ball.set_pos(bottom_right)
+
+		goal_line_out_right.emit()
 		return
 
 

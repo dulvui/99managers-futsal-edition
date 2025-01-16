@@ -16,6 +16,9 @@ func _init() -> void:
 
 
 func enter() -> void:
+	# move ball to center
+	owner.field.ball.set_pos(owner.field.center)
+
 	ticks = 0
 
 	# move players to start positions
