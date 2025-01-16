@@ -7,9 +7,10 @@ extends TeamStateMachineState
 
 
 const MAX = Const.TICKS_PER_SECOND * 8
-const MIN = Const.TICKS_PER_SECOND * 2
+const MIN = Const.TICKS_PER_SECOND * 4
 
 var celebration_time: int
+var is_celebrating: bool
 
 
 func _init() -> void:
@@ -18,6 +19,8 @@ func _init() -> void:
 
 func enter() -> void:
 	# value could be adjusted on how important goal is
+	is_celebrating = owner.team.has_ball
+
 	if owner.team.has_ball:
 		celebration_time = RngUtil.match_rng.randi_range(MIN, MAX)
 
@@ -26,11 +29,9 @@ func enter() -> void:
 
 
 func execute() -> void:
-	if owner.team.has_ball:
+	if is_celebrating:
 		# celebrate
 		celebration_time -= 1
 		if celebration_time < 0:
-			set_state(TeamStateKickoff.new())
-	else:
-		# players are sad
-		set_state(TeamStateKickoff.new())
+			set_state(TeamStateStartPositions.new())
+			owner.team.team_opponents.set_state(TeamStateStartPositions.new())
