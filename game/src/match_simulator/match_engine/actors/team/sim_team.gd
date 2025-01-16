@@ -132,7 +132,8 @@ func find_nearest_player_to(position: Vector2, exclude: Array[SimPlayer] = []) -
 
 
 func set_nearest_player_to_ball() -> void:
-	player_nearest_to_ball = find_nearest_player_to(field.ball.pos)
+	# exclude goalkeeper
+	player_nearest_to_ball = find_nearest_player_to(field.ball.pos, [players[0]])
 
 
 func reset_key_players() -> void:

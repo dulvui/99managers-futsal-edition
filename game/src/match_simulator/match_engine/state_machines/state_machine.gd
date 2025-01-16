@@ -29,10 +29,19 @@ func execute() -> void:
 
 func set_state(p_state: StateMachineState) -> void:
 	if state:
+		# don't set same states again
+		if p_state.name == state.name:
+			return
+
+		# exit current and set as previous
 		state.exit()
 		previous_state = state
+
+	# enter and set as current
 	p_state.enter()
 	state = p_state
+
+	# append to buffer
 	# _buffer_append()
 
 
