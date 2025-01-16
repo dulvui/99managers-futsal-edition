@@ -2,12 +2,12 @@
 
 # SPDX-License-Identifier: AGPL-3.0-or-later
 
-class_name PlayerStateAttackShoot
+class_name PlayerStateShoot
 extends PlayerStateMachineState
 
 
 func _init() -> void:
-	super("PlayerStateAttackShoot")
+	super("PlayerStateShoot")
 
 
 func enter() -> void:

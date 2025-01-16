@@ -2,19 +2,20 @@
 
 # SPDX-License-Identifier: AGPL-3.0-or-later
 
-class_name PlayerStateAttackPass
+class_name PlayerStatePass
 extends PlayerStateMachineState
 
 
-const PERFECT_PASS_DISTANCE_SQUARED: int = pow(140, 2)
+# 120 squared
+const PERFECT_PASS_DISTANCE_SQUARED: int = 19600
 
 
 func _init() -> void:
-	super("PlayerStateAttackPass")
+	super("PlayerStatePass")
 
 
 func execute() -> void:
-	# find_best_pass
+	# find best pass
 	var best_player: SimPlayer
 	var delta: float = 1.79769e308 # max float
 	for player: SimPlayer in owner.team.players:
@@ -28,7 +29,7 @@ func execute() -> void:
 	owner.field.ball.short_pass(owner.team.player_receive_ball.pos, 40)
 	owner.team.stats.passes += 1
 	
-	owner.team.player_receive_ball.state_machine.set_state(PlayerStateAttackReceive.new())
+	owner.team.player_receive_ball.state_machine.set_state(PlayerStateReceive.new())
 
 	set_state(PlayerStateWait.new())
 	return

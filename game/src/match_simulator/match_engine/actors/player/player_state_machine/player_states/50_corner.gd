@@ -46,4 +46,4 @@ func execute() -> void:
 		if owner.player.destination_reached():
 			wait_counter += 1
 			if wait_counter >= wait:
-				owner.team.player_control.set_state(PlayerStateAttackPass.new())
+				owner.team.player_control.set_state(PlayerStatePass.new())

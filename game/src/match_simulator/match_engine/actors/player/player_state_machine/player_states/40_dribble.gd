@@ -2,19 +2,19 @@
 
 # SPDX-License-Identifier: AGPL-3.0-or-later
 
-class_name PlayerStateAttackDribble
+class_name PlayerStateDribble
 extends PlayerStateMachineState
 
 
 func _init() -> void:
-	super("PlayerStateAttackDribble")
+	super("PlayerStateDribble")
 
 
 func enter() -> void:
 	if owner.team.left_half:
-		owner.field.ball.dribble(owner.player.pos + Vector2(50, 0), 10)
+		owner.field.ball.dribble(owner.player.pos + Vector2(50, 0), 2)
 	else:
-		owner.field.ball.dribble(owner.player.pos + Vector2(-50, 0), 10)
+		owner.field.ball.dribble(owner.player.pos + Vector2(-50, 0), 2)
 	set_state(PlayerStateWait.new())
 	return
 

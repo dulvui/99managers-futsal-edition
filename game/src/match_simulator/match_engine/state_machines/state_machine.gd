@@ -42,7 +42,7 @@ func set_state(p_state: StateMachineState) -> void:
 	state = p_state
 
 	# append to buffer
-	# _buffer_append()
+	_buffer_append()
 
 
 func _buffer_append() -> void:

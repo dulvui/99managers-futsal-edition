@@ -6,7 +6,8 @@ class_name PlayerStateWait
 extends PlayerStateMachineState
 
 
-const PERFECT_SHOOT_DISTANCE_SQUARED: int = pow(80, 2)
+# 80 squared
+const PERFECT_SHOOT_DISTANCE_SQUARED: int = 5600
 
 
 func _init() -> void:
@@ -18,18 +19,18 @@ func execute() -> void:
 		# check shoot
 		if should_shoot():
 			# print("shoot")
-			set_state(PlayerStateAttackShoot.new())
+			set_state(PlayerStateShoot.new())
 			return
 
 		# check pass
 		if RngUtil.match(95):
 			# print("pass")
-			set_state(PlayerStateAttackPass.new())
+			set_state(PlayerStatePass.new())
 			return
 
 		# check dribble
 		# print("dribble")
-		set_state(PlayerStateAttackPass.new())
+		set_state(PlayerStatePass.new())
 		return
 	elif owner.player.is_goalkeeper:
 		set_state(PlayerStateGoalkeeperFollowBall.new())

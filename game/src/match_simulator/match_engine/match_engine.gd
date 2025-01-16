@@ -73,9 +73,6 @@ func update() -> void:
 	else:
 		home_team.check_changes()
 		away_team.check_changes()
-	
-
-	assert(home_team.has_ball != away_team.has_ball)
 
 
 func simulate(matchz: Match) -> Match:
@@ -238,6 +235,9 @@ func _on_touch_line_out() -> void:
 
 
 func _on_goal() -> void:
+	home_team.set_state(TeamStateGoal.new())
+	away_team.set_state(TeamStateGoal.new())
+
 	if home_team.has_ball:
 		home_team.stats.goals += 1
 		away_possess()

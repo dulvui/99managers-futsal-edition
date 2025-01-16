@@ -25,8 +25,8 @@ func execute() -> void:
 	if owner.team.has_ball:
 		owner.team.player_control = owner.team.player_nearest_to_ball
 		if owner.team.player_control.destination_reached():
-			owner.team.player_control.set_state(PlayerStateAttackPass.new())
+			owner.team.player_control.set_state(PlayerStatePass.new())
 			set_state(TeamStateAttack.new())
 			return
-	else:
+	elif owner.field.clock_running:
 		set_state(TeamStateDefend.new())
