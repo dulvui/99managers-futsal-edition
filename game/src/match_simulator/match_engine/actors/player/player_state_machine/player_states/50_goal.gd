@@ -11,8 +11,9 @@ func _init() -> void:
 
 
 func enter() -> void:
+	var deviation: Vector2 = Vector2(RngUtil.match_rng.randi_range(-50, 50),RngUtil.match_rng.randi_range(-50, 50))
 	if owner.team.has_ball:
-		owner.player.set_destination(owner.field.center)
+		owner.player.set_destination(owner.field.center + deviation)
 
 func execute() -> void:
 	pass

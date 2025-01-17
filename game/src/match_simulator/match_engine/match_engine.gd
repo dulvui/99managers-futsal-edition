@@ -235,25 +235,23 @@ func _on_touch_line_out() -> void:
 
 
 func _on_goal_left() -> void:
-	home_team.set_state(TeamStateGoal.new())
-	away_team.set_state(TeamStateGoal.new())
-
 	if away_team.left_half:
 		home_team.stats.goals += 1
+		away_team.set_state(TeamStateGoalCelebrate.new())
 		away_possess()
 	else:
 		away_team.stats.goals += 1
+		home_team.set_state(TeamStateGoalCelebrate.new())
 		home_possess()
 
 
 func _on_goal_right() -> void:
-	home_team.set_state(TeamStateGoal.new())
-	away_team.set_state(TeamStateGoal.new())
-
 	if home_team.left_half:
 		home_team.stats.goals += 1
+		home_team.set_state(TeamStateGoalCelebrate.new())
 		away_possess()
 	else:
 		away_team.stats.goals += 1
+		away_team.set_state(TeamStateGoalCelebrate.new())
 		home_possess()
 
