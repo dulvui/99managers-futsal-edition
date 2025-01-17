@@ -23,7 +23,7 @@ func enter() -> void:
 
 	# move players to start positions
 	for player: SimPlayer in owner.players:
-		player.set_state(PlayerStateStartPosition.new())
+		player.move_defense_pos()
 
 
 func execute() -> void:

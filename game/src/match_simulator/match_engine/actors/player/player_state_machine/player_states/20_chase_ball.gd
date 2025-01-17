@@ -23,10 +23,12 @@ func execute() -> void:
 	if owner.player.is_goalkeeper:
 		if owner.player.left_half:
 			if owner.player.pos.distance_squared_to(owner.player.left_base) > 5600:
-				set_state(PlayerStateStartPosition.new())
+				owner.player.move_defense_pos()
+				set_state(PlayerStateWait.new())
 				return
 		else:
 			if owner.player.pos.distance_squared_to(owner.player.right_base) > 5600:
-				set_state(PlayerStateStartPosition.new())
+				owner.player.move_defense_pos()
+				set_state(PlayerStateWait.new())
 				return
 

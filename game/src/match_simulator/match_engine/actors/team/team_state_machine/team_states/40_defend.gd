@@ -13,7 +13,7 @@ func _init() -> void:
 func enter() -> void:
 	# move players with no ball into positions
 	for player: SimPlayer in owner.team.players:
-		player.set_state(PlayerStateStartPosition.new())
+		player.move_defense_pos()
 
 
 func execute() -> void:

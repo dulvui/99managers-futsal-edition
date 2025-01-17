@@ -109,6 +109,25 @@ func move() -> void:
 		player_res.consume_stamina()
 
 
+func move_offense_pos() -> void:
+	var deviation_x: int = RngUtil.match_rng.randi_range(-10, 10)
+	var deviation_y: int = RngUtil.match_rng.randi_range(-10, 10)
+	var deviation: Vector2 = Vector2(field.size.x / 3 + deviation_x, deviation_y)
+
+	if not left_half:
+		deviation.x = -deviation.x
+
+	set_destination(start_pos + deviation)
+
+
+func move_defense_pos() -> void:
+	var deviation_x: int = RngUtil.match_rng.randi_range(-10, 10)
+	var deviation_y: int = RngUtil.match_rng.randi_range(-10, 10)
+	var deviation: Vector2 = Vector2(deviation_x, deviation_y)
+
+	set_destination(start_pos + deviation)
+
+
 func _block_shot() -> bool:
 	if is_touching_ball():
 		return (

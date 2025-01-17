@@ -35,6 +35,11 @@ func execute() -> void:
 	elif owner.player.is_goalkeeper:
 		set_state(PlayerStateGoalkeeperFollowBall.new())
 		return
+	else:
+		if owner.team.has_ball:
+			owner.player.move_offense_pos()
+		else:
+			owner.player.move_defense_pos()
 
 
 func should_shoot() -> bool:
