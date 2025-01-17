@@ -77,10 +77,16 @@ func update() -> void:
 		away_team.check_changes()
 
 
-func simulate(matchz: Match) -> Match:
+func simulate(end_time: int = Const.FULL_TIME_SECONDS) -> void:
 	print("simulating match...")
 	var start_time: int = Time.get_ticks_msec()
-	setup(matchz.home, matchz.away, matchz.id)
+	
+	# save simulated flags, to restore if endtime < FULL_TIME_SECONDS
+	var home_simulated: bool = home_team.simulated
+	var away_simulated: bool = away_team.simulated
+	# set simulation flags to activate auto changes ecc
+	home_team.simulated = true
+	away_team.simulated = true
 
 	# first half
 	var time: int = 0
@@ -88,6 +94,12 @@ func simulate(matchz: Match) -> Match:
 		update()
 		if field.clock_running:
 			time += 1
+			
+			# stop simulation
+			if time == end_time:
+				home_team.simulated = home_simulated
+				away_team.simulated = away_simulated
+				return
 	
 	print("half time...")
 	half_time()
@@ -97,18 +109,25 @@ func simulate(matchz: Match) -> Match:
 		update()
 		if field.clock_running:
 			time += 1
+			# stop simulation
+			if time == end_time:
+				home_team.simulated = home_simulated
+				away_team.simulated = away_simulated
+				return
 	full_time()
-
-	matchz.home_goals = home_team.stats.goals
-	matchz.away_goals = away_team.stats.goals
 
 	var load_time: int = Time.get_ticks_msec() - start_time
 	print("benchmark in: " + str(load_time) + " ms")
 
-	print("result: " + matchz.get_result())
-	print("shots: h%d - a%d" % [home_team.stats.shots, away_team.stats.shots])
+	print("result: %d - %d" % [home_team.stats.goals, away_team.stats.goals])
+	print("shots:  %d - %d" % [home_team.stats.shots, away_team.stats.shots])
 	print("simulating match done.")
-	return matchz
+
+
+func simulate_match(matchz: Match) -> void:
+	setup(matchz.home, matchz.away, matchz.id)
+	simulate()
+	matchz.set_result(home_team.stats.goals, away_team.stats.goals)
 
 
 func half_time() -> void:
@@ -254,4 +273,3 @@ func _on_goal_right() -> void:
 		away_team.stats.goals += 1
 		away_team.set_state(TeamStateGoalCelebrate.new())
 		home_possess()
-

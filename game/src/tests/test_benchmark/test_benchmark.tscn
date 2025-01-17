@@ -1,6 +1,0 @@
-[gd_scene load_steps=2 format=3 uid="uid://bdgs0oj88j3qp"]
-
-[ext_resource type="Script" path="res://src/tests/test_benchmark/test_benchmark.gd" id="1_lfpbd"]
-
-[node name="Benchmark" type="Node"]
-script = ExtResource("1_lfpbd")

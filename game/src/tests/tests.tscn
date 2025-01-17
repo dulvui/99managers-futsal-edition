@@ -1,8 +1,7 @@
-[gd_scene load_steps=10 format=3 uid="uid://dauiul27o5t72"]
+[gd_scene load_steps=9 format=3 uid="uid://dauiul27o5t72"]
 
 [ext_resource type="PackedScene" uid="uid://kv2bpwmcco3t" path="res://src/tests/test_generator/test_generator.tscn" id="1_dyknh"]
 [ext_resource type="Script" path="res://src/tests/tests.gd" id="1_t2lbh"]
-[ext_resource type="PackedScene" uid="uid://bdgs0oj88j3qp" path="res://src/tests/test_benchmark/test_benchmark.tscn" id="2_vtxn4"]
 [ext_resource type="PackedScene" uid="uid://b746ub8qrebs0" path="res://src/tests/test_match_combination/test_match_combination.tscn" id="4_ldc2r"]
 [ext_resource type="PackedScene" uid="uid://cx53uix2kysys" path="res://src/tests/test_match_engine/test_match_engine.tscn" id="4_p5e07"]
 [ext_resource type="PackedScene" uid="uid://b4be7fe8k03ed" path="res://src/tests/test_calendar/test_calendar.tscn" id="5_d4v01"]
@@ -18,8 +17,6 @@ script = ExtResource("1_t2lbh")
 [node name="TestGenerator" parent="." instance=ExtResource("1_dyknh")]
 
 [node name="TestMatchEngine" parent="." instance=ExtResource("4_p5e07")]
-
-[node name="TestBenchmark" parent="." instance=ExtResource("2_vtxn4")]
 
 [node name="TestGameloop" parent="." instance=ExtResource("6_23yln")]
 

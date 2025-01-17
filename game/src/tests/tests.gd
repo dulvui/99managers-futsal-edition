@@ -8,7 +8,6 @@ extends Node
 @onready var test_calendar: TestCalendar = $TestCalendar
 @onready var test_generator: TestGenerator = $TestGenerator
 @onready var test_match_engine: TestMatchEngine = $TestMatchEngine
-@onready var test_benchmark: TestBenchmark = $TestBenchmark
 @onready var test_gameloop: TestGameloop = $TestGameloop
 @onready var test_match_combination: TestMatchCombination = $TestMatchCombination
 @onready var test_res_util: TestRestUtil = $TestResUtil
@@ -41,7 +40,6 @@ func tests_fast() -> void:
 func tests_intensive() -> void:
 	print("start tests: intenstive...")
 	test_match_engine.test()
-	test_benchmark.test()
 	test_gameloop.test()
 	print("start tests: intenstive done.")
 

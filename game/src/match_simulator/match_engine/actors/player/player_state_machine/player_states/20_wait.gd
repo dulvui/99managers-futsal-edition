@@ -15,6 +15,10 @@ func _init() -> void:
 
 
 func execute() -> void:
+	# wait during kickoff
+	if owner.team.state_machine.state is TeamStateKickoff:
+		return
+
 	if owner.team.player_control == owner.player:
 		# check shoot
 		if should_shoot():

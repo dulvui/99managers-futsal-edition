@@ -20,16 +20,17 @@ func test_deterministic_simulations() -> void:
 	const AMOUNT: int = 3
 	
 	var league: League = Tests.create_mock_league()
+	
+	var match_engine: MatchEngine = MatchEngine.new()
 
 	# simulate matches
 	for i: int in AMOUNT:
-		var match_engine: MatchEngine = MatchEngine.new()
 		var matchz: Match = Match.new()
 		# use always same match id, since match seed is match is
 		matchz.id = 1
 		matches.append(matchz)
 		matchz.setup(league.teams[0], league.teams[1], league.id, league.name)
-		match_engine.simulate(matchz)
+		match_engine.simulate_match(matchz)
 		print("test: match %d calculated"%int(i + 1))
 	
 	# check results
@@ -52,3 +53,11 @@ func test_possess_change() -> void:
 	assert(match_engine.away_team.has_ball == true)
 	assert(match_engine.home_team.has_ball == false)
 	print("test: possess change done...")
+
+
+func test_benchmark() -> void:
+	print("test: match engine benchmark...")
+	var match_engine: MatchEngine = MatchEngine.new()
+	match_engine.setup(Tests.create_mock_team(), Tests.create_mock_team(), 123)
+	match_engine.simulate()
+	print("test: match engine benchmark done.")

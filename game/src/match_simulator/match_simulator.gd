@@ -24,7 +24,6 @@ var match_engine: MatchEngine
 @onready var visual_state_machine: VisualStateMachine = %VisualStateMachine
 
 
-
 func _physics_process(delta: float) -> void:
 	camera.position = camera.position.lerp(visual_match.visual_ball.global_position, delta * CAMERA_SPEED)
 
@@ -72,42 +71,11 @@ func setup(home_team: Team, away_team: Team, match_seed: int) -> void:
 	timer.start()
 
 
-func simulate(end_time: int = Const.FULL_TIME_SECONDS) -> void:
-	# save simulated flags, to restore if endtime < FULL_TIME_SECONDS
-	var home_simulated: bool = match_engine.home_team.simulated
-	var away_simulated: bool = match_engine.away_team.simulated
-	# set simulation flags to activate auto changes ecc
-	match_engine.home_team.simulated = true
-	match_engine.away_team.simulated = true
-
+func simulate() -> void:
+	match_engine.simulate()
+	time = Const.HALF_TIME_SECONDS * 2
 	timer.stop()
-	
-	# first half
-	if time < Const.HALF_TIME_SECONDS:
-		while time < Const.HALF_TIME_SECONDS:
-			match_engine.update()
-			_tick()
-			# stop simulation
-			if time == end_time:
-				match_engine.home_team.simulated = home_simulated
-				match_engine.away_team.simulated = away_simulated
-				timer.start()
-				return
-
-		match_engine.half_time()
-	
-	# second half
-	while time < Const.FULL_TIME_SECONDS:
-		match_engine.update()
-		_tick()
-		# stop simulation
-		if time == end_time:
-			match_engine.home_team.simulated = home_simulated
-			match_engine.away_team.simulated = away_simulated
-			timer.start()
-			return
-	
-	match_engine.full_time()
+	update_time.emit()
 
 
 func pause_toggle() -> bool:

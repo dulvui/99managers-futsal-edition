@@ -115,12 +115,16 @@ func _init() -> void:
 func update() -> void:
 	calculator.update()
 	ball.update()
-	_check_ball_bounds()
+
+	# check field bounds
+	if clock_running:
+		if not _check_goal_line():
+			_check_touch_line()
+		goals.check_post_colissions(ball)
 
 	# collissions
 	_check_ball_wall_colissions()
 	_check_player_colissions()
-	goals.check_post_colissions(ball)
 
 
 func force_update_calculator() -> void:
@@ -133,7 +137,7 @@ func bound(pos: Vector2) -> Vector2:
 	return pos
 
 
-func _check_ball_bounds() -> void:
+func _check_touch_line() -> void:
 	# kick in / y axis
 	if ball.pos.y < line_top:
 		var intersection: Variant = Geometry2D.segment_intersects_segment(
@@ -154,14 +158,15 @@ func _check_ball_bounds() -> void:
 			touch_line_out.emit()
 			return
 
-	# goal or corner / x axis
+
+func _check_goal_line() -> bool:
+	# left
 	if ball.pos.x < line_left:
 		clock_running = false
-		var goal_intersection: Variant = goals.is_goal_left(ball)
 
-		if goal_intersection:
+		if goals.is_goal_left(ball):
 			goal_left.emit()
-			return
+			return true
 
 		# corner
 		if ball.pos.y < center.y:
@@ -170,16 +175,14 @@ func _check_ball_bounds() -> void:
 			ball.set_pos(bottom_left)
 
 		goal_line_out_left.emit()
-		return
-	
+		return true
+	# right
 	if ball.pos.x > line_right:
 		clock_running = false
-		var goal_intersection: Variant = goals.is_goal_right(ball)
 
-		if goal_intersection:
-			ball.set_pos(center)
+		if goals.is_goal_right(ball):
 			goal_right.emit()
-			return
+			return true
 
 		# corner
 		if ball.pos.y < center.y:
@@ -188,7 +191,8 @@ func _check_ball_bounds() -> void:
 			ball.set_pos(bottom_right)
 
 		goal_line_out_right.emit()
-		return
+		return true
+	return false
 
 
 func _on_goals_post_hit_left() -> void:
