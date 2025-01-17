@@ -11,7 +11,19 @@ func _init() -> void:
 
 
 func enter() -> void:
-	pass
+	# move players forward
+	var advance: int = owner.field.size.x / 3
+	if not owner.team.left_half:
+		advance = -advance
+	
+	# random deviation
+	var deviation: int = RngUtil.match_rng.randi_range(-50, 50)
+	advance += deviation
+
+	# set offensive destinations
+	for player: SimPlayer in owner.team.players:
+		if not player.is_goalkeeper:
+			player.set_destination(player.start_pos + Vector2(advance, deviation))
 
 
 func execute() -> void:
