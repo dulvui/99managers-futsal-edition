@@ -11,6 +11,11 @@ func _init() -> void:
 
 
 func execute() -> void:
+	# if close to ball, chase it
+	if owner.player.pos.distance_squared_to(owner.field.ball.pos) < 5600:
+		set_state(PlayerStateChaseBall.new())
+		return
+
 	# only follow if in own half
 	if owner.player.left_half:
 		if owner.field.ball.pos.x < owner.field.size.x / 2:
