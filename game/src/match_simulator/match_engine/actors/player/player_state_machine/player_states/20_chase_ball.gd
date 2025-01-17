@@ -14,9 +14,9 @@ func execute() -> void:
 	owner.player.set_destination(owner.field.ball.pos)
 
 	if owner.player.is_touching_ball():
-		owner.team.player_control = owner.player
+		owner.team.player_control(owner.player)
 		owner.team.interception.emit()
-		set_state(PlayerStateWait.new())
+		set_state(PlayerStateAttack.new())
 		return
 	
 	# make sure goalkeeper doesn't follow ball too far away from penalty area
@@ -24,11 +24,11 @@ func execute() -> void:
 		if owner.player.left_half:
 			if owner.player.pos.distance_squared_to(owner.player.left_base) > 5600:
 				owner.player.move_defense_pos()
-				set_state(PlayerStateWait.new())
+				set_state(PlayerStateIdle.new())
 				return
 		else:
 			if owner.player.pos.distance_squared_to(owner.player.right_base) > 5600:
 				owner.player.move_defense_pos()
-				set_state(PlayerStateWait.new())
+				set_state(PlayerStateIdle.new())
 				return
 

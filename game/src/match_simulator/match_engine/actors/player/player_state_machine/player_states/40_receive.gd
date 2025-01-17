@@ -20,10 +20,7 @@ func execute() -> void:
 
 	if owner.player.is_touching_ball():
 		owner.field.ball.stop()
-		owner.team.player_control = owner.player
-		set_state(PlayerStateWait.new())
+		owner.team.player_control(owner.player)
+		set_state(PlayerStateAttack.new())
 		return
 
-
-func exit() -> void:
-	owner.team.player_receive_ball = null

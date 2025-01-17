@@ -80,6 +80,9 @@ func update() -> void:
 func simulate(end_time: int = Const.FULL_TIME_SECONDS) -> void:
 	print("simulating match...")
 	var start_time: int = Time.get_ticks_msec()
+
+	# convert end time in ticks
+	end_time *= Const.TICKS_PER_SECOND
 	
 	# save simulated flags, to restore if endtime < FULL_TIME_SECONDS
 	var home_simulated: bool = home_team.simulated

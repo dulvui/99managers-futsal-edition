@@ -25,17 +25,12 @@ func execute() -> void:
 				delta = distance
 				best_player = player
 	
-	owner.team.player_receive_ball = best_player
-	owner.field.ball.short_pass(owner.team.player_receive_ball.pos, 40)
+	owner.team.player_receive_ball(best_player)
+	owner.field.ball.short_pass(owner.team.player_receive_ball().pos, 40)
 	owner.team.stats.passes += 1
 	
-	owner.team.player_receive_ball.state_machine.set_state(PlayerStateReceive.new())
+	owner.team.player_receive_ball().state_machine.set_state(PlayerStateReceive.new())
 
-	set_state(PlayerStateWait.new())
+	set_state(PlayerStateAttack.new())
 	return
-
-
-func exit() -> void:
-	owner.team.player_control = null
-
 

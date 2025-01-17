@@ -20,7 +20,7 @@ func enter() -> void:
 		return
 	
 	# check if player chould kick corner
-	if owner.team.has_ball and owner.team.player_control == owner.player:
+	if owner.team.has_ball and owner.team.player_control() == owner.player:
 		wait = RngUtil.match_rng.randi_range(2 * Const.TICKS_PER_SECOND, 5 * Const.TICKS_PER_SECOND)
 		owner.player.set_destination(owner.field.ball.pos)
 		return
@@ -42,8 +42,8 @@ func enter() -> void:
 
 
 func execute() -> void:
-	if owner.team.player_control == owner.player:
+	if owner.team.player_control() == owner.player:
 		if owner.player.destination_reached():
 			wait_counter += 1
 			if wait_counter >= wait:
-				owner.team.player_control.set_state(PlayerStatePass.new())
+				owner.team.player_control().set_state(PlayerStatePass.new())

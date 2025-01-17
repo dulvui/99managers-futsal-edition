@@ -12,10 +12,6 @@ func _init() -> void:
 
 func enter() -> void:
 	owner.field.ball.shoot_on_goal(owner.player.player_res, owner.team.left_half)
-	set_state(PlayerStateWait.new())
+	set_state(PlayerStateAttack.new())
 	return
-
-
-func exit() -> void:
-	owner.team.player_control = null
 

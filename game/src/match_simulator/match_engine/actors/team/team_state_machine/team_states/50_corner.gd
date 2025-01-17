@@ -11,8 +11,8 @@ func _init() -> void:
 
 
 func enter() -> void:
-	# TODO replace with corner taactic chosen player
-	owner.team.player_control = owner.team.players[-1]
+	# TODO replace with corner tactic chosen player
+	owner.team.player_control(owner.team.players[-1])
 	
 	for player: SimPlayer in owner.players:
 		player.set_state(PlayerStateCorner.new())	

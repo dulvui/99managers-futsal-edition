@@ -11,21 +11,18 @@ func _init() -> void:
 
 
 func enter() -> void:
+	for player: SimPlayer in owner.team.players:
+		player.set_state(PlayerStateIdle.new())
+	
 	if owner.team.has_ball:
-		owner.team.set_nearest_player_to_ball()
-			
-		owner.team.player_nearest_to_ball.set_destination(owner.field.ball.pos)
-		owner.team.player_control = owner.team.player_nearest_to_ball
-	else:
-		for player: SimPlayer in owner.team.players:
-			player.set_state(PlayerStateWait.new())
+		owner.team.player_control(owner.team.player_nearest_to_ball())
+		owner.team.player_control().set_destination(owner.field.ball.pos)
 
 
 func execute() -> void:
 	if owner.team.has_ball:
-		owner.team.player_control = owner.team.player_nearest_to_ball
-		if owner.team.player_control.destination_reached():
-			owner.team.player_control.set_state(PlayerStatePass.new())
+		if owner.team.player_control().destination_reached():
+			owner.team.player_control().set_state(PlayerStatePass.new())
 			set_state(TeamStateAttack.new())
 			return
 	elif owner.field.clock_running:

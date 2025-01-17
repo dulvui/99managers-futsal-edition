@@ -76,6 +76,7 @@ func simulate() -> void:
 	time = Const.HALF_TIME_SECONDS * 2
 	timer.stop()
 	update_time.emit()
+	match_end.emit()
 
 
 func pause_toggle() -> bool:

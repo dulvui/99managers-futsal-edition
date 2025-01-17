@@ -21,13 +21,5 @@ func execute() -> void:
 		set_state(TeamStateAttack.new())
 		return
 
-	# make nearest player to ball chase it
-	if owner.team.player_nearest_to_ball != null:
-		owner.team.player_chase = owner.team.player_nearest_to_ball
-		owner.team.player_chase.set_state(PlayerStateChaseBall.new())
-	else:
-		owner.team.set_nearest_player_to_ball()
-		if owner.team.player_nearest_to_ball != owner.team.player_chase:
-			owner.team.player_chase = owner.team.player_nearest_to_ball
-			owner.team.player_chase.set_state(PlayerStateChaseBall.new())
+	owner.team.player_chase(owner.team.player_nearest_to_ball())
 

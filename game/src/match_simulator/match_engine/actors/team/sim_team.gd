@@ -23,14 +23,15 @@ var left_half: bool
 var simulated: bool
 
 var team_opponents: SimTeam
+
 # key players attack
-var player_control: SimPlayer
-var player_support: SimPlayer
-var player_receive_ball: SimPlayer
+var _player_control: SimPlayer
+var _player_support: SimPlayer
+var _player_receive_ball: SimPlayer
 # key players defense
-var player_chase: SimPlayer
+var _player_chase: SimPlayer
 # key players generic
-var player_nearest_to_ball: SimPlayer
+var _player_nearest_to_ball: SimPlayer
 
 
 func setup(
@@ -90,7 +91,7 @@ func update() -> void:
 	# TODO
 	# check injuries
 
-	_auto_change()
+	auto_change()
 	
 	state_machine.execute()
 
@@ -99,6 +100,9 @@ func set_state(state: TeamStateMachineState) -> void:
 	state_machine.set_state(state)
 
 
+#
+# CHANGES
+#
 func check_changes() -> void:
 	if change_request:
 		# adjust all_players order to res teams players order
@@ -117,33 +121,7 @@ func check_changes() -> void:
 		player_changed.emit()
 		change_request = false
 
-
-func find_nearest_player_to(position: Vector2, exclude: Array[SimPlayer] = []) -> SimPlayer:
-	var nearest: SimPlayer = null
-	for player: SimPlayer in players:
-		if not player in exclude:
-			if nearest == null:
-				nearest = player
-				continue
-			
-			if player.pos.distance_squared_to(position) < nearest.pos.distance_squared_to(position):
-				nearest = player
-	return nearest
-
-
-func set_nearest_player_to_ball() -> void:
-	player_nearest_to_ball = find_nearest_player_to(field.ball.pos)
-
-
-func reset_key_players() -> void:
-	player_control = null
-	player_support = null
-	player_receive_ball = null
-	player_nearest_to_ball = null
-
-
-func shoot_on_goal(_player: Player) -> void:
-	stats.shots += 1
+		reset_key_players()
 
 
 func change_players_request() -> void:
@@ -155,14 +133,10 @@ func change_players_request() -> void:
 			return
 
 
-func _on_player_interception() -> void:
-	interception.emit()
-
-
-func _auto_change() -> void:
+func auto_change() -> void:
 	# auto change players, if no change request already pending
-	var auto_change: bool = res_team.formation.change_strategy == Formation.ChangeStrategy.AUTO or simulated
-	if auto_change and not change_request:
+	var do_change: bool = res_team.formation.change_strategy == Formation.ChangeStrategy.AUTO or simulated
+	if do_change and not change_request:
 		var auto_change_request: bool = false
 		var low_stamina_players: Array[SimPlayer] = []
 
@@ -204,5 +178,83 @@ func _auto_change() -> void:
 		# trigger change player request only once
 		if auto_change_request:
 			change_players_request()
+
+
+
+#
+# KEY PLAYERS
+#
+func reset_key_players() -> void:
+	_player_control = null
+	_player_support = null
+	_player_receive_ball = null
+	_player_nearest_to_ball = null
+
+
+func player_nearest_to_ball() -> SimPlayer:
+	_player_nearest_to_ball = find_nearest_player_to(field.ball.pos)
+	return _player_nearest_to_ball
+
+
+func player_control(p_player: SimPlayer = null) -> SimPlayer:
+	if p_player != null:
+		_player_control = p_player
+	elif _player_control == null:
+		_player_control = player_nearest_to_ball()
+	return _player_control
+
+
+func player_receive_ball(p_player: SimPlayer = null) -> SimPlayer:
+	if p_player != null:
+		_player_receive_ball = p_player
+	elif _player_receive_ball == null:
+		_player_receive_ball = player_nearest_to_ball()
+	_player_receive_ball.set_state(PlayerStateReceive.new())
+	return _player_receive_ball
+
+
+func player_support(p_player: SimPlayer = null) -> SimPlayer:
+	if p_player != null:
+		_player_support = p_player
+	elif _player_support == null:
+		_player_support = player_nearest_to_ball()
+	_player_support.set_state(PlayerStateSupport.new())
+	return _player_support
+
+
+func player_chase(p_player: SimPlayer = null) -> SimPlayer:
+	if p_player != null:
+		_player_chase = p_player
+	elif _player_chase == null:
+		_player_chase = player_nearest_to_ball()
+	_player_chase.set_state(PlayerStateChaseBall.new())
+	return _player_chase
+
+
+func find_nearest_player_to(position: Vector2, exclude: Array[SimPlayer] = []) -> SimPlayer:
+	var nearest: SimPlayer = null
+	for player: SimPlayer in players:
+		if not player in exclude:
+			if nearest == null:
+				nearest = player
+				continue
+			
+			if player.pos.distance_squared_to(position) < nearest.pos.distance_squared_to(position):
+				nearest = player
+	return nearest
+
+
+#
+# HELPER FUNCTIONS
+#
+func shoot_on_goal(_player: Player) -> void:
+	stats.shots += 1
+
+
+#
+# SIGNALS
+#
+func _on_player_interception() -> void:
+	interception.emit()
 
 

@@ -26,7 +26,7 @@ func test_deterministic_simulations() -> void:
 	# simulate matches
 	for i: int in AMOUNT:
 		var matchz: Match = Match.new()
-		# use always same match id, since match seed is match is
+		# use always same match id/seed
 		matchz.id = 1
 		matches.append(matchz)
 		matchz.setup(league.teams[0], league.teams[1], league.id, league.name)

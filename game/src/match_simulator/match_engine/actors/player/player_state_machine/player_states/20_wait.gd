@@ -2,7 +2,7 @@
 
 # SPDX-License-Identifier: AGPL-3.0-or-later
 
-class_name PlayerStateWait
+class_name PlayerStateAttack
 extends PlayerStateMachineState
 
 
@@ -11,7 +11,7 @@ const PERFECT_SHOOT_DISTANCE_SQUARED: int = 5600
 
 
 func _init() -> void:
-	super("PlayerStateWait")
+	super("PlayerStateAttack")
 
 
 func execute() -> void:
@@ -19,7 +19,7 @@ func execute() -> void:
 	if owner.team.state_machine.state is TeamStateKickoff:
 		return
 
-	if owner.team.player_control == owner.player:
+	if owner.team.player_control() == owner.player:
 		# check shoot
 		if should_shoot():
 			# print("shoot")
