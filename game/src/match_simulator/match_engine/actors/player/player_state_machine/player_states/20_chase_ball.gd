@@ -22,11 +22,11 @@ func execute() -> void:
 	# make sure goalkeeper doesn't follow ball too far away from penalty area
 	if owner.player.is_goalkeeper:
 		if owner.player.left_half:
-			if owner.player.pos.distance_squared_to(owner.player.left_base):
-				set_state(PlayerStateGoalkeeperFollowBall.new())
+			if owner.player.pos.distance_squared_to(owner.player.left_base) > 5600:
+				set_state(PlayerStateStartPosition.new())
 				return
 		else:
-			if owner.player.pos.distance_squared_to(owner.player.right_base):
-				set_state(PlayerStateGoalkeeperFollowBall.new())
+			if owner.player.pos.distance_squared_to(owner.player.right_base) > 5600:
+				set_state(PlayerStateStartPosition.new())
 				return
 
