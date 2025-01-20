@@ -319,9 +319,6 @@ unique_name_in_owner = true
 layout_mode = 2
 
 [connection signal="action_message" from="MatchSimulator" to="." method="_on_match_simulator_action_message"]
-[connection signal="half_time" from="MatchSimulator" to="." method="_on_match_simulator_half_time"]
-[connection signal="match_end" from="MatchSimulator" to="." method="_on_match_simulator_match_end"]
-[connection signal="update_time" from="MatchSimulator" to="." method="_on_match_simulator_update_time"]
 [connection signal="pressed" from="Main/Content/Buttons/Left/FieldButton" to="." method="_on_field_button_pressed"]
 [connection signal="pressed" from="Main/Content/Buttons/Left/CommentaryButton" to="." method="_on_commentary_button_pressed"]
 [connection signal="pressed" from="Main/Content/Buttons/Left/StatsButton" to="." method="_on_stats_button_pressed"]

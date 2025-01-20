@@ -6,18 +6,13 @@ class_name MatchSimulator
 extends Control
 
 signal action_message(message: String)
-signal half_time
-signal match_end
-signal update_time
 
 const CAMERA_SPEED: int = 4
 
-var ticks: int = 0
-var time: int = 0
 var passed_time: float = 0
 var wait_time: float
 
-var match_engine: MatchEngine
+var engine: MatchEngine
 
 @onready var visual_match: VisualMatch = %VisualMatch
 @onready var sub_viewport: SubViewport = %SubViewport
@@ -26,57 +21,58 @@ var match_engine: MatchEngine
 
 
 func _physics_process(delta: float) -> void:
-	camera.position = camera.position.lerp(visual_match.visual_ball.global_position, delta * CAMERA_SPEED)
+	camera.position = camera.position.lerp(visual_match.ball.global_position, delta * CAMERA_SPEED)
 
 	passed_time += delta
 	if passed_time >= wait_time:
 		passed_time = 0
-		_tick()
+		_update()
 
 
 func setup(home_team: Team, away_team: Team, match_seed: int) -> void:
 	
-	match_engine = MatchEngine.new()
-	match_engine.setup(home_team, away_team, match_seed)
+	engine = MatchEngine.new()
+	engine.setup(home_team, away_team, match_seed)
 
 	# connect change players signals to visuals
-	match_engine.home_team.player_changed.connect(
+	engine.home_team.player_changed.connect(
 		func() -> void:
-			visual_match.home_team.change_players(match_engine.home_team)
+			visual_match.home_team.change_players(engine.home_team)
 	)
-	match_engine.away_team.player_changed.connect(
+	engine.away_team.player_changed.connect(
 		func() -> void:
-			visual_match.away_team.change_players(match_engine.away_team)
+			visual_match.away_team.change_players(engine.away_team)
 	)
 
-	set_time()
+	# connect tiem control signals
+	engine.half_time.connect(func() -> void: pause())
+	engine.full_time.connect(func() -> void: pause())
+
+	set_speed()
 
 	# setup visual match
 	# get colors
-	visual_match.setup(match_engine, wait_time)
+	visual_match.setup(engine, wait_time)
 
 	# visual state machine for debug
 	visual_state_machine.setup(visual_match.home_team, visual_match.away_team)
 
 	# adjust sub viewport to field size + borders
-	sub_viewport.size = visual_match.visual_field.field.size
+	sub_viewport.size = visual_match.field.field.size
 
 	# set camera limits
 	var camera_offset: int = 100
 	camera.limit_left = -camera_offset
 	camera.limit_top = -camera_offset
-	camera.limit_right = match_engine.field.size.x + camera_offset
-	camera.limit_bottom = match_engine.field.size.y + camera_offset
+	camera.limit_right = engine.field.size.x + camera_offset
+	camera.limit_bottom = engine.field.size.y + camera_offset
 
 	# reset match_paused
 	Global.match_paused = false
 	
 
 func simulate() -> void:
-	match_engine.simulate()
-	time = Const.HALF_TIME_SECONDS * 2
-	update_time.emit()
-	match_end.emit()
+	engine.simulate()
 
 
 func pause_toggle() -> bool:
@@ -97,26 +93,11 @@ func match_finished() -> void:
 	Global.match_paused = true
 
 
-func set_time() -> void:
+func set_speed() -> void:
 	wait_time = 1.0 / (Const.TICKS_PER_SECOND * Global.speed_factor)
+	print(wait_time)
 
 
-func _tick() -> void:
-	ticks += 1
-	match_engine.update()
-	visual_match.update(wait_time)
-	# only update tiem on clock, after TICKS_PER_SECOND passed
-	if ticks == Const.TICKS_PER_SECOND:
-		ticks = 0
-		update_time.emit()
-
-		if match_engine.field.clock_running:
-			time += 1
-			# check half/end time
-			if time == Const.HALF_TIME_SECONDS:
-				pause()
-				half_time.emit()
-			elif time == Const.HALF_TIME_SECONDS * 2:
-				pause()
-				match_end.emit()
-
+func _update() -> void:
+	engine.update()
+	visual_match.update(engine.ticks, wait_time)

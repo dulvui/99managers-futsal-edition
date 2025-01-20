@@ -4,6 +4,10 @@
 
 class_name MatchEngine
 
+signal half_time
+signal full_time
+signal update_time
+
 const INTERCEPTION_TIMER_START: int = 32
 
 var field: SimField
@@ -11,6 +15,8 @@ var home_team: SimTeam
 var away_team: SimTeam
 
 var ticks: int
+var time_ticks: int
+var time: int
 
 # stats
 var possession_counter: float
@@ -30,6 +36,8 @@ func setup(p_home_team: Team, p_away_team: Team, match_seed: int) -> void:
 	field.goal_right.connect(_on_goal_right)
 
 	ticks = 0
+	time_ticks = 0
+	time = 0
 	possession_counter = 0.0
 
 	RngUtil.match_rng.seed = hash(match_seed)
@@ -56,20 +64,39 @@ func setup(p_home_team: Team, p_away_team: Team, match_seed: int) -> void:
 
 
 func update() -> void:
+	ticks += 1
+
+	# field/ball updates more frequently on every tick
+	# for better colission detections
 	field.update()
 
-	if ticks % 4 == 0:
+	# teams/players instead update less frequent
+	# state machines don't require high frequency
+	if ticks % Const.STATE_UPDATE_TICKS == 0:
 		home_team.update()
 		away_team.update()
-
+	
 	if field.clock_running:
-		ticks += 1
+		# update real time in seconds
+		time_ticks += 1
+		if time_ticks % Const.TICKS_PER_SECOND == 0:
+			time += 1
+			update_time.emit()
 
 		# update posession stats
 		if home_team.has_ball:
 			possession_counter += 1.0
-		home_team.stats.possession = possession_counter / ticks * 100
+
+		home_team.stats.possession = possession_counter / time_ticks * 100
 		away_team.stats.possession = 100 - home_team.stats.possession
+
+		# halftime
+		if time == Const.HALF_TIME_SECONDS * Const.TICKS_PER_SECOND:
+			set_half_time()
+			half_time.emit()
+		elif time == Const.FULL_TIME_SECONDS * Const.TICKS_PER_SECOND:
+			set_full_time()
+			full_time.emit()
 	else:
 		home_team.check_changes()
 		away_team.check_changes()
@@ -79,9 +106,6 @@ func simulate(end_time: int = Const.FULL_TIME_SECONDS) -> void:
 	print("simulating match...")
 	var start_time: int = Time.get_ticks_msec()
 
-	# convert end time in ticks
-	end_time *= Const.TICKS_PER_SECOND
-	
 	# save simulated flags, to restore if endtime < FULL_TIME_SECONDS
 	var home_simulated: bool = home_team.simulated
 	var away_simulated: bool = away_team.simulated
@@ -89,34 +113,14 @@ func simulate(end_time: int = Const.FULL_TIME_SECONDS) -> void:
 	home_team.simulated = true
 	away_team.simulated = true
 
-	# first half
-	var time: int = 0
-	while time < Const.HALF_TIME_SECONDS * Const.TICKS_PER_SECOND:
+	# simulate game
+	while time <= end_time:
 		update()
-		if field.clock_running:
-			time += 1
-			
-			# stop simulation
-			if time == end_time:
-				home_team.simulated = home_simulated
-				away_team.simulated = away_simulated
-				return
 	
-	print("half time...")
-	half_time()
-	# second half
-	time = 0
-	while time < Const.HALF_TIME_SECONDS * Const.TICKS_PER_SECOND:
-		update()
-		if field.clock_running:
-			time += 1
-			# stop simulation
-			if time == end_time:
-				home_team.simulated = home_simulated
-				away_team.simulated = away_simulated
-				return
-	full_time()
-
+	# restore simulation flags, in case only partial game has been simulated
+	home_team.simulated = home_simulated
+	away_team.simulated = away_simulated
+	
 	var load_time: int = Time.get_ticks_msec() - start_time
 	print("benchmark in: " + str(load_time) + " ms")
 
@@ -131,7 +135,7 @@ func simulate_match(matchz: Match) -> void:
 	matchz.set_result(home_team.stats.goals, away_team.stats.goals)
 
 
-func half_time() -> void:
+func set_half_time() -> void:
 	home_team.left_half = not home_team.left_half
 	field.ball.set_pos(field.center)
 
@@ -143,7 +147,7 @@ func half_time() -> void:
 		player.recover_stamina(half_time_ticks)
 
 
-func full_time() -> void:
+func set_full_time() -> void:
 	# stamina recovery 30 minutes
 	var recovery: int = 30 * Const.TICKS_PER_SECOND * 60
 	for player: SimPlayer in home_team.players:

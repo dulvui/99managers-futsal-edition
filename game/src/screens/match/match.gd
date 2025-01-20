@@ -85,7 +85,7 @@ func _ready() -> void:
 		formation.setup(true, home_team)
 		players_bar.setup(home_team)
 		# connect change players signals to visuals
-		match_simulator.match_engine.home_team.player_changed.connect(
+		match_simulator.engine.home_team.player_changed.connect(
 			func() -> void:
 				players_bar.update_players()
 				formation.set_players()
@@ -94,7 +94,7 @@ func _ready() -> void:
 		formation.setup(true, away_team)
 		players_bar.setup(away_team)
 		# connect change players signals to visuals
-		match_simulator.match_engine.away_team.player_changed.connect(
+		match_simulator.engine.away_team.player_changed.connect(
 			func() -> void:
 				players_bar.update_players()
 				formation.set_players()
@@ -109,14 +109,19 @@ func _ready() -> void:
 	print("match speed_factor" + str(Global.speed_factor))
 
 	# to easier access stats
-	home_stats = match_simulator.match_engine.home_team.stats
-	away_stats = match_simulator.match_engine.away_team.stats
+	home_stats = match_simulator.engine.home_team.stats
+	away_stats = match_simulator.engine.away_team.stats
 	
 	last_active_view = match_simulator
 	last_active_view.show()
-	
 
-func match_end() -> void:
+	# connect match engine signals
+	match_simulator.engine.half_time.connect(_on_half_time)
+	match_simulator.engine.full_time.connect(_on_full_time)
+	match_simulator.engine.update_time.connect(_on_update_time)
+
+
+func _on_full_time() -> void:
 	faster_button.hide()
 	slower_button.hide()
 	speed_factor_label.hide()
@@ -129,16 +134,19 @@ func match_end() -> void:
 	matchz.set_result(home_stats.goals, away_stats.goals)
 
 
-func half_time() -> void:
+func _on_half_time() -> void:
 	pause_button.text = tr("CONTINUE")
 	first_half = false
 
 
-func _on_match_simulator_update_time() -> void:
+func _on_update_time() -> void:
 	stats.update_stats(home_stats, away_stats)
-	time_label.text = "%02d:%02d" % [int(match_simulator.time) / 60, int(match_simulator.time) % 60]
 
-	time_bar.value = match_simulator.time
+	time_label.text = "%02d:%02d" % \
+			[int(match_simulator.engine.time) / 60, \
+			int(match_simulator.engine.time) % 60]
+
+	time_bar.value = match_simulator.engine.time
 	possess_bar.value = home_stats.possession
 
 	home_possession.text = str(home_stats.possession) + " %"
@@ -202,14 +210,14 @@ func _on_dashboard_button_pressed() -> void:
 func _on_faster_button_pressed() -> void:
 	if Global.speed_factor < MAX_SPEED_FACTOR:
 		Global.speed_factor += 1
-		match_simulator.set_time()
+		match_simulator.set_speed()
 	speed_factor_label.text = str(Global.speed_factor) + " X"
 
 
 func _on_slower_button_pressed() -> void:
 	if Global.speed_factor > 1:
 		Global.speed_factor -= 1
-		match_simulator.set_time()
+		match_simulator.set_speed()
 	speed_factor_label.text = str(Global.speed_factor) + " X"
 
 
@@ -227,14 +235,6 @@ func _on_simulate_button_pressed() -> void:
 	match_simulator.simulate()
 
 
-func _on_match_simulator_half_time() -> void:
-	half_time()
-
-
-func _on_match_simulator_match_end() -> void:
-	match_end()
-
-
 func _on_match_simulator_action_message(message: String) -> void:
 	if comments.get_child_count() > MAX_COMMENTS:
 		comments.remove_child(comments.get_child(0))
@@ -245,14 +245,14 @@ func _on_match_simulator_action_message(message: String) -> void:
 
 func _on_formation_change_request() -> void:
 	# players_bar.update_players()
-	match_simulator.match_engine.home_team.change_players_request()
-	match_simulator.match_engine.away_team.change_players_request()
+	match_simulator.engine.home_team.change_players_request()
+	match_simulator.engine.away_team.change_players_request()
 
 
 func _on_players_bar_change_request() -> void:
 	# formation.set_players()
-	match_simulator.match_engine.home_team.change_players_request()
-	match_simulator.match_engine.away_team.change_players_request()
+	match_simulator.engine.home_team.change_players_request()
+	match_simulator.engine.away_team.change_players_request()
 
 
 

@@ -30,9 +30,8 @@ func setup(p_field: SimField) -> void:
 func update() -> void:
 	move()
 
+	# rotation
 	if speed > 0:
-		field.clock_running = true
-
 		if abs(rotation) > 0.1:
 			if rotation > 0.1:
 				rotation -= 0.05
