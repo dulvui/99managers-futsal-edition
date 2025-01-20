@@ -118,11 +118,11 @@ func recover_stamina(factor: int = 1) -> void:
 	stamina = minf(1, stamina + (Const.STAMINA_FACTOR * factor))
 
 
-func consume_stamina() -> void:
+func consume_stamina(speed: float) -> void:
 	# consume stamina with  calc 21 - [20,1]
 	# best case Const.MAX_PRESTIGE * 1
 	# worst case Const.MAX_PRESTIGE * 20
-	var consumation: float = Const.STAMINA_FACTOR * (Const.MAX_PRESTIGE + 1 - attributes.physical.stamina)
+	var consumation: float = Const.STAMINA_FACTOR * (Const.MAX_PRESTIGE + 1 - attributes.physical.stamina) * speed
 	# print("stamina: %d consumtion: %f"%[attributes.physical.stamina, consumation])
 	stamina = maxf(0, stamina - consumation)
 

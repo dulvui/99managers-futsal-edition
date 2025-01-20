@@ -14,7 +14,7 @@ func enter() -> void:
 	# move player for kick off to center
 	if owner.team.has_ball:
 		owner.team.player_control(owner.team.players[-1])
-		owner.team.player_control().set_destination(owner.field.ball.pos)
+		owner.team.player_control().set_destination(owner.field.ball.pos, 20)
 	else:
 		for player: SimPlayer in owner.team.players:
 			player.set_state(PlayerStateKickoff.new())

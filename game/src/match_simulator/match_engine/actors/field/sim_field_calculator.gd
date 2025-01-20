@@ -111,7 +111,9 @@ func _calc_players_in_pass_trajectory(position: Vector2) -> int:
 		players = field.home_team.players
 	
 	for player: SimPlayer in players:
-		if Geometry2D.segment_intersects_circle(field.ball.pos, position, player.pos, player.radius) > -1:
+		if Geometry2D.segment_intersects_circle(
+			field.ball.pos, position, player.pos, player.collision_radius
+		) > -1:
 			players_in_trajectory += 1
 	
 	return players_in_trajectory

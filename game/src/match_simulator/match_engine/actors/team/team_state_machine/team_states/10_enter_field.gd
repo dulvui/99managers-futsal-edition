@@ -45,7 +45,7 @@ func enter() -> void:
 		destination.y += RngUtil.match_noise(5, 5)
 
 		player.set_pos(start_position)
-		player.set_destination(destination)
+		player.set_destination(destination, 20)
 	
 		# look towards destination
 		player.head_look_direction = destination

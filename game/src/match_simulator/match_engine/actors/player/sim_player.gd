@@ -20,7 +20,6 @@ var state_machine: PlayerStateMachine
 # positions
 var start_pos: Vector2
 # movements
-var destination: Vector2
 var head_look_direction: Vector2
 
 # goalkeeper properties
@@ -33,7 +32,7 @@ var has_ball: bool
 
 
 func _init(p_radius: float = 30) -> void:
-	super(p_radius)
+	super(p_radius, false)
 	# initial test values
 	has_ball = false
 
@@ -58,8 +57,12 @@ func setup(
 
 
 func update() -> void:
-	state_machine.execute()
 	move()
+
+	state_machine.execute()
+	
+	if speed > 0:
+		player_res.consume_stamina(speed)
 
 
 func set_state(state: PlayerStateMachineState) -> void:
@@ -81,32 +84,8 @@ func is_intercepting_ball() -> bool:
 	)
 
 
-func set_pos(p_pos: Vector2 = pos) -> void:
-	pos = p_pos
-	last_pos = pos
-	destination = pos
-	# reset values
-	speed = 0
-
-
-func set_destination(p_destination: Vector2, p_speed: int = 20) -> void:
-	destination = field.bound(p_destination)
-	speed = p_speed
-
-
-func destination_reached() -> bool:
-	return pos == destination
-
-
 func recover_stamina(factor: int = 1) -> void:
 	player_res.recover_stamina(factor)
-
-
-func move() -> void:
-	if speed > 0:
-		last_pos = pos
-		pos = pos.move_toward(destination, speed * Const.SPEED)
-		player_res.consume_stamina()
 
 
 func move_offense_pos() -> void:
@@ -117,7 +96,7 @@ func move_offense_pos() -> void:
 	if not left_half:
 		deviation.x = -deviation.x
 
-	set_destination(start_pos + deviation)
+	set_destination(start_pos + deviation, 20)
 
 
 func move_defense_pos() -> void:
@@ -125,7 +104,7 @@ func move_defense_pos() -> void:
 	var deviation_y: int = RngUtil.match_rng.randi_range(-10, 10)
 	var deviation: Vector2 = Vector2(deviation_x, deviation_y)
 
-	set_destination(start_pos + deviation)
+	set_destination(start_pos + deviation, 20)
 
 
 func _block_shot() -> bool:
