@@ -18,7 +18,7 @@ var field: SimField
 
 
 func _init() -> void:
-	super(10, true)
+	super(3, true)
 
 
 func setup(p_field: SimField) -> void:
