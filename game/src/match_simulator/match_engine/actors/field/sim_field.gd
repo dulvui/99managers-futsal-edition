@@ -165,6 +165,7 @@ func _check_goal_line() -> bool:
 		clock_running = false
 
 		if goals.is_goal_left(ball):
+			ball.stop()
 			goal_left.emit()
 			return true
 
@@ -181,6 +182,7 @@ func _check_goal_line() -> bool:
 		clock_running = false
 
 		if goals.is_goal_right(ball):
+			ball.stop()
 			goal_right.emit()
 			return true
 

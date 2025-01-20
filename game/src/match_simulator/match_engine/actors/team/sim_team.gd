@@ -180,7 +180,6 @@ func auto_change() -> void:
 			change_players_request()
 
 
-
 #
 # KEY PLAYERS
 #
