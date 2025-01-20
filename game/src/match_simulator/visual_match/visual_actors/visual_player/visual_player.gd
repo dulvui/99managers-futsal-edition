@@ -32,7 +32,7 @@ func _physics_process(delta: float) -> void:
 	if not Global.match_paused:
 		last_update_time += delta
 		factor = last_update_time / update_interval
-		position = last_pos.lerp(sim_player.pos, factor)
+		position = last_pos.lerp(sim_player.next_pos, factor)
 
 		if sim_player.head_look_direction == Vector2.ZERO:
 			sprites.look_at(ball.position)

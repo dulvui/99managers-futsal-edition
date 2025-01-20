@@ -18,7 +18,7 @@ func _physics_process(delta: float) -> void:
 	if not Global.match_paused:
 		last_update_time += delta
 		factor = last_update_time / update_interval
-		position = last_pos.lerp(sim_ball.pos, factor)
+		position = last_pos.lerp(sim_ball.next_pos, factor)
 		rotate(sim_ball.rotation)
 
 

@@ -18,7 +18,6 @@ script = ExtResource("1_moskm")
 [node name="VisualTeamAway" parent="." instance=ExtResource("3_cl68t")]
 
 [node name="VisualBallReal" type="Sprite2D" parent="."]
-visible = false
 modulate = Color(0.707045, 0.13919, 0.252032, 1)
 scale = Vector2(0.02, 0.02)
 texture = ExtResource("5_wws6u")

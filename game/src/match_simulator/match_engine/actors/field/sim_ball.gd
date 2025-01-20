@@ -32,14 +32,17 @@ func update() -> void:
 
 	if speed > 0:
 		field.clock_running = true
+
+		if abs(rotation) > 0.1:
+			if rotation > 0.1:
+				rotation -= 0.05
+			elif rotation < 0.1:
+				rotation += 0.05
+			else:
+				rotation = 0
+	else:
+		rotation = 0
 	
-	if abs(rotation) > 0.1:
-		if rotation > 0.1:
-			rotation -= 0.05
-		elif rotation < 0.1:
-			rotation += 0.05
-		else:
-			rotation = 0
 	
 	# print("ball state %s"%State.keys()[state])
 

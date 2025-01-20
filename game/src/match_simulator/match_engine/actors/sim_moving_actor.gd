@@ -38,7 +38,7 @@ func set_pos_xy(x: float, y: float) -> void:
 	stop()
 
 
-func set_destination(p_pos: Vector2, p_speed: float = 20) -> void:
+func set_destination(p_pos: Vector2, p_speed: float = 40) -> void:
 	_reset_movents()
 	destination = p_pos
 	speed = p_speed
@@ -79,15 +79,16 @@ func destination_reached() -> bool:
 
 func move() -> void:
 	if speed > 0:
+		last_pos = pos
+		pos = next_pos
+		
+		# calc next pos
 		if direction != Vector2.INF:
 			next_pos += direction * speed * Const.SPEED
 		elif destination != Vector2.INF:
 			next_pos = pos.move_toward(destination, speed)
 		elif follow_actor != null:
 			next_pos = pos.move_toward(follow_actor.pos, speed)
-
-		last_pos = pos
-		pos = next_pos
 
 		if decelerates:
 			speed -= DECELERATION
