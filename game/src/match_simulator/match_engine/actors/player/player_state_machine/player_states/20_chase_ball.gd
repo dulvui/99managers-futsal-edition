@@ -9,10 +9,11 @@ extends PlayerStateMachineState
 func _init() -> void:
 	super("PlayerStateChaseBall")
 
+func enter() -> void:
+	owner.player.follow(owner.field.ball, 40)
+
 
 func execute() -> void:
-	owner.player.set_destination(owner.field.ball.pos)
-
 	if owner.player.is_touching_ball():
 		owner.team.player_control(owner.player)
 		owner.team.interception.emit()

@@ -21,7 +21,8 @@ var decelerates: bool
 
 
 func _init(p_collision_radius: float, p_decelerates: bool) -> void:
-	collision_radius = pow(p_collision_radius, 2)
+	# collision_radius = pow(p_collision_radius, 2)
+	collision_radius = p_collision_radius / 4
 	decelerates = p_decelerates
 
 	_reset_movents()
@@ -69,8 +70,7 @@ func stop() -> void:
 
 
 func collides(actor: MovingActor) -> bool:
-	# return actor.pos.distance_to(pos) < actor.radius + radius
-	return actor.pos.distance_squared_to(pos) < actor.collision_radius + collision_radius
+	return actor.pos.distance_to(pos) < actor.collision_radius + collision_radius
 
 
 func destination_reached() -> bool:
@@ -86,9 +86,9 @@ func move() -> void:
 		if direction != Vector2.INF:
 			next_pos += direction * speed * Const.SPEED
 		elif destination != Vector2.INF:
-			next_pos = pos.move_toward(destination, speed)
+			next_pos = pos.move_toward(destination, speed * Const.SPEED)
 		elif follow_actor != null:
-			next_pos = pos.move_toward(follow_actor.pos, speed)
+			next_pos = pos.move_toward(follow_actor.pos, speed * Const.SPEED)
 
 		if decelerates:
 			speed -= DECELERATION

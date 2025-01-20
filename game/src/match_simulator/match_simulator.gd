@@ -14,7 +14,8 @@ const CAMERA_SPEED: int = 4
 
 var ticks: int = 0
 var time: int = 0
-var timer: Timer
+var passed_time: float = 0
+var wait_time: float
 
 var match_engine: MatchEngine
 
@@ -27,13 +28,13 @@ var match_engine: MatchEngine
 func _physics_process(delta: float) -> void:
 	camera.position = camera.position.lerp(visual_match.visual_ball.global_position, delta * CAMERA_SPEED)
 
+	passed_time += delta
+	if passed_time >= wait_time:
+		passed_time = 0
+		_tick()
+
 
 func setup(home_team: Team, away_team: Team, match_seed: int) -> void:
-	# intialize timer
-	timer = Timer.new()
-	timer.wait_time = 1.0 / (Const.TICKS_PER_SECOND * Global.speed_factor)
-	add_child(timer)
-	timer.timeout.connect(_on_timer_timeout)
 	
 	match_engine = MatchEngine.new()
 	match_engine.setup(home_team, away_team, match_seed)
@@ -48,9 +49,11 @@ func setup(home_team: Team, away_team: Team, match_seed: int) -> void:
 			visual_match.away_team.change_players(match_engine.away_team)
 	)
 
+	set_time()
+
 	# setup visual match
 	# get colors
-	visual_match.setup(match_engine, timer.wait_time)
+	visual_match.setup(match_engine, wait_time)
 
 	# visual state machine for debug
 	visual_state_machine.setup(visual_match.home_team, visual_match.away_team)
@@ -68,49 +71,40 @@ func setup(home_team: Team, away_team: Team, match_seed: int) -> void:
 	# reset match_paused
 	Global.match_paused = false
 	
-	timer.start()
-
 
 func simulate() -> void:
 	match_engine.simulate()
 	time = Const.HALF_TIME_SECONDS * 2
-	timer.stop()
 	update_time.emit()
 	match_end.emit()
 
 
 func pause_toggle() -> bool:
-	timer.paused = not timer.paused
-	Global.match_paused = timer.paused
-	return timer.paused
+	Global.match_paused = not Global.match_paused
+	return Global.match_paused
 
 
 func pause() -> void:
-	timer.paused = true
-	Global.match_paused = timer.paused
+	Global.match_paused = true
 
 
 func continue_match() -> void:
-	timer.paused = false
+	Global.match_paused = true
 
 
 func match_finished() -> void:
 	action_message.emit("match finished")
-	timer.stop()
+	Global.match_paused = true
 
 
 func set_time() -> void:
-	timer.wait_time = 1.0 / (Const.TICKS_PER_SECOND * Global.speed_factor)
-
-
-func _on_timer_timeout() -> void:
-	match_engine.update()
-	visual_match.update(timer.wait_time)
-	_tick()
+	wait_time = 1.0 / (Const.TICKS_PER_SECOND * Global.speed_factor)
 
 
 func _tick() -> void:
 	ticks += 1
+	match_engine.update()
+	visual_match.update(wait_time)
 	# only update tiem on clock, after TICKS_PER_SECOND passed
 	if ticks == Const.TICKS_PER_SECOND:
 		ticks = 0
@@ -120,9 +114,9 @@ func _tick() -> void:
 			time += 1
 			# check half/end time
 			if time == Const.HALF_TIME_SECONDS:
-				timer.paused = true
+				pause()
 				half_time.emit()
 			elif time == Const.HALF_TIME_SECONDS * 2:
-				timer.stop()
+				pause()
 				match_end.emit()
 

@@ -18,11 +18,11 @@ func setup(
 	p_team: SimTeam, visual_ball: VisualBall, shirt_color: Color, update_interval: float
 ) -> void:
 	team = p_team
-	player1.setup(p_team.players[0], visual_ball, shirt_color.lightened(0.4), update_interval)
-	player2.setup(p_team.players[1], visual_ball, shirt_color, update_interval)
-	player3.setup(p_team.players[2], visual_ball, shirt_color, update_interval)
-	player4.setup(p_team.players[3], visual_ball, shirt_color, update_interval)
-	player5.setup(p_team.players[4], visual_ball, shirt_color, update_interval)
+	player1.setup(p_team.players[0], update_interval, visual_ball, shirt_color.lightened(0.4))
+	player2.setup(p_team.players[1], update_interval, visual_ball, shirt_color)
+	player3.setup(p_team.players[2], update_interval, visual_ball, shirt_color)
+	player4.setup(p_team.players[3], update_interval, visual_ball, shirt_color)
+	player5.setup(p_team.players[4], update_interval, visual_ball, shirt_color)
 
 
 func update(update_interval: float) -> void:

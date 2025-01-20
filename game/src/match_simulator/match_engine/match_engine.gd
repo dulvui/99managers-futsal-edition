@@ -4,7 +4,7 @@
 
 class_name MatchEngine
 
-const INTERCEPTION_TIMER_START: int = 8
+const INTERCEPTION_TIMER_START: int = 32
 
 var field: SimField
 var home_team: SimTeam
@@ -58,11 +58,9 @@ func setup(p_home_team: Team, p_away_team: Team, match_seed: int) -> void:
 func update() -> void:
 	field.update()
 
-	home_team.update()
-	away_team.update()
-
-	if interception_timer > 0:
-		interception_timer -= 1
+	if ticks % 4 == 0:
+		home_team.update()
+		away_team.update()
 
 	if field.clock_running:
 		ticks += 1

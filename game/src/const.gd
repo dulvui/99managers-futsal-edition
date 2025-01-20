@@ -17,8 +17,8 @@ const SCALE_3: float = 1.50
 # match engine
 const HALF_TIME_SECONDS: int = 60 * 20
 const FULL_TIME_SECONDS: int = HALF_TIME_SECONDS * 2
-const TICKS_PER_SECOND: int = 4
-const SPEED: int = 2
+const TICKS_PER_SECOND: int = 16
+const SPEED: float = 0.2
 # stamina range [0, 1]
 # this factor makes sure a player with attribute stamina 20
 # can play a full game running all the time

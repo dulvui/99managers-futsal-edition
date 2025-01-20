@@ -1,11 +1,10 @@
-[gd_scene load_steps=7 format=3 uid="uid://doptire10wp2v"]
+[gd_scene load_steps=6 format=3 uid="uid://doptire10wp2v"]
 
 [ext_resource type="Script" path="res://src/match_simulator/visual_match/visual_actors/visual_player/visual_player.gd" id="1_l4pqs"]
 [ext_resource type="Texture2D" uid="uid://b5ocixr2ach6x" path="res://assets/player/body.png" id="2_g0wye"]
 [ext_resource type="Texture2D" uid="uid://cmslh22vxx0tu" path="res://assets/player/head.png" id="3_iebgc"]
 [ext_resource type="Texture2D" uid="uid://ye8lynclew5t" path="res://assets/player/eyes.png" id="4_7nibw"]
 [ext_resource type="Texture2D" uid="uid://b6g7l0epv4jjx" path="res://assets/player/hair.png" id="4_jaajf"]
-[ext_resource type="Texture2D" uid="uid://coh1vmi045yis" path="res://assets/player/circle.svg" id="6_a5ogg"]
 
 [node name="VisualPlayer" type="Node2D"]
 scale = Vector2(0.5, 0.5)
@@ -33,11 +32,6 @@ modulate = Color(0.506324, 0.217427, 0.00883016, 1)
 position = Vector2(-6, 0)
 scale = Vector2(0.8, 0.8)
 texture = ExtResource("4_jaajf")
-
-[node name="SimpleCircle" type="Sprite2D" parent="."]
-visible = false
-scale = Vector2(0.027261, 0.027261)
-texture = ExtResource("6_a5ogg")
 
 [node name="Info" type="MarginContainer" parent="."]
 anchors_preset = 7

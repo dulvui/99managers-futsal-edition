@@ -31,7 +31,7 @@ var left_half: bool
 var has_ball: bool
 
 
-func _init(p_radius: float = 30) -> void:
+func _init(p_radius: float = 4) -> void:
 	super(p_radius, false)
 	# initial test values
 	has_ball = false
@@ -77,13 +77,6 @@ func is_touching_ball() -> bool:
 	return collides(field.ball)
 
 
-func is_intercepting_ball() -> bool:
-	return (
-		RngUtil.match_rng.randi_range(1, 100)
-		< 59 + player_res.attributes.technical.interception * 2
-	)
-
-
 func recover_stamina(factor: int = 1) -> void:
 	player_res.recover_stamina(factor)
 
@@ -104,14 +97,6 @@ func move_defense_pos() -> void:
 	var deviation_y: int = RngUtil.match_rng.randi_range(-10, 10)
 	var deviation: Vector2 = Vector2(deviation_x, deviation_y)
 
-	set_destination(start_pos + deviation, 20)
+	set_destination(start_pos + deviation)
 
-
-func _block_shot() -> bool:
-	if is_touching_ball():
-		return (
-			RngUtil.match_rng.randi_range(0, 100)
-			< 69 + player_res.attributes.goalkeeper.handling * 2
-		)
-	return false
 
