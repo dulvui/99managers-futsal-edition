@@ -140,9 +140,9 @@ func _on_half_time() -> void:
 func _on_update_time() -> void:
 	stats.update_stats(home_stats, away_stats)
 
-	time_label.text = "%02d:%02d" % \
-			[int(match_simulator.engine.time) / 60, \
-			int(match_simulator.engine.time) % 60]
+	var minutes: int = int(match_simulator.engine.time) / 60
+	var seconds: int = int(match_simulator.engine.time) % 60
+	time_label.text = "%02d:%02d" % [minutes, seconds]
 
 	time_bar.value = match_simulator.engine.time
 	possess_bar.value = home_stats.possession

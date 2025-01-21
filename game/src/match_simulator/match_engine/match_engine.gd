@@ -70,7 +70,7 @@ func update() -> void:
 	if ticks % Const.STATE_UPDATE_TICKS == 0:
 		left_team.update()
 		right_team.update()
-	
+
 	# time related code
 	if field.clock_running:
 		# update real time in seconds
@@ -81,9 +81,9 @@ func update() -> void:
 
 			# update posession stats
 			if home_team.has_ball:
-				possession_counter += 1.0
+				possession_counter += 1
 
-			home_team.stats.possession = possession_counter / time * 100
+			home_team.stats.possession = possession_counter / float(time) * 100.0
 			away_team.stats.possession = 100 - home_team.stats.possession
 
 		# halftime

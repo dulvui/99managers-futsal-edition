@@ -29,6 +29,8 @@ func execute() -> void:
 
 func set_state(p_state: StateMachineState) -> void:
 	if state:
+		if state.dominant:
+			return
 		# don't set same states again
 		if p_state.name == state.name:
 			return
