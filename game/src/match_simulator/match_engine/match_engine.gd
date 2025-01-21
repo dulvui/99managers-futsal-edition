@@ -98,38 +98,40 @@ func simulate(end_time: int = Const.FULL_TIME_SECONDS) -> void:
 	var start_time: int = Time.get_ticks_msec()
 
 	# save simulated flags, to restore if endtime < FULL_TIME_SECONDS
-	var left_simulated: bool = left_team.simulated
-	var right_simulated: bool = right_team.simulated
+	var home_simulated: bool = home_team.simulated
+	var away_simulated: bool = away_team.simulated
 	# set simulation flags to activate auto changes ecc
-	left_team.simulated = true
-	right_team.simulated = true
+	home_team.simulated = true
+	away_team.simulated = true
 
 	# simulate game
 	while time < end_time:
 		update()
 	
 	# restore simulation flags, in case only partial game has been simulated
-	left_team.simulated = left_simulated
-	right_team.simulated = right_simulated
+	home_team.simulated = home_simulated
+	away_team.simulated = away_simulated
 	
 	var load_time: int = Time.get_ticks_msec() - start_time
 	print("benchmark in: " + str(load_time) + " ms")
 
-	print("result: %d - %d" % [left_team.stats.goals, right_team.stats.goals])
-	print("shots:  %d - %d" % [left_team.stats.shots, right_team.stats.shots])
+	print("result: %d - %d" % [home_team.stats.goals, away_team.stats.goals])
+	print("shots:  %d - %d" % [home_team.stats.shots, away_team.stats.shots])
 	print("simulating match done.")
 
 
 func simulate_match(matchz: Match) -> void:
 	setup(matchz.home, matchz.away, matchz.id)
 	simulate()
-	matchz.set_result(right_team.stats.goals, left_team.stats.goals)
+	matchz.set_result(home_team.stats.goals, away_team.stats.goals)
 
 
 func set_half_time() -> void:
-	# switch left/right team
+	# switch left/right team, assuming home starts always left
 	left_team = away_team
 	right_team = home_team
+	left_team.left_half = true
+	right_team.left_half = false
 
 	field.ball.set_pos(field.center)
 

@@ -34,7 +34,6 @@ func execute() -> void:
 	
 	# wait for opponents to be ready
 	if not owner.team.team_opponents.ready_for_kickoff:
-		print("wait for orhers")
 		return
 	
 	if owner.team.has_ball:
