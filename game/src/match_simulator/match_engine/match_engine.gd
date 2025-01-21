@@ -79,12 +79,12 @@ func update() -> void:
 			time += 1
 			update_time.emit()
 
-		# update posession stats
-		if left_team.has_ball:
-			possession_counter += 1.0
+			# update posession stats
+			if home_team.has_ball:
+				possession_counter += 1.0
 
-		left_team.stats.possession = possession_counter / time_ticks * 100
-		right_team.stats.possession = 100 - left_team.stats.possession
+			home_team.stats.possession = possession_counter / time * 100
+			away_team.stats.possession = 100 - home_team.stats.possession
 
 		# halftime
 		if time == Const.HALF_TIME_SECONDS:

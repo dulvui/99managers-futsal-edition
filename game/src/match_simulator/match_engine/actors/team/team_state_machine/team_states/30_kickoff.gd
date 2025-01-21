@@ -55,8 +55,6 @@ func kickoff_pass() -> void:
 	var random_player: int = RngUtil.match_rng.randi_range(1, 3)
 	
 	owner.team.player_receive_ball(owner.team.players[random_player])
-	owner.team.player_control(owner.team.players[random_player])
-
 	owner.team.player_receive_ball().state_machine.set_state(PlayerStateReceive.new())
 	owner.field.ball.short_pass(owner.team.player_receive_ball().pos, 80)
 
