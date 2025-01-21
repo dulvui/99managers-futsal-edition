@@ -5,13 +5,6 @@
 class_name SimPlayer
 extends MovingActor
 
-# signal short_pass
-# signal shoot
-# signal interception
-# signal tackle
-# signal dribble
-# signal pass_received
-
 # resources
 var player_res: Player
 var field: SimField

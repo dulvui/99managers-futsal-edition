@@ -47,8 +47,8 @@ var clock_running: bool
 # add all resources here, so they can be accessedeasily
 # especiially inside the state machines
 var ball: SimBall
-var home_team: SimTeam
-var away_team: SimTeam
+var left_team: SimTeam
+var right_team: SimTeam
 
 var calculator: SimFieldCalculator
 
@@ -200,11 +200,11 @@ func _check_goal_line() -> bool:
 
 
 func _on_goals_post_hit_left() -> void:
-	home_team.stats.shots_hit_post += 1
+	left_team.stats.shots_hit_post += 1
 
 
 func _on_goals_post_hit_right() -> void:
-	home_team.stats.shots_hit_post += 1
+	left_team.stats.shots_hit_post += 1
 
 
 func _check_ball_wall_colissions() -> void:
@@ -234,14 +234,14 @@ func _check_ball_wall_colissions() -> void:
 
 
 func _check_ball_players_colissions() -> void:
-	for player: SimPlayer in home_team.players:
-		if home_team.player_control() != player:
+	for player: SimPlayer in left_team.players:
+		if left_team.player_control() != player:
 			if player.collides(ball):
 				ball.stop()
 				return
 	
-	for player: SimPlayer in away_team.players:
-		if away_team.player_control() != player:
+	for player: SimPlayer in right_team.players:
+		if right_team.player_control() != player:
 			if player.collides(ball):
 				ball.stop()
 				return
@@ -249,8 +249,8 @@ func _check_ball_players_colissions() -> void:
 
 func _check_player_colissions() -> void:
 	if clock_running:
-		for player: SimPlayer in home_team.players:
-			for player2: SimPlayer in away_team.players:
+		for player: SimPlayer in left_team.players:
+			for player2: SimPlayer in right_team.players:
 				if player.collides(player2):
 					player.stop()
 

@@ -4,7 +4,6 @@
 
 class_name SimTeam
 
-signal interception
 signal player_changed
 
 var res_team: Team
@@ -45,8 +44,8 @@ func setup(
 ) -> void:
 	res_team = p_res_team
 	field = p_field
-	has_ball = p_has_ball
 	left_half = p_left_half
+	has_ball = p_has_ball
 	simulated = p_simulated
 
 	change_request = false
@@ -62,12 +61,6 @@ func setup(
 		var sim_player: SimPlayer = SimPlayer.new()
 		sim_player.setup(player, self, field, left_half)
 		all_players.append(sim_player)
-		# player signals
-		# sim_player.short_pass.connect(pass_to_random_player.bind(sim_player))
-		# sim_player.pass_received.connect(func() -> void: stats.passes_success += 1)
-		# sim_player.interception.connect(_on_player_interception)
-		# sim_player.shoot.connect(shoot_on_goal.bind(sim_player.player_res))
-		#sim_player.dribble.connect(pass_to_random_player)
 	
 	# copy field players in own array, for easier access
 	players = all_players.slice(0, 5)
@@ -75,7 +68,9 @@ func setup(
 	# set start position for starting players
 	for player: SimPlayer in players:
 		# start pos
-		var start_pos: Vector2 = res_team.formation.get_start_pos(field.size, players.find(player), left_half)
+		var start_pos: Vector2 = res_team.formation.get_start_pos(
+			field.size, players.find(player), left_half
+		)
 		player.start_pos = start_pos
 	
 	# set goalkeeper flag
@@ -252,12 +247,4 @@ func find_nearest_player_to(position: Vector2, exclude: Array[SimPlayer] = []) -
 #
 func shoot_on_goal(_player: Player) -> void:
 	stats.shots += 1
-
-
-#
-# SIGNALS
-#
-func _on_player_interception() -> void:
-	interception.emit()
-
 

@@ -8,11 +8,12 @@ signal half_time
 signal full_time
 signal update_time
 
-const INTERCEPTION_TIMER_START: int = 32
-
 var field: SimField
 var home_team: SimTeam
 var away_team: SimTeam
+
+var left_team: SimTeam
+var right_team: SimTeam
 
 var ticks: int
 var time_ticks: int
@@ -21,12 +22,8 @@ var time: int
 # stats
 var possession_counter: float
 
-# count ticks passed between last interception
-# to prevent constant possess change and stuck ball
-var interception_timer: int
 
-
-func setup(p_home_team: Team, p_away_team: Team, match_seed: int) -> void:
+func setup(p_left_team: Team, p_right_team: Team, match_seed: int) -> void:
 	field = SimField.new()
 
 	field.touch_line_out.connect(_on_touch_line_out)
@@ -42,25 +39,23 @@ func setup(p_home_team: Team, p_away_team: Team, match_seed: int) -> void:
 
 	RngUtil.match_rng.seed = hash(match_seed)
 
-	# var home_plays_left: bool = RngUtil.match_rng.randi_range(0, 1) == 0
-	var home_plays_left: bool = true
-	var home_has_ball: bool = RngUtil.match_rng.randi_range(0, 1) == 0
+	# var left_plays_left: bool = RngUtil.match_rng.randi_range(0, 1) == 0
+	var left_plays_left: bool = true
+	var left_has_ball: bool = RngUtil.match_rng.randi_range(0, 1) == 0
 
-	home_team = SimTeam.new()
-	home_team.setup(p_home_team, field, home_plays_left, home_has_ball)
-	home_team.interception.connect(_on_home_team_interception)
+	left_team = SimTeam.new()
+	left_team.setup(p_left_team, field, left_plays_left, left_has_ball)
+	home_team = left_team
 
-	away_team = SimTeam.new()
-	away_team.setup(p_away_team, field, not home_plays_left, not home_has_ball)
-	away_team.interception.connect(_on_away_team_interception)
+	right_team = SimTeam.new()
+	right_team.setup(p_right_team, field, not left_plays_left, not left_has_ball)
+	away_team = right_team
 
-	home_team.team_opponents =  away_team
-	away_team.team_opponents =  home_team
+	left_team.team_opponents =  right_team
+	right_team.team_opponents =  left_team
 
-	field.home_team = home_team
-	field.away_team = away_team
-
-	interception_timer = 0
+	field.left_team = left_team
+	field.right_team = right_team
 
 
 func update() -> void:
@@ -73,8 +68,8 @@ func update() -> void:
 	# teams/players instead update less frequent
 	# state machines don't require high frequency
 	if ticks % Const.STATE_UPDATE_TICKS == 0:
-		home_team.update()
-		away_team.update()
+		left_team.update()
+		right_team.update()
 	
 	# time related code
 	if field.clock_running:
@@ -85,11 +80,11 @@ func update() -> void:
 			update_time.emit()
 
 		# update posession stats
-		if home_team.has_ball:
+		if left_team.has_ball:
 			possession_counter += 1.0
 
-		home_team.stats.possession = possession_counter / time_ticks * 100
-		away_team.stats.possession = 100 - home_team.stats.possession
+		left_team.stats.possession = possession_counter / time_ticks * 100
+		right_team.stats.possession = 100 - left_team.stats.possession
 
 		# halftime
 		if time == Const.HALF_TIME_SECONDS:
@@ -103,198 +98,125 @@ func simulate(end_time: int = Const.FULL_TIME_SECONDS) -> void:
 	var start_time: int = Time.get_ticks_msec()
 
 	# save simulated flags, to restore if endtime < FULL_TIME_SECONDS
-	var home_simulated: bool = home_team.simulated
-	var away_simulated: bool = away_team.simulated
+	var left_simulated: bool = left_team.simulated
+	var right_simulated: bool = right_team.simulated
 	# set simulation flags to activate auto changes ecc
-	home_team.simulated = true
-	away_team.simulated = true
+	left_team.simulated = true
+	right_team.simulated = true
 
 	# simulate game
 	while time < end_time:
 		update()
 	
 	# restore simulation flags, in case only partial game has been simulated
-	home_team.simulated = home_simulated
-	away_team.simulated = away_simulated
+	left_team.simulated = left_simulated
+	right_team.simulated = right_simulated
 	
 	var load_time: int = Time.get_ticks_msec() - start_time
 	print("benchmark in: " + str(load_time) + " ms")
 
-	print("result: %d - %d" % [home_team.stats.goals, away_team.stats.goals])
-	print("shots:  %d - %d" % [home_team.stats.shots, away_team.stats.shots])
+	print("result: %d - %d" % [left_team.stats.goals, right_team.stats.goals])
+	print("shots:  %d - %d" % [left_team.stats.shots, right_team.stats.shots])
 	print("simulating match done.")
 
 
 func simulate_match(matchz: Match) -> void:
 	setup(matchz.home, matchz.away, matchz.id)
 	simulate()
-	matchz.set_result(home_team.stats.goals, away_team.stats.goals)
+	matchz.set_result(right_team.stats.goals, left_team.stats.goals)
 
 
 func set_half_time() -> void:
-	half_time.emit()
+	# switch left/right team
+	left_team = away_team
+	right_team = home_team
 
-	home_team.left_half = not home_team.left_half
 	field.ball.set_pos(field.center)
 
 	# stamina recovery 15 minutes
 	var half_time_ticks: int = 15 * Const.TICKS_PER_SECOND * 60
-	for player: SimPlayer in home_team.players:
+	for player: SimPlayer in left_team.players:
 		player.recover_stamina(half_time_ticks)
-	for player: SimPlayer in away_team.players:
+	for player: SimPlayer in right_team.players:
 		player.recover_stamina(half_time_ticks)
+	
+	half_time.emit()
 
 
 func set_full_time() -> void:
-	full_time.emit()
-
 	# stamina recovery 30 minutes
 	var recovery: int = 30 * Const.TICKS_PER_SECOND * 60
-	for player: SimPlayer in home_team.players:
+	for player: SimPlayer in left_team.players:
 		player.recover_stamina(recovery)
-	for player: SimPlayer in away_team.players:
+	for player: SimPlayer in right_team.players:
 		player.recover_stamina(recovery)
+	
+	full_time.emit()
 
 
-func home_possess() -> void:
-	home_team.has_ball = true
-	away_team.has_ball = false
+func left_possess() -> void:
+	left_team.has_ball = true
+	right_team.has_ball = false
 	# recacluate best sector, after flags change
 	field.force_update_calculator()
 
 
-func away_possess() -> void:
-	home_team.has_ball = false
-	away_team.has_ball = true
+func right_possess() -> void:
+	left_team.has_ball = false
+	right_team.has_ball = true
 	# recacluate best sector, after flags change
 	field.force_update_calculator()
-
-
-func _on_home_team_possess() -> void:
-	home_possess()
-
-
-func _on_away_team_possess() -> void:
-	away_possess()
-
-
-func _on_home_team_foul(player: Player) -> void:
-	print("HOME FOUL " + player.surname)
-	away_possess()
-
-
-func _on_away_team_foul(player: Player) -> void:
-	print("AWAY FOUL " + player.surname)
-	home_possess()
-
-
-func _on_home_team_interception() -> void:
-	if interception_timer > 0:
-		return
-	interception_timer = INTERCEPTION_TIMER_START
-	home_possess()
-
-
-func _on_away_team_interception() -> void:
-	if interception_timer > 0:
-		return
-	interception_timer = INTERCEPTION_TIMER_START
-	away_possess()
 
 
 func _on_goal_line_out_left() -> void:
-	# home team corner
-	if away_team.has_ball:
-		if away_team.left_half:
-			_corner_home()
-			return
-		else:
-			# goalkeeper ball
-			field.ball.set_pos_xy(field.line_left + 40, field.center.y)
-			away_team.players[0].set_state(PlayerStateGoalkeeperBall.new())
-			return
-	
-	# away team corner
-	if home_team.has_ball:
-		if home_team.left_half:
-			_corner_away()
-			return
-		else:
-			# goalkeeper ball
-			field.ball.set_pos_xy(field.line_left + 40, field.center.y)
-			home_team.players[0].set_state(PlayerStateGoalkeeperBall.new())
-			return
+	# corner
+	if left_team.has_ball:
+		right_possess()
+		right_team.stats.corners += 1
+		left_team.set_state(TeamStateCorner.new())
+		right_team.set_state(TeamStateCorner.new())
+		return
+
+	# goalkeeper ball
+	field.ball.set_pos_xy(field.line_left + 40, field.center.y)
+	left_team.players[0].set_state(PlayerStateGoalkeeperBall.new())
+
 
 func _on_goal_line_out_right() -> void:
-	# home team corner
-	if away_team.has_ball:
-		if not away_team.left_half:
-			_corner_home()
-			return
-		else:
-			# goalkeeper ball
-			field.ball.set_pos_xy(field.line_right - 40, field.center.y)
-			away_team.players[0].set_state(PlayerStateGoalkeeperBall.new())
-	
-	# away team corner
-	if home_team.has_ball:
-		if not home_team.left_half:
-			_corner_away()
-			return
-		else:
-			# goalkeeper ball
-			field.ball.set_pos_xy(field.line_right - 40, field.center.y)
-			home_team.players[0].set_state(PlayerStateGoalkeeperBall.new())
-	
+	# corner
+	if right_team.has_ball:
+		left_possess()
+		left_team.stats.corners += 1
+		left_team.set_state(TeamStateCorner.new())
+		right_team.set_state(TeamStateCorner.new())
+		return
 
-
-func _corner_home() -> void:
-	home_possess()
-	home_team.stats.corners += 1
-	home_team.set_state(TeamStateCorner.new())
-	away_team.set_state(TeamStateCorner.new())
-
-
-func _corner_away() -> void:
-	away_possess()
-	away_team.stats.corners += 1
-	home_team.set_state(TeamStateCorner.new())
-	away_team.set_state(TeamStateCorner.new())
+	# goalkeeper ball
+	field.ball.set_pos_xy(field.line_right - 40, field.center.y)
+	right_team.players[0].set_state(PlayerStateGoalkeeperBall.new())
 
 
 func _on_touch_line_out() -> void:
-	if home_team.has_ball:
-		away_possess()
-		away_team.stats.kick_ins += 1
+	if left_team.has_ball:
+		right_possess()
+		right_team.stats.kick_ins += 1
 	else:
-		home_possess()
-		home_team.stats.kick_ins += 1
+		left_possess()
+		left_team.stats.kick_ins += 1
 	
-	home_team.set_state(TeamStateKickin.new())
-	away_team.set_state(TeamStateKickin.new())
+	left_team.set_state(TeamStateKickin.new())
+	right_team.set_state(TeamStateKickin.new())
 
 
 func _on_goal_left() -> void:
-	if away_team.left_half:
-		home_team.stats.goals += 1
-		away_team.set_state(TeamStateGoalCelebrate.new())
-		home_team.set_state(TeamStateStartPositions.new())
-		away_possess()
-	else:
-		away_team.stats.goals += 1
-		home_team.set_state(TeamStateGoalCelebrate.new())
-		away_team.set_state(TeamStateStartPositions.new())
-		home_possess()
+	left_team.stats.goals += 1
+	right_team.set_state(TeamStateGoalCelebrate.new())
+	left_team.set_state(TeamStateStartPositions.new())
+	right_possess()
 
 
 func _on_goal_right() -> void:
-	if home_team.left_half:
-		home_team.stats.goals += 1
-		home_team.set_state(TeamStateGoalCelebrate.new())
-		away_team.set_state(TeamStateStartPositions.new())
-		away_possess()
-	else:
-		away_team.stats.goals += 1
-		away_team.set_state(TeamStateGoalCelebrate.new())
-		home_team.set_state(TeamStateStartPositions.new())
-		home_possess()
+	right_team.stats.goals += 1
+	right_team.set_state(TeamStateGoalCelebrate.new())
+	left_team.set_state(TeamStateStartPositions.new())
+	left_possess()

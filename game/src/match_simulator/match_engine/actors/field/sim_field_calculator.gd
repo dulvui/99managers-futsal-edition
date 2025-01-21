@@ -83,17 +83,17 @@ func _calc_distance_to(from: Vector2, to: Vector2) -> float:
 func _calc_players_in_shoot_trajectory(position: Vector2) -> int:
 	var players_in_trajectory: int = 0
 	
-	if _left_is_active_goal():
-		post_top = field.goals.post_top_left
-		post_bottom = field.goals.post_bottom_left
-	else:
+	if field.left_team.has_ball:
 		post_top = field.goals.post_top_right
 		post_bottom = field.goals.post_bottom_right
-
-	if field.home_team.has_ball:
-		players = field.away_team.players
 	else:
-		players = field.home_team.players
+		post_top = field.goals.post_top_left
+		post_bottom = field.goals.post_bottom_left
+
+	if field.left_team.has_ball:
+		players = field.right_team.players
+	else:
+		players = field.left_team.players
 	
 	for player: SimPlayer in players:
 		if Geometry2D.point_is_inside_triangle(player.pos, position, post_top, post_bottom):
@@ -105,10 +105,10 @@ func _calc_players_in_shoot_trajectory(position: Vector2) -> int:
 func _calc_players_in_pass_trajectory(position: Vector2) -> int:
 	var players_in_trajectory: int = 0
 	
-	if field.home_team.has_ball:
-		players = field.away_team.players
+	if field.left_team.has_ball:
+		players = field.right_team.players
 	else:
-		players = field.home_team.players
+		players = field.left_team.players
 	
 	for player: SimPlayer in players:
 		if Geometry2D.segment_intersects_circle(
@@ -118,13 +118,3 @@ func _calc_players_in_pass_trajectory(position: Vector2) -> int:
 	
 	return players_in_trajectory
 
-
-
-func _left_is_active_goal() -> bool:
-	if field.home_team.left_half and field.home_team.has_ball:
-		return false
-	if field.home_team.left_half and field.away_team.has_ball:
-		return true
-	if not field.home_team.left_half and field.home_team.has_ball:
-		return true
-	return false
