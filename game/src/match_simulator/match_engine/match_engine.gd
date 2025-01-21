@@ -76,6 +76,7 @@ func update() -> void:
 		home_team.update()
 		away_team.update()
 	
+	# time related code
 	if field.clock_running:
 		# update real time in seconds
 		time_ticks += 1
@@ -91,15 +92,10 @@ func update() -> void:
 		away_team.stats.possession = 100 - home_team.stats.possession
 
 		# halftime
-		if time == Const.HALF_TIME_SECONDS * Const.TICKS_PER_SECOND:
+		if time == Const.HALF_TIME_SECONDS:
 			set_half_time()
-			half_time.emit()
-		elif time == Const.FULL_TIME_SECONDS * Const.TICKS_PER_SECOND:
+		elif time == Const.FULL_TIME_SECONDS:
 			set_full_time()
-			full_time.emit()
-	else:
-		home_team.check_changes()
-		away_team.check_changes()
 
 
 func simulate(end_time: int = Const.FULL_TIME_SECONDS) -> void:
@@ -114,7 +110,7 @@ func simulate(end_time: int = Const.FULL_TIME_SECONDS) -> void:
 	away_team.simulated = true
 
 	# simulate game
-	while time <= end_time:
+	while time < end_time:
 		update()
 	
 	# restore simulation flags, in case only partial game has been simulated
@@ -136,6 +132,8 @@ func simulate_match(matchz: Match) -> void:
 
 
 func set_half_time() -> void:
+	half_time.emit()
+
 	home_team.left_half = not home_team.left_half
 	field.ball.set_pos(field.center)
 
@@ -148,6 +146,8 @@ func set_half_time() -> void:
 
 
 func set_full_time() -> void:
+	full_time.emit()
+
 	# stamina recovery 30 minutes
 	var recovery: int = 30 * Const.TICKS_PER_SECOND * 60
 	for player: SimPlayer in home_team.players:

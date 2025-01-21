@@ -23,6 +23,9 @@ var engine: MatchEngine
 func _physics_process(delta: float) -> void:
 	camera.position = camera.position.lerp(visual_match.ball.global_position, delta * CAMERA_SPEED)
 
+	if Global.match_paused:
+		return
+
 	passed_time += delta
 	if passed_time >= wait_time:
 		passed_time = 0
@@ -44,7 +47,7 @@ func setup(home_team: Team, away_team: Team, match_seed: int) -> void:
 			visual_match.away_team.change_players(engine.away_team)
 	)
 
-	# connect tiem control signals
+	# connect time control signals
 	engine.half_time.connect(func() -> void: pause())
 	engine.full_time.connect(func() -> void: pause())
 

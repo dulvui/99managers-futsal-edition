@@ -14,7 +14,6 @@ var home_team: Team
 var away_team: Team
 
 var match_started: bool = false
-var first_half: bool = true
 
 var matchz: Match
 
@@ -136,7 +135,6 @@ func _on_full_time() -> void:
 
 func _on_half_time() -> void:
 	pause_button.text = tr("CONTINUE")
-	first_half = false
 
 
 func _on_update_time() -> void:

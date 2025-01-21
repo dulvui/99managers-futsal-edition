@@ -91,6 +91,7 @@ func update() -> void:
 	# TODO
 	# check injuries
 
+	check_changes()
 	auto_change()
 	
 	state_machine.execute()
