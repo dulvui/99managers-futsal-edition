@@ -144,6 +144,7 @@ func _check_touch_line() -> void:
 			ball.last_pos, ball.pos, top_left, top_right
 		)
 		if intersection:
+			clock_running = false
 			ball.set_pos(intersection)
 			touch_line_out.emit()
 			return
@@ -152,6 +153,7 @@ func _check_touch_line() -> void:
 			ball.last_pos, ball.pos, bottom_left, bottom_right
 		)
 		if intersection:
+			clock_running = false
 			ball.set_pos(intersection)
 			touch_line_out.emit()
 			return
@@ -160,6 +162,7 @@ func _check_touch_line() -> void:
 func _check_goal_line() -> bool:
 	# left
 	if ball.pos.x < line_left:
+		clock_running = false
 
 		if goals.is_goal_left(ball):
 			ball.stop()
@@ -176,6 +179,7 @@ func _check_goal_line() -> bool:
 		return true
 	# right
 	if ball.pos.x > line_right:
+		clock_running = false
 
 		if goals.is_goal_right(ball):
 			ball.stop()
@@ -190,6 +194,7 @@ func _check_goal_line() -> bool:
 
 		goal_line_out_right.emit()
 		return true
+
 	return false
 
 

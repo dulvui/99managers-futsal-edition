@@ -19,6 +19,8 @@ var state_machine: TeamStateMachine
 var change_request: bool
 var has_ball: bool
 var left_half: bool
+var ready_for_kickoff: bool
+
 # false, if team is controlled by player
 var simulated: bool
 
@@ -48,6 +50,7 @@ func setup(
 	simulated = p_simulated
 
 	change_request = false
+	ready_for_kickoff = false
 
 	# check if team is player's team
 	simulated = Global.team and Global.team.id != res_team.id

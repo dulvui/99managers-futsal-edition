@@ -16,6 +16,8 @@ func _init() -> void:
 
 
 func enter() -> void:
+	owner.team.ready_for_kickoff = false
+
 	# move ball to center
 	owner.field.ball.set_pos(owner.field.center)
 
@@ -27,15 +29,15 @@ func enter() -> void:
 
 
 func execute() -> void:
-	# move players to positon
-	# if reached
+	# wait for players to reach start positon
 	for player: SimPlayer in owner.players:
 		if not player.destination_reached():
 			return
 	
-	# wait a bit in center, before kick off
+	# wait a bit before kick off
 	ticks += 1
-	if ticks == WAIT:
-		set_state(TeamStateKickoff.new())
+	if ticks < WAIT:
 		return
+
+	set_state(TeamStateKickoff.new())
 

@@ -10,7 +10,11 @@ func _init() -> void:
 	super("PlayerStateKickoff")
 
 
+func enter() -> void:
+	owner.player.set_destination(owner.player.start_pos)
+
+
 func execute() -> void:
-	if owner.field.clock_running:
+	if owner.player.destination_reached():
 		set_state(PlayerStateIdle.new())
 		return

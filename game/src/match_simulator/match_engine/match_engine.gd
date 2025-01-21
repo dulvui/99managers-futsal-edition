@@ -204,32 +204,48 @@ func _on_away_team_interception() -> void:
 
 func _on_goal_line_out_left() -> void:
 	# home team corner
-	if away_team.has_ball and away_team.left_half:
-		_corner_home()
-		return
+	if away_team.has_ball:
+		if away_team.left_half:
+			_corner_home()
+			return
+		else:
+			# goalkeeper ball
+			field.ball.set_pos_xy(field.line_left + 40, field.center.y)
+			away_team.players[0].set_state(PlayerStateGoalkeeperBall.new())
+			return
 	
 	# away team corner
-	if home_team.has_ball and home_team.left_half:
-		_corner_away()
-		return
-	
-	# goalkeeper ball
-	field.ball.set_pos_xy(field.line_left + 40, field.center.y)
-
+	if home_team.has_ball:
+		if home_team.left_half:
+			_corner_away()
+			return
+		else:
+			# goalkeeper ball
+			field.ball.set_pos_xy(field.line_left + 40, field.center.y)
+			home_team.players[0].set_state(PlayerStateGoalkeeperBall.new())
+			return
 
 func _on_goal_line_out_right() -> void:
 	# home team corner
-	if away_team.has_ball and not away_team.left_half:
-		_corner_home()
-		return
+	if away_team.has_ball:
+		if not away_team.left_half:
+			_corner_home()
+			return
+		else:
+			# goalkeeper ball
+			field.ball.set_pos_xy(field.line_right - 40, field.center.y)
+			away_team.players[0].set_state(PlayerStateGoalkeeperBall.new())
 	
 	# away team corner
-	if home_team.has_ball and not home_team.left_half:
-		_corner_away()
-		return
+	if home_team.has_ball:
+		if not home_team.left_half:
+			_corner_away()
+			return
+		else:
+			# goalkeeper ball
+			field.ball.set_pos_xy(field.line_right - 40, field.center.y)
+			home_team.players[0].set_state(PlayerStateGoalkeeperBall.new())
 	
-	# goalkeeper ball
-	field.ball.set_pos_xy(field.line_right - 40, field.center.y)
 
 
 func _corner_home() -> void:
@@ -262,10 +278,12 @@ func _on_goal_left() -> void:
 	if away_team.left_half:
 		home_team.stats.goals += 1
 		away_team.set_state(TeamStateGoalCelebrate.new())
+		home_team.set_state(TeamStateStartPositions.new())
 		away_possess()
 	else:
 		away_team.stats.goals += 1
 		home_team.set_state(TeamStateGoalCelebrate.new())
+		away_team.set_state(TeamStateStartPositions.new())
 		home_possess()
 
 
@@ -273,8 +291,10 @@ func _on_goal_right() -> void:
 	if home_team.left_half:
 		home_team.stats.goals += 1
 		home_team.set_state(TeamStateGoalCelebrate.new())
+		away_team.set_state(TeamStateStartPositions.new())
 		away_possess()
 	else:
 		away_team.stats.goals += 1
 		away_team.set_state(TeamStateGoalCelebrate.new())
+		home_team.set_state(TeamStateStartPositions.new())
 		home_possess()

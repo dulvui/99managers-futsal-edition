@@ -23,6 +23,7 @@ func execute() -> void:
 	if owner.team.has_ball:
 		if owner.team.player_control().destination_reached():
 			owner.team.player_control().set_state(PlayerStatePass.new())
+			owner.field.clock_running = true
 			set_state(TeamStateAttack.new())
 			return
 	elif owner.field.clock_running:
