@@ -70,6 +70,8 @@ func stop() -> void:
 
 
 func collides(actor: MovingActor) -> bool:
+	if actor == null:
+		return false
 	return actor.pos.distance_to(pos) < actor.collision_radius + collision_radius
 
 

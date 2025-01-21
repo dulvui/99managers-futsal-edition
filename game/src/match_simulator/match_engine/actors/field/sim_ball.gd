@@ -18,7 +18,7 @@ var field: SimField
 
 
 func _init() -> void:
-	super(1, true)
+	super(8, true)
 
 
 func setup(p_field: SimField) -> void:
@@ -47,24 +47,28 @@ func update() -> void:
 
 
 func short_pass(p_destination: Vector2, force: float) -> void:
+	# print("pass")
 	_random_rotation()
 	impulse(p_destination, force)
 	state = State.PASS
 
 
 func shoot(p_destination: Vector2, force: float) -> void:
+	# print("shoot")
 	_random_rotation()
 	impulse(p_destination, force)
 	state = State.SHOOT
 
 
 func dribble(p_destination: Vector2, force: float) -> void:
+	# print("dribble")
 	_random_rotation()
 	impulse(p_destination, force)
 	state = State.SHOOT
 
 
 func shoot_on_goal(player: Player, left_half: bool) -> void:
+	# print("shoot on goal")
 	var power: int = player.attributes.technical.shooting
 
 	var random_target: Vector2

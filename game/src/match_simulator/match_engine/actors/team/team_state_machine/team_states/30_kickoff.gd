@@ -41,8 +41,8 @@ func execute() -> void:
 		# start match time
 		owner.field.clock_running = true
 		# pass ball
-		kickoff_pass()
 		set_state(TeamStateAttack.new())
+		kickoff_pass()
 		return
 	
 	# when time started, defend
@@ -54,8 +54,11 @@ func execute() -> void:
 func kickoff_pass() -> void:
 	owner.team.stats.passes += 1
 	var random_player: int = RngUtil.match_rng.randi_range(1, 3)
+	
 	owner.team.player_receive_ball(owner.team.players[random_player])
+	owner.team.player_control(owner.team.players[random_player])
+
 	owner.team.player_receive_ball().state_machine.set_state(PlayerStateReceive.new())
-	owner.field.ball.short_pass(owner.team.player_receive_ball().pos, 40)
+	owner.field.ball.short_pass(owner.team.player_receive_ball().pos, 80)
 
 

@@ -16,6 +16,14 @@ func _init() -> void:
 
 func execute() -> void:
 	if owner.team.player_control() == owner.player:
+		# check if player touches balls
+		# if not, follow ball
+		if not owner.player.is_touching_ball():
+			owner.player.follow(owner.field.ball, 40)
+			return 
+		
+		owner.field.ball.stop()
+	
 		# check shoot
 		if should_shoot():
 			# print("shoot")

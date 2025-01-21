@@ -11,13 +11,11 @@ func _init() -> void:
 
 
 func enter() -> void:
-	owner.player.stop()
+	# move slowly towards ball
+	owner.player.follow(owner.field.ball, 10)
 
 
 func execute() -> void:
-	# move slowly towards ball
-	owner.player.set_destination(owner.field.ball.pos, 5)
-
 	if owner.player.is_touching_ball():
 		owner.field.ball.stop()
 		owner.team.player_control(owner.player)

@@ -211,7 +211,7 @@ func player_receive_ball(p_player: SimPlayer = null) -> SimPlayer:
 	if p_player != null:
 		_player_receive_ball = p_player
 	elif _player_receive_ball == null:
-		_player_receive_ball = player_nearest_to_ball()
+		return null
 	_player_receive_ball.set_state(PlayerStateReceive.new())
 	return _player_receive_ball
 

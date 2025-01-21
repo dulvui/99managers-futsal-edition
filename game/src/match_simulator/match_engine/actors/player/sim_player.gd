@@ -31,7 +31,7 @@ var left_half: bool
 var has_ball: bool
 
 
-func _init(p_radius: float = 4) -> void:
+func _init(p_radius: float = 20) -> void:
 	super(p_radius, false)
 	# initial test values
 	has_ball = false

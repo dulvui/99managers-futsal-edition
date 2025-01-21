@@ -123,8 +123,9 @@ func update() -> void:
 		goals.check_post_colissions(ball)
 
 	# collissions
+	_check_ball_players_colissions()
 	_check_ball_wall_colissions()
-	_check_player_colissions()
+	# _check_player_colissions()
 
 
 func force_update_calculator() -> void:
@@ -230,6 +231,20 @@ func _check_ball_wall_colissions() -> void:
 		if colission != null:
 			ball.direction = colission
 			return
+
+
+func _check_ball_players_colissions() -> void:
+	for player: SimPlayer in home_team.players:
+		if home_team.player_control() != player:
+			if player.collides(ball):
+				ball.stop()
+				return
+	
+	for player: SimPlayer in away_team.players:
+		if away_team.player_control() != player:
+			if player.collides(ball):
+				ball.stop()
+				return
 
 
 func _check_player_colissions() -> void:

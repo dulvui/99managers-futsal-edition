@@ -15,7 +15,8 @@ func enter() -> void:
 	for player: SimPlayer in owner.team.players:
 		if player.is_goalkeeper:
 			player.set_state(PlayerStateGoalkeeperFollowBall.new())
-		else:
+		# make sure not to chang player to attack that is receiving a ball from kickoff
+		elif not player.state_machine.state is PlayerStateReceive:
 			player.set_state(PlayerStateAttack.new())
 
 
