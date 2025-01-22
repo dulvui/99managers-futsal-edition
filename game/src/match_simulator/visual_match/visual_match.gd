@@ -5,8 +5,6 @@
 class_name VisualMatch
 extends Node2D
 
-var engine: MatchEngine
-
 var ball_delta: float
 var states_delta: float
 
@@ -15,19 +13,13 @@ var states_delta: float
 @onready var ball: VisualBall = $VisualBall
 @onready var field: VisualField = $VisualField
 
-# used for debugging and to see real ball position and not interpolations
-@onready var visual_ball_real: Sprite2D = $VisualBallReal
-
 
 func _physics_process(delta: float) -> void:
-	visual_ball_real.position = engine.field.ball.pos
-	
 	ball_delta += delta
 	states_delta += delta
 
 
-func setup(p_engine: MatchEngine, update_interval: float) -> void:
-	engine = p_engine
+func setup(engine: MatchEngine, update_interval: float) -> void:
 	field.setup(engine.field)
 	ball.setup(engine.field.ball, update_interval)
 	
@@ -38,9 +30,6 @@ func setup(p_engine: MatchEngine, update_interval: float) -> void:
 
 	ball_delta = 0.0
 	states_delta = 0.0
-
-	engine.ball_update.connect(update_ball)
-	engine.players_update.connect(update_players)
 
 
 func update_ball() -> void:

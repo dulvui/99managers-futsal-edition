@@ -26,11 +26,20 @@ func _physics_process(delta: float) -> void:
 	if Global.match_paused:
 		return
 	
-	passed_time += delta
-	if passed_time >= wait_time:
-		passed_time = 0
+	if Global.match_speed != MatchScreen.Speed.FULL_GAME:
+		for i in Const.TICKS_PER_SECOND:
+			engine.update()
+		return
+	
+	else:
+		passed_time += delta
+		if passed_time >= wait_time:
+			passed_time = 0
+			engine.update()
+			visual_match.update_ball()
 
-		engine.update()
+			if engine.ticks % Const.STATE_UPDATE_TICKS == 0:
+				visual_match.update_players()
 
 
 func setup(home_team: Team, away_team: Team, match_seed: int) -> void:
@@ -52,7 +61,7 @@ func setup(home_team: Team, away_team: Team, match_seed: int) -> void:
 	engine.half_time.connect(func() -> void: pause())
 	engine.full_time.connect(func() -> void: pause())
 
-	set_speed()
+	wait_time = 1.0 / Const.TICKS_PER_SECOND
 
 	# setup visual match
 	# get colors
@@ -96,7 +105,3 @@ func match_finished() -> void:
 	action_message.emit("match finished")
 	Global.match_paused = true
 
-
-func set_speed() -> void:
-	wait_time = 1.0 / Const.TICKS_PER_SECOND / Global.speed_factor
-	print(wait_time)

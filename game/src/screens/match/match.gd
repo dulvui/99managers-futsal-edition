@@ -5,7 +5,12 @@
 class_name MatchScreen
 extends Control
 
-const MAX_SPEED_FACTOR: int = 10
+enum Speed {
+	FULL_GAME,
+	KEY_ACTIONS,
+	ONLY_GOALS,
+}
+
 const MAX_COMMENTS: int = 16
 
 var last_active_view: Control
@@ -41,7 +46,7 @@ var away_stats: MatchStatistics
 @onready var pause_button: Button = %PauseButton
 @onready var faster_button: Button = %FasterButton
 @onready var slower_button: Button = %SlowerButton
-@onready var speed_factor_label: Label = %SpeedFactor
+@onready var match_speed_label: Label = %SpeedFactor
 @onready var events_button: Button = %EventsButton
 @onready var stats_button: Button = %StatsButton
 @onready var field_button: Button = %FieldButton
@@ -50,6 +55,10 @@ var away_stats: MatchStatistics
 @onready var dashboard_button: Button = %DashboardButton
 
 @onready var players_bar: PlayersBar = %PlayersBar
+
+
+var minutes: int
+var seconds: int
 
 
 func _ready() -> void:
@@ -103,9 +112,7 @@ func _ready() -> void:
 	home_color.color = home_team.get_home_color()
 	away_color.color = away_team.get_away_color(home_color.color)
 
-	speed_factor_label.text = str(Global.speed_factor) + " X"
-
-	print("match speed_factor" + str(Global.speed_factor))
+	match_speed_label.text = MatchScreen.Speed.keys()[Global.match_speed]
 
 	# to easier access stats
 	home_stats = match_simulator.engine.home_team.stats
@@ -123,7 +130,7 @@ func _ready() -> void:
 func _on_full_time() -> void:
 	faster_button.hide()
 	slower_button.hide()
-	speed_factor_label.hide()
+	match_speed_label.hide()
 	pause_button.hide()
 	simulate_button.hide()
 
@@ -140,8 +147,8 @@ func _on_half_time() -> void:
 func _on_update_time() -> void:
 	stats.update_stats(home_stats, away_stats)
 
-	var minutes: int = int(match_simulator.engine.time) / 60
-	var seconds: int = int(match_simulator.engine.time) % 60
+	minutes = int(match_simulator.engine.time) / 60
+	seconds = int(match_simulator.engine.time) % 60
 	time_label.text = "%02d:%02d" % [minutes, seconds]
 
 	time_bar.value = match_simulator.engine.time
@@ -202,21 +209,20 @@ func _toggle_view_buttons() -> void:
 
 
 func _on_dashboard_button_pressed() -> void:
-	Main.change_scene(Const.SCREEN_DASHBOARD)
+	# Main.change_scene(Const.SCREEN_DASHBOARD)
+	pass
 
 
 func _on_faster_button_pressed() -> void:
-	if Global.speed_factor < MAX_SPEED_FACTOR:
-		Global.speed_factor += 1
-		match_simulator.set_speed()
-	speed_factor_label.text = str(Global.speed_factor) + " X"
+	if Global.match_speed < MatchScreen.Speed.values().size() - 1:
+		Global.match_speed = (Global.match_speed + 1) as MatchScreen.Speed 
+	match_speed_label.text = MatchScreen.Speed.keys()[Global.match_speed]
 
 
 func _on_slower_button_pressed() -> void:
-	if Global.speed_factor > 1:
-		Global.speed_factor -= 1
-		match_simulator.set_speed()
-	speed_factor_label.text = str(Global.speed_factor) + " X"
+	if Global.match_speed > 0:
+		Global.match_speed = (Global.match_speed - 1) as MatchScreen.Speed 
+	match_speed_label.text = MatchScreen.Speed.keys()[Global.match_speed]
 
 
 func _on_pause_button_pressed() -> void:

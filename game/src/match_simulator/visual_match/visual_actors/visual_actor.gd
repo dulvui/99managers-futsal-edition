@@ -15,7 +15,7 @@ var last_pos: Vector2
 
 
 func _physics_process(delta: float) -> void:
-	if not Global.match_paused:
+	if not Global.match_paused and Global.match_speed == MatchScreen.Speed.FULL_GAME:
 		last_update_time += delta
 		factor = last_update_time / update_interval
 		position = last_pos.lerp(actor.pos, factor)

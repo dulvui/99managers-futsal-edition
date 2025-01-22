@@ -1,10 +1,9 @@
-[gd_scene load_steps=6 format=3 uid="uid://b3xqapw5jfje0"]
+[gd_scene load_steps=5 format=3 uid="uid://b3xqapw5jfje0"]
 
 [ext_resource type="Script" path="res://src/match_simulator/visual_match/visual_match.gd" id="1_moskm"]
 [ext_resource type="PackedScene" uid="uid://blsnafnkw14i7" path="res://src/match_simulator/visual_match/visual_actors/visual_team/visual_team.tscn" id="3_cl68t"]
 [ext_resource type="PackedScene" uid="uid://bkfkjsv3f5y8p" path="res://src/match_simulator/visual_match/visual_actors/visual_field/visual_field.tscn" id="4_jqh82"]
 [ext_resource type="PackedScene" uid="uid://brmxp0ulenogn" path="res://src/match_simulator/visual_match/visual_actors/visual_ball/visual_ball.tscn" id="5_g1vg2"]
-[ext_resource type="Texture2D" uid="uid://b4igo2k8ytmf7" path="res://assets/ball.svg" id="5_wws6u"]
 
 [node name="VisualMatch" type="Node2D"]
 script = ExtResource("1_moskm")
@@ -16,8 +15,3 @@ script = ExtResource("1_moskm")
 [node name="VisualTeamHome" parent="." instance=ExtResource("3_cl68t")]
 
 [node name="VisualTeamAway" parent="." instance=ExtResource("3_cl68t")]
-
-[node name="VisualBallReal" type="Sprite2D" parent="."]
-modulate = Color(0.707045, 0.13919, 0.252032, 1)
-scale = Vector2(0.02, 0.02)
-texture = ExtResource("5_wws6u")

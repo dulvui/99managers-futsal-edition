@@ -31,7 +31,7 @@ var generation_player_names: Const.PlayerNames
 # saves which season this is, starting from 0
 var current_season: int
 # global game states
-var speed_factor: int
+var match_speed: MatchScreen.Speed
 # saves current id for resources
 var id_by_type: Dictionary
 
@@ -53,7 +53,6 @@ var save_states: SaveStates
 
 func _ready() -> void:
 	print("version " + Global.version)
-	speed_factor = 1
 	_load_config()
 	save_states = ResUtil.load_save_states()
 	set_lang(language)
@@ -82,7 +81,7 @@ func initialize_game(testing: bool = false) -> void:
 	print("matches initialized")
 	EmailUtil.call_deferred("welcome_manager")
 
-	speed_factor = save_states.temp_state.speed_factor
+	match_speed = save_states.temp_state.match_speed
 	start_date = save_states.temp_state.start_date
 
 
@@ -143,7 +142,7 @@ func load_save_state() -> void:
 		start_date = save_sate.start_date
 		id_by_type = save_sate.id_by_type
 		current_season = save_sate.current_season
-		speed_factor = save_sate.speed_factor
+		match_speed = save_sate.match_speed
 		generation_seed = save_sate.generation_seed
 		generation_state = save_sate.generation_state
 		generation_player_names = save_sate.generation_player_names
