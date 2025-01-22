@@ -6,11 +6,13 @@ class_name SimTeam
 
 signal player_changed
 
-var res_team: Team
+# player should stay at least 2 minutes in field before he can be changed
+const PLAYER_MIN_TICKS_IN_FIELD: int = Const.STATE_UPDATE_TICKS * 120
+
+var team_res: Team
 var stats: MatchStatistics
 
-var players: Array[SimPlayer] # players in field
-var all_players: Array[SimPlayer]
+var players: Array[SimPlayer]
 var field: SimField
 
 var state_machine: TeamStateMachine
@@ -36,13 +38,13 @@ var _player_nearest_to_ball: SimPlayer
 
 
 func setup(
-	p_res_team: Team,
+	p_team_res: Team,
 	p_field: SimField,
 	p_left_half: bool,
 	p_has_ball: bool,
 	p_simulated: bool = false,
 ) -> void:
-	res_team = p_res_team
+	team_res = p_team_res
 	field = p_field
 	left_half = p_left_half
 	has_ball = p_has_ball
@@ -52,18 +54,15 @@ func setup(
 	ready_for_kickoff = false
 
 	# check if team is player's team
-	simulated = Global.team and Global.team.id != res_team.id
+	simulated = Global.team and Global.team.id != team_res.id
 
 	stats = MatchStatistics.new()
 	
-	for player: Player in res_team.get_lineup_players():
+	for player: Player in team_res.get_starting_players():
 		# setup
 		var sim_player: SimPlayer = SimPlayer.new()
 		sim_player.setup(player, self, field, left_half)
-		all_players.append(sim_player)
-	
-	# copy field players in own array, for easier access
-	players = all_players.slice(0, 5)
+		players.append(sim_player)
 
 	_set_start_positions()
 	
@@ -75,7 +74,7 @@ func update() -> void:
 		player.update()
 	
 	# recover bench players stamina
-	for player: SimPlayer in all_players.slice(5):
+	for player: Player in team_res.players.slice(5):
 		player.recover_stamina()
 	
 	state_machine.execute()
@@ -103,52 +102,56 @@ func gain_possession() -> void:
 func change_players_request() -> void:
 	# compare sim players and team players order
 	# if different, set change request flag
-	for i: int in all_players.size():
-		if all_players[i].player_res.id != res_team.players[i].id:
+	for i: int in team_res.players.size():
+		if players[i].player_res.id != team_res.players[i].id:
 			change_request = true
 			return
 
 
 func auto_change() -> void:
 	# auto change players, if no change request already pending
-	var do_change: bool = res_team.formation.change_strategy == Formation.ChangeStrategy.AUTO or simulated
+	var do_change: bool = team_res.formation.change_strategy == Formation.ChangeStrategy.AUTO or simulated
 	if do_change and not change_request:
 		var auto_change_request: bool = false
 		var low_stamina_players: Array[SimPlayer] = []
 
 		# get tired players
-		for player: SimPlayer in players:
-			if player.player_res.stamina < 0.5:
-				low_stamina_players.append(player)
+		for sim_player: SimPlayer in players:
+			if sim_player.player_res.stamina < 0.5 and sim_player.ticks_in_field > PLAYER_MIN_TICKS_IN_FIELD:
+				low_stamina_players.append(sim_player)
+
+		# stop if no players need to be changed
+		if low_stamina_players.size() == 0:
+			return
 
 		# sort bench per stamina
-		var bench: Array[SimPlayer] = all_players.slice(5)
+		var bench: Array[Player] = team_res.players.slice(5)
 		bench.sort_custom(
-			func(a: SimPlayer, b: SimPlayer) -> bool:
-				return a.player_res.stamina >= b.player_res.stamina
+			func(a: Player, b: Player) -> bool:
+				return a.stamina >= b.stamina
 		)
 		
 		# find best position machting player and change them
-		var no_matching: Array[SimPlayer] = []
-		for player: SimPlayer in low_stamina_players:
-			var possible_subs: Array[SimPlayer] = bench.filter(
-				func(p: SimPlayer) -> bool:
-					return p.player_res.position.match_factor(player.player_res.position) >= 0.5
+		var no_matching_sim_players: Array[SimPlayer] = []
+		for sim_player: SimPlayer in low_stamina_players:
+			var possible_sub_players: Array[Player] = bench.filter(
+				func(p: Player) -> bool:
+					return p.position.match_factor(sim_player.player_res.position) >= 0.5
 			)
-			if possible_subs.size() > 0:
-				var sub: SimPlayer = possible_subs.pop_front()
-				bench.erase(sub)
-				res_team.change_players(player.player_res, sub.player_res)
+			if possible_sub_players.size() > 0:
+				var sub_player: Player = possible_sub_players.pop_front()
+				bench.erase(sub_player)
+				team_res.change_players(sim_player.player_res, sub_player)
 				auto_change_request = true
 			else:
-				no_matching.append(player)
+				no_matching_sim_players.append(sim_player)
 
 		# replace players that didnt find a good position match
-		for player: SimPlayer in no_matching:
-			var sub: SimPlayer = bench.pop_front()
+		for sim_player: SimPlayer in no_matching_sim_players:
+			var sub_player: Player = bench.pop_front()
 			# check if bench has still players
-			if sub:
-				res_team.change_players(player.player_res, sub.player_res)
+			if sub_player:
+				team_res.change_players(sim_player.player_res, sub_player)
 				auto_change_request = true
 		
 		# trigger change player request only once
@@ -157,25 +160,15 @@ func auto_change() -> void:
 
 
 func change_players() -> void:
-	# adjust all_players order to res teams players order
-	var lineup_players: Array[Player] = res_team.get_lineup_players()
-	# move players to correct position in all players array
-	# according to lineup of res team
-	for i: int in lineup_players.size():
-		var player: Player = lineup_players[i]
-		if all_players[i].player_res.id != player.id:
-			var sim_player_in: SimPlayer
-			for sp: SimPlayer in all_players:
-				if sp.player_res.id == player.id:
-					sim_player_in = sp
-			
-			# only change res player, to keep state machine, position in same state
-			var player_res_out: Player = all_players[i].player_res
-			all_players[i].change_player_res(player)
-			sim_player_in.change_player_res(player_res_out)
+	# adjust all_players order to team_res players order
+	var starting_players: Array[Player] = team_res.get_starting_players()
 
+	for i: int in starting_players.size():
+		var player: Player = starting_players[i]
+		var sim_player: SimPlayer = players[i]
+		if sim_player.player_res.id != player.id:
+			sim_player.change_player_res(player)
 
-	players = all_players.slice(0, 5)
 	player_changed.emit()
 	change_request = false
 
@@ -256,7 +249,7 @@ func shoot_on_goal(_player: Player) -> void:
 func _set_start_positions() -> void:
 	for player: SimPlayer in players:
 		# start pos
-		var start_pos: Vector2 = res_team.formation.get_start_pos(
+		var start_pos: Vector2 = team_res.formation.get_start_pos(
 			field.size, players.find(player), left_half
 		)
 		player.start_pos = start_pos

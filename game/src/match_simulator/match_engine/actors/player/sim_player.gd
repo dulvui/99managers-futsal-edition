@@ -23,6 +23,10 @@ var left_half: bool
 
 var has_ball: bool
 
+# save time player is in field, to prevent changing player just entered
+# only injury or manual change can change player with low time in field
+var ticks_in_field: int
+
 
 func _init(p_radius: float = 20) -> void:
 	super(p_radius, false)
@@ -30,6 +34,8 @@ func _init(p_radius: float = 20) -> void:
 	has_ball = false
 
 	head_look_direction = Vector2.ZERO
+
+	ticks_in_field = 0
 
 
 func setup(
@@ -50,6 +56,7 @@ func setup(
 
 
 func update() -> void:
+	ticks_in_field += 1
 	move()
 
 	state_machine.execute()
@@ -60,6 +67,7 @@ func update() -> void:
 
 func change_player_res(p_player_res: Player) -> void:
 	player_res = p_player_res
+	ticks_in_field = 0
 
 
 func set_state(state: PlayerStateMachineState) -> void:
@@ -72,10 +80,6 @@ func make_goalkeeper() -> void:
 
 func is_touching_ball() -> bool:
 	return collides(field.ball)
-
-
-func recover_stamina(factor: int = 1) -> void:
-	player_res.recover_stamina(factor)
 
 
 func move_offense_pos() -> void:

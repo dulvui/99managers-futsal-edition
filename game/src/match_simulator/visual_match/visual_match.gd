@@ -23,8 +23,8 @@ func setup(engine: MatchEngine, update_interval: float) -> void:
 	field.setup(engine.field)
 	ball.setup(engine.field.ball, update_interval)
 	
-	var home_color: Color = engine.home_team.res_team.get_home_color()
-	var away_color: Color = engine.away_team.res_team.get_away_color(home_color)
+	var home_color: Color = engine.home_team.team_res.get_home_color()
+	var away_color: Color = engine.away_team.team_res.get_away_color(home_color)
 	home_team.setup(engine.home_team, ball, home_color, update_interval)
 	away_team.setup(engine.away_team, ball, away_color, update_interval)
 

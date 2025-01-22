@@ -71,9 +71,6 @@ func update() -> void:
 	field.update()
 	ball_update.emit()
 
-	assert(left_team.has_ball == home_team.has_ball)
-	assert(right_team.has_ball == away_team.has_ball)
-
 	# teams/players instead update less frequent
 	# state machines don't require high frequency
 	if ticks % Const.STATE_UPDATE_TICKS == 0:
@@ -150,9 +147,9 @@ func set_half_time() -> void:
 	# stamina recovery 15 minutes
 	var half_time_ticks: int = 15 * Const.TICKS_PER_SECOND * 60
 	for player: SimPlayer in left_team.players:
-		player.recover_stamina(half_time_ticks)
+		player.player_res.recover_stamina(half_time_ticks)
 	for player: SimPlayer in right_team.players:
-		player.recover_stamina(half_time_ticks)
+		player.player_res.recover_stamina(half_time_ticks)
 	
 	half_time.emit()
 
@@ -161,9 +158,9 @@ func set_full_time() -> void:
 	# stamina recovery 30 minutes
 	var recovery: int = 30 * Const.TICKS_PER_SECOND * 60
 	for player: SimPlayer in left_team.players:
-		player.recover_stamina(recovery)
+		player.player_res.recover_stamina(recovery)
 	for player: SimPlayer in right_team.players:
-		player.recover_stamina(recovery)
+		player.player_res.recover_stamina(recovery)
 	
 	full_time.emit()
 
