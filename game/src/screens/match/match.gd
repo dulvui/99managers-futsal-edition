@@ -49,7 +49,6 @@ var away_stats: MatchStatistics
 @onready var match_speed_label: Label = %SpeedFactor
 @onready var events_button: Button = %EventsButton
 @onready var stats_button: Button = %StatsButton
-@onready var field_button: Button = %FieldButton
 @onready var formation_button: Button = %FormationButton
 @onready var simulate_button: Button = %SimulateButton
 @onready var dashboard_button: Button = %DashboardButton
@@ -125,6 +124,18 @@ func _ready() -> void:
 	match_simulator.engine.half_time.connect(_on_half_time)
 	match_simulator.engine.full_time.connect(_on_full_time)
 	match_simulator.engine.update_time.connect(_on_update_time)
+	match_simulator.show_me.connect(_on_match_simulator_show)
+	match_simulator.hide_me.connect(_on_match_simulator_hide)
+
+
+func _on_match_simulator_show() -> void:
+	_hide_views()
+	match_simulator.show()
+
+
+func _on_match_simulator_hide() -> void:
+	match_simulator.hide()
+	last_active_view.show()
 
 
 func _on_full_time() -> void:
@@ -160,12 +171,6 @@ func _on_update_time() -> void:
 	
 	home_fouls.text = "(%d)"%home_stats.fouls
 	away_fouls.text = "(%d)"%away_stats.fouls
-
-
-func _on_field_button_pressed() -> void:
-	_hide_views()
-	match_simulator.show()
-	last_active_view = match_simulator
 
 
 func _on_commentary_button_pressed() -> void:
@@ -204,7 +209,6 @@ func _hide_views() -> void:
 func _toggle_view_buttons() -> void:
 	events_button.disabled = not events_button.disabled
 	stats_button.disabled = not stats_button.disabled
-	field_button.disabled = not field_button.disabled
 	formation_button.disabled = not formation_button.disabled
 
 

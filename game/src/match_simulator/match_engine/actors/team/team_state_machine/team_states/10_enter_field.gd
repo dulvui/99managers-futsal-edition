@@ -39,10 +39,10 @@ func enter() -> void:
 			destination.x += (owner.team.players.find(player) + 1) * 30
 		
 		# add some noise
-		start_position.x += RngUtil.match_noise(5, 5)
-		start_position.y += RngUtil.match_noise(5, 5)
-		destination.x += RngUtil.match_noise(5, 5)
-		destination.y += RngUtil.match_noise(5, 5)
+		start_position.x += owner.rng.randi_range(-5, 5)
+		start_position.y += owner.rng.randi_range(-5, 5)
+		destination.x += owner.rng.randi_range(-5, 5)
+		destination.y += owner.rng.randi_range(-5, 5)
 
 		player.set_pos(start_position)
 		player.set_destination(destination)

@@ -14,8 +14,11 @@ var field: SimField
 var state: StateMachineState
 var previous_state: StateMachineState
 
+var rng: RandomNumberGenerator
 
-func _init(p_field: SimField) -> void:
+
+func _init(p_rng: RandomNumberGenerator, p_field: SimField) -> void:
+	rng = p_rng
 	field = p_field
 	
 	# initialize buffer

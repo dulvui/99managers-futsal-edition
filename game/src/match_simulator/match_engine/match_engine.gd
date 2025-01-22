@@ -11,7 +11,9 @@ signal update_time
 # position updates
 signal ball_update
 signal players_update
-
+# engine future signals
+signal goal
+# signal key_action
 
 var field: SimField
 var home_team: SimTeam
@@ -19,6 +21,8 @@ var away_team: SimTeam
 
 var left_team: SimTeam
 var right_team: SimTeam
+
+var rng: RandomNumberGenerator
 
 var ticks: int
 var time_ticks: int
@@ -29,7 +33,10 @@ var possession_counter: float
 
 
 func setup(p_left_team: Team, p_right_team: Team, match_seed: int) -> void:
-	field = SimField.new()
+	rng = RandomNumberGenerator.new()
+	rng.seed = hash(match_seed)
+
+	field = SimField.new(rng)
 
 	field.touch_line_out.connect(_on_touch_line_out)
 	field.goal_line_out_left.connect(_on_goal_line_out_left)
@@ -42,17 +49,15 @@ func setup(p_left_team: Team, p_right_team: Team, match_seed: int) -> void:
 	time = 0
 	possession_counter = 0.0
 
-	RngUtil.match_rng.seed = hash(match_seed)
-
-	# var left_plays_left: bool = RngUtil.match_rng.randi_range(0, 1) == 0
+	# var left_plays_left: bool = rng.randi_range(0, 1) == 0
 	var left_plays_left: bool = true
-	var left_has_ball: bool = RngUtil.match_rng.randi_range(0, 1) == 0
+	var left_has_ball: bool = rng.randi_range(0, 1) == 0
 
-	left_team = SimTeam.new()
+	left_team = SimTeam.new(rng)
 	left_team.setup(p_left_team, field, left_plays_left, left_has_ball)
 	home_team = left_team
 
-	right_team = SimTeam.new()
+	right_team = SimTeam.new(rng)
 	right_team.setup(p_right_team, field, not left_plays_left, not left_has_ball)
 	away_team = right_team
 
@@ -227,6 +232,7 @@ func _on_goal_left() -> void:
 	right_team.set_state(TeamStateGoalCelebrate.new())
 	left_team.set_state(TeamStateStartPositions.new())
 	left_possess()
+	goal.emit()
 	# to trigger score labels update
 	update_time.emit()
 
@@ -236,5 +242,6 @@ func _on_goal_right() -> void:
 	left_team.set_state(TeamStateGoalCelebrate.new())
 	right_team.set_state(TeamStateStartPositions.new())
 	right_possess()
+	goal.emit()
 	# to trigger score labels update
 	update_time.emit()

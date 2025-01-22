@@ -10,6 +10,8 @@ var player_res: Player
 var field: SimField
 var state_machine: PlayerStateMachine
 
+var rng: RandomNumberGenerator
+
 # positions
 var start_pos: Vector2
 # movements
@@ -28,8 +30,9 @@ var has_ball: bool
 var ticks_in_field: int
 
 
-func _init(p_radius: float = 20) -> void:
+func _init(p_rng: RandomNumberGenerator, p_radius: float = 20) -> void:
 	super(p_radius, false)
+	rng = p_rng
 	# initial test values
 	has_ball = false
 
@@ -83,8 +86,8 @@ func is_touching_ball() -> bool:
 
 
 func move_offense_pos() -> void:
-	var deviation_x: int = RngUtil.match_rng.randi_range(-10, 10)
-	var deviation_y: int = RngUtil.match_rng.randi_range(-10, 10)
+	var deviation_x: int = rng.randi_range(-10, 10)
+	var deviation_y: int = rng.randi_range(-10, 10)
 	var deviation: Vector2 = Vector2(field.size.x / 3 + deviation_x, deviation_y)
 
 	if not left_half:
@@ -94,8 +97,8 @@ func move_offense_pos() -> void:
 
 
 func move_defense_pos() -> void:
-	var deviation_x: int = RngUtil.match_rng.randi_range(-10, 10)
-	var deviation_y: int = RngUtil.match_rng.randi_range(-10, 10)
+	var deviation_x: int = rng.randi_range(-10, 10)
+	var deviation_y: int = rng.randi_range(-10, 10)
 	var deviation: Vector2 = Vector2(deviation_x, deviation_y)
 
 	set_destination(start_pos + deviation)

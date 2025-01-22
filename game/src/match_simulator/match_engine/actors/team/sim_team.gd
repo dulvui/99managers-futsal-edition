@@ -17,6 +17,8 @@ var field: SimField
 
 var state_machine: TeamStateMachine
 
+var rng: RandomNumberGenerator
+
 var change_request: bool
 var has_ball: bool
 var left_half: bool
@@ -35,6 +37,10 @@ var _player_receive_ball: SimPlayer
 var _player_chase: SimPlayer
 # key players generic
 var _player_nearest_to_ball: SimPlayer
+
+
+func _init(p_rng: RandomNumberGenerator) -> void:
+	rng = p_rng
 
 
 func setup(
@@ -60,13 +66,13 @@ func setup(
 	
 	for player: Player in team_res.get_starting_players():
 		# setup
-		var sim_player: SimPlayer = SimPlayer.new()
+		var sim_player: SimPlayer = SimPlayer.new(rng)
 		sim_player.setup(player, self, field, left_half)
 		players.append(sim_player)
 
 	_set_start_positions()
 	
-	state_machine = TeamStateMachine.new(field, self)
+	state_machine = TeamStateMachine.new(rng, field, self)
 
 
 func update() -> void:

@@ -16,9 +16,12 @@ var rotation: float
 
 var field: SimField
 
+var rng: RandomNumberGenerator
 
-func _init() -> void:
+
+func _init(p_rng: RandomNumberGenerator) -> void:
 	super(8, true)
+	rng = p_rng
 
 
 func setup(p_field: SimField) -> void:
@@ -78,11 +81,11 @@ func shoot_on_goal(player: Player, left_half: bool) -> void:
 		random_target = field.goals.left
 
 	random_target += Vector2(
-		0, RngUtil.match_rng.randi_range(-field.goals.size * 1.5, field.goals.size * 1.5)
+		0, rng.randi_range(-field.goals.size * 1.5, field.goals.size * 1.5)
 	)
 
-	shoot(random_target, power * RngUtil.match_rng.randi_range(2, 6))
+	shoot(random_target, power * rng.randi_range(2, 6))
 
 
 func _random_rotation() -> void:
-	rotation = RngUtil.match_rng.randf_range(-0.8, 0.8)
+	rotation = rng.randf_range(-0.8, 0.8)

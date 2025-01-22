@@ -6,13 +6,20 @@ class_name MatchSimulator
 extends Control
 
 signal action_message(message: String)
+signal show_me
+signal hide_me
 
+const ENGINE_FUTURE_SECONDS: int = 5
 const CAMERA_SPEED: int = 4
 
 var passed_time: float = 0
 var wait_time: float
+var show_action_ticks: int
 
 var engine: MatchEngine
+# engine to calculate ENGINE_FUTURE_SECONDS seconds in the future
+# to be able to show real engine results when key action or goal happens
+var engine_future: MatchEngine
 
 @onready var visual_match: VisualMatch = %VisualMatch
 @onready var sub_viewport: SubViewport = %SubViewport
@@ -26,23 +33,35 @@ func _physics_process(delta: float) -> void:
 	if Global.match_paused:
 		return
 	
-	if Global.match_speed != MatchScreen.Speed.FULL_GAME:
-		for i in Const.TICKS_PER_SECOND:
-			engine.update()
-		return
-	
-	else:
+	if Global.match_speed == MatchScreen.Speed.FULL_GAME or show_action_ticks > 0:
+		# show full match or only show key actions and goals
 		passed_time += delta
 		if passed_time >= wait_time:
 			passed_time = 0
-			engine.update()
-			visual_match.update_ball()
 
+			# update engines
+			engine.update()
+			engine_future.update()
+			
+			# update visual match
+			visual_match.update_ball()
 			if engine.ticks % Const.STATE_UPDATE_TICKS == 0:
 				visual_match.update_players()
 
+			if show_action_ticks > 0:
+				show_action_ticks -= 1
+	else:
+		hide_me.emit()
+		# simulate engine and future engine
+		for i: int in ENGINE_FUTURE_SECONDS:
+			# update engines
+			engine.update()
+			engine_future.update()	
+
 
 func setup(home_team: Team, away_team: Team, match_seed: int) -> void:
+	show_action_ticks = 0
+	wait_time = 1.0 / Const.TICKS_PER_SECOND
 	
 	engine = MatchEngine.new()
 	engine.setup(home_team, away_team, match_seed)
@@ -60,8 +79,20 @@ func setup(home_team: Team, away_team: Team, match_seed: int) -> void:
 	# connect time control signals
 	engine.half_time.connect(func() -> void: pause())
 	engine.full_time.connect(func() -> void: pause())
-
-	wait_time = 1.0 / Const.TICKS_PER_SECOND
+	
+	# future enine
+	engine_future = MatchEngine.new()
+	engine_future.setup(home_team, away_team, match_seed)
+	# show action on goal
+	engine_future.goal.connect(
+		func() -> void:
+			show_action_ticks = ENGINE_FUTURE_SECONDS * Const.TICKS_PER_SECOND * 2
+			show_me.emit()
+			print("FUTURE GOAL at %d"%engine_future.time)
+	)
+	# already simulate to future
+	for i: int in ENGINE_FUTURE_SECONDS * Const.TICKS_PER_SECOND:
+		engine_future.update()
 
 	# setup visual match
 	# get colors

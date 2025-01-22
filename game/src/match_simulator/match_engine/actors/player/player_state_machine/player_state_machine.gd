@@ -10,7 +10,7 @@ var team: SimTeam
 
 
 func _init(p_field: SimField, p_player: SimPlayer, p_team: SimTeam) -> void:
-	super(p_field)
+	super(p_team.rng, p_field)
 	player = p_player
 	team = p_team
 	set_state(PlayerStateEnterField.new())

@@ -5,11 +5,9 @@
 extends Node
 
 var rng: RandomNumberGenerator
-var match_rng: RandomNumberGenerator
 
 
 func setup_rngs() -> void:
-	match_rng = RandomNumberGenerator.new()
 	rng = RandomNumberGenerator.new()
 	rng.seed = hash(Global.generation_seed) + Global.generation_player_names
 	rng.state = Global.generation_state
@@ -17,7 +15,7 @@ func setup_rngs() -> void:
 
 func reset_seed(p_generation_seed: String, p_generation_player_names: int) -> void:
 	Global.generation_seed = p_generation_seed
-	Global.generation_player_names = p_generation_player_names
+	Global.generation_player_names = p_generation_player_names as Const.PlayerNames
 
 	rng = RandomNumberGenerator.new()
 	rng.seed = hash(Global.generation_seed + str(Global.generation_player_names))
@@ -37,14 +35,6 @@ func shuffle(array: Array[Variant]) -> void:
 # shuffle array using global RuandomNumberGenerator
 func pick_random(array: Array[Variant]) -> Variant:
 	return array[rng.randi() % array.size() - 1]
-
-
-func match_noise(value: int, noise: int) -> int:
-	return match_rng.randi_range(value - noise, value + noise)
-
-
-func match(value: int) -> bool:
-	return match_rng.randi_range(0, 100) < value
 
 
 func uuid() -> String:

@@ -19,7 +19,7 @@ func _init() -> void:
 func enter() -> void:
 	owner.team.ready_for_kickoff = false
 
-	celebration_time = RngUtil.match_rng.randi_range(MIN, MAX)
+	celebration_time = owner.rng.randi_range(MIN, MAX)
 
 	for player: SimPlayer in owner.team.players:
 		player.set_state(PlayerStateGoal.new())

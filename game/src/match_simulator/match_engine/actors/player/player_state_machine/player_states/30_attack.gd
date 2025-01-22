@@ -31,7 +31,7 @@ func execute() -> void:
 			return
 
 		# check pass
-		if RngUtil.match(95):
+		if owner.rng.randi() % 100 < 95:
 			# print("pass")
 			set_state(PlayerStatePass.new())
 			return
@@ -54,8 +54,8 @@ func should_shoot() -> bool:
 	if owner.team.left_half:
 		var distance_squared: float = owner.player.pos.distance_squared_to(owner.field.goals.right)
 		if distance_squared < PERFECT_SHOOT_DISTANCE_SQUARED:
-			return RngUtil.match(80)
-	return RngUtil.match(5)
+			return owner.rng.randi() % 100 < 80
+	return owner.rng.randi() % 100 < 5
 
 
 func should_dribble() -> bool:
@@ -70,5 +70,5 @@ func should_dribble() -> bool:
 			if player.pos.x < owner.player.pos.x:
 				opposing_player_count += 1
 	
-	return RngUtil.match(100 - (opposing_player_count * 20))
+	return owner.rng.randi() % 100 < 100 - (opposing_player_count * 20)
 

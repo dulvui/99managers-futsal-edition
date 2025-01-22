@@ -64,7 +64,7 @@ var wall_right: CollidingActor
 var ball_colission_timer: int = 0
 
 
-func _init() -> void:
+func _init(rng: RandomNumberGenerator) -> void:
 	#size = sprite.texture.get_size()
 	size = Vector2(WIDTH + BORDER_SIZE * 2, HEIGHT + BORDER_SIZE * 2)
 
@@ -89,7 +89,7 @@ func _init() -> void:
 	penalty_areas = SimPenaltyAreas.new(self, goals)
 
 	# ball
-	ball = SimBall.new()
+	ball = SimBall.new(rng)
 	ball.setup(self)
 	
 	# clock flag
