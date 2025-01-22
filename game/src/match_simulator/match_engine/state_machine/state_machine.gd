@@ -55,10 +55,3 @@ func _buffer_append() -> void:
 
 	if buffer.size() > BUFFER_SIZE:
 		buffer.pop_front()
-
-	# if same_state_count == BUFFER_SIZE / 2
-	# 	print("state machine stuck on state: %s"%state.get_class())
-	# print("state machine: %s"%state.get_class())
-
-
-

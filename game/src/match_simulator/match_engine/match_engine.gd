@@ -4,9 +4,14 @@
 
 class_name MatchEngine
 
+# match time control
 signal half_time
 signal full_time
 signal update_time
+# position updates
+signal ball_update
+signal players_update
+
 
 var field: SimField
 var home_team: SimTeam
@@ -64,6 +69,7 @@ func update() -> void:
 	# field/ball updates more frequently on every tick
 	# for better colission detections
 	field.update()
+	ball_update.emit()
 
 	assert(left_team.has_ball == home_team.has_ball)
 	assert(right_team.has_ball == away_team.has_ball)
@@ -73,6 +79,7 @@ func update() -> void:
 	if ticks % Const.STATE_UPDATE_TICKS == 0:
 		left_team.update()
 		right_team.update()
+		players_update.emit()
 
 	# time related code
 	if field.clock_running:
@@ -94,6 +101,8 @@ func update() -> void:
 			set_half_time()
 		elif time == Const.FULL_TIME_SECONDS:
 			set_full_time()
+	# else:
+	# 	print("%d - %d - %d"%[ticks, time_ticks, time])
 
 
 func simulate(end_time: int = Const.FULL_TIME_SECONDS) -> void:

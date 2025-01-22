@@ -8,8 +8,8 @@ extends Test
 
 func test() -> void:
 	print("test: match engine...")
-	test_benchmark()
 	test_deterministic_simulations()
+	test_benchmark()
 	print("test: match engine done.")
 
 

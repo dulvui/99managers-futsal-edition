@@ -26,7 +26,7 @@ const TICKS_PER_SECOND: int = 32
 # state machines update every half second
 const STATE_UPDATE_TICKS: int = min(2, TICKS_PER_SECOND / 2.0)
 
-const SPEED: float = (1.0 / TICKS_PER_SECOND) * 8.0
+const SPEED: float = (1.0 / TICKS_PER_SECOND) * 12.0
 # stamina range [0, 1]
 # this factor makes sure a player with attribute stamina 20
 # can play a full game running all the time

@@ -25,11 +25,12 @@ func _physics_process(delta: float) -> void:
 
 	if Global.match_paused:
 		return
-
+	
 	passed_time += delta
 	if passed_time >= wait_time:
 		passed_time = 0
-		_update()
+
+		engine.update()
 
 
 func setup(home_team: Team, away_team: Team, match_seed: int) -> void:
@@ -97,10 +98,5 @@ func match_finished() -> void:
 
 
 func set_speed() -> void:
-	wait_time = 1.0 / (Const.TICKS_PER_SECOND * Global.speed_factor)
+	wait_time = 1.0 / Const.TICKS_PER_SECOND / Global.speed_factor
 	print(wait_time)
-
-
-func _update() -> void:
-	engine.update()
-	visual_match.update(engine.ticks, wait_time)
