@@ -82,9 +82,10 @@ func update() -> void:
 	# TODO
 	# check injuries
 
-	auto_change()
-	if change_request:
-		change_players()
+	if not field.clock_running:
+		auto_change()
+		if change_request:
+			change_players()
 
 
 func set_state(state: TeamStateMachineState) -> void:
@@ -102,7 +103,7 @@ func gain_possession() -> void:
 func change_players_request() -> void:
 	# compare sim players and team players order
 	# if different, set change request flag
-	for i: int in team_res.players.size():
+	for i: int in team_res.get_starting_players().size():
 		if players[i].player_res.id != team_res.players[i].id:
 			change_request = true
 			return
