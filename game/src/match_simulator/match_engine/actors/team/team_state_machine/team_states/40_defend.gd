@@ -20,6 +20,7 @@ func execute() -> void:
 	if owner.team.has_ball:
 		set_state(TeamStateAttack.new())
 		return
-
-	owner.team.player_chase(owner.team.player_nearest_to_ball())
+	
+	if owner.field.clock_running:
+		owner.team.player_chase(owner.team.player_nearest_to_ball())
 

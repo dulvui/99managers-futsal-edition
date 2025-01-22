@@ -12,10 +12,11 @@ var wait: int
 
 func _init() -> void:
 	super("PlayerStateCorner")
-	wait_counter = 0
 
 
 func enter() -> void:
+	wait_counter = 0
+
 	if owner.player.is_goalkeeper:
 		return
 	
@@ -47,3 +48,7 @@ func execute() -> void:
 			wait_counter += 1
 			if wait_counter >= wait:
 				owner.team.player_control().set_state(PlayerStatePass.new())
+
+
+func exit() -> void:
+	owner.field.clock_running = true

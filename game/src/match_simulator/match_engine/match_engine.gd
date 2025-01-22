@@ -65,6 +65,9 @@ func update() -> void:
 	# for better colission detections
 	field.update()
 
+	assert(left_team.has_ball == home_team.has_ball)
+	assert(right_team.has_ball == away_team.has_ball)
+
 	# teams/players instead update less frequent
 	# state machines don't require high frequency
 	if ticks % Const.STATE_UPDATE_TICKS == 0:
@@ -83,7 +86,7 @@ func update() -> void:
 			if home_team.has_ball:
 				possession_counter += 1
 
-			home_team.stats.possession = possession_counter / float(time) * 100.0
+			home_team.stats.possession = int(possession_counter / time * 100.0)
 			away_team.stats.possession = 100 - home_team.stats.possession
 
 		# halftime
@@ -180,8 +183,9 @@ func _on_goal_line_out_left() -> void:
 		return
 
 	# goalkeeper ball
+	left_possess()
 	field.ball.set_pos_xy(field.line_left + 40, field.center.y)
-	left_team.players[0].set_state(PlayerStateGoalkeeperBall.new())
+	left_team.set_state(TeamStateGoalkeeper.new())
 
 
 func _on_goal_line_out_right() -> void:
@@ -194,8 +198,9 @@ func _on_goal_line_out_right() -> void:
 		return
 
 	# goalkeeper ball
+	right_possess()
 	field.ball.set_pos_xy(field.line_right - 40, field.center.y)
-	right_team.players[0].set_state(PlayerStateGoalkeeperBall.new())
+	right_team.set_state(TeamStateGoalkeeper.new())
 
 
 func _on_touch_line_out() -> void:
@@ -206,6 +211,7 @@ func _on_touch_line_out() -> void:
 		left_possess()
 		left_team.stats.kick_ins += 1
 	
+	left_possess()
 	left_team.set_state(TeamStateKickin.new())
 	right_team.set_state(TeamStateKickin.new())
 

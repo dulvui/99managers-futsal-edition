@@ -37,8 +37,6 @@ func execute() -> void:
 		return
 	
 	if owner.team.has_ball:
-		# start match time
-		owner.field.clock_running = true
 		# pass ball
 		set_state(TeamStateAttack.new())
 		kickoff_pass()
@@ -58,4 +56,7 @@ func kickoff_pass() -> void:
 	owner.team.player_receive_ball().state_machine.set_state(PlayerStateReceive.new())
 	owner.field.ball.short_pass(owner.team.player_receive_ball().pos, 80)
 
+
+func exit() -> void:
+	owner.field.clock_running = true
 

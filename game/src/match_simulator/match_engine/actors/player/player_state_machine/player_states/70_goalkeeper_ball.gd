@@ -7,17 +7,17 @@ extends PlayerStateMachineState
 
 
 func _init() -> void:
-	super("PlayerStateGoalkeeperBall", true)
+	super("PlayerStateGoalkeeperBall")
 
 
 func enter() -> void:
-	owner.player.follow(owner.field.ball, 40)
+	owner.player.set_destination(owner.field.ball.pos)
 
 
 func execute() -> void:
-	# if close to ball, chase it
 	if owner.player.destination_reached():
-		owner.field.clock_running = true
 		set_state(PlayerStatePass.new())
-		return
 
+
+func exit() -> void:
+	owner.field.clock_running = true

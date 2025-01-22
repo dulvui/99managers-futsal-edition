@@ -6,14 +6,10 @@ class_name StateMachineState
 
 
 var name: String
-# dominant states can't be overwritten by other states
-# only by exit()
-var dominant: bool
 
 
-func _init(p_name: String, p_dominant: bool = false) -> void:
+func _init(p_name: String) -> void:
 	name = p_name
-	dominant = p_dominant
 
 
 func execute() -> void:
