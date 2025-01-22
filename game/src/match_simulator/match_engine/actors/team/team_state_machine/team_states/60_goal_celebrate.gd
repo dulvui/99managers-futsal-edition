@@ -29,3 +29,5 @@ func execute() -> void:
 	celebration_time -= 1
 	if celebration_time < 0:
 		set_state(TeamStateStartPositions.new())
+
+

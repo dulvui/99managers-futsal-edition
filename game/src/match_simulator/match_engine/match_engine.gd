@@ -217,14 +217,18 @@ func _on_touch_line_out() -> void:
 
 
 func _on_goal_left() -> void:
-	left_team.stats.goals += 1
-	right_team.set_state(TeamStateGoalCelebrate.new())
-	left_team.set_state(TeamStateStartPositions.new())
-	right_possess()
-
-
-func _on_goal_right() -> void:
 	right_team.stats.goals += 1
 	right_team.set_state(TeamStateGoalCelebrate.new())
 	left_team.set_state(TeamStateStartPositions.new())
 	left_possess()
+	# to trigger score labels update
+	update_time.emit()
+
+
+func _on_goal_right() -> void:
+	left_team.stats.goals += 1
+	left_team.set_state(TeamStateGoalCelebrate.new())
+	right_team.set_state(TeamStateStartPositions.new())
+	right_possess()
+	# to trigger score labels update
+	update_time.emit()

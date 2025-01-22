@@ -6,7 +6,7 @@ class_name TeamStateStartPositions
 extends TeamStateMachineState
 
 
-const WAIT: int = Const.TICKS_PER_SECOND * 1
+const WAIT: int = Const.TICKS_PER_SECOND * 2
 
 var ticks: int
 
@@ -18,14 +18,12 @@ func _init() -> void:
 func enter() -> void:
 	owner.team.ready_for_kickoff = false
 
-	# move ball to center
-	owner.field.ball.set_pos(owner.field.center)
-
 	ticks = 0
 
 	# move players to start positions
 	for player: SimPlayer in owner.players:
 		player.move_defense_pos()
+		player.set_state(PlayerStateIdle.new())
 
 
 func execute() -> void:

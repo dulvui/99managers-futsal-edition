@@ -99,6 +99,11 @@ func set_state(state: TeamStateMachineState) -> void:
 	state_machine.set_state(state)
 
 
+func gain_possession() -> void:
+	has_ball = true
+	team_opponents.has_ball = false
+
+
 #
 # CHANGES
 #

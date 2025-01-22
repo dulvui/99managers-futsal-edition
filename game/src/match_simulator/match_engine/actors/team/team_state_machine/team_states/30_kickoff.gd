@@ -15,12 +15,13 @@ func enter() -> void:
 
 	# move player for kick off to center
 	if owner.team.has_ball:
+		# move ball to center
+		owner.field.ball.set_pos(owner.field.center)
+		# move control player to kick off position
 		owner.team.player_control(owner.team.players[-1])
 		owner.team.player_control().set_destination(owner.field.ball.pos, 20)
 		owner.team.player_control().set_state(PlayerStateIdle.new())
-	else:
-		for player: SimPlayer in owner.team.players:
-			player.set_state(PlayerStateKickoff.new())
+	
 
 
 func execute() -> void:
@@ -41,7 +42,6 @@ func execute() -> void:
 		set_state(TeamStateAttack.new())
 		kickoff_pass()
 		return
-	
 	# when time started, defend
 	elif owner.field.clock_running:
 		set_state(TeamStateDefend.new())
