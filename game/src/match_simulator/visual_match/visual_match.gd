@@ -42,3 +42,17 @@ func update_players() -> void:
 	home_team.update(states_delta)
 	away_team.update(states_delta)
 	states_delta = 0.0
+
+
+func hide_actors() -> void:
+	ball.hide()
+	home_team.hide()
+	away_team.hide()
+
+
+func show_actors() -> void:
+	ball.show()
+	home_team.show()
+	away_team.show()
+
+

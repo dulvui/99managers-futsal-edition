@@ -28,12 +28,13 @@ var engine_future: MatchEngine
 
 
 func _physics_process(delta: float) -> void:
-	camera.position = camera.position.lerp(visual_match.ball.global_position, delta * CAMERA_SPEED)
-
+	# do nothing while paused
 	if Global.match_paused:
 		return
-	
-	if Global.match_speed == MatchScreen.Speed.FULL_GAME or show_action_ticks > 0:
+
+	# update engine show visual match	
+	if is_match_visible():
+		camera.position = camera.position.lerp(visual_match.ball.global_position, delta * CAMERA_SPEED)
 		# show full match or only show key actions and goals
 		passed_time += delta
 		if passed_time >= wait_time:
@@ -50,8 +51,11 @@ func _physics_process(delta: float) -> void:
 
 			if show_action_ticks > 0:
 				show_action_ticks -= 1
+
+	# update engine fast
 	else:
 		hide_me.emit()
+		visual_match.hide_actors()
 		# simulate engine and future engine
 		for i: int in ENGINE_FUTURE_SECONDS:
 			# update engines
@@ -88,6 +92,7 @@ func setup(home_team: Team, away_team: Team, match_seed: int) -> void:
 		func() -> void:
 			show_action_ticks = ENGINE_FUTURE_SECONDS * Const.TICKS_PER_SECOND * 2
 			show_me.emit()
+			visual_match.show_actors()
 			print("FUTURE GOAL at %d"%engine_future.time)
 	)
 	# already simulate to future
@@ -117,6 +122,10 @@ func setup(home_team: Team, away_team: Team, match_seed: int) -> void:
 
 func simulate() -> void:
 	engine.simulate()
+
+
+func is_match_visible() -> bool:
+	return Global.match_speed == MatchScreen.Speed.FULL_GAME or show_action_ticks > 0
 
 
 func pause_toggle() -> bool:

@@ -29,7 +29,6 @@ grow_horizontal = 2
 grow_vertical = 2
 
 [node name="MatchSimulator" parent="." instance=ExtResource("1")]
-visible = false
 custom_minimum_size = Vector2(1920, 1080)
 layout_mode = 1
 size_flags_horizontal = 4

@@ -117,8 +117,8 @@ func _ready() -> void:
 	home_stats = match_simulator.engine.home_team.stats
 	away_stats = match_simulator.engine.away_team.stats
 	
-	last_active_view = match_simulator
-	last_active_view.show()
+	last_active_view = stats
+	_hide_views()
 
 	# connect match engine signals
 	match_simulator.engine.half_time.connect(_on_half_time)
@@ -130,11 +130,9 @@ func _ready() -> void:
 
 func _on_match_simulator_show() -> void:
 	_hide_views()
-	match_simulator.show()
 
 
 func _on_match_simulator_hide() -> void:
-	match_simulator.hide()
 	last_active_view.show()
 
 
@@ -203,7 +201,6 @@ func _hide_views() -> void:
 	stats.hide()
 	events.hide()
 	formation.hide()
-	match_simulator.hide()
 
 
 func _toggle_view_buttons() -> void:
@@ -213,8 +210,7 @@ func _toggle_view_buttons() -> void:
 
 
 func _on_dashboard_button_pressed() -> void:
-	# Main.change_scene(Const.SCREEN_DASHBOARD)
-	pass
+	Main.change_scene(Const.SCREEN_DASHBOARD)
 
 
 func _on_faster_button_pressed() -> void:
@@ -236,7 +232,9 @@ func _on_pause_button_pressed() -> void:
 	else:
 		pause_button.text = tr("PAUSE")
 		_hide_views()
-		last_active_view.show()
+		# show last view, only if not showing match currently
+		if not match_simulator.is_match_visible():
+			last_active_view.show()
 
 
 func _on_simulate_button_pressed() -> void:
