@@ -65,16 +65,8 @@ func setup(
 	# copy field players in own array, for easier access
 	players = all_players.slice(0, 5)
 
-	# set start position for starting players
-	for player: SimPlayer in players:
-		# start pos
-		var start_pos: Vector2 = res_team.formation.get_start_pos(
-			field.size, players.find(player), left_half
-		)
-		player.start_pos = start_pos
+	_set_start_positions()
 	
-	# set goalkeeper flag
-	players[0].make_goalkeeper()
 	state_machine = TeamStateMachine.new(field, self)
 
 
@@ -86,13 +78,14 @@ func update() -> void:
 	for player: SimPlayer in all_players.slice(5):
 		player.recover_stamina()
 	
+	state_machine.execute()
+	
 	# TODO
 	# check injuries
 
-	check_changes()
 	auto_change()
-	
-	state_machine.execute()
+	if change_request:
+		change_players()
 
 
 func set_state(state: TeamStateMachineState) -> void:
@@ -107,27 +100,6 @@ func gain_possession() -> void:
 #
 # CHANGES
 #
-func check_changes() -> void:
-	if change_request:
-		# adjust all_players order to res teams players order
-		var lineup_players: Array[Player] = res_team.get_lineup_players()
-		for i: int in lineup_players.size():
-			var player: Player = lineup_players[i]
-			if all_players[i].player_res.id != player.id:
-				var sim_player: SimPlayer
-				for sp: SimPlayer in all_players:
-					if sp.player_res.id == player.id:
-						sim_player = sp
-				all_players.erase(sim_player)
-				all_players.insert(i, sim_player)
-
-		players = all_players.slice(0, 5)
-		player_changed.emit()
-		change_request = false
-
-		reset_key_players()
-
-
 func change_players_request() -> void:
 	# compare sim players and team players order
 	# if different, set change request flag
@@ -182,6 +154,33 @@ func auto_change() -> void:
 		# trigger change player request only once
 		if auto_change_request:
 			change_players_request()
+
+
+func change_players() -> void:
+	# adjust all_players order to res teams players order
+	var lineup_players: Array[Player] = res_team.get_lineup_players()
+	# move players to correct position in all players array
+	# according to lineup of res team
+	for i: int in lineup_players.size():
+		var player: Player = lineup_players[i]
+		if all_players[i].player_res.id != player.id:
+			var sim_player_in: SimPlayer
+			for sp: SimPlayer in all_players:
+				if sp.player_res.id == player.id:
+					sim_player_in = sp
+			
+			# only change res player, to keep state machine, position in same state
+			var player_res_out: Player = all_players[i].player_res
+			all_players[i].change_player_res(player)
+			sim_player_in.change_player_res(player_res_out)
+
+
+	players = all_players.slice(0, 5)
+	player_changed.emit()
+	change_request = false
+
+	reset_key_players()
+	_set_start_positions()
 
 
 #
@@ -253,3 +252,14 @@ func find_nearest_player_to(position: Vector2, exclude: Array[SimPlayer] = []) -
 func shoot_on_goal(_player: Player) -> void:
 	stats.shots += 1
 
+
+func _set_start_positions() -> void:
+	for player: SimPlayer in players:
+		# start pos
+		var start_pos: Vector2 = res_team.formation.get_start_pos(
+			field.size, players.find(player), left_half
+		)
+		player.start_pos = start_pos
+	
+	# set goalkeeper flag
+	players[0].make_goalkeeper()

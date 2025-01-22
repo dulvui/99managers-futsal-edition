@@ -58,6 +58,10 @@ func update() -> void:
 		player_res.consume_stamina(speed)
 
 
+func change_player_res(p_player_res: Player) -> void:
+	player_res = p_player_res
+
+
 func set_state(state: PlayerStateMachineState) -> void:
 	state_machine.set_state(state)
 

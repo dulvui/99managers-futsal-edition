@@ -21,7 +21,6 @@ func enter() -> void:
 		owner.team.player_control(owner.team.players[-1])
 		owner.team.player_control().set_destination(owner.field.ball.pos, 20)
 		owner.team.player_control().set_state(PlayerStateIdle.new())
-	
 
 
 func execute() -> void:
