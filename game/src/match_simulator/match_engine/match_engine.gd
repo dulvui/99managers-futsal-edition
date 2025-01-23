@@ -34,6 +34,7 @@ var possession_counter: float
 
 func setup(p_left_team: Team, p_right_team: Team, match_seed: int) -> void:
 	rng = RandomNumberGenerator.new()
+	rng.state = 0
 	rng.seed = hash(match_seed)
 
 	field = SimField.new(rng)

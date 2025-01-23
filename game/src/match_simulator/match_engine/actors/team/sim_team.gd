@@ -135,7 +135,7 @@ func auto_change() -> void:
 		var bench: Array[Player] = team_res.players.slice(5)
 		bench.sort_custom(
 			func(a: Player, b: Player) -> bool:
-				return a.stamina >= b.stamina
+				return a.stamina > b.stamina
 		)
 		
 		# find best position machting player and change them

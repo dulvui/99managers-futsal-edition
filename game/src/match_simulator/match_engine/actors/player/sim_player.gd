@@ -16,6 +16,7 @@ var rng: RandomNumberGenerator
 var start_pos: Vector2
 # movements
 var head_look_direction: Vector2
+var deviation: Vector2
 
 # goalkeeper properties
 var is_goalkeeper: bool
@@ -86,21 +87,19 @@ func is_touching_ball() -> bool:
 
 
 func move_offense_pos() -> void:
-	var deviation_x: int = rng.randi_range(-10, 10)
-	var deviation_y: int = rng.randi_range(-10, 10)
-	var deviation: Vector2 = Vector2(field.size.x / 3 + deviation_x, deviation_y)
+	var offense_pos: Vector2 = Vector2(field.size.x / 3, 0)
 
 	if not left_half:
-		deviation.x = -deviation.x
+		offense_pos.x = -offense_pos.x
 
-	set_destination(start_pos + deviation, 20)
+	set_destination(start_pos + offense_pos + _next_deviation())
 
 
 func move_defense_pos() -> void:
-	var deviation_x: int = rng.randi_range(-10, 10)
-	var deviation_y: int = rng.randi_range(-10, 10)
-	var deviation: Vector2 = Vector2(deviation_x, deviation_y)
-
-	set_destination(start_pos + deviation)
+	set_destination(start_pos + _next_deviation())
 
 
+func _next_deviation() -> Vector2:
+	deviation.x = rng.randi_range(-5, 5)
+	deviation.y = rng.randi_range(-5, 5)
+	return deviation
