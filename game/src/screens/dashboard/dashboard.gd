@@ -233,10 +233,11 @@ func _on_next_match_button_pressed() -> void:
 func _next_day() -> void:
 	if match_ready:
 		# thread simulation
-		ThreadUtil.random_results()
+		# ThreadUtil.random_results()
 		
 		# non threaded simulation
 		# Global.world.random_results()
+		print("TODO simulate other matches")
 		
 		Main.change_scene(Const.SCREEN_MATCH)
 		return
@@ -271,7 +272,9 @@ func _next_day() -> void:
 		# ThreadUtil.random_results()
 		
 		# non threaded simulation
-		Global.world.random_results()
+		# Global.world.random_r=esults()
+		print("TODO simulate other matches")
+		pass
 
 	visual_calendar.setup()
 

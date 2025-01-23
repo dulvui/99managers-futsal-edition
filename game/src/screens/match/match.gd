@@ -75,13 +75,17 @@ func _ready() -> void:
 		if not Global.team:
 			Global.team = matchz.home
 
-
 	# duplicate teams to not change real teams references
-	# player order, tactics ecc. changes live only during match
-	# no deep copy, since players itself acutally should keep changes
-	home_team = matchz.home.duplicate()
-	away_team = matchz.away.duplicate()
-	
+	# player order, tactics ecc. changes reset after match finished
+	# no real deep copy, since players itself acutally should keep changes
+	# even if subresources=true, players are not duplicated
+	# elemnt of arrays never get duplicated
+	# https://docs.godotengine.org/en/stable/classes/class_resource.html#class-resource-method-duplicate
+	home_team = matchz.home.duplicate(true)
+	away_team = matchz.away.duplicate(true)
+	# home_team = matchz.home.duplicate_real_deep()
+	# away_team = matchz.away.duplicate_real_deep()
+
 	match_simulator.setup(home_team, away_team, matchz.id)
 
 	home_name.text = matchz.home.name

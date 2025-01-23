@@ -34,6 +34,7 @@ func _physics_process(delta: float) -> void:
 
 	# update engine show visual match	
 	if is_match_visible():
+		visual_match.show_actors()
 		camera.position = camera.position.lerp(visual_match.ball.global_position, delta * CAMERA_SPEED)
 		# show full match or only show key actions and goals
 		passed_time += delta
@@ -84,21 +85,6 @@ func setup(home_team: Team, away_team: Team, match_seed: int) -> void:
 	engine.half_time.connect(func() -> void: pause())
 	engine.full_time.connect(func() -> void: pause())
 	
-	# future enine
-	engine_future = MatchEngine.new()
-	engine_future.setup(home_team, away_team, match_seed)
-	# show action on goal
-	engine_future.goal.connect(
-		func() -> void:
-			show_action_ticks = ENGINE_FUTURE_SECONDS * Const.TICKS_PER_SECOND * 2
-			show_me.emit()
-			visual_match.show_actors()
-			print("FUTURE GOAL at %d"%engine_future.time)
-	)
-	# already simulate to future
-	for i: int in ENGINE_FUTURE_SECONDS * Const.TICKS_PER_SECOND:
-		engine_future.update()
-
 	# setup visual match
 	# get colors
 	visual_match.setup(engine, wait_time)
@@ -118,6 +104,22 @@ func setup(home_team: Team, away_team: Team, match_seed: int) -> void:
 
 	# reset match_paused
 	Global.match_paused = false
+	
+	# future engine
+	engine_future = MatchEngine.new()
+	# for the future engine deep copy teams
+	# future calcuations shall not affect real teams
+	engine_future.setup(home_team.duplicate_real_deep(), away_team.duplicate_real_deep(), match_seed)
+	# show action on goal
+	engine_future.goal.connect(
+		func() -> void:
+			show_action_ticks = ENGINE_FUTURE_SECONDS * Const.TICKS_PER_SECOND * 2
+			show_me.emit()
+			print("FUTURE GOAL at %d"%engine_future.time)
+	)
+	# already simulate to future
+	for i: int in ENGINE_FUTURE_SECONDS * Const.TICKS_PER_SECOND:
+		engine_future.update()
 	
 
 func simulate() -> void:

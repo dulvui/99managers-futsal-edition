@@ -16,6 +16,7 @@ var team: Team
 @onready var players: HBoxContainer = %Players
 @onready var change_strategy_select: SwitchOptionButton = %ChangeStrategySelect
 
+
 func _ready() -> void:
 	change_players = []
 	

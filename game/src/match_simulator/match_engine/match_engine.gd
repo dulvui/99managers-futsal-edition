@@ -32,10 +32,9 @@ var time: int
 var possession_counter: float
 
 
-func setup(p_left_team: Team, p_right_team: Team, match_seed: int) -> void:
+func setup(p_home_team: Team, p_away_team: Team, match_seed: int) -> void:
 	rng = RandomNumberGenerator.new()
-	rng.state = 0
-	rng.seed = hash(match_seed)
+	rng.seed = match_seed
 
 	field = SimField.new(rng)
 
@@ -51,22 +50,22 @@ func setup(p_left_team: Team, p_right_team: Team, match_seed: int) -> void:
 	possession_counter = 0.0
 
 	# var left_plays_left: bool = rng.randi_range(0, 1) == 0
-	var left_plays_left: bool = true
-	var left_has_ball: bool = rng.randi_range(0, 1) == 0
+	var home_plays_left: bool = true
+	var home_has_ball: bool = rng.randi_range(0, 1) == 0
 
-	left_team = SimTeam.new(rng)
-	left_team.setup(p_left_team, field, left_plays_left, left_has_ball)
-	home_team = left_team
-
-	right_team = SimTeam.new(rng)
-	right_team.setup(p_right_team, field, not left_plays_left, not left_has_ball)
-	away_team = right_team
-
-	left_team.team_opponents =  right_team
-	right_team.team_opponents =  left_team
-
-	field.left_team = left_team
-	field.right_team = right_team
+	# set up home/away team
+	home_team = SimTeam.new(rng)
+	home_team.setup(p_home_team, field, home_plays_left, home_has_ball)
+	away_team = SimTeam.new(rng)
+	away_team.setup(p_away_team, field, not home_plays_left, not home_has_ball)
+	home_team.team_opponents =  away_team
+	away_team.team_opponents =  home_team
+	
+	# set left/right pointers to home/away team
+	left_team = home_team
+	right_team = away_team
+	field.left_team = home_team
+	field.right_team = away_team
 
 
 func update() -> void:
@@ -145,6 +144,8 @@ func set_half_time() -> void:
 	# switch left/right team, assuming home starts always left
 	left_team = away_team
 	right_team = home_team
+	field.left_team = away_team
+	field.right_team = home_team
 	left_team.left_half = true
 	right_team.left_half = false
 

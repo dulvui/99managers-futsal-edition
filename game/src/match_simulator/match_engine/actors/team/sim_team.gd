@@ -38,6 +38,11 @@ var _player_chase: SimPlayer
 # key players generic
 var _player_nearest_to_ball: SimPlayer
 
+# changes variables
+var auto_change_request: bool
+var low_stamina_players: Array[SimPlayer]
+var do_change: bool
+
 
 func _init(p_rng: RandomNumberGenerator) -> void:
 	rng = p_rng
@@ -58,6 +63,10 @@ func setup(
 
 	change_request = false
 	ready_for_kickoff = false
+	do_change = false
+
+	auto_change_request = false
+	low_stamina_players = []
 
 	# check if team is player's team
 	simulated = Global.team and Global.team.id != team_res.id
@@ -88,6 +97,7 @@ func update() -> void:
 	# TODO
 	# check injuries
 
+	# player changes
 	if not field.clock_running:
 		auto_change()
 		if change_request:
@@ -117,10 +127,11 @@ func change_players_request() -> void:
 
 func auto_change() -> void:
 	# auto change players, if no change request already pending
-	var do_change: bool = team_res.formation.change_strategy == Formation.ChangeStrategy.AUTO or simulated
+	do_change = simulated or team_res.formation.change_strategy == Formation.ChangeStrategy.AUTO
 	if do_change and not change_request:
-		var auto_change_request: bool = false
-		var low_stamina_players: Array[SimPlayer] = []
+		# reset vars
+		auto_change_request = false
+		low_stamina_players = []
 
 		# get tired players
 		for sim_player: SimPlayer in players:
@@ -132,7 +143,7 @@ func auto_change() -> void:
 			return
 
 		# sort bench per stamina
-		var bench: Array[Player] = team_res.players.slice(5)
+		var bench: Array[Player] = team_res.get_sub_players()
 		bench.sort_custom(
 			func(a: Player, b: Player) -> bool:
 				return a.stamina > b.stamina
@@ -167,7 +178,7 @@ func auto_change() -> void:
 
 
 func change_players() -> void:
-	# adjust all_players order to team_res players order
+	# adjust starting_players order to team_res players order
 	var starting_players: Array[Player] = team_res.get_starting_players()
 
 	for i: int in starting_players.size():

@@ -113,3 +113,13 @@ func get_prestige_stars() -> String:
 	var spaces: int = 5 - stars
 	# creates right padding example: '***  '
 	return "*".repeat(stars) + "  ".repeat(spaces)
+
+
+func duplicate_real_deep() -> Team:
+	var copy: Team = duplicate()
+	# objects in arrays and dictionaries never get duplicated
+	# https://docs.godotengine.org/en/stable/classes/class_resource.html#class-resource-method-duplicate
+	copy.players = []
+	for player: Player in players:
+		copy.players.append(player.duplicate(true))
+	return copy
