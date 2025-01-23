@@ -47,6 +47,10 @@ func execute() -> void:
 		return
 
 
+func exit() -> void:
+	owner.field.clock_running = true
+
+
 func kickoff_pass() -> void:
 	owner.team.stats.passes += 1
 	var random_player: int = owner.rng.randi_range(1, 3)
@@ -54,8 +58,4 @@ func kickoff_pass() -> void:
 	owner.team.player_receive_ball(owner.team.players[random_player])
 	owner.team.player_receive_ball().state_machine.set_state(PlayerStateReceive.new())
 	owner.field.ball.short_pass(owner.team.player_receive_ball().pos, 80)
-
-
-func exit() -> void:
-	owner.field.clock_running = true
 

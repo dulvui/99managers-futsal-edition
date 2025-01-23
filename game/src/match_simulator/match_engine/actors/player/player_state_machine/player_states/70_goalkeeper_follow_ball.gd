@@ -11,6 +11,11 @@ func _init() -> void:
 
 
 func execute() -> void:
+	# if own team has ball, just move to defense position
+	if owner.team.has_ball:
+		owner.player.move_defense_pos()
+		return
+
 	# if close to ball, chase it
 	if owner.player.pos.distance_squared_to(owner.field.ball.pos) < 5600:
 		set_state(PlayerStateChaseBall.new())

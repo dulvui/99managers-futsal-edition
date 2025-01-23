@@ -21,10 +21,10 @@ var ball: VisualBall
 func _physics_process(delta: float) -> void:
 	super._physics_process(delta)
 	if not Global.match_paused:
-		if sim_player.head_look_direction == Vector2.ZERO:
+		if sim_player.head_look == Vector2.ZERO:
 			sprites.look_at(ball.position)
 		else:
-			sprites.look_at(sim_player.head_look_direction)
+			sprites.look_at(sim_player.head_look)
 
 
 func setup(

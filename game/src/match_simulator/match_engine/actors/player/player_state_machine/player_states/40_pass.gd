@@ -32,5 +32,4 @@ func execute() -> void:
 	owner.team.player_receive_ball().state_machine.set_state(PlayerStateReceive.new())
 
 	set_state(PlayerStateAttack.new())
-	return
 

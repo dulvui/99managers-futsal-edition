@@ -13,7 +13,7 @@ func _init() -> void:
 func enter() -> void:
 	# move players with no ball into positions
 	for player: SimPlayer in owner.team.players:
-		player.move_defense_pos()
+		player.set_state(PlayerStateDefend.new())
 
 
 func execute() -> void:
@@ -21,6 +21,17 @@ func execute() -> void:
 		set_state(TeamStateAttack.new())
 		return
 	
-	if owner.field.clock_running:
-		owner.team.player_chase(owner.team.player_nearest_to_ball())
+	if not owner.field.clock_running:
+		return
 
+	if owner.field.goalkeeper_ball:
+		return
+	
+	if owner.field.kickin:
+		return
+
+	owner.team.player_chase(owner.team.player_nearest_to_ball())
+
+
+func exit() -> void:
+	owner.team.reset_key_players()

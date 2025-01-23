@@ -6,7 +6,7 @@ class_name TeamStateEnterField
 extends TeamStateMachineState
 
 
-const WAIT: int = Const.TICKS_PER_SECOND * 1
+const WAIT: int = Const.STATE_UPDATE_TICKS * 2
 
 var ticks: int
 
@@ -46,9 +46,7 @@ func enter() -> void:
 
 		player.set_pos(start_position)
 		player.set_destination(destination)
-	
-		# look towards destination
-		player.head_look_direction = destination
+		player.look_towards_destination()
 
 
 func execute() -> void:
@@ -58,7 +56,7 @@ func execute() -> void:
 		if not player.destination_reached():
 			return
 		# look down
-		player.head_look_direction = player.pos + Vector2(0, 100)
+		player.head_look = player.pos + Vector2(0, 100)
 	
 	# wait a bit in center, before moving to start positions
 	ticks += 1
@@ -70,4 +68,4 @@ func execute() -> void:
 func exit() -> void:
 	# reset head look direction
 	for player: SimPlayer in owner.team.players:
-		player.head_look_direction = Vector2.ZERO
+		player.head_look = Vector2.ZERO

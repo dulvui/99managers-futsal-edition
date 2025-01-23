@@ -46,6 +46,8 @@ var goals: SimGoals
 var penalty_areas: SimPenaltyAreas
 
 var clock_running: bool
+var goalkeeper_ball: bool
+var kickin: bool
 
 # add all resources here, so they can be accessedeasily
 # especiially inside the state machines
@@ -92,8 +94,10 @@ func _init(rng: RandomNumberGenerator) -> void:
 	ball = SimBall.new(rng)
 	ball.setup(self)
 	
-	# clock flag
+	# flags
 	clock_running = false
+	goalkeeper_ball = false
+	kickin = false
 
 	# field calculator
 	calculator = SimFieldCalculator.new(self)
@@ -127,10 +131,10 @@ func update() -> void:
 			_check_touch_line()
 		goals.check_post_colissions(ball)
 
-	# collissions
-	# _check_ball_wall_colissions()
-	_check_ball_players_colissions()
-	# _check_player_colissions()
+		# collissions
+		# _check_ball_wall_colissions()
+		_check_ball_players_colissions()
+		# _check_player_colissions()
 
 
 func force_update_calculator() -> void:

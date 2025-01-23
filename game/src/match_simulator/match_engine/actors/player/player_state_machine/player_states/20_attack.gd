@@ -11,15 +11,8 @@ func _init() -> void:
 
 
 func enter() -> void:
-	owner.player.move_offense_pos()
-
-
-func execute() -> void:
-	if owner.team.player_control() == owner.player:
-		set_state(PlayerStateControl.new())
-		return
-	elif owner.player.is_goalkeeper:
+	if owner.player.is_goalkeeper:
 		set_state(PlayerStateGoalkeeperFollowBall.new())
-		return
-
+	else:
+		owner.player.move_offense_pos()
 

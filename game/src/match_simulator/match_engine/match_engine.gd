@@ -31,10 +31,18 @@ var time: int
 # stats
 var possession_counter: float
 
+var future: bool
 
-func setup(p_home_team: Team, p_away_team: Team, match_seed: int) -> void:
+
+func _init(p_future: bool = false) -> void:
+	future = p_future
+
+
+func setup(p_home_team: Team, p_away_team: Team, match_seed: int, p_future: bool = false) -> void:
 	rng = RandomNumberGenerator.new()
 	rng.seed = match_seed
+
+	future = p_future
 
 	field = SimField.new(rng)
 
@@ -103,8 +111,6 @@ func update() -> void:
 			set_half_time()
 		elif time == Const.FULL_TIME_SECONDS:
 			set_full_time()
-	# else:
-	# 	print("%d - %d - %d"%[ticks, time_ticks, time])
 
 
 func simulate(end_time: int = Const.FULL_TIME_SECONDS) -> void:
@@ -213,6 +219,7 @@ func _on_goal_line_out_right() -> void:
 	# goalkeeper ball
 	right_possess()
 	field.ball.set_pos_xy(field.line_right - 40, field.center.y)
+	breakpoint
 	right_team.set_state(TeamStateGoalkeeper.new())
 
 

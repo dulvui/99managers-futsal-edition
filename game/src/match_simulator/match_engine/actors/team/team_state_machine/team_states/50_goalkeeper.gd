@@ -11,6 +11,8 @@ func _init() -> void:
 
 
 func enter() -> void:
+	owner.field.goalkeeper_ball = true
+
 	if owner.team.has_ball:
 		for player: SimPlayer in owner.team.players:
 			if player.is_goalkeeper:
@@ -31,3 +33,7 @@ func execute() -> void:
 			set_state(TeamStateDefend.new())
 		else:
 			set_state(TeamStateAttack.new())
+
+
+func exit() -> void:
+	owner.field.goalkeeper_ball = false

@@ -15,7 +15,7 @@ var rng: RandomNumberGenerator
 # positions
 var start_pos: Vector2
 # movements
-var head_look_direction: Vector2
+var head_look: Vector2
 var deviation: Vector2
 
 # goalkeeper properties
@@ -37,7 +37,7 @@ func _init(p_rng: RandomNumberGenerator, p_radius: float = 20) -> void:
 	# initial test values
 	has_ball = false
 
-	head_look_direction = Vector2.ZERO
+	head_look = Vector2.ZERO
 
 	ticks_in_field = 0
 
@@ -97,6 +97,11 @@ func move_offense_pos() -> void:
 
 func move_defense_pos() -> void:
 	set_destination(start_pos + _next_deviation())
+
+
+func look_towards_destination() -> void:
+	if destination != null:
+		head_look = destination
 
 
 func _next_deviation() -> Vector2:

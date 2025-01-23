@@ -11,6 +11,8 @@ func _init() -> void:
 
 
 func enter() -> void:
+	owner.field.kickin = true
+
 	for player: SimPlayer in owner.team.players:
 		player.set_state(PlayerStateIdle.new())
 	
@@ -31,3 +33,4 @@ func execute() -> void:
 
 func exit() -> void:
 	owner.field.clock_running = true
+	owner.field.kickin = false

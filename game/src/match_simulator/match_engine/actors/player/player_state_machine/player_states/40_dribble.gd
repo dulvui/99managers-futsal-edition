@@ -11,14 +11,11 @@ func _init() -> void:
 
 
 func enter() -> void:
+	# slightly kick ball towards goal
 	if owner.team.left_half:
-		owner.field.ball.dribble(owner.player.pos + Vector2(50, 0), 2)
+		owner.field.ball.dribble(owner.player.pos + Vector2(50, 0), 10)
 	else:
-		owner.field.ball.dribble(owner.player.pos + Vector2(-50, 0), 2)
-	set_state(PlayerStateAttack.new())
-	return
-
-
-func exit() -> void:
-	owner.team.player_control = null
+		owner.field.ball.dribble(owner.player.pos + Vector2(-50, 0), 10)
+	owner.player.follow(owner.field.ball, 20)
+	set_state(PlayerStateControl.new())
 

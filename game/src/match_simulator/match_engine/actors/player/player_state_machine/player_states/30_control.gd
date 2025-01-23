@@ -14,32 +14,24 @@ func _init() -> void:
 
 
 func execute() -> void:
-	# check if player is still in control
-	if owner.team.player_control() != owner.player:
-		set_state(PlayerStateAttack.new())
-
-	# check if player touches balls
-	# if not, follow ball
+	# if player doesn't touch balls, follow it
 	if not owner.player.is_touching_ball():
 		owner.player.follow(owner.field.ball, 40)
 		return 
 	
-	owner.field.ball.stop()
-
-	# check shoot
+	owner.player.stop()
+	
+	# player is touching ball
+	# try to shoot, dribble and pass
+	
 	if should_shoot():
-		# print("shoot")
 		set_state(PlayerStateShoot.new())
 		return
 
-	# check pass
-	if owner.rng.randi() % 100 < 95:
-		# print("pass")
-		set_state(PlayerStatePass.new())
+	if should_dribble():
+		set_state(PlayerStateDribble.new())
 		return
 
-	# check dribble
-	# print("dribble")
 	set_state(PlayerStatePass.new())
 
 

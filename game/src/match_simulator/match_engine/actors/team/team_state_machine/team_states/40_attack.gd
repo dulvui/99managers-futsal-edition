@@ -16,11 +16,16 @@ func enter() -> void:
 		if player.is_goalkeeper:
 			player.set_state(PlayerStateGoalkeeperFollowBall.new())
 		# make sure not to chang player to attack that is receiving a ball from kickoff
-		elif not player.state_machine.state is PlayerStateReceive:
-			player.set_state(PlayerStateAttack.new())
+		if player.state_machine.state is PlayerStateReceive:
+			continue
+		# and not already controlling player
+		if player.state_machine.state is PlayerStateControl:
+			continue
+		player.set_state(PlayerStateAttack.new())
 
 
 func execute() -> void:
+	# make sure team still doesn't have the ball
 	if not owner.team.has_ball:
 		set_state(TeamStateDefend.new())
 		return
@@ -31,18 +36,8 @@ func execute() -> void:
 		# find nearest player to best supporting sector
 		var sector_position: Vector2 = owner.field.calculator.best_sector.position
 		var player: SimPlayer = owner.team.find_nearest_player_to(sector_position, [owner.team.player_control()])
-		player.set_state(PlayerStateSupport.new())
 		player.set_destination(sector_position)
 		owner.team.player_support(player)
-
-
-
-	# move players with no ball into positions
-	# set_state(TeamStateGoal.new())
-	# set_state(TeamStateKickin.new())
-	# set_state(TeamStateCorner.new())
-	# set_state(TeamStateFreeKick.new())
-	# set_state(TeamStatePenalty.new())
 
 
 func exit() -> void:

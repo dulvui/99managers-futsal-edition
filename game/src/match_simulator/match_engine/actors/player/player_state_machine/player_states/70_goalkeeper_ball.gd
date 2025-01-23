@@ -5,9 +5,14 @@
 class_name PlayerStateGoalkeeperBall
 extends PlayerStateMachineState
 
+const WAIT: int = Const.STATE_UPDATE_TICKS * 3
+
+var ticks: int
+
 
 func _init() -> void:
 	super("PlayerStateGoalkeeperBall")
+	ticks = 0
 
 
 func enter() -> void:
@@ -15,8 +20,15 @@ func enter() -> void:
 
 
 func execute() -> void:
-	if owner.player.destination_reached():
-		set_state(PlayerStatePass.new())
+	if not owner.player.destination_reached():
+		return
+	
+	ticks += 1
+	if ticks < WAIT:
+		return
+	breakpoint
+	
+	set_state(PlayerStatePass.new())
 
 
 func exit() -> void:

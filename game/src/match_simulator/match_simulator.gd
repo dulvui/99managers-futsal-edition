@@ -106,7 +106,7 @@ func setup(home_team: Team, away_team: Team, match_seed: int) -> void:
 	Global.match_paused = false
 	
 	# future engine
-	engine_future = MatchEngine.new()
+	engine_future = MatchEngine.new(true)
 	# for the future engine deep copy teams
 	# future calcuations shall not affect real teams
 	engine_future.setup(home_team.duplicate_real_deep(), away_team.duplicate_real_deep(), match_seed)

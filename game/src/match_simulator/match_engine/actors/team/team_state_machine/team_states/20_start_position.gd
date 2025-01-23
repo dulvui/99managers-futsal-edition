@@ -6,7 +6,7 @@ class_name TeamStateStartPositions
 extends TeamStateMachineState
 
 
-const WAIT: int = Const.TICKS_PER_SECOND * 2
+const WAIT: int = Const.STATE_UPDATE_TICKS * 1
 
 var ticks: int
 
@@ -23,6 +23,7 @@ func enter() -> void:
 	# move players to start positions
 	for player: SimPlayer in owner.players:
 		player.move_defense_pos()
+		player.look_towards_destination()
 		player.set_state(PlayerStateIdle.new())
 
 
@@ -39,3 +40,8 @@ func execute() -> void:
 
 	set_state(TeamStateKickoff.new())
 
+
+func exit() -> void:
+	# reset head look direction
+	for player: SimPlayer in owner.team.players:
+		player.head_look = Vector2.ZERO

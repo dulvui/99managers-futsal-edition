@@ -18,6 +18,7 @@ func enter() -> void:
 	wait_counter = 0
 
 	if owner.player.is_goalkeeper:
+		owner.player.set_state(PlayerStateGoalkeeperFollowBall.new())
 		return
 	
 	# check if player chould kick corner
