@@ -29,7 +29,7 @@ func _ready() -> void:
 	var match_screen: MatchScreen = match_scene.instantiate()
 	content.add_child(match_screen)
 	# simulate match to later state
-	match_screen.match_simulator.simulate(2)
+	match_screen.match_simulator.engine.simulate(2)
 
 	# dashboard
 	var dashboard_scene: PackedScene = load(Const.SCREEN_DASHBOARD)
