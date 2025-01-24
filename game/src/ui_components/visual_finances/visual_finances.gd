@@ -14,7 +14,7 @@ extends Control
 
 
 func _ready() -> void:
-	if Tests.is_run_as_current_scene(slef):
+	if Tests.is_run_as_current_scene(self):
 		setup(Tests.create_mock_team())
 
 
