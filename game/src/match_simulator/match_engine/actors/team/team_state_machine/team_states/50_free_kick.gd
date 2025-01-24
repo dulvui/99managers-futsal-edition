@@ -11,12 +11,9 @@ func _init() -> void:
 
 
 func execute() -> void:
+	pass
 	# if team has ball
 		# move player to free kick
 		# shoot
 	# else
 		# some players make wall
-	set_state(TeamStateGoal.new())
-	set_state(TeamStateCorner.new())
-	set_state(TeamStateAttack.new())
-	set_state(TeamStateDefend.new())
