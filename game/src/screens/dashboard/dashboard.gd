@@ -162,12 +162,13 @@ func _hide_all() -> void:
 	player_offer.hide()
 	contract_offer.hide()
 	player_profile.hide()
+	finances.hide()
 
 
 func _show_active_view(p_active_view: int = -1, from_history: bool = false) -> void:
 	_hide_all()
 	if p_active_view > -1:
-		active_view = p_active_view
+		active_view = p_active_view as ContentViews
 
 	match active_view:
 		ContentViews.EMAIL:
