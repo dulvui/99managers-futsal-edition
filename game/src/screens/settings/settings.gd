@@ -7,8 +7,8 @@ extends Control
 
 
 @onready var default_dialog: DefaultConfirmDialog = %DefaultDialog
-@onready var general: GeneralSettings = %General
-@onready var input: InputSettings = %Input
+@onready var general: GeneralSettings = %GENERAL_SETTINGS
+@onready var input: InputSettings = %INPUT_SETTINGS
 
 
 func _ready() -> void:
