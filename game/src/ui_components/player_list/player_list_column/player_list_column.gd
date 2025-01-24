@@ -7,7 +7,7 @@ extends VBoxContainer
 
 signal sort
 
-const ColorLabelScene: PackedScene = preload("res://src/ui_components/base/color_label/color_label.tscn")
+const ColorLabelScene: PackedScene = preload(Const.SCENE_COLOR_LABEL)
 
 const NOT_TRANSLATED_COLUMS: Array[StringName] = [
 	Const.SURNAME,

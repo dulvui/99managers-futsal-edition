@@ -80,6 +80,8 @@ const SCREEN_MATCH: String = "res://src/screens/match/match.tscn"
 const SCREEN_SAVE_STATES: String = "res://src/screens/save_states_screen/save_states_screen.tscn"
 # scenes
 const SCENE_SAVE_STATE_ENTRY: String = "res://src/screens/save_states_screen/save_state_entry/save_state_entry.tscn"
+# ui components
+const SCENE_COLOR_LABEL: String = "res://src/ui_components/base/color_label/color_label.tscn"
 
 #
 # Property access
