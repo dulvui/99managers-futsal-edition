@@ -44,7 +44,7 @@ func tests_intensive() -> void:
 	print("start tests: intenstive done.")
 
 
-static func setup_mock_world(use_test_file: bool) -> bool:
+static func setup_mock_world(use_test_file: bool = false) -> bool:
 	if Global.world == null:
 		print("setting up mock world...")
 		Global.start_date = Time.get_datetime_dict_from_system()
@@ -58,6 +58,8 @@ static func setup_mock_world(use_test_file: bool) -> bool:
 				for nation: Nation in continent.nations:
 					if nation.is_competitive():
 						team = nation.leagues[0].teams[0]
+						break
+				break
 		
 		Global.select_team(team)
 		Global.initialize_game()
@@ -82,6 +84,8 @@ static func create_mock_world(use_test_file: bool) -> World:
 		return generator.generate_world(true)
 	
 	var world: World =  World.new()
+	world.initialize()
+
 	for c: int in range(2):
 		var continent: Continent = Continent.new()
 		continent.name = "Mock continent " + str(c)
@@ -91,6 +95,7 @@ static func create_mock_world(use_test_file: bool) -> World:
 			for l: int in range(2):
 				var league: League = create_mock_league(l, 6)
 				nation.leagues.append(league)
+			continent.nations.append(nation)
 
 		world.continents.append(continent)
 
