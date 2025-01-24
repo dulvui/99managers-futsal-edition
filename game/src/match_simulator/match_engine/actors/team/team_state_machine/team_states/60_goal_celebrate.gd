@@ -6,8 +6,8 @@ class_name TeamStateGoalCelebrate
 extends TeamStateMachineState
 
 
-const MAX = Const.STATE_UPDATE_TICKS * 3
-const MIN = Const.STATE_UPDATE_TICKS * 1
+const MAX: int = Const.STATE_UPDATE_TICKS * 3
+const MIN: int = Const.STATE_UPDATE_TICKS * 1
 
 var celebration_time: int
 

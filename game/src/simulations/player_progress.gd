@@ -5,8 +5,8 @@
 class_name PlayerProgress
 extends Node
 
-const NOISE = 20
-const AGE_PHYSICAL_DEGARDE = 30
+const NOISE: int = 20
+const AGE_PHYSICAL_DEGARDE: int = 30
 
 
 static func players_progress_season() -> void:
@@ -14,7 +14,7 @@ static func players_progress_season() -> void:
 		for n: Nation in c.nations:
 			for league: League in n.leagues:
 				for team: Team in league.teams:
-					for player in team.players:
+					for player: Player in team.players:
 						_player_season_progress(player)
 
 
@@ -42,7 +42,7 @@ static func _player_season_progress(player: Player) -> void:
 	# increment all atrtibutes from 0 to 3
 
 	# mental
-	for attribute in player.attributes.mental.get_property_list():
+	for attribute: Dictionary in player.attributes.mental.get_property_list():
 		if attribute.usage == Const.CUSTOM_PROPERTY_EXPORT:  # custom properties
 			# random value from 0 to 300
 			var value: int = (
@@ -56,7 +56,7 @@ static func _player_season_progress(player: Player) -> void:
 			)
 
 	# physical
-	for attribute in player.attributes.physical.get_property_list():
+	for attribute: Dictionary in player.attributes.physical.get_property_list():
 		if attribute.usage == Const.CUSTOM_PROPERTY_EXPORT:  # custoom properties
 			var value: int = (
 				RngUtil.rng.randi_range(1, Const.MAX_PRESTIGE)
@@ -69,7 +69,7 @@ static func _player_season_progress(player: Player) -> void:
 			)
 
 	# technical
-	for attribute in player.attributes.technical.get_property_list():
+	for attribute: Dictionary in player.attributes.technical.get_property_list():
 		if attribute.usage == Const.CUSTOM_PROPERTY_EXPORT:  # custoom properties
 			var value: int = (
 				RngUtil.rng.randi_range(1, Const.MAX_PRESTIGE)
@@ -82,7 +82,7 @@ static func _player_season_progress(player: Player) -> void:
 			)
 
 	#goalkeeper
-	for attribute in player.attributes.goalkeeper.get_property_list():
+	for attribute: Dictionary in player.attributes.goalkeeper.get_property_list():
 		if attribute.usage == Const.CUSTOM_PROPERTY_EXPORT:  # custoom properties
 			var value: int = (
 				RngUtil.rng.randi_range(1, Const.MAX_PRESTIGE)

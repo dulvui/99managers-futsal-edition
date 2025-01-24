@@ -117,7 +117,7 @@ func get_competition_by_id(competition_id: int) -> Competition:
 func get_all_players() -> Array[Player]:
 	var players: Array[Player] = []
 	for league: League in get_all_leagues():
-		for team in league.teams:
+		for team: Team in league.teams:
 			players.append_array(team.players)
 	return players
 
@@ -125,7 +125,7 @@ func get_all_players() -> Array[Player]:
 func get_all_players_by_nationality(nation: Nation) -> Array[Player]:
 	var players: Array[Player] = []
 	for league: League in get_all_leagues():
-		for team in league.teams:
+		for team: Team in league.teams:
 			for player: Player in team.players:
 				if player.nation == nation.name:
 					players.append(player)
