@@ -6,7 +6,7 @@
 [ext_resource type="PackedScene" uid="uid://djrvl8pvkr7aa" path="res://src/screens/settings/language_picker/language_picker.tscn" id="2_p1exx"]
 [ext_resource type="Script" path="res://src/ui_components/base/defaults/default_button.gd" id="3_n2piq"]
 
-[node name="General" type="VBoxContainer"]
+[node name="GENERAL_SETTINGS" type="VBoxContainer"]
 anchors_preset = -1
 anchor_right = 0.201
 anchor_bottom = 0.389

@@ -42,22 +42,21 @@ grow_horizontal = 2
 grow_vertical = 2
 alignment = 1
 
-[node name="TabContainer" type="HBoxContainer" parent="Main"]
+[node name="TabContainer" type="TabContainer" parent="Main"]
 layout_mode = 2
 size_flags_vertical = 3
-theme_override_constants/separation = 15
-alignment = 1
+current_tab = 0
 
-[node name="General" parent="Main/TabContainer" instance=ExtResource("2_rfuel")]
+[node name="GENERAL_SETTINGS" parent="Main/TabContainer" instance=ExtResource("2_rfuel")]
 unique_name_in_owner = true
 layout_mode = 2
+metadata/_tab_index = 0
 
-[node name="VSeparator" type="VSeparator" parent="Main/TabContainer"]
-layout_mode = 2
-
-[node name="Input" parent="Main/TabContainer" instance=ExtResource("3_i3rqu")]
+[node name="INPUT_SETTINGS" parent="Main/TabContainer" instance=ExtResource("3_i3rqu")]
 unique_name_in_owner = true
+visible = false
 layout_mode = 2
+metadata/_tab_index = 1
 
 [node name="HSeparator2" type="HSeparator" parent="Main"]
 self_modulate = Color(1, 1, 1, 0)

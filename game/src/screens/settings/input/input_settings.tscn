@@ -5,7 +5,7 @@
 [ext_resource type="LabelSettings" uid="uid://b4gu78rjvdfx4" path="res://theme_base/label/label_settings_title.tres" id="2_b6gxn"]
 [ext_resource type="PackedScene" uid="uid://b2mwv4cl5sm6t" path="res://src/ui_components/base/swtich_option_button/switch_option_button.tscn" id="3_g1iho"]
 
-[node name="Input" type="VBoxContainer"]
+[node name="INPUT_SETTINGS" type="VBoxContainer"]
 anchors_preset = -1
 anchor_right = 0.079
 anchor_bottom = 0.098
