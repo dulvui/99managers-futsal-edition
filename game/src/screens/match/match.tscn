@@ -319,4 +319,5 @@ layout_mode = 2
 [connection signal="pressed" from="Main/Content/Buttons/Center/PauseButton" to="." method="_on_pause_button_pressed"]
 [connection signal="pressed" from="Main/Content/Buttons/Right/SimulateButton" to="." method="_on_simulate_button_pressed"]
 [connection signal="pressed" from="Main/Content/Buttons/Right/DashboardButton" to="." method="_on_dashboard_button_pressed"]
+[connection signal="change_request" from="Main/Content/CentralContainer/MainBar/Formation" to="." method="_on_formation_change_request"]
 [connection signal="change_request" from="Main/Content/CentralContainer/BottomBar/PlayersBar" to="." method="_on_players_bar_change_request"]
