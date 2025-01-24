@@ -31,7 +31,7 @@ var generation_player_names: Const.PlayerNames
 # saves which season this is, starting from 0
 var current_season: int
 # global game states
-var match_speed: MatchScreen.Speed
+var match_speed: Const.MatchSpeed
 # saves current id for resources
 var id_by_type: Dictionary
 
@@ -193,4 +193,3 @@ func _load_config() -> void:
 	theme_custom_style_color = config.get_value("settings", "theme_custom_style_color", Color.RED)
 	theme_custom_background_color = config.get_value("settings", "theme_custom_background_color", Color.WHITE)
 	scene_fade = config.get_value("settings", "scene_fade", true)
-

@@ -4,7 +4,18 @@
 
 extends Node
 
-enum PlayerNames { MALE, FEMALE, MIXED }
+enum PlayerNames {
+	MALE,
+	FEMALE,
+	MIXED,
+}
+
+enum MatchSpeed {
+	FULL_GAME,
+	KEY_ACTIONS,
+	ONLY_GOALS,
+}
+
 #
 # UI
 #
