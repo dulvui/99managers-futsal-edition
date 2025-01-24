@@ -16,7 +16,6 @@ const NOT_TRANSLATED_COLUMS: Array[StringName] = [
 
 var color_labels: Array[ColorLabel] = []
 var buttons: Array[Button] = []
-var view_name: String
 var col_name: String
 var map_function: Callable
 
@@ -24,9 +23,8 @@ var map_function: Callable
 
 
 func setup(
-	p_view_name: String, p_col_name: String, players: Array[Player], p_map_function: Callable
+	p_col_name: String, players: Array[Player], p_map_function: Callable
 ) -> void:
-	view_name = p_view_name
 	col_name = p_col_name
 	map_function = p_map_function
 

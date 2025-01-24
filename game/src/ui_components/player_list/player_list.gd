@@ -7,16 +7,25 @@ extends VBoxContainer
 
 signal select_player(player: Player)
 
-const PlayerListColumnScene: PackedScene = preload("res://src/ui_components/player_list/player_list_column/player_list_column.tscn")
+enum Views {
+	GENERAL,
+	CONTRACT,
+	STATS,
+	PHYSICAL,
+	TECHNICAL,
+	MENTAL,
+	GOALKEEPER,
+}
+
+const PlayerListColumnScene: PackedScene = preload(Const.SCENE_PLAYER_LIST_COLUMN)
 
 # depending on scale
 const PAGE_SIZE_1: int = 36
 const PAGE_SIZE_2: int = 22
 const PAGE_SIZE_3: int = 12
 
-var views: Array[String]
-var columns: Dictionary = {}
-var active_view: String
+var active_view: Views
+var columns: Array[PlayerListColumn]
 
 var active_team_id: int
 
@@ -39,12 +48,15 @@ var page_size: int
 @onready var footer: HBoxContainer = $Footer
 @onready var page_indicator: Label = $Footer/PageIndicator
 @onready var last: Button = $Footer/Last
-@onready var views_container: HBoxContainer = $Views
+@onready var columns_container: HBoxContainer = %Columns
 
 
 func _ready() -> void:
-	Tests.setup_mock_world(true)
+	Tests.setup_mock_world()
 
+	columns = []
+
+	# filter and view buttons
 	team_select.add_item("ALL_TEAMS")
 	for league: League in Global.world.get_all_leagues():
 		for team: Team in league.teams:
@@ -58,7 +70,11 @@ func _ready() -> void:
 	league_select.add_item("ALL_LEAGUES")
 	for league: League in Global.world.get_all_leagues():
 		league_select.add_item(league.name)
+
+	active_view_option_button.setup(Views.keys())
+	active_view = Views.GENERAL
 	
+	# page size scale
 	match Global.theme_scale:
 		Const.SCALE_1:
 			page_size = PAGE_SIZE_1
@@ -66,6 +82,10 @@ func _ready() -> void:
 			page_size = PAGE_SIZE_2
 		Const.SCALE_3:
 			page_size = PAGE_SIZE_3
+	
+	# setup automatically, if run in editor and is run by 'Run current scene'
+	if Tests.is_run_as_current_scene(self):
+		setup()
 
 
 func setup(p_active_team_id: int = -1) -> void:
@@ -76,13 +96,7 @@ func setup(p_active_team_id: int = -1) -> void:
 		league_select.hide()
 
 	_setup_players()
-
-	page_max = players.size() / page_size
-
-	_setup_columns()
-	active_view = views[0]
-	active_view_option_button.setup(views)
-
+	_update_columns()
 	_update_page_indicator()
 	_show_active_column()
 
@@ -91,94 +105,60 @@ func update_team(p_active_team_id: int) -> void:
 	active_team_id = p_active_team_id
 	_setup_players()
 	_update_columns()
-
 	_update_page_indicator()
 	_show_active_column()
 
 
-func _setup_columns() -> void:
-	visible_players = players.slice(page * page_size, (page + 1) * page_size)
-
-	# names
-	var names: Callable = func(p: Player) -> String: return p.surname
-	_add_column(Const.SURNAME, Const.SURNAME, names)
-	var name_col: PlayerListColumn = columns[Const.SURNAME]
-	# set minimum size to name column
-	name_col.custom_minimum_size.x = 200
-	# connect name button pressed signal
-	for i: int in visible_players.size():
-		name_col.buttons[i].pressed.connect(func() -> void: select_player.emit(visible_players[i]))
-
-	# separator
-	views_container.add_child(VSeparator.new())
-
-	# general
-	var positions: Callable = func(p: Player) -> String: return Position.Type.keys()[p.position.type]
-	_add_column("GENERAL", Const.POSITION, positions)
-	var values: Callable = func(p: Player) -> String: return FormatUtil.currency(p.value)
-	_add_column("GENERAL", "VALUE", values)
-	var presitge_stars: Callable = func(p: Player) -> String: return p.get_prestige_stars()
-	_add_column("GENERAL", "PRESTIGE", presitge_stars)
-	var moralities: Callable = func(p: Player) -> String: return Player.Morality.keys()[p.morality]
-	_add_column("GENERAL", "MORALITY", moralities)
-	var birth_dates: Callable = func(p: Player) -> Dictionary: return p.birth_date
-	_add_column("GENERAL", "BIRTH_DATE", birth_dates)
-	var nationalities: Callable = func(p: Player) -> String: return p.nation
-	_add_column("GENERAL", "NATION", nationalities)
-	var team_names: Callable = func(p: Player) -> String: return p.team
-	_add_column("GENERAL", "TEAM", team_names)
-
-	# contract
-	for c: Dictionary in Contract.new().get_property_list():
-		if c.usage == Const.CUSTOM_PROPERTY_EXPORT:
-			var stats: Callable = func(p: Player) -> Variant:
-				var value: Variant = p.contract.get(c.name)
-				# for dates
-				if typeof(value) == Variant.Type.TYPE_DICTIONARY:
-					return value
-				# for income
-				if "income" in c.name:
-					return FormatUtil.currency(value)
-				return str(value)
-			_add_column("CONTRACT", c.name, stats)
-
-	# statistics
-	for s: Dictionary in Statistics.new().get_property_list():
-		if s.usage == Const.CUSTOM_PROPERTY_EXPORT:
-			var stats: Callable = func(p: Player) -> String: return str(p.statistics.get(s.name))
-			_add_column("STATISTICS", s.name, stats)
-	
-	# attributes
-	var attribute_names: Dictionary = Attributes.new().get_all_attributes()
-	for key: String in attribute_names.keys():
-		for value: String in attribute_names[key]:
-			var value_path: Array[String] = ["attributes", key, value]
-			var attributes: Callable = func(p: Player) -> int: return p.get_res_value(value_path)
-			_add_column(key.to_upper(), value, attributes)
-
-
 func _update_columns() -> void:
 	visible_players = players.slice(page * page_size, (page + 1) * page_size)
-	
-	for col: PlayerListColumn in columns.values():
-		col.update_values(visible_players)
+	for column: PlayerListColumn in columns:
+		column.update_values(visible_players)
 
 
-func _add_column(view_name:String, col_name: String, map_function: Callable) -> void:
-	var col: PlayerListColumn = PlayerListColumnScene.instantiate()
-	view_name = view_name
-	
-	views_container.add_child(col)
-	col.setup(view_name, col_name, visible_players, map_function)
-	col.sort.connect(_sort_players.bind(col_name, map_function))
-	columns[col_name] = col
-	if view_name != Const.SURNAME and not view_name in views:
-		views.append(view_name)
+func _add_column(col_name: String, map_function: Callable) -> PlayerListColumn:
+	var column: PlayerListColumn = PlayerListColumnScene.instantiate()
+	columns.append(column)
+	columns_container.add_child(column)
+	column.setup(col_name, visible_players, map_function)
+	column.sort.connect(_sort_players.bind(col_name, map_function))
+	return column
 
 
 func _show_active_column() -> void:
-	for col: PlayerListColumn in columns.values():
-		col.visible = col.view_name == Const.SURNAME or col.view_name == active_view
+	for column: PlayerListColumn in columns:
+		column.queue_free()
+	columns.clear()
+
+	for column: Node in columns_container.get_children():
+		column.queue_free()
+	
+	# always add names
+	var names: Callable = func(p: Player) -> String: return p.surname
+	var name_column: PlayerListColumn = _add_column(Const.SURNAME, names)
+	# set minimum size to name column
+	name_column.custom_minimum_size.x = 200
+	# connect name button pressed signal
+	for i: int in visible_players.size():
+		name_column.buttons[i].pressed.connect(func() -> void: select_player.emit(visible_players[i]))
+
+	# separator
+	columns_container.add_child(VSeparator.new())
+	
+	match active_view:
+		Views.MENTAL:
+			_show_attributes("mental")
+		Views.PHYSICAL:
+			_show_attributes("physical")
+		Views.TECHNICAL:
+			_show_attributes("technical")
+		Views.GOALKEEPER:
+			_show_attributes("goalkeeper")
+		Views.CONTRACT:
+			_show_contract()
+		Views.STATS:
+			_show_statistics()
+		_:
+			_show_general()
 
 
 func _setup_players(p_reset_options: bool = true) -> void:
@@ -375,5 +355,57 @@ func _on_team_select_item_selected(index: int) -> void:
 
 
 func _on_active_view_item_selected(index: int) -> void:
-	active_view = views[index]
+	active_view = index as Views
 	_show_active_column()
+
+
+func _show_general() -> void:
+	var positions: Callable = func(p: Player) -> String: return Position.Type.keys()[p.position.type]
+	_add_column(Const.POSITION, positions)
+	var values: Callable = func(p: Player) -> String: return FormatUtil.currency(p.value)
+	_add_column("VALUE", values)
+	var presitge_stars: Callable = func(p: Player) -> String: return p.get_prestige_stars()
+	_add_column("PRESTIGE", presitge_stars)
+	var moralities: Callable = func(p: Player) -> String: return Player.Morality.keys()[p.morality]
+	_add_column("MORALITY", moralities)
+	var birth_dates: Callable = func(p: Player) -> Dictionary: return p.birth_date
+	_add_column("BIRTH_DATE", birth_dates)
+	var nationalities: Callable = func(p: Player) -> String: return p.nation
+	_add_column("NATION", nationalities)
+	var team_names: Callable = func(p: Player) -> String: return p.team
+	_add_column("TEAM", team_names)
+
+
+func _show_contract() -> void:
+	for c: Dictionary in Contract.new().get_property_list():
+		if c.usage == Const.CUSTOM_PROPERTY_EXPORT:
+			var stats: Callable = func(p: Player) -> Variant:
+				var value: Variant = p.contract.get(c.name)
+				# for dates
+				if typeof(value) == Variant.Type.TYPE_DICTIONARY:
+					return value
+				# for income
+				if "income" in c.name:
+					return FormatUtil.currency(value)
+				return str(value)
+			_add_column(c.name, stats)
+
+
+func _show_statistics() -> void:
+	for s: Dictionary in Statistics.new().get_property_list():
+		if s.usage == Const.CUSTOM_PROPERTY_EXPORT:
+			var stats: Callable = func(p: Player) -> String: return str(p.statistics.get(s.name))
+			_add_column(s.name, stats)
+
+
+func _show_attributes(p_key: String) -> void:
+	var attribute_names: Dictionary = Attributes.new().get_all_attributes()
+	for key: String in attribute_names.keys():
+		if key == p_key:
+			for value: String in attribute_names[key]:
+				var value_path: Array[String] = ["attributes", key, value]
+				var attributes: Callable = func(p: Player) -> int: return p.get_res_value(value_path)
+				_add_column(value, attributes)
+			return
+
+
