@@ -34,7 +34,7 @@ var only_lineup: bool
 
 func _ready() -> void:
 	# setup automatically, if run in editor and is run by 'Run current scene'
-	if OS.has_feature("editor") and get_parent() == get_tree().root:
+	if Tests.is_run_as_current_scene(self):
 		setup(false, Tests.create_mock_team())
 	
 	change_players = []

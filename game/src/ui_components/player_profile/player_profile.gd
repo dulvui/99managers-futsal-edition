@@ -16,8 +16,7 @@ var player: Player
 
 
 func _ready() -> void:
-	# setup automatically, if run in editor and is run by 'Run current scene'
-	if OS.has_feature("editor") and get_parent() == get_tree().root:
+	if Tests.is_run_as_current_scene(self):
 		set_player(Tests.create_mock_player())
 
 

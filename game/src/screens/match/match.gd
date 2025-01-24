@@ -59,8 +59,7 @@ func _ready() -> void:
 
 	if Global.world:
 		matchz = Global.world.calendar.get_next_match()
-	# setup automatically, if run in editor and is run by 'Run current scene'
-	elif OS.has_feature("editor"):
+	elif Tests.is_run_as_current_scene(self):
 		matchz = Match.new()
 		# games needs to be started at least once with a valid save state
 		matchz.home = Tests.create_mock_team()

@@ -137,3 +137,8 @@ static func create_mock_manager() -> Manager:
 	manager.name = "Mike"
 	manager.surname = "Mock"
 	return manager
+
+
+static func is_run_as_current_scene(node: Node) -> bool:
+	# setup automatically, if run in editor and is run by 'Run current scene'
+	return OS.has_feature("editor") and node.get_parent() == node.get_tree().root

@@ -11,8 +11,7 @@ extends VBoxContainer
 
 
 func _ready() -> void:
-	# setup automatically, if run in editor and is run by 'Run current scene'
-	if OS.has_feature("editor") and get_parent() == get_tree().root:
+	if Tests.is_run_as_current_scene(self):
 		var test_values: Array[int] = []
 		for i: int in 100:
 			test_values.append(randi_range(-100, 100))
