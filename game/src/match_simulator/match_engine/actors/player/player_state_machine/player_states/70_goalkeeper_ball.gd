@@ -26,7 +26,6 @@ func execute() -> void:
 	ticks += 1
 	if ticks < WAIT:
 		return
-	breakpoint
 	
 	set_state(PlayerStatePass.new())
 

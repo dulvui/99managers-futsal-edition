@@ -219,7 +219,6 @@ func _on_goal_line_out_right() -> void:
 	# goalkeeper ball
 	right_possess()
 	field.ball.set_pos_xy(field.line_right - 40, field.center.y)
-	breakpoint
 	right_team.set_state(TeamStateGoalkeeper.new())
 
 
