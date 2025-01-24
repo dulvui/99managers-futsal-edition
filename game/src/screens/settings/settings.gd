@@ -7,6 +7,7 @@ extends Control
 
 
 @onready var default_dialog: DefaultConfirmDialog = %DefaultDialog
+# upper snake case needed for translations
 @onready var general: GeneralSettings = %GENERAL_SETTINGS
 @onready var input: InputSettings = %INPUT_SETTINGS
 

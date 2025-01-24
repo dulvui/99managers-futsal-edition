@@ -1,7 +1,8 @@
-[gd_scene load_steps=7 format=3 uid="uid://dtvkd1ks3xiqc"]
+[gd_scene load_steps=8 format=3 uid="uid://dtvkd1ks3xiqc"]
 
 [ext_resource type="Theme" uid="uid://pt1hrfiuwfpg" path="res://theme_base/theme.tres" id="1"]
 [ext_resource type="Script" path="res://src/ui_components/player_profile/player_profile.gd" id="2"]
+[ext_resource type="Script" path="res://src/ui_components/base/defaults/default_tab_container.gd" id="3_o1pgm"]
 [ext_resource type="PackedScene" uid="uid://o6iglxooy6g3" path="res://src/ui_components/player_profile/info_view/info_view.tscn" id="3_rkqc7"]
 [ext_resource type="PackedScene" uid="uid://c1ybc8k2e473c" path="res://src/ui_components/player_profile/attributes_view/attributes_view.tscn" id="3_whctl"]
 [ext_resource type="PackedScene" uid="uid://b4oxudl2hadi7" path="res://src/ui_components/player_profile/statistics_view/statistics_view.tscn" id="4_hpiic"]
@@ -23,6 +24,7 @@ metadata/_edit_use_anchors_ = true
 layout_mode = 2
 size_flags_vertical = 3
 current_tab = 0
+script = ExtResource("3_o1pgm")
 
 [node name="INFO" parent="Main" instance=ExtResource("3_rkqc7")]
 unique_name_in_owner = true

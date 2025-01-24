@@ -3,7 +3,7 @@
 # SPDX-License-Identifier: AGPL-3.0-or-later
 
 class_name TeamProfile
-extends TabContainer
+extends DefaultTabContainer
 
 @onready var player_list: PlayerList = $Players
 @onready var name_label: Label = $Info/Name
