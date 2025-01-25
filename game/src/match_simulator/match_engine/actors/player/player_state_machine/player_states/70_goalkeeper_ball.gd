@@ -27,8 +27,25 @@ func execute() -> void:
 	if ticks < WAIT:
 		return
 	
-	set_state(PlayerStatePass.new())
+	# find best pass
+	var best_player: SimPlayer
+	var delta: float = 1.79769e308 # max float
+	for player: SimPlayer in owner.team.players:
+		if player != owner.player:
+			var distance: float = player.pos.distance_squared_to(owner.player.pos)
+			if distance < delta:
+				delta = distance
+				best_player = player
+	
+	owner.team.player_receive_ball(best_player)
+	owner.field.ball.short_pass(owner.team.player_receive_ball().pos, 40)
+	owner.team.stats.passes += 1
+
+	set_state(PlayerStateGoalkeeperFollowBall.new())
 
 
 func exit() -> void:
 	owner.field.clock_running = true
+	owner.field.goalkeeper_ball = false
+
+

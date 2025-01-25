@@ -205,6 +205,7 @@ func _on_goal_line_out_left() -> void:
 	left_possess()
 	field.ball.set_pos_xy(field.line_left + 40, field.center.y)
 	left_team.set_state(TeamStateGoalkeeper.new())
+	right_team.set_state(TeamStateGoalkeeper.new())
 
 
 func _on_goal_line_out_right() -> void:
@@ -219,6 +220,7 @@ func _on_goal_line_out_right() -> void:
 	# goalkeeper ball
 	right_possess()
 	field.ball.set_pos_xy(field.line_right - 40, field.center.y)
+	left_team.set_state(TeamStateGoalkeeper.new())
 	right_team.set_state(TeamStateGoalkeeper.new())
 
 

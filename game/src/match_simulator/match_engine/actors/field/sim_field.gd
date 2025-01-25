@@ -26,7 +26,7 @@ const LINE_WIDTH: float = 0.10 * PIXEL_FACTOR  # in cm
 const WALL_DISTANCE: int = 5 * PIXEL_FACTOR
 
 # ball players collision timer
-const BALL_PLAYER_COLISSION_TIME: int = Const.TICKS_PER_SECOND * 2
+const BALL_PLAYER_COLISSION_TIME: int = Const.TICKS_PER_SECOND
 
 # Note: don't use Rect2, to keep simple and human-readable names for coordinates
 var size: Vector2  # with borders
@@ -243,23 +243,25 @@ func _check_ball_wall_colissions() -> void:
 
 
 func _check_ball_players_colissions() -> void:
+	if not ball.is_moving():
+		ball_colission_timer = BALL_PLAYER_COLISSION_TIME
+		return
+
 	if ball_colission_timer > 0:
 		ball_colission_timer -= 1
 		return
 
 	for player: SimPlayer in left_team.players:
-		if left_team.player_control() != player:
-			if player.collides(ball):
-				ball.stop()
-				ball_colission_timer = BALL_PLAYER_COLISSION_TIME
-				return
+		if player.collides(ball):
+			ball.stop()
+			ball_colission_timer = BALL_PLAYER_COLISSION_TIME
+			return
 
 	for player: SimPlayer in right_team.players:
-		if right_team.player_control() != player:
-			if player.collides(ball):
-				ball.stop()
-				ball_colission_timer = BALL_PLAYER_COLISSION_TIME
-				return
+		if player.collides(ball):
+			ball.stop()
+			ball_colission_timer = BALL_PLAYER_COLISSION_TIME
+			return
 
 
 func _check_player_colissions() -> void:

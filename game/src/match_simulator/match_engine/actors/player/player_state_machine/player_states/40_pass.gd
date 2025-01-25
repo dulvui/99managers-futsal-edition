@@ -28,8 +28,6 @@ func execute() -> void:
 	owner.team.player_receive_ball(best_player)
 	owner.field.ball.short_pass(owner.team.player_receive_ball().pos, 40)
 	owner.team.stats.passes += 1
-	
-	owner.team.player_receive_ball().state_machine.set_state(PlayerStateReceive.new())
 
 	set_state(PlayerStateAttack.new())
 

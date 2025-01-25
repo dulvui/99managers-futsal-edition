@@ -204,8 +204,8 @@ func reset_key_players() -> void:
 	_player_nearest_to_ball = null
 
 
-func player_nearest_to_ball() -> SimPlayer:
-	_player_nearest_to_ball = find_nearest_player_to(field.ball.pos)
+func player_nearest_to_ball(exclude: Array[SimPlayer] = []) -> SimPlayer:
+	_player_nearest_to_ball = find_nearest_player_to(field.ball.pos, exclude)
 	return _player_nearest_to_ball
 
 

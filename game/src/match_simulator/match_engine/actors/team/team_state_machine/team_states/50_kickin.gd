@@ -13,21 +13,29 @@ func _init() -> void:
 func enter() -> void:
 	owner.field.kickin = true
 
-	for player: SimPlayer in owner.team.players:
-		player.set_state(PlayerStateIdle.new())
 	
 	if owner.team.has_ball:
+		for player: SimPlayer in owner.team.players:
+			player.set_state(PlayerStateIdle.new())
+			if not player.is_goalkeeper:
+				player.move_offense_pos()
+
 		owner.team.player_control(owner.team.player_nearest_to_ball())
 		owner.team.player_control().set_destination(owner.field.ball.pos)
+	else:
+		for player: SimPlayer in owner.team.players:
+			player.set_state(PlayerStateIdle.new())
+			if not player.is_goalkeeper:
+				player.move_defense_pos()
 
 
 func execute() -> void:
 	if owner.team.has_ball:
 		if owner.team.player_control().destination_reached():
-			owner.team.player_control().set_state(PlayerStatePass.new())
 			set_state(TeamStateAttack.new())
+			owner.team.player_control().set_state(PlayerStatePass.new())
 			return
-	elif owner.field.clock_running:
+	elif not owner.field.kickin:
 		set_state(TeamStateDefend.new())
 
 
