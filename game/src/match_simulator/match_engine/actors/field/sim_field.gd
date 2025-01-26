@@ -26,7 +26,8 @@ const LINE_WIDTH: float = 0.10 * PIXEL_FACTOR  # in cm
 const WALL_DISTANCE: int = 5 * PIXEL_FACTOR
 
 # ball players collision timer
-const BALL_PLAYER_COLISSION_TIME: int = Const.TICKS_PER_SECOND
+# 1 so that ball doesn't collide after just started moving
+const BALL_PLAYER_COLISSION_TIME: int = 1
 
 # Note: don't use Rect2, to keep simple and human-readable names for coordinates
 var size: Vector2  # with borders
@@ -63,7 +64,7 @@ var wall_bottom: CollidingActor
 var wall_left: CollidingActor
 var wall_right: CollidingActor
 
-var ball_colission_timer: int = 0
+var ball_colission_timer: int
 
 
 func _init(rng: RandomNumberGenerator) -> void:
@@ -71,6 +72,9 @@ func _init(rng: RandomNumberGenerator) -> void:
 	size = Vector2(WIDTH + BORDER_SIZE * 2, HEIGHT + BORDER_SIZE * 2)
 
 	center = Vector2(size.x / 2, size.y / 2)
+
+	# start with timer to prevent colission at kickoff
+	ball_colission_timer = BALL_PLAYER_COLISSION_TIME
 
 	line_top = BORDER_SIZE
 	line_bottom = line_top + HEIGHT

@@ -13,7 +13,6 @@ func _init() -> void:
 func enter() -> void:
 	owner.field.kickin = true
 
-	
 	if owner.team.has_ball:
 		for player: SimPlayer in owner.team.players:
 			player.set_state(PlayerStateIdle.new())
