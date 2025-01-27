@@ -19,24 +19,31 @@ var matchz: Match
 var home_stats: MatchStatistics
 var away_stats: MatchStatistics
 
+# views
 @onready var match_simulator: MatchSimulator = $MatchSimulator
+@onready var views: MarginContainer = %Views
 @onready var stats: VisualMatchStats = %Stats
 @onready var comments: VBoxContainer = %Log
 @onready var events: MatchEvents = %Events
 @onready var formation: VisualFormation = %Formation
+
+# top bar
 @onready var time_label: Label = %Time
 @onready var result_label: Label = %Result
 @onready var home_color: ColorRect = %HomeColor
 @onready var away_color: ColorRect = %AwayColor
-@onready var home_possession: Label = %HomePossessionLabel
-@onready var away_possession: Label = %AwayPossessionLabel
 @onready var home_name: Label = %HomeNameLabel
 @onready var away_name: Label = %AwayNameLabel
 @onready var home_fouls: Label = %HomeFouls
 @onready var away_fouls: Label = %AwayFouls
 @onready var time_bar: ProgressBar = %TimeBar
-@onready var possess_bar: ProgressBar = %PossessBar
 
+# bottom bar
+@onready var possess_bar: ProgressBar = %PossessBar
+@onready var home_possession: Label = %HomePossessionLabel
+@onready var away_possession: Label = %AwayPossessionLabel
+
+# buttons
 @onready var pause_button: Button = %PauseButton
 @onready var faster_button: Button = %FasterButton
 @onready var slower_button: Button = %SlowerButton
@@ -130,6 +137,7 @@ func _on_match_simulator_show() -> void:
 
 
 func _on_match_simulator_hide() -> void:
+	views.show()
 	last_active_view.show()
 
 
@@ -187,6 +195,7 @@ func _on_formation_button_pressed() -> void:
 
 
 func _hide_views() -> void:
+	views.hide()
 	comments.hide()
 	stats.hide()
 	events.hide()
@@ -202,9 +211,11 @@ func _toggle_view_buttons() -> void:
 func _toggle_view(view: Control) -> void:
 	if match_simulator.is_match_visible() and view.visible:
 		view.hide()
+		views.hide()
 	else:
 		_hide_views()
 		view.show()
+		views.show()
 	last_active_view = view
 
 
@@ -233,6 +244,7 @@ func _on_pause_button_pressed() -> void:
 		_hide_views()
 		# show last view, only if not showing match currently
 		if not match_simulator.is_match_visible():
+			views.show()
 			last_active_view.show()
 
 

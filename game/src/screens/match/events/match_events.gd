@@ -3,12 +3,12 @@
 # SPDX-License-Identifier: AGPL-3.0-or-later
 
 class_name MatchEvents
-extends ScrollContainer
+extends MarginContainer
 
-@onready var vbox: VBoxContainer = $VBoxContainer
+@onready var list: VBoxContainer = %List
 
 
 func append_text(text: String) -> void:
 	var label: Label = Label.new()
 	label.text = text
-	vbox.add_child(label)
+	list.add_child(label)

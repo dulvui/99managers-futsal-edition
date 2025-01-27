@@ -3,11 +3,11 @@
 [ext_resource type="PackedScene" uid="uid://bubq3rsb3hm6e" path="res://src/match_simulator/match_simulator.tscn" id="1"]
 [ext_resource type="Theme" uid="uid://pt1hrfiuwfpg" path="res://theme_base/theme.tres" id="2"]
 [ext_resource type="Script" path="res://src/screens/match/match.gd" id="3"]
-[ext_resource type="PackedScene" uid="uid://bc6kfu3avld0" path="res://src/ui_components/match/statistics/match_stats.tscn" id="4"]
+[ext_resource type="PackedScene" uid="uid://bc6kfu3avld0" path="res://src/screens/match/statistics/match_stats.tscn" id="4"]
 [ext_resource type="Script" path="res://src/ui_components/base/defaults/default_button.gd" id="4_mqt4y"]
 [ext_resource type="PackedScene" uid="uid://i4nnwgwck615" path="res://src/ui_components/visual_formation/visual_formation.tscn" id="5"]
 [ext_resource type="LabelSettings" uid="uid://cc2vi4onhgmnw" path="res://theme_base/label/label_settings_bold.tres" id="5_8e8d2"]
-[ext_resource type="PackedScene" uid="uid://5agy8ull675s" path="res://src/ui_components/match/events/match_events.tscn" id="6"]
+[ext_resource type="PackedScene" uid="uid://5agy8ull675s" path="res://src/screens/match/events/match_events.tscn" id="6"]
 [ext_resource type="PackedScene" uid="uid://bj7f2r54xkpt1" path="res://src/ui_components/visual_formation/players_bar/players_bar.tscn" id="7_kly0w"]
 
 [node name="Match" type="Control"]
@@ -239,26 +239,44 @@ unique_name_in_owner = true
 custom_minimum_size = Vector2(30, 30)
 layout_mode = 2
 
-[node name="MainBar" type="MarginContainer" parent="Main/Content/CentralContainer"]
+[node name="MainView" type="MarginContainer" parent="Main/Content/CentralContainer"]
 layout_mode = 2
 size_flags_vertical = 3
+theme_override_constants/margin_left = 0
+theme_override_constants/margin_top = 0
+theme_override_constants/margin_right = 0
+theme_override_constants/margin_bottom = 0
 
-[node name="Log" type="VBoxContainer" parent="Main/Content/CentralContainer/MainBar"]
+[node name="Views" type="MarginContainer" parent="Main/Content/CentralContainer/MainView"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_constants/margin_left = 0
+theme_override_constants/margin_right = 0
+
+[node name="Panel" type="Panel" parent="Main/Content/CentralContainer/MainView/Views"]
+modulate = Color(1, 1, 1, 0.619608)
+layout_mode = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="Main/Content/CentralContainer/MainView/Views"]
+layout_mode = 2
+
+[node name="Log" type="VBoxContainer" parent="Main/Content/CentralContainer/MainView/Views/MarginContainer"]
 unique_name_in_owner = true
 visible = false
 layout_mode = 2
 
-[node name="Stats" parent="Main/Content/CentralContainer/MainBar" instance=ExtResource("4")]
+[node name="Stats" parent="Main/Content/CentralContainer/MainView/Views/MarginContainer" instance=ExtResource("4")]
 unique_name_in_owner = true
 visible = false
 layout_mode = 2
 
-[node name="Events" parent="Main/Content/CentralContainer/MainBar" instance=ExtResource("6")]
+[node name="Events" parent="Main/Content/CentralContainer/MainView/Views/MarginContainer" instance=ExtResource("6")]
 unique_name_in_owner = true
 visible = false
 layout_mode = 2
 
-[node name="Formation" parent="Main/Content/CentralContainer/MainBar" instance=ExtResource("5")]
+[node name="Formation" parent="Main/Content/CentralContainer/MainView/Views/MarginContainer" instance=ExtResource("5")]
 unique_name_in_owner = true
 visible = false
 layout_mode = 2
@@ -319,5 +337,5 @@ layout_mode = 2
 [connection signal="pressed" from="Main/Content/Buttons/Center/PauseButton" to="." method="_on_pause_button_pressed"]
 [connection signal="pressed" from="Main/Content/Buttons/Right/SimulateButton" to="." method="_on_simulate_button_pressed"]
 [connection signal="pressed" from="Main/Content/Buttons/Right/DashboardButton" to="." method="_on_dashboard_button_pressed"]
-[connection signal="change_request" from="Main/Content/CentralContainer/MainBar/Formation" to="." method="_on_formation_change_request"]
+[connection signal="change_request" from="Main/Content/CentralContainer/MainView/Views/MarginContainer/Formation" to="." method="_on_formation_change_request"]
 [connection signal="change_request" from="Main/Content/CentralContainer/BottomBar/PlayersBar" to="." method="_on_players_bar_change_request"]
