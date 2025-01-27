@@ -25,9 +25,6 @@ const LINE_WIDTH: float = 0.10 * PIXEL_FACTOR  # in cm
 # distance between wall and line
 const WALL_DISTANCE: int = 5 * PIXEL_FACTOR
 
-# ball players collision timer
-# 1 so that ball doesn't collide after just started moving
-const BALL_PLAYER_COLISSION_TIME: int = 1
 
 # Note: don't use Rect2, to keep simple and human-readable names for coordinates
 var size: Vector2  # with borders
@@ -64,17 +61,12 @@ var wall_bottom: CollidingActor
 var wall_left: CollidingActor
 var wall_right: CollidingActor
 
-var ball_colission_timer: int
-
 
 func _init(rng: RandomNumberGenerator) -> void:
 	#size = sprite.texture.get_size()
 	size = Vector2(WIDTH + BORDER_SIZE * 2, HEIGHT + BORDER_SIZE * 2)
 
 	center = Vector2(size.x / 2, size.y / 2)
-
-	# start with timer to prevent colission at kickoff
-	ball_colission_timer = BALL_PLAYER_COLISSION_TIME
 
 	line_top = BORDER_SIZE
 	line_bottom = line_top + HEIGHT
@@ -248,23 +240,20 @@ func _check_ball_wall_colissions() -> void:
 
 func _check_ball_players_colissions() -> void:
 	if not ball.is_moving():
-		ball_colission_timer = BALL_PLAYER_COLISSION_TIME
 		return
 
-	if ball_colission_timer > 0:
-		ball_colission_timer -= 1
+	if ball.colission_timer > 0:
+		ball.colission_timer -= 1
 		return
 
 	for player: SimPlayer in left_team.players:
 		if player.collides(ball):
 			ball.stop()
-			ball_colission_timer = BALL_PLAYER_COLISSION_TIME
 			return
 
 	for player: SimPlayer in right_team.players:
 		if player.collides(ball):
 			ball.stop()
-			ball_colission_timer = BALL_PLAYER_COLISSION_TIME
 			return
 
 

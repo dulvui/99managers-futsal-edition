@@ -21,7 +21,7 @@ func enter() -> void:
 		owner.player.set_state(PlayerStateGoalkeeperFollowBall.new())
 		return
 	
-	# check if player chould kick corner
+	# check if player kicks corner
 	if owner.team.has_ball and owner.team.player_control() == owner.player:
 		wait = owner.rng.randi_range(2 * Const.TICKS_PER_SECOND, 5 * Const.TICKS_PER_SECOND)
 		owner.player.set_destination(owner.field.ball.pos)
@@ -48,8 +48,17 @@ func execute() -> void:
 		if owner.player.destination_reached():
 			wait_counter += 1
 			if wait_counter >= wait:
-				owner.team.player_control().set_state(PlayerStatePass.new())
+				corner_kick()
+				owner.player.set_state(PlayerStateAttack.new())
 
 
 func exit() -> void:
 	owner.field.clock_running = true
+
+
+func corner_kick() -> void:
+	for player: SimPlayer in owner.team.players:
+		if player != owner.player and not player.is_goalkeeper:
+			owner.team.player_receive_ball(player)
+			owner.field.ball.short_pass(player.pos, 100)
+			return

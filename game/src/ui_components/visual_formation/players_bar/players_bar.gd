@@ -5,7 +5,6 @@
 class_name PlayersBar
 extends HBoxContainer
 
-
 signal change_request
 
 const FormationPlayer: PackedScene = preload(Const.SCENE_FORMATION_PLAYER)
@@ -44,7 +43,6 @@ func setup(p_team: Team) -> void:
 	# bench
 	for player: Player in team.get_sub_players():
 		var formation_player: VisualFormationPlayer = FormationPlayer.instantiate()
-		# setup
 		formation_player.set_player(player)
 		formation_player.select.connect(_on_formation_player_select.bind(player))
 		# set unique node name to player id, so it can be accessed easily

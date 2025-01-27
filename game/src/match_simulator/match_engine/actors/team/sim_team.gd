@@ -190,9 +190,6 @@ func change_players() -> void:
 	player_changed.emit()
 	change_request = false
 
-	reset_key_players()
-	_set_start_positions()
-
 
 #
 # KEY PLAYERS

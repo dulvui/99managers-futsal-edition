@@ -8,11 +8,15 @@ extends MovingActor
 
 enum State { PASS, SHOOT, STOP, DRIBBLE, GOALKEEPER, OUT }
 
+# ball players collision timer
+# 1 so that ball doesn't collide after just started moving
+const PLAYER_COLISSION_TIME: int = 1
 
 var state: State
 
 # left -1, right 1, no roatation 0
 var rotation: float
+var colission_timer: int
 
 var field: SimField
 
@@ -28,6 +32,8 @@ func setup(p_field: SimField) -> void:
 	field = p_field
 	pos = field.center
 	rotation = 0
+	# start with timer to prevent colission at kickoff
+	colission_timer = PLAYER_COLISSION_TIME
 
 
 func update() -> void:
@@ -85,6 +91,11 @@ func shoot_on_goal(player: Player, left_half: bool) -> void:
 	)
 
 	shoot(random_target, power * rng.randi_range(2, 6))
+
+
+func stop() -> void:
+	super()
+	colission_timer = PLAYER_COLISSION_TIME
 
 
 func _random_rotation() -> void:

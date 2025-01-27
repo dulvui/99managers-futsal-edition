@@ -94,8 +94,9 @@ func move() -> void:
 
 		if decelerates:
 			speed -= DECELERATION
-	else:
-		stop()
+		
+		if speed <= 0:
+			stop()
 
 
 func _reset_movents() -> void:

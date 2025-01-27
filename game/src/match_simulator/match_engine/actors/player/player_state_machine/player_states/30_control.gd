@@ -28,9 +28,9 @@ func execute() -> void:
 		set_state(PlayerStateShoot.new())
 		return
 
-	if should_dribble():
-		set_state(PlayerStateDribble.new())
-		return
+	# if should_dribble():
+	# 	set_state(PlayerStateDribble.new())
+	# 	return
 
 	set_state(PlayerStatePass.new())
 

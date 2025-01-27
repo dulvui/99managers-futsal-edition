@@ -22,8 +22,6 @@ var away_team: SimTeam
 var left_team: SimTeam
 var right_team: SimTeam
 
-var rng: RandomNumberGenerator
-
 var ticks: int
 var time_ticks: int
 var time: int
@@ -33,18 +31,22 @@ var possession_counter: float
 
 var future: bool
 
+# make private, because _rng shoud never be accessed outside engine
+# state would be changed and no longer matches future/past engine state
+var _rng: RandomNumberGenerator
+
 
 func _init(p_future: bool = false) -> void:
 	future = p_future
 
 
 func setup(p_home_team: Team, p_away_team: Team, match_seed: int, p_future: bool = false) -> void:
-	rng = RandomNumberGenerator.new()
-	rng.seed = match_seed
+	_rng = RandomNumberGenerator.new()
+	_rng.seed = match_seed
 
 	future = p_future
 
-	field = SimField.new(rng)
+	field = SimField.new(_rng)
 
 	field.touch_line_out.connect(_on_touch_line_out)
 	field.goal_line_out_left.connect(_on_goal_line_out_left)
@@ -57,14 +59,14 @@ func setup(p_home_team: Team, p_away_team: Team, match_seed: int, p_future: bool
 	time = 0
 	possession_counter = 0.0
 
-	# var left_plays_left: bool = rng.randi_range(0, 1) == 0
+	# var left_plays_left: bool = _rng.randi_range(0, 1) == 0
 	var home_plays_left: bool = true
-	var home_has_ball: bool = rng.randi_range(0, 1) == 0
+	var home_has_ball: bool = _rng.randi_range(0, 1) == 0
 
 	# set up home/away team
-	home_team = SimTeam.new(rng)
+	home_team = SimTeam.new(_rng)
 	home_team.setup(p_home_team, field, home_plays_left, home_has_ball)
-	away_team = SimTeam.new(rng)
+	away_team = SimTeam.new(_rng)
 	away_team.setup(p_away_team, field, not home_plays_left, not home_has_ball)
 	home_team.team_opponents =  away_team
 	away_team.team_opponents =  home_team

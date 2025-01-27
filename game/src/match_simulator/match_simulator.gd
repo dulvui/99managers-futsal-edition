@@ -21,6 +21,11 @@ var engine: MatchEngine
 # to be able to show real engine results when key action or goal happens
 var engine_future: MatchEngine
 
+# used for randomizations like visual goal delay
+# use this to not alter engines rng
+var visual_rng: RandomNumberGenerator
+
+
 @onready var visual_match: VisualMatch = %VisualMatch
 @onready var sub_viewport: SubViewport = %SubViewport
 @onready var camera: Camera2D = %Camera2D
@@ -104,7 +109,11 @@ func setup(home_team: Team, away_team: Team, match_seed: int) -> void:
 
 	# reset match_paused
 	Global.match_paused = false
-	
+
+	# visual rng
+	visual_rng = RandomNumberGenerator.new()
+	visual_rng.seed = match_seed
+
 	# future engine
 	engine_future = MatchEngine.new(true)
 	# for the future engine deep copy teams
@@ -115,7 +124,7 @@ func setup(home_team: Team, away_team: Team, match_seed: int) -> void:
 		func() -> void:
 			show_action_ticks = ENGINE_FUTURE_SECONDS * Const.TICKS_PER_SECOND * 3
 			# remove random delay, to make timing unpredictable
-			show_action_ticks -= engine.rng.randi() % ENGINE_FUTURE_SECONDS
+			show_action_ticks -= visual_rng.randi() % ENGINE_FUTURE_SECONDS
 			show_me.emit()
 			print("FUTURE GOAL at %d"%engine_future.time)
 	)
