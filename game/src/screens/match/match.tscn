@@ -46,21 +46,24 @@ theme_override_constants/margin_top = 40
 theme_override_constants/margin_right = 40
 theme_override_constants/margin_bottom = 40
 
-[node name="Content" type="BoxContainer" parent="Main"]
+[node name="Content" type="VBoxContainer" parent="Main"]
 layout_mode = 2
 theme_override_constants/separation = 40
-vertical = true
 
-[node name="Buttons" type="BoxContainer" parent="Main/Content"]
+[node name="TopBar" type="VBoxContainer" parent="Main/Content"]
+layout_mode = 2
+theme_override_constants/separation = 15
+
+[node name="Buttons" type="BoxContainer" parent="Main/Content/TopBar"]
 layout_mode = 2
 alignment = 1
 
-[node name="Left" type="HBoxContainer" parent="Main/Content/Buttons"]
+[node name="Left" type="HBoxContainer" parent="Main/Content/TopBar/Buttons"]
 layout_mode = 2
 size_flags_horizontal = 3
 theme_override_constants/separation = 5
 
-[node name="StatsButton" type="Button" parent="Main/Content/Buttons/Left"]
+[node name="StatsButton" type="Button" parent="Main/Content/TopBar/Buttons/Left"]
 unique_name_in_owner = true
 custom_minimum_size = Vector2(180, 0)
 layout_mode = 2
@@ -69,7 +72,7 @@ size_flags_vertical = 4
 text = "STATS"
 script = ExtResource("4_mqt4y")
 
-[node name="CommentaryButton" type="Button" parent="Main/Content/Buttons/Left"]
+[node name="CommentaryButton" type="Button" parent="Main/Content/TopBar/Buttons/Left"]
 unique_name_in_owner = true
 custom_minimum_size = Vector2(180, 0)
 layout_mode = 2
@@ -78,7 +81,7 @@ size_flags_vertical = 4
 text = "COMMENTARY"
 script = ExtResource("4_mqt4y")
 
-[node name="EventsButton" type="Button" parent="Main/Content/Buttons/Left"]
+[node name="EventsButton" type="Button" parent="Main/Content/TopBar/Buttons/Left"]
 unique_name_in_owner = true
 custom_minimum_size = Vector2(180, 0)
 layout_mode = 2
@@ -87,7 +90,7 @@ size_flags_vertical = 4
 text = "EVENTS"
 script = ExtResource("4_mqt4y")
 
-[node name="FormationButton" type="Button" parent="Main/Content/Buttons/Left"]
+[node name="FormationButton" type="Button" parent="Main/Content/TopBar/Buttons/Left"]
 unique_name_in_owner = true
 custom_minimum_size = Vector2(180, 0)
 layout_mode = 2
@@ -96,18 +99,18 @@ size_flags_vertical = 4
 text = "FORMATION"
 script = ExtResource("4_mqt4y")
 
-[node name="Center" type="HBoxContainer" parent="Main/Content/Buttons"]
+[node name="Center" type="HBoxContainer" parent="Main/Content/TopBar/Buttons"]
 layout_mode = 2
 size_flags_horizontal = 3
 theme_override_constants/separation = 5
 alignment = 1
 
-[node name="Speed" type="HBoxContainer" parent="Main/Content/Buttons/Center"]
+[node name="Speed" type="HBoxContainer" parent="Main/Content/TopBar/Buttons/Center"]
 layout_mode = 2
 theme_override_constants/separation = 20
 alignment = 1
 
-[node name="SlowerButton" type="Button" parent="Main/Content/Buttons/Center/Speed"]
+[node name="SlowerButton" type="Button" parent="Main/Content/TopBar/Buttons/Center/Speed"]
 unique_name_in_owner = true
 custom_minimum_size = Vector2(50, 0)
 layout_mode = 2
@@ -116,12 +119,12 @@ size_flags_vertical = 4
 text = "<"
 script = ExtResource("4_mqt4y")
 
-[node name="SpeedFactor" type="Label" parent="Main/Content/Buttons/Center/Speed"]
+[node name="SpeedFactor" type="Label" parent="Main/Content/TopBar/Buttons/Center/Speed"]
 unique_name_in_owner = true
 layout_mode = 2
 text = "FULL_MATCH"
 
-[node name="FasterButton" type="Button" parent="Main/Content/Buttons/Center/Speed"]
+[node name="FasterButton" type="Button" parent="Main/Content/TopBar/Buttons/Center/Speed"]
 unique_name_in_owner = true
 custom_minimum_size = Vector2(50, 0)
 layout_mode = 2
@@ -130,7 +133,7 @@ size_flags_vertical = 4
 text = ">"
 script = ExtResource("4_mqt4y")
 
-[node name="PauseButton" type="Button" parent="Main/Content/Buttons/Center"]
+[node name="PauseButton" type="Button" parent="Main/Content/TopBar/Buttons/Center"]
 unique_name_in_owner = true
 custom_minimum_size = Vector2(180, 0)
 layout_mode = 2
@@ -139,12 +142,12 @@ size_flags_vertical = 4
 text = "PAUSE"
 script = ExtResource("4_mqt4y")
 
-[node name="Right" type="HBoxContainer" parent="Main/Content/Buttons"]
+[node name="Right" type="HBoxContainer" parent="Main/Content/TopBar/Buttons"]
 layout_mode = 2
 theme_override_constants/separation = 5
 alignment = 2
 
-[node name="SimulateButton" type="Button" parent="Main/Content/Buttons/Right"]
+[node name="SimulateButton" type="Button" parent="Main/Content/TopBar/Buttons/Right"]
 unique_name_in_owner = true
 custom_minimum_size = Vector2(180, 0)
 layout_mode = 2
@@ -153,7 +156,7 @@ size_flags_vertical = 4
 text = "SIMULATE"
 script = ExtResource("4_mqt4y")
 
-[node name="DashboardButton" type="Button" parent="Main/Content/Buttons/Right"]
+[node name="DashboardButton" type="Button" parent="Main/Content/TopBar/Buttons/Right"]
 unique_name_in_owner = true
 visible = false
 custom_minimum_size = Vector2(180, 0)
@@ -163,19 +166,7 @@ size_flags_vertical = 4
 text = "DASHBOARD"
 script = ExtResource("4_mqt4y")
 
-[node name="CentralContainer" type="VBoxContainer" parent="Main/Content"]
-layout_mode = 2
-size_flags_horizontal = 3
-size_flags_vertical = 3
-alignment = 1
-
-[node name="TopBar" type="HBoxContainer" parent="Main/Content/CentralContainer"]
-layout_mode = 2
-theme_override_constants/separation = 10
-alignment = 1
-metadata/_edit_use_anchors_ = true
-
-[node name="TimeBar" type="ProgressBar" parent="Main/Content/CentralContainer/TopBar"]
+[node name="TimeBar" type="ProgressBar" parent="Main/Content/TopBar"]
 unique_name_in_owner = true
 custom_minimum_size = Vector2(0, 32)
 layout_mode = 2
@@ -184,7 +175,7 @@ max_value = 2400.0
 step = 1.0
 show_percentage = false
 
-[node name="Info" type="HBoxContainer" parent="Main/Content/CentralContainer/TopBar/TimeBar"]
+[node name="Info" type="HBoxContainer" parent="Main/Content/TopBar/TimeBar"]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -194,52 +185,65 @@ grow_vertical = 2
 theme_override_constants/separation = 15
 alignment = 1
 
-[node name="Time" type="Label" parent="Main/Content/CentralContainer/TopBar/TimeBar/Info"]
+[node name="Time" type="Label" parent="Main/Content/TopBar/TimeBar/Info"]
 unique_name_in_owner = true
+custom_minimum_size = Vector2(100, 0)
 layout_mode = 2
+size_flags_horizontal = 2
 text = "00:00"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="HomeColor" type="ColorRect" parent="Main/Content/CentralContainer/TopBar/TimeBar/Info"]
+[node name="HomeColor" type="ColorRect" parent="Main/Content/TopBar/TimeBar/Info"]
 unique_name_in_owner = true
 custom_minimum_size = Vector2(30, 30)
 layout_mode = 2
 
-[node name="HomeFouls" type="Label" parent="Main/Content/CentralContainer/TopBar/TimeBar/Info"]
+[node name="HomeFouls" type="Label" parent="Main/Content/TopBar/TimeBar/Info"]
 unique_name_in_owner = true
 layout_mode = 2
 text = "(0)"
 
-[node name="HomeNameLabel" type="Label" parent="Main/Content/CentralContainer/TopBar/TimeBar/Info"]
+[node name="HomeNameLabel" type="Label" parent="Main/Content/TopBar/TimeBar/Info"]
 unique_name_in_owner = true
+custom_minimum_size = Vector2(200, 0)
 layout_mode = 2
 text = "Robledo"
 label_settings = ExtResource("5_8e8d2")
+text_overrun_behavior = 3
 
-[node name="Result" type="Label" parent="Main/Content/CentralContainer/TopBar/TimeBar/Info"]
+[node name="Result" type="Label" parent="Main/Content/TopBar/TimeBar/Info"]
 unique_name_in_owner = true
+custom_minimum_size = Vector2(80, 0)
 layout_mode = 2
 text = "0:0"
 label_settings = ExtResource("5_8e8d2")
+horizontal_alignment = 1
 
-[node name="AwayNameLabel" type="Label" parent="Main/Content/CentralContainer/TopBar/TimeBar/Info"]
+[node name="AwayNameLabel" type="Label" parent="Main/Content/TopBar/TimeBar/Info"]
 unique_name_in_owner = true
+custom_minimum_size = Vector2(200, 0)
 layout_mode = 2
 text = "Cisneros"
 label_settings = ExtResource("5_8e8d2")
+horizontal_alignment = 2
 
-[node name="AwayFouls" type="Label" parent="Main/Content/CentralContainer/TopBar/TimeBar/Info"]
+[node name="AwayFouls" type="Label" parent="Main/Content/TopBar/TimeBar/Info"]
 unique_name_in_owner = true
 layout_mode = 2
 text = "(0)"
 
-[node name="AwayColor" type="ColorRect" parent="Main/Content/CentralContainer/TopBar/TimeBar/Info"]
+[node name="AwayColor" type="ColorRect" parent="Main/Content/TopBar/TimeBar/Info"]
 unique_name_in_owner = true
 custom_minimum_size = Vector2(30, 30)
 layout_mode = 2
 
-[node name="MainView" type="MarginContainer" parent="Main/Content/CentralContainer"]
+[node name="VSeparator" type="VSeparator" parent="Main/Content/TopBar/TimeBar/Info"]
+modulate = Color(1, 1, 1, 0)
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="MainView" type="MarginContainer" parent="Main/Content"]
 layout_mode = 2
 size_flags_vertical = 3
 theme_override_constants/margin_left = 0
@@ -247,45 +251,47 @@ theme_override_constants/margin_top = 0
 theme_override_constants/margin_right = 0
 theme_override_constants/margin_bottom = 0
 
-[node name="Views" type="MarginContainer" parent="Main/Content/CentralContainer/MainView"]
+[node name="Views" type="MarginContainer" parent="Main/Content/MainView"]
 unique_name_in_owner = true
 layout_mode = 2
 size_flags_vertical = 3
 theme_override_constants/margin_left = 0
+theme_override_constants/margin_top = 0
 theme_override_constants/margin_right = 0
+theme_override_constants/margin_bottom = 0
 
-[node name="Panel" type="Panel" parent="Main/Content/CentralContainer/MainView/Views"]
+[node name="Panel" type="Panel" parent="Main/Content/MainView/Views"]
 modulate = Color(1, 1, 1, 0.619608)
 layout_mode = 2
 
-[node name="MarginContainer" type="MarginContainer" parent="Main/Content/CentralContainer/MainView/Views"]
+[node name="MarginContainer" type="MarginContainer" parent="Main/Content/MainView/Views"]
 layout_mode = 2
 
-[node name="Log" type="VBoxContainer" parent="Main/Content/CentralContainer/MainView/Views/MarginContainer"]
+[node name="Log" type="VBoxContainer" parent="Main/Content/MainView/Views/MarginContainer"]
 unique_name_in_owner = true
 visible = false
 layout_mode = 2
 
-[node name="Stats" parent="Main/Content/CentralContainer/MainView/Views/MarginContainer" instance=ExtResource("4")]
+[node name="Stats" parent="Main/Content/MainView/Views/MarginContainer" instance=ExtResource("4")]
 unique_name_in_owner = true
 visible = false
 layout_mode = 2
 
-[node name="Events" parent="Main/Content/CentralContainer/MainView/Views/MarginContainer" instance=ExtResource("6")]
+[node name="Events" parent="Main/Content/MainView/Views/MarginContainer" instance=ExtResource("6")]
 unique_name_in_owner = true
 visible = false
 layout_mode = 2
 
-[node name="Formation" parent="Main/Content/CentralContainer/MainView/Views/MarginContainer" instance=ExtResource("5")]
+[node name="Formation" parent="Main/Content/MainView/Views/MarginContainer" instance=ExtResource("5")]
 unique_name_in_owner = true
 visible = false
 layout_mode = 2
 
-[node name="BottomBar" type="VBoxContainer" parent="Main/Content/CentralContainer"]
+[node name="BottomBar" type="VBoxContainer" parent="Main/Content"]
 layout_mode = 2
 theme_override_constants/separation = 20
 
-[node name="PossessBar" type="ProgressBar" parent="Main/Content/CentralContainer/BottomBar"]
+[node name="PossessBar" type="ProgressBar" parent="Main/Content/BottomBar"]
 unique_name_in_owner = true
 custom_minimum_size = Vector2(0, 32)
 layout_mode = 2
@@ -294,7 +300,7 @@ step = 1.0
 value = 50.0
 show_percentage = false
 
-[node name="Labels" type="HBoxContainer" parent="Main/Content/CentralContainer/BottomBar/PossessBar"]
+[node name="Labels" type="HBoxContainer" parent="Main/Content/BottomBar/PossessBar"]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -303,39 +309,39 @@ grow_horizontal = 2
 grow_vertical = 2
 alignment = 1
 
-[node name="HomePossessionLabel" type="Label" parent="Main/Content/CentralContainer/BottomBar/PossessBar/Labels"]
+[node name="HomePossessionLabel" type="Label" parent="Main/Content/BottomBar/PossessBar/Labels"]
 unique_name_in_owner = true
 layout_mode = 2
 size_flags_horizontal = 3
 text = "50%"
 horizontal_alignment = 1
 
-[node name="Posession" type="Label" parent="Main/Content/CentralContainer/BottomBar/PossessBar/Labels"]
+[node name="Posession" type="Label" parent="Main/Content/BottomBar/PossessBar/Labels"]
 layout_mode = 2
 size_flags_horizontal = 3
 text = "POSSESSION"
 horizontal_alignment = 1
 
-[node name="AwayPossessionLabel" type="Label" parent="Main/Content/CentralContainer/BottomBar/PossessBar/Labels"]
+[node name="AwayPossessionLabel" type="Label" parent="Main/Content/BottomBar/PossessBar/Labels"]
 unique_name_in_owner = true
 layout_mode = 2
 size_flags_horizontal = 3
 text = "50%"
 horizontal_alignment = 1
 
-[node name="PlayersBar" parent="Main/Content/CentralContainer/BottomBar" instance=ExtResource("7_kly0w")]
+[node name="PlayersBar" parent="Main/Content/BottomBar" instance=ExtResource("7_kly0w")]
 unique_name_in_owner = true
 layout_mode = 2
 
 [connection signal="action_message" from="MatchSimulator" to="." method="_on_match_simulator_action_message"]
-[connection signal="pressed" from="Main/Content/Buttons/Left/StatsButton" to="." method="_on_stats_button_pressed"]
-[connection signal="pressed" from="Main/Content/Buttons/Left/CommentaryButton" to="." method="_on_commentary_button_pressed"]
-[connection signal="pressed" from="Main/Content/Buttons/Left/EventsButton" to="." method="_on_events_button_pressed"]
-[connection signal="pressed" from="Main/Content/Buttons/Left/FormationButton" to="." method="_on_formation_button_pressed"]
-[connection signal="pressed" from="Main/Content/Buttons/Center/Speed/SlowerButton" to="." method="_on_slower_button_pressed"]
-[connection signal="pressed" from="Main/Content/Buttons/Center/Speed/FasterButton" to="." method="_on_faster_button_pressed"]
-[connection signal="pressed" from="Main/Content/Buttons/Center/PauseButton" to="." method="_on_pause_button_pressed"]
-[connection signal="pressed" from="Main/Content/Buttons/Right/SimulateButton" to="." method="_on_simulate_button_pressed"]
-[connection signal="pressed" from="Main/Content/Buttons/Right/DashboardButton" to="." method="_on_dashboard_button_pressed"]
-[connection signal="change_request" from="Main/Content/CentralContainer/MainView/Views/MarginContainer/Formation" to="." method="_on_formation_change_request"]
-[connection signal="change_request" from="Main/Content/CentralContainer/BottomBar/PlayersBar" to="." method="_on_players_bar_change_request"]
+[connection signal="pressed" from="Main/Content/TopBar/Buttons/Left/StatsButton" to="." method="_on_stats_button_pressed"]
+[connection signal="pressed" from="Main/Content/TopBar/Buttons/Left/CommentaryButton" to="." method="_on_commentary_button_pressed"]
+[connection signal="pressed" from="Main/Content/TopBar/Buttons/Left/EventsButton" to="." method="_on_events_button_pressed"]
+[connection signal="pressed" from="Main/Content/TopBar/Buttons/Left/FormationButton" to="." method="_on_formation_button_pressed"]
+[connection signal="pressed" from="Main/Content/TopBar/Buttons/Center/Speed/SlowerButton" to="." method="_on_slower_button_pressed"]
+[connection signal="pressed" from="Main/Content/TopBar/Buttons/Center/Speed/FasterButton" to="." method="_on_faster_button_pressed"]
+[connection signal="pressed" from="Main/Content/TopBar/Buttons/Center/PauseButton" to="." method="_on_pause_button_pressed"]
+[connection signal="pressed" from="Main/Content/TopBar/Buttons/Right/SimulateButton" to="." method="_on_simulate_button_pressed"]
+[connection signal="pressed" from="Main/Content/TopBar/Buttons/Right/DashboardButton" to="." method="_on_dashboard_button_pressed"]
+[connection signal="change_request" from="Main/Content/MainView/Views/MarginContainer/Formation" to="." method="_on_formation_change_request"]
+[connection signal="change_request" from="Main/Content/BottomBar/PlayersBar" to="." method="_on_players_bar_change_request"]
