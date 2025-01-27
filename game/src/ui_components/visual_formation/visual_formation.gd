@@ -9,9 +9,7 @@ signal change_request
 signal tactic_request
 signal formation_request
 
-const FormationPlayer: PackedScene = preload(
-	"res://src/ui_components/visual_formation/player/formation_player.tscn"
-)
+const FormationPlayer: PackedScene = preload(Const.SCENE_FORMATION_PLAYER)
 
 var team: Team
 var change_players: Array[VisualFormationPlayer]

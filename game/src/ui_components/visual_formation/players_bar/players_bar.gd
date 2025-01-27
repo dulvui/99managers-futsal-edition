@@ -3,12 +3,12 @@
 # SPDX-License-Identifier: AGPL-3.0-or-later
 
 class_name PlayersBar
-extends ScrollContainer
+extends HBoxContainer
 
 
 signal change_request
 
-const FormationPlayer: PackedScene = preload("res://src/ui_components/visual_formation/player/formation_player.tscn")
+const FormationPlayer: PackedScene = preload(Const.SCENE_FORMATION_PLAYER)
 
 var change_players: Array[Player]
 var team: Team
@@ -35,7 +35,11 @@ func setup(p_team: Team) -> void:
 		players.add_child(formation_player)
 		formation_player.name = str(player.id)
 	
-	players.add_child(VSeparator.new())
+	# transparent separator between players and bench
+	var separator: VSeparator = VSeparator.new()
+	separator.modulate = Color.TRANSPARENT
+	separator.custom_minimum_size = Vector2(50, 0)
+	players.add_child(separator)
 	
 	# bench
 	for player: Player in team.get_sub_players():
@@ -78,6 +82,6 @@ func _on_formation_player_select(player: Player) -> void:
 
 
 func _on_change_strategy_select_item_selected(index: int) -> void:
-	team.formation.change_strategy = index
+	team.formation.change_strategy = index as Formation.ChangeStrategy
 
 
