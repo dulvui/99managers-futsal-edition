@@ -113,7 +113,9 @@ func setup(home_team: Team, away_team: Team, match_seed: int) -> void:
 	# show action on goal
 	engine_future.goal.connect(
 		func() -> void:
-			show_action_ticks = ENGINE_FUTURE_SECONDS * Const.TICKS_PER_SECOND * 2
+			show_action_ticks = ENGINE_FUTURE_SECONDS * Const.TICKS_PER_SECOND * 3
+			# remove random delay, to make timing unpredictable
+			show_action_ticks -= engine.rng.randi() % ENGINE_FUTURE_SECONDS
 			show_me.emit()
 			print("FUTURE GOAL at %d"%engine_future.time)
 	)
