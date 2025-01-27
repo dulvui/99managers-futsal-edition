@@ -22,9 +22,7 @@ func enter() -> void:
 
 	# move players to start positions
 	for player: SimPlayer in owner.players:
-		player.move_defense_pos()
-		player.look_towards_destination()
-		player.set_state(PlayerStateIdle.new())
+		player.set_state(PlayerStateStartPosition.new())
 
 
 func execute() -> void:
@@ -40,8 +38,3 @@ func execute() -> void:
 
 	set_state(TeamStateKickoff.new())
 
-
-func exit() -> void:
-	# reset head look direction
-	for player: SimPlayer in owner.team.players:
-		player.head_look = Vector2.ZERO
