@@ -120,8 +120,8 @@ layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 4
 focus_mode = 2
-text = "99managers.org"
-uri = "https://99managers.org"
+text = "simondalvai.org"
+uri = "https://simondalvai.org"
 
 [node name="DefaultConfirmDialog" parent="." instance=ExtResource("6_1a2kt")]
 unique_name_in_owner = true
