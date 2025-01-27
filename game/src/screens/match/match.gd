@@ -169,28 +169,21 @@ func _on_update_time() -> void:
 
 
 func _on_commentary_button_pressed() -> void:
-	_hide_views()
-	comments.show()
-	last_active_view = comments
+	_toggle_view(comments)
 
 
 func _on_stats_button_pressed() -> void:
-	_hide_views()
-	stats.show()
-	last_active_view = stats
+	_toggle_view(stats)
 
 
 func _on_events_button_pressed() -> void:
-	_hide_views()
-	events.show()
-	last_active_view = events
+	_toggle_view(events)
 
 
 func _on_formation_button_pressed() -> void:
-	_hide_views()
-	formation.show()
-	match_simulator.pause()
-	pause_button.text = tr("CONTINUE")
+	_toggle_view(formation)
+	# match_simulator.pause()
+	# pause_button.text = tr("CONTINUE")
 
 
 func _hide_views() -> void:
@@ -204,6 +197,15 @@ func _toggle_view_buttons() -> void:
 	events_button.disabled = not events_button.disabled
 	stats_button.disabled = not stats_button.disabled
 	formation_button.disabled = not formation_button.disabled
+
+
+func _toggle_view(view: Control) -> void:
+	if match_simulator.is_match_visible() and view.visible:
+		view.hide()
+	else:
+		_hide_views()
+		view.show()
+	last_active_view = view
 
 
 func _on_dashboard_button_pressed() -> void:
