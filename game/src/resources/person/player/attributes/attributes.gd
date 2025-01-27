@@ -5,6 +5,9 @@
 class_name Attributes
 extends JSONResource
 
+# TODO use comments as tooltip/descriptions
+# add tag for defense, attack ecc (can have multiple)
+
 @export var goalkeeper: Goalkeeper
 @export var mental: Mental
 @export var technical: Technical

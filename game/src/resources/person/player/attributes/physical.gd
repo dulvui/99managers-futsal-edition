@@ -5,6 +5,8 @@
 class_name Physical
 extends JSONResource
 
+
+# all attributes self describing
 @export var pace: int
 @export var acceleration: int
 @export var stamina: int

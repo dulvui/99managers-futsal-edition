@@ -5,6 +5,8 @@
 class_name Technical
 extends JSONResource
 
+
+# all attributes self describing
 @export var crossing: int
 @export var passing: int
 @export var long_passing: int

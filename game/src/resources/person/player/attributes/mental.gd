@@ -5,14 +5,26 @@
 class_name Mental
 extends JSONResource
 
+# TODO use comments as tooltip/descriptions
+# add tag for defense, attack ecc (can have multiple)
+
+# how often/strong player tackles
 @export var aggression: int
+# interception movements, if implemented
 @export var anticipation: int
+# probability of taking best next move/action
 @export var decisions: int
+# reducing with	stamina probability of taking best next move/action
 @export var concentration: int
+# if prefer dribble or pass 
 @export var teamwork: int
+# seek pass distance
 @export var vision: int
+# intensity of marking and attack movements
 @export var work_rate: int
+# probability of choosing best support spot
 @export var offensive_movement: int
+# probability of choosing best marking spot
 @export var marking: int
 
 

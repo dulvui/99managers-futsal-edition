@@ -7,38 +7,40 @@ extends JSONResource
 
 const AMOUNT: int = 6
 
+
+# ticks/time needed to react to shot
 @export var reflexes: int
+# probability of choosing potentially best position in goal
 @export var positioning: int
-@export var kicking: int
-@export var handling: int
+# saving with feet
+@export var save_feet: int
+# saving with hands
+@export var save_hands: int
+# timing and distance of dives
 @export var diving: int
-@export var speed: int
 
 
 func _init(
 	p_reflexes: int = Const.MAX_PRESTIGE,
 	p_positioning: int = Const.MAX_PRESTIGE,
-	p_kicking: int = Const.MAX_PRESTIGE,
-	p_handling: int = Const.MAX_PRESTIGE,
+	p_save_feet: int = Const.MAX_PRESTIGE,
+	p_save_hands: int = Const.MAX_PRESTIGE,
 	p_diving: int = Const.MAX_PRESTIGE,
-	p_speed: int = Const.MAX_PRESTIGE,
 ) -> void:
 	reflexes = p_reflexes
 	positioning = p_positioning
-	kicking = p_kicking
-	handling = p_handling
+	save_feet = p_save_feet
+	save_hands = p_save_hands
 	diving = p_diving
-	speed = p_speed
 
 
 func sum() -> int:
 	var value: int = 0
 	value += reflexes
 	value += positioning
-	value += kicking
-	value += handling
+	value += save_feet
+	value += save_hands
 	value += diving
-	value += speed
 	return value
 
 
