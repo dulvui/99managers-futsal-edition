@@ -108,11 +108,11 @@ func update() -> void:
 			home_team.stats.possession = int(possession_counter / time * 100.0)
 			away_team.stats.possession = 100 - home_team.stats.possession
 
-		# halftime
-		if time == Const.HALF_TIME_SECONDS:
-			set_half_time()
-		elif time == Const.FULL_TIME_SECONDS:
-			set_full_time()
+			# halftime
+			if time == Const.HALF_TIME_SECONDS:
+				set_half_time()
+			elif time == Const.FULL_TIME_SECONDS:
+				set_full_time()
 
 
 func simulate(end_time: int = Const.FULL_TIME_SECONDS) -> void:

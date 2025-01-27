@@ -142,6 +142,8 @@ func _on_match_simulator_hide() -> void:
 
 
 func _on_full_time() -> void:
+	_on_pause_button_pressed()
+
 	faster_button.hide()
 	slower_button.hide()
 	match_speed_label.hide()
@@ -155,7 +157,7 @@ func _on_full_time() -> void:
 
 
 func _on_half_time() -> void:
-	pause_button.text = tr("CONTINUE")
+	_on_pause_button_pressed()
 
 
 func _on_update_time() -> void:

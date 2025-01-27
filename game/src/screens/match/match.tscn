@@ -181,9 +181,9 @@ alignment = 1
 unique_name_in_owner = true
 custom_minimum_size = Vector2(100, 0)
 layout_mode = 2
-size_flags_horizontal = 2
+size_flags_horizontal = 10
 text = "00:00"
-horizontal_alignment = 1
+label_settings = ExtResource("5_8e8d2")
 vertical_alignment = 1
 
 [node name="HomeColor" type="ColorRect" parent="Main/Content/TopBar/TimeBar/Info"]
