@@ -25,20 +25,20 @@ layout_mode = 2
 
 [node name="Langauge" type="VBoxContainer" parent="."]
 layout_mode = 2
+theme_override_constants/separation = 15
 
 [node name="LanguagePicker" parent="Langauge" instance=ExtResource("2_p1exx")]
 layout_mode = 2
 
 [node name="TranslationInstructions" type="Label" parent="Langauge"]
-visible = false
 layout_mode = 2
 text = "TRANSLATION_INSTRUCTIONS"
 label_settings = ExtResource("1_6o6h0")
 
 [node name="TranslationsLink" type="LinkButton" parent="Langauge"]
-visible = false
 layout_mode = 2
-text = "translation link"
+text = "Weblate"
+uri = "https://hosted.weblate.org/engage/99-managers-futsal-edition/"
 
 [node name="HSeparator3" type="HSeparator" parent="."]
 layout_mode = 2
@@ -154,16 +154,19 @@ layout_mode = 2
 [node name="Theme" type="VBoxContainer" parent="."]
 layout_mode = 2
 
-[node name="ThemeLabel" type="Label" parent="Theme"]
+[node name="DefautThemes" type="HBoxContainer" parent="Theme"]
+layout_mode = 2
+
+[node name="ThemeLabel" type="Label" parent="Theme/DefautThemes"]
 layout_mode = 2
 size_flags_horizontal = 3
 text = "THEMES"
 label_settings = ExtResource("1_6o6h0")
 
-[node name="ThemeOptionButton" type="OptionButton" parent="Theme"]
+[node name="ThemeOptionButton" type="OptionButton" parent="Theme/DefautThemes"]
 unique_name_in_owner = true
 layout_mode = 2
-size_flags_horizontal = 3
+size_flags_horizontal = 10
 
 [node name="CustomTheme" type="VBoxContainer" parent="Theme"]
 layout_mode = 2
@@ -268,7 +271,7 @@ metadata/_edit_use_anchors_ = true
 [connection signal="pressed" from="Interface/Scale/Scale2" to="." method="_on_scale_2_pressed"]
 [connection signal="pressed" from="Interface/Scale/Scale3" to="." method="_on_scale_3_pressed"]
 [connection signal="toggled" from="Interface/ScreenFade/ScreenFadeButton" to="." method="_on_screen_fade_button_toggled"]
-[connection signal="item_selected" from="Theme/ThemeOptionButton" to="." method="_on_theme_option_button_item_selected"]
+[connection signal="item_selected" from="Theme/DefautThemes/ThemeOptionButton" to="." method="_on_theme_option_button_item_selected"]
 [connection signal="pressed" from="Theme/CustomTheme/Font/FontColorButton" to="." method="_on_font_color_button_pressed"]
 [connection signal="pressed" from="Theme/CustomTheme/Style/StyleColorButton" to="." method="_on_style_color_button_pressed"]
 [connection signal="pressed" from="Theme/CustomTheme/Background/BackgroundColorButton" to="." method="_on_background_color_button_pressed"]
