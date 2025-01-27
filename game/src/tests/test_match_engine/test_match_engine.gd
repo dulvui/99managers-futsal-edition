@@ -17,28 +17,30 @@ func test_deterministic_simulations() -> void:
 	print("test: deterministic simulation...")
 	var matches: Array[Match] = []
 	
-	const AMOUNT: int = 9
+	const MATCH_AMOUNT: int = 9
+	const SEED_AMOUNT: int = 9
 	
 	var match_engine: MatchEngine = MatchEngine.new()
 
 	# simulate matches
-	for i: int in AMOUNT:
-		var matchz: Match = Match.new()
+	for i: int in SEED_AMOUNT:
+		for j: int in MATCH_AMOUNT:
+			var matchz: Match = Match.new()
 
-		var home_team: Team = Tests.create_mock_team()
-		var away_team: Team = Tests.create_mock_team()
+			var home_team: Team = Tests.create_mock_team()
+			var away_team: Team = Tests.create_mock_team()
 
-		# use always same match id/seed
-		matchz.id = 1
-		matches.append(matchz)
-		matchz.setup(home_team, away_team, 1, "test")
-		match_engine.simulate_match(matchz)
-		print("test: match %d calculated"%int(i + 1))
+			# use always same match id/seed
+			matchz.id = i
+			matches.append(matchz)
+			matchz.setup(home_team, away_team, 1, "test")
+			match_engine.simulate_match(matchz)
+			print("test: match %d with seed %d calculated"%[j + 1, i])
 	
-	# check results
-	for i: int in AMOUNT:
-		assert(matches[i].home_goals == matches[i - 1].home_goals)
-		assert(matches[i].away_goals == matches[i - 1].away_goals)
+		# check results
+		for j: int in MATCH_AMOUNT:
+			assert(matches[j].home_goals == matches[j - 1].home_goals)
+			assert(matches[j].away_goals == matches[j - 1].away_goals)
 	
 	print("test: deterministic simulation done.")
 
