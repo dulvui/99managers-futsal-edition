@@ -251,10 +251,9 @@ func _get_goalkeeper_attributes(age: int, prestige: int, position: Position) -> 
 
 	attributes.reflexes = _in_bounds_random(factor, max_potential)
 	attributes.positioning = _in_bounds_random(factor, max_potential)
-	attributes.kicking = _in_bounds_random(factor, max_potential)
-	attributes.handling = _in_bounds_random(factor, max_potential)
+	attributes.save_feet = _in_bounds_random(factor, max_potential)
+	attributes.save_hands = _in_bounds_random(factor, max_potential)
 	attributes.diving = _in_bounds_random(factor, max_potential)
-	attributes.speed = _in_bounds_random(factor, max_potential)
 	return attributes
 
 
