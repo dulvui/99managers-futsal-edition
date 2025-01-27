@@ -157,6 +157,11 @@ func set_half_time() -> void:
 	left_team.left_half = true
 	right_team.left_half = false
 
+	for player: SimPlayer in left_team.players:
+		player.left_half = true
+	for player: SimPlayer in right_team.players:
+		player.left_half = false
+
 	field.ball.set_pos(field.center)
 
 	# stamina recovery 15 minutes
