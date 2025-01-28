@@ -142,9 +142,13 @@ func simulate(end_time: int = Const.FULL_TIME_SECONDS) -> void:
 	print("simulating match done.")
 
 
-func simulate_match(matchz: Match) -> void:
+func simulate_match(matchz: Match, fast: bool = false) -> void:
 	setup(matchz.home, matchz.away, matchz.id)
-	simulate()
+	if fast:
+		home_team.stats.goals = _rng.randi() % 10
+		away_team.stats.goals = _rng.randi() % 10
+	else:
+		simulate()
 	matchz.set_result(home_team.stats.goals, away_team.stats.goals)
 
 

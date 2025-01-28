@@ -39,7 +39,7 @@ func random_results() -> void:
 	var matches: Array = Global.world.calendar.day().get_matches()
 	for matchz: Match in matches:
 		if not matchz.over:
-			match_engine.simulate_match(matchz)
+			match_engine.simulate_match(matchz,	true)
 
 	# check if cups are ready for next stage
 	for cup: Cup in get_all_cups():
