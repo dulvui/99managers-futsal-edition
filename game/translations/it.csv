@@ -163,8 +163,8 @@ PR,PD
 PC,PC
 ALL_LEAGUES,Tutte leghe
 ALL_TEAMS,Tutte squadre
-LOADING_GAME,Caricando la tua partita...
-SAVING_GAME,Salvando la tua partita...
+LOADING_GAME,Caricando la tua partita…
+SAVING_GAME,Salvando la tua partita…
 EXIT,Chiudi
 RANDOM,Casuale
 DEFAULT,Predefinito
@@ -275,3 +275,6 @@ CONFIRM,Conferma
 CONTRACT,Contratto
 CONTINENT,Continente
 NOTES,Note
+FULL_GAME,Partita intera
+KEY_ACTIONS,Azioni chiave
+ONLY_GOALS,Solo gol
