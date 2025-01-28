@@ -69,12 +69,12 @@ func _physics_process(delta: float) -> void:
 			engine_future.update()	
 
 
-func setup(home_team: Team, away_team: Team, match_seed: int) -> void:
+func setup(matchz: Match) -> void:
 	show_action_ticks = 0
 	wait_time = 1.0 / Const.TICKS_PER_SECOND
 	
 	engine = MatchEngine.new()
-	engine.setup(home_team, away_team, match_seed)
+	engine.setup(matchz)
 
 	# connect change players signals to visuals
 	engine.home_team.player_changed.connect(
@@ -108,13 +108,13 @@ func setup(home_team: Team, away_team: Team, match_seed: int) -> void:
 
 	# visual rng
 	visual_rng = RandomNumberGenerator.new()
-	visual_rng.seed = match_seed
+	visual_rng.seed = matchz.id
 
 	# future engine
 	engine_future = MatchEngine.new(true)
 	# for the future engine deep copy teams
 	# future calcuations shall not affect real teams
-	engine_future.setup(home_team.duplicate_real_deep(), away_team.duplicate_real_deep(), match_seed)
+	engine_future.setup(matchz)
 	# show action on goal
 	engine_future.goal.connect(
 		func() -> void:

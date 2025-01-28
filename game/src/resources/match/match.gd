@@ -13,6 +13,7 @@ extends JSONResource
 @export var away_goals: int
 @export var competition_id: int
 @export var competition_name: String
+@export var no_draw: bool
 # for easier two legs knockout
 @export var first_leg: Match
 
@@ -26,6 +27,7 @@ func _init(
 	p_competition_name: String = "",
 	p_home_goals: int = -1,
 	p_away_goals: int = -1,
+	p_no_draw: bool = false,
 	p_first_leg: Match = null,
 ) -> void:
 	id = p_id
@@ -36,6 +38,7 @@ func _init(
 	competition_name = p_competition_name
 	home_goals = p_home_goals
 	away_goals = p_away_goals
+	no_draw = p_no_draw
 	first_leg = p_first_leg
 
 

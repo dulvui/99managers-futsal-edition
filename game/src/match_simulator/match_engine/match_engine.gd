@@ -29,7 +29,11 @@ var time: int
 # stats
 var possession_counter: float
 
+# flag if engine is in the future, like during visual match
 var future: bool
+
+# flag if match goes to overtime and penalties, if finish in draw
+var no_draw: bool
 
 # make private, because _rng shoud never be accessed outside engine
 # state would be changed and no longer matches future/past engine state
@@ -40,10 +44,11 @@ func _init(p_future: bool = false) -> void:
 	future = p_future
 
 
-func setup(p_home_team: Team, p_away_team: Team, match_seed: int, p_future: bool = false) -> void:
+func setup(p_matchz: Match, p_future: bool = false) -> void:
 	_rng = RandomNumberGenerator.new()
-	_rng.seed = match_seed
+	_rng.seed = p_matchz.id
 
+	no_draw = p_matchz.no_draw
 	future = p_future
 
 	field = SimField.new(_rng)
@@ -65,9 +70,16 @@ func setup(p_home_team: Team, p_away_team: Team, match_seed: int, p_future: bool
 
 	# set up home/away team
 	home_team = SimTeam.new(_rng)
-	home_team.setup(p_home_team, field, home_plays_left, home_has_ball)
 	away_team = SimTeam.new(_rng)
-	away_team.setup(p_away_team, field, not home_plays_left, not home_has_ball)
+	if future:
+		# duplicate res teams, otherwise future and present engine will use same players
+		home_team.setup(p_matchz.home.duplicate_real_deep(), field, home_plays_left, home_has_ball)
+		away_team.setup(p_matchz.away.duplicate_real_deep(), field, not home_plays_left, not home_has_ball)
+	else:
+		home_team.setup(p_matchz.home, field, home_plays_left, home_has_ball)
+		away_team.setup(p_matchz.away, field, not home_plays_left, not home_has_ball)
+
+
 	home_team.team_opponents =  away_team
 	away_team.team_opponents =  home_team
 	
@@ -153,8 +165,9 @@ func simulate_match(matchz: Match, fast: bool = false) -> void:
 		matchz.set_result(home_goals, away_goals)
 		return
 
-	setup(matchz.home, matchz.away, matchz.id)
+	setup(matchz)
 	simulate()
+
 	matchz.set_result(home_team.stats.goals, away_team.stats.goals)
 
 

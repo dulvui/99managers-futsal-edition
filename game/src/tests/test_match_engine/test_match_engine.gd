@@ -47,7 +47,12 @@ func test_deterministic_simulations() -> void:
 
 func test_benchmark() -> void:
 	print("test: match engine benchmark...")
+	var matchz: Match = Match.new()
+	var home_team: Team = Tests.create_mock_team()
+	var away_team: Team = Tests.create_mock_team()
+	matchz.setup(home_team, away_team, 1, "test")
+
 	var match_engine: MatchEngine = MatchEngine.new()
-	match_engine.setup(Tests.create_mock_team(), Tests.create_mock_team(), 123)
+	match_engine.setup(matchz)
 	match_engine.simulate()
 	print("test: match engine benchmark done.")

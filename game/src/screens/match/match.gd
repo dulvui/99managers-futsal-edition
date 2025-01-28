@@ -86,7 +86,7 @@ func _ready() -> void:
 	# home_team = matchz.home.duplicate_real_deep()
 	# away_team = matchz.away.duplicate_real_deep()
 
-	match_simulator.setup(home_team, away_team, matchz.id)
+	match_simulator.setup(matchz)
 
 	home_name.text = matchz.home.name
 	away_name.text = matchz.away.name

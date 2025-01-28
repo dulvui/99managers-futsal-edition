@@ -32,6 +32,9 @@ const SCALE_3: float = 1.50
 #
 const HALF_TIME_SECONDS: int = 60 * 20
 const FULL_TIME_SECONDS: int = HALF_TIME_SECONDS * 2
+const OVER_TIME_SECONDS: int = 60 * 5
+const FULL_OVER_TIME_SECONDS: int = OVER_TIME_SECONDS * 2
+const PENALTY_KICKS: int = 6
 
 const TICKS_PER_SECOND: int = 32
 # state machines update every half second
