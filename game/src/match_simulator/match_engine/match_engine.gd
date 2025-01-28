@@ -129,6 +129,8 @@ func simulate(end_time: int = Const.FULL_TIME_SECONDS) -> void:
 	# simulate game
 	while time < end_time:
 		update()
+		if time % 100 == 0:
+			print("simulating... ticks %d - time %d" % [ticks, time])
 	
 	# restore simulation flags, in case only partial game has been simulated
 	home_team.simulated = home_simulated
@@ -143,12 +145,16 @@ func simulate(end_time: int = Const.FULL_TIME_SECONDS) -> void:
 
 
 func simulate_match(matchz: Match, fast: bool = false) -> void:
-	setup(matchz.home, matchz.away, matchz.id)
 	if fast:
-		home_team.stats.goals = _rng.randi() % 10
-		away_team.stats.goals = _rng.randi() % 10
-	else:
-		simulate()
+		_rng = RandomNumberGenerator.new()
+		_rng.seed = matchz.id
+		var home_goals: int = _rng.randi() % 10
+		var away_goals: int = _rng.randi() % 10
+		matchz.set_result(home_goals, away_goals)
+		return
+
+	setup(matchz.home, matchz.away, matchz.id)
+	simulate()
 	matchz.set_result(home_team.stats.goals, away_team.stats.goals)
 
 

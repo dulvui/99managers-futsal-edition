@@ -149,6 +149,9 @@ func auto_change() -> void:
 				return a.stamina > b.stamina
 		)
 		
+		# TODO take real positions in field, not player pos
+		# because player could play in different position
+		
 		# find best position machting player and change them
 		var no_matching_sim_players: Array[SimPlayer] = []
 		for sim_player: SimPlayer in low_stamina_players:
