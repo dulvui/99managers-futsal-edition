@@ -260,22 +260,21 @@ func _next_day() -> void:
 	email.update_messages()
 	date_label.text = Global.world.calendar.format_date()
 
+	if Global.world.calendar.day().matches.size() > 0:
+		# threaded simulation
+		LoadingUtil.start("SIMULATING_RESULTS", LoadingUtil.Type.MATCH_RESULTS, true)
+		Main.show_loading_screen()
+		ThreadUtil.random_results()
+		
+		# non threaded simulation
+		# Global.world.random_r=esults()
+
 	# check matches
 	if Global.world.calendar.is_match_day():
 		continue_button.text = "START_MATCH"
 		match_ready = true
 		next_match_button.disabled = true
 		next_match_button.hide()
-	elif Global.world.calendar.day().matches.size() > 0:
-		# threaded simulation
-		# LoadingUtil.start("SIMULATING_RESULTS", LoadingUtil.Type.MATCH_RESULTS, true)
-		# loading_screen.show()
-		# ThreadUtil.random_results()
-		
-		# non threaded simulation
-		# Global.world.random_r=esults()
-		print("TODO simulate other matches")
-		pass
 
 	visual_calendar.setup()
 
