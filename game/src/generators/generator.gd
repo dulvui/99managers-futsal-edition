@@ -198,7 +198,7 @@ func _assign_players_to_team(
 		if position_type == Position.Type.G:
 			amount = 3
 
-		for i in amount:
+		for i: int in amount:
 			var random_nation: Nation = _get_random_nationality(
 				world, nation, prestige, league.pyramid_level
 			)
@@ -539,7 +539,7 @@ func _create_player(
 ) -> Player:
 	var player: Player = Player.new()
 	_set_person_colors(player)
-	_random_positions(player, p_position_type)
+	random_positions(player, p_position_type)
 
 	# RngUtil.rng.random date from 1970 to 2007
 	var birth_date: Dictionary = Time.get_datetime_dict_from_unix_time(
@@ -594,7 +594,7 @@ func _create_player(
 	return player
 
 
-func _random_positions(player: Player, p_position_type: Position.Type) -> void:
+func random_positions(player: Player, p_position_type: Position.Type) -> void:
 	# assign main positions
 	var position: Position = Position.new()
 	position.type = p_position_type
