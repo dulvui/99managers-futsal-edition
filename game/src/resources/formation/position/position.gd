@@ -77,6 +77,10 @@ func random_variations() -> void:
 
 func match_factor(position: Position) -> float:
 	var p_type : Type = position.type
+	
+	# propably a mock player
+	if type == null:
+		return 0
 
 	if type == p_type:
 		return 1
