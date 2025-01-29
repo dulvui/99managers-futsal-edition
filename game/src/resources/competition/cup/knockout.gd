@@ -138,6 +138,7 @@ func get_matches(cup: Cup) -> Array[Array]:
 		# second leg
 		if legs_final == Legs.DOUBLE:
 			var matchz_2: Match = Match.new()
+			matchz_2.no_draw = true
 			matchz_2.setup(teams_b[0], teams_a[0], cup.id, cup.name, matchz)
 			matches.append_array([matchz_2])
 
