@@ -100,14 +100,6 @@ func get_matches() -> Array[Array]:
 	return _get_knockout_matches()
 
 
-func is_final() -> bool:
-	if stage == Stage.GROUP:
-		return false
-	if knockout.final == null:
-		return false
-	return true
-
-
 func _get_group_matches() -> Array[Array]:
 	var matches: Array[Array] = []
 
@@ -120,6 +112,13 @@ func _get_group_matches() -> Array[Array]:
 func _get_knockout_matches() -> Array[Array]:
 	return knockout.get_matches(self)
 
+
+func is_final() -> bool:
+	if stage == Stage.GROUP:
+		return false
+	if knockout.final == null:
+		return false
+	return true
 
 func _find_group_by_team_id(team_id: int) -> Group:
 	for group: Group in groups:
