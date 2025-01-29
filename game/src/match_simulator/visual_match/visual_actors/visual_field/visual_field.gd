@@ -10,6 +10,30 @@ var field: SimField
 @onready var lines: Node2D = $Lines
 
 
+func setup(p_field: SimField) -> void:
+	field = p_field
+
+	# penalty area lines
+	var penalty_area_line_left: Line2D = Line2D.new()
+	penalty_area_line_left.width = field.LINE_WIDTH
+	for point: Vector2 in field.penalty_areas.left:
+		penalty_area_line_left.add_point(point)
+	lines.add_child(penalty_area_line_left)
+
+	var penalty_area_line_right: Line2D = Line2D.new()
+	penalty_area_line_right.width = field.LINE_WIDTH
+	for point: Vector2 in field.penalty_areas.right:
+		penalty_area_line_right.add_point(point)
+	lines.add_child(penalty_area_line_right)
+
+	# middle line
+	var middle_line: Line2D = Line2D.new()
+	middle_line.width = field.LINE_WIDTH
+	middle_line.add_point(Vector2(field.center.x, field.line_top))
+	middle_line.add_point(Vector2(field.center.x, field.line_bottom))
+	lines.add_child(middle_line)
+
+
 func _draw() -> void:
 	# TODO use draw_rect
 	# hack for field color
@@ -61,25 +85,3 @@ func _draw() -> void:
 	)
 
 
-func setup(p_field: SimField) -> void:
-	field = p_field
-
-	# penalty area lines
-	var penalty_area_line_left: Line2D = Line2D.new()
-	penalty_area_line_left.width = field.LINE_WIDTH
-	for point: Vector2 in field.penalty_areas.left:
-		penalty_area_line_left.add_point(point)
-	lines.add_child(penalty_area_line_left)
-
-	var penalty_area_line_right: Line2D = Line2D.new()
-	penalty_area_line_right.width = field.LINE_WIDTH
-	for point: Vector2 in field.penalty_areas.right:
-		penalty_area_line_right.add_point(point)
-	lines.add_child(penalty_area_line_right)
-
-	# middle line
-	var middle_line: Line2D = Line2D.new()
-	middle_line.width = field.LINE_WIDTH
-	middle_line.add_point(Vector2(field.center.x, field.line_top))
-	middle_line.add_point(Vector2(field.center.x, field.line_bottom))
-	lines.add_child(middle_line)

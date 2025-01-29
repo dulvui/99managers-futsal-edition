@@ -5,8 +5,6 @@
 class_name VisualTeam
 extends Node2D
 
-var team: SimTeam
-
 @onready var player1: VisualPlayer = $VisualPlayer1
 @onready var player2: VisualPlayer = $VisualPlayer2
 @onready var player3: VisualPlayer = $VisualPlayer3
@@ -14,29 +12,19 @@ var team: SimTeam
 @onready var player5: VisualPlayer = $VisualPlayer5
 
 
-func setup(
-	p_team: SimTeam, visual_ball: VisualBall, shirt_color: Color, update_interval: float
-) -> void:
-	team = p_team
-	player1.setup(p_team.players[0], update_interval, visual_ball, shirt_color.lightened(0.4))
-	player2.setup(p_team.players[1], update_interval, visual_ball, shirt_color)
-	player3.setup(p_team.players[2], update_interval, visual_ball, shirt_color)
-	player4.setup(p_team.players[3], update_interval, visual_ball, shirt_color)
-	player5.setup(p_team.players[4], update_interval, visual_ball, shirt_color)
+func setup(player_pos: Array[Vector2], player_infos: Array[String], shirt_color: Color) -> void:
+	player1.setup(player_pos[0], player_infos[0], shirt_color.lightened(0.4))
+	player2.setup(player_pos[1], player_infos[1], shirt_color)
+	player3.setup(player_pos[2], player_infos[2], shirt_color)
+	player4.setup(player_pos[3], player_infos[3], shirt_color)
+	player5.setup(player_pos[4], player_infos[4], shirt_color)
 
 
-func update(update_interval: float) -> void:
-	player1.update(update_interval)
-	player2.update(update_interval)
-	player3.update(update_interval)
-	player4.update(update_interval)
-	player5.update(update_interval)
+func update(player_pos: Array[Vector2], update_interval: float, player_infos: Array[String]) -> void:
+	player1.update(player_pos[0], update_interval, player_infos[0])
+	player2.update(player_pos[1], update_interval, player_infos[1])
+	player3.update(player_pos[2], update_interval, player_infos[2])
+	player4.update(player_pos[3], update_interval, player_infos[3])
+	player5.update(player_pos[4], update_interval, player_infos[4])
 
-
-func change_players(sim_team: SimTeam) -> void:
-	player1.change_player(sim_team.players[0])
-	player2.change_player(sim_team.players[1])
-	player3.change_player(sim_team.players[2])
-	player4.change_player(sim_team.players[3])
-	player5.change_player(sim_team.players[4])
 

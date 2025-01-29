@@ -128,8 +128,8 @@ func _ready() -> void:
 	match_simulator.engine.half_time.connect(_on_half_time)
 	match_simulator.engine.full_time.connect(_on_full_time)
 	match_simulator.engine.update_time.connect(_on_update_time)
-	match_simulator.show_me.connect(_on_match_simulator_show)
-	match_simulator.hide_me.connect(_on_match_simulator_hide)
+	# match_simulator.show_me.connect(_on_match_simulator_show)
+	# match_simulator.hide_me.connect(_on_match_simulator_hide)
 
 
 func _on_match_simulator_show() -> void:

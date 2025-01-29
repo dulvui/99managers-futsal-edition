@@ -5,8 +5,6 @@
 class_name VisualMatch
 extends Node2D
 
-var ball_delta: float
-var states_delta: float
 
 @onready var home_team: VisualTeam = $VisualTeamHome
 @onready var away_team: VisualTeam = $VisualTeamAway
@@ -14,34 +12,24 @@ var states_delta: float
 @onready var field: VisualField = $VisualField
 
 
-func _physics_process(delta: float) -> void:
-	ball_delta += delta
-	states_delta += delta
+func setup(simulator: MatchSimulator) -> void:
+	field.setup(simulator.engine.field)
+	ball.setup(simulator.engine.field.ball.pos)
+
+	var home_color: Color = simulator.engine.home_team.team_res.get_home_color()
+	var away_color: Color = simulator.engine.away_team.team_res.get_away_color(home_color)
+	home_team.setup(engine.home_team, home_color)
+	away_team.setup(engine.away_team, away_color)
 
 
-func setup(engine: MatchEngine, update_interval: float) -> void:
-	field.setup(engine.field)
-	ball.setup(engine.field.ball, update_interval)
-	
-	var home_color: Color = engine.home_team.team_res.get_home_color()
-	var away_color: Color = engine.away_team.team_res.get_away_color(home_color)
-	home_team.setup(engine.home_team, ball, home_color, update_interval)
-	away_team.setup(engine.away_team, ball, away_color, update_interval)
-
-	ball_delta = 0.0
-	states_delta = 0.0
-
-
-func update_ball() -> void:
+func update_ball(pos: Vector2) -> void:
 	# update time intervals for position interpolations
-	ball.update(ball_delta)
-	ball_delta = 0.0
+	ball.update(pos)
 
 
-func update_players() -> void:
-	home_team.update(states_delta)
-	away_team.update(states_delta)
-	states_delta = 0.0
+func update_players(player_pos: Array[Vector2], update_interval: float, player_infos: Array[String]) -> void:
+	home_team.update(player_pos, update_interval, player_infos)
+	away_team.update(player_pos, update_interval, player_infos)
 
 
 func hide_actors() -> void:

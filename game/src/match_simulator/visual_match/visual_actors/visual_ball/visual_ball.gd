@@ -5,15 +5,20 @@
 class_name VisualBall
 extends VisualActor
 
-var sim_ball: SimBall
+# rotation keyword already taken by Node2D
+var rot: float
 
 
 func _physics_process(delta: float) -> void:
 	super._physics_process(delta)
 	if not Global.match_paused:
-		rotate(sim_ball.rotation)
+		rotate(rot)
 
 
-func setup(p_actor: MovingActor, p_update_interval: float) -> void:
-	super(p_actor, p_update_interval)
-	sim_ball = actor as SimBall
+func setup(p_pos: Vector2, p_update_interval: float = 1.0 / Const.TICKS_PER_SECOND) -> void:
+	super(p_pos, p_update_interval)
+
+
+func update(p_pos: Vector2, p_rot: float = 0.0) -> void:
+	super(p_pos)
+	rot = p_rot

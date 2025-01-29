@@ -6,8 +6,8 @@ class_name MatchSimulator
 extends Control
 
 signal action_message(message: String)
-signal show_me
-signal hide_me
+# signal show_me
+# signal hide_me
 
 const ENGINE_FUTURE_SECONDS: int = 10
 const CAMERA_SPEED: int = 4
@@ -17,14 +17,13 @@ var wait_time: float
 var show_action_ticks: int
 
 var engine: MatchEngine
-# engine to calculate ENGINE_FUTURE_SECONDS seconds in the future
-# to be able to show real engine results when key action or goal happens
-var engine_future: MatchEngine
 
 # used for randomizations like visual goal delay
 # use this to not alter engines rng
 var visual_rng: RandomNumberGenerator
 
+# buffer from where visual match acesses positions, info etc...
+var buffer: MatchBuffer
 
 @onready var visual_match: VisualMatch = %VisualMatch
 @onready var sub_viewport: SubViewport = %SubViewport
@@ -48,7 +47,6 @@ func _physics_process(delta: float) -> void:
 
 			# update engines
 			engine.update()
-			engine_future.update()
 			
 			# update visual match
 			visual_match.update_ball()
@@ -60,13 +58,12 @@ func _physics_process(delta: float) -> void:
 
 	# update engine fast
 	else:
-		hide_me.emit()
+		# hide_me.emit()
 		visual_match.hide_actors()
 		# simulate engine and future engine
 		for i: int in ENGINE_FUTURE_SECONDS:
 			# update engines
 			engine.update()
-			engine_future.update()	
 
 
 func setup(matchz: Match) -> void:
@@ -110,24 +107,6 @@ func setup(matchz: Match) -> void:
 	visual_rng = RandomNumberGenerator.new()
 	visual_rng.seed = matchz.id
 
-	# future engine
-	engine_future = MatchEngine.new()
-	# for the future engine deep copy teams
-	# future calcuations shall not affect real teams
-	engine_future.setup(matchz)
-	# show action on goal
-	engine_future.goal.connect(
-		func() -> void:
-			show_action_ticks = ENGINE_FUTURE_SECONDS * Const.TICKS_PER_SECOND * 2
-			# remove random delay, to make timing unpredictable
-			show_action_ticks -= visual_rng.randi() % (ENGINE_FUTURE_SECONDS * Const.TICKS_PER_SECOND / 2)
-			show_me.emit()
-			print("FUTURE GOAL at %d"%engine_future.time)
-	)
-	# already simulate to future
-	for i: int in ENGINE_FUTURE_SECONDS * Const.TICKS_PER_SECOND:
-		engine_future.update()
-	
 
 func simulate() -> void:
 	engine.simulate()
