@@ -75,16 +75,7 @@ func setup(matchz: Match) -> void:
 	
 	engine = MatchEngine.new()
 	engine.setup(matchz)
-
-	# # connect change players signals to visuals
-	# engine.home_team.player_changed.connect(
-	# 	func() -> void:
-	# 		visual_match.home_team.change_players(engine.home_team)
-	# )
-	# engine.away_team.player_changed.connect(
-	# 	func() -> void:
-	# 		visual_match.away_team.change_players(engine.away_team)
-	# )
+	engine.goal.connect(_on_engine_goal)
 
 	# setup visual match
 	# get colors
@@ -144,3 +135,7 @@ func match_finished() -> void:
 	action_message.emit("match finished")
 	Global.match_paused = true
 
+
+func _on_engine_goal() -> void:
+	show_action_ticks = 50
+	ball_buffer.start_replay(show_action_ticks)
