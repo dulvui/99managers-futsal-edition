@@ -101,9 +101,9 @@ func update() -> void:
 
 			# halftime
 			if time == Const.HALF_TIME_SECONDS:
-				set_half_time()
+				_on_half_time()
 			elif time == Const.FULL_TIME_SECONDS:
-				set_full_time()
+				_on_full_time()
 
 
 func simulate(end_time: int = Const.FULL_TIME_SECONDS) -> void:
@@ -136,55 +136,17 @@ func simulate(end_time: int = Const.FULL_TIME_SECONDS) -> void:
 
 
 func simulate_match(matchz: Match, fast: bool = false) -> void:
+	setup(matchz)
+
 	if fast:
-		_rng = RandomNumberGenerator.new()
-		_rng.seed = matchz.id
 		var home_goals: int = _rng.randi() % 10
 		var away_goals: int = _rng.randi() % 10
 		matchz.set_result(home_goals, away_goals)
 		return
 
-	setup(matchz)
 	simulate()
 
 	matchz.set_result(home_team.stats.goals, away_team.stats.goals)
-
-
-func set_half_time() -> void:
-	# switch left/right team, assuming home starts always left
-	left_team = away_team
-	right_team = home_team
-	field.left_team = away_team
-	field.right_team = home_team
-	left_team.left_half = true
-	right_team.left_half = false
-
-	for player: SimPlayer in left_team.players:
-		player.left_half = true
-	for player: SimPlayer in right_team.players:
-		player.left_half = false
-
-	field.ball.set_pos(field.center)
-
-	# stamina recovery 15 minutes
-	var half_time_ticks: int = 15 * Const.TICKS_LOGIC * 60
-	for player: SimPlayer in left_team.players:
-		player.player_res.recover_stamina(half_time_ticks)
-	for player: SimPlayer in right_team.players:
-		player.player_res.recover_stamina(half_time_ticks)
-	
-	half_time.emit()
-
-
-func set_full_time() -> void:
-	# stamina recovery 30 minutes
-	var recovery: int = 30 * Const.TICKS_LOGIC * 60
-	for player: SimPlayer in left_team.players:
-		player.player_res.recover_stamina(recovery)
-	for player: SimPlayer in right_team.players:
-		player.player_res.recover_stamina(recovery)
-	
-	full_time.emit()
 
 
 func left_possess() -> void:
@@ -264,3 +226,45 @@ func _on_goal_right() -> void:
 	goal.emit()
 	# to trigger score labels update
 	update_time.emit()
+
+
+func _teams_switch_sides() -> void:
+	if home_team.left_half:
+		left_team = away_team
+		right_team = home_team
+	else:
+		left_team = home_team
+		right_team = away_team
+	
+	field.left_team = away_team
+	field.right_team = home_team
+	left_team.left_half = true
+	right_team.left_half = false
+
+	for player: SimPlayer in left_team.players:
+		player.left_half = true
+	for player: SimPlayer in right_team.players:
+		player.left_half = false
+
+
+func _recover_stamina(minutes: int) -> void:
+	var recovery: int = minutes * Const.TICKS_LOGIC * 60
+	for player: SimPlayer in left_team.players:
+		player.player_res.recover_stamina(recovery)
+	for player: SimPlayer in right_team.players:
+		player.player_res.recover_stamina(recovery)
+
+
+func _on_half_time() -> void:
+	field.ball.set_pos(field.center)
+	_teams_switch_sides()
+	_recover_stamina(15)	
+	half_time.emit()
+
+
+func _on_full_time() -> void:
+	field.ball.set_pos(field.center)
+	_teams_switch_sides()
+	_recover_stamina(15)
+	full_time.emit()
+
