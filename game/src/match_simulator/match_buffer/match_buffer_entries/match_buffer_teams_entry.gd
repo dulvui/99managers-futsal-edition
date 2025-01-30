@@ -2,16 +2,16 @@
 
 # SPDX-License-Identifier: AGPL-3.0-or-later
 
-class_name MatchBufferEntryTeam
+class_name MatchBufferEntryTeams
 extends MatchBufferEntry
 
 
-var home_players_pos: Array[Vector2]
-var home_players_head_direction: Array[Vector2]
-var home_players_info: Array[String]
+var home_pos: Array[Vector2]
+var home_head_look: Array[Vector2]
+var home_info: Array[String]
 
-var away_players_pos: Array[Vector2]
-var away_players_head_direction: Array[Vector2]
-var away_players_info: Array[String]
+var away_pos: Array[Vector2]
+var away_head_look: Array[Vector2]
+var away_info: Array[String]
 
 

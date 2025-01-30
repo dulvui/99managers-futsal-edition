@@ -52,9 +52,12 @@ func _physics_process(delta: float) -> void:
 			save_to_buffer()
 			
 			# update visual match
-			visual_match.update_ball(ball_buffer.get_entry().pos)
-			# if engine.ticks % Const.STATE_UPDATE_TICKS == 0:
-			# 	visual_match.update_players(buffer)
+			var ball_entry: MatchBufferEntryBall = ball_buffer.get_entry()
+			visual_match.ball.update(ball_entry.pos)
+			if engine.ticks % Const.STATE_UPDATE_TICKS == 0:
+				var teams_entry: MatchBufferEntryTeams = teams_buffer.get_entry()
+				visual_match.home_team.update(teams_entry.home_pos, teams_entry.home_info)
+				visual_match.away_team.update(teams_entry.away_pos, teams_entry.away_info)
 
 			if show_action_ticks > 0:
 				show_action_ticks -= 1
@@ -105,7 +108,9 @@ func setup(matchz: Match) -> void:
 	ball_buffer = MatchBufferBall.new()
 	ball_buffer.setup(100)
 	teams_buffer = MatchBufferTeams.new()
+	teams_buffer.setup(100)
 	stats_buffer = MatchBufferStats.new()
+	stats_buffer.setup(100)
 
 
 func simulate() -> void:
@@ -114,7 +119,7 @@ func simulate() -> void:
 
 func save_to_buffer() -> void:
 	ball_buffer.save(engine)
-	# teams_buffer.save(engine)
+	teams_buffer.save(engine)
 	# stats_buffer.save(engine)
 
 

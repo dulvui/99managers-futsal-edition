@@ -16,20 +16,22 @@ func setup(simulator: MatchSimulator) -> void:
 	field.setup(simulator.engine.field)
 	ball.setup(simulator.engine.field.ball.pos)
 
-	# var home_color: Color = simulator.engine.home_team.team_res.get_home_color()
-	# var away_color: Color = simulator.engine.away_team.team_res.get_away_color(home_color)
-	# home_team.setup(simulator.engine.home_team, home_color)
-	# away_team.setup(simulator.engine.away_team, away_color)
+	var home_color: Color = simulator.engine.home_team.team_res.get_home_color()
+	var away_color: Color = simulator.engine.away_team.team_res.get_away_color(home_color)
 
+	var home_team_pos: Array[Vector2] = []
+	var home_team_info: Array[String] = []
+	for player: SimPlayer in simulator.engine.home_team.players:
+		home_team_pos.append(player.pos)
+		home_team_info.append(str(player.player_res.nr) + " " + player.player_res.surname)
+	home_team.setup(home_team_pos, home_team_info, home_color)
 
-func update_ball(pos: Vector2) -> void:
-	# update time intervals for position interpolations
-	ball.update(pos)
-
-
-# func update_players(player_pos: Array[Vector2], update_interval: float, player_infos: Array[String]) -> void:
-# 	home_team.update(player_pos, update_interval, player_infos)
-# 	away_team.update(player_pos, update_interval, player_infos)
+	var away_team_pos: Array[Vector2] = []
+	var away_team_info: Array[String] = []
+	for player: SimPlayer in simulator.engine.away_team.players:
+		away_team_pos.append(player.pos)
+		away_team_info.append(str(player.player_res.nr) + " " + player.player_res.surname)
+	away_team.setup(away_team_pos, away_team_info, away_color)
 
 
 func hide_actors() -> void:

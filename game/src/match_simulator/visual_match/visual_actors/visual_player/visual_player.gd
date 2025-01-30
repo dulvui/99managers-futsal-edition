@@ -27,11 +27,12 @@ func _physics_process(delta: float) -> void:
 
 func setup(
 	p_pos: Vector2,
-	p_update_interval: float = 1.0 / Const.STATE_UPDATE_TICKS,
 	p_player_info: String = "",
 	shirt_color: Color = Color.TRANSPARENT,
 ) -> void:
-	super(p_pos, p_update_interval)
+	super(p_pos)
+	update_interval = 1.0 / Const.STATE_UPDATE_TICKS
+
 	player_info = p_player_info
 	body.modulate = shirt_color
 
