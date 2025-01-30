@@ -12,12 +12,17 @@ extends Node2D
 @onready var player5: VisualPlayer = $VisualPlayer5
 
 
-func setup(player_pos: Array[Vector2], player_infos: Array[String], shirt_color: Color) -> void:
-	player1.setup(player_pos[0], player_infos[0], shirt_color.lightened(0.4))
-	player2.setup(player_pos[1], player_infos[1], shirt_color)
-	player3.setup(player_pos[2], player_infos[2], shirt_color)
-	player4.setup(player_pos[3], player_infos[3], shirt_color)
-	player5.setup(player_pos[4], player_infos[4], shirt_color)
+func setup(
+	player_pos: Array[Vector2],
+	player_infos: Array[String],
+	shirt_color: Color,
+	ball: VisualBall,
+) -> void:
+	player1.setup(player_pos[0], player_infos[0], shirt_color.lightened(0.4), ball)
+	player2.setup(player_pos[1], player_infos[1], shirt_color, ball)
+	player3.setup(player_pos[2], player_infos[2], shirt_color, ball)
+	player4.setup(player_pos[3], player_infos[3], shirt_color, ball)
+	player5.setup(player_pos[4], player_infos[4], shirt_color, ball)
 
 
 func update(player_pos: Array[Vector2], player_infos: Array[String], player_head_look: Array[Vector2]) -> void:

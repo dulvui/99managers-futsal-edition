@@ -24,14 +24,14 @@ func setup(simulator: MatchSimulator) -> void:
 	for player: SimPlayer in simulator.engine.home_team.players:
 		home_team_pos.append(player.pos)
 		home_team_info.append(str(player.player_res.nr) + " " + player.player_res.surname)
-	home_team.setup(home_team_pos, home_team_info, home_color)
+	home_team.setup(home_team_pos, home_team_info, home_color, ball)
 
 	var away_team_pos: Array[Vector2] = []
 	var away_team_info: Array[String] = []
 	for player: SimPlayer in simulator.engine.away_team.players:
 		away_team_pos.append(player.pos)
 		away_team_info.append(str(player.player_res.nr) + " " + player.player_res.surname)
-	away_team.setup(away_team_pos, away_team_info, away_color)
+	away_team.setup(away_team_pos, away_team_info, away_color, ball)
 
 
 func hide_actors() -> void:
