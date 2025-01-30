@@ -4,7 +4,7 @@
 
 class_name MatchBuffer
 
-var buffer: Array[Entry]
+var buffer: Array[MatchBufferEntry]
 var buffer_size: int
 var buffer_index: int
 
@@ -15,32 +15,13 @@ func setup(p_buffer_size: int) -> void:
 	buffer_index = 0
 
 
-func append(entry: Entry) -> void:
+func append(entry: MatchBufferEntry) -> void:
 	buffer.append(entry)
 	if buffer.size() > buffer_size:
 		buffer.remove_at(0)
 
 
-# TODO can be optimized by only saving deltas
-class Entry:
-	var tick: int
+func get_entry() -> MatchBufferEntry:
+	return buffer[buffer_index]
 
 
-class Ball extends Entry:
-	var pos: Vector2
-	var rot: float
-
-
-class Teams extends Entry:
-	var home_players_pos: Array[Vector2]
-	var home_players_head_direction: Array[Vector2]
-	var home_players_info: Array[String]
-
-	var away_players_pos: Array[Vector2]
-	var away_players_head_direction: Array[Vector2]
-	var away_players_info: Array[String]
-
-
-class Stats extends Entry:
-	var home_stats: MatchStatistics
-	var away_stats: MatchStatistics

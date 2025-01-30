@@ -2,6 +2,6 @@
 
 # SPDX-License-Identifier: AGPL-3.0-or-later
 
-class_name MatchBufferEntry
+class_name MatchBufferTeams
+extends MatchBuffer
 
-var tick: int

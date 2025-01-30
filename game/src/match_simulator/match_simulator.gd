@@ -23,7 +23,7 @@ var engine: MatchEngine
 var visual_rng: RandomNumberGenerator
 
 # buffer from where visual match acesses positions, info etc...
-var buffer: MatchBuffer
+var ball_buffer: BallBufferEntry
 
 @onready var visual_match: VisualMatch = %VisualMatch
 @onready var sub_viewport: SubViewport = %SubViewport
@@ -47,11 +47,12 @@ func _physics_process(delta: float) -> void:
 
 			# update engines
 			engine.update()
+			save_to_buffer()
 			
 			# update visual match
-			visual_match.update_ball()
+			visual_match.update_ball(buffer)
 			if engine.ticks % Const.STATE_UPDATE_TICKS == 0:
-				visual_match.update_players()
+				visual_match.update_players(buffer)
 
 			if show_action_ticks > 0:
 				show_action_ticks -= 1
@@ -85,7 +86,7 @@ func setup(matchz: Match) -> void:
 
 	# setup visual match
 	# get colors
-	visual_match.setup(engine, wait_time)
+	visual_match.setup(self)
 
 	# visual state machine for debug
 	visual_state_machine.setup(visual_match.home_team, visual_match.away_team)
@@ -110,6 +111,10 @@ func setup(matchz: Match) -> void:
 
 func simulate() -> void:
 	engine.simulate()
+
+
+func save_to_buffer() -> void:
+	pass
 
 
 func is_match_visible() -> bool:
