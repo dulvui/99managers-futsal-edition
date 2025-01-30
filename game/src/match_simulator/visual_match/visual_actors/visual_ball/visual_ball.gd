@@ -17,7 +17,7 @@ func _physics_process(delta: float) -> void:
 
 func setup(p_pos: Vector2) -> void:
 	super(p_pos)
-	update_interval = 1.0 / Const.TICKS_PER_SECOND
+	update_interval = 1.0 / Const.TICKS
 
 
 func update(p_pos: Vector2, p_rot: float = 0.0) -> void:

@@ -8,7 +8,7 @@ class_name SimFieldCalculator
 
 # can later made dynamic by team tactics long/short pass
 const PERFECT_PASS_DISTANCE: int = 30
-const BEST_SECTOR_UPDATE_FREQUENCY: int = Const.TICKS_PER_SECOND * 4
+const BEST_SECTOR_UPDATE_FREQUENCY: int = Const.TICKS * 4
 
 var field: SimField
 

@@ -6,7 +6,7 @@ class_name TeamStateEnterField
 extends TeamStateMachineState
 
 
-const WAIT: int = Const.STATE_UPDATE_TICKS * 2
+const WAIT: int = 2
 
 var ticks: int
 

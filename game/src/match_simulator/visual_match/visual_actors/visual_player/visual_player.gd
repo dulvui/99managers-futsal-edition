@@ -23,7 +23,6 @@ func _physics_process(delta: float) -> void:
 		sprites.look_at(head_look)
 
 	name_label.text = player_info
-	print(factor)
 
 
 func setup(
@@ -32,8 +31,7 @@ func setup(
 	shirt_color: Color = Color.TRANSPARENT,
 ) -> void:
 	super(p_pos)
-	update_interval = 1.0 / Const.STATE_UPDATE_TICKS
-
+	update_interval = 1.0 / (float(Const.TICKS) / float(Const.TICKS_LOGIC))
 	player_info = p_player_info
 	body.modulate = shirt_color
 
@@ -44,6 +42,7 @@ func setup(
 
 
 func update(p_pos: Vector2, p_player_info: String = "", p_head_look: Vector2 = Vector2.ZERO) -> void:
+	print(factor)
 	super(p_pos)
 	player_info = p_player_info
 	head_look = p_head_look

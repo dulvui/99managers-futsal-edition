@@ -25,12 +25,13 @@ func setup(p_pos: Vector2) -> void:
 	update_interval = 0
 	last_pos = p_pos
 	time_passed = 0.0
-	factor = 1.0
+	factor = 0
 
 
 func update(p_pos: Vector2) -> void:
 	pos = p_pos
 	last_pos = position
 	time_passed = 0.0
+	factor = 0
 
 

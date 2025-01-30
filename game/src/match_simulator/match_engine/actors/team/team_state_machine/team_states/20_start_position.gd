@@ -6,7 +6,7 @@ class_name TeamStateStartPositions
 extends TeamStateMachineState
 
 
-const WAIT: int = Const.STATE_UPDATE_TICKS * 1
+const WAIT: int = 1
 
 var ticks: int
 

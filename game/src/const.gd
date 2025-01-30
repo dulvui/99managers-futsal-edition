@@ -36,15 +36,20 @@ const OVER_TIME_SECONDS: int = 60 * 5
 const FULL_OVER_TIME_SECONDS: int = OVER_TIME_SECONDS * 2
 const PENALTY_KICKS: int = 6
 
-const TICKS_PER_SECOND: int = 32
-# state machines update every half second
-const STATE_UPDATE_TICKS: int = min(2, TICKS_PER_SECOND / 2.0)
+# how many ticks pass per real macth second
+# used for ball movents, colissions ecc...
+const TICKS: int = 32
+# used for state machine updates, player movements ecc...
+# is always relative to TICKS
+const TICKS_LOGIC: int = 8
 
-const SPEED: float = (1.0 / TICKS_PER_SECOND) * 8.0
+const SPEED_PLAYER: float = 1
+const SPEED_BALL: float = 1
+
 # stamina range [0, 1]
 # this factor makes sure a player with attribute stamina 20
 # can play a full game running all the time
-const STAMINA_FACTOR: float = 1.0 / (HALF_TIME_SECONDS * 2 * TICKS_PER_SECOND * 20) # 20 = max player speed
+const STAMINA_FACTOR: float = 1.0 / (FULL_TIME_SECONDS * TICKS_LOGIC * 20) # 20 = max player speed
 
 #
 # Generator
@@ -57,7 +62,7 @@ const LINEUP_PLAYERS_AMOUNT: int = 12
 const SEASON_START_DAY: int = 1
 const SEASON_START_MONTH: int = 6
 
-#
+
 # Strings
 #
 const USER_PATH: StringName = "user://"

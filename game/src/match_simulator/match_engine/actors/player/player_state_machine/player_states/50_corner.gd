@@ -23,7 +23,7 @@ func enter() -> void:
 	
 	# check if player kicks corner
 	if owner.team.has_ball and owner.team.player_control() == owner.player:
-		wait = owner.rng.randi_range(2 * Const.TICKS_PER_SECOND, 5 * Const.TICKS_PER_SECOND)
+		wait = owner.rng.randi_range(2, 5)
 		owner.player.set_destination(owner.field.ball.pos)
 		return
 
@@ -60,5 +60,5 @@ func corner_kick() -> void:
 	for player: SimPlayer in owner.team.players:
 		if player != owner.player and not player.is_goalkeeper:
 			owner.team.player_receive_ball(player)
-			owner.field.ball.short_pass(player.pos, 100)
+			owner.field.ball.short_pass(player.pos, 20)
 			return

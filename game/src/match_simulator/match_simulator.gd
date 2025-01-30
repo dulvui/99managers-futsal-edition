@@ -54,8 +54,9 @@ func _physics_process(delta: float) -> void:
 			# update visual ball
 			var ball_entry: MatchBufferEntryBall = ball_buffer.get_entry()
 			visual_match.ball.update(ball_entry.pos)
+
 			# update visual teams
-			if engine.ticks % Const.STATE_UPDATE_TICKS == 0:
+			if engine.ticks % Const.TICKS_LOGIC == 0:
 				teams_buffer.save(engine)
 				var teams_entry: MatchBufferEntryTeams = teams_buffer.get_entry()
 				visual_match.home_team.update(
@@ -81,13 +82,13 @@ func _physics_process(delta: float) -> void:
 		for i: int in ENGINE_FUTURE_SECONDS:
 			engine.update()
 			ball_buffer.save(engine)
-			if engine.ticks % Const.STATE_UPDATE_TICKS == 0:
+			if engine.ticks % Const.TICKS_LOGIC == 0:
 				teams_buffer.save(engine)
 
 
 func setup(matchz: Match) -> void:
 	show_action_ticks = 0
-	wait_time = 1.0 / Const.TICKS_PER_SECOND
+	wait_time = 1.0 / Const.TICKS
 	
 	engine = MatchEngine.new()
 	engine.setup(matchz)

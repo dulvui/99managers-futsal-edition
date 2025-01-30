@@ -4,8 +4,6 @@
 
 class_name MovingActor
 
-const DECELERATION: float = 0.5
-
 var pos: Vector2
 var last_pos: Vector2
 var next_pos: Vector2
@@ -16,16 +14,19 @@ var follow_actor: MovingActor
 
 var collision_radius: float
 var speed: float
+var speed_factor: float
 
-var decelerates: bool
 
-
-func _init(p_collision_radius: float, p_decelerates: bool) -> void:
+func _init(p_collision_radius: float) -> void:
 	# collision_radius = pow(p_collision_radius, 2)
-	collision_radius = p_collision_radius / 4
-	decelerates = p_decelerates
+	collision_radius = p_collision_radius
 
 	_reset_movents()
+
+	if self is SimBall:
+		speed_factor = Const.SPEED_BALL
+	else:
+		speed_factor = Const.SPEED_PLAYER
 
 
 func set_pos(p_pos: Vector2) -> void:
@@ -86,15 +87,12 @@ func move() -> void:
 		
 		# calc next pos
 		if direction != Vector2.INF:
-			next_pos += direction * speed * Const.SPEED
+			next_pos += direction * speed * speed_factor
 		elif destination != Vector2.INF:
-			next_pos = pos.move_toward(destination, speed * Const.SPEED)
+			next_pos = pos.move_toward(destination, speed * speed_factor)
 		elif follow_actor != null:
-			next_pos = pos.move_toward(follow_actor.pos, speed * Const.SPEED)
-
-		if decelerates:
-			speed -= DECELERATION
-		
+			next_pos = pos.move_toward(follow_actor.pos, speed * speed_factor)
+	
 		if speed <= 0:
 			stop()
 

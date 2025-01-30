@@ -5,7 +5,7 @@
 class_name PlayerStateGoalkeeperBall
 extends PlayerStateMachineState
 
-const WAIT: int = Const.STATE_UPDATE_TICKS * 3
+const WAIT: int = 3
 
 var ticks: int
 

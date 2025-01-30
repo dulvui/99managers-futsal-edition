@@ -4,14 +4,10 @@
 
 class_name MatchEngine
 
-# match time control
 signal half_time
 signal full_time
 signal update_time
-# position updates
-signal ball_update
-signal players_update
-# engine future signals
+
 signal goal
 # signal key_action
 
@@ -82,27 +78,24 @@ func update() -> void:
 	# field/ball updates more frequently on every tick
 	# for better colission detections
 	field.update()
-	ball_update.emit()
 
 	# teams/players instead update less frequent
 	# state machines don't require high frequency
-	if ticks % Const.STATE_UPDATE_TICKS == 0:
+	if ticks % Const.TICKS_LOGIC == 0:
 		left_team.update()
 		right_team.update()
-		players_update.emit()
 
 	# time related code
 	if field.clock_running:
 		# update real time in seconds
 		time_ticks += 1
-		if time_ticks % Const.TICKS_PER_SECOND == 0:
+		if time_ticks % Const.TICKS == 0:
 			time += 1
 			update_time.emit()
 
 			# update posession stats
 			if home_team.has_ball:
 				possession_counter += 1
-
 			home_team.stats.possession = int(possession_counter / time * 100.0)
 			away_team.stats.possession = 100 - home_team.stats.possession
 
@@ -127,8 +120,8 @@ func simulate(end_time: int = Const.FULL_TIME_SECONDS) -> void:
 	# simulate game
 	while time < end_time:
 		update()
-		if time % 100 == 0:
-			print("simulating... ticks %d - time %d" % [ticks, time])
+		# if time % 100 == 0:
+		# 	print("simulating... ticks %d - time %d" % [ticks, time])
 	
 	# restore simulation flags, in case only partial game has been simulated
 	home_team.simulated = home_simulated
@@ -174,7 +167,7 @@ func set_half_time() -> void:
 	field.ball.set_pos(field.center)
 
 	# stamina recovery 15 minutes
-	var half_time_ticks: int = 15 * Const.TICKS_PER_SECOND * 60
+	var half_time_ticks: int = 15 * Const.TICKS_LOGIC * 60
 	for player: SimPlayer in left_team.players:
 		player.player_res.recover_stamina(half_time_ticks)
 	for player: SimPlayer in right_team.players:
@@ -185,7 +178,7 @@ func set_half_time() -> void:
 
 func set_full_time() -> void:
 	# stamina recovery 30 minutes
-	var recovery: int = 30 * Const.TICKS_PER_SECOND * 60
+	var recovery: int = 30 * Const.TICKS_LOGIC * 60
 	for player: SimPlayer in left_team.players:
 		player.player_res.recover_stamina(recovery)
 	for player: SimPlayer in right_team.players:

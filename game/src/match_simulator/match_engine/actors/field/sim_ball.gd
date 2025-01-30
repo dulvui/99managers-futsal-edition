@@ -6,11 +6,13 @@ class_name SimBall
 extends MovingActor
 
 
+const DECELERATION: float = 0.05
+
 enum State { PASS, SHOOT, STOP, DRIBBLE, GOALKEEPER, OUT }
 
 # ball players collision timer
 # 1 so that ball doesn't collide after just started moving
-const PLAYER_COLISSION_TIME: int = 1
+const PLAYER_COLISSION_TIME: int = 2
 
 var state: State
 
@@ -24,7 +26,7 @@ var rng: RandomNumberGenerator
 
 
 func _init(p_rng: RandomNumberGenerator) -> void:
-	super(8, true)
+	super(2)
 	rng = p_rng
 
 
@@ -39,6 +41,9 @@ func setup(p_field: SimField) -> void:
 func update() -> void:
 	move()
 
+	if speed > 0:
+		speed -= DECELERATION
+
 	# rotation
 	if speed > 0:
 		if abs(rotation) > 0.1:
@@ -50,9 +55,6 @@ func update() -> void:
 				rotation = 0
 	else:
 		rotation = 0
-	
-	
-	# print("ball state %s"%State.keys()[state])
 
 
 func short_pass(p_destination: Vector2, force: float) -> void:

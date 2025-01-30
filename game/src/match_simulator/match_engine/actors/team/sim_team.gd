@@ -7,7 +7,7 @@ class_name SimTeam
 signal player_changed
 
 # player should stay at least 2 minutes in field before he can be changed
-const PLAYER_MIN_TICKS_IN_FIELD: int = Const.STATE_UPDATE_TICKS * 120
+const PLAYER_MIN_TICKS_IN_FIELD: int = Const.TICKS_LOGIC * 120
 
 var team_res: Team
 var stats: MatchStatistics
