@@ -49,16 +49,27 @@ func _physics_process(delta: float) -> void:
 
 			# update engines
 			engine.update()
-			save_to_buffer()
+			ball_buffer.save(engine)
 			
-			# update visual match
+			# update visual ball
 			var ball_entry: MatchBufferEntryBall = ball_buffer.get_entry()
 			visual_match.ball.update(ball_entry.pos)
+			# update visual teams
 			if engine.ticks % Const.STATE_UPDATE_TICKS == 0:
+				teams_buffer.save(engine)
 				var teams_entry: MatchBufferEntryTeams = teams_buffer.get_entry()
-				visual_match.home_team.update(teams_entry.home_pos, teams_entry.home_info)
-				visual_match.away_team.update(teams_entry.away_pos, teams_entry.away_info)
-
+				visual_match.home_team.update(
+					teams_entry.home_pos,
+					teams_entry.home_info,
+					teams_entry.home_head_look
+				)
+				visual_match.away_team.update(
+					teams_entry.away_pos,
+					teams_entry.away_info,
+					teams_entry.away_head_look
+				)
+			
+			# recuce show action counter
 			if show_action_ticks > 0:
 				show_action_ticks -= 1
 
@@ -69,7 +80,9 @@ func _physics_process(delta: float) -> void:
 
 		for i: int in ENGINE_FUTURE_SECONDS:
 			engine.update()
-			save_to_buffer()
+			ball_buffer.save(engine)
+			if engine.ticks % Const.STATE_UPDATE_TICKS == 0:
+				teams_buffer.save(engine)
 
 
 func setup(matchz: Match) -> void:
@@ -117,12 +130,6 @@ func simulate() -> void:
 	engine.simulate()
 
 
-func save_to_buffer() -> void:
-	ball_buffer.save(engine)
-	teams_buffer.save(engine)
-	# stats_buffer.save(engine)
-
-
 func is_match_visible() -> bool:
 	return Global.match_speed == Const.MatchSpeed.FULL_GAME or show_action_ticks > 0
 
@@ -142,5 +149,5 @@ func match_finished() -> void:
 
 
 func _on_engine_goal() -> void:
-	show_action_ticks = 50
+	show_action_ticks = 100
 	ball_buffer.start_replay(show_action_ticks)

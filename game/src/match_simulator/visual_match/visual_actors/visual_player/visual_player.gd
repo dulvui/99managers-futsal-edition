@@ -23,6 +23,7 @@ func _physics_process(delta: float) -> void:
 		sprites.look_at(head_look)
 
 	name_label.text = player_info
+	print(factor)
 
 
 func setup(
@@ -42,6 +43,7 @@ func setup(
 	# eyes.modulate = sim_player.player_res.eyecolor
 
 
-func update(p_pos: Vector2, p_player_info: String = "") -> void:
+func update(p_pos: Vector2, p_player_info: String = "", p_head_look: Vector2 = Vector2.ZERO) -> void:
 	super(p_pos)
 	player_info = p_player_info
+	head_look = p_head_look

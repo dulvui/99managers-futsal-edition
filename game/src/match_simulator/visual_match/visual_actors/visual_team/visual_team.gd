@@ -20,11 +20,11 @@ func setup(player_pos: Array[Vector2], player_infos: Array[String], shirt_color:
 	player5.setup(player_pos[4], player_infos[4], shirt_color)
 
 
-func update(player_pos: Array[Vector2], player_infos: Array[String]) -> void:
-	player1.update(player_pos[0], player_infos[0])
-	player2.update(player_pos[1], player_infos[1])
-	player3.update(player_pos[2], player_infos[2])
-	player4.update(player_pos[3], player_infos[3])
-	player5.update(player_pos[4], player_infos[4])
+func update(player_pos: Array[Vector2], player_infos: Array[String], player_head_look: Array[Vector2]) -> void:
+	player1.update(player_pos[0], player_infos[0], player_head_look[0])
+	player2.update(player_pos[1], player_infos[1], player_head_look[1])
+	player3.update(player_pos[2], player_infos[2], player_head_look[2])
+	player4.update(player_pos[3], player_infos[3], player_head_look[3])
+	player5.update(player_pos[4], player_infos[4], player_head_look[4])
 
 
