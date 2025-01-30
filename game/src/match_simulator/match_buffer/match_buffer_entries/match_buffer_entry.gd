@@ -5,4 +5,4 @@
 class_name MatchBufferEntry
 
 
-var tick: int
+var ticks: int

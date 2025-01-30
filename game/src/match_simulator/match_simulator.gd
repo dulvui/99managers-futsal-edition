@@ -23,7 +23,9 @@ var engine: MatchEngine
 var visual_rng: RandomNumberGenerator
 
 # buffer from where visual match acesses positions, info etc...
-var ball_buffer: BallBufferEntry
+var ball_buffer: MatchBufferBall
+var stats_buffer: MatchBufferStats
+var teams_buffer: MatchBufferTeams
 
 @onready var visual_match: VisualMatch = %VisualMatch
 @onready var sub_viewport: SubViewport = %SubViewport
@@ -50,9 +52,9 @@ func _physics_process(delta: float) -> void:
 			save_to_buffer()
 			
 			# update visual match
-			visual_match.update_ball(buffer)
-			if engine.ticks % Const.STATE_UPDATE_TICKS == 0:
-				visual_match.update_players(buffer)
+			visual_match.update_ball(ball_buffer.get_entry().pos)
+			# if engine.ticks % Const.STATE_UPDATE_TICKS == 0:
+			# 	visual_match.update_players(buffer)
 
 			if show_action_ticks > 0:
 				show_action_ticks -= 1
@@ -61,10 +63,10 @@ func _physics_process(delta: float) -> void:
 	else:
 		# hide_me.emit()
 		visual_match.hide_actors()
-		# simulate engine and future engine
+
 		for i: int in ENGINE_FUTURE_SECONDS:
-			# update engines
 			engine.update()
+			save_to_buffer()
 
 
 func setup(matchz: Match) -> void:
@@ -74,15 +76,15 @@ func setup(matchz: Match) -> void:
 	engine = MatchEngine.new()
 	engine.setup(matchz)
 
-	# connect change players signals to visuals
-	engine.home_team.player_changed.connect(
-		func() -> void:
-			visual_match.home_team.change_players(engine.home_team)
-	)
-	engine.away_team.player_changed.connect(
-		func() -> void:
-			visual_match.away_team.change_players(engine.away_team)
-	)
+	# # connect change players signals to visuals
+	# engine.home_team.player_changed.connect(
+	# 	func() -> void:
+	# 		visual_match.home_team.change_players(engine.home_team)
+	# )
+	# engine.away_team.player_changed.connect(
+	# 	func() -> void:
+	# 		visual_match.away_team.change_players(engine.away_team)
+	# )
 
 	# setup visual match
 	# get colors
@@ -108,13 +110,21 @@ func setup(matchz: Match) -> void:
 	visual_rng = RandomNumberGenerator.new()
 	visual_rng.seed = matchz.id
 
+	# buffers
+	ball_buffer = MatchBufferBall.new()
+	ball_buffer.setup(100)
+	teams_buffer = MatchBufferTeams.new()
+	stats_buffer = MatchBufferStats.new()
+
 
 func simulate() -> void:
 	engine.simulate()
 
 
 func save_to_buffer() -> void:
-	pass
+	ball_buffer.save(engine)
+	# teams_buffer.save(engine)
+	# stats_buffer.save(engine)
 
 
 func is_match_visible() -> bool:

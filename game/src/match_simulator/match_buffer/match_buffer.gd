@@ -22,6 +22,16 @@ func append(entry: MatchBufferEntry) -> void:
 
 
 func get_entry() -> MatchBufferEntry:
+	if Global.match_speed == Const.MatchSpeed.FULL_GAME:
+		return buffer[-1]
+
+	if buffer_index < buffer.size() - 1:
+		buffer_index += 1
+
 	return buffer[buffer_index]
+
+
+func start_replay() -> void:
+	buffer_index = 0
 
 

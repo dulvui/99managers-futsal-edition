@@ -16,10 +16,10 @@ func setup(simulator: MatchSimulator) -> void:
 	field.setup(simulator.engine.field)
 	ball.setup(simulator.engine.field.ball.pos)
 
-	var home_color: Color = simulator.engine.home_team.team_res.get_home_color()
-	var away_color: Color = simulator.engine.away_team.team_res.get_away_color(home_color)
-	home_team.setup(engine.home_team, home_color)
-	away_team.setup(engine.away_team, away_color)
+	# var home_color: Color = simulator.engine.home_team.team_res.get_home_color()
+	# var away_color: Color = simulator.engine.away_team.team_res.get_away_color(home_color)
+	# home_team.setup(simulator.engine.home_team, home_color)
+	# away_team.setup(simulator.engine.away_team, away_color)
 
 
 func update_ball(pos: Vector2) -> void:
@@ -27,9 +27,9 @@ func update_ball(pos: Vector2) -> void:
 	ball.update(pos)
 
 
-func update_players(player_pos: Array[Vector2], update_interval: float, player_infos: Array[String]) -> void:
-	home_team.update(player_pos, update_interval, player_infos)
-	away_team.update(player_pos, update_interval, player_infos)
+# func update_players(player_pos: Array[Vector2], update_interval: float, player_infos: Array[String]) -> void:
+# 	home_team.update(player_pos, update_interval, player_infos)
+# 	away_team.update(player_pos, update_interval, player_infos)
 
 
 func hide_actors() -> void:
