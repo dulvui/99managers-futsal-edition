@@ -32,9 +32,10 @@ func get_entry() -> MatchBufferEntry:
 
 
 func start_replay(ticks_to_show: int = -1) -> void:
-	if ticks_to_show > 0:
-		buffer_index = max(0, buffer.size() - ticks_to_show)
-	else:
-		buffer_index = 0
-
+	# find buffer entry with corresponding tick
+	buffer_index = buffer.size() - 1
+	while buffer_index > 0:
+		if buffer[buffer_index].ticks <= ticks_to_show:
+			return
+		buffer_index -= 1
 

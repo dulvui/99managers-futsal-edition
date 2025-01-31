@@ -46,18 +46,19 @@ func _physics_process(delta: float) -> void:
 		passed_time += delta
 		if passed_time >= wait_time:
 			passed_time = 0
+			
+			var ticks: int = show_action_ticks
 
-			# update engines
-			engine.update()
-			ball_buffer.save(engine)
+			if Global.match_speed == Const.MatchSpeed.FULL_GAME:
+				_update_engine()
+				ticks = engine.ticks
 			
 			# update visual ball
 			var ball_entry: MatchBufferEntryBall = ball_buffer.get_entry()
 			visual_match.ball.update(ball_entry.pos)
 
 			# update visual teams
-			if engine.ticks % Const.TICKS_LOGIC == 0:
-				teams_buffer.save(engine)
+			if ticks % Const.TICKS_LOGIC == 0:
 				var teams_entry: MatchBufferEntryTeams = teams_buffer.get_entry()
 				visual_match.home_team.update(
 					teams_entry.home_pos,
@@ -70,9 +71,10 @@ func _physics_process(delta: float) -> void:
 					teams_entry.away_head_look
 				)
 			
-			# recuce show action counter
+			# reduce show action counter
 			if show_action_ticks > 0:
 				show_action_ticks -= 1
+				print(show_action_ticks)
 
 	# update engine fast
 	else:
@@ -80,10 +82,7 @@ func _physics_process(delta: float) -> void:
 		visual_match.hide_actors()
 
 		for i: int in ENGINE_FUTURE_SECONDS:
-			engine.update()
-			ball_buffer.save(engine)
-			if engine.ticks % Const.TICKS_LOGIC == 0:
-				teams_buffer.save(engine)
+			_update_engine()
 
 
 func setup(matchz: Match) -> void:
@@ -120,11 +119,11 @@ func setup(matchz: Match) -> void:
 
 	# buffers
 	ball_buffer = MatchBufferBall.new()
-	ball_buffer.setup(100)
+	ball_buffer.setup(1000)
 	teams_buffer = MatchBufferTeams.new()
-	teams_buffer.setup(100)
+	teams_buffer.setup(1000)
 	stats_buffer = MatchBufferStats.new()
-	stats_buffer.setup(100)
+	stats_buffer.setup(1000)
 
 
 func simulate() -> void:
@@ -150,5 +149,20 @@ func match_finished() -> void:
 
 
 func _on_engine_goal() -> void:
-	show_action_ticks = 100
-	ball_buffer.start_replay(show_action_ticks)
+	var seconds: int = visual_rng.randi_range(3, 5) 
+	show_action_ticks = Const.TICKS * seconds
+	var timestamp: int = engine.ticks - show_action_ticks
+	if timestamp > engine.ticks:
+		timestamp =	engine.ticks
+	ball_buffer.start_replay(timestamp)
+	teams_buffer.start_replay(timestamp)
+	stats_buffer.start_replay(timestamp)
+
+
+func _update_engine() -> void:
+	engine.update()
+	ball_buffer.save(engine)
+	if engine.ticks % Const.TICKS_LOGIC == 0:
+		teams_buffer.save(engine)
+
+
