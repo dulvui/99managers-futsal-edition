@@ -32,9 +32,10 @@ const SCALE_3: float = 1.50
 #
 const HALF_TIME_SECONDS: int = 60 * 20
 const FULL_TIME_SECONDS: int = HALF_TIME_SECONDS * 2
-const OVER_TIME_SECONDS: int = 60 * 5
-const FULL_OVER_TIME_SECONDS: int = OVER_TIME_SECONDS * 2
-const PENALTY_KICKS: int = 6
+const OVER_TIME_SECONDS: int = FULL_TIME_SECONDS + (60 * 5)
+const FULL_OVER_TIME_SECONDS: int = OVER_TIME_SECONDS + (60 * 5)
+
+const PENALTY_KICKS: int = 5
 
 # how many ticks pass per real macth second
 # used for ball movents, colissions ecc...

@@ -130,7 +130,7 @@ func simulate() -> void:
 
 
 func is_match_visible() -> bool:
-	return Global.match_speed == Const.MatchSpeed.FULL_GAME or show_action_ticks > 0
+	return Global.match_speed == Const.MatchSpeed.FULL_GAME or engine.penalties or show_action_ticks > 0
 
 
 func pause_toggle() -> bool:

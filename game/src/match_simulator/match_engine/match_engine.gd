@@ -27,6 +27,9 @@ var possession_counter: float
 
 # flag if match goes to overtime and penalties, if finish in draw
 var no_draw: bool
+var over_time: bool
+var penalties: bool
+var match_over: bool
 
 # make private, because _rng shoud never be accessed outside engine
 # state would be changed and no longer matches future/past engine state
@@ -38,6 +41,9 @@ func setup(p_matchz: Match) -> void:
 	_rng.seed = p_matchz.id
 
 	no_draw = p_matchz.no_draw
+	over_time = false
+	penalties = false
+	match_over = false
 
 	field = SimField.new(_rng)
 
@@ -99,14 +105,19 @@ func update() -> void:
 			home_team.stats.possession = int(possession_counter / time * 100.0)
 			away_team.stats.possession = 100 - home_team.stats.possession
 
-			# halftime
+			# time control
 			if time == Const.HALF_TIME_SECONDS:
 				_on_half_time()
 			elif time == Const.FULL_TIME_SECONDS:
 				_on_full_time()
+			elif over_time:
+				if time == Const.OVER_TIME_SECONDS:
+					_on_over_time()
+				elif time == Const.FULL_OVER_TIME_SECONDS:
+					_on_full_over_time()
 
 
-func simulate(end_time: int = Const.FULL_TIME_SECONDS) -> void:
+func simulate(end_time: int = -1) -> void:
 	print("simulating match...")
 	var start_time: int = Time.get_ticks_msec()
 
@@ -117,16 +128,19 @@ func simulate(end_time: int = Const.FULL_TIME_SECONDS) -> void:
 	home_team.simulated = true
 	away_team.simulated = true
 
-	# simulate game
-	while time < end_time:
-		update()
-		# if time % 100 == 0:
-		# 	print("simulating... ticks %d - time %d" % [ticks, time])
+	# simulate game to given end time
+	if end_time > 0:
+		while time < end_time:
+			update()
+		# restore simulation flags
+		home_team.simulated = home_simulated
+		away_team.simulated = away_simulated
+	# simulate until match is over
+	else:
+		while not match_over:
+			update()
 	
-	# restore simulation flags, in case only partial game has been simulated
-	home_team.simulated = home_simulated
-	away_team.simulated = away_simulated
-	
+	# print time passed for simulation
 	var load_time: int = Time.get_ticks_msec() - start_time
 	print("benchmark in: " + str(load_time) + " ms")
 
@@ -263,8 +277,30 @@ func _on_half_time() -> void:
 
 
 func _on_full_time() -> void:
-	field.ball.set_pos(field.center)
-	_teams_switch_sides()
-	_recover_stamina(15)
+	over_time = no_draw and home_team.stats.goals == away_team.stats.goals
+	if over_time:
+		field.ball.set_pos(field.center)
+		_teams_switch_sides()
+		_recover_stamina(5)
+	else:
+		match_over = true
 	full_time.emit()
 
+
+func _on_over_time() -> void:
+	field.ball.set_pos(field.center)
+	_teams_switch_sides()
+	_recover_stamina(5)	
+
+
+func _on_full_over_time() -> void:
+	penalties = home_team.stats.goals == away_team.stats.goals
+	if penalties:
+		over_time = false
+		_recover_stamina(5)
+		# TODO show player order selection, and add ALL players
+		# for now, simply 5 players shot in array order
+		right_team.set_state(TeamStatePenalties.new())
+		left_team.set_state(TeamStatePenalties.new())
+	else:
+		match_over = true
