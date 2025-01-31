@@ -74,7 +74,6 @@ func _physics_process(delta: float) -> void:
 			# reduce show action counter
 			if show_action_ticks > 0:
 				show_action_ticks -= 1
-				print(show_action_ticks)
 
 	# update engine fast
 	else:
@@ -98,7 +97,7 @@ func setup(matchz: Match) -> void:
 	visual_match.setup(self)
 
 	# visual state machine for debug
-	visual_state_machine.setup(visual_match.home_team, visual_match.away_team)
+	visual_state_machine.setup(engine.home_team, engine.away_team)
 
 	# adjust sub viewport to field size + borders
 	sub_viewport.size = visual_match.field.field.size

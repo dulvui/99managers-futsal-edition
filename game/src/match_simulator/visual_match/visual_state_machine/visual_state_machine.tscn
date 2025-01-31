@@ -2,8 +2,7 @@
 
 [ext_resource type="Script" path="res://src/match_simulator/visual_match/visual_state_machine/visual_state_machine.gd" id="1_jrx6i"]
 
-[node name="VisualStateMachine" type="Control"]
-layout_mode = 3
+[node name="VisualStateMachine" type="ScrollContainer"]
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
@@ -12,24 +11,36 @@ grow_vertical = 2
 script = ExtResource("1_jrx6i")
 
 [node name="TeamStates" type="HBoxContainer" parent="."]
-layout_mode = 1
-anchors_preset = -1
-anchor_left = 0.0671875
-anchor_top = 0.157407
-anchor_right = 0.581771
-anchor_bottom = 0.243519
-grow_horizontal = 2
-grow_vertical = 2
-metadata/_edit_use_anchors_ = true
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+alignment = 1
 
-[node name="HomeTeamState" type="Label" parent="TeamStates"]
+[node name="Home" type="VBoxContainer" parent="TeamStates"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="HomeTeamState" type="Label" parent="TeamStates/Home"]
 unique_name_in_owner = true
 layout_mode = 2
 size_flags_horizontal = 3
 horizontal_alignment = 1
 metadata/_edit_use_anchors_ = true
 
-[node name="AwayTeamState" type="Label" parent="TeamStates"]
+[node name="HomePlayer1" type="Label" parent="TeamStates/Home"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+horizontal_alignment = 1
+metadata/_edit_use_anchors_ = true
+
+[node name="Away" type="VBoxContainer" parent="TeamStates"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="AwayTeamState" type="Label" parent="TeamStates/Away"]
 unique_name_in_owner = true
 layout_mode = 2
 size_flags_horizontal = 3
