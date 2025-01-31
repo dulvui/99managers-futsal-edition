@@ -115,6 +115,35 @@ func update() -> void:
 					_on_over_time()
 				elif time == Const.FULL_OVER_TIME_SECONDS:
 					_on_full_over_time()
+	elif penalties:
+		# check if penalties are over
+		var	home_shots: int = home_team.stats.penalty_shootout_shots
+		var	home_goals: int = home_team.stats.penalty_shootout_goals
+
+		var	away_shots: int = away_team.stats.penalty_shootout_shots
+		var	away_goals: int = away_team.stats.penalty_shootout_goals
+
+		# check if teams still need to shoot 5 shots per team
+		if home_shots + away_shots < Const.PENALTY_KICKS * 2:
+			var home_goals_max: int = home_goals + Const.PENALTY_KICKS - home_shots
+			var away_goals_max: int = away_goals + Const.PENALTY_KICKS - away_shots
+			# check if home made more goals than away has made and away still can make
+			if home_goals >	away_goals_max: 
+				match_over = true
+				penalties = false
+				return
+			# check if away made more goals than home has made and home still can make
+			if away_goals >	home_goals_max: 
+				match_over = true
+				penalties = false
+				return
+		# check if one team missed and the other made goal
+		elif home_shots == away_shots:
+			if home_goals != away_goals:
+				match_over = true
+				penalties = false
+				return
+
 
 
 func simulate(end_time: int = -1) -> void:

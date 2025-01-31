@@ -24,6 +24,8 @@ var tackles_success: int = 0
 var corners: int = 0
 var yellow_cards: int = 0
 var red_cards: int = 0
+var penalty_shootout_shots: int = 0
+var penalty_shootout_goals: int = 0
 
 
 func _init(
@@ -44,6 +46,8 @@ func _init(
 	p_corners: int = 0,
 	p_yellow_cards: int = 0,
 	p_red_cards: int = 0,
+	p_penalty_shootout_shots: int = 0,
+	p_penalty_shootout_goals: int = 0,
 ) -> void:
 	goals = p_goals
 	possession = p_possession
@@ -62,3 +66,7 @@ func _init(
 	corners = p_corners
 	yellow_cards = p_yellow_cards
 	red_cards = p_red_cards
+	penalty_shootout_shots = p_penalty_shootout_shots
+	penalty_shootout_goals = p_penalty_shootout_goals
+
+

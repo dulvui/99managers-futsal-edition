@@ -6,7 +6,10 @@ class_name TeamStatePenalties
 extends TeamStateMachineState
 
 
-var shooting_player: int
+var shooting_player_index: int
+var shooting_player: SimPlayer
+var goalkeeper: SimPlayer
+
 
 func _init() -> void:
 	super("TeamStatePenalties")
@@ -14,24 +17,57 @@ func _init() -> void:
 
 func enter() -> void:
 	# start first non goalkeeper player
-	shooting_player = 1
+	shooting_player_index = 0
 
 	# move players to center in line
 	for player: SimPlayer in owner.team.players:
-		var deviation: Vector2 = Vector2(0, 20 * (owner.team.players.find(player) + 1))
-		if owner.team.left_half:
-			deviation = -deviation
-		player.set_destination(owner.field.center)
-		player.set_state(PlayerStateIdle.new())
+		move_to_center(player)
+		
+		if player.is_goalkeeper:
+			goalkeeper = player
 	
 	if owner.team.has_ball:
-		owner.team.players[shooting_player].set_state(PlayerStatePenalty.new())
+		next_shooter(false)
 	else:
-		owner.team.players[0].set_state(PlayerStateGoalkeeperPenalty.new())
+		goalkeeper.set_state(PlayerStateGoalkeeperPenalty.new())
 
 
 func execute() -> void:
-	pass
+	# wait for turn to shoot
+	if not owner.team.has_ball:
+		return
+	# wait for shooting player to shoot
+	elif shooting_player != null:
+		if shooting_player.state_machine.state is PlayerStatePenalty:
+			return
+		# player has shoot
+		owner.team.stats.penalty_shootout_shots += 1
+		owner.team.team_opponents.gain_possession()
+		move_to_center(shooting_player)
+		shooting_player	= null
+		goalkeeper.set_state(PlayerStateGoalkeeperPenalty.new())
+	# team gains poss, select next shooter
+	else:
+		move_to_center(goalkeeper)
+		next_shooter()
 
+
+func move_to_center(player: SimPlayer) -> void:
+	if player == null:
+		return
+
+	var deviation: Vector2 = Vector2(0, 20 * (owner.team.players.find(player) + 1))
+	if owner.team.left_half:
+		deviation = -deviation
+	player.set_destination(owner.field.center)
+	player.set_state(PlayerStateIdle.new())
+
+
+func next_shooter(increment: bool = true) -> void:
+	if increment:
+		shooting_player_index += 1
+	
+	shooting_player = owner.team.players[shooting_player_index]
+	owner.team.players[shooting_player].set_state(PlayerStatePenalty.new())
 
 
