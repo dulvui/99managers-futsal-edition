@@ -6,30 +6,33 @@ class_name PlayerStateGoalkeeperPenalty
 extends PlayerStateMachineState
 
 
+var is_saving: bool
+var save_attempt_spot: Vector2
+
+
 func _init() -> void:
 	super("PlayerStateGoalkeeperPenalty")
 
 
+func enter() -> void:
+	owner.player.move_defense_pos()
+
+	is_saving = false
+	# pick random spot where goalkeeper will try to save
+	# deviation on y axis from current pos
+	var save_attempt_spot_y: int = owner.player.rng.randi_range(-owner.field.goals.size / 2, owner.field.goals.size / 2)
+	var save_attempt_spot_x: int = owner.player.rng.randi_range(0, 20)
+	save_attempt_spot = Vector2(save_attempt_spot_x, save_attempt_spot_y)
+
+
 func execute() -> void:
-	# if own team has ball, just move to defense position
-	if owner.team.has_ball:
-		owner.player.move_defense_pos()
+	if not owner.player.destination_reached():
 		return
+	
+	owner.field.penalties_ready = true
 
-	# if close to ball, chase it
-	if owner.player.pos.distance_squared_to(owner.field.ball.pos) < 5600:
-		set_state(PlayerStateChaseBall.new())
-		return
+	if not is_saving and owner.field.ball.is_moving():
+		owner.player.set_destination(save_attempt_spot)
+		is_saving = true
 
-	# only follow if in own half
-	if owner.player.left_half:
-		if owner.field.ball.pos.x < owner.field.size.x / 2:
-			owner.player.set_destination(owner.player.left_base + owner.player.left_base.direction_to(owner.field.ball.pos) * 40)
-		else:
-			owner.player.set_destination(owner.player.left_base)
-	else:
-		if owner.field.ball.pos.x > owner.field.size.x / 2:
-			owner.player.set_destination(owner.player.right_base + owner.player.right_base.direction_to(owner.field.ball.pos) * 40)
-		else:
-			owner.player.set_destination(owner.player.right_base)
 

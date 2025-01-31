@@ -6,6 +6,7 @@ class_name PlayerStatePenalty
 extends PlayerStateMachineState
 
 
+
 func _init() -> void:
 	super("PlayerStatePenalty")
 
@@ -19,3 +20,13 @@ func execute() -> void:
 	# wait for player to reach spot
 	if not owner.player.destination_reached():
 		return
+	
+	# wait for goalkeeper to be ready
+	if not owner.field.penalties_ready:
+		return
+
+	# TODO use penalty abilities
+	owner.field.ball.shoot_on_goal(owner.player.player_res, true)
+
+	# go idle and let team move player back to center, if needed
+	owner.player.set_state(PlayerStateIdle.new())

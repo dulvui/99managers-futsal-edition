@@ -41,10 +41,11 @@ func execute() -> void:
 		if shooting_player.state_machine.state is PlayerStatePenalty:
 			return
 		# player has shoot
-		owner.team.stats.penalty_shootout_shots += 1
+		owner.team.penalties_shot_taken()
 		owner.team.team_opponents.gain_possession()
 		move_to_center(shooting_player)
 		shooting_player	= null
+		owner.field.penalties_ready = false
 		goalkeeper.set_state(PlayerStateGoalkeeperPenalty.new())
 	# team gains poss, select next shooter
 	else:
