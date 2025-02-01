@@ -69,6 +69,6 @@ func next_shooter(increment: bool = true) -> void:
 		shooting_player_index += 1
 	
 	shooting_player = owner.team.players[shooting_player_index]
-	owner.team.players[shooting_player].set_state(PlayerStatePenalty.new())
+	owner.team.players[shooting_player_index].set_state(PlayerStatePenalty.new())
 
 

@@ -71,6 +71,7 @@ func _ready() -> void:
 		# games needs to be started at least once with a valid save state
 		matchz.home = Tests.create_mock_team()
 		matchz.away = Tests.create_mock_team()
+
 		# if running match scene, set Global team to home team
 		if not Global.team:
 			Global.team = matchz.home

@@ -81,6 +81,11 @@ func setup(p_matchz: Match) -> void:
 	home_team.penalties_shot.connect(_on_penalties_shot)
 	away_team.penalties_shot.connect(_on_penalties_shot)
 
+	# test penalties
+	if DebugUtil.penalties_test:
+		over_time = true
+		_on_full_over_time()
+
 
 func update() -> void:
 	ticks += 1
