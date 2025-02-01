@@ -23,6 +23,9 @@ func enter() -> void:
 	for player: SimPlayer in owner.team.players:
 		move_to_center(player)
 		
+		# set all players to right half, so they shoot on left goal
+		player.left_half = false
+		
 		if player.is_goalkeeper:
 			goalkeeper = player
 	

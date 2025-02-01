@@ -15,7 +15,7 @@ func _init() -> void:
 
 
 func enter() -> void:
-	owner.player.move_defense_pos()
+	owner.player.set_destination(owner.field.goals.left)
 
 	is_saving = false
 	# pick random spot where goalkeeper will try to save
