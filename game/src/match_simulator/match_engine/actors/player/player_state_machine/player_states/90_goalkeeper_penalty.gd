@@ -15,6 +15,7 @@ func _init() -> void:
 
 
 func enter() -> void:
+	owner.player.head_look = owner.field.goals.left
 	owner.player.set_destination(owner.field.goals.left)
 
 	is_saving = false
@@ -29,6 +30,7 @@ func execute() -> void:
 	if not owner.player.destination_reached():
 		return
 	
+	owner.player.head_look = Vector2.ZERO
 	owner.field.penalties_ready = true
 
 	if not is_saving and owner.field.ball.is_moving():

@@ -23,9 +23,6 @@ func enter() -> void:
 	for player: SimPlayer in owner.team.players:
 		move_to_center(player)
 		
-		# set all players to right half, so they shoot on left goal
-		player.left_half = false
-		
 		if player.is_goalkeeper:
 			goalkeeper = player
 	
@@ -63,6 +60,7 @@ func move_to_center(player: SimPlayer) -> void:
 	var deviation: Vector2 = Vector2(0, 20 * (owner.team.players.find(player) + 1))
 	if owner.team.left_half:
 		deviation = -deviation
+	player.head_look = owner.field.center
 	player.set_destination(owner.field.center)
 	player.set_state(PlayerStateIdle.new())
 
@@ -70,6 +68,7 @@ func move_to_center(player: SimPlayer) -> void:
 func next_shooter(increment: bool = true) -> void:
 	if increment:
 		shooting_player_index += 1
+		shooting_player_index %= owner.team.players.size()
 	
 	shooting_player = owner.team.players[shooting_player_index]
 	owner.team.players[shooting_player_index].set_state(PlayerStatePenalty.new())

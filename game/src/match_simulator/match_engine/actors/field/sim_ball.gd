@@ -92,7 +92,7 @@ func shoot_on_goal(player: Player, left_half: bool) -> void:
 		0, rng.randi_range(-field.goals.size * 1.5, field.goals.size * 1.5)
 	)
 
-	shoot(random_target, power * rng.randi_range(2, 6))
+	shoot(random_target, power * rng.randi_range(1, 3))
 
 
 func stop() -> void:
