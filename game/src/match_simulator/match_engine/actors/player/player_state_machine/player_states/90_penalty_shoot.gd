@@ -2,14 +2,14 @@
 
 # SPDX-License-Identifier: AGPL-3.0-or-later
 
-class_name PlayerStatePenalty
+class_name PlayerStatePenaltyShoot
 extends PlayerStateMachineState
 
 
 var wait: int
 
 func _init() -> void:
-	super("PlayerStatePenalty")
+	super("PlayerStatePenaltyShoot")
 
 
 func enter() -> void:
