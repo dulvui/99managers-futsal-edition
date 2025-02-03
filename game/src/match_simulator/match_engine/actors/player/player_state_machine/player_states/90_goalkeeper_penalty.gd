@@ -31,7 +31,7 @@ func execute() -> void:
 		return
 	
 	owner.player.head_look = Vector2.ZERO
-	owner.field.penalties_ready = true
+	owner.field.penalty_ready = true
 
 	if not is_saving and owner.field.ball.is_moving():
 		owner.player.set_destination(save_attempt_spot)

@@ -46,9 +46,10 @@ var penalty_areas: SimPenaltyAreas
 var clock_running: bool
 var goalkeeper_ball: bool
 var kickin: bool
+var penalties: bool
 # flag to see if during penalties goalkeeper and player are ready
 # could potentially be replaced with referree
-var penalties_ready: bool
+var penalty_ready: bool
 
 # add all resources here, so they can be accessedeasily
 # especiially inside the state machines
@@ -97,7 +98,8 @@ func _init(rng: RandomNumberGenerator) -> void:
 	clock_running = false
 	goalkeeper_ball = false
 	kickin = false
-	penalties_ready = false
+	penalties = false
+	penalty_ready = false
 
 	# field calculator
 	calculator = SimFieldCalculator.new(self)
@@ -135,6 +137,11 @@ func update() -> void:
 		# _check_ball_wall_colissions()
 		_check_ball_players_colissions()
 		# _check_player_colissions()
+	elif penalties:
+		_check_goal_line_penalties()
+		goals.check_post_colissions(ball)
+
+
 
 
 func force_update_calculator() -> void:
@@ -187,6 +194,7 @@ func _check_goal_line() -> bool:
 
 		goal_line_out_left.emit()
 		return true
+		
 	# right
 	if ball.pos.x > line_right:
 		clock_running = false
@@ -269,3 +277,14 @@ func _check_player_colissions() -> void:
 					player.stop()
 
 
+func _check_goal_line_penalties() -> void:
+	# left
+	if ball.pos.x < line_left:
+		if goals.is_goal_left(ball):
+			goal_left.emit()
+		ball.stop()
+	# right
+	if ball.pos.x > line_right:
+		if goals.is_goal_right(ball):
+			goal_right.emit()
+		ball.stop()

@@ -45,7 +45,7 @@ func execute() -> void:
 		owner.team.team_opponents.gain_possession()
 		shooting_player.set_state(PlayerStatePenalties.new())
 		shooting_player	= null
-		owner.field.penalties_ready = false
+		owner.field.penalty_ready = false
 		goalkeeper.set_state(PlayerStateGoalkeeperPenalty.new())
 	# team gains poss, select next shooter
 	else:

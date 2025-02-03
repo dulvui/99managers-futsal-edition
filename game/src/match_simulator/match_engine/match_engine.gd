@@ -77,13 +77,11 @@ func setup(p_matchz: Match) -> void:
 	field.left_team = home_team
 	field.right_team = away_team
 
-	# connect penalty shootout signals
-	home_team.penalties_shot.connect(_on_penalties_shot)
-	away_team.penalties_shot.connect(_on_penalties_shot)
-
 	# test penalties
 	if DebugUtil.penalties_test:
-		over_time = true
+		no_draw = true
+		_on_full_time()
+		_on_over_time()
 		_on_full_over_time()
 
 
@@ -307,39 +305,57 @@ func _on_full_over_time() -> void:
 	if penalties:
 		over_time = false
 		_recover_stamina(5)
+		# disconnect goal signals
+		field.touch_line_out.disconnect(_on_touch_line_out)
+		field.goal_line_out_left.disconnect(_on_goal_line_out_left)
+		field.goal_line_out_right.disconnect(_on_goal_line_out_right)
+		field.goal_left.disconnect(_on_goal_left)
+		field.goal_right.disconnect(_on_goal_right)
+		# reconnect goal signals
+		field.goal_left.connect(_on_penalties_goal)
+		field.goal_right.connect(_on_penalties_goal)
+
 		# TODO show player order selection, and add ALL players
 		# for now, simply 5 players shot in array order
-		right_team.set_state(TeamStatePenalties.new())
+		field.penalties = true
 		left_team.set_state(TeamStatePenalties.new())
+		right_team.set_state(TeamStatePenalties.new())
 	else:
 		match_over = true
 
 
-func _on_penalties_shot() -> void:
-		# check if penalties are over
-		var	home_shots: int = home_team.stats.penalty_shootout_shots
-		var	home_goals: int = home_team.stats.penalty_shootout_goals
+func _check_penalties_over() -> void:
+	var	home_shots: int = home_team.stats.penalty_shootout_shots
+	var	home_goals: int = home_team.stats.penalty_shootout_goals
 
-		var	away_shots: int = away_team.stats.penalty_shootout_shots
-		var	away_goals: int = away_team.stats.penalty_shootout_goals
+	var	away_shots: int = away_team.stats.penalty_shootout_shots
+	var	away_goals: int = away_team.stats.penalty_shootout_goals
 
-		# check if teams still need to shoot 5 shots per team
-		if home_shots + away_shots < Const.PENALTY_KICKS * 2:
-			var home_goals_max: int = home_goals + Const.PENALTY_KICKS - home_shots
-			var away_goals_max: int = away_goals + Const.PENALTY_KICKS - away_shots
-			# check if home made more goals than away has made and away still can make
-			if home_goals >	away_goals_max: 
-				match_over = true
-				penalties = false
-				return
-			# check if away made more goals than home has made and home still can make
-			if away_goals >	home_goals_max: 
-				match_over = true
-				penalties = false
-				return
-		# check if one team missed and the other made goal
-		elif home_shots == away_shots:
-			if home_goals != away_goals:
-				match_over = true
-				penalties = false
-				return
+	# check if teams still need to shoot 5 shots per team
+	if home_shots + away_shots < Const.PENALTY_KICKS * 2:
+		var home_goals_max: int = home_goals + Const.PENALTY_KICKS - home_shots
+		var away_goals_max: int = away_goals + Const.PENALTY_KICKS - away_shots
+		# check if home made more goals than away has made and away still can make
+		if home_goals >	away_goals_max: 
+			match_over = true
+			penalties = false
+			return
+		# check if away made more goals than home has made and home still can make
+		if away_goals >	home_goals_max: 
+			match_over = true
+			penalties = false
+			return
+	# check if one team missed and the other made goal
+	elif home_shots == away_shots:
+		if home_goals != away_goals:
+			match_over = true
+			penalties = false
+			return
+
+
+func _on_penalties_goal() -> void:
+	if left_team.has_ball:
+		left_team.stats.penalty_shootout_goals += 1
+	else:
+		right_team.stats.penalty_shootout_goals += 1
+

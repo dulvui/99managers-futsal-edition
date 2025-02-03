@@ -28,7 +28,7 @@ func execute() -> void:
 	owner.player.head_look = Vector2.ZERO
 	
 	# wait for goalkeeper to be ready
-	if not owner.field.penalties_ready:
+	if not owner.field.penalty_ready:
 		return
 
 	# TODO use penalty abilities
