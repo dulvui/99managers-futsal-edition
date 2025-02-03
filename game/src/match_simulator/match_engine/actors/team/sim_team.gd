@@ -5,6 +5,7 @@
 class_name SimTeam
 
 signal player_changed
+signal penalties_shot
 
 # player should stay at least 2 minutes in field before he can be changed
 const PLAYER_MIN_TICKS_IN_FIELD: int = Const.TICKS_LOGIC * 120
@@ -267,6 +268,7 @@ func shoot_on_goal(_player: Player) -> void:
 
 func penalties_shot_taken() -> void:
 	stats.penalty_shootout_shots += 1
+	penalties_shot.emit()
 
 
 func _set_start_positions() -> void:

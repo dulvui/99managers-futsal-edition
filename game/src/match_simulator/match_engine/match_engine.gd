@@ -314,6 +314,9 @@ func _on_full_over_time() -> void:
 		# reconnect goal signals
 		field.goal_left.connect(_on_penalties_goal)
 		field.goal_right.connect(_on_penalties_goal)
+		# connect team penaties shot signals
+		left_team.penalties_shot.connect(_check_penalties_over)
+		right_team.penalties_shot.connect( _check_penalties_over)
 
 		# TODO show player order selection, and add ALL players
 		# for now, simply 5 players shot in array order
