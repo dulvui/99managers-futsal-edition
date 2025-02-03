@@ -17,7 +17,7 @@ func _init() -> void:
 
 func enter() -> void:
 	# start first non goalkeeper player
-	shooting_player_index = 0
+	shooting_player_index = 1
 
 	# move players to center in line
 	for player: SimPlayer in owner.team.players:
@@ -36,20 +36,25 @@ func execute() -> void:
 	# wait for turn to shoot
 	if not owner.team.has_ball:
 		return
+
 	# wait for shooting player to shoot
-	elif shooting_player != null:
+	if shooting_player != null:
 		if shooting_player.state_machine.state is PlayerStatePenaltyShoot:
 			return
 		# player has shoot
 		owner.team.penalties_shot_taken()
-		owner.team.team_opponents.gain_possession()
+		# move player that has just shot to center
 		shooting_player.set_state(PlayerStatePenalties.new())
 		shooting_player	= null
-		owner.field.penalty_ready = false
+		# make goalkeeper active
 		goalkeeper.set_state(PlayerStateGoalkeeperPenalty.new())
-	# team gains poss, select next shooter
+		# change possession
+		owner.team.team_opponents.gain_possession()
+	# team just gained possess
 	else:
+		# move goalkeeper to center
 		goalkeeper.set_state(PlayerStatePenalties.new())
+		# select next shooter
 		next_shooter()
 
 

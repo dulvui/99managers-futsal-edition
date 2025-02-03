@@ -7,6 +7,7 @@ extends PlayerStateMachineState
 
 
 var wait: int
+var wait_after_shot: int
 
 func _init() -> void:
 	super("PlayerStatePenaltyShoot")
@@ -15,9 +16,10 @@ func _init() -> void:
 func enter() -> void:
 	owner.field.ball.set_pos(owner.field.penalty_areas.spot_left)
 	owner.player.head_look = owner.field.penalty_areas.spot_left
-	owner.player.set_destination(owner.field.penalty_areas.spot_left)
+	owner.player.set_destination(owner.field.penalty_areas.spot_left + Vector2(10, 0))
 
-	wait = 4
+	wait = owner.player.rng.randi_range(2, 7)
+	wait_after_shot = owner.player.rng.randi_range(2, 7)
 
 
 func execute() -> void:
@@ -31,11 +33,15 @@ func execute() -> void:
 	if not owner.field.penalty_ready:
 		return
 
+	if wait > 0:
+		wait -= 1
+		return
+
 	# TODO use penalty abilities
 	owner.field.ball.shoot_on_goal(owner.player.player_res, false)
 
-	if wait > 0:
-		wait -= 1
+	if wait_after_shot > 0:
+		wait_after_shot -= 1
 		return
 
 	# go idle and let team move player back to center, if needed

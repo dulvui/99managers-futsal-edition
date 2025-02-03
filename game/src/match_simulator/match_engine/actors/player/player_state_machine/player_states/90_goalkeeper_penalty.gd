@@ -15,6 +15,8 @@ func _init() -> void:
 
 
 func enter() -> void:
+	owner.field.penalty_ready = false
+
 	owner.player.head_look = owner.field.goals.left
 	owner.player.set_destination(owner.field.goals.left)
 
