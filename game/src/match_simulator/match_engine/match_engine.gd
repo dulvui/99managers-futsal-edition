@@ -7,6 +7,7 @@ class_name MatchEngine
 signal half_time
 signal full_time
 signal update_time
+signal penalties_shootout
 
 signal goal
 # signal key_action
@@ -80,6 +81,7 @@ func setup(p_matchz: Match) -> void:
 	# test penalties
 	if DebugUtil.penalties_test:
 		no_draw = true
+		_on_half_time()
 		_on_full_time()
 		_on_over_time()
 		_on_full_over_time()
@@ -317,6 +319,8 @@ func _on_full_over_time() -> void:
 		# connect team penaties shot signals
 		left_team.penalties_shot.connect(_check_penalties_over)
 		right_team.penalties_shot.connect( _check_penalties_over)
+		
+		penalties_shootout.emit()
 
 		# TODO show player order selection, and add ALL players
 		# for now, simply 5 players shot in array order

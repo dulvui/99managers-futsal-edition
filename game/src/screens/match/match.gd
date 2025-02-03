@@ -54,8 +54,8 @@ var away_stats: MatchStatistics
 @onready var simulate_button: Button = %SimulateButton
 @onready var dashboard_button: Button = %DashboardButton
 
+@onready var bottom_bar: VBoxContainer = %BottomBar
 @onready var players_bar: PlayersBar = %PlayersBar
-
 @onready var penalties_bar: PenaltiesBar = %PenaltiesBar
 
 var minutes: int
@@ -132,11 +132,13 @@ func _ready() -> void:
 	match_simulator.engine.update_time.connect(_on_update_time)
 	# match_simulator.show_me.connect(_on_match_simulator_show)
 	# match_simulator.hide_me.connect(_on_match_simulator_hide)
-	match_simulator.engine.left_team.penalties_shot.connect(func() -> void: penalties_bar.update())
-	match_simulator.engine.right_team.penalties_shot.connect(func() -> void: penalties_bar.update())
+	match_simulator.engine.home_team.penalties_shot.connect(func() -> void: penalties_bar.update())
+	match_simulator.engine.away_team.penalties_shot.connect(func() -> void: penalties_bar.update())
 
-	penalties_bar.setup(match_simulator.engine)
+	match_simulator.engine.penalties_shootout.connect(_on_engine_penalties_shootout)
 
+	if DebugUtil.penalties_test:
+		_on_engine_penalties_shootout()
 
 
 func _on_match_simulator_show() -> void:
@@ -279,3 +281,10 @@ func _on_players_bar_change_request() -> void:
 	# formation.set_players()
 	match_simulator.engine.home_team.change_players_request()
 	match_simulator.engine.away_team.change_players_request()
+
+
+func _on_engine_penalties_shootout() -> void:
+	bottom_bar.hide()
+	penalties_bar.show()
+	penalties_bar.setup(match_simulator.engine)
+
