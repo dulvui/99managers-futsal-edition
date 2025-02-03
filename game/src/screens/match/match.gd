@@ -56,6 +56,7 @@ var away_stats: MatchStatistics
 
 @onready var players_bar: PlayersBar = %PlayersBar
 
+@onready var penalties_bar: PenaltiesBar = %PenaltiesBar
 
 var minutes: int
 var seconds: int
@@ -131,6 +132,11 @@ func _ready() -> void:
 	match_simulator.engine.update_time.connect(_on_update_time)
 	# match_simulator.show_me.connect(_on_match_simulator_show)
 	# match_simulator.hide_me.connect(_on_match_simulator_hide)
+	match_simulator.engine.left_team.penalties_shot.connect(func() -> void: penalties_bar.update())
+	match_simulator.engine.right_team.penalties_shot.connect(func() -> void: penalties_bar.update())
+
+	penalties_bar.setup(match_simulator.engine)
+
 
 
 func _on_match_simulator_show() -> void:

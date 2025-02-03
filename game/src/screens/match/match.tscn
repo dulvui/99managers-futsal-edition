@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=3 uid="uid://0u70bm8qumdr"]
+[gd_scene load_steps=11 format=3 uid="uid://0u70bm8qumdr"]
 
 [ext_resource type="PackedScene" uid="uid://bubq3rsb3hm6e" path="res://src/match_simulator/match_simulator.tscn" id="1"]
 [ext_resource type="Theme" uid="uid://pt1hrfiuwfpg" path="res://theme_base/theme.tres" id="2"]
@@ -9,6 +9,7 @@
 [ext_resource type="LabelSettings" uid="uid://cc2vi4onhgmnw" path="res://theme_base/label/label_settings_bold.tres" id="5_8e8d2"]
 [ext_resource type="PackedScene" uid="uid://5agy8ull675s" path="res://src/screens/match/events/match_events.tscn" id="6"]
 [ext_resource type="PackedScene" uid="uid://bj7f2r54xkpt1" path="res://src/ui_components/visual_formation/players_bar/players_bar.tscn" id="7_kly0w"]
+[ext_resource type="PackedScene" uid="uid://dvuxwugywbeut" path="res://src/screens/match/penalties_bar/penalties_bar.tscn" id="10_4cv1g"]
 
 [node name="Match" type="Control"]
 layout_mode = 3
@@ -235,6 +236,10 @@ modulate = Color(1, 1, 1, 0)
 layout_mode = 2
 size_flags_horizontal = 3
 
+[node name="PenaltiesBar" parent="Main/Content" instance=ExtResource("10_4cv1g")]
+unique_name_in_owner = true
+layout_mode = 2
+
 [node name="MainView" type="MarginContainer" parent="Main/Content"]
 layout_mode = 2
 size_flags_vertical = 3
@@ -280,6 +285,7 @@ visible = false
 layout_mode = 2
 
 [node name="BottomBar" type="VBoxContainer" parent="Main/Content"]
+unique_name_in_owner = true
 layout_mode = 2
 theme_override_constants/separation = 20
 

@@ -1,0 +1,113 @@
+[gd_scene load_steps=2 format=3 uid="uid://dvuxwugywbeut"]
+
+[ext_resource type="Script" path="res://src/screens/match/penalties_bar/penalties_bar.gd" id="1_vuinl"]
+
+[node name="PenaltiesBar" type="GridContainer"]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -115.5
+offset_top = -38.5
+offset_right = 115.5
+offset_bottom = 38.5
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 4
+columns = 6
+script = ExtResource("1_vuinl")
+
+[node name="Title" type="Label" parent="."]
+layout_mode = 2
+text = "PENALTIES"
+
+[node name="ShotIndex1" type="Label" parent="."]
+unique_name_in_owner = true
+layout_mode = 2
+text = "1"
+horizontal_alignment = 1
+
+[node name="ShotIndex2" type="Label" parent="."]
+unique_name_in_owner = true
+layout_mode = 2
+text = "2"
+horizontal_alignment = 1
+
+[node name="ShotIndex3" type="Label" parent="."]
+unique_name_in_owner = true
+layout_mode = 2
+text = "3"
+horizontal_alignment = 1
+
+[node name="ShotIndex4" type="Label" parent="."]
+unique_name_in_owner = true
+layout_mode = 2
+text = "4"
+horizontal_alignment = 1
+
+[node name="ShotIndex5" type="Label" parent="."]
+unique_name_in_owner = true
+layout_mode = 2
+text = "5"
+horizontal_alignment = 1
+
+[node name="FirstTeam" type="Label" parent="."]
+unique_name_in_owner = true
+layout_mode = 2
+text = "First"
+
+[node name="FirstResult1" type="ColorRect" parent="."]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(23, 0)
+layout_mode = 2
+
+[node name="FirstResult2" type="ColorRect" parent="."]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(23, 0)
+layout_mode = 2
+
+[node name="FirstResult3" type="ColorRect" parent="."]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(23, 0)
+layout_mode = 2
+
+[node name="FirstResult4" type="ColorRect" parent="."]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(23, 0)
+layout_mode = 2
+
+[node name="FirstResult5" type="ColorRect" parent="."]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(23, 0)
+layout_mode = 2
+
+[node name="SecondTeam" type="Label" parent="."]
+unique_name_in_owner = true
+layout_mode = 2
+text = "Second"
+
+[node name="SecondResult1" type="ColorRect" parent="."]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(23, 0)
+layout_mode = 2
+
+[node name="SecondResult2" type="ColorRect" parent="."]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(23, 0)
+layout_mode = 2
+
+[node name="SecondResult3" type="ColorRect" parent="."]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(23, 0)
+layout_mode = 2
+
+[node name="SecondResult4" type="ColorRect" parent="."]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(23, 0)
+layout_mode = 2
+
+[node name="SecondResult5" type="ColorRect" parent="."]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(23, 0)
+layout_mode = 2
