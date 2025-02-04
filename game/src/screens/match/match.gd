@@ -135,10 +135,10 @@ func _ready() -> void:
 	match_simulator.engine.home_team.penalties_shot.connect(func() -> void: penalties_bar.update())
 	match_simulator.engine.away_team.penalties_shot.connect(func() -> void: penalties_bar.update())
 
-	match_simulator.engine.penalties_shootout.connect(_on_engine_penalties_shootout)
+	match_simulator.engine.penalties_start.connect(_on_engine_penalties_start)
 
 	if DebugUtil.penalties_test:
-		_on_engine_penalties_shootout()
+		_on_engine_penalties_start()
 
 
 func _on_match_simulator_show() -> void:
@@ -283,8 +283,8 @@ func _on_players_bar_change_request() -> void:
 	match_simulator.engine.away_team.change_players_request()
 
 
-func _on_engine_penalties_shootout() -> void:
+func _on_engine_penalties_start() -> void:
 	bottom_bar.hide()
 	penalties_bar.show()
-	penalties_bar.setup(match_simulator.engine)
+	penalties_bar.setup(match_simulator.engine.home_team, match_simulator.engine.away_team)
 

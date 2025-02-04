@@ -23,9 +23,13 @@ var second_result: Array[ColorRect]
 @onready var second_label: Label = %SecondTeam
 
 
-func setup(engine: MatchEngine) -> void:
-	first_team = engine.home_team
-	second_team = engine.away_team
+func setup(home_team: SimTeam, away_team: SimTeam) -> void:
+	if home_team.has_ball:
+		first_team = home_team
+		second_team = away_team
+	else:
+		first_team = away_team
+		second_team = home_team
 
 	shots_index = 0
 	first_goals = 0
@@ -36,9 +40,7 @@ func setup(engine: MatchEngine) -> void:
 	# shot number indicators in first line
 	number_labels =	[]
 	for i: int in Const.PENALTY_KICKS:
-		var label: Label = Label.new()
-		label.text = str(i + 1)
-		add_child(label)
+		var label: Label = get_node("ShotIndex" + str(i + 1))
 		number_labels.append(label)
 
 	# team labels
@@ -60,6 +62,28 @@ func setup(engine: MatchEngine) -> void:
 
 
 func update() -> void:
+	# first 5 shots already taken
+	# update shot index labels and shift results one left
+	if shots_index % 2 == 0 and shots_index >= Const.PENALTY_KICKS * 2:
+		# increment number labels
+		for label: Label in number_labels:
+			label.text = str(int(label.text) + 1)
+		# shift colors
+		for i: int in Const.PENALTY_KICKS - 2:
+			# first team
+			var first_color_rect: ColorRect = get_node("FirstResult" + str(i + 1))
+			var first_color_rect2: ColorRect = get_node("FirstResult" + str(i + 2))
+			first_color_rect.color = first_color_rect2.color
+			# second team
+			var second_color_rect: ColorRect = get_node("SecondResult" + str(i + 1))
+			var second_color_rect2: ColorRect = get_node("SecondResult" + str(i + 2))
+			second_color_rect.color = second_color_rect2.color
+		# make last one white again
+		var first_color_rect_last: ColorRect = get_node("FirstResult5")
+		first_color_rect_last.color = Color.WHITE
+		var second_color_rect_last: ColorRect = get_node("SecondResult5")
+		second_color_rect_last.color = Color.WHITE
+	
 	if shots_index % 2 == 0:
 		# first team
 		if first_team.stats.penalty_shootout_goals == first_goals:
@@ -70,10 +94,21 @@ func update() -> void:
 			first_result[first_result_index].color = Color.GREEN
 
 		# increase index
-		if first_result_index < Const.PENALTY_KICKS:
+		if first_result_index < Const.PENALTY_KICKS - 1:
 			first_result_index += 1
+	else:
+		# second team
+		if second_team.stats.penalty_shootout_goals == second_goals:
+			# miss
+			second_result[second_result_index].color = Color.RED
+		else:
+			second_goals += 1
+			second_result[second_result_index].color = Color.GREEN
+
+		# increase index
+		if second_result_index < Const.PENALTY_KICKS - 1:
+			second_result_index += 1
 		# first 5 shots already taken
 		# update shot index labels and shift results one left
-
 
 	shots_index += 1

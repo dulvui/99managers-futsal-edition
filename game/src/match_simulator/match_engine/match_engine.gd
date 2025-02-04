@@ -7,7 +7,7 @@ class_name MatchEngine
 signal half_time
 signal full_time
 signal update_time
-signal penalties_shootout
+signal penalties_start
 
 signal goal
 # signal key_action
@@ -320,7 +320,7 @@ func _on_full_over_time() -> void:
 		left_team.penalties_shot.connect(_check_penalties_over)
 		right_team.penalties_shot.connect( _check_penalties_over)
 		
-		penalties_shootout.emit()
+		penalties_start.emit()
 
 		# TODO show player order selection, and add ALL players
 		# for now, simply 5 players shot in array order
@@ -361,6 +361,7 @@ func _check_penalties_over() -> void:
 
 
 func _on_penalties_goal() -> void:
+	print("goalll")
 	if left_team.has_ball:
 		left_team.stats.penalty_shootout_goals += 1
 	else:

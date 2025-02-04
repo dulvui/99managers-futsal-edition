@@ -37,7 +37,6 @@ func execute() -> void:
 		wait -= 1
 		return
 
-	# TODO use penalty abilities
 	owner.field.ball.penalty(owner.player.player_res, false)
 
 	if wait_after_shot > 0:
