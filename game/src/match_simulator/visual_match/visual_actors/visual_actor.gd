@@ -26,6 +26,7 @@ func setup(p_pos: Vector2) -> void:
 	last_pos = p_pos
 	time_passed = 0.0
 	factor = 0
+	update_interval = 1.0 / Const.TICKS
 
 
 func update(p_pos: Vector2) -> void:

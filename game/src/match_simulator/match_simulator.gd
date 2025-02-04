@@ -58,18 +58,17 @@ func _physics_process(delta: float) -> void:
 			visual_match.ball.update(ball_entry.pos)
 
 			# update visual teams
-			if ticks % Const.TICKS_LOGIC == 0:
-				var teams_entry: MatchBufferEntryTeams = teams_buffer.get_entry()
-				visual_match.home_team.update(
-					teams_entry.home_pos,
-					teams_entry.home_info,
-					teams_entry.home_head_look
-				)
-				visual_match.away_team.update(
-					teams_entry.away_pos,
-					teams_entry.away_info,
-					teams_entry.away_head_look
-				)
+			var teams_entry: MatchBufferEntryTeams = teams_buffer.get_entry()
+			visual_match.home_team.update(
+				teams_entry.home_pos,
+				teams_entry.home_info,
+				teams_entry.home_head_look
+			)
+			visual_match.away_team.update(
+				teams_entry.away_pos,
+				teams_entry.away_info,
+				teams_entry.away_head_look
+			)
 			
 			# reduce show action counter
 			if show_action_ticks > 0:
@@ -162,7 +161,6 @@ func _on_engine_goal() -> void:
 func _update_engine() -> void:
 	engine.update()
 	ball_buffer.save(engine)
-	if engine.ticks % Const.TICKS_LOGIC == 0:
-		teams_buffer.save(engine)
+	teams_buffer.save(engine)
 
 

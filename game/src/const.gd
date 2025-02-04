@@ -44,7 +44,7 @@ const TICKS: int = 32
 # is always relative to TICKS
 const TICKS_LOGIC: int = 8
 
-const SPEED: float = 1.0
+const SPEED: float = 0.6
 
 # stamina range [0, 1]
 # this factor makes sure a player with attribute stamina 20

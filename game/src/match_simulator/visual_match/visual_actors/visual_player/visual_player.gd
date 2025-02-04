@@ -36,7 +36,6 @@ func setup(
 	p_ball: VisualBall = null,	
 ) -> void:
 	super(p_pos)
-	update_interval = 1.0 / (float(Const.TICKS) / float(Const.TICKS_LOGIC))
 	player_info = p_player_info
 	body.modulate = shirt_color
 	ball = p_ball
