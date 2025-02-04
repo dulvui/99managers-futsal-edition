@@ -133,16 +133,14 @@ func update() -> void:
 			_check_touch_line()
 		goals.check_post_colissions(ball)
 
-		# collissions
-		# _check_ball_wall_colissions()
+		_check_ball_wall_colissions()
 		_check_ball_players_colissions()
 		# _check_player_colissions()
 	elif penalties:
+		_check_ball_wall_colissions()
 		_check_goal_line_penalties()
 		_check_ball_players_colissions()
 		goals.check_post_colissions(ball)
-
-
 
 
 func force_update_calculator() -> void:
