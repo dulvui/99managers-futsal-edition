@@ -38,7 +38,7 @@ func execute() -> void:
 		return
 
 	# TODO use penalty abilities
-	owner.field.ball.shoot_on_goal(owner.player.player_res, false)
+	owner.field.ball.penalty(owner.player.player_res, false)
 
 	if wait_after_shot > 0:
 		wait_after_shot -= 1

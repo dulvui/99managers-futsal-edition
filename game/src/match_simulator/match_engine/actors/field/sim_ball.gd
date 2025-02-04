@@ -89,7 +89,28 @@ func shoot_on_goal(player: Player, left_half: bool) -> void:
 		random_target = field.goals.left
 
 	random_target += Vector2(
-		0, rng.randi_range(-field.goals.size * 1.5, field.goals.size * 1.5)
+		0, rng.randi_range(-field.goals.size, field.goals.size)
+	)
+
+	shoot(random_target, power * rng.randi_range(1, 3))
+
+
+func penalty(player: Player, left_half: bool) -> void:
+	var power: int = player.attributes.technical.shooting
+
+	var random_target: Vector2
+	if left_half:
+		random_target = field.goals.right
+	else:
+		random_target = field.goals.left
+	
+	# 1.0 best, 0.05 worst
+	var aim_factor: float = 20.0 / player.attributes.technical.penalty
+	# 0.5 best, 1.45 worst
+	var aim: float = 0.5 + (1.0 - aim_factor)
+
+	random_target += Vector2(
+		0, rng.randi_range(-field.goals.size * aim, field.goals.size * aim)
 	)
 
 	shoot(random_target, power * rng.randi_range(1, 3))
