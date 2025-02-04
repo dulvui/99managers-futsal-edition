@@ -3,7 +3,7 @@
 # SPDX-License-Identifier: AGPL-3.0-or-later
 
 class_name PenaltiesBar
-extends GridContainer
+extends PanelContainer
 
 var shots_index: int
 
@@ -19,6 +19,7 @@ var number_labels: Array[Label]
 var first_result: Array[ColorRect]
 var second_result: Array[ColorRect]
 
+@onready var grid: GridContainer = %GridContainer
 @onready var first_label: Label = %FirstTeam
 @onready var second_label: Label = %SecondTeam
 
@@ -40,7 +41,7 @@ func setup(home_team: SimTeam, away_team: SimTeam) -> void:
 	# shot number indicators in first line
 	number_labels =	[]
 	for i: int in Const.PENALTY_KICKS:
-		var label: Label = get_node("ShotIndex" + str(i + 1))
+		var label: Label = get_node("%ShotIndex" + str(i + 1))
 		number_labels.append(label)
 
 	# team labels
@@ -52,11 +53,11 @@ func setup(home_team: SimTeam, away_team: SimTeam) -> void:
 	second_result = []
 	for i: int in Const.PENALTY_KICKS:
 		# first team
-		var first_color_rect: ColorRect = get_node("FirstResult" + str(i + 1))
+		var first_color_rect: ColorRect = get_node("%FirstResult" + str(i + 1))
 		first_color_rect.color = Color.WHITE
 		first_result.append(first_color_rect)
 		# second team
-		var second_color_rect: ColorRect = get_node("SecondResult" + str(i + 1))
+		var second_color_rect: ColorRect = get_node("%SecondResult" + str(i + 1))
 		second_color_rect.color = Color.WHITE
 		second_result.append(second_color_rect)
 
@@ -71,17 +72,17 @@ func update() -> void:
 		# shift colors
 		for i: int in Const.PENALTY_KICKS - 2:
 			# first team
-			var first_color_rect: ColorRect = get_node("FirstResult" + str(i + 1))
-			var first_color_rect2: ColorRect = get_node("FirstResult" + str(i + 2))
+			var first_color_rect: ColorRect = get_node("%FirstResult" + str(i + 1))
+			var first_color_rect2: ColorRect = get_node("%FirstResult" + str(i + 2))
 			first_color_rect.color = first_color_rect2.color
 			# second team
-			var second_color_rect: ColorRect = get_node("SecondResult" + str(i + 1))
-			var second_color_rect2: ColorRect = get_node("SecondResult" + str(i + 2))
+			var second_color_rect: ColorRect = get_node("%SecondResult" + str(i + 1))
+			var second_color_rect2: ColorRect = get_node("%SecondResult" + str(i + 2))
 			second_color_rect.color = second_color_rect2.color
 		# make last one white again
-		var first_color_rect_last: ColorRect = get_node("FirstResult5")
+		var first_color_rect_last: ColorRect = get_node("%FirstResult5")
 		first_color_rect_last.color = Color.WHITE
-		var second_color_rect_last: ColorRect = get_node("SecondResult5")
+		var second_color_rect_last: ColorRect = get_node("%SecondResult5")
 		second_color_rect_last.color = Color.WHITE
 	
 	if shots_index % 2 == 0:

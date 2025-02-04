@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" path="res://src/screens/match/penalties_bar/penalties_bar.gd" id="1_vuinl"]
 
-[node name="PenaltiesBar" type="GridContainer"]
+[node name="PenaltiesBar" type="PanelContainer"]
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
@@ -15,99 +15,113 @@ offset_bottom = 38.5
 grow_horizontal = 2
 grow_vertical = 2
 size_flags_horizontal = 4
-columns = 6
 script = ExtResource("1_vuinl")
 
-[node name="Title" type="Label" parent="."]
+[node name="MarginContainer" type="MarginContainer" parent="."]
+layout_mode = 2
+theme_override_constants/margin_left = 10
+theme_override_constants/margin_top = 10
+theme_override_constants/margin_right = 10
+theme_override_constants/margin_bottom = 10
+
+[node name="GridContainer" type="GridContainer" parent="MarginContainer"]
+layout_mode = 2
+columns = 6
+
+[node name="Title" type="Label" parent="MarginContainer/GridContainer"]
+custom_minimum_size = Vector2(150, 0)
 layout_mode = 2
 text = "PENALTIES"
+text_overrun_behavior = 3
 
-[node name="ShotIndex1" type="Label" parent="."]
+[node name="ShotIndex1" type="Label" parent="MarginContainer/GridContainer"]
 unique_name_in_owner = true
 layout_mode = 2
 text = "1"
 horizontal_alignment = 1
 
-[node name="ShotIndex2" type="Label" parent="."]
+[node name="ShotIndex2" type="Label" parent="MarginContainer/GridContainer"]
 unique_name_in_owner = true
 layout_mode = 2
 text = "2"
 horizontal_alignment = 1
 
-[node name="ShotIndex3" type="Label" parent="."]
+[node name="ShotIndex3" type="Label" parent="MarginContainer/GridContainer"]
 unique_name_in_owner = true
 layout_mode = 2
 text = "3"
 horizontal_alignment = 1
 
-[node name="ShotIndex4" type="Label" parent="."]
+[node name="ShotIndex4" type="Label" parent="MarginContainer/GridContainer"]
 unique_name_in_owner = true
 layout_mode = 2
 text = "4"
 horizontal_alignment = 1
 
-[node name="ShotIndex5" type="Label" parent="."]
+[node name="ShotIndex5" type="Label" parent="MarginContainer/GridContainer"]
 unique_name_in_owner = true
 layout_mode = 2
 text = "5"
 horizontal_alignment = 1
 
-[node name="FirstTeam" type="Label" parent="."]
+[node name="FirstTeam" type="Label" parent="MarginContainer/GridContainer"]
 unique_name_in_owner = true
 layout_mode = 2
 text = "First"
+text_overrun_behavior = 3
 
-[node name="FirstResult1" type="ColorRect" parent="."]
+[node name="FirstResult1" type="ColorRect" parent="MarginContainer/GridContainer"]
 unique_name_in_owner = true
 custom_minimum_size = Vector2(23, 0)
 layout_mode = 2
 
-[node name="FirstResult2" type="ColorRect" parent="."]
+[node name="FirstResult2" type="ColorRect" parent="MarginContainer/GridContainer"]
 unique_name_in_owner = true
 custom_minimum_size = Vector2(23, 0)
 layout_mode = 2
 
-[node name="FirstResult3" type="ColorRect" parent="."]
+[node name="FirstResult3" type="ColorRect" parent="MarginContainer/GridContainer"]
 unique_name_in_owner = true
 custom_minimum_size = Vector2(23, 0)
 layout_mode = 2
 
-[node name="FirstResult4" type="ColorRect" parent="."]
+[node name="FirstResult4" type="ColorRect" parent="MarginContainer/GridContainer"]
 unique_name_in_owner = true
 custom_minimum_size = Vector2(23, 0)
 layout_mode = 2
 
-[node name="FirstResult5" type="ColorRect" parent="."]
+[node name="FirstResult5" type="ColorRect" parent="MarginContainer/GridContainer"]
 unique_name_in_owner = true
 custom_minimum_size = Vector2(23, 0)
 layout_mode = 2
 
-[node name="SecondTeam" type="Label" parent="."]
+[node name="SecondTeam" type="Label" parent="MarginContainer/GridContainer"]
 unique_name_in_owner = true
 layout_mode = 2
 text = "Second"
+text_overrun_behavior = 3
 
-[node name="SecondResult1" type="ColorRect" parent="."]
+[node name="SecondResult1" type="ColorRect" parent="MarginContainer/GridContainer"]
 unique_name_in_owner = true
 custom_minimum_size = Vector2(23, 0)
 layout_mode = 2
 
-[node name="SecondResult2" type="ColorRect" parent="."]
+[node name="SecondResult2" type="ColorRect" parent="MarginContainer/GridContainer"]
 unique_name_in_owner = true
 custom_minimum_size = Vector2(23, 0)
 layout_mode = 2
 
-[node name="SecondResult3" type="ColorRect" parent="."]
+[node name="SecondResult3" type="ColorRect" parent="MarginContainer/GridContainer"]
 unique_name_in_owner = true
 custom_minimum_size = Vector2(23, 0)
 layout_mode = 2
 
-[node name="SecondResult4" type="ColorRect" parent="."]
+[node name="SecondResult4" type="ColorRect" parent="MarginContainer/GridContainer"]
 unique_name_in_owner = true
 custom_minimum_size = Vector2(23, 0)
 layout_mode = 2
 
-[node name="SecondResult5" type="ColorRect" parent="."]
+[node name="SecondResult5" type="ColorRect" parent="MarginContainer/GridContainer"]
 unique_name_in_owner = true
 custom_minimum_size = Vector2(23, 0)
 layout_mode = 2

@@ -236,6 +236,11 @@ modulate = Color(1, 1, 1, 0)
 layout_mode = 2
 size_flags_horizontal = 3
 
+[node name="PenaltiesBar" parent="Main/Content" instance=ExtResource("10_4cv1g")]
+unique_name_in_owner = true
+visible = false
+layout_mode = 2
+
 [node name="MainView" type="MarginContainer" parent="Main/Content"]
 layout_mode = 2
 size_flags_vertical = 3
@@ -276,11 +281,6 @@ visible = false
 layout_mode = 2
 
 [node name="Formation" parent="Main/Content/MainView/Views/MarginContainer" instance=ExtResource("5")]
-unique_name_in_owner = true
-visible = false
-layout_mode = 2
-
-[node name="PenaltiesBar" parent="Main/Content" instance=ExtResource("10_4cv1g")]
 unique_name_in_owner = true
 visible = false
 layout_mode = 2
