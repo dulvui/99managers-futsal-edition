@@ -8,6 +8,7 @@ signal half_time
 signal full_time
 signal update_time
 signal penalties_start
+signal match_finish
 
 signal goal
 # signal key_action
@@ -93,12 +94,18 @@ func update() -> void:
 	# field/ball updates more frequently on every tick
 	# for better colission detections
 	field.update()
+	# players movements
+	left_team.move()
+	right_team.move()
 
 	# teams/players instead update less frequent
 	# state machines don't require high frequency
 	if ticks % Const.TICKS_LOGIC == 0:
 		left_team.update()
 		right_team.update()
+		# update goalkeeper after players, for easier shot saves
+		left_team.update_goalkeeper()
+		right_team.update_goalkeeper()
 
 	# time related code
 	if field.clock_running:
@@ -293,6 +300,7 @@ func _on_full_time() -> void:
 		_recover_stamina(5)
 	else:
 		match_over = true
+		match_finish.emit()
 	full_time.emit()
 
 
@@ -329,6 +337,7 @@ func _on_full_over_time() -> void:
 		right_team.set_state(TeamStatePenalties.new())
 	else:
 		match_over = true
+		match_finish.emit()
 
 
 func _check_penalties_over() -> void:
@@ -346,17 +355,20 @@ func _check_penalties_over() -> void:
 		if home_goals >	away_goals_max: 
 			match_over = true
 			penalties = false
+			match_finish.emit()
 			return
 		# check if away made more goals than home has made and home still can make
 		if away_goals >	home_goals_max: 
 			match_over = true
 			penalties = false
+			match_finish.emit()
 			return
 	# check if one team missed and the other made goal
 	elif home_shots == away_shots:
 		if home_goals != away_goals:
 			match_over = true
 			penalties = false
+			match_finish.emit()
 			return
 
 

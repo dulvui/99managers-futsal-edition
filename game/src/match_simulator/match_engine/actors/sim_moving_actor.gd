@@ -14,7 +14,6 @@ var follow_actor: MovingActor
 
 var collision_radius: float
 var speed: float
-var speed_factor: float
 
 
 func _init(p_collision_radius: float) -> void:
@@ -22,11 +21,6 @@ func _init(p_collision_radius: float) -> void:
 	collision_radius = p_collision_radius
 
 	_reset_movents()
-
-	if self is SimBall:
-		speed_factor = Const.SPEED_BALL
-	else:
-		speed_factor = Const.SPEED_PLAYER
 
 
 func set_pos(p_pos: Vector2) -> void:
@@ -40,7 +34,7 @@ func set_pos_xy(x: float, y: float) -> void:
 	stop()
 
 
-func set_destination(p_pos: Vector2, p_speed: float = 40) -> void:
+func set_destination(p_pos: Vector2, p_speed: float = 10) -> void:
 	_reset_movents()
 	destination = p_pos
 	speed = p_speed
@@ -64,7 +58,6 @@ func is_moving() -> bool:
 
 
 func stop() -> void:
-	_reset_movents()
 	speed = 0
 	last_pos = pos
 	next_pos = pos
@@ -87,11 +80,11 @@ func move() -> void:
 		
 		# calc next pos
 		if direction != Vector2.INF:
-			next_pos += direction * speed * speed_factor
+			next_pos += direction * speed * Const.SPEED
 		elif destination != Vector2.INF:
-			next_pos = pos.move_toward(destination, speed * speed_factor)
+			next_pos = pos.move_toward(destination, speed * Const.SPEED)
 		elif follow_actor != null:
-			next_pos = pos.move_toward(follow_actor.pos, speed * speed_factor)
+			next_pos = pos.move_toward(follow_actor.pos, speed * Const.SPEED)
 	
 		if speed <= 0:
 			stop()

@@ -8,13 +8,9 @@ extends MovingActor
 
 const DECELERATION: float = 0.05
 
-enum State { PASS, SHOOT, STOP, DRIBBLE, GOALKEEPER, OUT }
-
 # ball players collision timer
 # 1 so that ball doesn't collide after just started moving
 const PLAYER_COLISSION_TIME: int = 2
-
-var state: State
 
 # left -1, right 1, no roatation 0
 var rotation: float
@@ -61,21 +57,18 @@ func short_pass(p_destination: Vector2, force: float) -> void:
 	# print("pass")
 	_random_rotation()
 	impulse(p_destination, force)
-	state = State.PASS
 
 
 func shoot(p_destination: Vector2, force: float) -> void:
 	# print("shoot")
 	_random_rotation()
 	impulse(p_destination, force)
-	state = State.SHOOT
 
 
 func dribble(p_destination: Vector2, force: float) -> void:
 	# print("dribble")
 	_random_rotation()
 	impulse(p_destination, force)
-	state = State.SHOOT
 
 
 func shoot_on_goal(player: Player, left_half: bool) -> void:
@@ -96,7 +89,9 @@ func shoot_on_goal(player: Player, left_half: bool) -> void:
 
 
 func penalty(player: Player, left_half: bool) -> void:
-	var power: int = player.attributes.technical.shooting
+	var power: int = player.attributes.technical.shooting / 2
+
+	colission_timer = 0
 
 	var random_target: Vector2
 	if left_half:

@@ -18,7 +18,7 @@ func enter() -> void:
 	owner.player.head_look = owner.field.penalty_areas.spot_left
 	owner.player.set_destination(owner.field.penalty_areas.spot_left + Vector2(10, 0))
 
-	wait = owner.player.rng.randi_range(2, 7)
+	wait = 3 
 	wait_after_shot = owner.player.rng.randi_range(2, 7)
 
 
@@ -31,10 +31,6 @@ func execute() -> void:
 	
 	# wait for goalkeeper to be ready
 	if not owner.field.penalty_ready:
-		return
-
-	if wait > 0:
-		wait -= 1
 		return
 
 	owner.field.ball.penalty(owner.player.player_res, false)

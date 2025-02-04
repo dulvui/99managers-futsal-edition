@@ -8,6 +8,7 @@ extends PlayerStateMachineState
 
 var is_saving: bool
 var save_attempt_spot: Vector2
+var wait: int
 
 
 func _init() -> void:
@@ -25,7 +26,9 @@ func enter() -> void:
 	# deviation on y axis from current pos
 	var save_attempt_spot_y: int = owner.player.rng.randi_range(-owner.field.goals.size / 2, owner.field.goals.size / 2)
 	var save_attempt_spot_x: int = owner.player.rng.randi_range(0, 20)
-	save_attempt_spot = Vector2(save_attempt_spot_x, save_attempt_spot_y)
+	save_attempt_spot = owner.player.destination + Vector2(save_attempt_spot_x, save_attempt_spot_y)
+
+	wait = 3
 
 
 func execute() -> void:
@@ -33,10 +36,19 @@ func execute() -> void:
 		return
 	
 	owner.player.head_look = Vector2.ZERO
+
+	if wait > 0:
+		wait -= 1
+		return
+
 	owner.field.penalty_ready = true
 
-	if not is_saving and owner.field.ball.is_moving():
-		owner.player.set_destination(save_attempt_spot)
+	if not is_saving:
+		owner.player.set_destination(save_attempt_spot, 30)
 		is_saving = true
+
+
+func exit() -> void:
+	owner.field.penalty_ready = false
 
 

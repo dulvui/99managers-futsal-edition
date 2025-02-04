@@ -87,7 +87,9 @@ func setup(
 
 func update() -> void:
 	for player: SimPlayer in players:
-		player.update()
+		# goalkeeper gets updated after players
+		if not player.is_goalkeeper:
+			player.update()
 	
 	# recover bench players stamina
 	for player: Player in team_res.players.slice(5):
@@ -103,6 +105,19 @@ func update() -> void:
 		auto_change()
 		if change_request:
 			change_players()
+
+
+func update_goalkeeper() -> void:
+	for player: SimPlayer in players:
+		# goalkeeper gets updated after players
+		if player.is_goalkeeper:
+			player.update()
+			return
+
+
+func move() -> void:
+	for player: SimPlayer in players:
+		player.move()
 
 
 func set_state(state: TeamStateMachineState) -> void:

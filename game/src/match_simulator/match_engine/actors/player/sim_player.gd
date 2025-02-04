@@ -61,7 +61,6 @@ func setup(
 
 func update() -> void:
 	ticks_in_field += 1
-	move()
 
 	state_machine.execute()
 	
