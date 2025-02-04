@@ -101,8 +101,8 @@ func penalty(player: Player, left_half: bool) -> void:
 	
 	# 1.0 best, 0.05 worst
 	var aim_factor: float = 20.0 / player.attributes.technical.penalty
-	# 0.5 best, 1.45 worst
-	var aim: float = 0.5 + (1.0 - aim_factor)
+	# 0.6 best, 1.55 worst
+	var aim: float = 0.6 + (1.0 - aim_factor)
 
 	random_target += Vector2(
 		0, rng.randi_range(-field.goals.size * aim, field.goals.size * aim)

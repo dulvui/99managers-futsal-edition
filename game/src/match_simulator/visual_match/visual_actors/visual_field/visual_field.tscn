@@ -6,6 +6,3 @@
 script = ExtResource("1_3jyh0")
 
 [node name="Lines" type="Node2D" parent="."]
-
-[node name="Goals" type="Node2D" parent="."]
-z_index = 1

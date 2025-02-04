@@ -10,10 +10,12 @@ extends Node2D
 @onready var away_team: VisualTeam = $VisualTeamAway
 @onready var ball: VisualBall = $VisualBall
 @onready var field: VisualField = $VisualField
+@onready var goals: VisualGoals = $VisualGoals
 
 
 func setup(simulator: MatchSimulator) -> void:
 	field.setup(simulator.engine.field)
+	goals.setup(simulator.engine.field)
 	ball.setup(simulator.engine.field.ball.pos)
 
 	var home_color: Color = simulator.engine.home_team.team_res.get_home_color()
