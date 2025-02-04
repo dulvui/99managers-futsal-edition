@@ -19,7 +19,6 @@ var number_labels: Array[Label]
 var first_result: Array[ColorRect]
 var second_result: Array[ColorRect]
 
-@onready var grid: GridContainer = %GridContainer
 @onready var first_label: Label = %FirstTeam
 @onready var second_label: Label = %SecondTeam
 

@@ -127,9 +127,10 @@ func _ready() -> void:
 	_hide_views()
 
 	# connect match engine signals
+	match_simulator.engine.update_time.connect(_on_update_time)
 	match_simulator.engine.half_time.connect(_on_half_time)
 	match_simulator.engine.full_time.connect(_on_full_time)
-	match_simulator.engine.update_time.connect(_on_update_time)
+	match_simulator.engine.match_finish.connect(_on_match_finsh)
 	# match_simulator.show_me.connect(_on_match_simulator_show)
 	# match_simulator.hide_me.connect(_on_match_simulator_hide)
 	match_simulator.engine.home_team.penalties_shot.connect(func() -> void: penalties_bar.update())
@@ -150,23 +151,24 @@ func _on_match_simulator_hide() -> void:
 	last_active_view.show()
 
 
+func _on_half_time() -> void:
+	_on_pause_button_pressed()
+
+
 func _on_full_time() -> void:
 	_on_pause_button_pressed()
 
+
+func _on_match_finsh() -> void:
 	faster_button.hide()
 	slower_button.hide()
 	match_speed_label.hide()
 	pause_button.hide()
 	simulate_button.hide()
-
 	dashboard_button.show()
 
 	#assign result
 	matchz.set_result(home_stats.goals, away_stats.goals)
-
-
-func _on_half_time() -> void:
-	_on_pause_button_pressed()
 
 
 func _on_update_time() -> void:

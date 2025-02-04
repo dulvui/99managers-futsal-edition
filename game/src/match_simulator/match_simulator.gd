@@ -91,6 +91,7 @@ func setup(matchz: Match) -> void:
 	engine = MatchEngine.new()
 	engine.setup(matchz)
 	engine.goal.connect(_on_engine_goal)
+	engine.match_finish.connect(_on_engine_match_finish)
 
 	# setup visual match
 	# get colors
@@ -142,7 +143,7 @@ func pause() -> void:
 	Global.match_paused = true
 
 
-func match_finished() -> void:
+func _on_engine_match_finish() -> void:
 	action_message.emit("match finished")
 	Global.match_paused = true
 
