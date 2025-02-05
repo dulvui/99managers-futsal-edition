@@ -58,6 +58,7 @@ func is_moving() -> bool:
 
 
 func stop() -> void:
+	_reset_movents()
 	speed = 0
 	last_pos = pos
 	next_pos = pos

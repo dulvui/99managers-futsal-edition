@@ -39,12 +39,12 @@ const PENALTY_KICKS: int = 5
 
 # how many ticks pass per real match second
 # used for ball movents, colissions ecc...
-const TICKS: int = 16
+const TICKS: int = 32
 # used for state machine updates, player movements ecc...
 # is always relative to TICKS
-const TICKS_LOGIC: int = 8
+const TICKS_LOGIC: int = TICKS / 4
 
-const SPEED: float = 1
+const SPEED: float = 0.5
 
 # stamina range [0, 1]
 # this factor makes sure a player with attribute stamina 20

@@ -31,7 +31,7 @@ var has_ball: bool
 var ticks_in_field: int
 
 
-func _init(p_rng: RandomNumberGenerator, p_radius: float = 5) -> void:
+func _init(p_rng: RandomNumberGenerator, p_radius: float = 9) -> void:
 	super(p_radius)
 	rng = p_rng
 	# initial test values

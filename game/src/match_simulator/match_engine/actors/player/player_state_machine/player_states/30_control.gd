@@ -7,6 +7,8 @@ extends PlayerStateMachineState
 
 # 80 squared
 const PERFECT_SHOOT_DISTANCE_SQUARED: int = 5600
+# 120 squared
+const PERFECT_PASS_DISTANCE_SQUARED: int = 19600
 
 
 func _init() -> void:
@@ -16,10 +18,11 @@ func _init() -> void:
 func execute() -> void:
 	# if player doesn't touch balls, follow it
 	if not owner.player.is_touching_ball():
-		owner.player.follow(owner.field.ball, 40)
+		owner.player.follow(owner.field.ball)
 		return 
 	
 	owner.player.stop()
+	owner.field.ball.stop()
 	
 	# player is touching ball
 	# try to shoot, dribble and pass
@@ -32,7 +35,8 @@ func execute() -> void:
 	# 	set_state(PlayerStateDribble.new())
 	# 	return
 
-	set_state(PlayerStatePass.new())
+	pass_ball()
+	set_state(PlayerStateAttack.new())
 
 
 func should_shoot() -> bool:
@@ -56,4 +60,22 @@ func should_dribble() -> bool:
 				opposing_player_count += 1
 	
 	return owner.rng.randi() % 100 < 100 - (opposing_player_count * 20)
+
+
+func pass_ball() -> void:
+	# find best pass
+	var best_player: SimPlayer
+	var delta: float = 1.79769e308 # max float
+	for player: SimPlayer in owner.team.players:
+		if player != owner.player:
+			var distance: float = player.pos.distance_squared_to(owner.player.pos)
+			if distance < delta:
+				delta = distance
+				best_player = player
+	
+	owner.team.player_receive_ball(best_player)
+	owner.field.ball.short_pass(owner.team.player_receive_ball().pos, 20)
+	owner.team.stats.passes += 1
+
+
 
