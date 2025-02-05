@@ -286,6 +286,9 @@ func _on_players_bar_change_request() -> void:
 
 
 func _on_engine_penalties_start() -> void:
+	formation_button.disabled = true
+	slower_button.disabled = true
+	faster_button.disabled = true
 	bottom_bar.hide()
 	penalties_bar.show()
 	penalties_bar.setup(match_simulator.engine.home_team, match_simulator.engine.away_team)
