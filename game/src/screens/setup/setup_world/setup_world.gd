@@ -7,7 +7,7 @@
 
 extends Control
 
-const DEFAULT_SEED: String = "SuchDefaultSeed"
+const DEFAULT_SEED: String = "289636-522140-666834"
 
 var generation_seed: String = DEFAULT_SEED
 

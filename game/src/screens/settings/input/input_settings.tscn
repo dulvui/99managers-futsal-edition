@@ -41,7 +41,7 @@ theme_override_constants/separation = 20
 [node name="JoypadLabel" type="Label" parent="Joypad"]
 layout_mode = 2
 size_flags_horizontal = 3
-text = "JOYPAD"
+text = "JOYPAD_STATUS"
 
 [node name="JoypadInfo" type="Label" parent="Joypad"]
 unique_name_in_owner = true
@@ -56,7 +56,7 @@ theme_override_constants/separation = 20
 [node name="DetectionModeLabel" type="Label" parent="DetectionMode"]
 layout_mode = 2
 size_flags_horizontal = 3
-text = "DETECTION_MODE"
+text = "INPUT_DETECTION_MODE"
 
 [node name="DetectionModeButton" parent="DetectionMode" instance=ExtResource("3_g1iho")]
 unique_name_in_owner = true
@@ -69,7 +69,7 @@ theme_override_constants/separation = 20
 [node name="TypeLabel" type="Label" parent="Type"]
 layout_mode = 2
 size_flags_horizontal = 3
-text = "TYPE"
+text = "INPUT_TYPE"
 
 [node name="TypeButton" parent="Type" instance=ExtResource("3_g1iho")]
 unique_name_in_owner = true

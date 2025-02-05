@@ -1,10 +1,11 @@
-[gd_scene load_steps=6 format=3 uid="uid://cywaob6jab2pj"]
+[gd_scene load_steps=7 format=3 uid="uid://cywaob6jab2pj"]
 
 [ext_resource type="LabelSettings" uid="uid://cc2vi4onhgmnw" path="res://theme_base/label/label_settings_bold.tres" id="1_6o6h0"]
 [ext_resource type="Script" path="res://src/screens/settings/general/general_settings.gd" id="1_gl78q"]
 [ext_resource type="LabelSettings" uid="uid://b4gu78rjvdfx4" path="res://theme_base/label/label_settings_title.tres" id="2_bvgsj"]
 [ext_resource type="PackedScene" uid="uid://djrvl8pvkr7aa" path="res://src/screens/settings/language_picker/language_picker.tscn" id="2_p1exx"]
 [ext_resource type="Script" path="res://src/ui_components/base/defaults/default_button.gd" id="3_n2piq"]
+[ext_resource type="LabelSettings" uid="uid://c5yfa40ut1pyv" path="res://theme_base/label/label_settings.tres" id="4_jbix3"]
 
 [node name="GENERAL_SETTINGS" type="VBoxContainer"]
 anchors_preset = -1
@@ -27,17 +28,24 @@ layout_mode = 2
 layout_mode = 2
 theme_override_constants/separation = 15
 
-[node name="LanguagePicker" parent="Langauge" instance=ExtResource("2_p1exx")]
+[node name="ScrollContainer" type="ScrollContainer" parent="Langauge"]
+custom_minimum_size = Vector2(0, 40)
+layout_mode = 2
+horizontal_scroll_mode = 2
+vertical_scroll_mode = 0
+
+[node name="LanguagePicker" parent="Langauge/ScrollContainer" instance=ExtResource("2_p1exx")]
 layout_mode = 2
 
 [node name="TranslationInstructions" type="Label" parent="Langauge"]
 layout_mode = 2
 text = "TRANSLATION_INSTRUCTIONS"
-label_settings = ExtResource("1_6o6h0")
+label_settings = ExtResource("4_jbix3")
 
 [node name="TranslationsLink" type="LinkButton" parent="Langauge"]
 layout_mode = 2
-text = "Weblate"
+size_flags_horizontal = 4
+text = "weblate.org"
 uri = "https://hosted.weblate.org/engage/99-managers-futsal-edition/"
 
 [node name="HSeparator3" type="HSeparator" parent="."]
@@ -264,7 +272,7 @@ color_modes_visible = false
 presets_visible = false
 metadata/_edit_use_anchors_ = true
 
-[connection signal="value_changed" from="Audio/UISfx/UISfxVolumeSlider" to="." method="_on_ui_sfx_volume_slider_value_changed"]
+[connection signal="drag_ended" from="Audio/UISfx/UISfxVolumeSlider" to="." method="_on_ui_sfx_volume_slider_drag_ended"]
 [connection signal="value_changed" from="Interface/FontSize/FontSizeSpinBox" to="." method="_on_font_size_spin_box_value_changed"]
 [connection signal="pressed" from="Interface/FontSize/FontDefaultButton" to="." method="_on_font_default_button_pressed"]
 [connection signal="pressed" from="Interface/Scale/Scale1" to="." method="_on_scale_1_pressed"]

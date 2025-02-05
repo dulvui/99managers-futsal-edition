@@ -88,8 +88,7 @@ text = "GENERATION_SEED"
 [node name="GenerationSeedDescription" type="Label" parent="VBoxContainer/Seed"]
 custom_minimum_size = Vector2(0, 180)
 layout_mode = 2
-text = "This seed is used to generate all start values of the game, like player names, attributes or team.finances.balances. The same seed will reproduce the exact same start values on any other device it's used, so you can reuse and share this seed.
-You can find it later in the settings of the game."
+text = "GENERATION_SEED_DESCRIPTION"
 autowrap_mode = 2
 
 [node name="GridContainer" type="HBoxContainer" parent="VBoxContainer/Seed"]
@@ -107,6 +106,7 @@ script = ExtResource("3_g76wv")
 [node name="GeneratedSeedLineEdit" type="LineEdit" parent="VBoxContainer/Seed/GridContainer"]
 layout_mode = 2
 size_flags_horizontal = 3
+context_menu_enabled = false
 
 [node name="DefaultSeedButton" type="Button" parent="VBoxContainer/Seed/GridContainer"]
 custom_minimum_size = Vector2(200, 0)

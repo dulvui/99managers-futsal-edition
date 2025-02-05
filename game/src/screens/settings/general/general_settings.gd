@@ -131,14 +131,15 @@ func _on_scale_3_pressed() -> void:
 	Global.save_config()
 
 
-func _on_ui_sfx_volume_slider_value_changed(value: float) -> void:
-	SoundUtil.set_bus_volume(SoundUtil.AudioBus.UI_SFX, value)
-	SoundUtil.set_bus_mute(SoundUtil.AudioBus.UI_SFX, value == ui_sfx_volume.min_value)
-	Global.save_config()
-
-
 func _on_screen_fade_button_toggled(toggled_on: bool) -> void:
 	Global.scene_fade = toggled_on
 	Global.save_config()
 
+
+func _on_ui_sfx_volume_slider_drag_ended(value_changed:bool) -> void:
+	if value_changed:
+		SoundUtil.set_bus_volume(SoundUtil.AudioBus.UI_SFX, ui_sfx_volume.value)
+		SoundUtil.set_bus_mute(SoundUtil.AudioBus.UI_SFX, ui_sfx_volume.value == ui_sfx_volume.min_value)
+		SoundUtil.play_button_sfx()
+		Global.save_config()
 
