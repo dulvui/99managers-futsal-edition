@@ -10,9 +10,10 @@ const LANGUAGES: Dictionary = {
 	"en": "English",
 	"pt": "Portuguese",
 	"pt_BR": "Portuguese (BR)",
-	"it": "Italiano",
 	"es": "Español",
+	"it": "Italiano",
 	"de": "Deutsch",
+	# "fr": "Français",
 	"ua": "Українська",
 	"apc": "اللهجة الشامية",
 }
