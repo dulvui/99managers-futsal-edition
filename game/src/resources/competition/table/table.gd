@@ -21,7 +21,14 @@ func add_team(team: Team) -> void:
 	teams.append(values)
 
 
-func add_result(home_id: int, home_goals: int, away_id: int, away_goals: int) -> void:
+func add_result(
+	home_id: int,
+	away_id: int,
+	home_goals: int,
+	away_goals: int,
+	home_penalties_goals: int = 0,
+	away_penalties_goals: int = 0,
+) -> void:
 	var home: TableValues = _find_by_id(home_id)
 	var away: TableValues = _find_by_id(away_id)
 
@@ -30,11 +37,14 @@ func add_result(home_id: int, home_goals: int, away_id: int, away_goals: int) ->
 	away.goals_made += away_goals
 	away.goals_against += home_goals
 
-	if home_goals > away_goals:
+	var home_goals_sum: int = home_goals + home_penalties_goals
+	var away_goals_sum: int = away_goals + away_penalties_goals
+
+	if home_goals_sum > away_goals_sum:
 		home.wins += 1
 		home.points += 3
 		away.lost += 1
-	elif home_goals == away_goals:
+	elif home_goals_sum == away_goals_sum:
 		home.draws += 1
 		home.points += 1
 		away.draws += 1
@@ -43,6 +53,7 @@ func add_result(home_id: int, home_goals: int, away_id: int, away_goals: int) ->
 		away.wins += 1
 		away.points += 3
 		home.lost += 1
+
 	home.games_played += 1
 	away.games_played += 1
 

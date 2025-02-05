@@ -171,12 +171,35 @@ func simulate_match(matchz: Match, fast: bool = false) -> void:
 	if fast:
 		var home_goals: int = _rng.randi() % 10
 		var away_goals: int = _rng.randi() % 10
-		matchz.set_result(home_goals, away_goals)
+		var home_penalties_goals: int = 0
+		var away_penalties_goals: int = 0
+		
+		# penalties
+		if matchz.no_draw and home_goals == away_goals:
+			# fast and easy...
+			home_penalties_goals = 4
+			away_penalties_goals = 4
+			if _rng.randi() % 2 == 0:
+				home_penalties_goals += 1
+			else:
+				away_penalties_goals += 1
+
+		matchz.set_result(
+			home_goals,
+			away_goals,
+			home_penalties_goals,
+			away_penalties_goals,
+		)
 		return
 
 	simulate()
 
-	matchz.set_result(home_team.stats.goals, away_team.stats.goals)
+	matchz.set_result(
+		home_team.stats.goals,
+		away_team.stats.goals,
+		home_team.stats.penalty_shootout_goals,
+		away_team.stats.penalty_shootout_goals,
+	)
 
 
 func left_possess() -> void:

@@ -72,10 +72,19 @@ func setup_knockout(
 	knockout.setup(teams, legs_semi_finals, legs_final)
 
 
-func add_result(home_id: int, home_goals: int, away_id: int, away_goals: int) -> void:
+func add_result(
+	home_id: int,
+	away_id: int,
+	home_goals: int,
+	away_goals: int,
+	home_penalties_goals: int = 0,
+	away_penalties_goals: int = 0,
+) -> void:
 	if stage == Stage.GROUP:
 		var group: Group = _find_group_by_team_id(home_id)
-		group.table.add_result(home_id, home_goals, away_id, away_goals)
+		group.table.add_result(
+			home_id, home_goals, away_id, away_goals, home_penalties_goals, away_penalties_goals
+		)
 
 
 func next_stage() -> void:
