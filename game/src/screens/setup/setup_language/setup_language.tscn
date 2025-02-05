@@ -22,9 +22,9 @@ grow_vertical = 2
 
 [node name="LanguagePicker" parent="." instance=ExtResource("2_pkp0m")]
 layout_mode = 1
-offset_left = -309.5
+offset_left = -701.5
 offset_top = 0.0
-offset_right = 309.5
+offset_right = 701.5
 offset_bottom = 0.0
 
 [connection signal="language_change" from="LanguagePicker" to="." method="_on_language_picker_language_change"]

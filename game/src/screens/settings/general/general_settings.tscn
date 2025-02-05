@@ -28,13 +28,7 @@ layout_mode = 2
 layout_mode = 2
 theme_override_constants/separation = 15
 
-[node name="ScrollContainer" type="ScrollContainer" parent="Langauge"]
-custom_minimum_size = Vector2(0, 40)
-layout_mode = 2
-horizontal_scroll_mode = 2
-vertical_scroll_mode = 0
-
-[node name="LanguagePicker" parent="Langauge/ScrollContainer" instance=ExtResource("2_p1exx")]
+[node name="LanguagePicker" parent="Langauge" instance=ExtResource("2_p1exx")]
 layout_mode = 2
 
 [node name="TranslationInstructions" type="Label" parent="Langauge"]

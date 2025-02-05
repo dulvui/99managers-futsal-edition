@@ -42,6 +42,7 @@ position_smoothing_speed = 15.0
 
 [node name="VisualStateMachine" parent="." instance=ExtResource("3_yckuk")]
 unique_name_in_owner = true
+visible = false
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5

@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" path="res://src/screens/settings/language_picker/language_picker.gd" id="1_1ma02"]
 
-[node name="LanguagePicker" type="HBoxContainer"]
+[node name="LanguagePicker" type="HFlowContainer"]
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
