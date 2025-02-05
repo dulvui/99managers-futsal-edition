@@ -6,10 +6,10 @@ uid="uid://cyicwdfsq6np8"
 
 [deps]
 
-files=["res://translations/de.de.translation"]
+files=["res://translations/de.Manager erstellen.translation"]
 
 source_file="res://translations/de.csv"
-dest_files=["res://translations/de.de.translation"]
+dest_files=["res://translations/de.Manager erstellen.translation"]
 
 [params]
 

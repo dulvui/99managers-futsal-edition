@@ -6,10 +6,10 @@ uid="uid://dtwjove1kfpuo"
 
 [deps]
 
-files=["res://translations/uk.ua.translation"]
+files=["res://translations/uk.Створити менеджера.translation"]
 
 source_file="res://translations/uk.csv"
-dest_files=["res://translations/uk.ua.translation"]
+dest_files=["res://translations/uk.Створити менеджера.translation"]
 
 [params]
 

@@ -6,10 +6,10 @@ uid="uid://d3u1i5ji8f1uw"
 
 [deps]
 
-files=["res://translations/fr.fr.translation"]
+files=["res://translations/fr.Créer un coach.translation"]
 
 source_file="res://translations/fr.csv"
-dest_files=["res://translations/fr.fr.translation"]
+dest_files=["res://translations/fr.Créer un coach.translation"]
 
 [params]
 
