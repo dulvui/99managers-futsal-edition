@@ -140,7 +140,7 @@ ui_down={
 
 [internationalization]
 
-locale/translations=PackedStringArray("res://translations/de.de.translation", "res://translations/en.en.translation", "res://translations/it.it.translation", "res://translations/uk.ua.translation", "res://translations/apc.apc.translation", "res://translations/pt.pt.translation", "res://translations/es.es.translation")
+locale/translations=PackedStringArray("res://translations/de.de.translation", "res://translations/en.en.translation", "res://translations/it.it.translation", "res://translations/uk.ua.translation", "res://translations/apc.apc.translation", "res://translations/pt.pt.translation", "res://translations/es.es.translation", "res://translations/pt_BR.en.translation")
 
 [locale]
 

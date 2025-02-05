@@ -129,7 +129,8 @@ OCT,Oct
 NOV,Nov
 DEC,Dec
 GENERATION_SEED,Generation seed
-GENERATION_SEED_DESCRIPTION,GENERATION_SEED_DESCRIPTION
+GENERATION_SEED_DESCRIPTION,"This seed is used to generate all start values of the game like player names and attributes. The same seed will reproduce the exact same start values on any other device it's used, so you can reuse and share this seed.
+Note: You can find it later in the info section in the main dashboard."
 PLAYED,Played
 WIN,Win
 DRAW,Draw
@@ -169,6 +170,7 @@ EXIT,Exit
 RANDOM,Random
 DEFAULT,Default
 INITIALIZE_GAME,Initializing game…
+RESTORING_BACKUP,Restoring backup…
 GENERATING_PLAYERS,Generating all players…
 SELECT,Select
 BUDGET,Budget
@@ -187,6 +189,12 @@ FONT_COLOR,Font color
 BUTTONS_COLOR,Buttons color
 BACKGROUND_COLOR,Background color
 VIM_MODE,Vim mode
+JOYPAD_STATUS,Joypad status
+INPUT_DETECTION_MODE,Input detection mode
+INPUT_TYPE,Input type
+JOYPAD,Joypad
+KEYBOARD,Keyboard
+TOUCH,Touch
 CHANGE,Change
 PERSONS,Persons
 YEAR,Year
@@ -199,6 +207,7 @@ NO_COMPETITION_FOUND,No competition found
 YES,Yes
 NO,No
 EXIT_GAME,Exit game?
+SFX_VOLUME,Sound effects volume
 RESTORE_DEFAULTS,Restore default settings?
 RESTORE_DEFAULTS_TEXT,All changed settings will lost and restored to default value.
 SAVE_TEXT,Save game before exiting to menu?
@@ -278,3 +287,4 @@ NOTES,Notes
 FULL_GAME,Full game
 KEY_ACTIONS,Highlights
 ONLY_GOALS,Only goals
+TRANSLATION_INSTRUCTIONS,"You can fix errors or add new languages easily on Weblate, just click on the link below."
