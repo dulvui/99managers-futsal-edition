@@ -16,7 +16,8 @@ var pos: Vector2
 func _physics_process(delta: float) -> void:
 	if not Global.match_paused:
 		time_passed += delta
-		factor = time_passed / update_interval
+		# limit to 1.0 to not go over
+		factor = min(1.0, time_passed / update_interval)
 		position = last_pos.lerp(pos, factor)
 
 

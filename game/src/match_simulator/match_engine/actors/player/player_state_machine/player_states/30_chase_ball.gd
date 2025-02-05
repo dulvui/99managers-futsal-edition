@@ -11,7 +11,7 @@ func _init() -> void:
 
 
 func enter() -> void:
-	owner.player.follow(owner.field.ball, 40)
+	owner.player.follow(owner.field.ball)
 
 
 func execute() -> void:

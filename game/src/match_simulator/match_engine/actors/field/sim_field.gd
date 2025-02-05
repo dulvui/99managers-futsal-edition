@@ -129,18 +129,18 @@ func update() -> void:
 
 	# check field bounds
 	if clock_running:
+		goals.check_post_colissions(ball)
 		if not _check_goal_line():
 			_check_touch_line()
-		goals.check_post_colissions(ball)
 
 		_check_ball_wall_colissions()
 		_check_ball_players_colissions()
 		# _check_player_colissions()
 	elif penalties:
+		goals.check_post_colissions(ball)
 		_check_ball_wall_colissions()
 		_check_goal_line_penalties()
 		_check_ball_players_colissions()
-		goals.check_post_colissions(ball)
 
 
 func force_update_calculator() -> void:
@@ -269,11 +269,10 @@ func _check_ball_players_colissions() -> void:
 
 
 func _check_player_colissions() -> void:
-	if clock_running:
-		for player: SimPlayer in left_team.players:
-			for player2: SimPlayer in right_team.players:
-				if player.collides(player2):
-					player.stop()
+	for player: SimPlayer in left_team.players:
+		for player2: SimPlayer in right_team.players:
+			if player.collides(player2):
+				player.stop()
 
 
 func _check_goal_line_penalties() -> void:

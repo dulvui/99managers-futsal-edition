@@ -40,7 +40,7 @@ func set_destination(p_pos: Vector2, p_speed: float = 10) -> void:
 	speed = p_speed
 
 
-func follow(p_follow_actor: MovingActor, p_speed: float) -> void:
+func follow(p_follow_actor: MovingActor, p_speed: float = 10) -> void:
 	_reset_movents()
 	follow_actor = p_follow_actor
 	speed = p_speed

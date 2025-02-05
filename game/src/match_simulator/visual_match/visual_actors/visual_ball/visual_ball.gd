@@ -8,7 +8,6 @@ extends VisualActor
 # rotation keyword already taken by Node2D
 var rot: float
 
-
 func _physics_process(delta: float) -> void:
 	super._physics_process(delta)
 	if not Global.match_paused:
