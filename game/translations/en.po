@@ -283,7 +283,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: 99 Managers Futsal Edition\n"
 "POT-Creation-Date: \n"
-"PO-Revision-Date: 2025-02-06 16:07+0100\n"
+"PO-Revision-Date: 2025-02-06 17:10+0100\n"
 "Last-Translator: Simon Dalvai <info@simondalvai.org>\n"
 "Language-Team: English <https://hosted.weblate.org/projects/99-managers-"
 "futsal-edition/game-gettext/en/>\n"
@@ -743,7 +743,7 @@ msgstr ""
 
 #: src/screens/settings/general/general_settings.tscn
 msgid "AUDIO"
-msgstr "Create Manager"
+msgstr "Audio"
 
 #: src/screens/settings/general/general_settings.tscn
 msgid "SFX_VOLUME"

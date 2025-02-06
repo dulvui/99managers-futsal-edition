@@ -785,7 +785,7 @@ msgstr "TRANSLATION_INSTRUCTIONS"
 
 #: src/screens/settings/general/general_settings.tscn
 msgid "AUDIO"
-msgstr "Crea allenatore"
+msgstr "Audio"
 
 #: src/screens/settings/general/general_settings.tscn
 #, fuzzy

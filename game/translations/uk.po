@@ -787,7 +787,7 @@ msgstr ""
 
 #: src/screens/settings/general/general_settings.tscn
 msgid "AUDIO"
-msgstr "Створити менеджера"
+msgstr "Аудіо"
 
 #: src/screens/settings/general/general_settings.tscn
 msgid "SFX_VOLUME"

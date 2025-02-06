@@ -772,7 +772,7 @@ msgstr "Configuración por defecto"
 #: src/screens/settings/settings.tscn
 #: src/screens/setup/setup_team/setup_team.tscn
 msgid "BACK"
-msgstr "espalda"
+msgstr "Volver"
 
 #: src/screens/settings/settings.tscn
 msgid "RESTORE_DEFAULTS_TEXT"
@@ -787,7 +787,7 @@ msgstr "TRANSLATION_INSTRUCTIONS"
 
 #: src/screens/settings/general/general_settings.tscn
 msgid "AUDIO"
-msgstr "Crear gerente"
+msgstr "Audio"
 
 #: src/screens/settings/general/general_settings.tscn
 #, fuzzy
