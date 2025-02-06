@@ -105,6 +105,7 @@ alignment = 1
 
 [node name="SlowerButton" type="Button" parent="Main/Content/TopBar/Buttons/Center/Speed"]
 unique_name_in_owner = true
+auto_translate_mode = 2
 custom_minimum_size = Vector2(50, 0)
 layout_mode = 2
 size_flags_horizontal = 4
@@ -119,6 +120,7 @@ text = "FULL_MATCH"
 
 [node name="FasterButton" type="Button" parent="Main/Content/TopBar/Buttons/Center/Speed"]
 unique_name_in_owner = true
+auto_translate_mode = 2
 custom_minimum_size = Vector2(50, 0)
 layout_mode = 2
 size_flags_horizontal = 4
@@ -180,6 +182,7 @@ alignment = 1
 
 [node name="Time" type="Label" parent="Main/Content/TopBar/TimeBar/Info"]
 unique_name_in_owner = true
+auto_translate_mode = 2
 custom_minimum_size = Vector2(100, 0)
 layout_mode = 2
 size_flags_horizontal = 10
@@ -194,6 +197,7 @@ layout_mode = 2
 
 [node name="HomeFouls" type="Label" parent="Main/Content/TopBar/TimeBar/Info"]
 unique_name_in_owner = true
+auto_translate_mode = 2
 layout_mode = 2
 text = "(0)"
 
@@ -201,12 +205,13 @@ text = "(0)"
 unique_name_in_owner = true
 custom_minimum_size = Vector2(200, 0)
 layout_mode = 2
-text = "Robledo"
+text = "HOME"
 label_settings = ExtResource("5_8e8d2")
 text_overrun_behavior = 3
 
 [node name="Result" type="Label" parent="Main/Content/TopBar/TimeBar/Info"]
 unique_name_in_owner = true
+auto_translate_mode = 2
 custom_minimum_size = Vector2(80, 0)
 layout_mode = 2
 text = "0 - 0"
@@ -217,12 +222,13 @@ horizontal_alignment = 1
 unique_name_in_owner = true
 custom_minimum_size = Vector2(200, 0)
 layout_mode = 2
-text = "Cisneros"
+text = "AWAY"
 label_settings = ExtResource("5_8e8d2")
 horizontal_alignment = 2
 
 [node name="AwayFouls" type="Label" parent="Main/Content/TopBar/TimeBar/Info"]
 unique_name_in_owner = true
+auto_translate_mode = 2
 layout_mode = 2
 text = "(0)"
 
@@ -310,6 +316,7 @@ alignment = 1
 
 [node name="HomePossessionLabel" type="Label" parent="Main/Content/BottomBar/PossessBar/Labels"]
 unique_name_in_owner = true
+auto_translate_mode = 2
 layout_mode = 2
 size_flags_horizontal = 3
 text = "50%"
@@ -323,6 +330,7 @@ horizontal_alignment = 1
 
 [node name="AwayPossessionLabel" type="Label" parent="Main/Content/BottomBar/PossessBar/Labels"]
 unique_name_in_owner = true
+auto_translate_mode = 2
 layout_mode = 2
 size_flags_horizontal = 3
 text = "50%"

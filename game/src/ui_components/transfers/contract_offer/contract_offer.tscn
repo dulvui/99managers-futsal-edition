@@ -30,16 +30,20 @@ size_flags_horizontal = 3
 text = "INCOME"
 
 [node name="IncomeLess" type="Button" parent="VBoxContainer/GridContainer"]
+auto_translate_mode = 2
 layout_mode = 2
 text = "-"
 script = ExtResource("3_ycdro")
 
 [node name="Income" type="Label" parent="VBoxContainer/GridContainer"]
+auto_translate_mode = 2
 layout_mode = 2
 size_flags_horizontal = 3
 text = "0"
+horizontal_alignment = 1
 
 [node name="IncomeMore" type="Button" parent="VBoxContainer/GridContainer"]
+auto_translate_mode = 2
 layout_mode = 2
 text = "+"
 script = ExtResource("3_ycdro")
@@ -50,16 +54,20 @@ size_flags_horizontal = 3
 text = "YEAR"
 
 [node name="YearsLess" type="Button" parent="VBoxContainer/GridContainer"]
+auto_translate_mode = 2
 layout_mode = 2
 text = "-"
 script = ExtResource("3_ycdro")
 
 [node name="Years" type="Label" parent="VBoxContainer/GridContainer"]
+auto_translate_mode = 2
 layout_mode = 2
 size_flags_horizontal = 3
 text = "1"
+horizontal_alignment = 1
 
 [node name="YearsMore" type="Button" parent="VBoxContainer/GridContainer"]
+auto_translate_mode = 2
 layout_mode = 2
 text = "+"
 script = ExtResource("3_ycdro")
@@ -70,16 +78,20 @@ size_flags_horizontal = 3
 text = "BUY_CLAUSE"
 
 [node name="BuyClauseLess" type="Button" parent="VBoxContainer/GridContainer"]
+auto_translate_mode = 2
 layout_mode = 2
 text = "-"
 script = ExtResource("3_ycdro")
 
 [node name="BuyClause" type="Label" parent="VBoxContainer/GridContainer"]
+auto_translate_mode = 2
 layout_mode = 2
 size_flags_horizontal = 3
 text = "0"
+horizontal_alignment = 1
 
 [node name="BuyClauseMore" type="Button" parent="VBoxContainer/GridContainer"]
+auto_translate_mode = 2
 layout_mode = 2
 text = "+"
 script = ExtResource("3_ycdro")

@@ -15,6 +15,7 @@ columns = 9
 script = ExtResource("1_kvugy")
 
 [node name="Pos" type="Label" parent="."]
+auto_translate_mode = 2
 custom_minimum_size = Vector2(60, 0)
 layout_mode = 2
 text = "#"

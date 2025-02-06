@@ -7,6 +7,7 @@
 [ext_resource type="PackedScene" uid="uid://bd4mq2lolalam" path="res://src/media/game_play/mouse_curser/mouse_cursor.tscn" id="5_37f7r"]
 
 [node name="GamePlay" type="Control"]
+auto_translate_mode = 2
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0

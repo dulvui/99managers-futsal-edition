@@ -3,6 +3,7 @@
 [ext_resource type="Script" path="res://src/ui_components/visual_calendar/match_list/match_info/match_info.gd" id="1_kuvam"]
 
 [node name="MatchInfo" type="HBoxContainer"]
+auto_translate_mode = 2
 custom_minimum_size = Vector2(280, 0)
 anchors_preset = 15
 anchor_right = 1.0
@@ -16,16 +17,16 @@ script = ExtResource("1_kuvam")
 [node name="Home" type="Label" parent="."]
 layout_mode = 2
 size_flags_horizontal = 3
-text = "Home"
+text = "HOME"
 text_overrun_behavior = 3
 
 [node name="Result" type="Label" parent="."]
 layout_mode = 2
-text = "vs"
+text = "VS"
 
 [node name="Away" type="Label" parent="."]
 layout_mode = 2
 size_flags_horizontal = 3
-text = "Away"
+text = "AWAY"
 horizontal_alignment = 2
 text_overrun_behavior = 3

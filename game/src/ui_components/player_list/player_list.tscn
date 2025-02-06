@@ -60,6 +60,7 @@ layout_mode = 2
 size_flags_vertical = 3
 
 [node name="Footer" type="HBoxContainer" parent="."]
+auto_translate_mode = 2
 layout_mode = 2
 alignment = 1
 

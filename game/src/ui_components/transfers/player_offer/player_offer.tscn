@@ -23,11 +23,6 @@ size_flags_horizontal = 4
 size_flags_vertical = 4
 alignment = 1
 
-[node name="Info" type="Label" parent="VBoxContainer"]
-layout_mode = 2
-text = "Ricardinho del Levante vale 5M.
-Il tuo osservatore ritiene che sia dia aquistare senza pensarci due volte."
-
 [node name="Details" type="GridContainer" parent="VBoxContainer"]
 layout_mode = 2
 columns = 2
@@ -51,16 +46,19 @@ layout_mode = 2
 size_flags_horizontal = 3
 
 [node name="Less" type="Button" parent="VBoxContainer/Details/Money"]
+auto_translate_mode = 2
 layout_mode = 2
 text = "-"
 script = ExtResource("3_s2lfu")
 
 [node name="Amount" type="LineEdit" parent="VBoxContainer/Details/Money"]
+auto_translate_mode = 2
 layout_mode = 2
 size_flags_horizontal = 3
 text = "15000"
 
 [node name="More" type="Button" parent="VBoxContainer/Details/Money"]
+auto_translate_mode = 2
 layout_mode = 2
 text = "+"
 script = ExtResource("3_s2lfu")
@@ -98,6 +96,7 @@ layout_mode = 2
 size_flags_horizontal = 3
 
 [node name="Total" type="Label" parent="VBoxContainer"]
+auto_translate_mode = 2
 layout_mode = 2
 size_flags_horizontal = 3
 text = "150000"

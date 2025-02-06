@@ -23,6 +23,7 @@ layout_mode = 2
 alignment = 1
 
 [node name="Prev" type="Button" parent="HBoxContainer"]
+auto_translate_mode = 2
 layout_mode = 2
 size_flags_horizontal = 4
 text = "<"
@@ -37,6 +38,7 @@ text_overrun_behavior = 3
 script = ExtResource("3_c4scu")
 
 [node name="Next" type="Button" parent="HBoxContainer"]
+auto_translate_mode = 2
 layout_mode = 2
 size_flags_horizontal = 4
 text = ">"

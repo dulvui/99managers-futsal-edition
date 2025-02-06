@@ -68,6 +68,7 @@ text_overrun_behavior = 3
 
 [node name="MonthDay" type="Label" parent="MarginContainer/Button/MarginContainer/VBoxContainer/HBoxContainer"]
 unique_name_in_owner = true
+auto_translate_mode = 2
 custom_minimum_size = Vector2(24, 0)
 layout_mode = 2
 text = "31"
@@ -83,6 +84,7 @@ alignment = 1
 
 [node name="TeamName" type="Label" parent="MarginContainer/Button/MarginContainer/VBoxContainer/Competition"]
 unique_name_in_owner = true
+auto_translate_mode = 2
 layout_mode = 2
 size_flags_vertical = 6
 text = "ROMA"
@@ -90,6 +92,7 @@ autowrap_mode = 2
 
 [node name="CompetitionName" type="Label" parent="MarginContainer/Button/MarginContainer/VBoxContainer/Competition"]
 unique_name_in_owner = true
+auto_translate_mode = 2
 layout_mode = 2
 size_flags_horizontal = 3
 text = "SERIE A"

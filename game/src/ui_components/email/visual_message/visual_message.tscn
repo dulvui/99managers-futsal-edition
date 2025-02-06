@@ -39,6 +39,7 @@ text = "FROM"
 
 [node name="Sender" type="Label" parent="MarginContainer/VBoxContainer/From"]
 unique_name_in_owner = true
+auto_translate_mode = 2
 layout_mode = 2
 text = "info@bolzanofutsal.com"
 
@@ -52,6 +53,7 @@ text = "TO"
 
 [node name="Receiver" type="Label" parent="MarginContainer/VBoxContainer/To"]
 unique_name_in_owner = true
+auto_translate_mode = 2
 layout_mode = 2
 text = "simon.dalvai@bolzanofutsal.com"
 
@@ -69,6 +71,7 @@ text = "SUBJECT"
 
 [node name="Subject" type="Label" parent="MarginContainer/VBoxContainer/Subject"]
 unique_name_in_owner = true
+auto_translate_mode = 2
 layout_mode = 2
 size_flags_horizontal = 3
 text = "Transfer news"
@@ -76,6 +79,7 @@ label_settings = ExtResource("2_a6odb")
 
 [node name="Date" type="Label" parent="MarginContainer/VBoxContainer/Subject"]
 unique_name_in_owner = true
+auto_translate_mode = 2
 layout_mode = 2
 text = "29.12.2022"
 
@@ -97,17 +101,6 @@ unique_name_in_owner = true
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
-text = "Gabriel Mota wants to join your club.
-
-His conditions are
-- Full time contract
-- Bonus for win in competitions
-- Be a starting player
-
-How should we proceed?
-
-All the best,
-You Scouting Team"
 
 [node name="BottomBar" type="HBoxContainer" parent="MarginContainer/VBoxContainer"]
 layout_mode = 2

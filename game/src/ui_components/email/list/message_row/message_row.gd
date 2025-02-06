@@ -17,7 +17,7 @@ var message: EmailMessage
 func setup(p_message: EmailMessage) -> void:
 	message = p_message
 
-	read_button.tooltip_text = tr("Click to read message")
+	read_button.tooltip_text = tr("CLICK_TO_READ_MESSAGE")
 
 	subject_label.set_text(message.subject)
 	sender_label.set_text(message.sender)

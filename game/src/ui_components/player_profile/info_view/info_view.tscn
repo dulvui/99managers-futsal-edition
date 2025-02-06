@@ -3,7 +3,6 @@
 [ext_resource type="Script" path="res://src/ui_components/player_profile/info_view/info_view.gd" id="1_kh13b"]
 
 [node name="INFO" type="GridContainer"]
-visible = false
 columns = 2
 script = ExtResource("1_kh13b")
 metadata/_tab_index = 0
@@ -14,6 +13,7 @@ text = "NAME"
 
 [node name="Name" type="Label" parent="."]
 unique_name_in_owner = true
+auto_translate_mode = 2
 layout_mode = 2
 text = "Viustel Hans"
 
@@ -23,6 +23,7 @@ text = "POSITION"
 
 [node name="Position" type="Label" parent="."]
 unique_name_in_owner = true
+auto_translate_mode = 2
 layout_mode = 2
 text = "PIVOT"
 
@@ -32,6 +33,7 @@ text = "ALT_POSITION"
 
 [node name="AltPosition" type="Label" parent="."]
 unique_name_in_owner = true
+auto_translate_mode = 2
 layout_mode = 2
 text = "PIVOT"
 
@@ -41,6 +43,7 @@ text = "AGE"
 
 [node name="Age" type="Label" parent="."]
 unique_name_in_owner = true
+auto_translate_mode = 2
 layout_mode = 2
 text = "32"
 
@@ -50,6 +53,7 @@ text = "FOOT"
 
 [node name="Foot" type="Label" parent="."]
 unique_name_in_owner = true
+auto_translate_mode = 2
 layout_mode = 2
 text = "32"
 
@@ -59,6 +63,7 @@ text = "NATIONALITY"
 
 [node name="Nationality" type="Label" parent="."]
 unique_name_in_owner = true
+auto_translate_mode = 2
 layout_mode = 2
 text = "Italiana"
 
@@ -68,6 +73,7 @@ text = "TEAM"
 
 [node name="Team" type="Label" parent="."]
 unique_name_in_owner = true
+auto_translate_mode = 2
 layout_mode = 2
 
 [node name="NrLabel" type="Label" parent="."]
@@ -76,6 +82,7 @@ text = "NR"
 
 [node name="Nr" type="Label" parent="."]
 unique_name_in_owner = true
+auto_translate_mode = 2
 layout_mode = 2
 text = "Bronzolo"
 
@@ -85,6 +92,7 @@ text = "ATTRIBUTES_AVERGE"
 
 [node name="AttributesAverage" type="Label" parent="."]
 unique_name_in_owner = true
+auto_translate_mode = 2
 layout_mode = 2
 text = "Bronzolo"
 
@@ -94,6 +102,7 @@ text = "PRESTIGE"
 
 [node name="Prestige" type="Label" parent="."]
 unique_name_in_owner = true
+auto_translate_mode = 2
 layout_mode = 2
 text = "Bronzolo"
 
@@ -103,5 +112,6 @@ text = "VALUE"
 
 [node name="Value" type="Label" parent="."]
 unique_name_in_owner = true
+auto_translate_mode = 2
 layout_mode = 2
 text = "1234 $"

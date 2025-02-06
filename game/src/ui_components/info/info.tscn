@@ -28,6 +28,7 @@ layout_mode = 2
 text = "SEED"
 
 [node name="GenerationSeed" type="Label" parent="GenerationSeed"]
+auto_translate_mode = 2
 layout_mode = 2
 text = "palpalpalpa"
 
@@ -46,6 +47,7 @@ layout_mode = 2
 text = "START_DATE"
 
 [node name="StartDate" type="Label" parent="StartDate"]
+auto_translate_mode = 2
 layout_mode = 2
 text = "24.06.2024"
 

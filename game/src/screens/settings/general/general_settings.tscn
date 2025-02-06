@@ -37,6 +37,7 @@ text = "TRANSLATION_INSTRUCTIONS"
 label_settings = ExtResource("4_jbix3")
 
 [node name="TranslationsLink" type="LinkButton" parent="Langauge"]
+auto_translate_mode = 2
 layout_mode = 2
 size_flags_horizontal = 4
 text = "weblate.org"
@@ -115,6 +116,7 @@ size_flags_horizontal = 3
 text = "SCALE"
 
 [node name="Scale1" type="Button" parent="Interface/Scale"]
+auto_translate_mode = 2
 custom_minimum_size = Vector2(70, 0)
 layout_mode = 2
 size_flags_horizontal = 4
@@ -123,6 +125,7 @@ text = "75%"
 script = ExtResource("3_n2piq")
 
 [node name="Scale2" type="Button" parent="Interface/Scale"]
+auto_translate_mode = 2
 custom_minimum_size = Vector2(70, 0)
 layout_mode = 2
 size_flags_horizontal = 4
@@ -131,6 +134,7 @@ text = "100%"
 script = ExtResource("3_n2piq")
 
 [node name="Scale3" type="Button" parent="Interface/Scale"]
+auto_translate_mode = 2
 custom_minimum_size = Vector2(70, 0)
 layout_mode = 2
 size_flags_horizontal = 4
@@ -238,6 +242,7 @@ label_settings = ExtResource("1_6o6h0")
 
 [node name="VersionLabel" type="Label" parent="Version"]
 unique_name_in_owner = true
+auto_translate_mode = 2
 layout_mode = 2
 size_flags_horizontal = 3
 text = "v1.0.0"
