@@ -282,10 +282,10 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: 99 Managers Futsal Edition\n"
-"PO-Revision-Date: 2025-02-06 15:17+0000\n"
-"Last-Translator: Simon Dalvai <info@simondalvai.org>\n"
+"PO-Revision-Date: 2025-02-07 06:20+0000\n"
+"Last-Translator: Ettore Atalan <atalanttore@googlemail.com>\n"
 "Language-Team: German <https://hosted.weblate.org/projects/"
-"99-managers-futsal-edition/game-gettext/de/>\n"
+"99-managers-futsal-edition/game/de/>\n"
 "Language: de\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -391,25 +391,21 @@ msgid "SEARCH"
 msgstr "Suche"
 
 #: src/ui_components/visual_finances/visual_finances.tscn
-#, fuzzy
 msgid "BALANCE"
-msgstr "BALANCE"
+msgstr "Bilanz"
 
 #: src/ui_components/visual_finances/visual_finances.tscn
-#, fuzzy
 msgid "EXPENSES"
-msgstr "EXPENSES"
+msgstr "Ausgaben"
 
 #: src/ui_components/visual_finances/visual_finances.tscn
-#, fuzzy
 msgid "REAMAINING_SALARY_BUDGET"
-msgstr "REAMAINING_SALARY_BUDGET"
+msgstr "Verbleibende Mittel für Gehälter"
 
 #: src/ui_components/visual_finances/visual_finances.tscn
 #: src/ui_components/transfers/contract_offer/contract_offer.tscn
-#, fuzzy
 msgid "INCOME"
-msgstr "INCOME"
+msgstr "Einkommen"
 
 #: src/ui_components/visual_competitions/visual_table/visual_table.tscn
 #, fuzzy
@@ -445,49 +441,40 @@ msgid "POINTS"
 msgstr "Punkte"
 
 #: src/ui_components/visual_competitions/visual_knockout/visual_knockout.tscn
-#, fuzzy
 msgid "KNOCKOUT"
-msgstr "KNOCKOUT"
+msgstr ""
 
 #: src/ui_components/visual_competitions/visual_knockout/visual_knockout.tscn
-#, fuzzy
 msgid "GROUP A"
-msgstr "GROUP A"
+msgstr "Gruppe A"
 
 #: src/ui_components/visual_competitions/visual_knockout/visual_knockout.tscn
-#, fuzzy
 msgid "FINAL"
-msgstr "FINAL"
+msgstr "Finale"
 
 #: src/ui_components/visual_competitions/visual_knockout/visual_knockout.tscn
-#, fuzzy
 msgid "GROUP B"
-msgstr "GROUP B"
+msgstr "Gruppe B"
 
 #: src/ui_components/visual_competitions/visual_knockout/visual_knockout.tscn
-#, fuzzy
 msgid "WINNER A vs WINNER B"
-msgstr "WINNER A vs WINNER B"
+msgstr "Sieger A gegen Sieger B"
 
 #: src/ui_components/visual_competitions/visual_competitions.tscn
-#, fuzzy
 msgid "LEAGUE"
-msgstr "LEAGUE"
+msgstr "Liga"
 
 #: src/ui_components/visual_competitions/visual_competitions.gd
-#, fuzzy
 msgid "GROUP"
-msgstr "GROUP"
+msgstr "Gruppe"
 
 #: src/ui_components/transfers/player_offer/player_offer.tscn
-#, fuzzy
 msgid "TYPE"
-msgstr "TYPE"
+msgstr "Typ"
 
 #: src/ui_components/transfers/player_offer/player_offer.tscn
-#, fuzzy
 msgid "MONEY"
-msgstr "MONEY"
+msgstr "Geld"
 
 #: src/ui_components/transfers/player_offer/player_offer.tscn
 #: src/ui_components/email/list/message_list.tscn
@@ -500,9 +487,8 @@ msgid "PLAYERS"
 msgstr "Spieler"
 
 #: src/ui_components/transfers/player_offer/player_offer.tscn
-#, fuzzy
 msgid "PLAYER_LIST"
-msgstr "PLAYER_LIST"
+msgstr "Spielerliste"
 
 #: src/ui_components/transfers/player_offer/player_offer.tscn
 #: src/ui_components/transfers/contract_offer/contract_offer.tscn
@@ -510,14 +496,12 @@ msgid "CONFIRM"
 msgstr "Bestätigen"
 
 #: src/ui_components/transfers/player_offer/player_offer.gd
-#, fuzzy
 msgid "TRANSFER"
-msgstr "TRANSFER"
+msgstr "Transfer"
 
 #: src/ui_components/transfers/player_offer/player_offer.gd
-#, fuzzy
 msgid "LOAN"
-msgstr "LOAN"
+msgstr "Leihe"
 
 #: src/ui_components/transfers/contract_offer/contract_offer.tscn
 #: src/ui_components/player_profile/player_profile.tscn
@@ -577,14 +561,12 @@ msgid "STAR"
 msgstr "Stern"
 
 #: src/ui_components/email/list/message_list.gd
-#, fuzzy
 msgid "NO_MESSAGE_FOUND"
-msgstr "NO_MESSAGE_FOUND"
+msgstr "Keine Nachricht gefunden"
 
 #: src/ui_components/email/list/message_row/message_row.gd
-#, fuzzy
 msgid "CLICK_TO_READ_MESSAGE"
-msgstr "CLICK_TO_READ_MESSAGE"
+msgstr "Zum Lesen der Nachricht anklicken"
 
 #: src/ui_components/email/email.tscn
 msgid "UNREAD"
@@ -603,14 +585,12 @@ msgid "ACTION"
 msgstr "Aktion"
 
 #: src/ui_components/email/visual_message/visual_message.gd
-#, fuzzy
 msgid "OFFER_CONTRACT"
-msgstr "OFFER_CONTRACT"
+msgstr "Vertrag anbieten"
 
 #: src/ui_components/player_profile/player_profile.tscn
-#, fuzzy
 msgid "STATISTICS"
-msgstr "STATISTICS"
+msgstr "Statistik"
 
 #: src/ui_components/player_profile/player_profile.tscn
 msgid "ATTRIBUTES"
@@ -621,18 +601,16 @@ msgid "POSITION"
 msgstr "Position"
 
 #: src/ui_components/player_profile/info_view/info_view.tscn
-#, fuzzy
 msgid "ALT_POSITION"
-msgstr "ALT_POSITION"
+msgstr "Alternative Position"
 
 #: src/ui_components/player_profile/info_view/info_view.tscn
 msgid "AGE"
 msgstr "Alter"
 
 #: src/ui_components/player_profile/info_view/info_view.tscn
-#, fuzzy
 msgid "FOOT"
-msgstr "FOOT"
+msgstr "Fuß"
 
 #: src/ui_components/player_profile/info_view/info_view.tscn
 #: src/screens/setup/setup_manager/setup_manager.tscn
@@ -645,14 +623,12 @@ msgid "TEAM"
 msgstr "Mannschaft"
 
 #: src/ui_components/player_profile/info_view/info_view.tscn
-#, fuzzy
 msgid "NR"
-msgstr "NR"
+msgstr "Nr."
 
 #: src/ui_components/player_profile/info_view/info_view.tscn
-#, fuzzy
 msgid "ATTRIBUTES_AVERGE"
-msgstr "ATTRIBUTES_AVERGE"
+msgstr "Durchschnittliche Eigenschaften"
 
 #: src/ui_components/player_profile/info_view/info_view.tscn
 msgid "VALUE"
@@ -685,9 +661,8 @@ msgid ""
 msgstr ""
 
 #: src/ui_components/visual_calendar/match_list/match_info/match_info.tscn
-#, fuzzy
 msgid "VS"
-msgstr "VS"
+msgstr "gegen"
 
 #: src/ui_components/visual_calendar/match_list/match_list.gd
 msgid "NO_MATCH"
@@ -745,24 +720,20 @@ msgid "WELCOME"
 msgstr "Wilkommen"
 
 #: src/utils/logic/email_util.gd
-#, fuzzy
 msgid "OFFER_ACCEPTED_TEXT"
-msgstr "OFFER_ACCEPTED_TEXT"
+msgstr "Das Team nahm das Angebot an"
 
 #: src/utils/logic/match_combination_util.gd
-#, fuzzy
 msgid "CUP"
-msgstr "CUP"
+msgstr "Pokal"
 
 #: src/utils/logic/match_combination_util.gd
-#, fuzzy
 msgid "NATIONS_CUP"
-msgstr "NATIONS_CUP"
+msgstr "Nationenmeisterschaft"
 
 #: src/utils/logic/match_combination_util.gd
-#, fuzzy
 msgid "WORLD_CUP"
-msgstr "WORLD_CUP"
+msgstr "Weltmeisterschaft"
 
 #: src/screens/settings/settings.tscn
 #: src/screens/settings/general/general_settings.tscn
@@ -788,27 +759,26 @@ msgid "RESTORE_DEFAULTS_TEXT"
 msgstr "Alle Einstellungen gehen verloren und werden zurück gesetzt."
 
 #: src/screens/settings/general/general_settings.tscn
-#, fuzzy
 msgid "TRANSLATION_INSTRUCTIONS"
-msgstr "TRANSLATION_INSTRUCTIONS"
+msgstr ""
+"Du kannst auf Weblate ganz einfach Fehler beheben oder neue Sprachen "
+"hinzufügen, indem du auf den untenstehenden Link klickst."
 
 #: src/screens/settings/general/general_settings.tscn
 msgid "AUDIO"
 msgstr "Audio"
 
 #: src/screens/settings/general/general_settings.tscn
-#, fuzzy
 msgid "SFX_VOLUME"
-msgstr "SFX_VOLUME"
+msgstr "Lautstärke der Klangeffekte"
 
 #: src/screens/settings/general/general_settings.tscn
 msgid "INTERFACE_SETTINGS"
 msgstr "Oberfläche"
 
 #: src/screens/settings/general/general_settings.tscn
-#, fuzzy
 msgid "FONT_SIZE"
-msgstr "FONT_SIZE"
+msgstr "Schriftgröße"
 
 #: src/screens/settings/general/general_settings.tscn
 #: src/screens/setup/setup_world/setup_world.tscn
@@ -852,18 +822,16 @@ msgid "VIM_MODE"
 msgstr "Vim-Modus"
 
 #: src/screens/settings/input/input_settings.tscn
-#, fuzzy
 msgid "JOYPAD_STATUS"
-msgstr "JOYPAD_STATUS"
+msgstr "Joypad-Status"
 
 #: src/screens/settings/input/input_settings.tscn
 msgid "NO_JOYPAD_CONNECTED"
 msgstr "Kein Joypad verbunden"
 
 #: src/screens/settings/input/input_settings.tscn
-#, fuzzy
 msgid "INPUT_DETECTION_MODE"
-msgstr "INPUT_DETECTION_MODE"
+msgstr "Eingangserkennungsmodus"
 
 #: src/screens/settings/input/input_settings.tscn
 msgid "INPUT_TYPE"
@@ -909,9 +877,11 @@ msgid "LOAD_GAME"
 msgstr "Spiel laden"
 
 #: src/screens/save_states_screen/save_state_entry/save_state_entry.tscn
-#, fuzzy
 msgid "SAVE_STATE_DELETE_INFO"
-msgstr "SAVE_STATE_DELETE_INFO"
+msgstr ""
+"Das Löschen eines Speicherstandes ist dauerhaft und kann nicht rückgängig "
+"gemacht werden.\n"
+"Bist du sicher, dass du diesen Speicherstand löschen willst?"
 
 #: src/screens/dashboard/dashboard.gd
 #: src/screens/dashboard/dashboard.tscn
@@ -927,9 +897,8 @@ msgid "NEXT_DAY"
 msgstr "Nächster Tag"
 
 #: src/screens/dashboard/dashboard.gd
-#, fuzzy
 msgid "NEXT_SEASON"
-msgstr "NEXT_SEASON"
+msgstr "Nächste Saison"
 
 #: src/screens/dashboard/dashboard.tscn
 msgid "CALENDAR"
@@ -998,9 +967,8 @@ msgid "PENALTIES"
 msgstr "Strafstoße (6m)"
 
 #: src/screens/match/statistics/match_stats.gd
-#, fuzzy
 msgid "0"
-msgstr "0"
+msgstr ""
 
 #: src/screens/match/match.tscn
 msgid "STATS"
@@ -1015,27 +983,24 @@ msgid "EVENTS"
 msgstr "Events"
 
 #: src/screens/match/match.tscn
-#, fuzzy
 msgid "FULL_MATCH"
-msgstr "FULL_MATCH"
+msgstr "Vollständiges Spiel"
 
 #: src/screens/match/match.tscn
 msgid "SIMULATE"
 msgstr "Simulieren"
 
 #: src/screens/match/match.tscn
-#, fuzzy
 msgid "DASHBOARD"
-msgstr "DASHBOARD"
+msgstr "Übersichtsseite"
 
 #: src/screens/match/match.tscn
 msgid "POSSESSION"
 msgstr "Ballbesitz"
 
 #: src/screens/loading_screen/loading_screen.tscn
-#, fuzzy
 msgid "LOADING"
-msgstr "LOADING"
+msgstr "Wird geladen"
 
 #: src/screens/menu/menu.tscn
 msgid "NEW_GAME"
@@ -1102,9 +1067,8 @@ msgid "SURINAME"
 msgstr "Surinam"
 
 #: src/resources/world/nation_names.gd
-#, fuzzy
 msgid "USA"
-msgstr "Dienstag"
+msgstr "USA"
 
 #: src/resources/world/nation_names.gd
 msgid "ANDORRA"
@@ -1415,9 +1379,8 @@ msgid "SWEDEN"
 msgstr "Schweden"
 
 #: src/resources/world/nation_names.gd
-#, fuzzy
 msgid "SWAZILAND"
-msgstr "Swaziland"
+msgstr "Swasiland"
 
 #: src/resources/world/nation_names.gd
 msgid "AZERBAIJAN"
@@ -1485,9 +1448,8 @@ msgid "GUATEMALA"
 msgstr "Guatemala"
 
 #: src/resources/world/nation_names.gd
-#, fuzzy
 msgid "KOREA_NORTH"
-msgstr "North Korea"
+msgstr "Nordkorea"
 
 #: src/resources/world/nation_names.gd
 msgid "IRAN"
@@ -1502,9 +1464,8 @@ msgid "SAINT_LUCIA"
 msgstr "St. Lucia"
 
 #: src/resources/world/nation_names.gd
-#, fuzzy
 msgid "VATICAN_CITY"
-msgstr "Vatican City"
+msgstr "Vatikanstadt"
 
 #: src/resources/world/nation_names.gd
 msgid "TRINIDAD_AND_TOBAGO"
@@ -1783,16 +1744,14 @@ msgid "SINGAPORE"
 msgstr "Singapur"
 
 #: src/resources/world/nation_names.gd
-#, fuzzy
 msgid "KOREA_SOUTH"
-msgstr "South Korea"
+msgstr "Südkorea"
 
 #: src/resources/world/nation_names.gd
 msgid "LIBERIA"
 msgstr "Liberia"
 
 #: src/resources/world/nation_names.gd
-#, fuzzy
 msgid "BURMA_"
 msgstr "Burma_"
 
