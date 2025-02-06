@@ -40,7 +40,6 @@ script = ExtResource("2_nyqm0")
 unique_name_in_owner = true
 custom_minimum_size = Vector2(100, 0)
 layout_mode = 2
-text = "Jan"
 horizontal_alignment = 1
 
 [node name="Next" type="Button" parent="Calendar/Paginator"]

@@ -40,7 +40,6 @@ theme_override_constants/separation = 15
 [node name="Title" type="Label" parent="MarginContainer/VBoxContainer"]
 unique_name_in_owner = true
 layout_mode = 2
-text = "TITLE"
 label_settings = ExtResource("2_7lbao")
 horizontal_alignment = 1
 
