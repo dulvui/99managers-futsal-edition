@@ -282,8 +282,9 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: 99 Managers Futsal Edition\n"
-"PO-Revision-Date: 2025-02-06 15:10+0000\n"
-"Last-Translator: Prefill add-on <noreply-addon-prefill@weblate.org>\n"
+"PO-Revision-Date: 2025-02-06 15:59+0000\n"
+"Last-Translator: Weblate Translation Memory <noreply-mt-weblate-translation-"
+"memory@weblate.org>\n"
 "Language-Team: Italian <https://hosted.weblate.org/projects/"
 "99-managers-futsal-edition/game-gettext/it/>\n"
 "Language: it\n"
@@ -294,7 +295,6 @@ msgstr ""
 "X-Generator: Weblate 5.10-dev\n"
 
 #: src/ui_components/team_profile/team_profile.tscn
-#, fuzzy
 msgid "Info"
 msgstr "Info"
 
@@ -308,9 +308,8 @@ msgid "STADIUM"
 msgstr "Stadio"
 
 #: src/ui_components/team_profile/team_profile.tscn
-#, fuzzy
 msgid "Players"
-msgstr "Players"
+msgstr "Giocatori"
 
 #: src/ui_components/team_profile/team_profile.gd
 #: src/ui_components/player_profile/info_view/info_view.tscn
@@ -393,14 +392,12 @@ msgid "SEARCH"
 msgstr "Cerca"
 
 #: src/ui_components/visual_finances/visual_finances.tscn
-#, fuzzy
 msgid "BALANCE"
-msgstr "BALANCE"
+msgstr "Bilancio"
 
 #: src/ui_components/visual_finances/visual_finances.tscn
-#, fuzzy
 msgid "EXPENSES"
-msgstr "EXPENSES"
+msgstr "Spese"
 
 #: src/ui_components/visual_finances/visual_finances.tscn
 #, fuzzy
@@ -409,9 +406,8 @@ msgstr "REAMAINING_SALARY_BUDGET"
 
 #: src/ui_components/visual_finances/visual_finances.tscn
 #: src/ui_components/transfers/contract_offer/contract_offer.tscn
-#, fuzzy
 msgid "INCOME"
-msgstr "INCOME"
+msgstr "Entrate"
 
 #: src/ui_components/visual_competitions/visual_table/visual_table.tscn
 #, fuzzy
@@ -448,9 +444,8 @@ msgid "POINTS"
 msgstr "Punti"
 
 #: src/ui_components/visual_competitions/visual_knockout/visual_knockout.tscn
-#, fuzzy
 msgid "KNOCKOUT"
-msgstr "KNOCKOUT"
+msgstr "Knockout"
 
 #: src/ui_components/visual_competitions/visual_knockout/visual_knockout.tscn
 #, fuzzy
@@ -478,19 +473,16 @@ msgid "LEAGUE"
 msgstr "LEAGUE"
 
 #: src/ui_components/visual_competitions/visual_competitions.gd
-#, fuzzy
 msgid "GROUP"
-msgstr "GROUP"
+msgstr "Gruppo"
 
 #: src/ui_components/transfers/player_offer/player_offer.tscn
-#, fuzzy
 msgid "TYPE"
-msgstr "TYPE"
+msgstr "Tipo"
 
 #: src/ui_components/transfers/player_offer/player_offer.tscn
-#, fuzzy
 msgid "MONEY"
-msgstr "MONEY"
+msgstr "Finanze"
 
 #: src/ui_components/transfers/player_offer/player_offer.tscn
 #: src/ui_components/email/list/message_list.tscn
@@ -510,17 +502,15 @@ msgstr "PLAYER_LIST"
 #: src/ui_components/transfers/player_offer/player_offer.tscn
 #: src/ui_components/transfers/contract_offer/contract_offer.tscn
 msgid "CONFIRM"
-msgstr "Confermare"
+msgstr "Conferma"
 
 #: src/ui_components/transfers/player_offer/player_offer.gd
-#, fuzzy
 msgid "TRANSFER"
-msgstr "TRANSFER"
+msgstr "Trasferimento"
 
 #: src/ui_components/transfers/player_offer/player_offer.gd
-#, fuzzy
 msgid "LOAN"
-msgstr "LOAN"
+msgstr "Prestito"
 
 #: src/ui_components/transfers/contract_offer/contract_offer.tscn
 #: src/ui_components/player_profile/player_profile.tscn
@@ -612,9 +602,8 @@ msgid "OFFER_CONTRACT"
 msgstr "OFFER_CONTRACT"
 
 #: src/ui_components/player_profile/player_profile.tscn
-#, fuzzy
 msgid "STATISTICS"
-msgstr "STATISTICS"
+msgstr "Statistiche"
 
 #: src/ui_components/player_profile/player_profile.tscn
 msgid "ATTRIBUTES"
@@ -634,9 +623,8 @@ msgid "AGE"
 msgstr "Età"
 
 #: src/ui_components/player_profile/info_view/info_view.tscn
-#, fuzzy
 msgid "FOOT"
-msgstr "FOOT"
+msgstr "Piede"
 
 #: src/ui_components/player_profile/info_view/info_view.tscn
 #: src/screens/setup/setup_manager/setup_manager.tscn
@@ -676,7 +664,7 @@ msgstr "Sessione mercato"
 #: src/ui_components/visual_calendar/match_list/match_info/match_info.tscn
 #: src/screens/match/match.tscn
 msgid "HOME"
-msgstr "Inizio"
+msgstr "Home"
 
 #: src/ui_components/visual_calendar/visual_day/visual_day.gd
 #: src/ui_components/visual_calendar/match_list/match_info/match_info.tscn
@@ -746,7 +734,7 @@ msgstr "Prossima partita"
 
 #: src/utils/logic/email_util.gd
 msgid "WELCOME"
-msgstr "Benvenuto"
+msgstr "Benvenuti"
 
 #: src/utils/logic/email_util.gd
 #, fuzzy
@@ -754,9 +742,8 @@ msgid "OFFER_ACCEPTED_TEXT"
 msgstr "OFFER_ACCEPTED_TEXT"
 
 #: src/utils/logic/match_combination_util.gd
-#, fuzzy
 msgid "CUP"
-msgstr "CUP"
+msgstr "Tazza"
 
 #: src/utils/logic/match_combination_util.gd
 #, fuzzy
@@ -771,7 +758,7 @@ msgstr "WORLD_CUP"
 #: src/screens/settings/settings.tscn
 #: src/screens/settings/general/general_settings.tscn
 msgid "GENERAL_SETTINGS"
-msgstr "Impostazioni generali"
+msgstr "Generale"
 
 #: src/screens/settings/settings.tscn
 #: src/screens/settings/input/input_settings.tscn
@@ -810,14 +797,13 @@ msgid "INTERFACE_SETTINGS"
 msgstr "Interfaccia"
 
 #: src/screens/settings/general/general_settings.tscn
-#, fuzzy
 msgid "FONT_SIZE"
-msgstr "FONT_SIZE"
+msgstr "Dimensione carattere"
 
 #: src/screens/settings/general/general_settings.tscn
 #: src/screens/setup/setup_world/setup_world.tscn
 msgid "DEFAULT"
-msgstr "Predefinita"
+msgstr "Default"
 
 #: src/screens/settings/general/general_settings.tscn
 msgid "SCALE"
@@ -845,7 +831,7 @@ msgstr "Colore tasti"
 
 #: src/screens/settings/general/general_settings.tscn
 msgid "BACKGROUND_COLOR"
-msgstr "Colore di sfondo"
+msgstr "Colore sfondo"
 
 #: src/screens/settings/general/general_settings.tscn
 msgid "VERSION"
@@ -902,7 +888,7 @@ msgstr "Ultimo salvataggio"
 
 #: src/screens/save_states_screen/save_state_entry/save_state_entry.tscn
 msgid "CREATED"
-msgstr "Creato il"
+msgstr "Creato"
 
 #: src/screens/save_states_screen/save_state_entry/save_state_entry.tscn
 msgid "DELETE"
@@ -1029,18 +1015,16 @@ msgid "SIMULATE"
 msgstr "Simula"
 
 #: src/screens/match/match.tscn
-#, fuzzy
 msgid "DASHBOARD"
-msgstr "DASHBOARD"
+msgstr "Dashboard"
 
 #: src/screens/match/match.tscn
 msgid "POSSESSION"
 msgstr "Possesso"
 
 #: src/screens/loading_screen/loading_screen.tscn
-#, fuzzy
 msgid "LOADING"
-msgstr "LOADING"
+msgstr "Caricamento"
 
 #: src/screens/menu/menu.tscn
 msgid "NEW_GAME"
@@ -1101,31 +1085,23 @@ msgstr "Scegli squadra"
 
 #: src/screens/setup/setup_team/setup_team.tscn
 msgid "SELECT"
-msgstr "Seleziona"
+msgstr "Selezionare"
 
 #: src/resources/world/nation_names.gd
-#, fuzzy
-#| msgid "VALUE"
 msgid "TUVALU"
-msgstr "Value"
+msgstr "Tuvalu"
 
 #: src/resources/world/nation_names.gd
-#, fuzzy
-#| msgid "FINANCES"
 msgid "FRANCE"
-msgstr "Finances"
+msgstr "Francia"
 
 #: src/resources/world/nation_names.gd
-#, fuzzy
-#| msgid "RANDOM"
 msgid "ANDORRA"
-msgstr "Random"
+msgstr "Andorra"
 
 #: src/resources/world/nation_names.gd
-#, fuzzy
-#| msgid "SURNAME"
 msgid "SURINAME"
-msgstr "Surname"
+msgstr "Suriname"
 
 #: src/resources/world/nation_names.gd
 #, fuzzy
@@ -1134,399 +1110,320 @@ msgid "USA"
 msgstr "Tuesday"
 
 #: src/resources/world/nation_names.gd
-#, fuzzy
 msgid "IRELAND"
-msgstr "Ireland"
+msgstr "Irlanda"
 
 #: src/resources/world/nation_names.gd
-#, fuzzy
 msgid "ROMANIA"
 msgstr "Romania"
 
 #: src/resources/world/nation_names.gd
-#, fuzzy
 msgid "SLOVENIA"
 msgstr "Slovenia"
 
 #: src/resources/world/nation_names.gd
-#, fuzzy
 msgid "PORTUGAL"
-msgstr "Portugal"
+msgstr "Portogallo"
 
 #: src/resources/world/nation_names.gd
-#, fuzzy
 msgid "SAN_MARINO"
 msgstr "San Marino"
 
 #: src/resources/world/nation_names.gd
-#, fuzzy
 msgid "SLOVAKIA"
-msgstr "Slovakia"
+msgstr "Slovacchia"
 
 #: src/resources/world/nation_names.gd
-#, fuzzy
 msgid "SERBIA"
 msgstr "Serbia"
 
 #: src/resources/world/nation_names.gd
-#, fuzzy
 msgid "NEW_ZEALAND"
-msgstr "New Zealand"
+msgstr "Nuova Zelanda"
 
 #: src/resources/world/nation_names.gd
-#, fuzzy
 msgid "NAURU"
 msgstr "Nauru"
 
 #: src/resources/world/nation_names.gd
-#, fuzzy
 msgid "MALDIVES"
-msgstr "Maldives"
+msgstr "Maldive"
 
 #: src/resources/world/nation_names.gd
-#, fuzzy
 msgid "BULGARIA"
 msgstr "Bulgaria"
 
 #: src/resources/world/nation_names.gd
-#, fuzzy
 msgid "FINLAND"
-msgstr "Finland"
+msgstr "Finlandia"
 
 #: src/resources/world/nation_names.gd
-#, fuzzy
 msgid "LUXEMBOURG"
-msgstr "Luxembourg"
+msgstr "Lussemburgo"
 
 #: src/resources/world/nation_names.gd
-#, fuzzy
 msgid "LITHUANIA"
-msgstr "Lithuania"
+msgstr "Lituania"
 
 #: src/resources/world/nation_names.gd
-#, fuzzy
 msgid "GEORGIA"
 msgstr "Georgia"
 
 #: src/resources/world/nation_names.gd
-#, fuzzy
 msgid "SWITZERLAND"
-msgstr "Switzerland"
+msgstr "Svizzera"
 
 #: src/resources/world/nation_names.gd
-#, fuzzy
 msgid "SWEDEN"
-msgstr "Sweden"
+msgstr "Svezia"
 
 #: src/resources/world/nation_names.gd
-#, fuzzy
 msgid "POLAND"
-msgstr "Poland"
+msgstr "Polonia"
 
 #: src/resources/world/nation_names.gd
-#, fuzzy
 msgid "NORWAY"
-msgstr "Norway"
+msgstr "Norvegia"
 
 #: src/resources/world/nation_names.gd
-#, fuzzy
 msgid "NETHERLANDS"
-msgstr "Netherlands"
+msgstr "Paesi Bassi"
 
 #: src/resources/world/nation_names.gd
-#, fuzzy
 msgid "BOLIVIA"
 msgstr "Bolivia"
 
 #: src/resources/world/nation_names.gd
-#, fuzzy
 msgid "ARGENTINA"
 msgstr "Argentina"
 
 #: src/resources/world/nation_names.gd
-#, fuzzy
 msgid "UNITED_KINGDOM"
-msgstr "United Kingdom"
+msgstr "Regno Unito"
 
 #: src/resources/world/nation_names.gd
-#, fuzzy
 msgid "PARAGUAY"
 msgstr "Paraguay"
 
 #: src/resources/world/nation_names.gd
-#, fuzzy
 msgid "PERU"
-msgstr "Peru"
+msgstr "Perù"
 
 #: src/resources/world/nation_names.gd
-#, fuzzy
 msgid "HAITI"
 msgstr "Haiti"
 
 #: src/resources/world/nation_names.gd
-#, fuzzy
 msgid "PANAMA"
-msgstr "Panama"
+msgstr "Panamá"
 
 #: src/resources/world/nation_names.gd
-#, fuzzy
 msgid "JAMAICA"
-msgstr "Jamaica"
+msgstr "Giamaica"
 
 #: src/resources/world/nation_names.gd
-#, fuzzy
 msgid "HONDURAS"
 msgstr "Honduras"
 
 #: src/resources/world/nation_names.gd
-#, fuzzy
 msgid "TRINIDAD_AND_TOBAGO"
-msgstr "Trinidad and Tobago"
+msgstr "Trinidad e Tobago"
 
 #: src/resources/world/nation_names.gd
-#, fuzzy
 msgid "SAINT_KITTS_AND_NEVIS"
-msgstr "Saint Kitts and Nevis"
+msgstr "Saint Kitts e Nevis"
 
 #: src/resources/world/nation_names.gd
-#, fuzzy
 msgid "SAINT_VINCENT_AND_THE_GRENADINES"
-msgstr "Saint Vincent and the Grenadines"
+msgstr "Saint Vincent e Grenadine"
 
 #: src/resources/world/nation_names.gd
-#, fuzzy
 msgid "FIJI"
-msgstr "Fiji"
+msgstr "Figi"
 
 #: src/resources/world/nation_names.gd
-#, fuzzy
 msgid "MARSHALL_ISLANDS"
-msgstr "Marshall Islands"
+msgstr "Isole Marshall"
 
 #: src/resources/world/nation_names.gd
-#, fuzzy
 msgid "EAST_TIMOR"
-msgstr "East Timor"
+msgstr "Timor Est"
 
 #: src/resources/world/nation_names.gd
-#, fuzzy
 msgid "CHINA"
-msgstr "China"
+msgstr "Cina"
 
 #: src/resources/world/nation_names.gd
-#, fuzzy
 msgid "MONGOLIA"
 msgstr "Mongolia"
 
 #: src/resources/world/nation_names.gd
-#, fuzzy
 msgid "NEPAL"
 msgstr "Nepal"
 
 #: src/resources/world/nation_names.gd
-#, fuzzy
 msgid "PHILIPPINES"
-msgstr "Philippines"
+msgstr "Filippine"
 
 #: src/resources/world/nation_names.gd
-#, fuzzy
 msgid "GRENADA"
 msgstr "Grenada"
 
 #: src/resources/world/nation_names.gd
-#, fuzzy
 msgid "MOLDOVA"
-msgstr "Moldova"
+msgstr "Moldavia"
 
 #: src/resources/world/nation_names.gd
-#, fuzzy
 msgid "AFGHANISTAN"
 msgstr "Afghanistan"
 
 #: src/resources/world/nation_names.gd
-#, fuzzy
 msgid "QATAR"
 msgstr "Qatar"
 
 #: src/resources/world/nation_names.gd
-#, fuzzy
 msgid "ARMENIA"
 msgstr "Armenia"
 
 #: src/resources/world/nation_names.gd
-#, fuzzy
 msgid "CHILE"
-msgstr "Chile"
+msgstr "Cile"
 
 #: src/resources/world/nation_names.gd
-#, fuzzy
 msgid "LESOTHO"
 msgstr "Lesotho"
 
 #: src/resources/world/nation_names.gd
-#, fuzzy
 msgid "YEMEN"
 msgstr "Yemen"
 
 #: src/resources/world/nation_names.gd
-#, fuzzy
 msgid "SENEGAL"
 msgstr "Senegal"
 
 #: src/resources/world/nation_names.gd
-#, fuzzy
 msgid "ANGOLA"
 msgstr "Angola"
 
 #: src/resources/world/nation_names.gd
-#, fuzzy
 msgid "CUBA"
 msgstr "Cuba"
 
 #: src/resources/world/nation_names.gd
-#, fuzzy
 msgid "AUSTRIA"
 msgstr "Austria"
 
 #: src/resources/world/nation_names.gd
-#, fuzzy
 msgid "MOZAMBIQUE"
-msgstr "Mozambique"
+msgstr "Mozambico"
 
 #: src/resources/world/nation_names.gd
-#, fuzzy
 msgid "RWANDA"
-msgstr "Rwanda"
+msgstr "Ruanda"
 
 #: src/resources/world/nation_names.gd
-#, fuzzy
 msgid "LATVIA"
-msgstr "Latvia"
+msgstr "Lettonia"
 
 #: src/resources/world/nation_names.gd
-#, fuzzy
 msgid "NIGERIA"
 msgstr "Nigeria"
 
 #: src/resources/world/nation_names.gd
-#, fuzzy
 msgid "CYPRUS"
-msgstr "Cyprus"
+msgstr "Cipro"
 
 #: src/resources/world/nation_names.gd
-#, fuzzy
 msgid "UGANDA"
 msgstr "Uganda"
 
 #: src/resources/world/nation_names.gd
-#, fuzzy
 msgid "SUDAN"
 msgstr "Sudan"
 
 #: src/resources/world/nation_names.gd
-#, fuzzy
 msgid "TURKEY"
-msgstr "Turkey"
+msgstr "Turchia"
 
 #: src/resources/world/nation_names.gd
-#, fuzzy
 msgid "GHANA"
 msgstr "Ghana"
 
 #: src/resources/world/nation_names.gd
-#, fuzzy
 msgid "MADAGASCAR"
 msgstr "Madagascar"
 
 #: src/resources/world/nation_names.gd
-#, fuzzy
 msgid "CAMEROON"
-msgstr "Cameroon"
+msgstr "Camerun"
 
 #: src/resources/world/nation_names.gd
-#, fuzzy
 msgid "VENEZUELA"
 msgstr "Venezuela"
 
 #: src/resources/world/nation_names.gd
-#, fuzzy
 msgid "KENYA"
 msgstr "Kenya"
 
 #: src/resources/world/nation_names.gd
-#, fuzzy
 msgid "EL_SALVADOR"
 msgstr "El Salvador"
 
 #: src/resources/world/nation_names.gd
-#, fuzzy
 msgid "COLOMBIA"
 msgstr "Colombia"
 
 #: src/resources/world/nation_names.gd
-#, fuzzy
 msgid "DOMINICA"
 msgstr "Dominica"
 
 #: src/resources/world/nation_names.gd
-#, fuzzy
 msgid "SAO_TOME_AND_PRINCIPE"
-msgstr "Sao Tome and Principe"
+msgstr "São Tomé e Príncipe"
 
 #: src/resources/world/nation_names.gd
-#, fuzzy
 msgid "DOMINICAN_REPUBLIC"
-msgstr "Dominican Republic"
+msgstr "Repubblica Dominicana"
 
 #: src/resources/world/nation_names.gd
-#, fuzzy
 msgid "IVORY_COAST"
-msgstr "Ivory Coast"
+msgstr "Costa d'Avorio"
 
 #: src/resources/world/nation_names.gd
-#, fuzzy
 msgid "BAHAMAS"
 msgstr "Bahamas"
 
 #: src/resources/world/nation_names.gd
-#, fuzzy
 msgid "MALTA"
 msgstr "Malta"
 
 #: src/resources/world/nation_names.gd
-#, fuzzy
 msgid "CENTRAL_AFRICAN_REPUBLIC"
-msgstr "Central African Republic"
+msgstr "Repubblica Centrafricana"
 
 #: src/resources/world/nation_names.gd
-#, fuzzy
 msgid "CHAD"
-msgstr "Chad"
+msgstr "Ciad"
 
 #: src/resources/world/nation_names.gd
-#, fuzzy
 msgid "SOUTH_SUDAN"
-msgstr "South Sudan"
+msgstr "Sudan del Sud"
 
 #: src/resources/world/nation_names.gd
-#, fuzzy
 msgid "LIBYA"
-msgstr "Libya"
+msgstr "Libia"
 
 #: src/resources/world/nation_names.gd
-#, fuzzy
 msgid "CROATIA"
-msgstr "Croatia"
+msgstr "Croazia"
 
 #: src/resources/world/nation_names.gd
-#, fuzzy
 msgid "NAMIBIA"
 msgstr "Namibia"
 
 #: src/resources/world/nation_names.gd
-#, fuzzy
 msgid "ETHIOPIA"
-msgstr "Ethiopia"
+msgstr "Etiopia"
 
 #: src/resources/world/nation_names.gd
 #, fuzzy
@@ -1534,49 +1431,40 @@ msgid "SWAZILAND"
 msgstr "Swaziland"
 
 #: src/resources/world/nation_names.gd
-#, fuzzy
 msgid "ZIMBABWE"
 msgstr "Zimbabwe"
 
 #: src/resources/world/nation_names.gd
-#, fuzzy
 msgid "AZERBAIJAN"
-msgstr "Azerbaijan"
+msgstr "Azerbaigian"
 
 #: src/resources/world/nation_names.gd
-#, fuzzy
 msgid "DEMOCRATIC_REPUBLIC_OF_CONGO"
-msgstr "Democratic Republic of Congo"
+msgstr "Repubblica Democratica del Congo"
 
 #: src/resources/world/nation_names.gd
-#, fuzzy
 msgid "OMAN"
 msgstr "Oman"
 
 #: src/resources/world/nation_names.gd
-#, fuzzy
 msgid "MAURITANIA"
 msgstr "Mauritania"
 
 #: src/resources/world/nation_names.gd
-#, fuzzy
 msgid "COSTA_RICA"
 msgstr "Costa Rica"
 
 #: src/resources/world/nation_names.gd
-#, fuzzy
 msgid "TONGA"
 msgstr "Tonga"
 
 #: src/resources/world/nation_names.gd
-#, fuzzy
 msgid "EQUATORIAL_GUINEA"
-msgstr "Equatorial Guinea"
+msgstr "Guinea Equatoriale"
 
 #: src/resources/world/nation_names.gd
-#, fuzzy
 msgid "ITALY"
-msgstr "Italy"
+msgstr "Italia"
 
 #: src/resources/world/nation_names.gd
 #, fuzzy
@@ -1584,64 +1472,52 @@ msgid "BURKINA"
 msgstr "Burkina"
 
 #: src/resources/world/nation_names.gd
-#, fuzzy
 msgid "DENMARK"
-msgstr "Denmark"
+msgstr "Danimarca"
 
 #: src/resources/world/nation_names.gd
-#, fuzzy
 msgid "ERITREA"
 msgstr "Eritrea"
 
 #: src/resources/world/nation_names.gd
-#, fuzzy
 msgid "BHUTAN"
 msgstr "Bhutan"
 
 #: src/resources/world/nation_names.gd
-#, fuzzy
 msgid "BANGLADESH"
 msgstr "Bangladesh"
 
 #: src/resources/world/nation_names.gd
-#, fuzzy
 msgid "BARBADOS"
 msgstr "Barbados"
 
 #: src/resources/world/nation_names.gd
-#, fuzzy
 msgid "MEXICO"
-msgstr "Mexico"
+msgstr "Messico"
 
 #: src/resources/world/nation_names.gd
-#, fuzzy
 msgid "GUATEMALA"
 msgstr "Guatemala"
 
 #: src/resources/world/nation_names.gd
-#, fuzzy
 msgid "INDONESIA"
 msgstr "Indonesia"
 
 #: src/resources/world/nation_names.gd
-#, fuzzy
 msgid "KOREA_NORTH"
-msgstr "North Korea"
+msgstr "Corea del Nord"
 
 #: src/resources/world/nation_names.gd
-#, fuzzy
 msgid "IRAN"
 msgstr "Iran"
 
 #: src/resources/world/nation_names.gd
-#, fuzzy
 msgid "ALBANIA"
 msgstr "Albania"
 
 #: src/resources/world/nation_names.gd
-#, fuzzy
 msgid "SAINT_LUCIA"
-msgstr "Saint Lucia"
+msgstr "Santa Lucia"
 
 #: src/resources/world/nation_names.gd
 #, fuzzy
@@ -1649,329 +1525,264 @@ msgid "VATICAN_CITY"
 msgstr "Vatican City"
 
 #: src/resources/world/nation_names.gd
-#, fuzzy
 msgid "TAJIKISTAN"
-msgstr "Tajikistan"
+msgstr "Tagikistan"
 
 #: src/resources/world/nation_names.gd
-#, fuzzy
 msgid "BELARUS"
-msgstr "Belarus"
+msgstr "Bielorussia"
 
 #: src/resources/world/nation_names.gd
-#, fuzzy
 msgid "UZBEKISTAN"
 msgstr "Uzbekistan"
 
 #: src/resources/world/nation_names.gd
-#, fuzzy
 msgid "URUGUAY"
 msgstr "Uruguay"
 
 #: src/resources/world/nation_names.gd
-#, fuzzy
 msgid "BOSNIA_AND_HERZEGOVINA"
-msgstr "Bosnia and Herzegovina"
+msgstr "Bosnia ed Erzegovina"
 
 #: src/resources/world/continent_names.gd
-#, fuzzy
 msgid "EUROPE"
-msgstr "Europe"
+msgstr "Europa"
 
 #: src/resources/world/nation_names.gd
-#, fuzzy
 msgid "MALAYSIA"
-msgstr "Malaysia"
+msgstr "Malesia"
 
 #: src/resources/world/nation_names.gd
-#, fuzzy
 msgid "JORDAN"
-msgstr "Jordan"
+msgstr "Giordania"
 
 #: src/resources/world/nation_names.gd
-#, fuzzy
 msgid "PALAU"
 msgstr "Palau"
 
 #: src/resources/world/nation_names.gd
-#, fuzzy
 msgid "ALGERIA"
 msgstr "Algeria"
 
 #: src/resources/world/nation_names.gd
-#, fuzzy
 msgid "SEYCHELLES"
 msgstr "Seychelles"
 
 #: src/resources/world/nation_names.gd
-#, fuzzy
 msgid "VANUATU"
 msgstr "Vanuatu"
 
 #: src/resources/world/nation_names.gd
-#, fuzzy
 msgid "THAILAND"
-msgstr "Thailand"
+msgstr "Thailandia"
 
 #: src/resources/world/nation_names.gd
-#, fuzzy
 msgid "MALAWI"
 msgstr "Malawi"
 
 #: src/resources/world/nation_names.gd
-#, fuzzy
 msgid "SOMALIA"
 msgstr "Somalia"
 
 #: src/resources/world/nation_names.gd
-#, fuzzy
 msgid "TUNISIA"
 msgstr "Tunisia"
 
 #: src/resources/world/nation_names.gd
-#, fuzzy
 msgid "LAOS"
 msgstr "Laos"
 
 #: src/resources/world/nation_names.gd
-#, fuzzy
 msgid "MAURITIUS"
 msgstr "Mauritius"
 
 #: src/resources/world/nation_names.gd
-#, fuzzy
 msgid "MACEDONIA"
-msgstr "Macedonia"
+msgstr "Repubblica di Macedonia"
 
 #: src/resources/world/nation_names.gd
-#, fuzzy
 msgid "NIGER"
 msgstr "Niger"
 
 #: src/resources/world/nation_names.gd
-#, fuzzy
 msgid "BENIN"
 msgstr "Benin"
 
 #: src/resources/world/nation_names.gd
-#, fuzzy
 msgid "KUWAIT"
 msgstr "Kuwait"
 
 #: src/resources/world/nation_names.gd
-#, fuzzy
 msgid "KIRIBATI"
 msgstr "Kiribati"
 
 #: src/resources/world/nation_names.gd
-#, fuzzy
 msgid "BAHRAIN"
-msgstr "Bahrain"
+msgstr "Bahrein"
 
 #: src/resources/world/nation_names.gd
-#, fuzzy
 msgid "SAMOA"
 msgstr "Samoa"
 
 #: src/resources/world/nation_names.gd
-#, fuzzy
 msgid "ISRAEL"
-msgstr "Israel"
+msgstr "Israele"
 
 #: src/resources/world/nation_names.gd
-#, fuzzy
 msgid "INDIA"
 msgstr "India"
 
 #: src/resources/world/continent_names.gd
-#, fuzzy
 msgid "NORTH_AMERICA"
-msgstr "North America"
+msgstr "Nord America"
 
 #: src/resources/world/nation_names.gd
-#, fuzzy
 msgid "SRI_LANKA"
 msgstr "Sri Lanka"
 
 #: src/resources/world/nation_names.gd
-#, fuzzy
 msgid "ANTIGUA_AND_BARBUDA"
-msgstr "Antigua and Barbuda"
+msgstr "Antigua e Barbuda"
 
 #: src/resources/world/nation_names.gd
-#, fuzzy
 msgid "LIECHTENSTEIN"
 msgstr "Liechtenstein"
 
 #: src/resources/world/nation_names.gd
-#, fuzzy
 msgid "KYRGYZSTAN"
-msgstr "Kyrgyzstan"
+msgstr "Kirghizistan"
 
 #: src/resources/world/continent_names.gd
-#, fuzzy
 msgid "SOUTH_AMERICA"
-msgstr "South America"
+msgstr "Sud America"
 
 #: src/resources/world/nation_names.gd
-#, fuzzy
 msgid "TURKMENISTAN"
 msgstr "Turkmenistan"
 
 #: src/resources/world/nation_names.gd
-#, fuzzy
 msgid "UKRAINE"
-msgstr "Ukraine"
+msgstr "Ucraina"
 
 #: src/resources/world/nation_names.gd
-#, fuzzy
 msgid "PAPUA_NEW_GUINEA"
-msgstr "Papua New Guinea"
+msgstr "Papua Nuova Guinea"
 
 #: src/resources/world/nation_names.gd
-#, fuzzy
 msgid "BRUNEI"
 msgstr "Brunei"
 
 #: src/resources/world/nation_names.gd
-#, fuzzy
 msgid "JAPAN"
-msgstr "Japan"
+msgstr "Giappone"
 
 #: src/resources/world/nation_names.gd
-#, fuzzy
 msgid "LEBANON"
-msgstr "Lebanon"
+msgstr "Libano"
 
 #: src/resources/world/nation_names.gd
-#, fuzzy
 msgid "BURUNDI"
 msgstr "Burundi"
 
 #: src/resources/world/nation_names.gd
-#, fuzzy
 msgid "BELIZE"
 msgstr "Belize"
 
 #: src/resources/world/nation_names.gd
-#, fuzzy
 msgid "ECUADOR"
 msgstr "Ecuador"
 
 #: src/resources/world/nation_names.gd
-#, fuzzy
 msgid "GUYANA"
 msgstr "Guyana"
 
 #: src/resources/world/nation_names.gd
-#, fuzzy
 msgid "GAMBIA"
 msgstr "Gambia"
 
 #: src/resources/world/nation_names.gd
-#, fuzzy
 msgid "ZAMBIA"
 msgstr "Zambia"
 
 #: src/resources/world/nation_names.gd
-#, fuzzy
 msgid "GREECE"
-msgstr "Greece"
+msgstr "Grecia"
 
 #: src/resources/world/nation_names.gd
-#, fuzzy
 msgid "VIETNAM"
 msgstr "Vietnam"
 
 #: src/resources/world/nation_names.gd
-#, fuzzy
 msgid "SOUTH_AFRICA"
-msgstr "South Africa"
+msgstr "Sud Africa"
 
 #: src/resources/world/nation_names.gd
-#, fuzzy
 msgid "EGYPT"
-msgstr "Egypt"
+msgstr "Egitto"
 
 #: src/resources/world/nation_names.gd
-#, fuzzy
 msgid "MONTENEGRO"
 msgstr "Montenegro"
 
 #: src/resources/world/nation_names.gd
-#, fuzzy
 msgid "KAZAKHSTAN"
-msgstr "Kazakhstan"
+msgstr "Kazakistan"
 
 #: src/resources/world/nation_names.gd
-#, fuzzy
 msgid "CANADA"
 msgstr "Canada"
 
 #: src/resources/world/nation_names.gd
-#, fuzzy
 msgid "CZECH_REPUBLIC"
-msgstr "Czech Republic"
+msgstr "Repubblica Ceca"
 
 #: src/resources/world/nation_names.gd
-#, fuzzy
 msgid "NICARAGUA"
 msgstr "Nicaragua"
 
 #: src/resources/world/nation_names.gd
-#, fuzzy
 msgid "SYRIA"
-msgstr "Syria"
+msgstr "Siria"
 
 #: src/resources/world/nation_names.gd
-#, fuzzy
 msgid "RUSSIAN_FEDERATION"
-msgstr "Russian Federation"
+msgstr "Russia"
 
 #: src/resources/world/nation_names.gd
-#, fuzzy
 msgid "CONGO"
 msgstr "Congo"
 
 #: src/resources/world/nation_names.gd
-#, fuzzy
 msgid "UNITED_ARAB_EMIRATES"
-msgstr "United Arab Emirates"
+msgstr "Emirati Arabi Uniti"
 
 #: src/resources/world/nation_names.gd
-#, fuzzy
 msgid "BELGIUM"
-msgstr "Belgium"
+msgstr "Belgio"
 
 #: src/resources/world/nation_names.gd
-#, fuzzy
 msgid "SAUDI_ARABIA"
-msgstr "Saudi Arabia"
+msgstr "Arabia Saudita"
 
 #: src/resources/world/nation_names.gd
-#, fuzzy
 msgid "PAKISTAN"
 msgstr "Pakistan"
 
 #: src/resources/world/nation_names.gd
-#, fuzzy
 msgid "SINGAPORE"
 msgstr "Singapore"
 
 #: src/resources/world/nation_names.gd
-#, fuzzy
 msgid "KOREA_SOUTH"
-msgstr "South Korea"
+msgstr "Corea del Sud"
 
 #: src/resources/world/nation_names.gd
-#, fuzzy
 msgid "LIBERIA"
 msgstr "Liberia"
 
 #: src/resources/world/nation_names.gd
-#, fuzzy
 msgid "SPAIN"
-msgstr "Spain"
+msgstr "Spagna"
 
 #: src/resources/world/nation_names.gd
 #, fuzzy
@@ -1979,126 +1790,101 @@ msgid "BURMA_"
 msgstr "Burma_"
 
 #: src/resources/world/nation_names.gd
-#, fuzzy
 msgid "TANZANIA"
 msgstr "Tanzania"
 
 #: src/resources/world/nation_names.gd
-#, fuzzy
 msgid "TOGO"
 msgstr "Togo"
 
 #: src/resources/world/nation_names.gd
-#, fuzzy
 msgid "DJIBOUTI"
-msgstr "Djibouti"
+msgstr "Gibuti"
 
 #: src/resources/world/nation_names.gd
-#, fuzzy
 msgid "ESTONIA"
 msgstr "Estonia"
 
 #: src/resources/world/nation_names.gd
-#, fuzzy
 msgid "BRAZIL"
-msgstr "Brazil"
+msgstr "Brasile"
 
 #: src/resources/world/nation_names.gd
-#, fuzzy
 msgid "SIERRA_LEONE"
 msgstr "Sierra Leone"
 
 #: src/resources/world/nation_names.gd
-#, fuzzy
 msgid "MALI"
 msgstr "Mali"
 
 #: src/resources/world/nation_names.gd
-#, fuzzy
 msgid "SOLOMON_ISLANDS"
-msgstr "Solomon Islands"
+msgstr "Isole Salomone"
 
 #: src/resources/world/nation_names.gd
-#, fuzzy
 msgid "CAMBODIA"
-msgstr "Cambodia"
+msgstr "Cambogia"
 
 #: src/resources/world/nation_names.gd
-#, fuzzy
 msgid "GUINEA"
 msgstr "Guinea"
 
 #: src/resources/world/nation_names.gd
-#, fuzzy
 msgid "IRAQ"
 msgstr "Iraq"
 
 #: src/resources/world/nation_names.gd
-#, fuzzy
 msgid "MONACO"
-msgstr "Monaco"
+msgstr "Principato di Monaco"
 
 #: src/resources/world/continent_names.gd
-#, fuzzy
 msgid "ASIA"
 msgstr "Asia"
 
 #: src/resources/world/nation_names.gd
-#, fuzzy
 msgid "AUSTRALIA"
 msgstr "Australia"
 
 #: src/resources/world/nation_names.gd
-#, fuzzy
 msgid "ICELAND"
-msgstr "Iceland"
+msgstr "Islanda"
 
 #: src/resources/world/continent_names.gd
-#, fuzzy
 msgid "AFRICA"
 msgstr "Africa"
 
 #: src/resources/world/nation_names.gd
-#, fuzzy
 msgid "MICRONESIA"
-msgstr "Micronesia"
+msgstr "Stati Federati di Micronesia"
 
 #: src/resources/world/nation_names.gd
-#, fuzzy
 msgid "GABON"
 msgstr "Gabon"
 
 #: src/resources/world/nation_names.gd
-#, fuzzy
 msgid "GERMANY"
-msgstr "Germany"
+msgstr "Germania"
 
 #: src/resources/world/nation_names.gd
-#, fuzzy
 msgid "BOTSWANA"
 msgstr "Botswana"
 
 #: src/resources/world/nation_names.gd
-#, fuzzy
 msgid "COMOROS"
-msgstr "Comoros"
+msgstr "Comore"
 
 #: src/resources/world/continent_names.gd
-#, fuzzy
 msgid "OCEANIA"
 msgstr "Oceania"
 
 #: src/resources/world/nation_names.gd
-#, fuzzy
 msgid "MOROCCO"
-msgstr "Morocco"
+msgstr "Marocco"
 
 #: src/resources/world/nation_names.gd
-#, fuzzy
 msgid "CAPE_VERDE"
-msgstr "Cape Verde"
+msgstr "Capo Verde"
 
 #: src/resources/world/nation_names.gd
-#, fuzzy
 msgid "HUNGARY"
-msgstr "Hungary"
+msgstr "Ungheria"
