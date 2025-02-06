@@ -984,7 +984,7 @@ msgstr ""
 
 #: src/screens/menu/menu.tscn
 msgid "NEW_GAME"
-msgstr ""
+msgstr "New game"
 
 #: src/screens/menu/menu.tscn
 msgid "EXIT"
