@@ -282,11 +282,10 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: 99 Managers Futsal Edition\n"
-"PO-Revision-Date: 2025-02-06 15:59+0000\n"
-"Last-Translator: Weblate Translation Memory <noreply-mt-weblate-translation-"
-"memory@weblate.org>\n"
+"PO-Revision-Date: 2025-02-07 06:20+0000\n"
+"Last-Translator: Максим Горпиніч <maksimgorpinic2005a@gmail.com>\n"
 "Language-Team: Ukrainian <https://hosted.weblate.org/projects/"
-"99-managers-futsal-edition/game-gettext/uk/>\n"
+"99-managers-futsal-edition/game/uk/>\n"
 "Language: uk\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -419,9 +418,8 @@ msgid "PLAYED"
 msgstr "Зіграно"
 
 #: src/ui_components/visual_competitions/visual_table/visual_table.tscn
-#, fuzzy
 msgid "WIN"
-msgstr "WIN"
+msgstr "Виграти"
 
 #: src/ui_components/visual_competitions/visual_table/visual_table.tscn
 msgid "DRAW"
@@ -448,29 +446,24 @@ msgid "KNOCKOUT"
 msgstr "Перекриття"
 
 #: src/ui_components/visual_competitions/visual_knockout/visual_knockout.tscn
-#, fuzzy
 msgid "GROUP A"
-msgstr "GROUP A"
+msgstr "Група А"
 
 #: src/ui_components/visual_competitions/visual_knockout/visual_knockout.tscn
-#, fuzzy
 msgid "FINAL"
-msgstr "FINAL"
+msgstr "Фінал"
 
 #: src/ui_components/visual_competitions/visual_knockout/visual_knockout.tscn
-#, fuzzy
 msgid "GROUP B"
-msgstr "GROUP B"
+msgstr "Група В"
 
 #: src/ui_components/visual_competitions/visual_knockout/visual_knockout.tscn
-#, fuzzy
 msgid "WINNER A vs WINNER B"
-msgstr "WINNER A vs WINNER B"
+msgstr "Переможець A проти переможця B"
 
 #: src/ui_components/visual_competitions/visual_competitions.tscn
-#, fuzzy
 msgid "LEAGUE"
-msgstr "LEAGUE"
+msgstr "Ліга"
 
 #: src/ui_components/visual_competitions/visual_competitions.gd
 msgid "GROUP"
@@ -495,9 +488,8 @@ msgid "PLAYERS"
 msgstr "Гравці"
 
 #: src/ui_components/transfers/player_offer/player_offer.tscn
-#, fuzzy
 msgid "PLAYER_LIST"
-msgstr "PLAYER_LIST"
+msgstr "Список гравців"
 
 #: src/ui_components/transfers/player_offer/player_offer.tscn
 #: src/ui_components/transfers/contract_offer/contract_offer.tscn
@@ -570,14 +562,12 @@ msgid "STAR"
 msgstr "Обране"
 
 #: src/ui_components/email/list/message_list.gd
-#, fuzzy
 msgid "NO_MESSAGE_FOUND"
-msgstr "NO_MESSAGE_FOUND"
+msgstr "Повідомлення не знайдено"
 
 #: src/ui_components/email/list/message_row/message_row.gd
-#, fuzzy
 msgid "CLICK_TO_READ_MESSAGE"
-msgstr "CLICK_TO_READ_MESSAGE"
+msgstr "Натисніть, щоб прочитати повідомлення"
 
 #: src/ui_components/email/email.tscn
 msgid "UNREAD"
@@ -588,18 +578,16 @@ msgid "STARRED"
 msgstr "Додано в обране"
 
 #: src/ui_components/email/visual_message/visual_message.tscn
-#, fuzzy
 msgid "TO"
-msgstr "TO"
+msgstr "До"
 
 #: src/ui_components/email/visual_message/visual_message.tscn
 msgid "ACTION"
 msgstr "Дія"
 
 #: src/ui_components/email/visual_message/visual_message.gd
-#, fuzzy
 msgid "OFFER_CONTRACT"
-msgstr "OFFER_CONTRACT"
+msgstr "Договір пропозиції"
 
 #: src/ui_components/player_profile/player_profile.tscn
 msgid "STATISTICS"
@@ -614,9 +602,8 @@ msgid "POSITION"
 msgstr "Позиція"
 
 #: src/ui_components/player_profile/info_view/info_view.tscn
-#, fuzzy
 msgid "ALT_POSITION"
-msgstr "ALT_POSITION"
+msgstr "Альтернативна позиція"
 
 #: src/ui_components/player_profile/info_view/info_view.tscn
 msgid "AGE"
@@ -637,14 +624,12 @@ msgid "TEAM"
 msgstr "Команда"
 
 #: src/ui_components/player_profile/info_view/info_view.tscn
-#, fuzzy
 msgid "NR"
-msgstr "NR"
+msgstr "Нр"
 
 #: src/ui_components/player_profile/info_view/info_view.tscn
-#, fuzzy
 msgid "ATTRIBUTES_AVERGE"
-msgstr "ATTRIBUTES_AVERGE"
+msgstr "Середні атрибути"
 
 #: src/ui_components/player_profile/info_view/info_view.tscn
 msgid "VALUE"
@@ -677,9 +662,8 @@ msgid ""
 msgstr ""
 
 #: src/ui_components/visual_calendar/match_list/match_info/match_info.tscn
-#, fuzzy
 msgid "VS"
-msgstr "VS"
+msgstr "проти"
 
 #: src/ui_components/visual_calendar/match_list/match_list.gd
 msgid "NO_MATCH"
@@ -737,23 +721,20 @@ msgid "WELCOME"
 msgstr "Ласкаво просимо"
 
 #: src/utils/logic/email_util.gd
-#, fuzzy
 msgid "OFFER_ACCEPTED_TEXT"
-msgstr "OFFER_ACCEPTED_TEXT"
+msgstr "Команда прийняла пропозицію"
 
 #: src/utils/logic/match_combination_util.gd
 msgid "CUP"
 msgstr "Кубок"
 
 #: src/utils/logic/match_combination_util.gd
-#, fuzzy
 msgid "NATIONS_CUP"
-msgstr "NATIONS_CUP"
+msgstr "Кубок націй"
 
 #: src/utils/logic/match_combination_util.gd
-#, fuzzy
 msgid "WORLD_CUP"
-msgstr "WORLD_CUP"
+msgstr "Кубок світу"
 
 #: src/screens/settings/settings.tscn
 #: src/screens/settings/general/general_settings.tscn
@@ -898,9 +879,10 @@ msgid "LOAD_GAME"
 msgstr "Завантажити гру"
 
 #: src/screens/save_states_screen/save_state_entry/save_state_entry.tscn
-#, fuzzy
 msgid "SAVE_STATE_DELETE_INFO"
-msgstr "SAVE_STATE_DELETE_INFO"
+msgstr ""
+"Видалення стану збереження є остаточним і його не можна скасувати.\n"
+"Ви впевнені, що хочете видалити цей стан збереження?"
 
 #: src/screens/dashboard/dashboard.gd
 #: src/screens/dashboard/dashboard.tscn
@@ -916,9 +898,8 @@ msgid "NEXT_DAY"
 msgstr "Наступний день"
 
 #: src/screens/dashboard/dashboard.gd
-#, fuzzy
 msgid "NEXT_SEASON"
-msgstr "NEXT_SEASON"
+msgstr "Наступний сезон"
 
 #: src/screens/dashboard/dashboard.tscn
 msgid "CALENDAR"
@@ -987,7 +968,6 @@ msgid "PENALTIES"
 msgstr "Пенальті (6 м)"
 
 #: src/screens/match/statistics/match_stats.gd
-#, fuzzy
 msgid "0"
 msgstr "0"
 
@@ -1004,9 +984,8 @@ msgid "EVENTS"
 msgstr "Події"
 
 #: src/screens/match/match.tscn
-#, fuzzy
 msgid "FULL_MATCH"
-msgstr "FULL_MATCH"
+msgstr "Повний матч"
 
 #: src/screens/match/match.tscn
 msgid "SIMULATE"
@@ -1073,7 +1052,7 @@ msgstr "Створення всіх гравців…"
 
 #: src/screens/setup/setup_manager/setup_manager.tscn
 msgid "YOUR_NAME"
-msgstr "Ваше ім'я?"
+msgstr "Ваше ім'я"
 
 #: src/screens/setup/setup_manager/setup_manager.tscn
 msgid "SURNAME"
@@ -1100,10 +1079,8 @@ msgid "FRANCE"
 msgstr "Франція"
 
 #: src/resources/world/nation_names.gd
-#, fuzzy
-#| msgid "TUESDAY"
 msgid "USA"
-msgstr "Tuesday"
+msgstr "США"
 
 #: src/resources/world/nation_names.gd
 msgid "TUVALU"
@@ -1798,9 +1775,8 @@ msgid "SPAIN"
 msgstr "Іспанія"
 
 #: src/resources/world/nation_names.gd
-#, fuzzy
 msgid "BURMA_"
-msgstr "Burma_"
+msgstr "Бірма_"
 
 #: src/resources/world/nation_names.gd
 msgid "TANZANIA"
