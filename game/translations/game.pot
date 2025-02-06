@@ -360,10 +360,6 @@ msgid "START_DATE"
 msgstr ""
 
 #: src/ui_components/base/confirm_dialog/default_confirm_dialog.tscn
-msgid "TITLE"
-msgstr ""
-
-#: src/ui_components/base/confirm_dialog/default_confirm_dialog.tscn
 #: src/ui_components/transfers/player_offer/player_offer.tscn
 #: src/ui_components/transfers/contract_offer/contract_offer.tscn
 #: src/screens/setup/setup_world/setup_world.tscn
@@ -401,7 +397,9 @@ msgid "INCOME"
 msgstr ""
 
 #: src/ui_components/visual_competitions/visual_table/visual_table.tscn
-msgid "TEAM\n"
+#: src/ui_components/player_profile/info_view/info_view.tscn
+#: src/screens/save_states_screen/save_state_entry/save_state_entry.tscn
+msgid "TEAM"
 msgstr ""
 
 #: src/ui_components/visual_competitions/visual_table/visual_table.tscn
@@ -610,11 +608,6 @@ msgid "NATIONALITY"
 msgstr ""
 
 #: src/ui_components/player_profile/info_view/info_view.tscn
-#: src/screens/save_states_screen/save_state_entry/save_state_entry.tscn
-msgid "TEAM"
-msgstr ""
-
-#: src/ui_components/player_profile/info_view/info_view.tscn
 msgid "NR"
 msgstr ""
 
@@ -661,10 +654,6 @@ msgid "NO_MATCH"
 msgstr ""
 
 #: src/ui_components/visual_calendar/visual_calendar.tscn
-msgid "Jan"
-msgstr ""
-
-#: src/ui_components/visual_calendar/visual_calendar.tscn
 msgid "TODAY"
 msgstr ""
 
@@ -694,10 +683,6 @@ msgstr ""
 
 #: src/ui_components/visual_calendar/visual_calendar.tscn
 msgid "SUNDAY"
-msgstr ""
-
-#: src/match_simulator/visual_match/visual_actors/visual_player/visual_player.tscn
-msgid ":"
 msgstr ""
 
 #: src/utils/logic/email_util.gd
