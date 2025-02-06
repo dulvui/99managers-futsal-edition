@@ -282,7 +282,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: 99 Managers Futsal Edition\n"
-"PO-Revision-Date: 2025-02-06 13:07+0000\n"
+"PO-Revision-Date: 2025-02-06 13:27+0000\n"
 "Last-Translator: Simon Dalvai <info@simondalvai.org>\n"
 "Language-Team: German <https://hosted.weblate.org/projects/"
 "99-managers-futsal-edition/game-gettext/de/>\n"
@@ -300,14 +300,12 @@ msgstr "Info"
 
 #: src/ui_components/team_profile/team_profile.tscn
 #: src/ui_components/team_profile/team_profile.gd
-#, fuzzy
 msgid "BUDGET"
-msgstr "BUDGET"
+msgstr "Budget"
 
 #: src/ui_components/team_profile/team_profile.tscn
-#, fuzzy
 msgid "STADIUM"
-msgstr "STADIUM"
+msgstr "Stadion"
 
 #: src/ui_components/team_profile/team_profile.tscn
 #, fuzzy
@@ -316,70 +314,58 @@ msgstr "Players"
 
 #: src/ui_components/team_profile/team_profile.gd
 #: src/ui_components/player_profile/info_view/info_view.tscn
-#, fuzzy
 msgid "PRESTIGE"
-msgstr "PRESTIGE"
+msgstr "Ansehen"
 
 #: src/ui_components/team_profile/team_profile.gd
 #: src/ui_components/visual_finances/visual_finances.tscn
-#, fuzzy
 msgid "SALARY_BUDGET"
-msgstr "SALARY_BUDGET"
+msgstr "Gehaltsbudget"
 
 #: src/ui_components/team_profile/team_profile.gd
-#, fuzzy
 msgid "PERSONS"
-msgstr "PERSONS"
+msgstr "Personen"
 
 #: src/ui_components/team_profile/team_profile.gd
 #: src/ui_components/transfers/contract_offer/contract_offer.tscn
-#, fuzzy
 msgid "YEAR"
-msgstr "YEAR"
+msgstr "Jahr"
 
 #: src/ui_components/player_list/player_list.gd
-#, fuzzy
 msgid "ALL_TEAMS"
-msgstr "ALL_TEAMS"
+msgstr "Alle Teams"
 
 #: src/ui_components/player_list/player_list.gd
-#, fuzzy
 msgid "ALL_POS"
-msgstr "ALL_POS"
+msgstr "Alle Positionen"
 
 #: src/ui_components/player_list/player_list.gd
-#, fuzzy
 msgid "ALL_LEAGUES"
-msgstr "ALL_LEAGUES"
+msgstr "Alle Liegen"
 
 #: src/ui_components/player_list/player_list_column/player_list_column.tscn
 #: src/ui_components/player_profile/info_view/info_view.tscn
 #: src/screens/setup/setup_manager/setup_manager.tscn
-#, fuzzy
 msgid "NAME"
-msgstr "NAME"
+msgstr "Name"
 
 #: src/ui_components/info/info.tscn
 #: src/ui_components/player_profile/player_profile.tscn
 #: src/screens/dashboard/dashboard.tscn
-#, fuzzy
 msgid "INFO"
-msgstr "INFO"
+msgstr "Info"
 
 #: src/ui_components/info/info.tscn
-#, fuzzy
 msgid "SEED"
-msgstr "SEED"
+msgstr "Seed"
 
 #: src/ui_components/info/info.tscn
-#, fuzzy
 msgid "COPY"
-msgstr "COPY"
+msgstr "Kopieren"
 
 #: src/ui_components/info/info.tscn
-#, fuzzy
 msgid "START_DATE"
-msgstr "START_DATE"
+msgstr "Startdatum"
 
 #: src/ui_components/base/confirm_dialog/default_confirm_dialog.tscn
 #, fuzzy
@@ -391,24 +377,20 @@ msgstr "TITLE"
 #: src/ui_components/transfers/contract_offer/contract_offer.tscn
 #: src/screens/setup/setup_world/setup_world.tscn
 #: src/screens/setup/setup_manager/setup_manager.tscn
-#, fuzzy
 msgid "CANCEL"
-msgstr "CANCEL"
+msgstr "Abbrechen"
 
 #: src/ui_components/base/confirm_dialog/default_confirm_dialog.tscn
-#, fuzzy
 msgid "NO"
-msgstr "NO"
+msgstr "Nein"
 
 #: src/ui_components/base/confirm_dialog/default_confirm_dialog.tscn
-#, fuzzy
 msgid "YES"
-msgstr "YES"
+msgstr "Ja"
 
 #: src/ui_components/base/search_line_edit/search_line_edit.tscn
-#, fuzzy
 msgid "SEARCH"
-msgstr "SEARCH"
+msgstr "Suche"
 
 #: src/ui_components/visual_finances/visual_finances.tscn
 #, fuzzy
@@ -437,39 +419,32 @@ msgid "TEAM\n"
 msgstr "TEAM\n"
 
 #: src/ui_components/visual_competitions/visual_table/visual_table.tscn
-#, fuzzy
 msgid "PLAYED"
-msgstr "PLAYED"
+msgstr "Gespielt"
 
 #: src/ui_components/visual_competitions/visual_table/visual_table.tscn
-#, fuzzy
 msgid "WIN"
-msgstr "WIN"
+msgstr "Gewonnen"
 
 #: src/ui_components/visual_competitions/visual_table/visual_table.tscn
-#, fuzzy
 msgid "DRAW"
-msgstr "DRAW"
+msgstr "Ausgleich"
 
 #: src/ui_components/visual_competitions/visual_table/visual_table.tscn
-#, fuzzy
 msgid "LOST"
-msgstr "LOST"
+msgstr "Verloren"
 
 #: src/ui_components/visual_competitions/visual_table/visual_table.tscn
-#, fuzzy
 msgid "GOALS"
-msgstr "GOALS"
+msgstr "Tore"
 
 #: src/ui_components/visual_competitions/visual_table/visual_table.tscn
-#, fuzzy
 msgid "GOALS_CONCEDED"
-msgstr "GOALS_CONCEDED"
+msgstr "Gegentore"
 
 #: src/ui_components/visual_competitions/visual_table/visual_table.tscn
-#, fuzzy
 msgid "POINTS"
-msgstr "POINTS"
+msgstr "Punkte"
 
 #: src/ui_components/visual_competitions/visual_knockout/visual_knockout.tscn
 #, fuzzy
@@ -518,15 +493,13 @@ msgstr "MONEY"
 
 #: src/ui_components/transfers/player_offer/player_offer.tscn
 #: src/ui_components/email/list/message_list.tscn
-#, fuzzy
 msgid "DATE"
-msgstr "DATE"
+msgstr "Datum"
 
 #: src/ui_components/transfers/player_offer/player_offer.tscn
 #: src/screens/dashboard/dashboard.tscn
-#, fuzzy
 msgid "PLAYERS"
-msgstr "PLAYERS"
+msgstr "Spieler"
 
 #: src/ui_components/transfers/player_offer/player_offer.tscn
 #, fuzzy
@@ -535,9 +508,8 @@ msgstr "PLAYER_LIST"
 
 #: src/ui_components/transfers/player_offer/player_offer.tscn
 #: src/ui_components/transfers/contract_offer/contract_offer.tscn
-#, fuzzy
 msgid "CONFIRM"
-msgstr "CONFIRM"
+msgstr "Bestätigen"
 
 #: src/ui_components/transfers/player_offer/player_offer.gd
 #, fuzzy
@@ -551,73 +523,60 @@ msgstr "LOAN"
 
 #: src/ui_components/transfers/contract_offer/contract_offer.tscn
 #: src/ui_components/player_profile/player_profile.tscn
-#, fuzzy
 msgid "CONTRACT"
-msgstr "CONTRACT"
+msgstr "Vetrag"
 
 #: src/ui_components/transfers/contract_offer/contract_offer.tscn
-#, fuzzy
 msgid "BUY_CLAUSE"
-msgstr "BUY_CLAUSE"
+msgstr "Südamerika"
 
 #: src/ui_components/visual_formation/visual_formation.gd
-#, fuzzy
 msgid "SUBS"
-msgstr "SUBS"
+msgstr "Auswechel"
 
 #: src/ui_components/visual_formation/visual_formation.gd
-#, fuzzy
 msgid "REST"
-msgstr "REST"
+msgstr "Rest"
 
 #: src/ui_components/visual_formation/visual_formation.tscn
 #: src/screens/dashboard/dashboard.tscn
 #: src/screens/match/match.tscn
-#, fuzzy
 msgid "FORMATION"
-msgstr "FORMATION"
+msgstr "Aufstellung"
 
 #: src/ui_components/visual_formation/visual_formation.tscn
-#, fuzzy
 msgid "CHANGE_STRATEGY"
-msgstr "CHANGE_STRATEGY"
+msgstr "Wechsel Strategie"
 
 #: src/ui_components/visual_formation/visual_formation.tscn
-#, fuzzy
 msgid "TACTIC_OFFENSE"
-msgstr "TACTIC_OFFENSE"
+msgstr "Offensivtaktik"
 
 #: src/ui_components/visual_formation/visual_formation.tscn
-#, fuzzy
 msgid "INTENSITY"
-msgstr "INTENSITY"
+msgstr "Intesität"
 
 #: src/ui_components/visual_formation/visual_formation.tscn
-#, fuzzy
 msgid "MARKING"
-msgstr "MARKING"
+msgstr "Deckung"
 
 #: src/ui_components/visual_formation/visual_formation.tscn
-#, fuzzy
 msgid "PRESSING"
-msgstr "PRESSING"
+msgstr "Pressing"
 
 #: src/ui_components/email/list/message_list.tscn
 #: src/ui_components/email/visual_message/visual_message.tscn
-#, fuzzy
 msgid "SUBJECT"
-msgstr "SUBJECT"
+msgstr "Betreff"
 
 #: src/ui_components/email/list/message_list.tscn
 #: src/ui_components/email/visual_message/visual_message.tscn
-#, fuzzy
 msgid "FROM"
-msgstr "FROM"
+msgstr "Von"
 
 #: src/ui_components/email/list/message_list.tscn
-#, fuzzy
 msgid "STAR"
-msgstr "STAR"
+msgstr "Stern"
 
 #: src/ui_components/email/list/message_list.gd
 #, fuzzy
@@ -630,24 +589,20 @@ msgid "CLICK_TO_READ_MESSAGE"
 msgstr "CLICK_TO_READ_MESSAGE"
 
 #: src/ui_components/email/email.tscn
-#, fuzzy
 msgid "UNREAD"
-msgstr "UNREAD"
+msgstr "Ungelesen"
 
 #: src/ui_components/email/email.tscn
-#, fuzzy
 msgid "STARRED"
-msgstr "STARRED"
+msgstr "Favoriten"
 
 #: src/ui_components/email/visual_message/visual_message.tscn
-#, fuzzy
 msgid "TO"
-msgstr "TO"
+msgstr "An"
 
 #: src/ui_components/email/visual_message/visual_message.tscn
-#, fuzzy
 msgid "ACTION"
-msgstr "ACTION"
+msgstr "Aktion"
 
 #: src/ui_components/email/visual_message/visual_message.gd
 #, fuzzy
@@ -660,14 +615,12 @@ msgid "STATISTICS"
 msgstr "STATISTICS"
 
 #: src/ui_components/player_profile/player_profile.tscn
-#, fuzzy
 msgid "ATTRIBUTES"
-msgstr "ATTRIBUTES"
+msgstr "Attribute"
 
 #: src/ui_components/player_profile/info_view/info_view.tscn
-#, fuzzy
 msgid "POSITION"
-msgstr "POSITION"
+msgstr "Position"
 
 #: src/ui_components/player_profile/info_view/info_view.tscn
 #, fuzzy
@@ -675,9 +628,8 @@ msgid "ALT_POSITION"
 msgstr "ALT_POSITION"
 
 #: src/ui_components/player_profile/info_view/info_view.tscn
-#, fuzzy
 msgid "AGE"
-msgstr "AGE"
+msgstr "Alter"
 
 #: src/ui_components/player_profile/info_view/info_view.tscn
 #, fuzzy
@@ -686,15 +638,13 @@ msgstr "FOOT"
 
 #: src/ui_components/player_profile/info_view/info_view.tscn
 #: src/screens/setup/setup_manager/setup_manager.tscn
-#, fuzzy
 msgid "NATIONALITY"
-msgstr "NATIONALITY"
+msgstr "Nationalität"
 
 #: src/ui_components/player_profile/info_view/info_view.tscn
 #: src/screens/save_states_screen/save_state_entry/save_state_entry.tscn
-#, fuzzy
 msgid "TEAM"
-msgstr "TEAM"
+msgstr "Mannschaft"
 
 #: src/ui_components/player_profile/info_view/info_view.tscn
 #, fuzzy
@@ -707,35 +657,30 @@ msgid "ATTRIBUTES_AVERGE"
 msgstr "ATTRIBUTES_AVERGE"
 
 #: src/ui_components/player_profile/info_view/info_view.tscn
-#, fuzzy
 msgid "VALUE"
-msgstr "VALUE"
+msgstr "Wert"
 
 #: src/ui_components/player_profile/contract_view/contract_view.tscn
-#, fuzzy
 msgid "MAKE_OFFER"
-msgstr "MAKE_OFFER"
+msgstr "Kaufanfrage"
 
 #: src/ui_components/visual_calendar/visual_day/visual_day.tscn
 #: src/ui_components/visual_calendar/visual_day/visual_day.gd
 #: src/screens/dashboard/dashboard.tscn
-#, fuzzy
 msgid "TRANSFERMARKET"
-msgstr "TRANSFERMARKET"
+msgstr "Transfermarkt"
 
 #: src/ui_components/visual_calendar/visual_day/visual_day.gd
 #: src/ui_components/visual_calendar/match_list/match_info/match_info.tscn
 #: src/screens/match/match.tscn
-#, fuzzy
 msgid "HOME"
-msgstr "HOME"
+msgstr "Daheim"
 
 #: src/ui_components/visual_calendar/visual_day/visual_day.gd
 #: src/ui_components/visual_calendar/match_list/match_info/match_info.tscn
 #: src/screens/match/match.tscn
-#, fuzzy
 msgid "AWAY"
-msgstr "AWAY"
+msgstr "Ausärts"
 
 #: src/ui_components/visual_calendar/visual_day/visual_day.gd
 msgid ""
@@ -747,9 +692,8 @@ msgid "VS"
 msgstr "VS"
 
 #: src/ui_components/visual_calendar/match_list/match_list.gd
-#, fuzzy
 msgid "NO_MATCH"
-msgstr "NO_MATCH"
+msgstr "Kein Spiel"
 
 #: src/ui_components/visual_calendar/visual_calendar.tscn
 #, fuzzy
@@ -757,44 +701,36 @@ msgid "Jan"
 msgstr "Jan"
 
 #: src/ui_components/visual_calendar/visual_calendar.tscn
-#, fuzzy
 msgid "TODAY"
-msgstr "TODAY"
+msgstr "Heute"
 
 #: src/ui_components/visual_calendar/visual_calendar.tscn
-#, fuzzy
 msgid "MONDAY"
-msgstr "MONDAY"
+msgstr "Montag"
 
 #: src/ui_components/visual_calendar/visual_calendar.tscn
-#, fuzzy
 msgid "TUESDAY"
-msgstr "TUESDAY"
+msgstr "Dienstag"
 
 #: src/ui_components/visual_calendar/visual_calendar.tscn
-#, fuzzy
 msgid "WEDNESDAY"
-msgstr "WEDNESDAY"
+msgstr "Mittwoch"
 
 #: src/ui_components/visual_calendar/visual_calendar.tscn
-#, fuzzy
 msgid "THURSDAY"
-msgstr "THURSDAY"
+msgstr "Donnerstag"
 
 #: src/ui_components/visual_calendar/visual_calendar.tscn
-#, fuzzy
 msgid "FRIDAY"
-msgstr "FRIDAY"
+msgstr "Freitag"
 
 #: src/ui_components/visual_calendar/visual_calendar.tscn
-#, fuzzy
 msgid "SATURDAY"
-msgstr "SATURDAY"
+msgstr "Samstag"
 
 #: src/ui_components/visual_calendar/visual_calendar.tscn
-#, fuzzy
 msgid "SUNDAY"
-msgstr "SUNDAY"
+msgstr "Sonntag"
 
 #: src/match_simulator/visual_match/visual_actors/visual_player/visual_player.tscn
 #, fuzzy
@@ -803,14 +739,12 @@ msgstr ":"
 
 #: src/utils/logic/email_util.gd
 #: src/screens/dashboard/dashboard.tscn
-#, fuzzy
 msgid "NEXT_MATCH"
-msgstr "NEXT_MATCH"
+msgstr "Nächstes Spiel"
 
 #: src/utils/logic/email_util.gd
-#, fuzzy
 msgid "WELCOME"
-msgstr "WELCOME"
+msgstr "Wilkommen"
 
 #: src/utils/logic/email_util.gd
 #, fuzzy
@@ -834,31 +768,26 @@ msgstr "WORLD_CUP"
 
 #: src/screens/settings/settings.tscn
 #: src/screens/settings/general/general_settings.tscn
-#, fuzzy
 msgid "GENERAL_SETTINGS"
-msgstr "GENERAL_SETTINGS"
+msgstr "Allgemein"
 
 #: src/screens/settings/settings.tscn
 #: src/screens/settings/input/input_settings.tscn
-#, fuzzy
 msgid "INPUT_SETTINGS"
-msgstr "INPUT_SETTINGS"
+msgstr "Eingabe"
 
 #: src/screens/settings/settings.tscn
-#, fuzzy
 msgid "DEFAULT_SETTINGS"
-msgstr "DEFAULT_SETTINGS"
+msgstr "Standardeinstellung"
 
 #: src/screens/settings/settings.tscn
 #: src/screens/setup/setup_team/setup_team.tscn
-#, fuzzy
 msgid "BACK"
-msgstr "BACK"
+msgstr "Zurück"
 
 #: src/screens/settings/settings.tscn
-#, fuzzy
 msgid "RESTORE_DEFAULTS_TEXT"
-msgstr "RESTORE_DEFAULTS_TEXT"
+msgstr "Alle Einstellungen gehen verloren und werden zurück gesetzt."
 
 #: src/screens/settings/general/general_settings.tscn
 #, fuzzy
@@ -866,9 +795,8 @@ msgid "TRANSLATION_INSTRUCTIONS"
 msgstr "TRANSLATION_INSTRUCTIONS"
 
 #: src/screens/settings/general/general_settings.tscn
-#, fuzzy
 msgid "AUDIO"
-msgstr "AUDIO"
+msgstr "Manager erstellen"
 
 #: src/screens/settings/general/general_settings.tscn
 #, fuzzy
@@ -876,9 +804,8 @@ msgid "SFX_VOLUME"
 msgstr "SFX_VOLUME"
 
 #: src/screens/settings/general/general_settings.tscn
-#, fuzzy
 msgid "INTERFACE_SETTINGS"
-msgstr "INTERFACE_SETTINGS"
+msgstr "Oberfläche"
 
 #: src/screens/settings/general/general_settings.tscn
 #, fuzzy
@@ -887,54 +814,44 @@ msgstr "FONT_SIZE"
 
 #: src/screens/settings/general/general_settings.tscn
 #: src/screens/setup/setup_world/setup_world.tscn
-#, fuzzy
 msgid "DEFAULT"
-msgstr "DEFAULT"
+msgstr "Standard"
 
 #: src/screens/settings/general/general_settings.tscn
-#, fuzzy
 msgid "SCALE"
-msgstr "SCALE"
+msgstr "Skala"
 
 #: src/screens/settings/general/general_settings.tscn
-#, fuzzy
 msgid "SCREEN_FADE_ANIMATION"
-msgstr "SCREEN_FADE_ANIMATION"
+msgstr "Ansichtswechsel Animation"
 
 #: src/screens/settings/general/general_settings.tscn
-#, fuzzy
 msgid "THEMES"
-msgstr "THEMES"
+msgstr "Themen"
 
 #: src/screens/settings/general/general_settings.tscn
-#, fuzzy
 msgid "FONT_COLOR"
-msgstr "FONT_COLOR"
+msgstr "Schriftfarbe"
 
 #: src/screens/settings/general/general_settings.tscn
-#, fuzzy
 msgid "CHANGE"
-msgstr "CHANGE"
+msgstr "Ändern"
 
 #: src/screens/settings/general/general_settings.tscn
-#, fuzzy
 msgid "BUTTONS_COLOR"
-msgstr "BUTTONS_COLOR"
+msgstr "Knopffarbe"
 
 #: src/screens/settings/general/general_settings.tscn
-#, fuzzy
 msgid "BACKGROUND_COLOR"
-msgstr "BACKGROUND_COLOR"
+msgstr "Hintergrundfarbe"
 
 #: src/screens/settings/general/general_settings.tscn
-#, fuzzy
 msgid "VERSION"
-msgstr "VERSION"
+msgstr "Version"
 
 #: src/screens/settings/input/input_settings.tscn
-#, fuzzy
 msgid "VIM_MODE"
-msgstr "VIM_MODE"
+msgstr "Vim-Modus"
 
 #: src/screens/settings/input/input_settings.tscn
 #, fuzzy
@@ -942,9 +859,8 @@ msgid "JOYPAD_STATUS"
 msgstr "JOYPAD_STATUS"
 
 #: src/screens/settings/input/input_settings.tscn
-#, fuzzy
 msgid "NO_JOYPAD_CONNECTED"
-msgstr "NO_JOYPAD_CONNECTED"
+msgstr "Kein Joypad verbunden"
 
 #: src/screens/settings/input/input_settings.tscn
 #, fuzzy
@@ -952,57 +868,47 @@ msgid "INPUT_DETECTION_MODE"
 msgstr "INPUT_DETECTION_MODE"
 
 #: src/screens/settings/input/input_settings.tscn
-#, fuzzy
 msgid "INPUT_TYPE"
-msgstr "INPUT_TYPE"
+msgstr "Eingabetyp"
 
 #: src/screens/save_states_screen/save_states_screen.tscn
-#, fuzzy
 msgid "SAVE_STATES"
-msgstr "SAVE_STATES"
+msgstr "Spielstände"
 
 #: src/screens/save_states_screen/save_states_screen.tscn
 #: src/screens/dashboard/dashboard.tscn
-#, fuzzy
 msgid "MENU"
-msgstr "MENU"
+msgstr "Menü"
 
 #: src/screens/save_states_screen/save_state_entry/save_state_entry.tscn
 #: src/screens/setup/setup_manager/setup_manager.tscn
-#, fuzzy
 msgid "MANAGER"
-msgstr "MANAGER"
+msgstr "Manager"
 
 #: src/screens/save_states_screen/save_state_entry/save_state_entry.tscn
-#, fuzzy
 msgid "TABLE_PLACEMENT"
-msgstr "TABLE_PLACEMENT"
+msgstr "Tabellenstand"
 
 #: src/screens/save_states_screen/save_state_entry/save_state_entry.tscn
-#, fuzzy
 msgid "GAME_DATE"
-msgstr "GAME_DATE"
+msgstr "Datum im Spiel"
 
 #: src/screens/save_states_screen/save_state_entry/save_state_entry.tscn
-#, fuzzy
 msgid "LAST_SAVE"
-msgstr "LAST_SAVE"
+msgstr "Letzer Speicherstand"
 
 #: src/screens/save_states_screen/save_state_entry/save_state_entry.tscn
-#, fuzzy
 msgid "CREATED"
-msgstr "CREATED"
+msgstr "Erstellt"
 
 #: src/screens/save_states_screen/save_state_entry/save_state_entry.tscn
-#, fuzzy
 msgid "DELETE"
-msgstr "DELETE"
+msgstr "Löschen"
 
 #: src/screens/save_states_screen/save_state_entry/save_state_entry.tscn
 #: src/screens/menu/menu.tscn
-#, fuzzy
 msgid "LOAD_GAME"
-msgstr "LOAD_GAME"
+msgstr "Spiel laden"
 
 #: src/screens/save_states_screen/save_state_entry/save_state_entry.tscn
 #, fuzzy
@@ -1011,19 +917,16 @@ msgstr "SAVE_STATE_DELETE_INFO"
 
 #: src/screens/dashboard/dashboard.gd
 #: src/screens/dashboard/dashboard.tscn
-#, fuzzy
 msgid "EMAIL"
-msgstr "EMAIL"
+msgstr "E-Mail"
 
 #: src/screens/dashboard/dashboard.gd
-#, fuzzy
 msgid "START_MATCH"
-msgstr "START_MATCH"
+msgstr "Spielbeginn"
 
 #: src/screens/dashboard/dashboard.gd
-#, fuzzy
 msgid "NEXT_DAY"
-msgstr "NEXT_DAY"
+msgstr "Nächster Tag"
 
 #: src/screens/dashboard/dashboard.gd
 #, fuzzy
@@ -1031,85 +934,70 @@ msgid "NEXT_SEASON"
 msgstr "NEXT_SEASON"
 
 #: src/screens/dashboard/dashboard.tscn
-#, fuzzy
 msgid "CALENDAR"
-msgstr "CALENDAR"
+msgstr "Kalender"
 
 #: src/screens/dashboard/dashboard.tscn
-#, fuzzy
 msgid "COMPETITIONS"
-msgstr "COMPETITIONS"
+msgstr "Wettbewerbe"
 
 #: src/screens/dashboard/dashboard.tscn
-#, fuzzy
 msgid "FINANCES"
-msgstr "FINANCES"
+msgstr "Finanzen"
 
 #: src/screens/dashboard/dashboard.tscn
-#, fuzzy
 msgid "SEARCH_PLAYER"
-msgstr "SEARCH_PLAYER"
+msgstr "Spieler suchen"
 
 #: src/screens/dashboard/dashboard.tscn
-#, fuzzy
 msgid "SCOUTS"
-msgstr "SCOUTS"
+msgstr "Scouts"
 
 #: src/screens/dashboard/dashboard.tscn
-#, fuzzy
 msgid "WATCHLIST"
-msgstr "WATCHLIST"
+msgstr "Beobachtungsliste"
 
 #: src/screens/dashboard/dashboard.tscn
-#, fuzzy
 msgid "TRANSFERLIST"
-msgstr "TRANSFERLIST"
+msgstr "Transferliste"
 
 #: src/screens/dashboard/dashboard.tscn
-#, fuzzy
 msgid "JOBS"
-msgstr "JOBS"
+msgstr "Jobs"
 
 #: src/screens/dashboard/dashboard.tscn
-#, fuzzy
 msgid "HALL_OF_FAME"
-msgstr "HALL_OF_FAME"
+msgstr "Hall of fame"
 
 #: src/screens/dashboard/dashboard.tscn
-#, fuzzy
 msgid "NOTES"
-msgstr "NOTES"
+msgstr "Notizen"
 
 #: src/screens/dashboard/dashboard.tscn
 #: src/screens/menu/menu.tscn
-#, fuzzy
 msgid "SETTINGS"
-msgstr "SETTINGS"
+msgstr "Einstellungen"
 
 #: src/screens/dashboard/dashboard.tscn
 #: src/screens/match/match.gd
 #: src/screens/menu/menu.tscn
 #: src/screens/setup/setup_world/setup_world.tscn
 #: src/screens/setup/setup_manager/setup_manager.tscn
-#, fuzzy
 msgid "CONTINUE"
-msgstr "CONTINUE"
+msgstr "Weiter"
 
 #: src/screens/dashboard/dashboard.tscn
-#, fuzzy
 msgid "SAVE_TEXT"
-msgstr "SAVE_TEXT"
+msgstr "Spiel speichern vor verlassen?"
 
 #: src/screens/match/match.gd
 #: src/screens/match/match.tscn
-#, fuzzy
 msgid "PAUSE"
-msgstr "PAUSE"
+msgstr "Pause"
 
 #: src/screens/match/penalties_bar/penalties_bar.tscn
-#, fuzzy
 msgid "PENALTIES"
-msgstr "PENALTIES"
+msgstr "Strafstoße (6m)"
 
 #: src/screens/match/statistics/match_stats.gd
 #, fuzzy
@@ -1117,19 +1005,16 @@ msgid "0"
 msgstr "0"
 
 #: src/screens/match/match.tscn
-#, fuzzy
 msgid "STATS"
-msgstr "STATS"
+msgstr "Stats"
 
 #: src/screens/match/match.tscn
-#, fuzzy
 msgid "COMMENTARY"
-msgstr "COMMENTARY"
+msgstr "Kommentare"
 
 #: src/screens/match/match.tscn
-#, fuzzy
 msgid "EVENTS"
-msgstr "EVENTS"
+msgstr "Events"
 
 #: src/screens/match/match.tscn
 #, fuzzy
@@ -1137,9 +1022,8 @@ msgid "FULL_MATCH"
 msgstr "FULL_MATCH"
 
 #: src/screens/match/match.tscn
-#, fuzzy
 msgid "SIMULATE"
-msgstr "SIMULATE"
+msgstr "Simulieren"
 
 #: src/screens/match/match.tscn
 #, fuzzy
@@ -1147,9 +1031,8 @@ msgid "DASHBOARD"
 msgstr "DASHBOARD"
 
 #: src/screens/match/match.tscn
-#, fuzzy
 msgid "POSSESSION"
-msgstr "POSSESSION"
+msgstr "Ballbesitz"
 
 #: src/screens/loading_screen/loading_screen.tscn
 #, fuzzy
@@ -1161,71 +1044,57 @@ msgid "NEW_GAME"
 msgstr "Neues Spiel"
 
 #: src/screens/menu/menu.tscn
-#, fuzzy
 msgid "EXIT"
-msgstr "EXIT"
+msgstr "Beenden"
 
 #: src/screens/menu/menu.tscn
-#, fuzzy
 msgid "EXIT_GAME"
-msgstr "EXIT_GAME"
+msgstr "Spiel verlassen?"
 
 #: src/screens/setup/setup_world/setup_world.tscn
-#, fuzzy
 msgid "GAME_SETTINGS"
-msgstr "GAME_SETTINGS"
+msgstr "Spieleinstellungen"
 
 #: src/screens/setup/setup_world/setup_world.tscn
-#, fuzzy
 msgid "PLAYER_NAMES"
-msgstr "PLAYER_NAMES"
+msgstr "Spieler Namen"
 
 #: src/screens/setup/setup_world/setup_world.tscn
-#, fuzzy
 msgid "START_YEAR"
-msgstr "START_YEAR"
+msgstr "Startjahr"
 
 #: src/screens/setup/setup_world/setup_world.tscn
-#, fuzzy
 msgid "GENERATION_SEED"
-msgstr "GENERATION_SEED"
+msgstr "Generationskode"
 
 #: src/screens/setup/setup_world/setup_world.tscn
-#, fuzzy
 msgid "GENERATION_SEED_DESCRIPTION"
 msgstr "GENERATION_SEED_DESCRIPTION"
 
 #: src/screens/setup/setup_world/setup_world.tscn
-#, fuzzy
 msgid "RANDOM"
-msgstr "RANDOM"
+msgstr "Zufällig"
 
 #: src/screens/setup/setup_world/setup_world.gd
-#, fuzzy
 msgid "GENERATING_PLAYERS"
-msgstr "GENERATING_PLAYERS"
+msgstr "Spieler werden generiert…"
 
 #: src/screens/setup/setup_manager/setup_manager.tscn
-#, fuzzy
 msgid "YOUR_NAME"
-msgstr "YOUR_NAME"
+msgstr "Dein Name"
 
 #: src/screens/setup/setup_manager/setup_manager.tscn
-#, fuzzy
 msgid "SURNAME"
-msgstr "SURNAME"
+msgstr "Nachname"
 
 #: src/screens/setup/setup_manager/setup_manager.tscn
-#, fuzzy
 msgid "YOUR_SURNAME"
-msgstr "YOUR_SURNAME"
+msgstr "Dein Nachname"
 
 #: src/screens/setup/setup_team/setup_team.tscn
-#, fuzzy
 msgid "CHOOSE_TEAM"
-msgstr "CHOOSE_TEAM"
+msgstr "Wähle dein Team"
 
 #: src/screens/setup/setup_team/setup_team.tscn
-#, fuzzy
 msgid "SELECT"
-msgstr "SELECT"
+msgstr "Auswählen"
