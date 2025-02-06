@@ -282,9 +282,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: 99 Managers Futsal Edition\n"
-"PO-Revision-Date: 2025-02-06 13:42+0000\n"
-"Last-Translator: Weblate Translation Memory <noreply-mt-weblate-translation-"
-"memory@weblate.org>\n"
+"PO-Revision-Date: 2025-02-06 14:45+0000\n"
+"Last-Translator: Prefill add-on <noreply-addon-prefill@weblate.org>\n"
 "Language-Team: Italian <https://hosted.weblate.org/projects/"
 "99-managers-futsal-edition/game-gettext/it/>\n"
 "Language: it\n"
@@ -1103,3 +1102,33 @@ msgstr "Scegli squadra"
 #: src/screens/setup/setup_team/setup_team.tscn
 msgid "SELECT"
 msgstr "Seleziona"
+
+#: src/resources/world/nation_names.gd
+#, fuzzy
+#| msgid "VALUE"
+msgid "TUVALU"
+msgstr "Value"
+
+#: src/resources/world/nation_names.gd
+#, fuzzy
+#| msgid "FINANCES"
+msgid "FRANCE"
+msgstr "Finances"
+
+#: src/resources/world/nation_names.gd
+#, fuzzy
+#| msgid "RANDOM"
+msgid "ANDORRA"
+msgstr "Random"
+
+#: src/resources/world/nation_names.gd
+#, fuzzy
+#| msgid "SURNAME"
+msgid "SURINAME"
+msgstr "Surname"
+
+#: src/resources/world/nation_names.gd
+#, fuzzy
+#| msgid "TUESDAY"
+msgid "USA"
+msgstr "Tuesday"
