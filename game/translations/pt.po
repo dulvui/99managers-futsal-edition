@@ -282,8 +282,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: 99 Managers Futsal Edition\n"
-"PO-Revision-Date: 2025-02-06 15:10+0000\n"
-"Last-Translator: Prefill add-on <noreply-addon-prefill@weblate.org>\n"
+"PO-Revision-Date: 2025-02-06 15:26+0000\n"
+"Last-Translator: Simon Dalvai <info@simondalvai.org>\n"
 "Language-Team: Portuguese <https://hosted.weblate.org/projects/"
 "99-managers-futsal-edition/game-gettext/pt/>\n"
 "Language: pt\n"
@@ -1112,9 +1112,8 @@ msgid "PENALTIES"
 msgstr "PENALTIES"
 
 #: src/screens/match/statistics/match_stats.gd
-#, fuzzy
 msgid "0"
-msgstr "0"
+msgstr "Ireland"
 
 #: src/screens/match/match.tscn
 #, fuzzy
