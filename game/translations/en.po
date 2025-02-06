@@ -283,7 +283,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: 99 Managers Futsal Edition\n"
 "POT-Creation-Date: \n"
-"PO-Revision-Date: 2025-02-06 13:12+0000\n"
+"PO-Revision-Date: 2025-02-06 13:15+0000\n"
 "Last-Translator: Simon Dalvai <info@simondalvai.org>\n"
 "Language-Team: English <https://hosted.weblate.org/projects/"
 "99-managers-futsal-edition/game-gettext/en/>\n"
@@ -509,7 +509,7 @@ msgstr "Contract"
 
 #: src/ui_components/transfers/contract_offer/contract_offer.tscn
 msgid "BUY_CLAUSE"
-msgstr ""
+msgstr "South America"
 
 #: src/ui_components/visual_formation/visual_formation.gd
 msgid "SUBS"
