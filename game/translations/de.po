@@ -282,8 +282,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: 99 Managers Futsal Edition\n"
-"PO-Revision-Date: 2025-02-06 15:09+0000\n"
-"Last-Translator: Simon Dalvai <info@simondalvai.org>\n"
+"PO-Revision-Date: 2025-02-06 15:10+0000\n"
+"Last-Translator: Anonymous <noreply@weblate.org>\n"
 "Language-Team: German <https://hosted.weblate.org/projects/"
 "99-managers-futsal-edition/game-gettext/de/>\n"
 "Language: de\n"
@@ -1098,21 +1098,26 @@ msgid "SELECT"
 msgstr "Auswählen"
 
 #: src/resources/world/nation_names.gd
+#, fuzzy
 msgid "SURINAME"
 msgstr "Nachname"
 
 #: src/resources/world/nation_names.gd
+#, fuzzy
 msgid "USA"
 msgstr "Dienstag"
 
 #: src/resources/world/nation_names.gd
+#, fuzzy
 msgid "ANDORRA"
 msgstr "Zufällig"
 
 #: src/resources/world/nation_names.gd
+#, fuzzy
 msgid "FRANCE"
 msgstr "Finanzen"
 
 #: src/resources/world/nation_names.gd
+#, fuzzy
 msgid "TUVALU"
 msgstr "Wert"
