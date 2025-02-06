@@ -282,8 +282,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: 99 Managers Futsal Edition\n"
-"PO-Revision-Date: 2025-02-06 15:10+0000\n"
-"Last-Translator: Prefill add-on <noreply-addon-prefill@weblate.org>\n"
+"PO-Revision-Date: 2025-02-06 15:26+0000\n"
+"Last-Translator: Simon Dalvai <info@simondalvai.org>\n"
 "Language-Team: Arabic (Levantine) <https://hosted.weblate.org/projects/"
 "99-managers-futsal-edition/game-gettext/apc/>\n"
 "Language: apc\n"
@@ -294,92 +294,76 @@ msgstr ""
 "X-Generator: Weblate 5.10-dev\n"
 
 #: src/ui_components/team_profile/team_profile.tscn
-#, fuzzy
 msgid "Info"
-msgstr "Info"
+msgstr "معلومات"
 
 #: src/ui_components/team_profile/team_profile.tscn
 #: src/ui_components/team_profile/team_profile.gd
-#, fuzzy
 msgid "BUDGET"
-msgstr "BUDGET"
+msgstr "ميزانيّة"
 
 #: src/ui_components/team_profile/team_profile.tscn
-#, fuzzy
 msgid "STADIUM"
-msgstr "STADIUM"
+msgstr "ملعب"
 
 #: src/ui_components/team_profile/team_profile.tscn
-#, fuzzy
 msgid "Players"
-msgstr "Players"
+msgstr "اللاعيبة"
 
 #: src/ui_components/team_profile/team_profile.gd
 #: src/ui_components/player_profile/info_view/info_view.tscn
-#, fuzzy
 msgid "PRESTIGE"
-msgstr "PRESTIGE"
+msgstr "پرستيج"
 
 #: src/ui_components/team_profile/team_profile.gd
 #: src/ui_components/visual_finances/visual_finances.tscn
-#, fuzzy
 msgid "SALARY_BUDGET"
-msgstr "SALARY_BUDGET"
+msgstr "ميزانية الرواتب"
 
 #: src/ui_components/team_profile/team_profile.gd
-#, fuzzy
 msgid "PERSONS"
-msgstr "PERSONS"
+msgstr "عالم"
 
 #: src/ui_components/team_profile/team_profile.gd
 #: src/ui_components/transfers/contract_offer/contract_offer.tscn
-#, fuzzy
 msgid "YEAR"
-msgstr "YEAR"
+msgstr "سنة"
 
 #: src/ui_components/player_list/player_list.gd
-#, fuzzy
 msgid "ALL_TEAMS"
-msgstr "ALL_TEAMS"
+msgstr "كل الفُرق"
 
 #: src/ui_components/player_list/player_list.gd
-#, fuzzy
 msgid "ALL_POS"
-msgstr "ALL_POS"
+msgstr "كل الپوزيسيونات"
 
 #: src/ui_components/player_list/player_list.gd
-#, fuzzy
 msgid "ALL_LEAGUES"
-msgstr "ALL_LEAGUES"
+msgstr "كل الليگات"
 
 #: src/ui_components/player_list/player_list_column/player_list_column.tscn
 #: src/ui_components/player_profile/info_view/info_view.tscn
 #: src/screens/setup/setup_manager/setup_manager.tscn
-#, fuzzy
 msgid "NAME"
-msgstr "NAME"
+msgstr "اسم"
 
 #: src/ui_components/info/info.tscn
 #: src/ui_components/player_profile/player_profile.tscn
 #: src/screens/dashboard/dashboard.tscn
-#, fuzzy
 msgid "INFO"
-msgstr "INFO"
+msgstr "معلومات"
 
 #: src/ui_components/info/info.tscn
-#, fuzzy
 msgid "SEED"
-msgstr "SEED"
+msgstr "سْيِدْ"
 
 #: src/ui_components/info/info.tscn
-#, fuzzy
 msgid "COPY"
-msgstr "COPY"
+msgstr "كوپي"
 
 #: src/ui_components/info/info.tscn
-#, fuzzy
 msgid "START_DATE"
-msgstr "START_DATE"
+msgstr "اليوم الأول"
 
 #: src/ui_components/base/confirm_dialog/default_confirm_dialog.tscn
 #, fuzzy
@@ -391,24 +375,20 @@ msgstr "TITLE"
 #: src/ui_components/transfers/contract_offer/contract_offer.tscn
 #: src/screens/setup/setup_world/setup_world.tscn
 #: src/screens/setup/setup_manager/setup_manager.tscn
-#, fuzzy
 msgid "CANCEL"
-msgstr "CANCEL"
+msgstr "كنسِل"
 
 #: src/ui_components/base/confirm_dialog/default_confirm_dialog.tscn
-#, fuzzy
 msgid "NO"
-msgstr "NO"
+msgstr "لأ"
 
 #: src/ui_components/base/confirm_dialog/default_confirm_dialog.tscn
-#, fuzzy
 msgid "YES"
-msgstr "YES"
+msgstr "إيه"
 
 #: src/ui_components/base/search_line_edit/search_line_edit.tscn
-#, fuzzy
 msgid "SEARCH"
-msgstr "SEARCH"
+msgstr "نبّش"
 
 #: src/ui_components/visual_finances/visual_finances.tscn
 #, fuzzy
@@ -437,39 +417,32 @@ msgid "TEAM\n"
 msgstr "TEAM\n"
 
 #: src/ui_components/visual_competitions/visual_table/visual_table.tscn
-#, fuzzy
 msgid "PLAYED"
-msgstr "PLAYED"
+msgstr "نلَعب من قبل"
 
 #: src/ui_components/visual_competitions/visual_table/visual_table.tscn
-#, fuzzy
 msgid "WIN"
-msgstr "WIN"
+msgstr "ربح"
 
 #: src/ui_components/visual_competitions/visual_table/visual_table.tscn
-#, fuzzy
 msgid "DRAW"
-msgstr "DRAW"
+msgstr "تعادل"
 
 #: src/ui_components/visual_competitions/visual_table/visual_table.tscn
-#, fuzzy
 msgid "LOST"
-msgstr "LOST"
+msgstr "خسارة"
 
 #: src/ui_components/visual_competitions/visual_table/visual_table.tscn
-#, fuzzy
 msgid "GOALS"
-msgstr "GOALS"
+msgstr "گولات"
 
 #: src/ui_components/visual_competitions/visual_table/visual_table.tscn
-#, fuzzy
 msgid "GOALS_CONCEDED"
-msgstr "GOALS_CONCEDED"
+msgstr "گولات تجاهك"
 
 #: src/ui_components/visual_competitions/visual_table/visual_table.tscn
-#, fuzzy
 msgid "POINTS"
-msgstr "POINTS"
+msgstr "نقات"
 
 #: src/ui_components/visual_competitions/visual_knockout/visual_knockout.tscn
 #, fuzzy
@@ -518,15 +491,13 @@ msgstr "MONEY"
 
 #: src/ui_components/transfers/player_offer/player_offer.tscn
 #: src/ui_components/email/list/message_list.tscn
-#, fuzzy
 msgid "DATE"
-msgstr "DATE"
+msgstr "تاريخ"
 
 #: src/ui_components/transfers/player_offer/player_offer.tscn
 #: src/screens/dashboard/dashboard.tscn
-#, fuzzy
 msgid "PLAYERS"
-msgstr "PLAYERS"
+msgstr "اللاعيبة"
 
 #: src/ui_components/transfers/player_offer/player_offer.tscn
 #, fuzzy
@@ -535,9 +506,8 @@ msgstr "PLAYER_LIST"
 
 #: src/ui_components/transfers/player_offer/player_offer.tscn
 #: src/ui_components/transfers/contract_offer/contract_offer.tscn
-#, fuzzy
 msgid "CONFIRM"
-msgstr "CONFIRM"
+msgstr "أكّد"
 
 #: src/ui_components/transfers/player_offer/player_offer.gd
 #, fuzzy
@@ -551,9 +521,8 @@ msgstr "LOAN"
 
 #: src/ui_components/transfers/contract_offer/contract_offer.tscn
 #: src/ui_components/player_profile/player_profile.tscn
-#, fuzzy
 msgid "CONTRACT"
-msgstr "CONTRACT"
+msgstr "كونترا"
 
 #: src/ui_components/transfers/contract_offer/contract_offer.tscn
 #, fuzzy
@@ -561,63 +530,52 @@ msgid "BUY_CLAUSE"
 msgstr "BUY_CLAUSE"
 
 #: src/ui_components/visual_formation/visual_formation.gd
-#, fuzzy
 msgid "SUBS"
-msgstr "SUBS"
+msgstr "بديل"
 
 #: src/ui_components/visual_formation/visual_formation.gd
-#, fuzzy
 msgid "REST"
-msgstr "REST"
+msgstr "راحة"
 
 #: src/ui_components/visual_formation/visual_formation.tscn
 #: src/screens/dashboard/dashboard.tscn
 #: src/screens/match/match.tscn
-#, fuzzy
 msgid "FORMATION"
-msgstr "FORMATION"
+msgstr "پوزيسيونات"
 
 #: src/ui_components/visual_formation/visual_formation.tscn
-#, fuzzy
 msgid "CHANGE_STRATEGY"
-msgstr "CHANGE_STRATEGY"
+msgstr "غيّر الإستراتيجية"
 
 #: src/ui_components/visual_formation/visual_formation.tscn
-#, fuzzy
 msgid "TACTIC_OFFENSE"
-msgstr "TACTIC_OFFENSE"
+msgstr "تكتيك الهجوم"
 
 #: src/ui_components/visual_formation/visual_formation.tscn
-#, fuzzy
 msgid "INTENSITY"
-msgstr "INTENSITY"
+msgstr "القوة"
 
 #: src/ui_components/visual_formation/visual_formation.tscn
-#, fuzzy
 msgid "MARKING"
-msgstr "MARKING"
+msgstr "التغطية"
 
 #: src/ui_components/visual_formation/visual_formation.tscn
-#, fuzzy
 msgid "PRESSING"
-msgstr "PRESSING"
+msgstr "الضغط"
 
 #: src/ui_components/email/list/message_list.tscn
 #: src/ui_components/email/visual_message/visual_message.tscn
-#, fuzzy
 msgid "SUBJECT"
-msgstr "SUBJECT"
+msgstr "الموضوع"
 
 #: src/ui_components/email/list/message_list.tscn
 #: src/ui_components/email/visual_message/visual_message.tscn
-#, fuzzy
 msgid "FROM"
-msgstr "FROM"
+msgstr "من"
 
 #: src/ui_components/email/list/message_list.tscn
-#, fuzzy
 msgid "STAR"
-msgstr "STAR"
+msgstr "علمه ب نجمة"
 
 #: src/ui_components/email/list/message_list.gd
 #, fuzzy
@@ -630,24 +588,20 @@ msgid "CLICK_TO_READ_MESSAGE"
 msgstr "CLICK_TO_READ_MESSAGE"
 
 #: src/ui_components/email/email.tscn
-#, fuzzy
 msgid "UNREAD"
-msgstr "UNREAD"
+msgstr "مش منقرا"
 
 #: src/ui_components/email/email.tscn
-#, fuzzy
 msgid "STARRED"
-msgstr "STARRED"
+msgstr "معلم ب نجمة"
 
 #: src/ui_components/email/visual_message/visual_message.tscn
-#, fuzzy
 msgid "TO"
-msgstr "TO"
+msgstr "ل"
 
 #: src/ui_components/email/visual_message/visual_message.tscn
-#, fuzzy
 msgid "ACTION"
-msgstr "ACTION"
+msgstr "أكشين"
 
 #: src/ui_components/email/visual_message/visual_message.gd
 #, fuzzy
@@ -660,14 +614,12 @@ msgid "STATISTICS"
 msgstr "STATISTICS"
 
 #: src/ui_components/player_profile/player_profile.tscn
-#, fuzzy
 msgid "ATTRIBUTES"
-msgstr "ATTRIBUTES"
+msgstr "خصائص"
 
 #: src/ui_components/player_profile/info_view/info_view.tscn
-#, fuzzy
 msgid "POSITION"
-msgstr "POSITION"
+msgstr "مركز"
 
 #: src/ui_components/player_profile/info_view/info_view.tscn
 #, fuzzy
@@ -675,9 +627,8 @@ msgid "ALT_POSITION"
 msgstr "ALT_POSITION"
 
 #: src/ui_components/player_profile/info_view/info_view.tscn
-#, fuzzy
 msgid "AGE"
-msgstr "AGE"
+msgstr "عمر"
 
 #: src/ui_components/player_profile/info_view/info_view.tscn
 #, fuzzy
@@ -686,15 +637,13 @@ msgstr "FOOT"
 
 #: src/ui_components/player_profile/info_view/info_view.tscn
 #: src/screens/setup/setup_manager/setup_manager.tscn
-#, fuzzy
 msgid "NATIONALITY"
-msgstr "NATIONALITY"
+msgstr "جنسية"
 
 #: src/ui_components/player_profile/info_view/info_view.tscn
 #: src/screens/save_states_screen/save_state_entry/save_state_entry.tscn
-#, fuzzy
 msgid "TEAM"
-msgstr "TEAM"
+msgstr "فريق"
 
 #: src/ui_components/player_profile/info_view/info_view.tscn
 #, fuzzy
@@ -707,35 +656,30 @@ msgid "ATTRIBUTES_AVERGE"
 msgstr "ATTRIBUTES_AVERGE"
 
 #: src/ui_components/player_profile/info_view/info_view.tscn
-#, fuzzy
 msgid "VALUE"
-msgstr "VALUE"
+msgstr "قيمة"
 
 #: src/ui_components/player_profile/contract_view/contract_view.tscn
-#, fuzzy
 msgid "MAKE_OFFER"
-msgstr "MAKE_OFFER"
+msgstr "حط أوفر"
 
 #: src/ui_components/visual_calendar/visual_day/visual_day.tscn
 #: src/ui_components/visual_calendar/visual_day/visual_day.gd
 #: src/screens/dashboard/dashboard.tscn
-#, fuzzy
 msgid "TRANSFERMARKET"
-msgstr "TRANSFERMARKET"
+msgstr "سوق التحويل"
 
 #: src/ui_components/visual_calendar/visual_day/visual_day.gd
 #: src/ui_components/visual_calendar/match_list/match_info/match_info.tscn
 #: src/screens/match/match.tscn
-#, fuzzy
 msgid "HOME"
-msgstr "HOME"
+msgstr "الداخل"
 
 #: src/ui_components/visual_calendar/visual_day/visual_day.gd
 #: src/ui_components/visual_calendar/match_list/match_info/match_info.tscn
 #: src/screens/match/match.tscn
-#, fuzzy
 msgid "AWAY"
-msgstr "AWAY"
+msgstr "الخارج"
 
 #: src/ui_components/visual_calendar/visual_day/visual_day.gd
 msgid ""
@@ -747,9 +691,8 @@ msgid "VS"
 msgstr "VS"
 
 #: src/ui_components/visual_calendar/match_list/match_list.gd
-#, fuzzy
 msgid "NO_MATCH"
-msgstr "NO_MATCH"
+msgstr "مش موجود"
 
 #: src/ui_components/visual_calendar/visual_calendar.tscn
 #, fuzzy
@@ -757,44 +700,36 @@ msgid "Jan"
 msgstr "Jan"
 
 #: src/ui_components/visual_calendar/visual_calendar.tscn
-#, fuzzy
 msgid "TODAY"
-msgstr "TODAY"
+msgstr "اليوم"
 
 #: src/ui_components/visual_calendar/visual_calendar.tscn
-#, fuzzy
 msgid "MONDAY"
-msgstr "MONDAY"
+msgstr "التنين"
 
 #: src/ui_components/visual_calendar/visual_calendar.tscn
-#, fuzzy
 msgid "TUESDAY"
-msgstr "TUESDAY"
+msgstr "التلاتا"
 
 #: src/ui_components/visual_calendar/visual_calendar.tscn
-#, fuzzy
 msgid "WEDNESDAY"
-msgstr "WEDNESDAY"
+msgstr "الأربعا"
 
 #: src/ui_components/visual_calendar/visual_calendar.tscn
-#, fuzzy
 msgid "THURSDAY"
-msgstr "THURSDAY"
+msgstr "الخميس"
 
 #: src/ui_components/visual_calendar/visual_calendar.tscn
-#, fuzzy
 msgid "FRIDAY"
-msgstr "FRIDAY"
+msgstr "الجمعة"
 
 #: src/ui_components/visual_calendar/visual_calendar.tscn
-#, fuzzy
 msgid "SATURDAY"
-msgstr "SATURDAY"
+msgstr "السبت"
 
 #: src/ui_components/visual_calendar/visual_calendar.tscn
-#, fuzzy
 msgid "SUNDAY"
-msgstr "SUNDAY"
+msgstr "الأحد"
 
 #: src/match_simulator/visual_match/visual_actors/visual_player/visual_player.tscn
 #, fuzzy
@@ -803,14 +738,12 @@ msgstr ":"
 
 #: src/utils/logic/email_util.gd
 #: src/screens/dashboard/dashboard.tscn
-#, fuzzy
 msgid "NEXT_MATCH"
-msgstr "NEXT_MATCH"
+msgstr "الماتش اللي بعده"
 
 #: src/utils/logic/email_util.gd
-#, fuzzy
 msgid "WELCOME"
-msgstr "WELCOME"
+msgstr "اهلا و سهلا"
 
 #: src/utils/logic/email_util.gd
 #, fuzzy
@@ -834,31 +767,26 @@ msgstr "WORLD_CUP"
 
 #: src/screens/settings/settings.tscn
 #: src/screens/settings/general/general_settings.tscn
-#, fuzzy
 msgid "GENERAL_SETTINGS"
-msgstr "GENERAL_SETTINGS"
+msgstr "عام"
 
 #: src/screens/settings/settings.tscn
 #: src/screens/settings/input/input_settings.tscn
-#, fuzzy
 msgid "INPUT_SETTINGS"
-msgstr "INPUT_SETTINGS"
+msgstr "إن-پوت"
 
 #: src/screens/settings/settings.tscn
-#, fuzzy
 msgid "DEFAULT_SETTINGS"
-msgstr "DEFAULT_SETTINGS"
+msgstr "السَتِنگز الافتراضية"
 
 #: src/screens/settings/settings.tscn
 #: src/screens/setup/setup_team/setup_team.tscn
-#, fuzzy
 msgid "BACK"
-msgstr "BACK"
+msgstr "رجاع"
 
 #: src/screens/settings/settings.tscn
-#, fuzzy
 msgid "RESTORE_DEFAULTS_TEXT"
-msgstr "RESTORE_DEFAULTS_TEXT"
+msgstr "كل السَتِنگز اللي مغيرها رح ترجع ل كيف كانت أساسًا."
 
 #: src/screens/settings/general/general_settings.tscn
 #, fuzzy
@@ -866,9 +794,8 @@ msgid "TRANSLATION_INSTRUCTIONS"
 msgstr "TRANSLATION_INSTRUCTIONS"
 
 #: src/screens/settings/general/general_settings.tscn
-#, fuzzy
 msgid "AUDIO"
-msgstr "AUDIO"
+msgstr "خترع مدرب"
 
 #: src/screens/settings/general/general_settings.tscn
 #, fuzzy
@@ -876,9 +803,8 @@ msgid "SFX_VOLUME"
 msgstr "SFX_VOLUME"
 
 #: src/screens/settings/general/general_settings.tscn
-#, fuzzy
 msgid "INTERFACE_SETTINGS"
-msgstr "INTERFACE_SETTINGS"
+msgstr "شكل"
 
 #: src/screens/settings/general/general_settings.tscn
 #, fuzzy
@@ -887,54 +813,44 @@ msgstr "FONT_SIZE"
 
 #: src/screens/settings/general/general_settings.tscn
 #: src/screens/setup/setup_world/setup_world.tscn
-#, fuzzy
 msgid "DEFAULT"
-msgstr "DEFAULT"
+msgstr "افتراضي"
 
 #: src/screens/settings/general/general_settings.tscn
-#, fuzzy
 msgid "SCALE"
-msgstr "SCALE"
+msgstr "مقياس"
 
 #: src/screens/settings/general/general_settings.tscn
-#, fuzzy
 msgid "SCREEN_FADE_ANIMATION"
-msgstr "SCREEN_FADE_ANIMATION"
+msgstr "أنيمايشن لتلاشي الشاشة"
 
 #: src/screens/settings/general/general_settings.tscn
-#, fuzzy
 msgid "THEMES"
-msgstr "THEMES"
+msgstr "ألوان"
 
 #: src/screens/settings/general/general_settings.tscn
-#, fuzzy
 msgid "FONT_COLOR"
-msgstr "FONT_COLOR"
+msgstr "لون الكلمات"
 
 #: src/screens/settings/general/general_settings.tscn
-#, fuzzy
 msgid "CHANGE"
-msgstr "CHANGE"
+msgstr "غَيّر"
 
 #: src/screens/settings/general/general_settings.tscn
-#, fuzzy
 msgid "BUTTONS_COLOR"
-msgstr "BUTTONS_COLOR"
+msgstr "لون الكبسات"
 
 #: src/screens/settings/general/general_settings.tscn
-#, fuzzy
 msgid "BACKGROUND_COLOR"
-msgstr "BACKGROUND_COLOR"
+msgstr "لون الباك-گراوند"
 
 #: src/screens/settings/general/general_settings.tscn
-#, fuzzy
 msgid "VERSION"
-msgstr "VERSION"
+msgstr "نسخة"
 
 #: src/screens/settings/input/input_settings.tscn
-#, fuzzy
 msgid "VIM_MODE"
-msgstr "VIM_MODE"
+msgstr "وضعية \"ڤيم\""
 
 #: src/screens/settings/input/input_settings.tscn
 #, fuzzy
@@ -942,9 +858,8 @@ msgid "JOYPAD_STATUS"
 msgstr "JOYPAD_STATUS"
 
 #: src/screens/settings/input/input_settings.tscn
-#, fuzzy
 msgid "NO_JOYPAD_CONNECTED"
-msgstr "NO_JOYPAD_CONNECTED"
+msgstr "مش موصول دجوي-پاد"
 
 #: src/screens/settings/input/input_settings.tscn
 #, fuzzy
@@ -957,52 +872,43 @@ msgid "INPUT_TYPE"
 msgstr "INPUT_TYPE"
 
 #: src/screens/save_states_screen/save_states_screen.tscn
-#, fuzzy
 msgid "SAVE_STATES"
-msgstr "SAVE_STATES"
+msgstr "سيّڤ الستات"
 
 #: src/screens/save_states_screen/save_states_screen.tscn
 #: src/screens/dashboard/dashboard.tscn
-#, fuzzy
 msgid "MENU"
-msgstr "MENU"
+msgstr "منيو"
 
 #: src/screens/save_states_screen/save_state_entry/save_state_entry.tscn
 #: src/screens/setup/setup_manager/setup_manager.tscn
-#, fuzzy
 msgid "MANAGER"
-msgstr "MANAGER"
+msgstr "مدرب"
 
 #: src/screens/save_states_screen/save_state_entry/save_state_entry.tscn
-#, fuzzy
 msgid "TABLE_PLACEMENT"
-msgstr "TABLE_PLACEMENT"
+msgstr "محل التبلو"
 
 #: src/screens/save_states_screen/save_state_entry/save_state_entry.tscn
-#, fuzzy
 msgid "GAME_DATE"
-msgstr "GAME_DATE"
+msgstr "التريخ اللي بال لعبة"
 
 #: src/screens/save_states_screen/save_state_entry/save_state_entry.tscn
-#, fuzzy
 msgid "LAST_SAVE"
-msgstr "LAST_SAVE"
+msgstr "آخر تسيّڤة"
 
 #: src/screens/save_states_screen/save_state_entry/save_state_entry.tscn
-#, fuzzy
 msgid "CREATED"
-msgstr "CREATED"
+msgstr "نعمل"
 
 #: src/screens/save_states_screen/save_state_entry/save_state_entry.tscn
-#, fuzzy
 msgid "DELETE"
-msgstr "DELETE"
+msgstr "محّي"
 
 #: src/screens/save_states_screen/save_state_entry/save_state_entry.tscn
 #: src/screens/menu/menu.tscn
-#, fuzzy
 msgid "LOAD_GAME"
-msgstr "LOAD_GAME"
+msgstr "عوز اللعبة"
 
 #: src/screens/save_states_screen/save_state_entry/save_state_entry.tscn
 #, fuzzy
@@ -1011,19 +917,16 @@ msgstr "SAVE_STATE_DELETE_INFO"
 
 #: src/screens/dashboard/dashboard.gd
 #: src/screens/dashboard/dashboard.tscn
-#, fuzzy
 msgid "EMAIL"
-msgstr "EMAIL"
+msgstr "إي-مايل"
 
 #: src/screens/dashboard/dashboard.gd
-#, fuzzy
 msgid "START_MATCH"
-msgstr "START_MATCH"
+msgstr "بلّش الماتش"
 
 #: src/screens/dashboard/dashboard.gd
-#, fuzzy
 msgid "NEXT_DAY"
-msgstr "NEXT_DAY"
+msgstr "اليوم اللي بعده"
 
 #: src/screens/dashboard/dashboard.gd
 #, fuzzy
@@ -1031,85 +934,70 @@ msgid "NEXT_SEASON"
 msgstr "NEXT_SEASON"
 
 #: src/screens/dashboard/dashboard.tscn
-#, fuzzy
 msgid "CALENDAR"
-msgstr "CALENDAR"
+msgstr "رزنامة"
 
 #: src/screens/dashboard/dashboard.tscn
-#, fuzzy
 msgid "COMPETITIONS"
-msgstr "COMPETITIONS"
+msgstr "منافسات"
 
 #: src/screens/dashboard/dashboard.tscn
-#, fuzzy
 msgid "FINANCES"
-msgstr "FINANCES"
+msgstr "الماليه"
 
 #: src/screens/dashboard/dashboard.tscn
-#, fuzzy
 msgid "SEARCH_PLAYER"
-msgstr "SEARCH_PLAYER"
+msgstr "نبش اللاعب"
 
 #: src/screens/dashboard/dashboard.tscn
-#, fuzzy
 msgid "SCOUTS"
-msgstr "SCOUTS"
+msgstr "كشافة"
 
 #: src/screens/dashboard/dashboard.tscn
-#, fuzzy
 msgid "WATCHLIST"
-msgstr "WATCHLIST"
+msgstr "ليستة المراقبة"
 
 #: src/screens/dashboard/dashboard.tscn
-#, fuzzy
 msgid "TRANSFERLIST"
-msgstr "TRANSFERLIST"
+msgstr "ليستة الانتقالات"
 
 #: src/screens/dashboard/dashboard.tscn
-#, fuzzy
 msgid "JOBS"
-msgstr "JOBS"
+msgstr "وظايف"
 
 #: src/screens/dashboard/dashboard.tscn
-#, fuzzy
 msgid "HALL_OF_FAME"
-msgstr "HALL_OF_FAME"
+msgstr "قاعة المشاهير"
 
 #: src/screens/dashboard/dashboard.tscn
-#, fuzzy
 msgid "NOTES"
-msgstr "NOTES"
+msgstr "ملاحظة"
 
 #: src/screens/dashboard/dashboard.tscn
 #: src/screens/menu/menu.tscn
-#, fuzzy
 msgid "SETTINGS"
-msgstr "SETTINGS"
+msgstr "سَتِنگز"
 
 #: src/screens/dashboard/dashboard.tscn
 #: src/screens/match/match.gd
 #: src/screens/menu/menu.tscn
 #: src/screens/setup/setup_world/setup_world.tscn
 #: src/screens/setup/setup_manager/setup_manager.tscn
-#, fuzzy
 msgid "CONTINUE"
-msgstr "CONTINUE"
+msgstr "كفّي"
 
 #: src/screens/dashboard/dashboard.tscn
-#, fuzzy
 msgid "SAVE_TEXT"
-msgstr "SAVE_TEXT"
+msgstr "سيّڤ اللعبة قبلما تفل عال منيو؟"
 
 #: src/screens/match/match.gd
 #: src/screens/match/match.tscn
-#, fuzzy
 msgid "PAUSE"
-msgstr "PAUSE"
+msgstr "پوز"
 
 #: src/screens/match/penalties_bar/penalties_bar.tscn
-#, fuzzy
 msgid "PENALTIES"
-msgstr "PENALTIES"
+msgstr "پنالتيز (6 متر)"
 
 #: src/screens/match/statistics/match_stats.gd
 #, fuzzy
@@ -1117,19 +1005,16 @@ msgid "0"
 msgstr "0"
 
 #: src/screens/match/match.tscn
-#, fuzzy
 msgid "STATS"
-msgstr "STATS"
+msgstr "ستات"
 
 #: src/screens/match/match.tscn
-#, fuzzy
 msgid "COMMENTARY"
-msgstr "COMMENTARY"
+msgstr "تعليق"
 
 #: src/screens/match/match.tscn
-#, fuzzy
 msgid "EVENTS"
-msgstr "EVENTS"
+msgstr "إڤانتات"
 
 #: src/screens/match/match.tscn
 #, fuzzy
@@ -1137,9 +1022,8 @@ msgid "FULL_MATCH"
 msgstr "FULL_MATCH"
 
 #: src/screens/match/match.tscn
-#, fuzzy
 msgid "SIMULATE"
-msgstr "SIMULATE"
+msgstr "سيميولايت"
 
 #: src/screens/match/match.tscn
 #, fuzzy
@@ -1147,9 +1031,8 @@ msgid "DASHBOARD"
 msgstr "DASHBOARD"
 
 #: src/screens/match/match.tscn
-#, fuzzy
 msgid "POSSESSION"
-msgstr "POSSESSION"
+msgstr "استحواذ"
 
 #: src/screens/loading_screen/loading_screen.tscn
 #, fuzzy
@@ -1157,79 +1040,64 @@ msgid "LOADING"
 msgstr "LOADING"
 
 #: src/screens/menu/menu.tscn
-#, fuzzy
 msgid "NEW_GAME"
-msgstr "NEW_GAME"
+msgstr "لعبة جديدة"
 
 #: src/screens/menu/menu.tscn
-#, fuzzy
 msgid "EXIT"
-msgstr "EXIT"
+msgstr "ضهار"
 
 #: src/screens/menu/menu.tscn
-#, fuzzy
 msgid "EXIT_GAME"
-msgstr "EXIT_GAME"
+msgstr "طلاع من اللعبة؟"
 
 #: src/screens/setup/setup_world/setup_world.tscn
-#, fuzzy
 msgid "GAME_SETTINGS"
-msgstr "GAME_SETTINGS"
+msgstr "سَتِنگز اللعبة"
 
 #: src/screens/setup/setup_world/setup_world.tscn
-#, fuzzy
 msgid "PLAYER_NAMES"
-msgstr "PLAYER_NAMES"
+msgstr "اسامي اللعيبة"
 
 #: src/screens/setup/setup_world/setup_world.tscn
-#, fuzzy
 msgid "START_YEAR"
-msgstr "START_YEAR"
+msgstr "أول سنة"
 
 #: src/screens/setup/setup_world/setup_world.tscn
-#, fuzzy
 msgid "GENERATION_SEED"
-msgstr "GENERATION_SEED"
+msgstr "السيد تبع الإختراع"
 
 #: src/screens/setup/setup_world/setup_world.tscn
-#, fuzzy
 msgid "GENERATION_SEED_DESCRIPTION"
 msgstr "GENERATION_SEED_DESCRIPTION"
 
 #: src/screens/setup/setup_world/setup_world.tscn
-#, fuzzy
 msgid "RANDOM"
-msgstr "RANDOM"
+msgstr "عشوائي"
 
 #: src/screens/setup/setup_world/setup_world.gd
-#, fuzzy
 msgid "GENERATING_PLAYERS"
-msgstr "GENERATING_PLAYERS"
+msgstr "عم نخترعلك اللعيبة…"
 
 #: src/screens/setup/setup_manager/setup_manager.tscn
-#, fuzzy
 msgid "YOUR_NAME"
-msgstr "YOUR_NAME"
+msgstr "اسمك"
 
 #: src/screens/setup/setup_manager/setup_manager.tscn
-#, fuzzy
 msgid "SURNAME"
-msgstr "SURNAME"
+msgstr "عيلة"
 
 #: src/screens/setup/setup_manager/setup_manager.tscn
-#, fuzzy
 msgid "YOUR_SURNAME"
-msgstr "YOUR_SURNAME"
+msgstr "عيلتك"
 
 #: src/screens/setup/setup_team/setup_team.tscn
-#, fuzzy
 msgid "CHOOSE_TEAM"
-msgstr "CHOOSE_TEAM"
+msgstr "نقي فريقك"
 
 #: src/screens/setup/setup_team/setup_team.tscn
-#, fuzzy
 msgid "SELECT"
-msgstr "SELECT"
+msgstr "نقي"
 
 #: src/resources/world/nation_names.gd
 #, fuzzy
@@ -1322,9 +1190,8 @@ msgid "MONACO"
 msgstr "Monaco"
 
 #: src/resources/world/nation_names.gd
-#, fuzzy
 msgid "ROMANIA"
-msgstr "Romania"
+msgstr "رومانيا"
 
 #: src/resources/world/nation_names.gd
 #, fuzzy
@@ -1767,9 +1634,8 @@ msgid "EQUATORIAL_GUINEA"
 msgstr "Equatorial Guinea"
 
 #: src/resources/world/nation_names.gd
-#, fuzzy
 msgid "ITALY"
-msgstr "Italy"
+msgstr "إيطاليا"
 
 #: src/resources/world/nation_names.gd
 #, fuzzy
@@ -2112,9 +1978,8 @@ msgid "LIBERIA"
 msgstr "Liberia"
 
 #: src/resources/world/nation_names.gd
-#, fuzzy
 msgid "SPAIN"
-msgstr "Spain"
+msgstr "إسپانيا"
 
 #: src/resources/world/nation_names.gd
 #, fuzzy
