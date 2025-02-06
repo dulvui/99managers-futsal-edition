@@ -279,13 +279,19 @@
 #
 # FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
 #
-#, fuzzy
 msgid ""
 msgstr ""
 "Project-Id-Version: 99 Managers Futsal Edition\n"
+"POT-Creation-Date: \n"
+"PO-Revision-Date: \n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"Language: en\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
-"Content-Transfer-Encoding: 8-bit\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"X-Generator: Poedit 3.2.2\n"
 
 #: src/ui_components/team_profile/team_profile.tscn
 msgid "Info"
@@ -513,8 +519,7 @@ msgid "REST"
 msgstr ""
 
 #: src/ui_components/visual_formation/visual_formation.tscn
-#: src/screens/dashboard/dashboard.tscn
-#: src/screens/match/match.tscn
+#: src/screens/dashboard/dashboard.tscn src/screens/match/match.tscn
 msgid "FORMATION"
 msgstr ""
 
@@ -648,10 +653,6 @@ msgstr ""
 msgid "AWAY"
 msgstr ""
 
-#: src/ui_components/visual_calendar/visual_day/visual_day.gd
-msgid ""
-msgstr ""
-
 #: src/ui_components/visual_calendar/match_list/match_info/match_info.tscn
 msgid "VS"
 msgstr ""
@@ -700,8 +701,7 @@ msgstr ""
 msgid ":"
 msgstr ""
 
-#: src/utils/logic/email_util.gd
-#: src/screens/dashboard/dashboard.tscn
+#: src/utils/logic/email_util.gd src/screens/dashboard/dashboard.tscn
 msgid "NEXT_MATCH"
 msgstr ""
 
@@ -868,8 +868,7 @@ msgstr ""
 msgid "SAVE_STATE_DELETE_INFO"
 msgstr ""
 
-#: src/screens/dashboard/dashboard.gd
-#: src/screens/dashboard/dashboard.tscn
+#: src/screens/dashboard/dashboard.gd src/screens/dashboard/dashboard.tscn
 msgid "EMAIL"
 msgstr ""
 
@@ -925,15 +924,12 @@ msgstr ""
 msgid "NOTES"
 msgstr ""
 
-#: src/screens/dashboard/dashboard.tscn
-#: src/screens/menu/menu.tscn
+#: src/screens/dashboard/dashboard.tscn src/screens/menu/menu.tscn
 msgid "SETTINGS"
 msgstr ""
 
-#: src/screens/dashboard/dashboard.tscn
-#: src/screens/match/match.gd
-#: src/screens/menu/menu.tscn
-#: src/screens/setup/setup_world/setup_world.tscn
+#: src/screens/dashboard/dashboard.tscn src/screens/match/match.gd
+#: src/screens/menu/menu.tscn src/screens/setup/setup_world/setup_world.tscn
 #: src/screens/setup/setup_manager/setup_manager.tscn
 msgid "CONTINUE"
 msgstr ""
@@ -942,8 +938,7 @@ msgstr ""
 msgid "SAVE_TEXT"
 msgstr ""
 
-#: src/screens/match/match.gd
-#: src/screens/match/match.tscn
+#: src/screens/match/match.gd src/screens/match/match.tscn
 msgid "PAUSE"
 msgstr ""
 
