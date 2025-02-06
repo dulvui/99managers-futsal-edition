@@ -282,8 +282,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: 99 Managers Futsal Edition\n"
-"PO-Revision-Date: 2025-02-06 12:58+0000\n"
-"Last-Translator: Prefill add-on <noreply-addon-prefill@weblate.org>\n"
+"PO-Revision-Date: 2025-02-06 13:07+0000\n"
+"Last-Translator: Simon Dalvai <info@simondalvai.org>\n"
 "Language-Team: German <https://hosted.weblate.org/projects/"
 "99-managers-futsal-edition/game-gettext/de/>\n"
 "Language: de\n"
@@ -1157,9 +1157,8 @@ msgid "LOADING"
 msgstr "LOADING"
 
 #: src/screens/menu/menu.tscn
-#, fuzzy
 msgid "NEW_GAME"
-msgstr "NEW_GAME"
+msgstr "Neues Spiel"
 
 #: src/screens/menu/menu.tscn
 #, fuzzy
