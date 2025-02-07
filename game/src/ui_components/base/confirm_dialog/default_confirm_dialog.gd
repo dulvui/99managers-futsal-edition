@@ -8,20 +8,32 @@ extends PopupPanel
 signal denied
 signal confirmed
 
+enum Type {
+	YES_NO,
+	YES_NO_CANCEL,
+	ONLY_OK,
+}
+
 @export var custom_title: String = ""
 @export_multiline var custom_text: String = ""
-@export var show_cancel: bool = false
+@export var type: Type = Type.YES_NO
 
 @onready var rich_text_label: RichTextLabel = %Text
 @onready var title_label: Label = %Title
 @onready var cancel_button: Button = %Cancel
 @onready var no_button: Button = %No
+@onready var yes_button: Button = %Yes
 
 
 func _ready() -> void:
 	hide()
 
-	no_button.visible = show_cancel
+	if type == Type.YES_NO:
+		cancel_button.hide()
+	elif type == Type.ONLY_OK:
+		cancel_button.text = tr("OK")
+		no_button.hide()
+		yes_button.hide()
 
 	rich_text_label.text = custom_text
 	title_label.text = custom_title
