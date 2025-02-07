@@ -278,6 +278,9 @@
 # res://src/generators/generator.gd
 # res://src/resources/world/continent_names.gd
 # res://src/resources/world/nation_names.gd
+# res://src/screens/settings/contributors/contributors.tscn
+# res://src/screens/settings/license/license.gd
+# res://src/screens/settings/license/license.tscn
 #
 # FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
 #
@@ -359,6 +362,10 @@ msgstr ""
 
 #: src/ui_components/info/info.tscn
 msgid "START_DATE"
+msgstr ""
+
+#: src/ui_components/base/confirm_dialog/default_confirm_dialog.gd
+msgid "OK"
 msgstr ""
 
 #: src/ui_components/base/confirm_dialog/default_confirm_dialog.tscn
@@ -715,28 +722,12 @@ msgstr ""
 msgid "BEST"
 msgstr ""
 
-#: src/const.gd
-msgid "MALE"
+#: src/resources/person/player/player.gd
+msgid "INJURED"
 msgstr ""
 
-#: src/const.gd
-msgid "FEMALE"
-msgstr ""
-
-#: src/const.gd
-msgid "MIXED"
-msgstr ""
-
-#: src/const.gd
-msgid "FULL_GAME"
-msgstr ""
-
-#: src/const.gd
-msgid "KEY_ACTIONS"
-msgstr ""
-
-#: src/const.gd
-msgid "ONLY_GOALS"
+#: src/resources/person/player/player.gd
+msgid "RECOVER"
 msgstr ""
 
 #: src/utils/logic/email_util.gd
@@ -769,13 +760,19 @@ msgid "RESTORING_BACKUP"
 msgstr ""
 
 #: src/screens/settings/settings.tscn
-#: src/screens/settings/general/general_settings.tscn
 msgid "GENERAL_SETTINGS"
 msgstr ""
 
 #: src/screens/settings/settings.tscn
-#: src/screens/settings/input/input_settings.tscn
 msgid "INPUT_SETTINGS"
+msgstr ""
+
+#: src/screens/settings/settings.tscn
+msgid "CONTRIBUTORS"
+msgstr ""
+
+#: src/screens/settings/settings.tscn
+msgid "LICENSES"
 msgstr ""
 
 #: src/screens/settings/settings.tscn
@@ -789,6 +786,10 @@ msgstr ""
 
 #: src/screens/settings/settings.tscn
 msgid "RESTORE_DEFAULTS_TEXT"
+msgstr ""
+
+#: src/screens/settings/general/general_settings.tscn
+msgid "LANGUAGE"
 msgstr ""
 
 #: src/screens/settings/general/general_settings.tscn
@@ -958,6 +959,10 @@ msgid "SEARCH_PLAYER"
 msgstr ""
 
 #: src/screens/dashboard/dashboard.tscn
+msgid "COMING_SOON"
+msgstr ""
+
+#: src/screens/dashboard/dashboard.tscn
 msgid "SCOUTS"
 msgstr ""
 
@@ -987,6 +992,7 @@ msgid "SETTINGS"
 msgstr ""
 
 #: src/screens/dashboard/dashboard.tscn
+#: src/screens/match/match.gd
 #: src/screens/menu/menu.tscn
 #: src/screens/setup/setup_world/setup_world.tscn
 #: src/screens/setup/setup_manager/setup_manager.tscn
@@ -995,6 +1001,11 @@ msgstr ""
 
 #: src/screens/dashboard/dashboard.tscn
 msgid "SAVE_TEXT"
+msgstr ""
+
+#: src/screens/match/match.gd
+#: src/screens/match/match.tscn
+msgid "PAUSE"
 msgstr ""
 
 #: src/screens/match/penalties_bar/penalties_bar.tscn
@@ -1018,11 +1029,8 @@ msgid "EVENTS"
 msgstr ""
 
 #: src/screens/match/match.tscn
-msgid "FULL_MATCH"
-msgstr ""
-
-#: src/screens/match/match.tscn
-msgid "PAUSE"
+#: src/global.gd
+msgid "FULL_GAME"
 msgstr ""
 
 #: src/screens/match/match.tscn
@@ -1099,6 +1107,30 @@ msgstr ""
 
 #: src/screens/setup/setup_team/setup_team.tscn
 msgid "SELECT"
+msgstr ""
+
+#: src/screens/setup/setup_team/setup_team.gd
+msgid "INITIALIZE_GAME"
+msgstr ""
+
+#: src/global.gd
+msgid "KEY_ACTIONS"
+msgstr ""
+
+#: src/global.gd
+msgid "ONLY_GOALS"
+msgstr ""
+
+#: src/global.gd
+msgid "MALE"
+msgstr ""
+
+#: src/global.gd
+msgid "FEMALE"
+msgstr ""
+
+#: src/global.gd
+msgid "MIXED"
 msgstr ""
 
 #: src/resources/world/continent_names.gd
@@ -1895,4 +1927,32 @@ msgstr ""
 
 #: src/resources/world/nation_names.gd
 msgid "YEMEN"
+msgstr ""
+
+#: src/screens/settings/license/license.tscn
+msgid "GAME_LICENSE"
+msgstr ""
+
+#: src/screens/settings/license/license.tscn
+msgid "GAME_LICENSE_DESCRIPTION"
+msgstr ""
+
+#: src/screens/settings/license/license.tscn
+msgid "READ_FULL_LICENSE"
+msgstr ""
+
+#: src/screens/settings/license/license.tscn
+msgid "SOURCE_CODE"
+msgstr ""
+
+#: src/screens/settings/license/license.tscn
+msgid "SOURCE_CODE_DESCRIPTION"
+msgstr ""
+
+#: src/screens/settings/license/license.tscn
+msgid "THIRD_PARTY_LICENSES"
+msgstr ""
+
+#: src/screens/settings/license/license.tscn
+msgid "THIRD_PARTY_LICENSES_DESCRIPTION"
 msgstr ""

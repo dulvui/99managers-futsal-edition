@@ -87,7 +87,9 @@ script = ExtResource("2_8rsxp")
 
 [node name="LicenseDialog" parent="." instance=ExtResource("4_x52u3")]
 unique_name_in_owner = true
+auto_translate_mode = 2
 size = Vector2i(800, 800)
+auto_translate = false
 custom_title = "LICENSE"
 custom_text = "                    GNU AFFERO GENERAL PUBLIC LICENSE
                        Version 3, 19 November 2007
@@ -754,7 +756,9 @@ type = 2
 
 [node name="ThirdPartyLicenseDialog" parent="." instance=ExtResource("4_x52u3")]
 unique_name_in_owner = true
+auto_translate_mode = 2
 size = Vector2i(800, 800)
+auto_translate = false
 custom_title = "THIRD_PARTY_LICENSES"
 custom_text = "Format: https://www.debian.org/doc/packaging-manuals/copyright-format/1.0/
 Comment:

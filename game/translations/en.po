@@ -283,7 +283,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: 99 Managers Futsal Edition\n"
 "POT-Creation-Date: \n"
-"PO-Revision-Date: 2025-02-06 17:10+0100\n"
+"PO-Revision-Date: 2025-02-08 00:09+0100\n"
 "Last-Translator: Simon Dalvai <info@simondalvai.org>\n"
 "Language-Team: English <https://hosted.weblate.org/projects/99-managers-"
 "futsal-edition/game-gettext/en/>\n"
@@ -365,6 +365,10 @@ msgstr "Copy"
 #: src/ui_components/info/info.tscn
 msgid "START_DATE"
 msgstr "Start date"
+
+#: src/ui_components/base/confirm_dialog/default_confirm_dialog.gd
+msgid "OK"
+msgstr "Ok"
 
 #: src/ui_components/base/confirm_dialog/default_confirm_dialog.tscn
 #: src/ui_components/transfers/player_offer/player_offer.tscn
@@ -688,6 +692,42 @@ msgstr "Saturday"
 msgid "SUNDAY"
 msgstr "Sunday"
 
+#: src/resources/person/player/player.gd
+msgid "LEFT"
+msgstr "Left"
+
+#: src/resources/person/player/player.gd
+msgid "RIGHT"
+msgstr "Right"
+
+#: src/resources/person/player/player.gd
+msgid "WORST"
+msgstr "Worst"
+
+#: src/resources/person/player/player.gd
+msgid "BAD"
+msgstr "Bad"
+
+#: src/resources/person/player/player.gd
+msgid "NEUTRAL"
+msgstr "Neutral"
+
+#: src/resources/person/player/player.gd
+msgid "GOOD"
+msgstr "Good"
+
+#: src/resources/person/player/player.gd
+msgid "BEST"
+msgstr "Best"
+
+#: src/resources/person/player/player.gd
+msgid "INJURED"
+msgstr "Injured"
+
+#: src/resources/person/player/player.gd
+msgid "RECOVER"
+msgstr "Recover"
+
 #: src/utils/logic/email_util.gd src/screens/dashboard/dashboard.tscn
 msgid "NEXT_MATCH"
 msgstr "Next match"
@@ -712,15 +752,25 @@ msgstr "Nations cup"
 msgid "WORLD_CUP"
 msgstr "World cup"
 
+#: src/utils/res_util.gd
+msgid "RESTORING_BACKUP"
+msgstr "Restoring backup"
+
 #: src/screens/settings/settings.tscn
-#: src/screens/settings/general/general_settings.tscn
 msgid "GENERAL_SETTINGS"
 msgstr "General"
 
 #: src/screens/settings/settings.tscn
-#: src/screens/settings/input/input_settings.tscn
 msgid "INPUT_SETTINGS"
 msgstr "Input"
+
+#: src/screens/settings/settings.tscn
+msgid "CONTRIBUTORS"
+msgstr "Contributors"
+
+#: src/screens/settings/settings.tscn
+msgid "LICENSES"
+msgstr "Licenses"
 
 #: src/screens/settings/settings.tscn
 msgid "DEFAULT_SETTINGS"
@@ -734,6 +784,10 @@ msgstr "Back"
 #: src/screens/settings/settings.tscn
 msgid "RESTORE_DEFAULTS_TEXT"
 msgstr "All changed settings will lost and restored to default value."
+
+#: src/screens/settings/general/general_settings.tscn
+msgid "LANGUAGE"
+msgstr "Language"
 
 #: src/screens/settings/general/general_settings.tscn
 msgid "TRANSLATION_INSTRUCTIONS"
@@ -823,6 +877,11 @@ msgstr "Save states"
 msgid "MENU"
 msgstr "Menu"
 
+#: src/screens/save_states_screen/save_state_entry/save_state_entry.gd
+#: src/screens/menu/menu.gd
+msgid "LOADING_GAME"
+msgstr "Loading game"
+
 #: src/screens/save_states_screen/save_state_entry/save_state_entry.tscn
 #: src/screens/setup/setup_manager/setup_manager.tscn
 msgid "MANAGER"
@@ -864,8 +923,16 @@ msgid "EMAIL"
 msgstr "E-Mail"
 
 #: src/screens/dashboard/dashboard.gd
+msgid "SIMULATING_RESULTS"
+msgstr "Simulating results"
+
+#: src/screens/dashboard/dashboard.gd
 msgid "START_MATCH"
 msgstr "Start match"
+
+#: src/screens/dashboard/dashboard.gd
+msgid "SAVING_GAME"
+msgstr "Saving game"
 
 #: src/screens/dashboard/dashboard.gd
 msgid "NEXT_DAY"
@@ -890,6 +957,10 @@ msgstr "Finances"
 #: src/screens/dashboard/dashboard.tscn
 msgid "SEARCH_PLAYER"
 msgstr "Search player"
+
+#: src/screens/dashboard/dashboard.tscn
+msgid "COMING_SOON"
+msgstr "Coming soon"
 
 #: src/screens/dashboard/dashboard.tscn
 msgid "SCOUTS"
@@ -953,9 +1024,9 @@ msgstr "Commentary"
 msgid "EVENTS"
 msgstr "Events"
 
-#: src/screens/match/match.tscn
-msgid "FULL_MATCH"
-msgstr "Full match"
+#: src/screens/match/match.tscn src/global.gd
+msgid "FULL_GAME"
+msgstr "Full game"
 
 #: src/screens/match/match.tscn
 msgid "SIMULATE"
@@ -1036,6 +1107,30 @@ msgstr "Choose your team"
 #: src/screens/setup/setup_team/setup_team.tscn
 msgid "SELECT"
 msgstr "Select"
+
+#: src/screens/setup/setup_team/setup_team.gd
+msgid "INITIALIZE_GAME"
+msgstr "Initialize game"
+
+#: src/global.gd
+msgid "KEY_ACTIONS"
+msgstr "Key actions"
+
+#: src/global.gd
+msgid "ONLY_GOALS"
+msgstr "Only goals"
+
+#: src/global.gd
+msgid "MALE"
+msgstr "Male"
+
+#: src/global.gd
+msgid "FEMALE"
+msgstr "Female"
+
+#: src/global.gd
+msgid "MIXED"
+msgstr "Mixed"
 
 #: src/resources/world/continent_names.gd
 msgid "AFRICA"
@@ -1678,8 +1773,8 @@ msgid "BRUNEI"
 msgstr "Brunei"
 
 #: src/resources/world/nation_names.gd
-msgid "BURMA_"
-msgstr "Burma_"
+msgid "BURMA"
+msgstr "Burma"
 
 #: src/resources/world/nation_names.gd
 msgid "CAMBODIA"
@@ -1832,6 +1927,40 @@ msgstr "Vietnam"
 #: src/resources/world/nation_names.gd
 msgid "YEMEN"
 msgstr "Yemen"
+
+#: src/screens/settings/license/license.tscn
+msgid "GAME_LICENSE"
+msgstr "Game license"
+
+#: src/screens/settings/license/license.tscn
+msgid "GAME_LICENSE_DESCRIPTION"
+msgstr ""
+"This game is Open Source and released under the AGPL v3 or later license."
+
+#: src/screens/settings/license/license.tscn
+msgid "READ_FULL_LICENSE"
+msgstr "Read full license"
+
+#: src/screens/settings/license/license.tscn
+msgid "SOURCE_CODE"
+msgstr "Source code"
+
+#: src/screens/settings/license/license.tscn
+msgid "SOURCE_CODE_DESCRIPTION"
+msgstr "The full source code of the game is available on the websites below"
+
+#: src/screens/settings/license/license.tscn
+msgid "THIRD_PARTY_LICENSES"
+msgstr "Third party licenses"
+
+#: src/screens/settings/license/license.tscn
+msgid "THIRD_PARTY_LICENSES_DESCRIPTION"
+msgstr ""
+"This game was built using the Godot Engine, that is released under the MIT "
+"license."
+
+#~ msgid "FULL_MATCH"
+#~ msgstr "Full match"
 
 #~ msgid "TEAM\n"
 #~ msgstr "Team\n"
