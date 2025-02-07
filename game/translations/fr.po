@@ -282,11 +282,10 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: 99 Managers Futsal Edition\n"
-"PO-Revision-Date: 2025-02-06 16:24+0000\n"
-"Last-Translator: Weblate Translation Memory <noreply-mt-weblate-translation-"
-"memory@weblate.org>\n"
+"PO-Revision-Date: 2025-02-07 13:30+0000\n"
+"Last-Translator: Simon Dalvai <info@simondalvai.org>\n"
 "Language-Team: French <https://hosted.weblate.org/projects/"
-"99-managers-futsal-edition/game-gettext/fr/>\n"
+"99-managers-futsal-edition/game/fr/>\n"
 "Language: fr\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -801,7 +800,7 @@ msgstr "TRANSLATION_INSTRUCTIONS"
 
 #: src/screens/settings/general/general_settings.tscn
 msgid "AUDIO"
-msgstr "Créer un coach"
+msgstr "Audio"
 
 #: src/screens/settings/general/general_settings.tscn
 #, fuzzy
