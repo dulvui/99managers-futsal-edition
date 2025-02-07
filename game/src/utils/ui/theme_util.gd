@@ -4,6 +4,9 @@
 
 extends Node
 
+# theme variations
+const BUTTON_IMPORTANT: StringName = "ImportantButton"
+
 # paths
 const THEMES_PATH: StringName = "res://themes/"
 const BASE_PATH: StringName = "res://theme_base/"

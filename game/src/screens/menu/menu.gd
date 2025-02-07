@@ -6,7 +6,6 @@ class_name Menu
 extends Control
 
 @onready var save_state: SaveStateEntry = %SaveState
-@onready var save_separator: HSeparator = %SaveSeparator
 @onready var load_game: Button = %LoadGame
 @onready var continue_game: Button = %ContinueGame
 @onready var new_game: Button = %NewGame
@@ -22,8 +21,8 @@ func _ready() -> void:
 	if not Global.save_states or Global.save_states.id_list.size() == 0:
 		load_game.hide()
 		continue_game.hide() 
-		save_separator.hide()
 		InputUtil.start_focus(new_game)
+		new_game.theme_type_variation = ThemeUtil.BUTTON_IMPORTANT
 	else:
 		InputUtil.start_focus(continue_game)
 

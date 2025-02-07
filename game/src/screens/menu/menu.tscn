@@ -32,51 +32,41 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="MarginContainer" type="MarginContainer" parent="."]
+[node name="SaveState" parent="." instance=ExtResource("4_5irse")]
+unique_name_in_owner = true
+layout_mode = 1
+anchor_left = 0.5
+anchor_top = 0.22963
+anchor_right = 0.5
+anchor_bottom = 0.22963
+offset_left = -261.5
+offset_right = 261.5
+offset_bottom = 132.0
+grow_horizontal = 2
+size_flags_horizontal = 4
+size_flags_vertical = 0
+hide_buttons = true
+metadata/_edit_use_anchors_ = true
+
+[node name="Buttons" type="VBoxContainer" parent="."]
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -342.5
-offset_top = -393.5
-offset_right = 342.5
-offset_bottom = 393.5
+offset_left = -90.0
+offset_top = -73.5
+offset_right = 90.0
+offset_bottom = 73.5
 grow_horizontal = 2
 grow_vertical = 2
-
-[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer"]
-layout_mode = 2
-size_flags_horizontal = 3
-alignment = 1
-
-[node name="WishlistLinkButton" type="LinkButton" parent="MarginContainer/VBoxContainer"]
-auto_translate_mode = 2
-layout_mode = 2
 size_flags_horizontal = 4
-size_flags_vertical = 4
-focus_mode = 2
-text = "Wishlist on Steam!"
-uri = "https://store.steampowered.com/app/3334770"
+size_flags_vertical = 6
+alignment = 1
+metadata/_edit_use_anchors_ = true
 
-[node name="HSeparator" type="HSeparator" parent="MarginContainer/VBoxContainer"]
-modulate = Color(1, 1, 1, 0)
-custom_minimum_size = Vector2(0, 40)
-layout_mode = 2
-
-[node name="SaveState" parent="MarginContainer/VBoxContainer" instance=ExtResource("4_5irse")]
-unique_name_in_owner = true
-layout_mode = 2
-hide_buttons = true
-
-[node name="SaveSeparator" type="HSeparator" parent="MarginContainer/VBoxContainer"]
-unique_name_in_owner = true
-modulate = Color(1, 1, 1, 0)
-custom_minimum_size = Vector2(0, 20)
-layout_mode = 2
-
-[node name="ContinueGame" type="Button" parent="MarginContainer/VBoxContainer"]
+[node name="ContinueGame" type="Button" parent="Buttons"]
 unique_name_in_owner = true
 custom_minimum_size = Vector2(180, 0)
 layout_mode = 2
@@ -87,7 +77,7 @@ text = "CONTINUE"
 script = ExtResource("4_nkxl6")
 joypad_motion_event = SubResource("InputEventJoypadMotion_eu77x")
 
-[node name="NewGame" type="Button" parent="MarginContainer/VBoxContainer"]
+[node name="NewGame" type="Button" parent="Buttons"]
 unique_name_in_owner = true
 custom_minimum_size = Vector2(180, 0)
 layout_mode = 2
@@ -96,7 +86,7 @@ size_flags_vertical = 4
 text = "NEW_GAME"
 script = ExtResource("4_nkxl6")
 
-[node name="LoadGame" type="Button" parent="MarginContainer/VBoxContainer"]
+[node name="LoadGame" type="Button" parent="Buttons"]
 unique_name_in_owner = true
 custom_minimum_size = Vector2(180, 0)
 layout_mode = 2
@@ -105,7 +95,7 @@ size_flags_vertical = 4
 text = "LOAD_GAME"
 script = ExtResource("4_nkxl6")
 
-[node name="Settings" type="Button" parent="MarginContainer/VBoxContainer"]
+[node name="Settings" type="Button" parent="Buttons"]
 unique_name_in_owner = true
 custom_minimum_size = Vector2(180, 0)
 layout_mode = 2
@@ -114,7 +104,7 @@ size_flags_vertical = 4
 text = "SETTINGS"
 script = ExtResource("4_nkxl6")
 
-[node name="Exit" type="Button" parent="MarginContainer/VBoxContainer"]
+[node name="Exit" type="Button" parent="Buttons"]
 unique_name_in_owner = true
 custom_minimum_size = Vector2(180, 0)
 layout_mode = 2
@@ -124,55 +114,59 @@ text = "EXIT"
 script = ExtResource("4_nkxl6")
 joypad_button_event = SubResource("InputEventJoypadButton_x3xqw")
 
-[node name="HSeparator2" type="HSeparator" parent="MarginContainer/VBoxContainer"]
-modulate = Color(1, 1, 1, 0)
-custom_minimum_size = Vector2(0, 100)
-layout_mode = 2
-
-[node name="SocialLinks" type="HBoxContainer" parent="MarginContainer/VBoxContainer"]
+[node name="Links" type="HBoxContainer" parent="."]
 auto_translate_mode = 2
-layout_mode = 2
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.012
+anchor_top = 0.978
+anchor_right = 0.012
+anchor_bottom = 0.978
+offset_left = 0.959999
+offset_top = -30.24
+offset_right = 1658.96
+offset_bottom = -0.23999
+grow_vertical = 0
+size_flags_vertical = 8
 theme_override_constants/separation = 15
-alignment = 1
+metadata/_edit_use_anchors_ = true
 
-[node name="Mastodon" type="LinkButton" parent="MarginContainer/VBoxContainer/SocialLinks"]
+[node name="Mastodon" type="LinkButton" parent="Links"]
+visible = false
 layout_mode = 2
 text = "Mastodon"
 uri = "https://mastodon.social/@dulvui"
 
-[node name="Bsky" type="LinkButton" parent="MarginContainer/VBoxContainer/SocialLinks"]
+[node name="Bsky" type="LinkButton" parent="Links"]
+visible = false
 layout_mode = 2
 text = "Bluesky"
 uri = "https://bsky.app/profile/s9i.org"
 
-[node name="Matrix" type="LinkButton" parent="MarginContainer/VBoxContainer/SocialLinks"]
+[node name="Matrix" type="LinkButton" parent="Links"]
+visible = false
 layout_mode = 2
 text = "Matrix"
 uri = "https://matrix.to/#/%23s9i.org:matrix.org"
 
-[node name="Discord" type="LinkButton" parent="MarginContainer/VBoxContainer/SocialLinks"]
+[node name="Discord" type="LinkButton" parent="Links"]
 layout_mode = 2
 text = "Discord"
 uri = "https://discord.gg/a5DSHZKkA8"
 
-[node name="SourceCodeLinks" type="HBoxContainer" parent="MarginContainer/VBoxContainer"]
-auto_translate_mode = 2
-layout_mode = 2
-theme_override_constants/separation = 15
-alignment = 1
-
-[node name="Codeberg" type="LinkButton" parent="MarginContainer/VBoxContainer/SourceCodeLinks"]
+[node name="Codeberg" type="LinkButton" parent="Links"]
 layout_mode = 2
 text = "Codeberg"
 uri = "https://codeberg.org/dulvui/99managers-futsal-edition"
 
-[node name="Github" type="LinkButton" parent="MarginContainer/VBoxContainer/SourceCodeLinks"]
+[node name="Github" type="LinkButton" parent="Links"]
 layout_mode = 2
 text = "Github"
 uri = "https://github.com/dulvui/99managers-futsal-edition"
 
-[node name="LinkButton" type="LinkButton" parent="MarginContainer/VBoxContainer"]
+[node name="Website" type="LinkButton" parent="Links"]
 auto_translate_mode = 2
+visible = false
 layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 4
@@ -180,13 +174,20 @@ focus_mode = 2
 text = "simondalvai.org"
 uri = "https://simondalvai.org"
 
+[node name="WishlistSteam" type="LinkButton" parent="Links"]
+auto_translate_mode = 2
+layout_mode = 2
+focus_mode = 2
+text = "Wishlist on Steam!"
+uri = "https://store.steampowered.com/app/3334770"
+
 [node name="DefaultConfirmDialog" parent="." instance=ExtResource("6_1a2kt")]
 unique_name_in_owner = true
 custom_text = "EXIT_GAME"
 
-[connection signal="pressed" from="MarginContainer/VBoxContainer/ContinueGame" to="." method="_on_continue_game_pressed"]
-[connection signal="pressed" from="MarginContainer/VBoxContainer/NewGame" to="." method="_on_new_game_pressed"]
-[connection signal="pressed" from="MarginContainer/VBoxContainer/LoadGame" to="." method="_on_load_game_pressed"]
-[connection signal="pressed" from="MarginContainer/VBoxContainer/Settings" to="." method="_on_settings_pressed"]
-[connection signal="pressed" from="MarginContainer/VBoxContainer/Exit" to="." method="_on_exit_pressed"]
+[connection signal="pressed" from="Buttons/ContinueGame" to="." method="_on_continue_game_pressed"]
+[connection signal="pressed" from="Buttons/NewGame" to="." method="_on_new_game_pressed"]
+[connection signal="pressed" from="Buttons/LoadGame" to="." method="_on_load_game_pressed"]
+[connection signal="pressed" from="Buttons/Settings" to="." method="_on_settings_pressed"]
+[connection signal="pressed" from="Buttons/Exit" to="." method="_on_exit_pressed"]
 [connection signal="confirmed" from="DefaultConfirmDialog" to="." method="_on_default_confirm_dialog_confirmed"]
