@@ -10,9 +10,9 @@
 [node name="GENERAL_SETTINGS" type="VBoxContainer"]
 anchors_preset = -1
 anchor_right = 0.201
-anchor_bottom = 0.389
+anchor_bottom = 0.447
 offset_right = -385.92
-offset_bottom = -420.12
+offset_bottom = -482.76
 size_flags_horizontal = 3
 script = ExtResource("1_gl78q")
 
@@ -35,6 +35,7 @@ layout_mode = 2
 layout_mode = 2
 text = "TRANSLATION_INSTRUCTIONS"
 label_settings = ExtResource("4_jbix3")
+autowrap_mode = 2
 
 [node name="TranslationsLink" type="LinkButton" parent="Langauge"]
 auto_translate_mode = 2
