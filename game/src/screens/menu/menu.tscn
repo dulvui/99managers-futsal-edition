@@ -184,6 +184,7 @@ uri = "https://store.steampowered.com/app/3334770"
 [node name="DefaultConfirmDialog" parent="." instance=ExtResource("6_1a2kt")]
 unique_name_in_owner = true
 custom_text = "EXIT_GAME"
+type = 1
 
 [connection signal="pressed" from="Buttons/ContinueGame" to="." method="_on_continue_game_pressed"]
 [connection signal="pressed" from="Buttons/NewGame" to="." method="_on_new_game_pressed"]

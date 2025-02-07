@@ -16,7 +16,7 @@ enum Type {
 
 @export var custom_title: String = ""
 @export_multiline var custom_text: String = ""
-@export var type: Type = Type.YES_NO
+@export var type: Type = Type.YES_NO_CANCEL
 
 @onready var rich_text_label: RichTextLabel = %Text
 @onready var title_label: Label = %Title
