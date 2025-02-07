@@ -1,8 +1,7 @@
-[gd_scene load_steps=5 format=3 uid="uid://bw4rsu0jiwjj0"]
+[gd_scene load_steps=4 format=3 uid="uid://bw4rsu0jiwjj0"]
 
 [ext_resource type="LabelSettings" uid="uid://cc2vi4onhgmnw" path="res://theme_base/label/label_settings_bold.tres" id="1_cunc8"]
 [ext_resource type="Script" path="res://src/screens/settings/input/input_settings.gd" id="1_e4wd1"]
-[ext_resource type="LabelSettings" uid="uid://b4gu78rjvdfx4" path="res://theme_base/label/label_settings_title.tres" id="2_b6gxn"]
 [ext_resource type="PackedScene" uid="uid://b2mwv4cl5sm6t" path="res://src/ui_components/base/swtich_option_button/switch_option_button.tscn" id="3_g1iho"]
 
 [node name="INPUT_SETTINGS" type="VBoxContainer"]
@@ -13,11 +12,6 @@ offset_right = -151.68
 offset_bottom = -105.84
 size_flags_horizontal = 3
 script = ExtResource("1_e4wd1")
-
-[node name="TitleLabel" type="Label" parent="."]
-layout_mode = 2
-text = "INPUT_SETTINGS"
-label_settings = ExtResource("2_b6gxn")
 
 [node name="HSeparator4" type="HSeparator" parent="."]
 layout_mode = 2

@@ -1,0 +1,41 @@
+[gd_scene format=3 uid="uid://bntmwn4twomph"]
+
+[node name="Contributors" type="VBoxContainer"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="HSeparator" type="HSeparator" parent="."]
+layout_mode = 2
+
+[node name="ThankYouLabel" type="Label" parent="."]
+auto_translate_mode = 2
+layout_mode = 2
+text = "A big thank you to all contributors that also believe that the world needs more Open Source games!
+
+All the best,
+Simon"
+autowrap_mode = 2
+
+[node name="HSeparator2" type="HSeparator" parent="."]
+layout_mode = 2
+
+[node name="List" type="RichTextLabel" parent="."]
+auto_translate_mode = 2
+layout_mode = 2
+size_flags_vertical = 3
+bbcode_enabled = true
+text = "[u]Translations[/u]
+VictorGavilanes
+gusjfo
+Maksim2005UA
+vgavilanes
+Kefir2105
+Atalanttore
+cyphra
+nothingonedlike
+
+[u]Source code[/u]
+No contributors yet."

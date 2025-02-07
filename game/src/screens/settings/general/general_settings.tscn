@@ -1,8 +1,7 @@
-[gd_scene load_steps=7 format=3 uid="uid://cywaob6jab2pj"]
+[gd_scene load_steps=6 format=3 uid="uid://cywaob6jab2pj"]
 
 [ext_resource type="LabelSettings" uid="uid://cc2vi4onhgmnw" path="res://theme_base/label/label_settings_bold.tres" id="1_6o6h0"]
 [ext_resource type="Script" path="res://src/screens/settings/general/general_settings.gd" id="1_gl78q"]
-[ext_resource type="LabelSettings" uid="uid://b4gu78rjvdfx4" path="res://theme_base/label/label_settings_title.tres" id="2_bvgsj"]
 [ext_resource type="PackedScene" uid="uid://djrvl8pvkr7aa" path="res://src/screens/settings/language_picker/language_picker.tscn" id="2_p1exx"]
 [ext_resource type="Script" path="res://src/ui_components/base/defaults/default_button.gd" id="3_n2piq"]
 [ext_resource type="LabelSettings" uid="uid://c5yfa40ut1pyv" path="res://theme_base/label/label_settings.tres" id="4_jbix3"]
@@ -16,13 +15,13 @@ offset_bottom = -482.76
 size_flags_horizontal = 3
 script = ExtResource("1_gl78q")
 
-[node name="GeneralTitleLabel" type="Label" parent="."]
-layout_mode = 2
-text = "GENERAL_SETTINGS"
-label_settings = ExtResource("2_bvgsj")
-
 [node name="HSeparator5" type="HSeparator" parent="."]
 layout_mode = 2
+
+[node name="LanguageLabel" type="Label" parent="."]
+layout_mode = 2
+text = "LANGUAGE"
+label_settings = ExtResource("1_6o6h0")
 
 [node name="Langauge" type="VBoxContainer" parent="."]
 layout_mode = 2
@@ -30,6 +29,7 @@ theme_override_constants/separation = 15
 
 [node name="LanguagePicker" parent="Langauge" instance=ExtResource("2_p1exx")]
 layout_mode = 2
+alignment = 0
 
 [node name="TranslationInstructions" type="Label" parent="Langauge"]
 layout_mode = 2
@@ -40,7 +40,6 @@ autowrap_mode = 2
 [node name="TranslationsLink" type="LinkButton" parent="Langauge"]
 auto_translate_mode = 2
 layout_mode = 2
-size_flags_horizontal = 4
 text = "weblate.org"
 uri = "https://hosted.weblate.org/engage/99-managers-futsal-edition/"
 
