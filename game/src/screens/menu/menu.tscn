@@ -40,9 +40,9 @@ anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
 offset_left = -342.5
-offset_top = -393.5
+offset_top = -348.5
 offset_right = 342.5
-offset_bottom = 393.5
+offset_bottom = 438.5
 grow_horizontal = 2
 grow_vertical = 2
 
@@ -126,8 +126,50 @@ joypad_button_event = SubResource("InputEventJoypadButton_x3xqw")
 
 [node name="HSeparator2" type="HSeparator" parent="MarginContainer/VBoxContainer"]
 modulate = Color(1, 1, 1, 0)
-custom_minimum_size = Vector2(0, 40)
+custom_minimum_size = Vector2(0, 100)
 layout_mode = 2
+
+[node name="SocialLinks" type="HBoxContainer" parent="MarginContainer/VBoxContainer"]
+auto_translate_mode = 2
+layout_mode = 2
+theme_override_constants/separation = 15
+alignment = 1
+
+[node name="Mastodon" type="LinkButton" parent="MarginContainer/VBoxContainer/SocialLinks"]
+layout_mode = 2
+text = "Mastodon"
+uri = "https://mastodon.social/@dulvui"
+
+[node name="Bsky" type="LinkButton" parent="MarginContainer/VBoxContainer/SocialLinks"]
+layout_mode = 2
+text = "Bluesky"
+uri = "https://bsky.app/profile/s9i.org"
+
+[node name="Matrix" type="LinkButton" parent="MarginContainer/VBoxContainer/SocialLinks"]
+layout_mode = 2
+text = "Matrix"
+uri = "https://matrix.to/#/%23s9i.org:matrix.org"
+
+[node name="Discord" type="LinkButton" parent="MarginContainer/VBoxContainer/SocialLinks"]
+layout_mode = 2
+text = "Discord"
+uri = "https://discord.gg/a5DSHZKkA8"
+
+[node name="SourceCodeLinks" type="HBoxContainer" parent="MarginContainer/VBoxContainer"]
+auto_translate_mode = 2
+layout_mode = 2
+theme_override_constants/separation = 15
+alignment = 1
+
+[node name="Codeberg" type="LinkButton" parent="MarginContainer/VBoxContainer/SourceCodeLinks"]
+layout_mode = 2
+text = "Codeberg"
+uri = "https://codeberg.org/dulvui/99managers-futsal-edition"
+
+[node name="Github" type="LinkButton" parent="MarginContainer/VBoxContainer/SourceCodeLinks"]
+layout_mode = 2
+text = "Github"
+uri = "https://github.com/dulvui/99managers-futsal-edition"
 
 [node name="LinkButton" type="LinkButton" parent="MarginContainer/VBoxContainer"]
 auto_translate_mode = 2
