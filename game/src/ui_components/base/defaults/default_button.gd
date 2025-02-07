@@ -12,7 +12,9 @@ extends Button
 
 
 func _ready() -> void:
-	tooltip_text = text
+	if tooltip_text.is_empty() and text.length() > 1:
+		tooltip_text = text
+	
 	icon_alignment = HORIZONTAL_ALIGNMENT_RIGHT
 	expand_icon = true
 	shortcut_in_tooltip = false
