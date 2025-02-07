@@ -54,7 +54,7 @@ func _process(_delta: float) -> void:
 			else:
 				print("restore backup for %s..." % loading_resource)
 
-				LoadingUtil.start("RESTORING_BACKUP", LoadingUtil.Type.LOAD_GAME)
+				LoadingUtil.start(tr("RESTORING_BACKUP"), LoadingUtil.Type.LOAD_GAME)
 
 				var backup_path: StringName = BackupUtil.restore_backup(
 					loading_resource, RES_SUFFIX

@@ -5,7 +5,7 @@
 [ext_resource type="Script" path="res://src/ui_components/base/defaults/default_button.gd" id="3_g76wv"]
 [ext_resource type="LabelSettings" uid="uid://b4gu78rjvdfx4" path="res://theme_base/label/label_settings_title.tres" id="3_mfpia"]
 
-[node name="Start" type="Control"]
+[node name="SetupWorld" type="Control"]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -60,6 +60,7 @@ layout_mode = 2
 text = "PLAYER_NAMES"
 
 [node name="PlayerNames" type="OptionButton" parent="VBoxContainer/Settings/Container"]
+unique_name_in_owner = true
 custom_minimum_size = Vector2(200, 0)
 layout_mode = 2
 
@@ -69,6 +70,7 @@ layout_mode = 2
 text = "START_YEAR"
 
 [node name="StartYear" type="SpinBox" parent="VBoxContainer/Settings/Container"]
+unique_name_in_owner = true
 custom_minimum_size = Vector2(200, 0)
 layout_mode = 2
 min_value = 2000.0
@@ -104,6 +106,7 @@ text = "RANDOM"
 script = ExtResource("3_g76wv")
 
 [node name="GeneratedSeedLineEdit" type="LineEdit" parent="VBoxContainer/Seed/GridContainer"]
+unique_name_in_owner = true
 layout_mode = 2
 size_flags_horizontal = 3
 context_menu_enabled = false

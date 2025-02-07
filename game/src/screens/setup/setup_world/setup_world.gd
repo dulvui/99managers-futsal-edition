@@ -11,9 +11,9 @@ const DEFAULT_SEED: String = "289636-522140-666834"
 
 var generation_seed: String = DEFAULT_SEED
 
-@onready var player_names_option: OptionButton = $VBoxContainer/Settings/Container/PlayerNames
-@onready var start_year_spinbox: SpinBox = $VBoxContainer/Settings/Container/StartYear
-@onready var generation_seed_edit: LineEdit = $VBoxContainer/Seed/GridContainer/GeneratedSeedLineEdit
+@onready var player_names_option: OptionButton = %PlayerNames
+@onready var start_year_spinbox: SpinBox = %StartYear
+@onready var generation_seed_edit: LineEdit = %GeneratedSeedLineEdit
 
 
 func _ready() -> void:
@@ -63,7 +63,7 @@ func _on_continue_pressed() -> void:
 	# also set Global.start_date, so functions like person.get_age work
 	Global.start_date = Global.save_states.temp_state.start_date
 	Global.save_states.temp_state.generation_seed = generation_seed
-	Global.save_states.temp_state.generation_player_names = player_names_option.selected
+	Global.save_states.temp_state.generation_player_names = player_names_option.selected as Const.PlayerNames
 
 	RngUtil.reset_seed(generation_seed, player_names_option.selected)
 

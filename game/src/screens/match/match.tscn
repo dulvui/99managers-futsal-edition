@@ -116,7 +116,7 @@ script = ExtResource("4_mqt4y")
 [node name="SpeedFactor" type="Label" parent="Main/Content/TopBar/Buttons/Center/Speed"]
 unique_name_in_owner = true
 layout_mode = 2
-text = "FULL_MATCH"
+text = "FULL_GAME"
 
 [node name="FasterButton" type="Button" parent="Main/Content/TopBar/Buttons/Center/Speed"]
 unique_name_in_owner = true

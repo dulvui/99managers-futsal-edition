@@ -10,7 +10,7 @@ In case of issues, you can always contact me under [info@simondalvai.org](mailto
 
 ## Translation files
 The translation files for the game in gettext format can be found in `game/translations`.
-Other non in-game translations, like the store page descriptions used in Steam, can be found here in `store-pages-descriptions`.
+Other non in-game translations, like the store page descriptions used in Steam, can be found here in `store-pages`.
 
 Anyway translations trough Weblate should be preferred over direct translations, to prevent double translations and merge conflicts.
 If still prefer editing the files directly feel free to do so, but be aware of the issues stated above.

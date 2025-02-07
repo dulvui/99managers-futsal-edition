@@ -262,7 +262,7 @@ func _next_day() -> void:
 
 	if Global.world.calendar.day().matches.size() > 0:
 		# threaded simulation
-		LoadingUtil.start("SIMULATING_RESULTS", LoadingUtil.Type.MATCH_RESULTS, true)
+		LoadingUtil.start(tr("SIMULATING_RESULTS"), LoadingUtil.Type.MATCH_RESULTS, true)
 		Main.show_loading_screen()
 		ThreadUtil.random_results()
 		
@@ -271,7 +271,7 @@ func _next_day() -> void:
 
 	# check matches
 	if Global.world.calendar.is_match_day():
-		continue_button.text = "START_MATCH"
+		continue_button.text = tr("START_MATCH")
 		match_ready = true
 		next_match_button.disabled = true
 		next_match_button.hide()
@@ -341,7 +341,7 @@ func _on_menu_button_pressed() -> void:
 
 
 func _on_save_confirm_dialog_confirmed() -> void:
-	LoadingUtil.start("SAVING_GAME", LoadingUtil.Type.SAVE_GAME, true)
+	LoadingUtil.start(tr("SAVING_GAME"), LoadingUtil.Type.SAVE_GAME, true)
 	Main.show_loading_screen(Const.SCREEN_MENU)
 	Global.save_all_data()
 

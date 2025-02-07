@@ -687,6 +687,58 @@ msgstr ""
 msgid "SUNDAY"
 msgstr ""
 
+#: src/resources/person/player/player.gd
+msgid "LEFT"
+msgstr ""
+
+#: src/resources/person/player/player.gd
+msgid "RIGHT"
+msgstr ""
+
+#: src/resources/person/player/player.gd
+msgid "WORST"
+msgstr ""
+
+#: src/resources/person/player/player.gd
+msgid "BAD"
+msgstr ""
+
+#: src/resources/person/player/player.gd
+msgid "NEUTRAL"
+msgstr ""
+
+#: src/resources/person/player/player.gd
+msgid "GOOD"
+msgstr ""
+
+#: src/resources/person/player/player.gd
+msgid "BEST"
+msgstr ""
+
+#: src/const.gd
+msgid "MALE"
+msgstr ""
+
+#: src/const.gd
+msgid "FEMALE"
+msgstr ""
+
+#: src/const.gd
+msgid "MIXED"
+msgstr ""
+
+#: src/const.gd
+msgid "FULL_GAME"
+msgstr ""
+
+#: src/const.gd
+msgid "KEY_ACTIONS"
+msgstr ""
+
+#: src/const.gd
+msgid "ONLY_GOALS"
+msgstr ""
+
 #: src/utils/logic/email_util.gd
 #: src/screens/dashboard/dashboard.tscn
 msgid "NEXT_MATCH"
@@ -710,6 +762,10 @@ msgstr ""
 
 #: src/utils/logic/match_combination_util.gd
 msgid "WORLD_CUP"
+msgstr ""
+
+#: src/utils/res_util.gd
+msgid "RESTORING_BACKUP"
 msgstr ""
 
 #: src/screens/settings/settings.tscn
@@ -821,6 +877,11 @@ msgstr ""
 msgid "MENU"
 msgstr ""
 
+#: src/screens/save_states_screen/save_state_entry/save_state_entry.gd
+#: src/screens/menu/menu.gd
+msgid "LOADING_GAME"
+msgstr ""
+
 #: src/screens/save_states_screen/save_state_entry/save_state_entry.tscn
 #: src/screens/setup/setup_manager/setup_manager.tscn
 msgid "MANAGER"
@@ -861,7 +922,15 @@ msgid "EMAIL"
 msgstr ""
 
 #: src/screens/dashboard/dashboard.gd
+msgid "SIMULATING_RESULTS"
+msgstr ""
+
+#: src/screens/dashboard/dashboard.gd
 msgid "START_MATCH"
+msgstr ""
+
+#: src/screens/dashboard/dashboard.gd
+msgid "SAVING_GAME"
 msgstr ""
 
 #: src/screens/dashboard/dashboard.gd
@@ -918,7 +987,6 @@ msgid "SETTINGS"
 msgstr ""
 
 #: src/screens/dashboard/dashboard.tscn
-#: src/screens/match/match.gd
 #: src/screens/menu/menu.tscn
 #: src/screens/setup/setup_world/setup_world.tscn
 #: src/screens/setup/setup_manager/setup_manager.tscn
@@ -927,11 +995,6 @@ msgstr ""
 
 #: src/screens/dashboard/dashboard.tscn
 msgid "SAVE_TEXT"
-msgstr ""
-
-#: src/screens/match/match.gd
-#: src/screens/match/match.tscn
-msgid "PAUSE"
 msgstr ""
 
 #: src/screens/match/penalties_bar/penalties_bar.tscn
@@ -956,6 +1019,10 @@ msgstr ""
 
 #: src/screens/match/match.tscn
 msgid "FULL_MATCH"
+msgstr ""
+
+#: src/screens/match/match.tscn
+msgid "PAUSE"
 msgstr ""
 
 #: src/screens/match/match.tscn
@@ -1675,7 +1742,7 @@ msgid "BRUNEI"
 msgstr ""
 
 #: src/resources/world/nation_names.gd
-msgid "BURMA_"
+msgid "BURMA"
 msgstr ""
 
 #: src/resources/world/nation_names.gd

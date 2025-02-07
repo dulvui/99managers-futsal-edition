@@ -10,11 +10,23 @@ enum PlayerNames {
 	MIXED,
 }
 
+var player_names: Array[String] = [
+	tr("MALE"),
+	tr("FEMALE"),
+	tr("MIXED"),
+]
+
 enum MatchSpeed {
 	FULL_GAME,
 	KEY_ACTIONS,
 	ONLY_GOALS,
 }
+
+var match_speed: Array[String] = [
+	tr("FULL_GAME"),
+	tr("KEY_ACTIONS"),
+	tr("ONLY_GOALS"),
+]
 
 #
 # UI

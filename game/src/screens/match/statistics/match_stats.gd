@@ -26,11 +26,11 @@ func _ready() -> void:
 			label.text = statistic.to_upper()
 
 			var home_label: Label = Label.new()
-			home_label.text = "0"
+			home_label.text = "0" # NO_TRANSLATE 
 			home_labels[statistic] = home_label
 			
 			var away_label: Label = Label.new()
-			away_label.text = "0"
+			away_label.text = "0" # NO_TRANSLATE
 			away_labels[statistic] = away_label
 
 			add_child(home_label)

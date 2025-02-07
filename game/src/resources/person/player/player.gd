@@ -135,3 +135,45 @@ func position_match_factor(p_position: Position) -> float:
 	return factor
 
 
+#
+# enum to string functions
+#
+
+func get_foot_text() -> String:
+	match foot:
+		Foot.L:
+			return tr("LEFT") # TRANSLATORS: Preferred foot
+		Foot.R:
+			return tr("RIGHT") # TRANSLATORS: Preferred foot
+		_:
+			return tr("RIGHT") # TRANSLATORS: Preferred foot
+
+
+func get_morality_text() -> String:
+	match morality:
+		Morality.WORST:
+			return tr("WORST") # TRANSLATORS: Player morality
+		Morality.BAD:
+			return tr("BAD") # TRANSLATORS: Player morality
+		Morality.NEUTRAL:
+			return tr("NEUTRAL") # TRANSLATORS: Player morality
+		Morality.GOOD:
+			return tr("GOOD") # TRANSLATORS: Player morality
+		Morality.BEST:
+			return tr("BEST") # TRANSLATORS: Player morality
+		_:
+			return tr("NEUTRAL") # TRANSLATORS: Player morality
+
+
+func get_form_text() -> String:
+	match form:
+		Form.INJURED:
+			return tr("INJURED") # TRANSLATORS: Player physical form
+		Form.RECOVER:
+			return tr("RECOVER") # TRANSLATORS: Player physical form
+		Form.GOOD:
+			return tr("GOOD") # TRANSLATORS: Player physical form
+		Form.BEST:
+			return tr("BEST") # TRANSLATORS: Player physical form
+		_:
+			return tr("GOOD") # TRANSLATORS: Player physical form
