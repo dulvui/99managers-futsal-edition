@@ -23,7 +23,6 @@ var selected_players: Array[Player] = []
 @onready var types: OptionButton = $VBoxContainer/Details/Types
 @onready var amount_label: LineEdit = $VBoxContainer/Details/Money/Amount
 @onready var total_label: Label = $VBoxContainer/Total
-@onready var info_label: Label = $VBoxContainer/Info
 @onready var exchange_players_button: OptionButton = $VBoxContainer/Details/ExchangePlayers
 @onready var selected_players_box: VBoxContainer = $VBoxContainer/ScrollContainer/SelectedPlayers
 
@@ -47,7 +46,6 @@ func _process(_delta: float) -> void:
 
 func set_player(new_player: Player) -> void:
 	player = new_player
-	info_label.text = "The player " + player.name + " has a value of " + str(player.value)
 
 	if player.value <= Global.team.finances.balance[-1]:
 		amount = player.value
