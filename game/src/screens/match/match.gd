@@ -109,7 +109,7 @@ func _ready() -> void:
 	home_color.color = home_team.get_home_color()
 	away_color.color = away_team.get_away_color(home_color.color)
 
-	match_speed_label.text = Const.match_speed[Global.match_speed]
+	match_speed_label.text = Global.get_match_speed_text()
 
 	# to easier access stats
 	home_stats = match_simulator.engine.home_team.stats
@@ -231,13 +231,13 @@ func _on_dashboard_button_pressed() -> void:
 func _on_faster_button_pressed() -> void:
 	if Global.match_speed < Const.MatchSpeed.values().size() - 1:
 		Global.match_speed = (Global.match_speed + 1) as Const.MatchSpeed 
-	match_speed_label.text = Const.get_match_speed(Global.match_speed)
+	match_speed_label.text = Global.get_match_speed_text()
 
 
 func _on_slower_button_pressed() -> void:
 	if Global.match_speed > 0:
 		Global.match_speed = (Global.match_speed - 1) as Const.MatchSpeed 
-	match_speed_label.text = Const.MatchSpeed.keys()[Global.match_speed]
+	match_speed_label.text = Global.get_match_speed_text()
 
 
 func _on_pause_button_pressed() -> void:

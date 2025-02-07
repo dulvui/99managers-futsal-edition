@@ -166,9 +166,10 @@ func simulate(end_time: int = -1) -> void:
 
 
 func simulate_match(matchz: Match, fast: bool = false) -> void:
-	setup(matchz)
-
 	if fast:
+		_rng = RandomNumberGenerator.new()
+		_rng.seed = matchz.id
+
 		var home_goals: int = _rng.randi() % 10
 		var away_goals: int = _rng.randi() % 10
 		var home_penalties_goals: int = 0
@@ -191,7 +192,7 @@ func simulate_match(matchz: Match, fast: bool = false) -> void:
 			away_penalties_goals,
 		)
 		return
-
+	setup(matchz)
 	simulate()
 
 	matchz.set_result(

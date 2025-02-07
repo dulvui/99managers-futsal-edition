@@ -10,23 +10,12 @@ enum PlayerNames {
 	MIXED,
 }
 
-var player_names: Array[String] = [
-	tr("MALE"),
-	tr("FEMALE"),
-	tr("MIXED"),
-]
-
 enum MatchSpeed {
 	FULL_GAME,
 	KEY_ACTIONS,
 	ONLY_GOALS,
 }
 
-var match_speed: Array[String] = [
-	tr("FULL_GAME"),
-	tr("KEY_ACTIONS"),
-	tr("ONLY_GOALS"),
-]
 
 #
 # UI
@@ -110,3 +99,7 @@ const SCENE_FORMATION_PLAYER: String = "res://src/ui_components/visual_formation
 #
 const CUSTOM_PROPERTY: int = 4096
 const CUSTOM_PROPERTY_EXPORT: int = 4102
+
+
+
+

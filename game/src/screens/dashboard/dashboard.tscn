@@ -354,70 +354,70 @@ joypad_button_event = SubResource("InputEventJoypadButton_k8as6")
 visible = false
 layout_mode = 2
 
-[node name="MarginContainer2" type="MarginContainer" parent="MarginContainer/HBoxContainer/MainContainer"]
+[node name="MarginContainer" type="MarginContainer" parent="MarginContainer/HBoxContainer/MainContainer"]
 layout_mode = 2
 size_flags_vertical = 3
 theme_override_constants/margin_left = 10
 theme_override_constants/margin_top = 10
-theme_override_constants/margin_right = 10
+theme_override_constants/margin_right = 15
 theme_override_constants/margin_bottom = 10
 
-[node name="Content" type="BoxContainer" parent="MarginContainer/HBoxContainer/MainContainer/MarginContainer2"]
+[node name="Content" type="BoxContainer" parent="MarginContainer/HBoxContainer/MainContainer/MarginContainer"]
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
 
-[node name="Email" parent="MarginContainer/HBoxContainer/MainContainer/MarginContainer2/Content" instance=ExtResource("6")]
+[node name="Email" parent="MarginContainer/HBoxContainer/MainContainer/MarginContainer/Content" instance=ExtResource("6")]
 unique_name_in_owner = true
 visible = false
 layout_mode = 2
 
-[node name="Competitions" parent="MarginContainer/HBoxContainer/MainContainer/MarginContainer2/Content" instance=ExtResource("7")]
+[node name="Competitions" parent="MarginContainer/HBoxContainer/MainContainer/MarginContainer/Content" instance=ExtResource("7")]
 unique_name_in_owner = true
 visible = false
 layout_mode = 2
 
-[node name="Calendar" parent="MarginContainer/HBoxContainer/MainContainer/MarginContainer2/Content" instance=ExtResource("3")]
+[node name="Calendar" parent="MarginContainer/HBoxContainer/MainContainer/MarginContainer/Content" instance=ExtResource("3")]
 unique_name_in_owner = true
 visible = false
 layout_mode = 2
 
-[node name="Formation" parent="MarginContainer/HBoxContainer/MainContainer/MarginContainer2/Content" instance=ExtResource("5")]
+[node name="Formation" parent="MarginContainer/HBoxContainer/MainContainer/MarginContainer/Content" instance=ExtResource("5")]
 unique_name_in_owner = true
 visible = false
 layout_mode = 2
 
-[node name="AllPlayerList" parent="MarginContainer/HBoxContainer/MainContainer/MarginContainer2/Content" instance=ExtResource("8_nkdvo")]
+[node name="AllPlayerList" parent="MarginContainer/HBoxContainer/MainContainer/MarginContainer/Content" instance=ExtResource("8_nkdvo")]
 unique_name_in_owner = true
 visible = false
 layout_mode = 2
 
-[node name="PlayerList" parent="MarginContainer/HBoxContainer/MainContainer/MarginContainer2/Content" instance=ExtResource("8_nkdvo")]
+[node name="PlayerList" parent="MarginContainer/HBoxContainer/MainContainer/MarginContainer/Content" instance=ExtResource("8_nkdvo")]
 unique_name_in_owner = true
 visible = false
 layout_mode = 2
 
-[node name="Info" parent="MarginContainer/HBoxContainer/MainContainer/MarginContainer2/Content" instance=ExtResource("8_bk8g0")]
+[node name="Info" parent="MarginContainer/HBoxContainer/MainContainer/MarginContainer/Content" instance=ExtResource("8_bk8g0")]
 unique_name_in_owner = true
 visible = false
 layout_mode = 2
 
-[node name="PlayerProfile" parent="MarginContainer/HBoxContainer/MainContainer/MarginContainer2/Content" instance=ExtResource("11_838pl")]
+[node name="PlayerProfile" parent="MarginContainer/HBoxContainer/MainContainer/MarginContainer/Content" instance=ExtResource("11_838pl")]
 unique_name_in_owner = true
 visible = false
 layout_mode = 2
 
-[node name="PlayerOffer" parent="MarginContainer/HBoxContainer/MainContainer/MarginContainer2/Content" instance=ExtResource("8")]
+[node name="PlayerOffer" parent="MarginContainer/HBoxContainer/MainContainer/MarginContainer/Content" instance=ExtResource("8")]
 unique_name_in_owner = true
 visible = false
 layout_mode = 2
 
-[node name="ContractOffer" parent="MarginContainer/HBoxContainer/MainContainer/MarginContainer2/Content" instance=ExtResource("9")]
+[node name="ContractOffer" parent="MarginContainer/HBoxContainer/MainContainer/MarginContainer/Content" instance=ExtResource("9")]
 unique_name_in_owner = true
 visible = false
 layout_mode = 2
 
-[node name="Finances" parent="MarginContainer/HBoxContainer/MainContainer/MarginContainer2/Content" instance=ExtResource("15_jfh6w")]
+[node name="Finances" parent="MarginContainer/HBoxContainer/MainContainer/MarginContainer/Content" instance=ExtResource("15_jfh6w")]
 unique_name_in_owner = true
 visible = false
 layout_mode = 2
@@ -442,13 +442,13 @@ show_cancel = true
 [connection signal="pressed" from="MarginContainer/HBoxContainer/MainContainer/PanelContainer/MarginContainer/TopBar/NextViewButton" to="." method="_on_next_view_button_pressed"]
 [connection signal="pressed" from="MarginContainer/HBoxContainer/MainContainer/PanelContainer/MarginContainer/TopBar/NextMatchButton" to="." method="_on_next_match_button_pressed"]
 [connection signal="pressed" from="MarginContainer/HBoxContainer/MainContainer/PanelContainer/MarginContainer/TopBar/ContinueButton" to="." method="_on_continue_button_pressed"]
-[connection signal="email_action" from="MarginContainer/HBoxContainer/MainContainer/MarginContainer2/Content/Email" to="." method="_on_email_email_action"]
-[connection signal="select_player" from="MarginContainer/HBoxContainer/MainContainer/MarginContainer2/Content/AllPlayerList" to="." method="_on_all_player_list_select_player"]
-[connection signal="select_player" from="MarginContainer/HBoxContainer/MainContainer/MarginContainer2/Content/PlayerList" to="." method="_on_player_list_select_player"]
-[connection signal="offer" from="MarginContainer/HBoxContainer/MainContainer/MarginContainer2/Content/PlayerProfile" to="." method="_on_player_profile_offer"]
-[connection signal="cancel" from="MarginContainer/HBoxContainer/MainContainer/MarginContainer2/Content/PlayerOffer" to="." method="_on_player_offer_cancel"]
-[connection signal="confirm" from="MarginContainer/HBoxContainer/MainContainer/MarginContainer2/Content/PlayerOffer" to="." method="_on_player_offer_confirm"]
-[connection signal="cancel" from="MarginContainer/HBoxContainer/MainContainer/MarginContainer2/Content/ContractOffer" to="." method="_on_contract_offer_cancel"]
-[connection signal="confirm" from="MarginContainer/HBoxContainer/MainContainer/MarginContainer2/Content/ContractOffer" to="." method="_on_contract_offer_confirm"]
+[connection signal="email_action" from="MarginContainer/HBoxContainer/MainContainer/MarginContainer/Content/Email" to="." method="_on_email_email_action"]
+[connection signal="select_player" from="MarginContainer/HBoxContainer/MainContainer/MarginContainer/Content/AllPlayerList" to="." method="_on_all_player_list_select_player"]
+[connection signal="select_player" from="MarginContainer/HBoxContainer/MainContainer/MarginContainer/Content/PlayerList" to="." method="_on_player_list_select_player"]
+[connection signal="offer" from="MarginContainer/HBoxContainer/MainContainer/MarginContainer/Content/PlayerProfile" to="." method="_on_player_profile_offer"]
+[connection signal="cancel" from="MarginContainer/HBoxContainer/MainContainer/MarginContainer/Content/PlayerOffer" to="." method="_on_player_offer_cancel"]
+[connection signal="confirm" from="MarginContainer/HBoxContainer/MainContainer/MarginContainer/Content/PlayerOffer" to="." method="_on_player_offer_confirm"]
+[connection signal="cancel" from="MarginContainer/HBoxContainer/MainContainer/MarginContainer/Content/ContractOffer" to="." method="_on_contract_offer_cancel"]
+[connection signal="confirm" from="MarginContainer/HBoxContainer/MainContainer/MarginContainer/Content/ContractOffer" to="." method="_on_contract_offer_confirm"]
 [connection signal="confirmed" from="SaveConfirmDialog" to="." method="_on_save_confirm_dialog_confirmed"]
 [connection signal="denied" from="SaveConfirmDialog" to="." method="_on_save_confirm_dialog_denied"]

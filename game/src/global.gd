@@ -193,3 +193,30 @@ func _load_config() -> void:
 	theme_custom_style_color = config.get_value("settings", "theme_custom_style_color", Color.RED)
 	theme_custom_background_color = config.get_value("settings", "theme_custom_background_color", Color.WHITE)
 	scene_fade = config.get_value("settings", "scene_fade", true)
+
+
+#
+# Enum text functions
+#
+func get_match_speed_text() -> String:
+	match match_speed:
+		Const.MatchSpeed.FULL_GAME:
+			return tr("FULL_GAME")
+		Const.MatchSpeed.KEY_ACTIONS:
+			return tr("KEY_ACTIONS")
+		Const.MatchSpeed.ONLY_GOALS:
+			return tr("ONLY_GOALS")
+		_:
+			return tr("FULL_GAME")
+
+
+func get_generation_player_names_text() -> String:
+	match generation_player_names:
+		Const.PlayerNames.MALE:
+			return tr("MALE")
+		Const.PlayerNames.FEMALE:
+			return tr("FEMALE")
+		Const.PlayerNames.MIXED:
+			return tr("MIXED")
+		_:
+			return tr("MIXED")

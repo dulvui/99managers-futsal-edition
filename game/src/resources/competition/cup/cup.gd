@@ -83,7 +83,7 @@ func add_result(
 	if stage == Stage.GROUP:
 		var group: Group = _find_group_by_team_id(home_id)
 		group.table.add_result(
-			home_id, home_goals, away_id, away_goals, home_penalties_goals, away_penalties_goals
+			home_id, away_id, home_goals, away_goals, home_penalties_goals, away_penalties_goals
 		)
 
 

@@ -21,7 +21,7 @@ func _ready() -> void:
 	for nation: Nation in Global.world.get_all_nations():
 		nations.add_item(nation.name)
 	
-	continue_button.disabled = true
+	continue_button.disabled = manager_name.text.length() * manager_surname.text.length() == 0
 
 
 func _on_back_pressed() -> void:
