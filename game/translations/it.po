@@ -283,7 +283,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: 99 Managers Futsal Edition\n"
 "POT-Creation-Date: \n"
-"PO-Revision-Date: 2025-02-07 14:28+0100\n"
+"PO-Revision-Date: 2025-02-07 14:41+0100\n"
 "Last-Translator: Weblate Translation Memory <noreply-mt-weblate-translation-"
 "memory@weblate.org>\n"
 "Language-Team: Italian <https://hosted.weblate.org/projects/99-managers-"
@@ -722,7 +722,7 @@ msgstr "Maschile"
 
 #: src/const.gd
 msgid "FEMALE"
-msgstr "Femminle"
+msgstr "Femminile"
 
 #: src/const.gd
 msgid "MIXED"
