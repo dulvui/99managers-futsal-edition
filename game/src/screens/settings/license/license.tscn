@@ -1,8 +1,9 @@
-[gd_scene load_steps=4 format=3 uid="uid://jtpxotjx2o68"]
+[gd_scene load_steps=5 format=3 uid="uid://jtpxotjx2o68"]
 
 [ext_resource type="LabelSettings" uid="uid://cc2vi4onhgmnw" path="res://theme_base/label/label_settings_bold.tres" id="1_ktsq5"]
 [ext_resource type="Script" path="res://src/screens/settings/license/license.gd" id="1_xa1d2"]
 [ext_resource type="Script" path="res://src/ui_components/base/defaults/default_button.gd" id="2_8rsxp"]
+[ext_resource type="PackedScene" uid="uid://bpvg2vhxml3a1" path="res://src/ui_components/base/confirm_dialog/default_confirm_dialog.tscn" id="4_x52u3"]
 
 [node name="Licenses" type="Control"]
 layout_mode = 3
@@ -31,7 +32,7 @@ label_settings = ExtResource("1_ktsq5")
 
 [node name="LicenseDescription" type="Label" parent="VBoxContainer"]
 layout_mode = 2
-text = "GAME_LICENSE"
+text = "GAME_LICENSE_DESCRIPTION"
 
 [node name="LicenseButton" type="Button" parent="VBoxContainer"]
 layout_mode = 2
@@ -45,6 +46,11 @@ layout_mode = 2
 [node name="SourceCode" type="Label" parent="VBoxContainer"]
 layout_mode = 2
 text = "SOURCE_CODE"
+label_settings = ExtResource("1_ktsq5")
+
+[node name="SourceCodeDescription" type="Label" parent="VBoxContainer"]
+layout_mode = 2
+text = "SOURCE_CODE_DESCRIPTION"
 label_settings = ExtResource("1_ktsq5")
 
 [node name="SourceCodeLinks" type="HBoxContainer" parent="VBoxContainer"]
@@ -70,24 +76,22 @@ layout_mode = 2
 text = "THIRD_PARTY_LICENSES"
 label_settings = ExtResource("1_ktsq5")
 
+[node name="ThirdPartyLicenseDescription" type="Label" parent="VBoxContainer"]
+layout_mode = 2
+text = "THIRD_PARTY_LICENSES_DESCRIPTION"
+label_settings = ExtResource("1_ktsq5")
+
 [node name="ThirdPartyLicenseButton" type="Button" parent="VBoxContainer"]
 layout_mode = 2
 size_flags_horizontal = 0
 text = "READ_FULL_LICENSE"
 script = ExtResource("2_8rsxp")
 
-[node name="LicenseDialog" type="AcceptDialog" parent="."]
+[node name="LicenseDialog" parent="." instance=ExtResource("4_x52u3")]
 unique_name_in_owner = true
-title = "GAME_LICENSE"
-initial_position = 1
 size = Vector2i(800, 800)
-
-[node name="LicenseText" type="RichTextLabel" parent="LicenseDialog"]
-offset_top = 43.0
-offset_right = 1920.0
-offset_bottom = 499.0
-size_flags_vertical = 3
-text = "                    GNU AFFERO GENERAL PUBLIC LICENSE
+custom_title = "LICENSE"
+custom_text = "                    GNU AFFERO GENERAL PUBLIC LICENSE
                        Version 3, 19 November 2007
 
  Copyright (C) 2007 Free Software Foundation, Inc. <https://fsf.org/>
@@ -748,19 +752,13 @@ specific requirements.
 if any, to sign a \"copyright disclaimer\" for the program, if necessary.
 For more information on this, and how to apply and follow the GNU AGPL, see
 <https://www.gnu.org/licenses/>."
+type = 2
 
-[node name="ThirdPartyLicenseDialog" type="AcceptDialog" parent="."]
+[node name="ThirdPartyLicenseDialog" parent="." instance=ExtResource("4_x52u3")]
 unique_name_in_owner = true
-auto_translate_mode = 1
-initial_position = 1
 size = Vector2i(800, 800)
-
-[node name="ThirdPartyLicenseText" type="RichTextLabel" parent="ThirdPartyLicenseDialog"]
-offset_top = 160.0
-offset_right = 220.0
-offset_bottom = 160.0
-size_flags_vertical = 3
-text = "Format: https://www.debian.org/doc/packaging-manuals/copyright-format/1.0/
+custom_title = "THIRD_PARTY_LICENSES"
+custom_text = "Format: https://www.debian.org/doc/packaging-manuals/copyright-format/1.0/
 Comment:
  Exhaustive licensing information for files in the Godot Engine repository
  =========================================================================
@@ -2969,6 +2967,7 @@ License: Zlib
  2. Altered source versions must be plainly marked as such, and must not be
     misrepresented as being the original software.
  3. This notice may not be removed or altered from any source distribution."
+type = 2
 
 [connection signal="pressed" from="VBoxContainer/LicenseButton" to="." method="_on_license_button_pressed"]
 [connection signal="pressed" from="VBoxContainer/ThirdPartyLicenseButton" to="." method="_on_third_party_license_button_pressed"]

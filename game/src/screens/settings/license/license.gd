@@ -5,8 +5,8 @@
 extends Control
 
 
-@onready var license_dialog: AcceptDialog = %LicenseDialog
-@onready var third_party_license_dialog: AcceptDialog = %ThirdPartyLicenseDialog
+@onready var license_dialog: DefaultConfirmDialog = %LicenseDialog
+@onready var third_party_license_dialog: DefaultConfirmDialog = %ThirdPartyLicenseDialog
 
 
 func _on_license_button_pressed() -> void:
