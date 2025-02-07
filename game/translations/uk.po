@@ -282,8 +282,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: 99 Managers Futsal Edition\n"
-"PO-Revision-Date: 2025-02-07 06:20+0000\n"
-"Last-Translator: Максим Горпиніч <maksimgorpinic2005a@gmail.com>\n"
+"PO-Revision-Date: 2025-02-08 19:44+0000\n"
+"Last-Translator: Dan <jonweblin2205@protonmail.com>\n"
 "Language-Team: Ukrainian <https://hosted.weblate.org/projects/"
 "99-managers-futsal-edition/game/uk/>\n"
 "Language: uk\n"
@@ -475,7 +475,7 @@ msgstr "Тип"
 
 #: src/ui_components/transfers/player_offer/player_offer.tscn
 msgid "MONEY"
-msgstr "Фінанси"
+msgstr "Гроші"
 
 #: src/ui_components/transfers/player_offer/player_offer.tscn
 #: src/ui_components/email/list/message_list.tscn
@@ -1865,3 +1865,140 @@ msgstr "Океанія"
 #: src/resources/world/nation_names.gd
 msgid "HUNGARY"
 msgstr "Угорщина"
+
+#: src/resources/person/player/player.gd
+msgid "BEST"
+msgstr "Найкращий"
+
+#: src/resources/person/player/player.gd
+msgid "WORST"
+msgstr "Найгірший"
+
+#: src/resources/person/player/player.gd
+msgid "GOOD"
+msgstr "Хороший"
+
+#: src/screens/settings/license/license.tscn
+msgid "SOURCE_CODE"
+msgstr "Вихідний код"
+
+#: src/resources/person/player/player.gd
+msgid "INJURED"
+msgstr "Поранений"
+
+#: src/screens/settings/settings.tscn
+msgid "LICENSES"
+msgstr "Ліцензії"
+
+#: src/screens/save_states_screen/save_state_entry/save_state_entry.gd
+#: src/screens/menu/menu.gd
+msgid "LOADING_GAME"
+msgstr "Завантаження гри"
+
+#: src/global.gd
+msgid "ONLY_GOALS"
+msgstr "Лише голи"
+
+#: src/global.gd
+msgid "FEMALE"
+msgstr "Жінка"
+
+#: src/screens/dashboard/dashboard.gd
+msgid "SIMULATING_RESULTS"
+msgstr "Моделювання результатів"
+
+#: src/resources/world/nation_names.gd
+msgid "BURMA"
+msgstr "М'янма"
+
+#: src/resources/person/player/player.gd
+msgid "RECOVER"
+msgstr "Відновлюється"
+
+#: src/global.gd
+msgid "KEY_ACTIONS"
+msgstr "Основні дії"
+
+#: src/ui_components/base/confirm_dialog/default_confirm_dialog.gd
+msgid "OK"
+msgstr "Гаразд"
+
+#: src/resources/person/player/player.gd
+msgid "LEFT"
+msgstr "Уліво"
+
+#: src/resources/person/player/player.gd
+msgid "RIGHT"
+msgstr "Управо"
+
+#: src/screens/settings/settings.tscn
+msgid "CONTRIBUTORS"
+msgstr "Учасники"
+
+#: src/screens/settings/general/general_settings.tscn
+msgid "LANGUAGE"
+msgstr "Мова"
+
+#: src/screens/setup/setup_team/setup_team.gd
+msgid "INITIALIZE_GAME"
+msgstr "Початок гри"
+
+#: src/global.gd
+msgid "MIXED"
+msgstr "Змішано"
+
+#: src/screens/settings/license/license.tscn
+msgid "GAME_LICENSE"
+msgstr "Ігрова ліцензія"
+
+#: src/screens/settings/license/license.tscn
+msgid "READ_FULL_LICENSE"
+msgstr "Читати повну ліцензію"
+
+#: src/screens/settings/license/license.tscn
+msgid "THIRD_PARTY_LICENSES"
+msgstr "Сторонні ліцензії"
+
+#: src/screens/settings/license/license.tscn
+msgid "THIRD_PARTY_LICENSES_DESCRIPTION"
+msgstr ""
+"Ця гра створена з використанням рушія Godot Engine, який випускається під "
+"ліцензією MIT."
+
+#: src/screens/dashboard/dashboard.tscn
+msgid "COMING_SOON"
+msgstr "Незабаром"
+
+#: src/resources/person/player/player.gd
+msgid "BAD"
+msgstr "Поганий"
+
+#: src/screens/match/match.tscn src/global.gd
+msgid "FULL_GAME"
+msgstr "Повна гра"
+
+#: src/resources/person/player/player.gd
+msgid "NEUTRAL"
+msgstr "Нейтральний"
+
+#: src/utils/res_util.gd
+msgid "RESTORING_BACKUP"
+msgstr "Відновлення резервної копії"
+
+#: src/screens/dashboard/dashboard.gd
+msgid "SAVING_GAME"
+msgstr "Збереження гри"
+
+#: src/global.gd
+msgid "MALE"
+msgstr "Чоловік"
+
+#: src/screens/settings/license/license.tscn
+msgid "GAME_LICENSE_DESCRIPTION"
+msgstr ""
+"Ця гра має відкритий вихідний код і випускається під ліцензією AGPL v3 або "
+"новішої версії."
+
+#: src/screens/settings/license/license.tscn
+msgid "SOURCE_CODE_DESCRIPTION"
+msgstr "Повний вихідний код гри доступний на сайтах нижче"
