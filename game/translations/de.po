@@ -282,8 +282,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: 99 Managers Futsal Edition\n"
-"PO-Revision-Date: 2025-02-07 06:20+0000\n"
-"Last-Translator: Ettore Atalan <atalanttore@googlemail.com>\n"
+"PO-Revision-Date: 2025-02-08 19:47+0000\n"
+"Last-Translator: Simon Dalvai <info@simondalvai.org>\n"
 "Language-Team: German <https://hosted.weblate.org/projects/"
 "99-managers-futsal-edition/game/de/>\n"
 "Language: de\n"
@@ -1419,7 +1419,6 @@ msgid "ITALY"
 msgstr "Italien"
 
 #: src/resources/world/nation_names.gd
-#, fuzzy
 msgid "BURKINA"
 msgstr "Burkina"
 
@@ -1858,3 +1857,99 @@ msgstr "Kap Verde"
 #: src/resources/world/nation_names.gd
 msgid "HUNGARY"
 msgstr "Ungarn"
+
+#: src/resources/person/player/player.gd
+msgid "WORST"
+msgstr "Schlechteste"
+
+#: src/screens/match/match.tscn src/enum.gd
+msgid "FULL_GAME"
+msgstr "Ganzes Spiel"
+
+#: src/enum.gd
+msgid "NOVEMBER"
+msgstr "November"
+
+#: src/enum.gd
+msgid "DECEMBER"
+msgstr "Dezember"
+
+#: src/enum.gd
+msgid "MALE"
+msgstr "Männlich"
+
+#: src/enum.gd
+msgid "FEMALE"
+msgstr "Weiblich"
+
+#: src/enum.gd
+msgid "MIXED"
+msgstr "Gemischt"
+
+#: src/enum.gd
+msgid "JANUARY"
+msgstr "Januar"
+
+#: src/enum.gd
+msgid "FEBRUARY"
+msgstr "Februar"
+
+#: src/enum.gd
+msgid "MARCH"
+msgstr "März"
+
+#: src/enum.gd
+msgid "APRIL"
+msgstr "April"
+
+#: src/enum.gd
+msgid "MAY"
+msgstr "Mai"
+
+#: src/enum.gd
+msgid "JUNE"
+msgstr "Juni"
+
+#: src/enum.gd
+msgid "JULY"
+msgstr "Juli"
+
+#: src/enum.gd
+msgid "AUGUST"
+msgstr "August"
+
+#: src/enum.gd
+msgid "SEPTEMBER"
+msgstr "September"
+
+#: src/enum.gd
+msgid "OCTOBER"
+msgstr "Oktober"
+
+#: src/resources/person/player/player.gd
+msgid "BAD"
+msgstr "Schlecht"
+
+#: src/resources/person/player/player.gd
+msgid "NEUTRAL"
+msgstr "Neutral"
+
+#: src/resources/person/player/player.gd
+msgid "GOOD"
+msgstr "Gut"
+
+#: src/resources/person/player/player.gd
+msgid "BEST"
+msgstr "Beste"
+
+#: src/resources/person/player/player.gd
+msgid "INJURED"
+msgstr "Verletzt"
+
+#: src/resources/person/player/player.gd
+msgid "RECOVER"
+msgstr "Erholung"
+
+#: src/enum.gd
+msgid "ONLY_GOALS"
+msgstr "Nur Tore"
