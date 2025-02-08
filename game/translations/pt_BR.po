@@ -282,9 +282,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: 99 Managers Futsal Edition\n"
-"PO-Revision-Date: 2025-02-06 16:50+0000\n"
-"Last-Translator: Weblate Translation Memory <noreply-mt-weblate-translation-"
-"memory@weblate.org>\n"
+"PO-Revision-Date: 2025-02-08 19:47+0000\n"
+"Last-Translator: Simon Dalvai <info@simondalvai.org>\n"
 "Language-Team: Portuguese (Brazil) <https://hosted.weblate.org/projects/"
 "99-managers-futsal-edition/game/pt_BR/>\n"
 "Language: pt_BR\n"
@@ -419,9 +418,8 @@ msgid "PLAYED"
 msgstr "Jogos"
 
 #: src/ui_components/visual_competitions/visual_table/visual_table.tscn
-#, fuzzy
 msgid "WIN"
-msgstr "WIN"
+msgstr "Vitória"
 
 #: src/ui_components/visual_competitions/visual_table/visual_table.tscn
 msgid "DRAW"
@@ -588,9 +586,8 @@ msgid "STARRED"
 msgstr "Favoritado"
 
 #: src/ui_components/email/visual_message/visual_message.tscn
-#, fuzzy
 msgid "TO"
-msgstr "TO"
+msgstr "Para"
 
 #: src/ui_components/email/visual_message/visual_message.tscn
 msgid "ACTION"
@@ -1564,7 +1561,6 @@ msgid "MAURITIUS"
 msgstr "Maurício"
 
 #: src/resources/world/nation_names.gd
-#, fuzzy
 msgid "MACEDONIA"
 msgstr "Macedonia"
 
@@ -1884,3 +1880,99 @@ msgstr "Cabo Verde"
 #: src/resources/world/nation_names.gd
 msgid "HUNGARY"
 msgstr "Hungria"
+
+#: src/resources/person/player/player.gd
+msgid "WORST"
+msgstr "Pior"
+
+#: src/resources/person/player/player.gd
+msgid "BAD"
+msgstr "Ruim"
+
+#: src/resources/person/player/player.gd
+msgid "NEUTRAL"
+msgstr "Neutro"
+
+#: src/resources/person/player/player.gd
+msgid "GOOD"
+msgstr "Bom"
+
+#: src/resources/person/player/player.gd
+msgid "BEST"
+msgstr "Melhor"
+
+#: src/resources/person/player/player.gd
+msgid "INJURED"
+msgstr "Lesionado"
+
+#: src/screens/match/match.tscn src/enum.gd
+msgid "FULL_GAME"
+msgstr "Full game"
+
+#: src/enum.gd
+msgid "MALE"
+msgstr "Homem"
+
+#: src/enum.gd
+msgid "APRIL"
+msgstr "Abril"
+
+#: src/enum.gd
+msgid "FEMALE"
+msgstr "Mulher"
+
+#: src/enum.gd
+msgid "MIXED"
+msgstr "Misto"
+
+#: src/enum.gd
+msgid "JANUARY"
+msgstr "Janeiro"
+
+#: src/enum.gd
+msgid "FEBRUARY"
+msgstr "Fevereiro"
+
+#: src/enum.gd
+msgid "MARCH"
+msgstr "Março"
+
+#: src/enum.gd
+msgid "MAY"
+msgstr "Maio"
+
+#: src/enum.gd
+msgid "JUNE"
+msgstr "Junho"
+
+#: src/enum.gd
+msgid "JULY"
+msgstr "Julho"
+
+#: src/enum.gd
+msgid "AUGUST"
+msgstr "Agosto"
+
+#: src/enum.gd
+msgid "SEPTEMBER"
+msgstr "Setembro"
+
+#: src/enum.gd
+msgid "OCTOBER"
+msgstr "Outubro"
+
+#: src/enum.gd
+msgid "NOVEMBER"
+msgstr "Novembro"
+
+#: src/enum.gd
+msgid "DECEMBER"
+msgstr "Dezembro"
+
+#: src/resources/person/player/player.gd
+msgid "RECOVER"
+msgstr "Recuperar"
+
+#: src/enum.gd
+msgid "ONLY_GOALS"
+msgstr "Only goals"
