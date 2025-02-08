@@ -12,9 +12,9 @@ extends JSONResource
 @export var start_date: Dictionary
 @export var generation_seed: String
 @export var generation_state: int
-@export var generation_player_names: Const.PlayerNames
+@export var generation_player_names: Enum.PlayerNames
 @export var current_season: int
-@export var match_speed: Const.MatchSpeed
+@export var match_speed: Enum.MatchSpeed
 @export var id_by_type: Dictionary
 # metadata, only used for state entry
 @export var meta_team_name: String
@@ -29,9 +29,9 @@ extends JSONResource
 func _init(
 	p_generation_seed: String = "SuchDefaultSeed",
 	p_generation_state: int = 0,
-	p_generation_player_names: Const.PlayerNames = Const.PlayerNames.MALE,
+	p_generation_player_names: Enum.PlayerNames = Enum.PlayerNames.MALE,
 	p_current_season: int = 0,
-	p_match_speed: Const.MatchSpeed = Const.MatchSpeed.KEY_ACTIONS,
+	p_match_speed: Enum.MatchSpeed = Enum.MatchSpeed.KEY_ACTIONS,
 	p_id: String = "",
 	p_id_by_type: Dictionary = {},
 	p_config_version: String = Global.config_version,

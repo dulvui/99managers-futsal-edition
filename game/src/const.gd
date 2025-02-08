@@ -4,19 +4,6 @@
 
 extends Node
 
-enum PlayerNames {
-	MALE,
-	FEMALE,
-	MIXED,
-}
-
-enum MatchSpeed {
-	FULL_GAME,
-	KEY_ACTIONS,
-	ONLY_GOALS,
-}
-
-
 #
 # UI
 #
@@ -70,10 +57,6 @@ const USER_PATH: StringName = "user://"
 const SAVE_STATES_DIR: StringName = "save_states/"
 const SAVE_STATES_PATH: StringName = "user://save_states/"
 
-const MONTH_STRINGS: Array[StringName] = [
-	"JAN", "FEB", "MAR", "APR", "MAY", "JUN", "JUL", "AUG", "SEP", "OCT", "NOV", "DEC"
-]
-const WEEKDAYS: Array[StringName] = ["SUN", "MON", "TUE", "WED", "THU", "FRI", "SAT"]
 const SURNAME: StringName = "SURNAME"
 const POSITION: StringName = "POSITION"
 
@@ -99,7 +82,4 @@ const SCENE_FORMATION_PLAYER: String = "res://src/ui_components/visual_formation
 #
 const CUSTOM_PROPERTY: int = 4096
 const CUSTOM_PROPERTY_EXPORT: int = 4102
-
-
-
 

@@ -140,7 +140,7 @@ func _add_year(year: int) -> void:
 	var first_january: String = str(year) + "-01-01T00:00:00"
 	var temp_date: Dictionary = Time.get_datetime_dict_from_datetime_string(first_january, true)
 	# create months
-	for month_string: String in Const.MONTH_STRINGS:
+	for month_string: String in Enum.Months:
 		var new_month: Month = Month.new()
 		new_month.name = month_string
 		months.append(new_month)
@@ -149,7 +149,7 @@ func _add_year(year: int) -> void:
 	while temp_date.year == year:
 		var new_day: Day = Day.new()
 		new_day.market = is_market_active(temp_date)
-		new_day.weekday = Const.WEEKDAYS[temp_date.weekday]
+		new_day.weekday = temp_date.weekday
 		new_day.day = temp_date.day
 		new_day.month = temp_date.month
 		new_day.year = temp_date.year

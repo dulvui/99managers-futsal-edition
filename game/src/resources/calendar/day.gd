@@ -8,9 +8,9 @@ extends JSONResource
 # matches by leauge/cup id
 @export var matches: Dictionary
 @export var market: bool
-@export var weekday: String
+@export var weekday: Enum.Weekdays
 @export var day: int
-@export var month: int
+@export var month: Enum.Months
 @export var year: int
 #@export var trainings: Array
 
@@ -18,9 +18,9 @@ extends JSONResource
 func _init(
 	p_matches: Dictionary = {},
 	p_market: bool = false,
-	p_weekday: String = "MON",
+	p_weekday: Enum.Weekdays = Enum.Weekdays.THURSDAY,
 	p_day: int = 1,
-	p_month: int = 1,
+	p_month: Enum.Months = Enum.Months.JANUARY,
 	p_year: int = 1970,
 ) -> void:
 	matches = p_matches
@@ -63,7 +63,7 @@ func get_matches(competition_id: int = -1) -> Array:
 
 
 func to_format_string() -> String:
-	return weekday + " " + str(day) + " " + Const.MONTH_STRINGS[month - 1] + " " + str(year)
+	return Enum.get_weekday_text(weekday) + " " + str(day) + " " + Enum.get_month_text(month - 1) + " " + str(year)
 
 
 func is_same_day(p_day: Day) -> bool:
@@ -74,3 +74,5 @@ func is_same_day(p_day: Day) -> bool:
 	if year != p_day.year:
 		return false
 	return true
+
+

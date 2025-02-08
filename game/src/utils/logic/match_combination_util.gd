@@ -92,17 +92,17 @@ func add_matches_to_calendar(
 	var day: int = date.day
 
 	# league machtes are always saturday
-	var weekday: String = "SAT"
+	var weekday: Enum.Weekdays = Enum.Weekdays.SATURDAY
 	# cup matches wednesday
 	if competition is Cup:
-		weekday = "WED"
+		weekday = Enum.Weekdays.WEDNESDAY
 		# except finals, are sundays
 		var cup: Cup = (competition as Cup)
 		if cup.is_final():
-			weekday = "SUN"
+			weekday = Enum.Weekdays.SUNDAY
 		
 	# start with given weekday of next week
-	for i in range(8, 1, -1):
+	for i: int in range(8, 1, -1):
 		if Global.world.calendar.day(month, i).weekday == weekday:
 			day = i
 			break
@@ -113,7 +113,7 @@ func add_matches_to_calendar(
 			month += 1
 			day = 0
 			# start also new month with saturday
-			for i in 7:
+			for i: int in 7:
 				if Global.world.calendar.day(month, i).weekday == weekday:
 					day = i
 					break
@@ -202,6 +202,6 @@ func _initialize_world_cup(world: World) -> void:
 
 func _shift_array(array: Array) -> void:
 	var temp: Team = array[0]
-	for i in range(array.size() - 1):
+	for i: int in range(array.size() - 1):
 		array[i] = array[i + 1]
 	array[array.size() - 1] = temp

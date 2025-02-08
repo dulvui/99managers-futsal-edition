@@ -20,7 +20,7 @@ var date: Day
 func setup(p_date: Day = Day.new(), matchz: Match = null) -> void:
 	date = p_date
 
-	month_day_label.text = str(date.day)
+	month_day_label.text = tr(str(date.day))
 
 	if matchz != null:
 		if Global.team.name == matchz.home.name:

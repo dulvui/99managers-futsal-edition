@@ -21,7 +21,7 @@ func _ready() -> void:
 	
 	Global.save_states.new_temp_state()
 
-	for player_name: String in Const.PlayerNames:
+	for player_name: String in Enum.PlayerNames:
 		player_names_option.add_item(player_name)
 
 	generation_seed_edit.text = generation_seed
@@ -63,7 +63,7 @@ func _on_continue_pressed() -> void:
 	# also set Global.start_date, so functions like person.get_age work
 	Global.start_date = Global.save_states.temp_state.start_date
 	Global.save_states.temp_state.generation_seed = generation_seed
-	Global.save_states.temp_state.generation_player_names = player_names_option.selected as Const.PlayerNames
+	Global.save_states.temp_state.generation_player_names = player_names_option.selected as Enum.PlayerNames
 
 	RngUtil.reset_seed(generation_seed, player_names_option.selected)
 

@@ -430,10 +430,10 @@ func _get_person_name(nation: Nation) -> String:
 	if not names.has(nation_string):
 		nation_string = RngUtil.pick_random(names.keys())
 
-	if Global.generation_player_names == Const.PlayerNames.MALE:
+	if Global.generation_player_names == Enum.PlayerNames.MALE:
 		var size: int = (names[nation_string]["first_names_male"] as Array).size()
 		return names[nation_string]["first_names_male"][RngUtil.rng.randi() % size]
-	if Global.generation_player_names == Const.PlayerNames.FEMALE:
+	if Global.generation_player_names == Enum.PlayerNames.FEMALE:
 		var size: int = (names[nation_string]["first_names_female"] as Array).size()
 		return names[nation_string]["first_names_female"][RngUtil.rng.randi() % size]
 

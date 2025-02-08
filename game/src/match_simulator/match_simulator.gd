@@ -49,7 +49,7 @@ func _physics_process(delta: float) -> void:
 			
 			var ticks: int = show_action_ticks
 
-			if Global.match_speed == Const.MatchSpeed.FULL_GAME:
+			if Global.match_speed == Enum.MatchSpeed.FULL_GAME:
 				_update_engine()
 				ticks = engine.ticks
 			
@@ -130,7 +130,7 @@ func simulate() -> void:
 
 
 func is_match_visible() -> bool:
-	return Global.match_speed == Const.MatchSpeed.FULL_GAME or engine.penalties or show_action_ticks > 0
+	return Global.match_speed == Enum.MatchSpeed.FULL_GAME or engine.penalties or show_action_ticks > 0
 
 
 func pause_toggle() -> bool:

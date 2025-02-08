@@ -27,11 +27,11 @@ var start_date: Dictionary
 # generator config
 var generation_seed: String
 var generation_state: int
-var generation_player_names: Const.PlayerNames
+var generation_player_names: Enum.PlayerNames
 # saves which season this is, starting from 0
 var current_season: int
 # global game states
-var match_speed: Const.MatchSpeed
+var match_speed: Enum.MatchSpeed
 # saves current id for resources
 var id_by_type: Dictionary
 
@@ -94,7 +94,7 @@ func next_day() -> void:
 	TransferUtil.update_day()
 
 	# new week starts
-	if world.calendar.day().weekday == "MON":
+	if world.calendar.day().weekday == Enum.Weekdays.MONDAY:
 		# update finances
 		for t: Team in world.get_all_teams():
 			t.finances.update_week(t)
@@ -110,7 +110,7 @@ func next_season() -> void:
 	# transfer markets
 	# save competition results in history
 	
-	if world.calendar.day().weekday == "MON":
+	if world.calendar.day().weekday == Enum.Weekdays.MONDAY:
 		# update finances
 		for t: Team in world.get_all_teams():
 			t.finances.update_season(t)
@@ -195,28 +195,3 @@ func _load_config() -> void:
 	scene_fade = config.get_value("settings", "scene_fade", true)
 
 
-#
-# Enum text functions
-#
-func get_match_speed_text() -> String:
-	match match_speed:
-		Const.MatchSpeed.FULL_GAME:
-			return tr("FULL_GAME")
-		Const.MatchSpeed.KEY_ACTIONS:
-			return tr("KEY_ACTIONS")
-		Const.MatchSpeed.ONLY_GOALS:
-			return tr("ONLY_GOALS")
-		_:
-			return tr("FULL_GAME")
-
-
-func get_generation_player_names_text() -> String:
-	match generation_player_names:
-		Const.PlayerNames.MALE:
-			return tr("MALE")
-		Const.PlayerNames.FEMALE:
-			return tr("FEMALE")
-		Const.PlayerNames.MIXED:
-			return tr("MIXED")
-		_:
-			return tr("MIXED")

@@ -15,11 +15,11 @@ func currency(amount: int) -> String:
 
 func format_date(p_date: Dictionary) -> String:
 	return (
-		tr(Const.WEEKDAYS[p_date.weekday])
+		tr(Enum.get_weekday_text(p_date.weekday))
 		+ " "
 		+ tr(str(p_date.day))
 		+ " "
-		+ tr(Const.MONTH_STRINGS[p_date.month - 1])
+		+ tr(Enum.get_month_text(p_date.month - 1))
 		+ " "
 		+ str(p_date.year)
 	)
@@ -35,5 +35,5 @@ func format_number(number: int) -> String:
 	formatted = formatted.rstrip(" ")
 	# print(string + " becomes '" + formatted + "'")
 	return formatted
-	
+
 

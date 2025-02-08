@@ -22,7 +22,7 @@ func append(entry: MatchBufferEntry) -> void:
 
 
 func get_entry() -> MatchBufferEntry:
-	if Global.match_speed == Const.MatchSpeed.FULL_GAME:
+	if Global.match_speed == Enum.MatchSpeed.FULL_GAME:
 		return buffer[-1]
 
 	if buffer_index < buffer.size() - 1:

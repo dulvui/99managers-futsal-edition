@@ -15,7 +15,7 @@ func setup_rngs() -> void:
 
 func reset_seed(p_generation_seed: String, p_generation_player_names: int) -> void:
 	Global.generation_seed = p_generation_seed
-	Global.generation_player_names = p_generation_player_names as Const.PlayerNames
+	Global.generation_player_names = p_generation_player_names as Enum.PlayerNames
 
 	rng = RandomNumberGenerator.new()
 	rng.seed = hash(Global.generation_seed + str(Global.generation_player_names))
