@@ -282,11 +282,10 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: 99 Managers Futsal Edition\n"
-"PO-Revision-Date: 2025-02-06 15:59+0000\n"
-"Last-Translator: Weblate Translation Memory <noreply-mt-weblate-translation-"
-"memory@weblate.org>\n"
+"PO-Revision-Date: 2025-02-08 19:47+0000\n"
+"Last-Translator: Simon Dalvai <info@simondalvai.org>\n"
 "Language-Team: Portuguese <https://hosted.weblate.org/projects/"
-"99-managers-futsal-edition/game-gettext/pt/>\n"
+"99-managers-futsal-edition/game/pt/>\n"
 "Language: pt\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -419,9 +418,8 @@ msgid "PLAYED"
 msgstr "Jogado"
 
 #: src/ui_components/visual_competitions/visual_table/visual_table.tscn
-#, fuzzy
 msgid "WIN"
-msgstr "WIN"
+msgstr "Vitória"
 
 #: src/ui_components/visual_competitions/visual_table/visual_table.tscn
 msgid "DRAW"
@@ -588,9 +586,8 @@ msgid "STARRED"
 msgstr "Marcado"
 
 #: src/ui_components/email/visual_message/visual_message.tscn
-#, fuzzy
 msgid "TO"
-msgstr "TO"
+msgstr "Para"
 
 #: src/ui_components/email/visual_message/visual_message.tscn
 msgid "ACTION"
@@ -780,18 +777,18 @@ msgstr ""
 "Todas as alterações serão perdidas e restauradas para os valores padrão."
 
 #: src/screens/settings/general/general_settings.tscn
-#, fuzzy
 msgid "TRANSLATION_INSTRUCTIONS"
-msgstr "TRANSLATION_INSTRUCTIONS"
+msgstr ""
+"You can fix errors or add new languages easily on Weblate, just click on the "
+"link below."
 
 #: src/screens/settings/general/general_settings.tscn
 msgid "AUDIO"
 msgstr "Audio"
 
 #: src/screens/settings/general/general_settings.tscn
-#, fuzzy
 msgid "SFX_VOLUME"
-msgstr "SFX_VOLUME"
+msgstr "Sound effects volume"
 
 #: src/screens/settings/general/general_settings.tscn
 msgid "INTERFACE_SETTINGS"
@@ -843,23 +840,20 @@ msgid "VIM_MODE"
 msgstr "Modo Vim"
 
 #: src/screens/settings/input/input_settings.tscn
-#, fuzzy
 msgid "JOYPAD_STATUS"
-msgstr "JOYPAD_STATUS"
+msgstr "Joypad status"
 
 #: src/screens/settings/input/input_settings.tscn
 msgid "NO_JOYPAD_CONNECTED"
 msgstr "Comando não conectado"
 
 #: src/screens/settings/input/input_settings.tscn
-#, fuzzy
 msgid "INPUT_DETECTION_MODE"
-msgstr "INPUT_DETECTION_MODE"
+msgstr "Input detection mode"
 
 #: src/screens/settings/input/input_settings.tscn
-#, fuzzy
 msgid "INPUT_TYPE"
-msgstr "INPUT_TYPE"
+msgstr "Input type"
 
 #: src/screens/save_states_screen/save_states_screen.tscn
 msgid "SAVE_STATES"
@@ -1055,9 +1049,8 @@ msgid "GENERATION_SEED"
 msgstr "Criação de Sorteio"
 
 #: src/screens/setup/setup_world/setup_world.tscn
-#, fuzzy
 msgid "GENERATION_SEED_DESCRIPTION"
-msgstr "GENERATION_SEED_DESCRIPTION"
+msgstr "Descrição de criação de sorteio"
 
 #: src/screens/setup/setup_world/setup_world.tscn
 msgid "RANDOM"
@@ -1143,7 +1136,6 @@ msgid "ASIA"
 msgstr "Ásia"
 
 #: src/resources/world/continent_names.gd
-#, fuzzy
 msgid "OCEANIA"
 msgstr "Oceania"
 
@@ -1412,7 +1404,6 @@ msgid "SWEDEN"
 msgstr "Suécia"
 
 #: src/resources/world/nation_names.gd
-#, fuzzy
 msgid "SWAZILAND"
 msgstr "Swaziland"
 
@@ -1449,7 +1440,6 @@ msgid "ITALY"
 msgstr "Itália"
 
 #: src/resources/world/nation_names.gd
-#, fuzzy
 msgid "BURKINA"
 msgstr "Burkina"
 
@@ -1510,7 +1500,6 @@ msgid "SAINT_LUCIA"
 msgstr "Santa Lúcia"
 
 #: src/resources/world/nation_names.gd
-#, fuzzy
 msgid "VATICAN_CITY"
 msgstr "Vatican City"
 
@@ -1889,3 +1878,99 @@ msgstr "Cabo Verde"
 #: src/resources/world/nation_names.gd
 msgid "HUNGARY"
 msgstr "Hungria"
+
+#: src/resources/person/player/player.gd
+msgid "WORST"
+msgstr "Pior"
+
+#: src/resources/person/player/player.gd
+msgid "BAD"
+msgstr "Mau"
+
+#: src/resources/person/player/player.gd
+msgid "NEUTRAL"
+msgstr "Neutro"
+
+#: src/resources/person/player/player.gd
+msgid "GOOD"
+msgstr "Bom"
+
+#: src/resources/person/player/player.gd
+msgid "INJURED"
+msgstr "Lesionado"
+
+#: src/resources/person/player/player.gd
+msgid "RECOVER"
+msgstr "Recuperar"
+
+#: src/screens/match/match.tscn src/enum.gd
+msgid "FULL_GAME"
+msgstr "Full game"
+
+#: src/enum.gd
+msgid "MALE"
+msgstr "Masculino"
+
+#: src/enum.gd
+msgid "FEMALE"
+msgstr "Feminino"
+
+#: src/enum.gd
+msgid "MIXED"
+msgstr "Misturado"
+
+#: src/enum.gd
+msgid "JANUARY"
+msgstr "Janeiro"
+
+#: src/enum.gd
+msgid "FEBRUARY"
+msgstr "Fevereiro"
+
+#: src/enum.gd
+msgid "MARCH"
+msgstr "Março"
+
+#: src/enum.gd
+msgid "APRIL"
+msgstr "Abril"
+
+#: src/enum.gd
+msgid "MAY"
+msgstr "Maio"
+
+#: src/enum.gd
+msgid "JUNE"
+msgstr "Junho"
+
+#: src/enum.gd
+msgid "JULY"
+msgstr "Julho"
+
+#: src/enum.gd
+msgid "AUGUST"
+msgstr "Agosto"
+
+#: src/enum.gd
+msgid "ONLY_GOALS"
+msgstr "Only goals"
+
+#: src/enum.gd
+msgid "SEPTEMBER"
+msgstr "Setembro"
+
+#: src/enum.gd
+msgid "NOVEMBER"
+msgstr "Novembro"
+
+#: src/enum.gd
+msgid "OCTOBER"
+msgstr "Outubro"
+
+#: src/enum.gd
+msgid "DECEMBER"
+msgstr "Dezembro"
+
+#: src/resources/person/player/player.gd
+msgid "BEST"
+msgstr "Melhor"
