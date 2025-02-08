@@ -283,7 +283,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: 99 Managers Futsal Edition\n"
 "POT-Creation-Date: \n"
-"PO-Revision-Date: 2025-02-08 00:09+0100\n"
+"PO-Revision-Date: 2025-02-08 20:43+0100\n"
 "Last-Translator: Simon Dalvai <info@simondalvai.org>\n"
 "Language-Team: English <https://hosted.weblate.org/projects/99-managers-"
 "futsal-edition/game-gettext/en/>\n"
@@ -664,31 +664,31 @@ msgstr "No match"
 msgid "TODAY"
 msgstr "Today"
 
-#: src/ui_components/visual_calendar/visual_calendar.tscn
+#: src/ui_components/visual_calendar/visual_calendar.tscn src/enum.gd
 msgid "MONDAY"
 msgstr "Monday"
 
-#: src/ui_components/visual_calendar/visual_calendar.tscn
+#: src/ui_components/visual_calendar/visual_calendar.tscn src/enum.gd
 msgid "TUESDAY"
 msgstr "Tuesday"
 
-#: src/ui_components/visual_calendar/visual_calendar.tscn
+#: src/ui_components/visual_calendar/visual_calendar.tscn src/enum.gd
 msgid "WEDNESDAY"
 msgstr "Wednesday"
 
-#: src/ui_components/visual_calendar/visual_calendar.tscn
+#: src/ui_components/visual_calendar/visual_calendar.tscn src/enum.gd
 msgid "THURSDAY"
 msgstr "Thursday"
 
-#: src/ui_components/visual_calendar/visual_calendar.tscn
+#: src/ui_components/visual_calendar/visual_calendar.tscn src/enum.gd
 msgid "FRIDAY"
 msgstr "Friday"
 
-#: src/ui_components/visual_calendar/visual_calendar.tscn
+#: src/ui_components/visual_calendar/visual_calendar.tscn src/enum.gd
 msgid "SATURDAY"
 msgstr "Saturday"
 
-#: src/ui_components/visual_calendar/visual_calendar.tscn
+#: src/ui_components/visual_calendar/visual_calendar.tscn src/enum.gd
 msgid "SUNDAY"
 msgstr "Sunday"
 
@@ -1024,7 +1024,7 @@ msgstr "Commentary"
 msgid "EVENTS"
 msgstr "Events"
 
-#: src/screens/match/match.tscn src/global.gd
+#: src/screens/match/match.tscn src/enum.gd
 msgid "FULL_GAME"
 msgstr "Full game"
 
@@ -1111,26 +1111,6 @@ msgstr "Select"
 #: src/screens/setup/setup_team/setup_team.gd
 msgid "INITIALIZE_GAME"
 msgstr "Initialize game"
-
-#: src/global.gd
-msgid "KEY_ACTIONS"
-msgstr "Key actions"
-
-#: src/global.gd
-msgid "ONLY_GOALS"
-msgstr "Only goals"
-
-#: src/global.gd
-msgid "MALE"
-msgstr "Male"
-
-#: src/global.gd
-msgid "FEMALE"
-msgstr "Female"
-
-#: src/global.gd
-msgid "MIXED"
-msgstr "Mixed"
 
 #: src/resources/world/continent_names.gd
 msgid "AFRICA"
@@ -1958,6 +1938,74 @@ msgid "THIRD_PARTY_LICENSES_DESCRIPTION"
 msgstr ""
 "This game was built using the Godot Engine, that is released under the MIT "
 "license."
+
+#: src/enum.gd
+msgid "KEY_ACTIONS"
+msgstr "Key actions"
+
+#: src/enum.gd
+msgid "ONLY_GOALS"
+msgstr "Only goals"
+
+#: src/enum.gd
+msgid "MALE"
+msgstr "Male"
+
+#: src/enum.gd
+msgid "FEMALE"
+msgstr "Female"
+
+#: src/enum.gd
+msgid "MIXED"
+msgstr "Mixed"
+
+#: src/enum.gd
+msgid "JANUARY"
+msgstr "January"
+
+#: src/enum.gd
+msgid "FEBRUARY"
+msgstr "February"
+
+#: src/enum.gd
+msgid "MARCH"
+msgstr "March"
+
+#: src/enum.gd
+msgid "APRIL"
+msgstr "April"
+
+#: src/enum.gd
+msgid "MAY"
+msgstr "May"
+
+#: src/enum.gd
+msgid "JUNE"
+msgstr "June"
+
+#: src/enum.gd
+msgid "JULY"
+msgstr "July"
+
+#: src/enum.gd
+msgid "AUGUST"
+msgstr "August"
+
+#: src/enum.gd
+msgid "SEPTEMBER"
+msgstr "September"
+
+#: src/enum.gd
+msgid "OCTOBER"
+msgstr "October"
+
+#: src/enum.gd
+msgid "NOVEMBER"
+msgstr "November"
+
+#: src/enum.gd
+msgid "DECEMBER"
+msgstr "December"
 
 #~ msgid "FULL_MATCH"
 #~ msgstr "Full match"

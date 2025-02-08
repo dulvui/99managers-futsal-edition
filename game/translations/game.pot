@@ -281,6 +281,7 @@
 # res://src/screens/settings/contributors/contributors.tscn
 # res://src/screens/settings/license/license.gd
 # res://src/screens/settings/license/license.tscn
+# res://src/enum.gd
 #
 # FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
 #
@@ -667,30 +668,37 @@ msgid "TODAY"
 msgstr ""
 
 #: src/ui_components/visual_calendar/visual_calendar.tscn
+#: src/enum.gd
 msgid "MONDAY"
 msgstr ""
 
 #: src/ui_components/visual_calendar/visual_calendar.tscn
+#: src/enum.gd
 msgid "TUESDAY"
 msgstr ""
 
 #: src/ui_components/visual_calendar/visual_calendar.tscn
+#: src/enum.gd
 msgid "WEDNESDAY"
 msgstr ""
 
 #: src/ui_components/visual_calendar/visual_calendar.tscn
+#: src/enum.gd
 msgid "THURSDAY"
 msgstr ""
 
 #: src/ui_components/visual_calendar/visual_calendar.tscn
+#: src/enum.gd
 msgid "FRIDAY"
 msgstr ""
 
 #: src/ui_components/visual_calendar/visual_calendar.tscn
+#: src/enum.gd
 msgid "SATURDAY"
 msgstr ""
 
 #: src/ui_components/visual_calendar/visual_calendar.tscn
+#: src/enum.gd
 msgid "SUNDAY"
 msgstr ""
 
@@ -1012,10 +1020,6 @@ msgstr ""
 msgid "PENALTIES"
 msgstr ""
 
-#: src/screens/match/statistics/match_stats.gd
-msgid "0"
-msgstr ""
-
 #: src/screens/match/match.tscn
 msgid "STATS"
 msgstr ""
@@ -1029,7 +1033,7 @@ msgid "EVENTS"
 msgstr ""
 
 #: src/screens/match/match.tscn
-#: src/global.gd
+#: src/enum.gd
 msgid "FULL_GAME"
 msgstr ""
 
@@ -1111,26 +1115,6 @@ msgstr ""
 
 #: src/screens/setup/setup_team/setup_team.gd
 msgid "INITIALIZE_GAME"
-msgstr ""
-
-#: src/global.gd
-msgid "KEY_ACTIONS"
-msgstr ""
-
-#: src/global.gd
-msgid "ONLY_GOALS"
-msgstr ""
-
-#: src/global.gd
-msgid "MALE"
-msgstr ""
-
-#: src/global.gd
-msgid "FEMALE"
-msgstr ""
-
-#: src/global.gd
-msgid "MIXED"
 msgstr ""
 
 #: src/resources/world/continent_names.gd
@@ -1955,4 +1939,72 @@ msgstr ""
 
 #: src/screens/settings/license/license.tscn
 msgid "THIRD_PARTY_LICENSES_DESCRIPTION"
+msgstr ""
+
+#: src/enum.gd
+msgid "KEY_ACTIONS"
+msgstr ""
+
+#: src/enum.gd
+msgid "ONLY_GOALS"
+msgstr ""
+
+#: src/enum.gd
+msgid "MALE"
+msgstr ""
+
+#: src/enum.gd
+msgid "FEMALE"
+msgstr ""
+
+#: src/enum.gd
+msgid "MIXED"
+msgstr ""
+
+#: src/enum.gd
+msgid "JANUARY"
+msgstr ""
+
+#: src/enum.gd
+msgid "FEBRUARY"
+msgstr ""
+
+#: src/enum.gd
+msgid "MARCH"
+msgstr ""
+
+#: src/enum.gd
+msgid "APRIL"
+msgstr ""
+
+#: src/enum.gd
+msgid "MAY"
+msgstr ""
+
+#: src/enum.gd
+msgid "JUNE"
+msgstr ""
+
+#: src/enum.gd
+msgid "JULY"
+msgstr ""
+
+#: src/enum.gd
+msgid "AUGUST"
+msgstr ""
+
+#: src/enum.gd
+msgid "SEPTEMBER"
+msgstr ""
+
+#: src/enum.gd
+msgid "OCTOBER"
+msgstr ""
+
+#: src/enum.gd
+msgid "NOVEMBER"
+msgstr ""
+
+#: src/enum.gd
+msgid "DECEMBER"
 msgstr ""
