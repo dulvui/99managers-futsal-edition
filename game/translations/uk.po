@@ -282,8 +282,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: 99 Managers Futsal Edition\n"
-"PO-Revision-Date: 2025-02-08 19:44+0000\n"
-"Last-Translator: Dan <jonweblin2205@protonmail.com>\n"
+"PO-Revision-Date: 2025-02-08 19:47+0000\n"
+"Last-Translator: Simon Dalvai <info@simondalvai.org>\n"
 "Language-Team: Ukrainian <https://hosted.weblate.org/projects/"
 "99-managers-futsal-edition/game/uk/>\n"
 "Language: uk\n"
@@ -2002,3 +2002,51 @@ msgstr ""
 #: src/screens/settings/license/license.tscn
 msgid "SOURCE_CODE_DESCRIPTION"
 msgstr "Повний вихідний код гри доступний на сайтах нижче"
+
+#: src/enum.gd
+msgid "JANUARY"
+msgstr "Січень"
+
+#: src/enum.gd
+msgid "FEBRUARY"
+msgstr "Лютий"
+
+#: src/enum.gd
+msgid "MARCH"
+msgstr "Березень"
+
+#: src/enum.gd
+msgid "MAY"
+msgstr "Травень"
+
+#: src/enum.gd
+msgid "APRIL"
+msgstr "Квітень"
+
+#: src/enum.gd
+msgid "JULY"
+msgstr "Липень"
+
+#: src/enum.gd
+msgid "JUNE"
+msgstr "Червень"
+
+#: src/enum.gd
+msgid "AUGUST"
+msgstr "Серпень"
+
+#: src/enum.gd
+msgid "SEPTEMBER"
+msgstr "Вересень"
+
+#: src/enum.gd
+msgid "OCTOBER"
+msgstr "Жовтень"
+
+#: src/enum.gd
+msgid "NOVEMBER"
+msgstr "Листопад"
+
+#: src/enum.gd
+msgid "DECEMBER"
+msgstr "Грудень"
