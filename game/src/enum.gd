@@ -72,7 +72,7 @@ enum InputDetectionMode {
 enum InputType {
 	JOYPAD,
 	MOUSE_AND_KEYBOARD,
-	TOUCH,
+	TOUCHSCREEN,
 }
 
 
@@ -177,8 +177,8 @@ func get_input_type_text() -> String:
 			return tr("MOUSE_AND_KEYBOARD")
 		InputType.JOYPAD:
 			return tr("JOYPAD")
-		InputType.TOUCH:
-			return tr("TOUCH")
+		InputType.TOUCHSCREEN:
+			return tr("TOUCHSCREEN")
 		_:
 			return tr("MOUSE_AND_KEYBOARD")
 

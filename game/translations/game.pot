@@ -329,18 +329,6 @@ msgstr ""
 msgid "YEAR"
 msgstr ""
 
-#: src/ui_components/player_list/player_list.gd
-msgid "ALL_TEAMS"
-msgstr ""
-
-#: src/ui_components/player_list/player_list.gd
-msgid "ALL_POS"
-msgstr ""
-
-#: src/ui_components/player_list/player_list.gd
-msgid "ALL_LEAGUES"
-msgstr ""
-
 #: src/ui_components/player_list/player_list_column/player_list_column.tscn
 #: src/ui_components/player_profile/info_view/info_view.tscn
 #: src/screens/setup/setup_manager/setup_manager.tscn
@@ -700,42 +688,6 @@ msgstr ""
 #: src/ui_components/visual_calendar/visual_calendar.tscn
 #: src/enum.gd
 msgid "SUNDAY"
-msgstr ""
-
-#: src/resources/person/player/player.gd
-msgid "LEFT"
-msgstr ""
-
-#: src/resources/person/player/player.gd
-msgid "RIGHT"
-msgstr ""
-
-#: src/resources/person/player/player.gd
-msgid "WORST"
-msgstr ""
-
-#: src/resources/person/player/player.gd
-msgid "BAD"
-msgstr ""
-
-#: src/resources/person/player/player.gd
-msgid "NEUTRAL"
-msgstr ""
-
-#: src/resources/person/player/player.gd
-msgid "GOOD"
-msgstr ""
-
-#: src/resources/person/player/player.gd
-msgid "BEST"
-msgstr ""
-
-#: src/resources/person/player/player.gd
-msgid "INJURED"
-msgstr ""
-
-#: src/resources/person/player/player.gd
-msgid "RECOVER"
 msgstr ""
 
 #: src/utils/logic/email_util.gd
@@ -2007,4 +1959,64 @@ msgstr ""
 
 #: src/enum.gd
 msgid "DECEMBER"
+msgstr ""
+
+#: src/enum.gd
+msgid "AUTOMATIC"
+msgstr ""
+
+#: src/enum.gd
+msgid "MANUAL"
+msgstr ""
+
+#: src/enum.gd
+msgid "MOUSE_AND_KEYBOARD"
+msgstr ""
+
+#: src/enum.gd
+msgid "JOYPAD"
+msgstr ""
+
+#: src/enum.gd
+msgid "TOUCHSCREEN"
+msgstr ""
+
+#: src/enum.gd
+msgid "LEFT"
+msgstr ""
+
+#: src/enum.gd
+msgid "RIGHT"
+msgstr ""
+
+#: src/enum.gd
+msgid "LEFT_AND_RIGHT"
+msgstr ""
+
+#: src/enum.gd
+msgid "WORST"
+msgstr ""
+
+#: src/enum.gd
+msgid "BAD"
+msgstr ""
+
+#: src/enum.gd
+msgid "NEUTRAL"
+msgstr ""
+
+#: src/enum.gd
+msgid "GOOD"
+msgstr ""
+
+#: src/enum.gd
+msgid "BEST"
+msgstr ""
+
+#: src/enum.gd
+msgid "INJURED"
+msgstr ""
+
+#: src/enum.gd
+msgid "RECOVER"
 msgstr ""

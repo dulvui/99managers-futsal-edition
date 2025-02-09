@@ -283,7 +283,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: 99 Managers Futsal Edition\n"
 "POT-Creation-Date: \n"
-"PO-Revision-Date: 2025-02-08 20:43+0100\n"
+"PO-Revision-Date: 2025-02-09 14:29+0100\n"
 "Last-Translator: Simon Dalvai <info@simondalvai.org>\n"
 "Language-Team: English <https://hosted.weblate.org/projects/99-managers-"
 "futsal-edition/game-gettext/en/>\n"
@@ -329,18 +329,6 @@ msgstr "Persons"
 #: src/ui_components/transfers/contract_offer/contract_offer.tscn
 msgid "YEAR"
 msgstr "Year"
-
-#: src/ui_components/player_list/player_list.gd
-msgid "ALL_TEAMS"
-msgstr "All teams"
-
-#: src/ui_components/player_list/player_list.gd
-msgid "ALL_POS"
-msgstr "All positions"
-
-#: src/ui_components/player_list/player_list.gd
-msgid "ALL_LEAGUES"
-msgstr "All leagues"
 
 #: src/ui_components/player_list/player_list_column/player_list_column.tscn
 #: src/ui_components/player_profile/info_view/info_view.tscn
@@ -692,42 +680,6 @@ msgstr "Saturday"
 msgid "SUNDAY"
 msgstr "Sunday"
 
-#: src/resources/person/player/player.gd
-msgid "LEFT"
-msgstr "Left"
-
-#: src/resources/person/player/player.gd
-msgid "RIGHT"
-msgstr "Right"
-
-#: src/resources/person/player/player.gd
-msgid "WORST"
-msgstr "Worst"
-
-#: src/resources/person/player/player.gd
-msgid "BAD"
-msgstr "Bad"
-
-#: src/resources/person/player/player.gd
-msgid "NEUTRAL"
-msgstr "Neutral"
-
-#: src/resources/person/player/player.gd
-msgid "GOOD"
-msgstr "Good"
-
-#: src/resources/person/player/player.gd
-msgid "BEST"
-msgstr "Best"
-
-#: src/resources/person/player/player.gd
-msgid "INJURED"
-msgstr "Injured"
-
-#: src/resources/person/player/player.gd
-msgid "RECOVER"
-msgstr "Recover"
-
 #: src/utils/logic/email_util.gd src/screens/dashboard/dashboard.tscn
 msgid "NEXT_MATCH"
 msgstr "Next match"
@@ -1007,10 +959,6 @@ msgstr "Pause"
 #: src/screens/match/penalties_bar/penalties_bar.tscn
 msgid "PENALTIES"
 msgstr "Penalties (6m)"
-
-#: src/screens/match/statistics/match_stats.gd
-msgid "0"
-msgstr ""
 
 #: src/screens/match/match.tscn
 msgid "STATS"
@@ -2006,6 +1954,75 @@ msgstr "November"
 #: src/enum.gd
 msgid "DECEMBER"
 msgstr "December"
+
+#: src/enum.gd
+msgid "AUTOMATIC"
+msgstr "Automatic"
+
+#: src/enum.gd
+msgid "MANUAL"
+msgstr "Manual"
+
+#: src/enum.gd
+msgid "MOUSE_AND_KEYBOARD"
+msgstr "Mouse and Keyboard"
+
+#: src/enum.gd
+msgid "JOYPAD"
+msgstr "Joypad"
+
+#: src/enum.gd
+msgid "TOUCHSCREEN"
+msgstr "Touchscreen"
+
+#: src/enum.gd
+msgid "LEFT"
+msgstr "Left"
+
+#: src/enum.gd
+msgid "RIGHT"
+msgstr "Right"
+
+#: src/enum.gd
+msgid "LEFT_AND_RIGHT"
+msgstr "Left and right"
+
+#: src/enum.gd
+msgid "WORST"
+msgstr "Worst"
+
+#: src/enum.gd
+msgid "BAD"
+msgstr "Bad"
+
+#: src/enum.gd
+msgid "NEUTRAL"
+msgstr "Neutral"
+
+#: src/enum.gd
+msgid "GOOD"
+msgstr "Good"
+
+#: src/enum.gd
+msgid "BEST"
+msgstr "Best"
+
+#: src/enum.gd
+msgid "INJURED"
+msgstr "Injured"
+
+#: src/enum.gd
+msgid "RECOVER"
+msgstr "Recover"
+
+#~ msgid "ALL_TEAMS"
+#~ msgstr "All teams"
+
+#~ msgid "ALL_POS"
+#~ msgstr "All positions"
+
+#~ msgid "ALL_LEAGUES"
+#~ msgstr "All leagues"
 
 #~ msgid "FULL_MATCH"
 #~ msgstr "Full match"
