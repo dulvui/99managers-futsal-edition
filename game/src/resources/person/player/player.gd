@@ -5,9 +5,6 @@
 class_name Player
 extends Person
 
-enum Foot { L, R }
-enum Morality { WORST, BAD, NEUTRAL, GOOD, BEST }
-enum Form { INJURED, RECOVER, GOOD, BEST }
 
 @export var value: int
 @export var nr: int  # shirt number
@@ -19,11 +16,11 @@ enum Form { INJURED, RECOVER, GOOD, BEST }
 @export var league_id: int
 @export var team: String
 @export var team_id: int
-@export var form: Form
-@export var morality: Morality
+@export var form: Enum.Form
+@export var morality: Enum.Morality
 @export var statistics: Statistics
 @export var history: Array[History]
-@export var foot: Foot
+@export var foot: Enum.Foot
 @export var position: Position
 @export var alt_positions: Array[Position]
 @export var attributes: Attributes
@@ -45,11 +42,11 @@ func _init(
 	p_surname: String = "",
 	p_nation: String = "",
 	p_birth_date: Dictionary = Time.get_datetime_dict_from_system(),
-	p_form: Form = Form.GOOD,
-	p_morality: Morality = Morality.NEUTRAL,
+	p_form: Enum.Form = Enum.Form.GOOD,
+	p_morality: Enum.Morality = Enum.Morality.NEUTRAL,
 	p_statistics: Statistics = Statistics.new(),
 	p_history: Array[History] = [],
-	p_foot: Foot = Foot.R,
+	p_foot: Enum.Foot = Enum.Foot.RIGHT,
 	p_position: Position = Position.new(),
 	p_alt_positions: Array[Position] = [],
 	p_contract: Contract = Contract.new(),
@@ -135,45 +132,3 @@ func position_match_factor(p_position: Position) -> float:
 	return factor
 
 
-#
-# enum to string functions
-#
-
-func get_foot_text() -> String:
-	match foot:
-		Foot.L:
-			return tr("LEFT") # TRANSLATORS: Preferred foot
-		Foot.R:
-			return tr("RIGHT") # TRANSLATORS: Preferred foot
-		_:
-			return tr("RIGHT") # TRANSLATORS: Preferred foot
-
-
-func get_morality_text() -> String:
-	match morality:
-		Morality.WORST:
-			return tr("WORST") # TRANSLATORS: Player morality
-		Morality.BAD:
-			return tr("BAD") # TRANSLATORS: Player morality
-		Morality.NEUTRAL:
-			return tr("NEUTRAL") # TRANSLATORS: Player morality
-		Morality.GOOD:
-			return tr("GOOD") # TRANSLATORS: Player morality
-		Morality.BEST:
-			return tr("BEST") # TRANSLATORS: Player morality
-		_:
-			return tr("NEUTRAL") # TRANSLATORS: Player morality
-
-
-func get_form_text() -> String:
-	match form:
-		Form.INJURED:
-			return tr("INJURED") # TRANSLATORS: Player physical form
-		Form.RECOVER:
-			return tr("RECOVER") # TRANSLATORS: Player physical form
-		Form.GOOD:
-			return tr("GOOD") # TRANSLATORS: Player physical form
-		Form.BEST:
-			return tr("BEST") # TRANSLATORS: Player physical form
-		_:
-			return tr("GOOD") # TRANSLATORS: Player physical form

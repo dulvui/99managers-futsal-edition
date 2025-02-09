@@ -20,23 +20,23 @@ func _ready() -> void:
 	joypad_info.text = JoypadUtil.get_joypad_type_string()
 
 	# type
-	type_button.setup(InputUtil.Type.keys(), Global.input_type)
+	type_button.setup(Enum.InputType.keys(), Global.input_type)
 	# detection mode
 	detection_mode_button.setup(InputUtil.DetectionMode.keys(), Global.input_detection_mode)
 
 
 func restore_defaults() -> void:
 	# type
-	Global.input_type = 0
+	Global.input_type = 0 as Enum.InputType
 	type_button.option_button.selected = 0
 	# detection mode
-	Global.input_detection_mode = 0
+	Global.input_detection_mode = 0 as Enum.InputDetectionMode
 	detection_mode_button.option_button.selected = 0
 
 
 func _on_detection_mode_button_item_selected(index: int) -> void:
-	Global.input_detection_mode = index
-	if index == InputUtil.DetectionMode.MANUAL:
+	Global.input_detection_mode = index as Enum.InputDetectionMode
+	if index == Enum.InputDetectionMode.MANUAL:
 		InputUtil.type = Global.input_type
 	Global.save_config()
 

@@ -4,28 +4,15 @@
 
 extends Node
 
-signal type_changed(type: Type)
-
+signal type_changed(type: Enum.InputType)
 
 const DETECTION_TIMEOUT: int = 3
-
-enum DetectionMode {
-	AUTO,
-	MANUAL,
-}
-
-enum Type {
-	JOYPAD,
-	KEYBOARD,
-	#VIRTUAL_KEYBOARD,
-	TOUCH,
-}
 
 var focused: bool
 var viewport: Viewport
 var first_focus: Control
 var last_focus: Control
-var type: Type:
+var type: Enum.InputType:
 	set = set_type
 
 # to prevent constant type switches on detection mode auto
@@ -81,15 +68,15 @@ func start_focus(node: Control) -> void:
 		print("start focus: not node found to focus")
 
 
-func set_type(p_type: Type) -> void:
+func set_type(p_type: Enum.InputType) -> void:
 	type = p_type
 	Global.input_type = type
 	type_changed.emit(type)
 
 	timer.start(DETECTION_TIMEOUT)
 
-	# hide mouse if not keyabord
-	if type != Type.KEYBOARD:
+	# hide mouse if not mouse and keyboard
+	if type != Enum.InputType.MOUSE_AND_KEYBOARD:
 		Input.set_mouse_mode(Input.MOUSE_MODE_HIDDEN)
 	else:
 		Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
@@ -108,18 +95,18 @@ func _verify_focus() -> void:
 
 
 func _verify_type(event: InputEvent) -> void:
-	if Global.input_detection_mode == DetectionMode.MANUAL:
+	if Global.input_detection_mode == Enum.InputDetectionMode.MANUAL:
 		return
 
 	if timer.time_left > 0.5:
 		return
 
 	if event is InputEventJoypadButton or event is InputEventJoypadMotion:
-		if type != Type.JOYPAD:
-			type = Type.JOYPAD
+		if type != Enum.InputType.JOYPAD:
+			type = Enum.InputType.JOYPAD
 	elif event is InputEventKey or event is InputEventMouse:
-		if type != Type.KEYBOARD:
-			type = Type.KEYBOARD
+		if type != Enum.InputType.MOUSE_AND_KEYBOARD:
+			type = Enum.InputType.MOUSE_AND_KEYBOARD
 
 
 func _on_gui_focus_change(node: Control) -> void:

@@ -377,32 +377,37 @@ func _get_value(age: int, prestige: int, position: Position) -> int:
 	return RngUtil.rng.randi_range(max(total_factor - 20, 0), total_factor) * 1000
 
 
-func _get_random_foot() -> Player.Foot:
-	if RngUtil.rng.randi() % 5 == 0:
-		return Player.Foot.L
-	return Player.Foot.R
+func _get_random_foot() -> Enum.Foot:
+	var random: int = RngUtil.rng.randi_range(1, 100)
+	if  random < 10:
+		return Enum.Foot.LEFT_AND_RIGHT
+	if random < 35:
+		return Enum.Foot.LEFT
+	return Enum.Foot.RIGHT
 
 
-func _get_random_form() -> Player.Form:
-	var factor: int = RngUtil.rng.randi() % 100
-	if factor < 5:
-		return Player.Form.INJURED
-	if factor < 15:
-		return Player.Form.RECOVER
-	if factor < 60:
-		return Player.Form.GOOD
-	return Player.Form.BEST
+func _get_random_form() -> Enum.Form:
+	var random: int = RngUtil.rng.randi_range(1, 100)
+	if random < 5:
+		return Enum.Form.INJURED
+	if random < 15:
+		return Enum.Form.RECOVER
+	if random < 60:
+		return Enum.Form.GOOD
+	return Enum.Form.BEST
 
 
-func _get_random_morality() -> Player.Morality:
-	var factor: int = RngUtil.rng.randi() % 100
-	if factor < 5:
-		return Player.Morality.WORST
-	if factor < 15:
-		return Player.Morality.BAD
-	if factor < 60:
-		return Player.Morality.GOOD
-	return Player.Morality.BEST
+func _get_random_morality() -> Enum.Morality:
+	var random: int = RngUtil.rng.randi_range(1, 100)
+	if random < 5:
+		return Enum.Morality.WORST
+	if random < 15:
+		return Enum.Morality.BAD
+	if random < 50:
+		return Enum.Morality.NEUTRAL
+	if random < 60:
+		return Enum.Morality.GOOD
+	return Enum.Morality.BEST
 
 
 func _get_contract(person: Person) -> Contract:
