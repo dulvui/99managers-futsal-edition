@@ -282,8 +282,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: 99 Managers Futsal Edition\n"
-"PO-Revision-Date: 2025-02-08 19:47+0000\n"
-"Last-Translator: Simon Dalvai <info@simondalvai.org>\n"
+"PO-Revision-Date: 2025-02-10 06:49+0000\n"
+"Last-Translator: Ettore Atalan <atalanttore@googlemail.com>\n"
 "Language-Team: German <https://hosted.weblate.org/projects/"
 "99-managers-futsal-edition/game/de/>\n"
 "Language: de\n"
@@ -442,7 +442,7 @@ msgstr "Punkte"
 
 #: src/ui_components/visual_competitions/visual_knockout/visual_knockout.tscn
 msgid "KNOCKOUT"
-msgstr ""
+msgstr "Knockout"
 
 #: src/ui_components/visual_competitions/visual_knockout/visual_knockout.tscn
 msgid "GROUP A"
@@ -1953,3 +1953,86 @@ msgstr "Erholung"
 #: src/enum.gd
 msgid "ONLY_GOALS"
 msgstr "Nur Tore"
+
+#: src/ui_components/base/confirm_dialog/default_confirm_dialog.gd
+msgid "OK"
+msgstr "OK"
+
+#: src/resources/person/player/player.gd
+msgid "LEFT"
+msgstr "Links"
+
+#: src/resources/person/player/player.gd
+msgid "RIGHT"
+msgstr "Rechts"
+
+#: src/screens/settings/settings.tscn
+msgid "CONTRIBUTORS"
+msgstr "Mitwirkende"
+
+#: src/screens/settings/settings.tscn
+msgid "LICENSES"
+msgstr "Lizenzen"
+
+#: src/screens/settings/general/general_settings.tscn
+msgid "LANGUAGE"
+msgstr "Sprache"
+
+#: src/screens/save_states_screen/save_state_entry/save_state_entry.gd
+#: src/screens/menu/menu.gd
+msgid "LOADING_GAME"
+msgstr "Spiel wird geladen"
+
+#: src/screens/dashboard/dashboard.gd
+msgid "SIMULATING_RESULTS"
+msgstr "Ergebnisse werden simuliert"
+
+#: src/screens/dashboard/dashboard.tscn
+msgid "COMING_SOON"
+msgstr "Demnächst verfügbar"
+
+#: src/screens/setup/setup_team/setup_team.gd
+msgid "INITIALIZE_GAME"
+msgstr "Spiel wird initialisiert"
+
+#: src/resources/world/nation_names.gd
+msgid "BURMA"
+msgstr "Burma"
+
+#: src/screens/settings/license/license.tscn
+msgid "READ_FULL_LICENSE"
+msgstr "Vollständige Lizenz lesen"
+
+#: src/screens/settings/license/license.tscn
+msgid "THIRD_PARTY_LICENSES_DESCRIPTION"
+msgstr ""
+"Dieses Spiel wurde mit der Godot Engine erstellt, die unter der MIT-Lizenz "
+"veröffentlicht wurde."
+
+#: src/screens/settings/license/license.tscn
+msgid "SOURCE_CODE"
+msgstr "Quellcode"
+
+#: src/screens/settings/license/license.tscn
+msgid "SOURCE_CODE_DESCRIPTION"
+msgstr ""
+"Der vollständige Quellcode des Spiels ist auf den folgenden Websites "
+"verfügbar"
+
+#: src/screens/settings/license/license.tscn
+msgid "THIRD_PARTY_LICENSES"
+msgstr "Drittanbieter-Lizenzen"
+
+#: src/screens/settings/license/license.tscn
+msgid "GAME_LICENSE"
+msgstr "Spiellizenz"
+
+#: src/screens/dashboard/dashboard.gd
+msgid "SAVING_GAME"
+msgstr "Spiel wird gespeichert"
+
+#: src/screens/settings/license/license.tscn
+msgid "GAME_LICENSE_DESCRIPTION"
+msgstr ""
+"Dieses Spiel ist quelloffen und wird unter der AGPL v3 oder einer neueren "
+"Lizenz veröffentlicht."
