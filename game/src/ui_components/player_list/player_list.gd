@@ -366,7 +366,7 @@ func _show_general() -> void:
 	_add_column("VALUE", values)
 	var presitge_stars: Callable = func(p: Player) -> String: return p.get_prestige_stars()
 	_add_column("PRESTIGE", presitge_stars)
-	var moralities: Callable = func(p: Player) -> String: return p.get_morality_text()
+	var moralities: Callable = func(p: Player) -> String: return Enum.get_morality_text(p)
 	_add_column("MORALITY", moralities)
 	var birth_dates: Callable = func(p: Player) -> Dictionary: return p.birth_date
 	_add_column("BIRTH_DATE", birth_dates)

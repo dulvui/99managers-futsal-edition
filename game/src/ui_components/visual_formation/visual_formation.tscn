@@ -39,6 +39,8 @@ text = "CHANGE_STRATEGY"
 [node name="ChangeStrategySelect" parent="Tactics" instance=ExtResource("4_bi7d8")]
 unique_name_in_owner = true
 layout_mode = 2
+tooltip_text = "COMING_SOON"
+disabled = true
 
 [node name="HSeparator3" type="HSeparator" parent="Tactics"]
 layout_mode = 2
@@ -54,6 +56,8 @@ text = "TACTIC_OFFENSE"
 [node name="TacticSelectOffense" parent="Tactics" instance=ExtResource("4_bi7d8")]
 unique_name_in_owner = true
 layout_mode = 2
+tooltip_text = "COMING_SOON"
+disabled = true
 
 [node name="TacticOffenseIntensityLabel" type="Label" parent="Tactics"]
 layout_mode = 2
@@ -79,6 +83,8 @@ text = "MARKING"
 [node name="TacticSelectMarking" parent="Tactics" instance=ExtResource("4_bi7d8")]
 unique_name_in_owner = true
 layout_mode = 2
+tooltip_text = "COMING_SOON"
+disabled = true
 
 [node name="TacticPressingLabel" type="Label" parent="Tactics"]
 layout_mode = 2
@@ -87,6 +93,8 @@ text = "PRESSING"
 [node name="TacticSelectPressing" parent="Tactics" instance=ExtResource("4_bi7d8")]
 unique_name_in_owner = true
 layout_mode = 2
+tooltip_text = "COMING_SOON"
+disabled = true
 
 [node name="LineUp" type="VBoxContainer" parent="."]
 unique_name_in_owner = true

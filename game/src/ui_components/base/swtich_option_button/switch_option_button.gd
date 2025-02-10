@@ -7,7 +7,11 @@ extends MarginContainer
 
 signal item_selected(index: int)
 
-@onready var option_button: OptionButton = $HBoxContainer/OptionButton
+@export var disabled: bool = false
+
+@onready var option_button: OptionButton = %OptionButton
+@onready var prev_button: Button = %Prev
+@onready var next_button: Button = %Next
 
 
 func setup(items: Array, selected: int = 0) -> void:
@@ -15,7 +19,17 @@ func setup(items: Array, selected: int = 0) -> void:
 	for item: String in items:
 		option_button.add_item(item)
 	option_button.selected = selected
-	option_button.tooltip_text = option_button.text
+
+	option_button.disabled = disabled
+	prev_button.disabled = disabled
+	next_button.disabled = disabled
+
+	if not tooltip_text.is_empty():
+		option_button.tooltip_text = tooltip_text
+		prev_button.tooltip_text = tooltip_text
+		next_button.tooltip_text = tooltip_text
+	else:
+		option_button.tooltip_text = option_button.text
 
 
 func _on_next_pressed() -> void:

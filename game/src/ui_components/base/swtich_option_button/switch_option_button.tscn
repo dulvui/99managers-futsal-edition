@@ -23,6 +23,7 @@ layout_mode = 2
 alignment = 1
 
 [node name="Prev" type="Button" parent="HBoxContainer"]
+unique_name_in_owner = true
 auto_translate_mode = 2
 layout_mode = 2
 size_flags_horizontal = 4
@@ -30,6 +31,7 @@ text = "<"
 script = ExtResource("2_o8qi5")
 
 [node name="OptionButton" type="OptionButton" parent="HBoxContainer"]
+unique_name_in_owner = true
 clip_contents = true
 custom_minimum_size = Vector2(100, 0)
 layout_mode = 2
@@ -38,6 +40,7 @@ text_overrun_behavior = 3
 script = ExtResource("3_c4scu")
 
 [node name="Next" type="Button" parent="HBoxContainer"]
+unique_name_in_owner = true
 auto_translate_mode = 2
 layout_mode = 2
 size_flags_horizontal = 4

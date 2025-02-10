@@ -111,12 +111,26 @@ text = "COMPETITIONS"
 alignment = 0
 script = ExtResource("3_kbasy")
 
+[node name="HSeparator6" type="HSeparator" parent="MarginContainer/HBoxContainer/PanelContainer/MarginContainer/Buttons"]
+layout_mode = 2
+
 [node name="FinancesButton" type="Button" parent="MarginContainer/HBoxContainer/PanelContainer/MarginContainer/Buttons"]
 unique_name_in_owner = true
 custom_minimum_size = Vector2(180, 0)
 layout_mode = 2
 size_flags_vertical = 4
 text = "FINANCES"
+alignment = 0
+script = ExtResource("3_kbasy")
+
+[node name="StadiumButton" type="Button" parent="MarginContainer/HBoxContainer/PanelContainer/MarginContainer/Buttons"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(180, 0)
+layout_mode = 2
+size_flags_vertical = 4
+tooltip_text = "COMING_SOON"
+disabled = true
+text = "STADIUM"
 alignment = 0
 script = ExtResource("3_kbasy")
 

@@ -33,7 +33,7 @@ func setup(player: Player) -> void:
 		+ "/"
 		+ str(player.birth_date.year)
 	)
-	foot.text = Player.Foot.keys()[player.foot]
+	foot.text = Enum.get_foot_text(player)
 	nationality.text = str(player.team)
 	team.text = str(player.foot)
 	nr.text = str(player.nr)
