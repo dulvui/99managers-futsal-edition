@@ -324,6 +324,7 @@ func _on_full_time() -> void:
 		_recover_stamina(5)
 	else:
 		match_over = true
+		field.clock_running = false
 		match_finish.emit()
 	full_time.emit()
 
@@ -361,6 +362,7 @@ func _on_full_over_time() -> void:
 		right_team.set_state(TeamStatePenalties.new())
 	else:
 		match_over = true
+		field.clock_running = false
 		match_finish.emit()
 
 
@@ -379,12 +381,14 @@ func _check_penalties_over() -> void:
 		if home_goals >	away_goals_max: 
 			match_over = true
 			penalties = false
+			field.clock_running = false
 			match_finish.emit()
 			return
 		# check if away made more goals than home has made and home still can make
 		if away_goals >	home_goals_max: 
 			match_over = true
 			penalties = false
+			field.clock_running = false
 			match_finish.emit()
 			return
 	# check if one team missed and the other made goal
@@ -392,12 +396,12 @@ func _check_penalties_over() -> void:
 		if home_goals != away_goals:
 			match_over = true
 			penalties = false
+			field.clock_running = false
 			match_finish.emit()
 			return
 
 
 func _on_penalties_goal() -> void:
-	print("goalll")
 	if left_team.has_ball:
 		left_team.stats.penalty_shootout_goals += 1
 	else:

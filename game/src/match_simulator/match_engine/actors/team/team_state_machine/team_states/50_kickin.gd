@@ -34,13 +34,12 @@ func execute() -> void:
 			pass_ball()
 			set_state(TeamStateAttack.new())
 			return
-	elif not owner.field.kickin:
+	elif not owner.field.clock_running:
 		set_state(TeamStateDefend.new())
 
 
 func exit() -> void:
 	owner.field.clock_running = true
-	owner.field.kickin = false
 
 
 func pass_ball() -> void:
@@ -58,4 +57,6 @@ func pass_ball() -> void:
 	owner.team.player_receive_ball(best_player)
 	owner.field.ball.short_pass(owner.team.player_receive_ball().pos, 20)
 	owner.team.stats.passes += 1
+	
+	owner.field.kickin = false
 
