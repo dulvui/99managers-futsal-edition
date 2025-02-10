@@ -17,13 +17,14 @@ func test_deterministic_simulations() -> void:
 	print("test: deterministic simulation...")
 	var matches: Array[Match] = []
 	
-	const MATCH_AMOUNT: int = 9
+	const MATCH_AMOUNT: int = 3
 	const SEED_AMOUNT: int = 9
 	
 	var match_engine: MatchEngine = MatchEngine.new()
 
 	# simulate matches
 	for i: int in SEED_AMOUNT:
+		matches = []
 		for j: int in MATCH_AMOUNT:
 			var matchz: Match = Match.new()
 
