@@ -22,7 +22,7 @@ func _ready() -> void:
 	# type
 	type_button.setup(Enum.InputType.keys(), Global.input_type)
 	# detection mode
-	detection_mode_button.setup(InputUtil.DetectionMode.keys(), Global.input_detection_mode)
+	detection_mode_button.setup(Enum.InputDetectionMode.keys(), Global.input_detection_mode)
 
 
 func restore_defaults() -> void:
@@ -43,6 +43,6 @@ func _on_detection_mode_button_item_selected(index: int) -> void:
 
 
 func _on_type_button_item_selected(index: int) -> void:
-	InputUtil.type = index
+	InputUtil.type = index as Enum.InputType
 	Global.save_config()
 
