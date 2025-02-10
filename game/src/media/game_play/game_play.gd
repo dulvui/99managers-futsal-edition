@@ -29,7 +29,7 @@ func _ready() -> void:
 	var match_screen: MatchScreen = match_scene.instantiate()
 	content.add_child(match_screen)
 	# simulate match to later state
-	match_screen.match_simulator.engine.simulate(2)
+	# match_screen.match_simulator.engine.simulate(45)
 
 	# dashboard
 	var dashboard_scene: PackedScene = load(Const.SCREEN_DASHBOARD)
@@ -37,44 +37,47 @@ func _ready() -> void:
 	content.add_child(dashboard_screen)
 
 	# set initial modulates
-	icon.modulate = Color.WHITE
+	icon.modulate = Color.TRANSPARENT
 	match_screen.modulate = Color.TRANSPARENT
 	teaser.modulate = Color.TRANSPARENT
 	dashboard_screen.modulate = Color.TRANSPARENT
-
-	# icon
-	await wait(1)
-	await fade_out(icon)
 	
-	await show_teaser(2, "The world's first\nFutsal Manager game")
+	Global.match_speed = Enum.MatchSpeed.FULL_GAME
 
-	# match teaser
-	await show_teaser(1, "With 2D Match Engine")
-	
+
 	# match
 	await show_screen(6, match_screen)
 
 	# dashboard teaser
-	await show_teaser(1, "Have full control")
+	# await show_teaser(1, "Have full control")
 	# dashboard
-	await show_screen(3, dashboard_screen)
+	await show_screen(4, dashboard_screen)
+	# match
+	match_screen.match_simulator.engine.simulate(89)
+	await show_screen(4, match_screen)
 	# show formation
-	await show_teaser(1, "Choose tactics")
+	# await show_teaser(1, "Choose tactics")
 	dashboard_screen._on_formation_button_pressed()
 	await show_screen(6, dashboard_screen)
 	# show formation
-	await show_teaser(1, "Find the next talent")
+	# await show_teaser(1, "Find the next talent")
 	dashboard_screen._on_search_player_button_pressed()
 	await show_screen(6, dashboard_screen)
 	# show calendat
-	await show_teaser(1, "Plan your journey")
+	# await show_teaser(1, "Plan your journey")
 	dashboard_screen._on_calendar_button_pressed()
 	await show_screen(6, dashboard_screen)
 
-	await show_teaser(1, "Are you ready?")
+	await show_teaser(2, "The world's first\nFutsal Manager game")
 
-	# coming soon teaser
-	await show_teaser(5, "Coming 2025", "99managers.org", false)
+	# match
+	match_screen.match_simulator.engine.simulate(456)
+	await show_screen(4, match_screen)
+	# icon
+	await fade_in(icon)
+	await wait(1)
+	# await fade_out(icon)
+	
 
 	# quit scene to finish registration
 	get_tree().quit()
@@ -108,12 +111,12 @@ func show_screen(time: float, screen: Node) -> void:
 
 func fade_in(node: Node) -> void:
 	var tween: Tween = create_tween()
-	tween.tween_property(node, "modulate", Color.WHITE, 0.5)
+	tween.tween_property(node, "modulate", Color.WHITE, 0.25)
 	await tween.finished 
 
 
 func fade_out(node: Node) -> void:
 	var tween: Tween = create_tween()
-	tween.tween_property(node, "modulate", Color.TRANSPARENT, 0.5)
+	tween.tween_property(node, "modulate", Color.TRANSPARENT, 0.25)
 	await tween.finished 
 
