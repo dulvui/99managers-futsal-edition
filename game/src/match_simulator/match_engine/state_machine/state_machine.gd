@@ -41,8 +41,8 @@ func set_state(p_state: StateMachineState) -> void:
 		previous_state = state
 
 	# enter and set as current
-	p_state.enter()
 	state = p_state
+	state.enter()
 
 	# append to buffer
 	_buffer_append()

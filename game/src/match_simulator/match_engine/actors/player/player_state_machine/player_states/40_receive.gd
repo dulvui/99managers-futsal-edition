@@ -12,7 +12,7 @@ func _init() -> void:
 
 func enter() -> void:
 	# move slowly towards ball
-	owner.player.set_destination(owner.field.ball.pos, 5)
+	owner.player.follow(owner.field.ball, 10)
 
 
 func execute() -> void:
@@ -22,9 +22,5 @@ func execute() -> void:
 		owner.field.ball.stop()
 		owner.team.player_control(owner.player)
 		return
-
-	# check if ball passed player
-	if owner.player.pos.normalized().dot(owner.field.ball.pos.normalized()) < 0:
-		set_state(PlayerStateChaseBall.new())
 
 

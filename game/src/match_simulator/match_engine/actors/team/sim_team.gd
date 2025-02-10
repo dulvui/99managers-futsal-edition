@@ -80,6 +80,9 @@ func setup(
 		sim_player.setup(player, self, field, left_half)
 		players.append(sim_player)
 
+	# set goalkeeper flag
+	players[0].make_goalkeeper()
+
 	_set_start_positions()
 	
 	state_machine = TeamStateMachine.new(rng, field, self)
@@ -87,10 +90,8 @@ func setup(
 
 func update() -> void:
 	for player: SimPlayer in players:
-		# goalkeeper gets updated after players
-		if not player.is_goalkeeper:
-			player.update()
-	
+		player.update()
+
 	# recover bench players stamina
 	for player: Player in team_res.players.slice(5):
 		player.recover_stamina()
@@ -105,14 +106,6 @@ func update() -> void:
 		auto_change()
 		if change_request:
 			change_players()
-
-
-func update_goalkeeper() -> void:
-	for player: SimPlayer in players:
-		# goalkeeper gets updated after players
-		if player.is_goalkeeper:
-			player.update()
-			return
 
 
 func move() -> void:
@@ -293,7 +286,4 @@ func _set_start_positions() -> void:
 		var start_pos: Vector2 = team_res.formation.get_start_pos(
 			field.size, players.find(player), left_half
 		)
-		player.start_pos = start_pos
-	
-	# set goalkeeper flag
-	players[0].make_goalkeeper()
+		player.start_pos = start_pos	

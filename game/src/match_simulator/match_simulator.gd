@@ -35,7 +35,7 @@ var teams_buffer: MatchBufferTeams
 
 func _physics_process(delta: float) -> void:
 	# do nothing while paused
-	if Global.match_paused:
+	if Global.match_paused or engine.match_over:
 		return
 
 	# update engine show visual match	

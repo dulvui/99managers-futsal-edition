@@ -103,9 +103,6 @@ func update() -> void:
 	if ticks % Const.TICKS_LOGIC == 0:
 		left_team.update()
 		right_team.update()
-		# update goalkeeper after players, for easier shot saves
-		left_team.update_goalkeeper()
-		right_team.update_goalkeeper()
 
 	# time related code
 	if field.clock_running:

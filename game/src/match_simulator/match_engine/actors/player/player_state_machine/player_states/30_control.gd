@@ -35,7 +35,10 @@ func execute() -> void:
 	# 	set_state(PlayerStateDribble.new())
 	# 	return
 
-	pass_ball()
+	if owner.player.rng.randi() % 2 == 0:
+		pass_ball()
+	else:
+		pass_ball_random()
 	set_state(PlayerStateAttack.new())
 
 
@@ -79,3 +82,16 @@ func pass_ball() -> void:
 
 
 
+func pass_ball_random() -> void:
+	var random_player: SimPlayer
+	var random_index: int = owner.rng.randi() % 5
+	
+	if random_index == owner.team.players.find(owner.player):
+		random_index += 1
+		random_index %= 5
+
+	random_player = owner.team.players[random_index]
+
+	owner.team.player_receive_ball(random_player)
+	owner.field.ball.short_pass(owner.team.player_receive_ball().pos, 20)
+	owner.team.stats.passes += 1
