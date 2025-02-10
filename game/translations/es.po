@@ -282,7 +282,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: 99 Managers Futsal Edition\n"
-"PO-Revision-Date: 2025-02-08 19:47+0000\n"
+"PO-Revision-Date: 2025-02-10 07:25+0000\n"
 "Last-Translator: Simon Dalvai <info@simondalvai.org>\n"
 "Language-Team: Spanish <https://hosted.weblate.org/projects/"
 "99-managers-futsal-edition/game/es/>\n"
@@ -1976,3 +1976,15 @@ msgstr "Recuperando"
 #: src/enum.gd
 msgid "ONLY_GOALS"
 msgstr "Only goals"
+
+#: src/enum.gd
+msgid "MANUAL"
+msgstr "Manual"
+
+#: src/enum.gd
+msgid "JOYPAD"
+msgstr "Joypad"
+
+#: src/enum.gd
+msgid "AUTOMATIC"
+msgstr "Automático"
