@@ -17,10 +17,11 @@ Available on [Codeberg](https://codeberg.org/dulvui/99managers-futsal-edition) a
 </a>
 
 # Alpha version
-You can find the first versions of the game on [Github](https://github.com/dulvui/futsal-manager/releases).
+You can find the first versions of the game on [Github](https://github.com/dulvui/99managers-futsal-edition/releases).
+
 # FAQ
 Check out my blog post for frequently asked questions about the game.  
-[simondalvai.org/blog/futsal-manager-faq/](https://simondalvai.org/blog/futsal-manager-faq/)
+[simondalvai.org/blog/futsal-manager-faq/](https://simondalvai.org/blog/99managers-futsal-faq/)
 
 # Roadmap
 Features/issues lists are visible in the [Roadmap](ROADMAP.md) 
