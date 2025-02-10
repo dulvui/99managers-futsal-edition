@@ -282,8 +282,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: 99 Managers Futsal Edition\n"
-"PO-Revision-Date: 2025-02-08 19:47+0000\n"
-"Last-Translator: Simon Dalvai <info@simondalvai.org>\n"
+"PO-Revision-Date: 2025-02-10 21:19+0000\n"
+"Last-Translator: Максим Горпиніч <maksimgorpinic2005a@gmail.com>\n"
 "Language-Team: Ukrainian <https://hosted.weblate.org/projects/"
 "99-managers-futsal-edition/game/uk/>\n"
 "Language: uk\n"
@@ -2050,3 +2050,27 @@ msgstr "Листопад"
 #: src/enum.gd
 msgid "DECEMBER"
 msgstr "Грудень"
+
+#: src/enum.gd
+msgid "AUTOMATIC"
+msgstr "Автоматичний"
+
+#: src/enum.gd
+msgid "MANUAL"
+msgstr "Інструкція"
+
+#: src/enum.gd
+msgid "JOYPAD"
+msgstr "Джойпад"
+
+#: src/enum.gd
+msgid "LEFT_AND_RIGHT"
+msgstr "Ліворуч і праворуч"
+
+#: src/enum.gd
+msgid "MOUSE_AND_KEYBOARD"
+msgstr "Миша і клавіатура"
+
+#: src/enum.gd
+msgid "TOUCHSCREEN"
+msgstr "Сенсорний екран"
