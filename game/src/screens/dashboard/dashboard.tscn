@@ -1,4 +1,4 @@
-[gd_scene load_steps=21 format=3 uid="uid://c8mhb22bae1my"]
+[gd_scene load_steps=22 format=3 uid="uid://c8mhb22bae1my"]
 
 [ext_resource type="Theme" uid="uid://pt1hrfiuwfpg" path="res://theme_base/theme.tres" id="1"]
 [ext_resource type="Script" path="res://src/screens/dashboard/dashboard.gd" id="2"]
@@ -14,6 +14,7 @@
 [ext_resource type="PackedScene" uid="uid://mvca6wjq0pv6" path="res://src/ui_components/player_list/player_list.tscn" id="8_nkdvo"]
 [ext_resource type="PackedScene" uid="uid://ccipqeqmthtfr" path="res://src/ui_components/transfers/contract_offer/contract_offer.tscn" id="9"]
 [ext_resource type="PackedScene" uid="uid://dtvkd1ks3xiqc" path="res://src/ui_components/player_profile/player_profile.tscn" id="11_838pl"]
+[ext_resource type="PackedScene" uid="uid://cdrmqgiuv6wf3" path="res://src/ui_components/team_profile/team_profile.tscn" id="13_0hk3g"]
 [ext_resource type="PackedScene" uid="uid://bpvg2vhxml3a1" path="res://src/ui_components/base/confirm_dialog/default_confirm_dialog.tscn" id="14_t4c55"]
 [ext_resource type="PackedScene" uid="uid://dwyn5mtdb3qra" path="res://src/ui_components/visual_finances/visual_finances.tscn" id="15_jfh6w"]
 
@@ -427,6 +428,11 @@ visible = false
 layout_mode = 2
 
 [node name="PlayerProfile" parent="MarginContainer/HBoxContainer/MainContainer/MarginContainer/Content" instance=ExtResource("11_838pl")]
+unique_name_in_owner = true
+visible = false
+layout_mode = 2
+
+[node name="TeamProfile" parent="MarginContainer/HBoxContainer/MainContainer/MarginContainer/Content" instance=ExtResource("13_0hk3g")]
 unique_name_in_owner = true
 visible = false
 layout_mode = 2

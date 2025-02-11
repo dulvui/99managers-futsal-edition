@@ -238,7 +238,6 @@
 # res://src/screens/main.gd
 # res://src/screens/settings/settings.gd
 # res://src/screens/settings/settings.tscn
-# res://src/screens/settings/about/about.tscn
 # res://src/screens/settings/language_picker/language_picker.tscn
 # res://src/screens/settings/language_picker/language_picker.gd
 # res://src/screens/settings/general/general_settings.gd
@@ -303,6 +302,7 @@ msgid "BUDGET"
 msgstr ""
 
 #: src/ui_components/team_profile/team_profile.tscn
+#: src/screens/dashboard/dashboard.tscn
 msgid "STADIUM"
 msgstr ""
 
@@ -327,6 +327,18 @@ msgstr ""
 #: src/ui_components/team_profile/team_profile.gd
 #: src/ui_components/transfers/contract_offer/contract_offer.tscn
 msgid "YEAR"
+msgstr ""
+
+#: src/ui_components/player_list/player_list.gd
+msgid "ALL_TEAMS"
+msgstr ""
+
+#: src/ui_components/player_list/player_list.gd
+msgid "ALL_POS"
+msgstr ""
+
+#: src/ui_components/player_list/player_list.gd
+msgid "ALL_LEAGUES"
 msgstr ""
 
 #: src/ui_components/player_list/player_list_column/player_list_column.tscn
@@ -516,6 +528,11 @@ msgstr ""
 
 #: src/ui_components/visual_formation/visual_formation.tscn
 msgid "CHANGE_STRATEGY"
+msgstr ""
+
+#: src/ui_components/visual_formation/visual_formation.tscn
+#: src/screens/dashboard/dashboard.tscn
+msgid "COMING_SOON"
 msgstr ""
 
 #: src/ui_components/visual_formation/visual_formation.tscn
@@ -916,10 +933,6 @@ msgstr ""
 
 #: src/screens/dashboard/dashboard.tscn
 msgid "SEARCH_PLAYER"
-msgstr ""
-
-#: src/screens/dashboard/dashboard.tscn
-msgid "COMING_SOON"
 msgstr ""
 
 #: src/screens/dashboard/dashboard.tscn

@@ -48,3 +48,4 @@ func _on_starred_toggled(toggled_on: bool) -> void:
 func _on_search_line_edit_text_changed(new_text:String) -> void:
 	message_list.search(new_text)
 
+

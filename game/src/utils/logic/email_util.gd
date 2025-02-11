@@ -26,12 +26,18 @@ func count_unread_messages() -> int:
 
 func next_match(p_match: Match) -> void:
 	var team_name: String = p_match.home.name
+	var team_id: int = p_match.home.id
+
 	if team_name == Global.team.name:
 		team_name = p_match.away.name
+		team_id = p_match.away.id
 
 	var message: EmailMessage = EmailMessage.new()
 	message.subject = tr("NEXT_MATCH") + " against " + team_name
-	message.text = "The next match is against " + team_name + ".\nThe quotes are: "
+	var team_dict: Dictionary = {
+		"team_name": "[url=t%s]%s[/url]" % [team_id, team_name]
+	}
+	message.text = "The next match is against {team_name}.".format(team_dict)
 	message.sender = _get_team_email_address()
 	message.receiver = _get_manager_email_address()
 	message.date = Global.world.calendar.format_date()

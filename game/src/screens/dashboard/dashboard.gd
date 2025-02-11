@@ -16,6 +16,7 @@ enum ContentViews {
 	PLAYER_OFFER,
 	CONTRACT_OFFER,
 	PLAYER_PROFILE,
+	TEAM_PROFILE,
 	FINANCES,
 }
 
@@ -53,6 +54,7 @@ var active_view: ContentViews = ContentViews.EMAIL
 @onready var player_offer: PlayerOffer = %PlayerOffer
 @onready var contract_offer: ContractOffer = %ContractOffer
 @onready var player_profile: PlayerProfile = %PlayerProfile
+@onready var team_profile: TeamProfile = %TeamProfile
 @onready var finances: VisualFinances = %Finances
 
 # confirm dialogs
@@ -87,6 +89,10 @@ func _ready() -> void:
 
 	_show_active_view()
 	email_button.grab_focus()
+	
+	# connect player and team signals
+	LinkUtil.team_link.connect(_on_teamlink)
+
 
 
 func _process(_delta: float) -> void:
@@ -151,6 +157,11 @@ func _on_player_list_select_player(player: Player) -> void:
 	_show_active_view(ContentViews.PLAYER_PROFILE)
 
 
+func _on_teamlink(p_team: Team) -> void:
+	team_profile.setup(p_team)
+	_show_active_view(ContentViews.TEAM_PROFILE)
+
+
 func _hide_all() -> void:
 	competitions.hide()
 	email.hide()
@@ -162,6 +173,7 @@ func _hide_all() -> void:
 	player_offer.hide()
 	contract_offer.hide()
 	player_profile.hide()
+	team_profile.hide()
 	finances.hide()
 
 
@@ -189,6 +201,8 @@ func _show_active_view(p_active_view: int = -1, from_history: bool = false) -> v
 			player_offer.show()
 		ContentViews.PLAYER_PROFILE:
 			player_profile.show()
+		ContentViews.TEAM_PROFILE:
+			team_profile.show()
 		ContentViews.CONTRACT_OFFER:
 			contract_offer.show()
 		ContentViews.FINANCES:
