@@ -282,7 +282,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: 99 Managers Futsal Edition\n"
-"PO-Revision-Date: 2025-02-11 05:09+0000\n"
+"PO-Revision-Date: 2025-02-11 06:08+0000\n"
 "Last-Translator: Victor Gavilanes <vgavilanes951@gmail.com>\n"
 "Language-Team: Portuguese (Brazil) <https://hosted.weblate.org/projects/"
 "99-managers-futsal-edition/game/pt_BR/>\n"
@@ -405,7 +405,7 @@ msgstr "Verba de salários restantes"
 #: src/ui_components/visual_finances/visual_finances.tscn
 #: src/ui_components/transfers/contract_offer/contract_offer.tscn
 msgid "INCOME"
-msgstr "Receita"
+msgstr "Salário"
 
 #: src/ui_components/visual_competitions/visual_table/visual_table.tscn
 #, fuzzy
