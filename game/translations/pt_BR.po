@@ -282,8 +282,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: 99 Managers Futsal Edition\n"
-"PO-Revision-Date: 2025-02-08 19:47+0000\n"
-"Last-Translator: Simon Dalvai <info@simondalvai.org>\n"
+"PO-Revision-Date: 2025-02-11 05:09+0000\n"
+"Last-Translator: Victor Gavilanes <vgavilanes951@gmail.com>\n"
 "Language-Team: Portuguese (Brazil) <https://hosted.weblate.org/projects/"
 "99-managers-futsal-edition/game/pt_BR/>\n"
 "Language: pt_BR\n"
@@ -392,16 +392,15 @@ msgstr "Pesquisar"
 
 #: src/ui_components/visual_finances/visual_finances.tscn
 msgid "BALANCE"
-msgstr "Equilibrar"
+msgstr "Balança"
 
 #: src/ui_components/visual_finances/visual_finances.tscn
 msgid "EXPENSES"
 msgstr "Gastos"
 
 #: src/ui_components/visual_finances/visual_finances.tscn
-#, fuzzy
 msgid "REAMAINING_SALARY_BUDGET"
-msgstr "REAMAINING_SALARY_BUDGET"
+msgstr "Verba de salários restantes"
 
 #: src/ui_components/visual_finances/visual_finances.tscn
 #: src/ui_components/transfers/contract_offer/contract_offer.tscn
@@ -446,29 +445,24 @@ msgid "KNOCKOUT"
 msgstr "Eliminação da região"
 
 #: src/ui_components/visual_competitions/visual_knockout/visual_knockout.tscn
-#, fuzzy
 msgid "GROUP A"
-msgstr "GROUP A"
+msgstr "Grupo A"
 
 #: src/ui_components/visual_competitions/visual_knockout/visual_knockout.tscn
-#, fuzzy
 msgid "FINAL"
-msgstr "FINAL"
+msgstr "Final"
 
 #: src/ui_components/visual_competitions/visual_knockout/visual_knockout.tscn
-#, fuzzy
 msgid "GROUP B"
-msgstr "GROUP B"
+msgstr "Grupo B"
 
 #: src/ui_components/visual_competitions/visual_knockout/visual_knockout.tscn
-#, fuzzy
 msgid "WINNER A vs WINNER B"
-msgstr "WINNER A vs WINNER B"
+msgstr "Vencedor A vs Vencedor B"
 
 #: src/ui_components/visual_competitions/visual_competitions.tscn
-#, fuzzy
 msgid "LEAGUE"
-msgstr "LEAGUE"
+msgstr "Liga"
 
 #: src/ui_components/visual_competitions/visual_competitions.gd
 msgid "GROUP"
@@ -493,9 +487,8 @@ msgid "PLAYERS"
 msgstr "Jogadores"
 
 #: src/ui_components/transfers/player_offer/player_offer.tscn
-#, fuzzy
 msgid "PLAYER_LIST"
-msgstr "PLAYER_LIST"
+msgstr "Lista de jogadores"
 
 #: src/ui_components/transfers/player_offer/player_offer.tscn
 #: src/ui_components/transfers/contract_offer/contract_offer.tscn
@@ -568,14 +561,12 @@ msgid "STAR"
 msgstr "Estrela"
 
 #: src/ui_components/email/list/message_list.gd
-#, fuzzy
 msgid "NO_MESSAGE_FOUND"
-msgstr "NO_MESSAGE_FOUND"
+msgstr "Nenhuma mensagem"
 
 #: src/ui_components/email/list/message_row/message_row.gd
-#, fuzzy
 msgid "CLICK_TO_READ_MESSAGE"
-msgstr "CLICK_TO_READ_MESSAGE"
+msgstr "Clique para ler"
 
 #: src/ui_components/email/email.tscn
 msgid "UNREAD"
@@ -594,9 +585,8 @@ msgid "ACTION"
 msgstr "Ação"
 
 #: src/ui_components/email/visual_message/visual_message.gd
-#, fuzzy
 msgid "OFFER_CONTRACT"
-msgstr "OFFER_CONTRACT"
+msgstr "Oferecer contrato"
 
 #: src/ui_components/player_profile/player_profile.tscn
 msgid "STATISTICS"
@@ -611,9 +601,8 @@ msgid "POSITION"
 msgstr "Posição"
 
 #: src/ui_components/player_profile/info_view/info_view.tscn
-#, fuzzy
 msgid "ALT_POSITION"
-msgstr "ALT_POSITION"
+msgstr "Posição Alternativa"
 
 #: src/ui_components/player_profile/info_view/info_view.tscn
 msgid "AGE"
@@ -634,14 +623,12 @@ msgid "TEAM"
 msgstr "Time"
 
 #: src/ui_components/player_profile/info_view/info_view.tscn
-#, fuzzy
 msgid "NR"
-msgstr "NR"
+msgstr "Nr"
 
 #: src/ui_components/player_profile/info_view/info_view.tscn
-#, fuzzy
 msgid "ATTRIBUTES_AVERGE"
-msgstr "ATTRIBUTES_AVERGE"
+msgstr "Média dos atributos"
 
 #: src/ui_components/player_profile/info_view/info_view.tscn
 msgid "VALUE"
@@ -655,13 +642,13 @@ msgstr "Fazer proposta"
 #: src/ui_components/visual_calendar/visual_day/visual_day.gd
 #: src/screens/dashboard/dashboard.tscn
 msgid "TRANSFERMARKET"
-msgstr "Transfermarket"
+msgstr "Transferências"
 
 #: src/ui_components/visual_calendar/visual_day/visual_day.gd
 #: src/ui_components/visual_calendar/match_list/match_info/match_info.tscn
 #: src/screens/match/match.tscn
 msgid "HOME"
-msgstr "Início"
+msgstr "Casa"
 
 #: src/ui_components/visual_calendar/visual_day/visual_day.gd
 #: src/ui_components/visual_calendar/match_list/match_info/match_info.tscn
@@ -674,9 +661,8 @@ msgid ""
 msgstr ""
 
 #: src/ui_components/visual_calendar/match_list/match_info/match_info.tscn
-#, fuzzy
 msgid "VS"
-msgstr "VS"
+msgstr "vs"
 
 #: src/ui_components/visual_calendar/match_list/match_list.gd
 msgid "NO_MATCH"
@@ -734,23 +720,20 @@ msgid "WELCOME"
 msgstr "Bem-vindo"
 
 #: src/utils/logic/email_util.gd
-#, fuzzy
 msgid "OFFER_ACCEPTED_TEXT"
-msgstr "OFFER_ACCEPTED_TEXT"
+msgstr "O time aceitou a oferta"
 
 #: src/utils/logic/match_combination_util.gd
 msgid "CUP"
-msgstr "Xícara"
+msgstr "Copa"
 
 #: src/utils/logic/match_combination_util.gd
-#, fuzzy
 msgid "NATIONS_CUP"
-msgstr "NATIONS_CUP"
+msgstr "Copa das Nações"
 
 #: src/utils/logic/match_combination_util.gd
-#, fuzzy
 msgid "WORLD_CUP"
-msgstr "WORLD_CUP"
+msgstr "Copa do Mundo"
 
 #: src/screens/settings/settings.tscn
 #: src/screens/settings/general/general_settings.tscn
@@ -894,9 +877,10 @@ msgid "LOAD_GAME"
 msgstr "Carregar jogo"
 
 #: src/screens/save_states_screen/save_state_entry/save_state_entry.tscn
-#, fuzzy
 msgid "SAVE_STATE_DELETE_INFO"
-msgstr "SAVE_STATE_DELETE_INFO"
+msgstr ""
+"Ao deletar um estado salvo, não poderá voltar atrás.\n"
+"Tem certeza de que quer deletar este estado salvo?"
 
 #: src/screens/dashboard/dashboard.gd
 #: src/screens/dashboard/dashboard.tscn
@@ -912,9 +896,8 @@ msgid "NEXT_DAY"
 msgstr "Continuar Jogo"
 
 #: src/screens/dashboard/dashboard.gd
-#, fuzzy
 msgid "NEXT_SEASON"
-msgstr "NEXT_SEASON"
+msgstr "Próxima temporada"
 
 #: src/screens/dashboard/dashboard.tscn
 msgid "CALENDAR"
@@ -1085,10 +1068,8 @@ msgid "SURINAME"
 msgstr "Suriname"
 
 #: src/resources/world/nation_names.gd
-#, fuzzy
-#| msgid "TUESDAY"
 msgid "USA"
-msgstr "Tuesday"
+msgstr "Eua"
 
 #: src/resources/world/nation_names.gd
 msgid "TUVALU"
@@ -1103,9 +1084,8 @@ msgid "FRANCE"
 msgstr "França"
 
 #: src/resources/world/nation_names.gd
-#, fuzzy
 msgid "KOREA_NORTH"
-msgstr "North Korea"
+msgstr "Coreia do Norte"
 
 #: src/resources/world/nation_names.gd
 msgid "JORDAN"
@@ -1120,9 +1100,8 @@ msgid "KAZAKHSTAN"
 msgstr "Cazaquistão"
 
 #: src/resources/world/nation_names.gd
-#, fuzzy
 msgid "KOREA_SOUTH"
-msgstr "South Korea"
+msgstr "Coreia do Sul"
 
 #: src/resources/world/nation_names.gd
 msgid "BULGARIA"
@@ -1358,7 +1337,7 @@ msgstr "Malta"
 
 #: src/resources/world/nation_names.gd
 msgid "CENTRAL_AFRICAN_REPUBLIC"
-msgstr "República Centrafricana"
+msgstr "República Centro-africana"
 
 #: src/resources/world/nation_names.gd
 msgid "CHAD"
@@ -1911,7 +1890,7 @@ msgstr "Full game"
 
 #: src/enum.gd
 msgid "MALE"
-msgstr "Homem"
+msgstr "Masculino"
 
 #: src/enum.gd
 msgid "APRIL"
@@ -1919,7 +1898,7 @@ msgstr "Abril"
 
 #: src/enum.gd
 msgid "FEMALE"
-msgstr "Mulher"
+msgstr "Feminino"
 
 #: src/enum.gd
 msgid "MIXED"
@@ -1976,3 +1955,114 @@ msgstr "Recuperar"
 #: src/enum.gd
 msgid "ONLY_GOALS"
 msgstr "Only goals"
+
+#: src/ui_components/base/confirm_dialog/default_confirm_dialog.gd
+msgid "OK"
+msgstr "Ok"
+
+#: src/enum.gd
+msgid "LEFT"
+msgstr "Esquerdo"
+
+#: src/enum.gd
+msgid "RIGHT"
+msgstr "Direito"
+
+#: src/screens/settings/settings.tscn
+msgid "CONTRIBUTORS"
+msgstr "Colaboradores"
+
+#: src/screens/dashboard/dashboard.gd
+msgid "SIMULATING_RESULTS"
+msgstr "Simulando resultados"
+
+#: src/screens/dashboard/dashboard.gd
+msgid "SAVING_GAME"
+msgstr "Salvando o jogo"
+
+#: src/screens/dashboard/dashboard.tscn
+msgid "COMING_SOON"
+msgstr "Em breve"
+
+#: src/resources/world/nation_names.gd
+msgid "BURMA"
+msgstr "Burma"
+
+#: src/screens/settings/license/license.tscn
+msgid "THIRD_PARTY_LICENSES"
+msgstr "Licenças de terceiros"
+
+#: src/enum.gd
+msgid "KEY_ACTIONS"
+msgstr "Ações-chave"
+
+#: src/screens/settings/license/license.tscn
+msgid "READ_FULL_LICENSE"
+msgstr "Ler licença na íntegra"
+
+#: src/screens/settings/license/license.tscn
+msgid "SOURCE_CODE"
+msgstr "Código fonte"
+
+#: src/screens/settings/license/license.tscn
+msgid "SOURCE_CODE_DESCRIPTION"
+msgstr "O código-fonte inteiro deste jogo está disponível nos sites abaixo"
+
+#: src/utils/res_util.gd
+msgid "RESTORING_BACKUP"
+msgstr "Restaurando backup"
+
+#: src/screens/settings/settings.tscn
+msgid "LICENSES"
+msgstr "Licenças"
+
+#: src/screens/setup/setup_team/setup_team.gd
+msgid "INITIALIZE_GAME"
+msgstr "Iniciar jogo"
+
+#: src/enum.gd
+msgid "AUTOMATIC"
+msgstr "Automático"
+
+#: src/enum.gd
+msgid "MANUAL"
+msgstr "Manual"
+
+#: src/enum.gd
+msgid "JOYPAD"
+msgstr "Controle"
+
+#: src/enum.gd
+msgid "TOUCHSCREEN"
+msgstr "Touchscreen"
+
+#: src/enum.gd
+msgid "LEFT_AND_RIGHT"
+msgstr "Esquerdo e direito"
+
+#: src/enum.gd
+msgid "MOUSE_AND_KEYBOARD"
+msgstr "Mouse e Teclado"
+
+#: src/screens/save_states_screen/save_state_entry/save_state_entry.gd
+#: src/screens/menu/menu.gd
+msgid "LOADING_GAME"
+msgstr "Carregando jogo"
+
+#: src/screens/settings/license/license.tscn
+msgid "GAME_LICENSE_DESCRIPTION"
+msgstr ""
+"Esse jogo é de código aberto e foi lançado sob licença AGPL v3 ou posterior."
+
+#: src/screens/settings/general/general_settings.tscn
+msgid "LANGUAGE"
+msgstr "Idioma"
+
+#: src/screens/settings/license/license.tscn
+msgid "GAME_LICENSE"
+msgstr "Licença do jogo"
+
+#: src/screens/settings/license/license.tscn
+msgid "THIRD_PARTY_LICENSES_DESCRIPTION"
+msgstr ""
+"Este jogo foi feito com o Godot Engine, que foi lançado sob licença do MIT."
