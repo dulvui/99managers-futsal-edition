@@ -73,14 +73,9 @@ text = "TEAM"
 
 [node name="TeamLink" type="LinkButton" parent="."]
 unique_name_in_owner = true
-layout_mode = 2
-text = "rstrstrastrstrst"
-
-[node name="Team" type="Label" parent="."]
-unique_name_in_owner = true
 auto_translate_mode = 2
-visible = false
 layout_mode = 2
+text = "Bologna"
 
 [node name="NrLabel" type="Label" parent="."]
 layout_mode = 2

@@ -708,12 +708,19 @@ msgid "SUNDAY"
 msgstr ""
 
 #: src/utils/logic/email_util.gd
-#: src/screens/dashboard/dashboard.tscn
-msgid "NEXT_MATCH"
+msgid "EMAIL_SUBJECT_NEXT_MATCH"
 msgstr ""
 
 #: src/utils/logic/email_util.gd
-msgid "WELCOME"
+msgid "EMAIL_TEXT_NEXT_MATCH"
+msgstr ""
+
+#: src/utils/logic/email_util.gd
+msgid "EMAIL_SUBJECT_WELCOME"
+msgstr ""
+
+#: src/utils/logic/email_util.gd
+msgid "EMAIL_TEXT_WELCOME"
 msgstr ""
 
 #: src/utils/logic/email_util.gd
@@ -962,6 +969,10 @@ msgstr ""
 #: src/screens/dashboard/dashboard.tscn
 #: src/screens/menu/menu.tscn
 msgid "SETTINGS"
+msgstr ""
+
+#: src/screens/dashboard/dashboard.tscn
+msgid "NEXT_MATCH"
 msgstr ""
 
 #: src/screens/dashboard/dashboard.tscn

@@ -14,3 +14,7 @@ func link_team_id(team_id: int) -> void:
 		SoundUtil.play_button_sfx()
 		team_link.emit(team)
 
+
+func get_team_url(team_id: int, team_name: String) -> String:
+	return "[url=t%s]%s[/url]" % [team_id, team_name]
+

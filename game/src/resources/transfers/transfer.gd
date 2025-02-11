@@ -6,7 +6,6 @@ class_name Transfer
 extends JSONResource
 
 enum Type {
-	RELEASE,
 	BUY,
 	LOAN,
 }
@@ -20,7 +19,6 @@ enum State {
 	CONTRACT_DECLINED,
 }
 
-const DEBUG: bool = false
 
 @export var id: int
 @export var player: Player
@@ -39,7 +37,7 @@ func _init(
 	p_id: int = IdUtil.next_id(IdUtil.Types.TRANSFER),
 	p_player: Player = Player.new(),
 	p_state: State = State.OFFER,
-	p_type: Type = Type.RELEASE,
+	p_type: Type = Type.BUY,
 	p_buy_team: Team = Team.new(),
 	p_sell_team: Team = Team.new(),
 	p_contract: Contract = Contract.new(),
@@ -69,8 +67,6 @@ func update() -> bool:
 	delay_days -= 1
 	if delay_days == 0:
 		delay_days = randi_range(1, 7)
-		if DEBUG:
-			delay_days = 1
 		_update_state()
 		return true
 	return false
@@ -85,8 +81,6 @@ func _update_state() -> void:
 		State.OFFER:
 			# TODO use real values like prestige etc...
 			var success: bool = randi() % 2 == 0
-			if DEBUG:
-				success = true
 			if success:
 				state = State.CONTRACT
 			else:
@@ -97,8 +91,6 @@ func _update_state() -> void:
 					state = State.OFFER
 		State.CONTRACT_PENDING:
 			var success: bool = randi() % 2 == 0
-			if DEBUG:
-				success = true
 			if success:
 				state = State.SUCCESS
 			else:
@@ -107,3 +99,5 @@ func _update_state() -> void:
 					state = State.CONTRACT_DECLINED
 				else:
 					state = State.CONTRACT
+
+

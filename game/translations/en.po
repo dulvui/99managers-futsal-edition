@@ -283,7 +283,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: 99 Managers Futsal Edition\n"
 "POT-Creation-Date: \n"
-"PO-Revision-Date: 2025-02-09 14:29+0100\n"
+"PO-Revision-Date: 2025-02-11 17:51+0100\n"
 "Last-Translator: Simon Dalvai <info@simondalvai.org>\n"
 "Language-Team: English <https://hosted.weblate.org/projects/99-managers-"
 "futsal-edition/game-gettext/en/>\n"
@@ -304,6 +304,7 @@ msgid "BUDGET"
 msgstr "Budget"
 
 #: src/ui_components/team_profile/team_profile.tscn
+#: src/screens/dashboard/dashboard.tscn
 msgid "STADIUM"
 msgstr "Stadium"
 
@@ -329,6 +330,18 @@ msgstr "Persons"
 #: src/ui_components/transfers/contract_offer/contract_offer.tscn
 msgid "YEAR"
 msgstr "Year"
+
+#: src/ui_components/player_list/player_list.gd
+msgid "ALL_TEAMS"
+msgstr "All teams"
+
+#: src/ui_components/player_list/player_list.gd
+msgid "ALL_POS"
+msgstr "All positions"
+
+#: src/ui_components/player_list/player_list.gd
+msgid "ALL_LEAGUES"
+msgstr "All leagues"
 
 #: src/ui_components/player_list/player_list_column/player_list_column.tscn
 #: src/ui_components/player_profile/info_view/info_view.tscn
@@ -519,6 +532,11 @@ msgid "CHANGE_STRATEGY"
 msgstr "Change strategy"
 
 #: src/ui_components/visual_formation/visual_formation.tscn
+#: src/screens/dashboard/dashboard.tscn
+msgid "COMING_SOON"
+msgstr "Coming soon"
+
+#: src/ui_components/visual_formation/visual_formation.tscn
 msgid "TACTIC_OFFENSE"
 msgstr "Offensive tactic"
 
@@ -680,13 +698,21 @@ msgstr "Saturday"
 msgid "SUNDAY"
 msgstr "Sunday"
 
-#: src/utils/logic/email_util.gd src/screens/dashboard/dashboard.tscn
-msgid "NEXT_MATCH"
-msgstr "Next match"
+#: src/utils/logic/email_util.gd
+msgid "EMAIL_SUBJECT_NEXT_MATCH"
+msgstr "Next match: {team_name}"
 
 #: src/utils/logic/email_util.gd
-msgid "WELCOME"
-msgstr "Welcome"
+msgid "EMAIL_TEXT_NEXT_MATCH"
+msgstr ""
+
+#: src/utils/logic/email_util.gd
+msgid "EMAIL_SUBJECT_WELCOME"
+msgstr ""
+
+#: src/utils/logic/email_util.gd
+msgid "EMAIL_TEXT_WELCOME"
+msgstr ""
 
 #: src/utils/logic/email_util.gd
 msgid "OFFER_ACCEPTED_TEXT"
@@ -706,7 +732,7 @@ msgstr "World cup"
 
 #: src/utils/res_util.gd
 msgid "RESTORING_BACKUP"
-msgstr "Restoring backup"
+msgstr "Restoring from backup"
 
 #: src/screens/settings/settings.tscn
 msgid "GENERAL_SETTINGS"
@@ -911,10 +937,6 @@ msgid "SEARCH_PLAYER"
 msgstr "Search player"
 
 #: src/screens/dashboard/dashboard.tscn
-msgid "COMING_SOON"
-msgstr "Coming soon"
-
-#: src/screens/dashboard/dashboard.tscn
 msgid "SCOUTS"
 msgstr "Scouts"
 
@@ -941,6 +963,10 @@ msgstr "Notes"
 #: src/screens/dashboard/dashboard.tscn src/screens/menu/menu.tscn
 msgid "SETTINGS"
 msgstr "Settings"
+
+#: src/screens/dashboard/dashboard.tscn
+msgid "NEXT_MATCH"
+msgstr "Next match"
 
 #: src/screens/dashboard/dashboard.tscn src/screens/match/match.gd
 #: src/screens/menu/menu.tscn src/screens/setup/setup_world/setup_world.tscn
@@ -2015,14 +2041,8 @@ msgstr "Injured"
 msgid "RECOVER"
 msgstr "Recover"
 
-#~ msgid "ALL_TEAMS"
-#~ msgstr "All teams"
-
-#~ msgid "ALL_POS"
-#~ msgstr "All positions"
-
-#~ msgid "ALL_LEAGUES"
-#~ msgstr "All leagues"
+#~ msgid "WELCOME"
+#~ msgstr "Welcome"
 
 #~ msgid "FULL_MATCH"
 #~ msgstr "Full match"

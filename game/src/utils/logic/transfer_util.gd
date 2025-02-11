@@ -31,7 +31,6 @@ func make_offer(transfer: Transfer) -> void:
 	Global.transfers.list.append(transfer)
 
 
-# TODO move to trasnfer util
 func get_transfer_id(id: int) -> Transfer:
 	for transfer: Transfer in Global.transfers.list:
 		if transfer.id == id:
