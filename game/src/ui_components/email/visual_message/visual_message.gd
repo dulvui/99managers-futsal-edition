@@ -53,8 +53,6 @@ func _on_message_meta_clicked(meta: Variant) -> void:
 	# and teams as t + id
 	if "t" in meta_string:
 		var team_id: int = int(meta_string.substr(1))
-		var team: Team = Global.world.get_team_by_id(team_id)
-		LinkUtil.team_link.emit(team)
-		SoundUtil.play_button_sfx()
+		LinkUtil.link_team_id(team_id)
 		return
 

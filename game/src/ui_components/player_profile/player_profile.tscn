@@ -28,7 +28,6 @@ script = ExtResource("3_o1pgm")
 
 [node name="INFO" parent="Main" instance=ExtResource("3_rkqc7")]
 unique_name_in_owner = true
-visible = true
 layout_mode = 2
 
 [node name="STATISTICS" parent="Main" instance=ExtResource("4_hpiic")]

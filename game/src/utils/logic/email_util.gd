@@ -34,9 +34,11 @@ func next_match(p_match: Match) -> void:
 
 	var message: EmailMessage = EmailMessage.new()
 	message.subject = tr("NEXT_MATCH") + " against " + team_name
+
 	var team_dict: Dictionary = {
 		"team_name": "[url=t%s]%s[/url]" % [team_id, team_name]
 	}
+	
 	message.text = "The next match is against {team_name}.".format(team_dict)
 	message.sender = _get_team_email_address()
 	message.receiver = _get_manager_email_address()
