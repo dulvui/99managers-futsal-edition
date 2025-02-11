@@ -282,8 +282,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: 99 Managers Futsal Edition\n"
-"PO-Revision-Date: 2025-02-11 16:54+0000\n"
-"Last-Translator: Anonymous <noreply@weblate.org>\n"
+"PO-Revision-Date: 2025-02-12 08:06+0000\n"
+"Last-Translator: Максим Горпиніч <maksimgorpinic2005a@gmail.com>\n"
 "Language-Team: Ukrainian <https://hosted.weblate.org/projects/"
 "99-managers-futsal-edition/game/uk/>\n"
 "Language: uk\n"
@@ -1982,9 +1982,8 @@ msgid "NEUTRAL"
 msgstr "Нейтральний"
 
 #: src/utils/res_util.gd
-#, fuzzy
 msgid "RESTORING_BACKUP"
-msgstr "Відновлення резервної копії"
+msgstr "Відновлення з резервної копії"
 
 #: src/screens/dashboard/dashboard.gd
 msgid "SAVING_GAME"
@@ -2075,3 +2074,19 @@ msgstr "Миша і клавіатура"
 #: src/enum.gd
 msgid "TOUCHSCREEN"
 msgstr "Сенсорний екран"
+
+#: src/utils/logic/email_util.gd
+msgid "EMAIL_TEXT_NEXT_MATCH"
+msgstr "I"
+
+#: src/utils/logic/email_util.gd
+msgid "EMAIL_SUBJECT_WELCOME"
+msgstr "I"
+
+#: src/utils/logic/email_util.gd
+msgid "EMAIL_SUBJECT_NEXT_MATCH"
+msgstr "Наступний матч: {team_name}"
+
+#: src/utils/logic/email_util.gd
+msgid "EMAIL_TEXT_WELCOME"
+msgstr "I"
