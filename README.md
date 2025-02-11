@@ -6,7 +6,9 @@ SPDX-License-Identifier: CC0-1.0
 
 # 99 Managers™ Futsal Edition
 A futsal manager game created with the Godot Engine.  
-**[Wishlist now on Steam!](https://store.steampowered.com/app/3334770/99_Managers_Futsal_Edition/)**
+**[Wishlist now on Steam!](https://store.steampowered.com/app/3334770/99_Managers_Futsal_Edition/)**  
+**[Play the beta on itch.io](https://simondalvai.itch.io/99managers-futsal-edition)**
+
 
 Join [Matrix](https://matrix.to/#/%23s9i.org:matrix.org) or [Discord](https://discord.gg/a5DSHZKkA8) if you have questions and want to stay updated.
 
