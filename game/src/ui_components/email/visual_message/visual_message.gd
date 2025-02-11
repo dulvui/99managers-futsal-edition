@@ -37,3 +37,8 @@ func show_message(p_message: EmailMessage) -> void:
 
 func _on_action_pressed() -> void:
 	email_action.emit(message)
+
+
+func _on_message_meta_clicked(meta: Variant) -> void:
+	print(meta)
+

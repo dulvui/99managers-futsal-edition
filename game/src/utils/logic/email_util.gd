@@ -107,7 +107,7 @@ func transfer_message(transfer: Transfer) -> void:
 func welcome_manager() -> void:
 	var message: EmailMessage = EmailMessage.new()
 	message.subject = tr("WELCOME")
-	message.text = "The team " + Global.team.name + " welcomes you as the new Manager!"
+	message.text = "The team [url=%s]%s[/url] welcomes you as the new Manager!" % [Global.team.name, Global.team.name]
 	message.sender = _get_team_email_address()
 	message.receiver = _get_manager_email_address()
 	message.date = Global.world.calendar.format_date()

@@ -101,6 +101,7 @@ unique_name_in_owner = true
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
+bbcode_enabled = true
 
 [node name="BottomBar" type="HBoxContainer" parent="MarginContainer/VBoxContainer"]
 layout_mode = 2
@@ -114,4 +115,5 @@ theme_type_variation = &"ImportantButton"
 text = "ACTION"
 script = ExtResource("3_6mero")
 
+[connection signal="meta_clicked" from="MarginContainer/VBoxContainer/PanelContainer/ScrollContainer/Message" to="." method="_on_message_meta_clicked"]
 [connection signal="pressed" from="MarginContainer/VBoxContainer/BottomBar/Action" to="." method="_on_action_pressed"]
