@@ -282,8 +282,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: 99 Managers Futsal Edition\n"
-"PO-Revision-Date: 2025-02-11 06:08+0000\n"
-"Last-Translator: Victor Gavilanes <vgavilanes951@gmail.com>\n"
+"PO-Revision-Date: 2025-02-11 16:54+0000\n"
+"Last-Translator: Anonymous <noreply@weblate.org>\n"
 "Language-Team: Portuguese (Brazil) <https://hosted.weblate.org/projects/"
 "99-managers-futsal-edition/game/pt_BR/>\n"
 "Language: pt_BR\n"
@@ -2009,6 +2009,7 @@ msgid "SOURCE_CODE_DESCRIPTION"
 msgstr "O código-fonte inteiro deste jogo está disponível nos sites abaixo"
 
 #: src/utils/res_util.gd
+#, fuzzy
 msgid "RESTORING_BACKUP"
 msgstr "Restaurando backup"
 
