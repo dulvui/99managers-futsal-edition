@@ -282,7 +282,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: 99 Managers Futsal Edition\n"
-"PO-Revision-Date: 2025-02-10 06:49+0000\n"
+"PO-Revision-Date: 2025-02-11 05:09+0000\n"
 "Last-Translator: Ettore Atalan <atalanttore@googlemail.com>\n"
 "Language-Team: German <https://hosted.weblate.org/projects/"
 "99-managers-futsal-edition/game/de/>\n"
@@ -2036,3 +2036,31 @@ msgid "GAME_LICENSE_DESCRIPTION"
 msgstr ""
 "Dieses Spiel ist quelloffen und wird unter der AGPL v3 oder einer neueren "
 "Lizenz veröffentlicht."
+
+#: src/enum.gd
+msgid "KEY_ACTIONS"
+msgstr "Schlüsselaktionen"
+
+#: src/enum.gd
+msgid "MANUAL"
+msgstr "Manuell"
+
+#: src/enum.gd
+msgid "JOYPAD"
+msgstr "Joypad"
+
+#: src/enum.gd
+msgid "TOUCHSCREEN"
+msgstr "Touchscreen"
+
+#: src/enum.gd
+msgid "MOUSE_AND_KEYBOARD"
+msgstr "Maus und Tastatur"
+
+#: src/enum.gd
+msgid "LEFT_AND_RIGHT"
+msgstr "Links und rechts"
+
+#: src/enum.gd
+msgid "AUTOMATIC"
+msgstr "Automatisch"
