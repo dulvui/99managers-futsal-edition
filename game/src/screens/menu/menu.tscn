@@ -149,11 +149,6 @@ layout_mode = 2
 text = "Matrix"
 uri = "https://matrix.to/#/%23s9i.org:matrix.org"
 
-[node name="Discord" type="LinkButton" parent="Links"]
-layout_mode = 2
-text = "Discord"
-uri = "https://discord.gg/a5DSHZKkA8"
-
 [node name="Codeberg" type="LinkButton" parent="Links"]
 layout_mode = 2
 text = "Codeberg"
@@ -163,6 +158,16 @@ uri = "https://codeberg.org/dulvui/99managers-futsal-edition"
 layout_mode = 2
 text = "Github"
 uri = "https://github.com/dulvui/99managers-futsal-edition"
+
+[node name="Discord" type="LinkButton" parent="Links"]
+layout_mode = 2
+text = "Discord"
+uri = "https://discord.gg/a5DSHZKkA8"
+
+[node name="Reddit" type="LinkButton" parent="Links"]
+layout_mode = 2
+text = "Reddit"
+uri = "https://www.reddit.com/r/99Managers/"
 
 [node name="Website" type="LinkButton" parent="Links"]
 auto_translate_mode = 2
@@ -184,6 +189,21 @@ uri = "https://store.steampowered.com/app/3334770"
 [node name="DefaultConfirmDialog" parent="." instance=ExtResource("6_1a2kt")]
 unique_name_in_owner = true
 custom_text = "EXIT_GAME"
+
+[node name="Label" type="Label" parent="."]
+auto_translate_mode = 2
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.496
+anchor_top = 0.117
+anchor_right = 0.496
+anchor_bottom = 0.117
+offset_left = -470.32
+offset_top = -0.360008
+offset_right = 469.68
+offset_bottom = 22.64
+text = "THIS IS A BETA VERSION SO EXPECT MISSING FEATURES, BUGS AND BREAKING CHANGES!"
+horizontal_alignment = 1
 
 [connection signal="pressed" from="Buttons/ContinueGame" to="." method="_on_continue_game_pressed"]
 [connection signal="pressed" from="Buttons/NewGame" to="." method="_on_new_game_pressed"]
