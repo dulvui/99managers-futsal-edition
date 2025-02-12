@@ -283,8 +283,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: 99 Managers Futsal Edition\n"
 "POT-Creation-Date: \n"
-"PO-Revision-Date: 2025-02-12 08:42+0000\n"
-"Last-Translator: Simon Dalvai <info@simondalvai.org>\n"
+"PO-Revision-Date: 2025-02-11 16:54+0000\n"
+"Last-Translator: Anonymous <noreply@weblate.org>\n"
 "Language-Team: Italian <https://hosted.weblate.org/projects/"
 "99-managers-futsal-edition/game/it/>\n"
 "Language: it\n"
@@ -337,19 +337,21 @@ msgid "Year"
 msgstr "Anno"
 
 #: src/ui_components/player_list/player_list.gd
-msgid "ALL_TEAMS"
-msgstr "Tutte squadre"
+msgid "All Teams"
+msgstr ""
 
 #: src/ui_components/player_list/player_list.gd
-msgid "ALL_POS"
+msgid "All positions"
 msgstr "Tutte posizioni"
 
 #: src/ui_components/player_list/player_list.gd
-msgid "ALL_LEAGUES"
-msgstr "Tutte leghe"
+msgid "All Leagues"
+msgstr ""
 
 #: src/ui_components/player_list/player_list_column/player_list_column.tscn
-msgid "NAME"
+#: src/ui_components/player_profile/info_view/info_view.tscn
+#: src/screens/setup/setup_manager/setup_manager.tscn
+msgid "Name"
 msgstr "Nome"
 
 #: src/ui_components/info/info.tscn
@@ -369,15 +371,19 @@ msgid "Ok"
 msgstr ""
 
 #: src/ui_components/base/confirm_dialog/default_confirm_dialog.tscn
-msgid "CANCEL"
+#: src/ui_components/transfers/player_offer/player_offer.tscn
+#: src/ui_components/transfers/contract_offer/contract_offer.tscn
+#: src/screens/setup/setup_world/setup_world.tscn
+#: src/screens/setup/setup_manager/setup_manager.tscn
+msgid "Cancel"
 msgstr "Annulla"
 
 #: src/ui_components/base/confirm_dialog/default_confirm_dialog.tscn
-msgid "NO"
+msgid "No"
 msgstr "No"
 
 #: src/ui_components/base/confirm_dialog/default_confirm_dialog.tscn
-msgid "YES"
+msgid "Yes"
 msgstr "Sì"
 
 #: src/ui_components/base/search_line_edit/search_line_edit.tscn
@@ -385,14 +391,12 @@ msgid "Search"
 msgstr "Cerca"
 
 #: src/ui_components/visual_finances/visual_finances.tscn
-#, fuzzy
-#| msgid "France"
 msgid "Balance"
-msgstr "Francia"
+msgstr "Bilancio"
 
 #: src/ui_components/visual_finances/visual_finances.tscn
 msgid "Expenses"
-msgstr ""
+msgstr "Spese"
 
 #: src/ui_components/visual_finances/visual_finances.tscn
 msgid "Reamaining salary budget"
@@ -401,76 +405,77 @@ msgstr ""
 #: src/ui_components/visual_finances/visual_finances.tscn
 #: src/ui_components/transfers/contract_offer/contract_offer.tscn
 msgid "Income"
-msgstr ""
+msgstr "Entrate"
 
 #: src/ui_components/visual_competitions/visual_table/visual_table.tscn
+#: src/ui_components/player_profile/info_view/info_view.tscn
 #: src/screens/save_states_screen/save_state_entry/save_state_entry.tscn
-msgid "TEAM"
+msgid "Team"
 msgstr "Gruppi"
 
 #: src/ui_components/visual_competitions/visual_table/visual_table.tscn
-msgid "PLAYED"
+msgid "Played"
 msgstr "Giocate"
 
 #: src/ui_components/visual_competitions/visual_table/visual_table.tscn
-msgid "WIN"
+msgid "Win"
 msgstr "Vittoria"
 
 #: src/ui_components/visual_competitions/visual_table/visual_table.tscn
-msgid "DRAW"
+msgid "Draw"
 msgstr "Disegna"
 
 #: src/ui_components/visual_competitions/visual_table/visual_table.tscn
-msgid "LOST"
-msgstr "Perse"
+msgid "Lost"
+msgstr ""
 
 #: src/ui_components/visual_competitions/visual_table/visual_table.tscn
-msgid "GOALS"
+msgid "Goals"
 msgstr "Obiettivi"
 
 #: src/ui_components/visual_competitions/visual_table/visual_table.tscn
-msgid "GOALS_CONCEDED"
+msgid "Goals conceded"
 msgstr "Gol presi"
 
 #: src/ui_components/visual_competitions/visual_table/visual_table.tscn
-msgid "POINTS"
+msgid "Points"
 msgstr "Punti"
 
 #: src/ui_components/visual_competitions/visual_knockout/visual_knockout.tscn
-msgid "KNOCKOUT"
+msgid "Knockout"
 msgstr "Knockout"
 
 #: src/ui_components/visual_competitions/visual_knockout/visual_knockout.tscn
-msgid "GROUP A"
+msgid "Group A"
 msgstr "Gruppo A"
 
 #: src/ui_components/visual_competitions/visual_knockout/visual_knockout.tscn
-msgid "FINAL"
+msgid "Final"
 msgstr "Finale"
 
 #: src/ui_components/visual_competitions/visual_knockout/visual_knockout.tscn
-msgid "GROUP B"
+msgid "Group B"
 msgstr "Gruppo B"
 
 #: src/ui_components/visual_competitions/visual_knockout/visual_knockout.tscn
-msgid "WINNER A vs WINNER B"
+msgid "Winner A vs Winner B"
 msgstr "Vincitore A vs Vincitore B"
 
 #: src/ui_components/visual_competitions/visual_competitions.tscn
 msgid "League"
-msgstr ""
+msgstr "Lega"
 
 #: src/ui_components/visual_competitions/visual_competitions.gd
 msgid "Group"
-msgstr ""
+msgstr "Gruppo"
 
 #: src/ui_components/transfers/player_offer/player_offer.tscn
 msgid "Type"
-msgstr ""
+msgstr "Tipo"
 
 #: src/ui_components/transfers/player_offer/player_offer.tscn
 msgid "Money"
-msgstr ""
+msgstr "Finanze"
 
 #: src/ui_components/transfers/player_offer/player_offer.tscn
 #: src/ui_components/email/list/message_list.tscn
@@ -478,17 +483,8 @@ msgid "Date"
 msgstr "Data"
 
 #: src/ui_components/transfers/player_offer/player_offer.tscn
-#, fuzzy
-#| msgid "Players"
 msgid "Player list"
-msgstr "Giocatori"
-
-#: src/ui_components/transfers/player_offer/player_offer.tscn
-#: src/ui_components/transfers/contract_offer/contract_offer.tscn
-#: src/screens/setup/setup_world/setup_world.tscn
-#: src/screens/setup/setup_manager/setup_manager.tscn
-msgid "Cancel"
-msgstr "Annulla"
+msgstr "Lista giocatori"
 
 #: src/ui_components/transfers/player_offer/player_offer.tscn
 #: src/ui_components/transfers/contract_offer/contract_offer.tscn
@@ -496,11 +492,11 @@ msgid "Confirm"
 msgstr "Conferma"
 
 #: src/ui_components/transfers/player_offer/player_offer.gd
-msgid "TRANSFER"
+msgid "Transfer"
 msgstr "Trasferimento"
 
 #: src/ui_components/transfers/player_offer/player_offer.gd
-msgid "LOAN"
+msgid "Loan"
 msgstr "Prestito"
 
 #: src/ui_components/transfers/contract_offer/contract_offer.tscn
@@ -518,10 +514,11 @@ msgstr "Cambi"
 
 #: src/ui_components/visual_formation/visual_formation.gd
 msgid "Rest"
-msgstr "Resto"
+msgstr "Riposati"
 
 #: src/ui_components/visual_formation/visual_formation.tscn
-#: src/screens/dashboard/dashboard.tscn src/screens/match/match.tscn
+#: src/screens/dashboard/dashboard.tscn
+#: src/screens/match/match.tscn
 msgid "Formation"
 msgstr "Formazione"
 
@@ -551,6 +548,7 @@ msgid "Subject"
 msgstr "Oggetto"
 
 #: src/ui_components/email/list/message_list.tscn
+#: src/ui_components/email/visual_message/visual_message.tscn
 msgid "From"
 msgstr "Da"
 
@@ -560,26 +558,22 @@ msgstr "Stella"
 
 #: src/ui_components/email/list/message_list.gd
 msgid "No message found"
-msgstr ""
+msgstr "Nessun messaggio trovato"
 
 #: src/ui_components/email/list/message_row/message_row.gd
 msgid "Click to read message"
-msgstr ""
+msgstr "Premi per leggere messaggio"
 
 #: src/ui_components/email/email.tscn
 msgid "Unread"
-msgstr "Da leggere"
+msgstr "Non letti"
 
 #: src/ui_components/email/email.tscn
 msgid "Starred"
-msgstr "Favoriti"
+msgstr "Contrassegnati"
 
 #: src/ui_components/email/visual_message/visual_message.tscn
-msgid "FROM"
-msgstr "Da"
-
-#: src/ui_components/email/visual_message/visual_message.tscn
-msgid "TO"
+msgid "To"
 msgstr "A"
 
 #: src/ui_components/email/visual_message/visual_message.tscn
@@ -587,11 +581,10 @@ msgid "Action"
 msgstr "Azione"
 
 #: src/ui_components/email/visual_message/visual_message.gd
-msgid "OFFER_CONTRACT"
+msgid "Offer contract"
 msgstr "Proponi contratto"
 
 #: src/ui_components/player_profile/player_profile.tscn
-#, fuzzy
 msgid "Statistics"
 msgstr "Statistiche"
 
@@ -600,25 +593,18 @@ msgid "Attributes"
 msgstr "Attributi"
 
 #: src/ui_components/player_profile/info_view/info_view.tscn
-#: src/screens/setup/setup_manager/setup_manager.tscn
-msgid "Name"
-msgstr "Nome"
-
-#: src/ui_components/player_profile/info_view/info_view.tscn
 msgid "Position"
 msgstr "Posizione"
 
 #: src/ui_components/player_profile/info_view/info_view.tscn
-#, fuzzy
 msgid "Alternative position"
-msgstr "Posizione"
+msgstr ""
 
 #: src/ui_components/player_profile/info_view/info_view.tscn
 msgid "Age"
 msgstr "Età"
 
 #: src/ui_components/player_profile/info_view/info_view.tscn
-#, fuzzy
 msgid "Foot"
 msgstr "Piede"
 
@@ -628,122 +614,104 @@ msgid "Nationality"
 msgstr "Naziolanità"
 
 #: src/ui_components/player_profile/info_view/info_view.tscn
-msgid "Team"
-msgstr "Squadra"
-
-#: src/ui_components/player_profile/info_view/info_view.tscn
 msgid "Number"
 msgstr ""
 
 #: src/ui_components/player_profile/info_view/info_view.tscn
-#, fuzzy
 msgid "Average attributes"
-msgstr "Attributi"
+msgstr "Media attributi"
 
 #: src/ui_components/player_profile/info_view/info_view.tscn
 msgid "Value"
 msgstr "Valore"
 
 #: src/ui_components/player_profile/contract_view/contract_view.tscn
-msgid "MAKE_OFFER"
+msgid "Make offer"
 msgstr "Fai offerta"
 
 #: src/ui_components/visual_calendar/visual_day/visual_day.tscn
-msgid "TRANSFERMARKET"
-msgstr "Sessione mercato"
-
-#: src/ui_components/visual_calendar/visual_day/visual_day.gd
-#: src/screens/match/match.tscn
-msgid "Home"
-msgstr "Casa"
-
-#: src/ui_components/visual_calendar/visual_day/visual_day.gd
-#: src/screens/match/match.tscn
-msgid "Away"
-msgstr "Fuoricasa"
-
 #: src/ui_components/visual_calendar/visual_day/visual_day.gd
 #: src/screens/dashboard/dashboard.tscn
 msgid "Transfermarket"
 msgstr "Sessione mercato"
 
+#: src/ui_components/visual_calendar/visual_day/visual_day.gd
 #: src/ui_components/visual_calendar/match_list/match_info/match_info.tscn
-msgid "HOME"
+#: src/screens/match/match.tscn
+msgid "Home"
 msgstr "Home"
 
+#: src/ui_components/visual_calendar/visual_day/visual_day.gd
 #: src/ui_components/visual_calendar/match_list/match_info/match_info.tscn
-msgid "VS"
-msgstr "vs"
-
-#: src/ui_components/visual_calendar/match_list/match_info/match_info.tscn
-msgid "AWAY"
+#: src/screens/match/match.tscn
+msgid "Away"
 msgstr "Fuoricasa"
 
+#: src/ui_components/visual_calendar/match_list/match_info/match_info.tscn
+msgid "vs"
+msgstr "vs"
+
 #: src/ui_components/visual_calendar/match_list/match_list.gd
-msgid "No_match"
-msgstr ""
+msgid "No match"
+msgstr "Nessuna partita"
 
 #: src/ui_components/visual_calendar/visual_calendar.tscn
 msgid "Today"
 msgstr "Oggi"
 
-#: src/ui_components/visual_calendar/visual_calendar.tscn src/enum.gd
+#: src/ui_components/visual_calendar/visual_calendar.tscn
+#: src/enum.gd
 msgid "Monday"
 msgstr "Lunedì"
 
-#: src/ui_components/visual_calendar/visual_calendar.tscn src/enum.gd
+#: src/ui_components/visual_calendar/visual_calendar.tscn
+#: src/enum.gd
 msgid "Tuesday"
 msgstr "Martedì"
 
-#: src/ui_components/visual_calendar/visual_calendar.tscn src/enum.gd
+#: src/ui_components/visual_calendar/visual_calendar.tscn
+#: src/enum.gd
 msgid "Wednesday"
 msgstr "Mercoledì"
 
-#: src/ui_components/visual_calendar/visual_calendar.tscn src/enum.gd
+#: src/ui_components/visual_calendar/visual_calendar.tscn
+#: src/enum.gd
 msgid "Thursday"
 msgstr "Giovedì"
 
-#: src/ui_components/visual_calendar/visual_calendar.tscn src/enum.gd
+#: src/ui_components/visual_calendar/visual_calendar.tscn
+#: src/enum.gd
 msgid "Friday"
 msgstr "Venerdi"
 
-#: src/ui_components/visual_calendar/visual_calendar.tscn src/enum.gd
+#: src/ui_components/visual_calendar/visual_calendar.tscn
+#: src/enum.gd
 msgid "Saturday"
 msgstr "Sabato"
 
-#: src/ui_components/visual_calendar/visual_calendar.tscn src/enum.gd
+#: src/ui_components/visual_calendar/visual_calendar.tscn
+#: src/enum.gd
 msgid "Sunday"
 msgstr "Domenica"
 
 #: src/utils/logic/email_util.gd
-#, fuzzy
 msgid "Next match: {team_name}"
-msgstr "Prossima partita"
+msgstr ""
 
 #: src/utils/logic/email_util.gd
 msgid "The next match is against {team_name}."
 msgstr ""
 
 #: src/utils/logic/email_util.gd
-#, fuzzy
 msgid "Welcome {manager_name}"
-msgstr "Allenatore"
+msgstr ""
 
 #: src/utils/logic/email_util.gd
 msgid "{team_name} welcomes you to a new journey."
 msgstr ""
 
 #: src/utils/logic/email_util.gd
-#, fuzzy
 msgid "Offer for {player_name}"
-msgstr "Il tuo nome"
-
-#: src/utils/logic/email_util.gd
-msgid ""
-"\n"
-"\t\t\tYou made an offer for {player_name} from {team_name} at {cost}.\n"
-"\t\t\t{team_name} will consider the offer and respond within a few days.\n"
-"\t\t\t"
 msgstr ""
 
 #: src/utils/logic/email_util.gd
@@ -751,83 +719,40 @@ msgid "Offer for {player name} declined"
 msgstr ""
 
 #: src/utils/logic/email_util.gd
-msgid ""
-"\n"
-"\t\t\tYour offer for {player_name} from {team_name} at {cost} has been "
-"declined.\n"
-"\t\t\tIncreasing the transfer value could make them reconsider.\n"
-"\t\t\t"
-msgstr ""
-
-#: src/utils/logic/email_util.gd
-#, fuzzy
 msgid "Offer for {player name} accepted"
-msgstr "Il tuo nome"
-
-#: src/utils/logic/email_util.gd
-msgid ""
-"\n"
-"\t\t\tYour offer for {player_name} from {team_name} at {cost} has been "
-"accepted.\n"
-"\t\t\tYou can now find a contractual aggreement with {player_name}.\n"
-"\t\t\t"
-msgstr ""
-
-#: src/utils/logic/email_util.gd
-msgid "EMAIL_SUBJECT_TRANSER_CONTRACT_PENDING"
-msgstr ""
-
-#: src/utils/logic/email_util.gd
-msgid "EMAIL_TEXT_TRANSER_CONTRACT_PENDING"
-msgstr ""
-
-#: src/utils/logic/email_util.gd
-msgid "EMAIL_SUBJECT_TRANSER_SUCCESS"
-msgstr ""
-
-#: src/utils/logic/email_util.gd
-msgid "EMAIL_TEXT_TRANSER_SUCCESS"
 msgstr ""
 
 #: src/utils/logic/match_combination_util.gd
-#, fuzzy
 msgid "Cup"
 msgstr "Tazza"
 
 #: src/utils/logic/match_combination_util.gd
-#, fuzzy
 msgid "Nations_cup"
-msgstr "Coppa delle nazioni"
+msgstr ""
 
 #: src/utils/logic/match_combination_util.gd
-#, fuzzy
 msgid "World cup"
 msgstr "Coppa del mondo"
 
 #: src/utils/res_util.gd
-#, fuzzy
 msgid "Restoring from backup"
 msgstr "Ripristinando backup..."
 
 #: src/screens/settings/settings.tscn
-msgid "GENERAL_SETTINGS"
+msgid "General"
 msgstr "Generale"
 
 #: src/screens/settings/settings.tscn
-msgid "INPUT_SETTINGS"
+msgid "Input"
 msgstr "Input"
 
 #: src/screens/settings/settings.tscn
-#, fuzzy
-#| msgid "ATTRIBUTES"
-msgid "CONTRIBUTORS"
-msgstr "Attributi"
+msgid "Contributors"
+msgstr ""
 
 #: src/screens/settings/settings.tscn
-#, fuzzy
-#| msgid "EXPENSES"
-msgid "LICENSES"
-msgstr "Spese"
+msgid "Licenses"
+msgstr ""
 
 #: src/screens/settings/settings.tscn
 msgid "Default settings"
@@ -840,12 +765,8 @@ msgstr "Indietro"
 
 #: src/screens/settings/settings.tscn
 #: src/screens/settings/general/general_settings.tscn
-msgid ""
-"You can fix errors or add new languages easily on Weblate, just click on the "
-"link below."
+msgid "You can fix errors or add new languages easily on Weblate, just click on the link below."
 msgstr ""
-"You can fix errors or add new languages easily on Weblate, just click on the "
-"link below."
 
 #: src/screens/settings/general/general_settings.tscn
 msgid "Language"
@@ -853,7 +774,7 @@ msgstr ""
 
 #: src/screens/settings/general/general_settings.tscn
 msgid "Audio"
-msgstr "Suono"
+msgstr "Audio"
 
 #: src/screens/settings/general/general_settings.tscn
 msgid "Sfx volume"
@@ -865,12 +786,12 @@ msgstr ""
 
 #: src/screens/settings/general/general_settings.tscn
 msgid "Font size"
-msgstr ""
+msgstr "Dimensione carattere"
 
 #: src/screens/settings/general/general_settings.tscn
 #: src/screens/setup/setup_world/setup_world.tscn
 msgid "Default"
-msgstr "Predefinito"
+msgstr "Default"
 
 #: src/screens/settings/general/general_settings.tscn
 msgid "Scale"
@@ -910,7 +831,7 @@ msgstr "Modalidità Vim"
 
 #: src/screens/settings/input/input_settings.tscn
 msgid "Joypad status"
-msgstr "Joypad status"
+msgstr "Stato joypad"
 
 #: src/screens/settings/input/input_settings.tscn
 msgid "No joypad connected"
@@ -918,11 +839,11 @@ msgstr "Nessun joypad connesso"
 
 #: src/screens/settings/input/input_settings.tscn
 msgid "Input detection mode"
-msgstr "Input detection mode"
+msgstr "Modo riconoscimento entrata"
 
 #: src/screens/settings/input/input_settings.tscn
 msgid "Input type"
-msgstr "Input type"
+msgstr "Tipo entrata"
 
 #: src/screens/save_states_screen/save_states_screen.tscn
 msgid "Save states"
@@ -935,43 +856,38 @@ msgstr "Menu"
 
 #: src/screens/save_states_screen/save_state_entry/save_state_entry.gd
 #: src/screens/menu/menu.gd
-#, fuzzy
 msgid "Loading game"
 msgstr "Carica partita"
 
 #: src/screens/save_states_screen/save_state_entry/save_state_entry.tscn
-msgid "MANAGER"
+#: src/screens/setup/setup_manager/setup_manager.tscn
+msgid "Manager"
 msgstr "Allenatore"
 
 #: src/screens/save_states_screen/save_state_entry/save_state_entry.tscn
-msgid "TABLE_PLACEMENT"
+msgid "Table placement"
 msgstr "Posto in classifica"
 
 #: src/screens/save_states_screen/save_state_entry/save_state_entry.tscn
-msgid "GAME_DATE"
-msgstr "Data nel gioco"
+msgid "Game date"
+msgstr ""
 
 #: src/screens/save_states_screen/save_state_entry/save_state_entry.tscn
-msgid "LAST_SAVE"
+msgid "Last save"
 msgstr "Ultimo salvataggio"
 
 #: src/screens/save_states_screen/save_state_entry/save_state_entry.tscn
-msgid "CREATED"
+msgid "Created"
 msgstr "Creato"
 
 #: src/screens/save_states_screen/save_state_entry/save_state_entry.tscn
-msgid "DELETE"
+msgid "Delete"
 msgstr "Elimina"
 
 #: src/screens/save_states_screen/save_state_entry/save_state_entry.tscn
-msgid "LOAD_GAME"
+#: src/screens/menu/menu.tscn
+msgid "Load game"
 msgstr "Carica partita"
-
-#: src/screens/save_states_screen/save_state_entry/save_state_entry.tscn
-msgid "SAVE_STATE_DELETE_INFO"
-msgstr ""
-"Stai per cancellare la partita definitamente.\n"
-"Procedere?"
 
 #: src/screens/dashboard/dashboard.gd
 msgid "Start match"
@@ -982,22 +898,19 @@ msgid "Next day"
 msgstr "Prossimo giorno"
 
 #: src/screens/dashboard/dashboard.gd
-#, fuzzy
 msgid "Next season"
 msgstr "Prossima stagione"
 
-#: src/screens/dashboard/dashboard.gd src/screens/dashboard/dashboard.tscn
-#, fuzzy
+#: src/screens/dashboard/dashboard.gd
+#: src/screens/dashboard/dashboard.tscn
 msgid "Email"
-msgstr "E-Mail"
+msgstr ""
 
 #: src/screens/dashboard/dashboard.gd
-#, fuzzy
 msgid "Simulating results"
 msgstr "Simulando partite..."
 
 #: src/screens/dashboard/dashboard.gd
-#, fuzzy
 msgid "Saving game"
 msgstr "Salvando partita..."
 
@@ -1045,7 +958,8 @@ msgstr "Hall of fame"
 msgid "Notes"
 msgstr "Note"
 
-#: src/screens/dashboard/dashboard.tscn src/screens/menu/menu.tscn
+#: src/screens/dashboard/dashboard.tscn
+#: src/screens/menu/menu.tscn
 msgid "Settings"
 msgstr "Impostazioni"
 
@@ -1053,17 +967,20 @@ msgstr "Impostazioni"
 msgid "Next match"
 msgstr "Prossima partita"
 
-#: src/screens/dashboard/dashboard.tscn src/screens/match/match.gd
-#: src/screens/menu/menu.tscn src/screens/setup/setup_world/setup_world.tscn
+#: src/screens/dashboard/dashboard.tscn
+#: src/screens/match/match.gd
+#: src/screens/menu/menu.tscn
+#: src/screens/setup/setup_world/setup_world.tscn
 #: src/screens/setup/setup_manager/setup_manager.tscn
 msgid "Continue"
-msgstr "Avanti"
+msgstr "Continua"
 
 #: src/screens/dashboard/dashboard.tscn
 msgid "Save the game before exiting?"
 msgstr ""
 
-#: src/screens/match/match.gd src/screens/match/match.tscn
+#: src/screens/match/match.gd
+#: src/screens/match/match.tscn
 msgid "Pause"
 msgstr "Pausa"
 
@@ -1073,7 +990,7 @@ msgstr ""
 
 #: src/screens/match/match.tscn
 msgid "Stats"
-msgstr "Stats"
+msgstr "Statistiche"
 
 #: src/screens/match/match.tscn
 msgid "Commentary"
@@ -1083,7 +1000,8 @@ msgstr "Commenti"
 msgid "Events"
 msgstr "Eventi"
 
-#: src/screens/match/match.tscn src/enum.gd
+#: src/screens/match/match.tscn
+#: src/enum.gd
 msgid "Full game"
 msgstr "Partita intera"
 
@@ -1093,33 +1011,27 @@ msgstr "Simula"
 
 #: src/screens/match/match.tscn
 msgid "Dashboard"
-msgstr ""
+msgstr "Dashboard"
 
 #: src/screens/match/match.tscn
 msgid "Possession"
 msgstr "Possesso"
 
 #: src/screens/loading_screen/loading_screen.tscn
-#, fuzzy
 msgid "Loading"
-msgstr "Carica partita"
+msgstr "Caricamento"
 
 #: src/screens/menu/menu.tscn
 msgid "New game"
 msgstr "Nuova partita"
 
 #: src/screens/menu/menu.tscn
-msgid "Load game"
-msgstr "Carica partita"
-
-#: src/screens/menu/menu.tscn
 msgid "Exit"
-msgstr "Chiudi"
+msgstr "Esci"
 
 #: src/screens/menu/menu.tscn
-#, fuzzy
 msgid "Exit game"
-msgstr "Salvando partita..."
+msgstr ""
 
 #: src/screens/setup/setup_world/setup_world.tscn
 msgid "Game settings"
@@ -1130,18 +1042,15 @@ msgid "Player names"
 msgstr "Nomi giocatori"
 
 #: src/screens/setup/setup_world/setup_world.tscn
-#, fuzzy
 msgid "Start year"
-msgstr "Inizia partita"
+msgstr ""
 
 #: src/screens/setup/setup_world/setup_world.tscn
 msgid "Generation seed"
 msgstr "Codice generazione"
 
 #: src/screens/setup/setup_world/setup_world.tscn
-msgid ""
-"This generation seed defines player names and attributes. When reused, it "
-"will generate exatly the same result."
+msgid "This generation seed defines player names and attributes. When reused, it will generate exatly the same result."
 msgstr ""
 
 #: src/screens/setup/setup_world/setup_world.tscn
@@ -1149,13 +1058,8 @@ msgid "Random"
 msgstr "Casuale"
 
 #: src/screens/setup/setup_world/setup_world.gd
-#, fuzzy
 msgid "Generating players"
-msgstr "Generando tutti giocatori…"
-
-#: src/screens/setup/setup_manager/setup_manager.tscn
-msgid "Manager"
-msgstr "Allenatore"
+msgstr ""
 
 #: src/screens/setup/setup_manager/setup_manager.tscn
 msgid "Your name"
@@ -1175,12 +1079,11 @@ msgstr ""
 
 #: src/screens/setup/setup_team/setup_team.tscn
 msgid "Select"
-msgstr "Seleziona"
+msgstr "Selezionare"
 
 #: src/screens/setup/setup_team/setup_team.gd
-#, fuzzy
 msgid "Initialize game"
-msgstr "Impostazioni di gioco"
+msgstr ""
 
 #: src/resources/world/continent_names.gd
 msgid "Africa"
@@ -1743,7 +1646,7 @@ msgid "Rwanda"
 msgstr "Ruanda"
 
 #: src/resources/world/nation_names.gd
-msgid "Sao Tome and principe"
+msgid "Sao Tome and Principe"
 msgstr "São Tomé e Príncipe"
 
 #: src/resources/world/nation_names.gd
@@ -1871,11 +1774,11 @@ msgid "Kazakhstan"
 msgstr "Kazakistan"
 
 #: src/resources/world/nation_names.gd
-msgid "Korea North"
+msgid "North Korea"
 msgstr "Corea del Nord"
 
 #: src/resources/world/nation_names.gd
-msgid "Korea South"
+msgid "South Korea"
 msgstr "Corea del Sud"
 
 #: src/resources/world/nation_names.gd
@@ -1939,7 +1842,7 @@ msgid "Singapore"
 msgstr "Singapore"
 
 #: src/resources/world/nation_names.gd
-msgid "Sri_lanka"
+msgid "Sri Lanka"
 msgstr "Sri Lanka"
 
 #: src/resources/world/nation_names.gd
@@ -1983,8 +1886,7 @@ msgid "Game license"
 msgstr ""
 
 #: src/screens/settings/license/license.tscn
-msgid ""
-"This game is Open Source and released under the AGPL v3 or later license."
+msgid "This game is Open Source and released under the AGPL v3 or later license."
 msgstr ""
 
 #: src/screens/settings/license/license.tscn
@@ -2004,13 +1906,10 @@ msgid "Third party licenses"
 msgstr ""
 
 #: src/screens/settings/license/license.tscn
-msgid ""
-"This game was built using the Godot Engine, that is released under the MIT "
-"license."
+msgid "This game was built using the Godot Engine, that is released under the MIT license."
 msgstr ""
 
 #: src/enum.gd
-#, fuzzy
 msgid "Key actions"
 msgstr "Azione"
 
@@ -2108,7 +2007,7 @@ msgstr "Destro"
 
 #: src/enum.gd
 msgid "Left and right"
-msgstr "Destro"
+msgstr ""
 
 #: src/enum.gd
 msgid "Worst"
@@ -2138,1145 +2037,3 @@ msgstr "Infortunato"
 msgid "Recover"
 msgstr "Recupero"
 
-#~ msgid "SEARCH"
-#~ msgstr "Cerca"
-
-#~ msgid "LEAGUE"
-#~ msgstr "Lega"
-
-#~ msgid "FORMATION"
-#~ msgstr "Formazione"
-
-#~ msgid "UNREAD"
-#~ msgstr "Non letti"
-
-#~ msgid "STARRED"
-#~ msgstr "Contrassegnati"
-
-#~ msgid "SUBJECT"
-#~ msgstr "Oggetto"
-
-#~ msgid "ACTION"
-#~ msgstr "Azione"
-
-#~ msgid "TODAY"
-#~ msgstr "Oggi"
-
-#~ msgid "MONDAY"
-#~ msgstr "Lunedì"
-
-#~ msgid "TUESDAY"
-#~ msgstr "Martedì"
-
-#~ msgid "WEDNESDAY"
-#~ msgstr "Mercoledì"
-
-#~ msgid "THURSDAY"
-#~ msgstr "Giovedì"
-
-#~ msgid "FRIDAY"
-#~ msgstr "Venerdi"
-
-#~ msgid "SATURDAY"
-#~ msgstr "Sabato"
-
-#~ msgid "SUNDAY"
-#~ msgstr "Domenica"
-
-#~ msgid "GAME_LICENSE"
-#~ msgstr "Licenza del gioco"
-
-#, fuzzy
-#~| msgid "GENERATION_SEED_DESCRIPTION"
-#~ msgid "GAME_LICENSE_DESCRIPTION"
-#~ msgstr "GENERATION_SEED_DESCRIPTION"
-
-#, fuzzy
-#~ msgid "READ_FULL_LICENSE"
-#~ msgstr "Premi per leggere messaggio"
-
-#, fuzzy
-#~| msgid "GENERATION_SEED_DESCRIPTION"
-#~ msgid "SOURCE_CODE_DESCRIPTION"
-#~ msgstr "GENERATION_SEED_DESCRIPTION"
-
-#, fuzzy
-#~| msgid "GENERATION_SEED_DESCRIPTION"
-#~ msgid "THIRD_PARTY_LICENSES_DESCRIPTION"
-#~ msgstr "GENERATION_SEED_DESCRIPTION"
-
-#~ msgid "BUDGET"
-#~ msgstr "Bilancio"
-
-#~ msgid "STADIUM"
-#~ msgstr "Stadio"
-
-#~ msgid "PRESTIGE"
-#~ msgstr "Prestigio"
-
-#~ msgid "SALARY_BUDGET"
-#~ msgstr "Budget salariale"
-
-#~ msgid "PERSONS"
-#~ msgstr "Persone"
-
-#~ msgid "YEAR"
-#~ msgstr "Anno"
-
-#~ msgid "INFO"
-#~ msgstr "Info"
-
-#~ msgid "SEED"
-#~ msgstr "Seed"
-
-#~ msgid "COPY"
-#~ msgstr "Copia"
-
-#~ msgid "START_DATE"
-#~ msgstr "Data inizio"
-
-#~ msgid "BALANCE"
-#~ msgstr "Bilancio"
-
-#~ msgid "EXPENSES"
-#~ msgstr "Spese"
-
-#~ msgid "REAMAINING_SALARY_BUDGET"
-#~ msgstr "Bilancio salario rimasto"
-
-#~ msgid "INCOME"
-#~ msgstr "Entrate"
-
-#~ msgid "GROUP"
-#~ msgstr "Gruppo"
-
-#~ msgid "TYPE"
-#~ msgstr "Tipo"
-
-#~ msgid "MONEY"
-#~ msgstr "Finanze"
-
-#~ msgid "DATE"
-#~ msgstr "Data"
-
-#~ msgid "PLAYERS"
-#~ msgstr "Giocatori"
-
-#~ msgid "PLAYER_LIST"
-#~ msgstr "Lista giocatori"
-
-#~ msgid "CONFIRM"
-#~ msgstr "Conferma"
-
-#~ msgid "CONTRACT"
-#~ msgstr "Contratto"
-
-#~ msgid "BUY_CLAUSE"
-#~ msgstr "Sud America"
-
-#~ msgid "SUBS"
-#~ msgstr "Cambi"
-
-#~ msgid "REST"
-#~ msgstr "Riposati"
-
-#~ msgid "CHANGE_STRATEGY"
-#~ msgstr "Strategia cambi"
-
-#~ msgid "TACTIC_OFFENSE"
-#~ msgstr "Tattica offensiva"
-
-#~ msgid "INTENSITY"
-#~ msgstr "Intensità"
-
-#~ msgid "MARKING"
-#~ msgstr "Marcatura"
-
-#~ msgid "PRESSING"
-#~ msgstr "Pressing"
-
-#~ msgid "STAR"
-#~ msgstr "Stella"
-
-#~ msgid "NO_MESSAGE_FOUND"
-#~ msgstr "Nessun messaggio trovato"
-
-#~ msgid "CLICK_TO_READ_MESSAGE"
-#~ msgstr "Premi per leggere messaggio"
-
-#~ msgid "NO_MATCH"
-#~ msgstr "Nessuna partita"
-
-#~ msgid "DEFAULT_SETTINGS"
-#~ msgstr "Impostazioni predefinite"
-
-#~ msgid "BACK"
-#~ msgstr "Indietro"
-
-#~ msgid "RESTORE_DEFAULTS_TEXT"
-#~ msgstr "Tutte le impostazioni cambiate vanno perse e verranno resettate."
-
-#~ msgid "TRANSLATION_INSTRUCTIONS"
-#~ msgstr ""
-#~ "You can fix errors or add new languages easily on Weblate, just click on "
-#~ "the link below."
-
-#~ msgid "AUDIO"
-#~ msgstr "Audio"
-
-#~ msgid "SFX_VOLUME"
-#~ msgstr "Volume effetti sonori"
-
-#~ msgid "INTERFACE_SETTINGS"
-#~ msgstr "Interfaccia"
-
-#~ msgid "FONT_SIZE"
-#~ msgstr "Dimensione carattere"
-
-#~ msgid "DEFAULT"
-#~ msgstr "Default"
-
-#~ msgid "SCALE"
-#~ msgstr "Scala"
-
-#~ msgid "SCREEN_FADE_ANIMATION"
-#~ msgstr "Animazione cambio scermata"
-
-#~ msgid "THEMES"
-#~ msgstr "Temi"
-
-#~ msgid "FONT_COLOR"
-#~ msgstr "Colore scrittura"
-
-#~ msgid "CHANGE"
-#~ msgstr "Cambia"
-
-#~ msgid "BUTTONS_COLOR"
-#~ msgstr "Colore tasti"
-
-#~ msgid "BACKGROUND_COLOR"
-#~ msgstr "Colore sfondo"
-
-#~ msgid "VERSION"
-#~ msgstr "Versione"
-
-#~ msgid "VIM_MODE"
-#~ msgstr "Modalidità Vim"
-
-#~ msgid "JOYPAD_STATUS"
-#~ msgstr "Stato joypad"
-
-#~ msgid "NO_JOYPAD_CONNECTED"
-#~ msgstr "Nessun joypad connesso"
-
-#~ msgid "INPUT_DETECTION_MODE"
-#~ msgstr "Modo riconoscimento entrata"
-
-#~ msgid "INPUT_TYPE"
-#~ msgstr "Tipo entrata"
-
-#~ msgid "SAVE_STATES"
-#~ msgstr "Salvataggi"
-
-#~ msgid "MENU"
-#~ msgstr "Menu"
-
-#~ msgid "EMAIL"
-#~ msgstr "E-Mail"
-
-#~ msgid "CALENDAR"
-#~ msgstr "Calendario"
-
-#~ msgid "COMPETITIONS"
-#~ msgstr "Competizioni"
-
-#~ msgid "FINANCES"
-#~ msgstr "Finanze"
-
-#~ msgid "SEARCH_PLAYER"
-#~ msgstr "Cerca giocatore"
-
-#~ msgid "SCOUTS"
-#~ msgstr "Scout"
-
-#~ msgid "WATCHLIST"
-#~ msgstr "Lista osservati"
-
-#~ msgid "TRANSFERLIST"
-#~ msgstr "Lista trasferimenti"
-
-#~ msgid "JOBS"
-#~ msgstr "Lavoro"
-
-#~ msgid "HALL_OF_FAME"
-#~ msgstr "Hall of fame"
-
-#~ msgid "NOTES"
-#~ msgstr "Note"
-
-#~ msgid "SETTINGS"
-#~ msgstr "Impostazioni"
-
-#~ msgid "NEXT_MATCH"
-#~ msgstr "Prossima partita"
-
-#~ msgid "CONTINUE"
-#~ msgstr "Continua"
-
-#~ msgid "SAVE_TEXT"
-#~ msgstr "Vuoi salvare la partita prima di tornare al menu?"
-
-#~ msgid "PENALTIES"
-#~ msgstr "Rigore"
-
-#~ msgid "STATS"
-#~ msgstr "Statistiche"
-
-#~ msgid "COMMENTARY"
-#~ msgstr "Commenti"
-
-#~ msgid "EVENTS"
-#~ msgstr "Eventi"
-
-#~ msgid "FULL_GAME"
-#~ msgstr "Partita intera"
-
-#~ msgid "PAUSE"
-#~ msgstr "Pausa"
-
-#~ msgid "SIMULATE"
-#~ msgstr "Simula"
-
-#~ msgid "DASHBOARD"
-#~ msgstr "Dashboard"
-
-#~ msgid "POSSESSION"
-#~ msgstr "Possesso"
-
-#~ msgid "LOADING"
-#~ msgstr "Caricamento"
-
-#~ msgid "NEW_GAME"
-#~ msgstr "Nuova partita"
-
-#~ msgid "EXIT"
-#~ msgstr "Esci"
-
-#~ msgid "EXIT_GAME"
-#~ msgstr "Uscire dal gioco?"
-
-#~ msgid "GAME_SETTINGS"
-#~ msgstr "Impostazioni di gioco"
-
-#~ msgid "PLAYER_NAMES"
-#~ msgstr "Nomi giocatori"
-
-#~ msgid "START_YEAR"
-#~ msgstr "Anno d'inizio"
-
-#~ msgid "GENERATION_SEED"
-#~ msgstr "Codice generazione"
-
-#~ msgid "GENERATION_SEED_DESCRIPTION"
-#~ msgstr "GENERATION_SEED_DESCRIPTION"
-
-#~ msgid "RANDOM"
-#~ msgstr "Casuale"
-
-#~ msgid "YOUR_NAME"
-#~ msgstr "Il tuo nome"
-
-#~ msgid "SURNAME"
-#~ msgstr "Cognome"
-
-#~ msgid "YOUR_SURNAME"
-#~ msgstr "Il tuo cognome"
-
-#~ msgid "NATIONALITY"
-#~ msgstr "Naziolanità"
-
-#~ msgid "CHOOSE_TEAM"
-#~ msgstr "Scegli squadra"
-
-#~ msgid "SELECT"
-#~ msgstr "Selezionare"
-
-#, fuzzy
-#~| msgid "NEXT_MATCH"
-#~ msgid "EMAIL_TEXT_NEXT_MATCH"
-#~ msgstr "Prossima partita"
-
-#~ msgid "CUP"
-#~ msgstr "Tazza"
-
-#~ msgid "NATIONS_CUP"
-#~ msgstr "Coppa delle nazioni"
-
-#~ msgid "WORLD_CUP"
-#~ msgstr "Coppa del mondo"
-
-#, fuzzy
-#~ msgid "RESTORING_BACKUP"
-#~ msgstr "Ripristinando backup..."
-
-#~ msgid "LOADING_GAME"
-#~ msgstr "Carica partita"
-
-#~ msgid "SIMULATING_RESULTS"
-#~ msgstr "Simulando partite..."
-
-#~ msgid "START_MATCH"
-#~ msgstr "Inizia partita"
-
-#~ msgid "SAVING_GAME"
-#~ msgstr "Salvando partita..."
-
-#~ msgid "NEXT_DAY"
-#~ msgstr "Prossimo giorno"
-
-#~ msgid "NEXT_SEASON"
-#~ msgstr "Prossima stagione"
-
-#~ msgid "GENERATING_PLAYERS"
-#~ msgstr "Generando tutti giocatori…"
-
-#, fuzzy
-#~| msgid "NEW_GAME"
-#~ msgid "INITIALIZE_GAME"
-#~ msgstr "Nuova partita"
-
-#~ msgid "JOYPAD"
-#~ msgstr "Joypad"
-
-#~ msgid "STATISTICS"
-#~ msgstr "Statistiche"
-
-#~ msgid "POSITION"
-#~ msgstr "Posizione"
-
-#~ msgid "ALT_POSITION"
-#~ msgstr "Posizione altrenativa"
-
-#~ msgid "AGE"
-#~ msgstr "Età"
-
-#~ msgid "FOOT"
-#~ msgstr "Piede"
-
-#~ msgid "NR"
-#~ msgstr "Nr"
-
-#~ msgid "ATTRIBUTES_AVERGE"
-#~ msgstr "Media attributi"
-
-#~ msgid "VALUE"
-#~ msgstr "Valore"
-
-#~ msgid "LEFT"
-#~ msgstr "Sinistro"
-
-#~ msgid "RIGHT"
-#~ msgstr "Destro"
-
-#~ msgid "WORST"
-#~ msgstr "Peggiore"
-
-#~ msgid "BAD"
-#~ msgstr "Male"
-
-#~ msgid "NEUTRAL"
-#~ msgstr "Neutrale"
-
-#~ msgid "GOOD"
-#~ msgstr "Buono"
-
-#~ msgid "BEST"
-#~ msgstr "Migliore"
-
-#~ msgid "MALE"
-#~ msgstr "Maschile"
-
-#~ msgid "FEMALE"
-#~ msgstr "Femminile"
-
-#~ msgid "MIXED"
-#~ msgstr "Misto"
-
-#~ msgid "KEY_ACTIONS"
-#~ msgstr "Azione"
-
-#~ msgid "ONLY_GOALS"
-#~ msgstr "Solo gol"
-
-#~ msgid "WELCOME"
-#~ msgstr "Benvenuti"
-
-#~ msgid "OFFER_ACCEPTED_TEXT"
-#~ msgstr "La squadra ha accettato la tua offerta"
-
-#~ msgid "0"
-#~ msgstr "0"
-
-#~ msgid "FULL_MATCH"
-#~ msgstr "Partita intera"
-
-#~ msgid "AFRICA"
-#~ msgstr "Africa"
-
-#~ msgid "ASIA"
-#~ msgstr "Asia"
-
-#~ msgid "EUROPE"
-#~ msgstr "Europa"
-
-#~ msgid "OCEANIA"
-#~ msgstr "Oceania"
-
-#~ msgid "SOUTH_AMERICA"
-#~ msgstr "Sud America"
-
-#~ msgid "NORTH_AMERICA"
-#~ msgstr "Nord America"
-
-#~ msgid "ALBANIA"
-#~ msgstr "Albania"
-
-#~ msgid "ANDORRA"
-#~ msgstr "Andorra"
-
-#~ msgid "ARMENIA"
-#~ msgstr "Armenia"
-
-#~ msgid "AUSTRIA"
-#~ msgstr "Austria"
-
-#~ msgid "AZERBAIJAN"
-#~ msgstr "Azerbaigian"
-
-#~ msgid "BELARUS"
-#~ msgstr "Bielorussia"
-
-#~ msgid "BELGIUM"
-#~ msgstr "Belgio"
-
-#~ msgid "BOSNIA_AND_HERZEGOVINA"
-#~ msgstr "Bosnia ed Erzegovina"
-
-#~ msgid "BULGARIA"
-#~ msgstr "Bulgaria"
-
-#~ msgid "CROATIA"
-#~ msgstr "Croazia"
-
-#~ msgid "CYPRUS"
-#~ msgstr "Cipro"
-
-#~ msgid "CZECH_REPUBLIC"
-#~ msgstr "Repubblica Ceca"
-
-#~ msgid "DENMARK"
-#~ msgstr "Danimarca"
-
-#~ msgid "ESTONIA"
-#~ msgstr "Estonia"
-
-#~ msgid "FINLAND"
-#~ msgstr "Finlandia"
-
-#~ msgid "FRANCE"
-#~ msgstr "Francia"
-
-#~ msgid "GEORGIA"
-#~ msgstr "Georgia"
-
-#~ msgid "GERMANY"
-#~ msgstr "Germania"
-
-#~ msgid "GREECE"
-#~ msgstr "Grecia"
-
-#~ msgid "HUNGARY"
-#~ msgstr "Ungheria"
-
-#~ msgid "ICELAND"
-#~ msgstr "Islanda"
-
-#~ msgid "IRELAND"
-#~ msgstr "Irlanda"
-
-#~ msgid "ITALY"
-#~ msgstr "Italia"
-
-#~ msgid "LATVIA"
-#~ msgstr "Lettonia"
-
-#~ msgid "LIECHTENSTEIN"
-#~ msgstr "Liechtenstein"
-
-#~ msgid "LITHUANIA"
-#~ msgstr "Lituania"
-
-#~ msgid "LUXEMBOURG"
-#~ msgstr "Lussemburgo"
-
-#~ msgid "MACEDONIA"
-#~ msgstr "Repubblica di Macedonia"
-
-#~ msgid "MALTA"
-#~ msgstr "Malta"
-
-#~ msgid "MOLDOVA"
-#~ msgstr "Moldavia"
-
-#~ msgid "MONACO"
-#~ msgstr "Principato di Monaco"
-
-#~ msgid "MONTENEGRO"
-#~ msgstr "Montenegro"
-
-#~ msgid "NETHERLANDS"
-#~ msgstr "Paesi Bassi"
-
-#~ msgid "NORWAY"
-#~ msgstr "Norvegia"
-
-#~ msgid "POLAND"
-#~ msgstr "Polonia"
-
-#~ msgid "PORTUGAL"
-#~ msgstr "Portogallo"
-
-#~ msgid "ROMANIA"
-#~ msgstr "Romania"
-
-#~ msgid "SAN_MARINO"
-#~ msgstr "San Marino"
-
-#~ msgid "SERBIA"
-#~ msgstr "Serbia"
-
-#~ msgid "SLOVAKIA"
-#~ msgstr "Slovacchia"
-
-#~ msgid "SLOVENIA"
-#~ msgstr "Slovenia"
-
-#~ msgid "SPAIN"
-#~ msgstr "Spagna"
-
-#~ msgid "SWEDEN"
-#~ msgstr "Svezia"
-
-#~ msgid "SWITZERLAND"
-#~ msgstr "Svizzera"
-
-#~ msgid "UKRAINE"
-#~ msgstr "Ucraina"
-
-#~ msgid "UNITED_KINGDOM"
-#~ msgstr "Regno Unito"
-
-#~ msgid "VATICAN_CITY"
-#~ msgstr "Citt"
-
-#~ msgid "BRAZIL"
-#~ msgstr "Brasile"
-
-#~ msgid "ARGENTINA"
-#~ msgstr "Argentina"
-
-#~ msgid "BOLIVIA"
-#~ msgstr "Bolivia"
-
-#~ msgid "CHILE"
-#~ msgstr "Cile"
-
-#~ msgid "COLOMBIA"
-#~ msgstr "Colombia"
-
-#~ msgid "ECUADOR"
-#~ msgstr "Ecuador"
-
-#~ msgid "GUYANA"
-#~ msgstr "Guyana"
-
-#~ msgid "PARAGUAY"
-#~ msgstr "Paraguay"
-
-#~ msgid "PERU"
-#~ msgstr "Perù"
-
-#~ msgid "SURINAME"
-#~ msgstr "Suriname"
-
-#~ msgid "URUGUAY"
-#~ msgstr "Uruguay"
-
-#~ msgid "VENEZUELA"
-#~ msgstr "Venezuela"
-
-#~ msgid "ANTIGUA_AND_BARBUDA"
-#~ msgstr "Antigua e Barbuda"
-
-#~ msgid "BAHAMAS"
-#~ msgstr "Bahamas"
-
-#~ msgid "BARBADOS"
-#~ msgstr "Barbados"
-
-#~ msgid "BELIZE"
-#~ msgstr "Belize"
-
-#~ msgid "CANADA"
-#~ msgstr "Canada"
-
-#~ msgid "COSTA_RICA"
-#~ msgstr "Costa Rica"
-
-#~ msgid "CUBA"
-#~ msgstr "Cuba"
-
-#~ msgid "DOMINICA"
-#~ msgstr "Dominica"
-
-#~ msgid "DOMINICAN_REPUBLIC"
-#~ msgstr "Repubblica Dominicana"
-
-#~ msgid "EL_SALVADOR"
-#~ msgstr "El Salvador"
-
-#~ msgid "GRENADA"
-#~ msgstr "Grenada"
-
-#~ msgid "GUATEMALA"
-#~ msgstr "Guatemala"
-
-#~ msgid "HAITI"
-#~ msgstr "Haiti"
-
-#~ msgid "HONDURAS"
-#~ msgstr "Honduras"
-
-#~ msgid "JAMAICA"
-#~ msgstr "Giamaica"
-
-#~ msgid "MEXICO"
-#~ msgstr "Messico"
-
-#~ msgid "NICARAGUA"
-#~ msgstr "Nicaragua"
-
-#~ msgid "PANAMA"
-#~ msgstr "Panamá"
-
-#~ msgid "SAINT_KITTS_AND_NEVIS"
-#~ msgstr "Saint Kitts e Nevis"
-
-#~ msgid "SAINT_LUCIA"
-#~ msgstr "Santa Lucia"
-
-#~ msgid "SAINT_VINCENT_AND_THE_GRENADINES"
-#~ msgstr "Saint Vincent e Grenadine"
-
-#~ msgid "TRINIDAD_AND_TOBAGO"
-#~ msgstr "Trinidad e Tobago"
-
-#~ msgid "USA"
-#~ msgstr "Stati Uniti"
-
-#~ msgid "AUSTRALIA"
-#~ msgstr "Australia"
-
-#~ msgid "FIJI"
-#~ msgstr "Figi"
-
-#~ msgid "KIRIBATI"
-#~ msgstr "Kiribati"
-
-#~ msgid "MARSHALL_ISLANDS"
-#~ msgstr "Isole Marshall"
-
-#~ msgid "MICRONESIA"
-#~ msgstr "Stati Federati di Micronesia"
-
-#~ msgid "NAURU"
-#~ msgstr "Nauru"
-
-#~ msgid "NEW_ZEALAND"
-#~ msgstr "Nuova Zelanda"
-
-#~ msgid "PALAU"
-#~ msgstr "Palau"
-
-#~ msgid "PAPUA_NEW_GUINEA"
-#~ msgstr "Papua Nuova Guinea"
-
-#~ msgid "SAMOA"
-#~ msgstr "Samoa"
-
-#~ msgid "SOLOMON_ISLANDS"
-#~ msgstr "Isole Salomone"
-
-#~ msgid "TONGA"
-#~ msgstr "Tonga"
-
-#~ msgid "TUVALU"
-#~ msgstr "Tuvalu"
-
-#~ msgid "VANUATU"
-#~ msgstr "Vanuatu"
-
-#~ msgid "ALGERIA"
-#~ msgstr "Algeria"
-
-#~ msgid "ANGOLA"
-#~ msgstr "Angola"
-
-#~ msgid "BENIN"
-#~ msgstr "Benin"
-
-#~ msgid "BOTSWANA"
-#~ msgstr "Botswana"
-
-#~ msgid "BURKINA"
-#~ msgstr "Burkina"
-
-#~ msgid "BURUNDI"
-#~ msgstr "Burundi"
-
-#~ msgid "CAMEROON"
-#~ msgstr "Camerun"
-
-#~ msgid "CAPE_VERDE"
-#~ msgstr "Capo Verde"
-
-#~ msgid "CENTRAL_AFRICAN_REPUBLIC"
-#~ msgstr "Repubblica Centrafricana"
-
-#~ msgid "CHAD"
-#~ msgstr "Ciad"
-
-#~ msgid "COMOROS"
-#~ msgstr "Comore"
-
-#~ msgid "CONGO"
-#~ msgstr "Congo"
-
-#~ msgid "DEMOCRATIC_REPUBLIC_OF_CONGO"
-#~ msgstr "Repubblica Democratica del Congo"
-
-#~ msgid "DJIBOUTI"
-#~ msgstr "Gibuti"
-
-#~ msgid "EGYPT"
-#~ msgstr "Egitto"
-
-#~ msgid "EQUATORIAL_GUINEA"
-#~ msgstr "Guinea Equatoriale"
-
-#~ msgid "ERITREA"
-#~ msgstr "Eritrea"
-
-#~ msgid "ETHIOPIA"
-#~ msgstr "Etiopia"
-
-#~ msgid "GABON"
-#~ msgstr "Gabon"
-
-#~ msgid "GAMBIA"
-#~ msgstr "Gambia"
-
-#~ msgid "GHANA"
-#~ msgstr "Ghana"
-
-#~ msgid "GUINEA"
-#~ msgstr "Guinea"
-
-#~ msgid "IVORY_COAST"
-#~ msgstr "Costa d'Avorio"
-
-#~ msgid "KENYA"
-#~ msgstr "Kenya"
-
-#~ msgid "LESOTHO"
-#~ msgstr "Lesotho"
-
-#~ msgid "LIBERIA"
-#~ msgstr "Liberia"
-
-#~ msgid "LIBYA"
-#~ msgstr "Libia"
-
-#~ msgid "MADAGASCAR"
-#~ msgstr "Madagascar"
-
-#~ msgid "MALAWI"
-#~ msgstr "Malawi"
-
-#~ msgid "MALI"
-#~ msgstr "Mali"
-
-#~ msgid "MAURITANIA"
-#~ msgstr "Mauritania"
-
-#~ msgid "MAURITIUS"
-#~ msgstr "Mauritius"
-
-#~ msgid "MOROCCO"
-#~ msgstr "Marocco"
-
-#~ msgid "MOZAMBIQUE"
-#~ msgstr "Mozambico"
-
-#~ msgid "NAMIBIA"
-#~ msgstr "Namibia"
-
-#~ msgid "NIGER"
-#~ msgstr "Niger"
-
-#~ msgid "NIGERIA"
-#~ msgstr "Nigeria"
-
-#~ msgid "RWANDA"
-#~ msgstr "Ruanda"
-
-#~ msgid "SAO_TOME_AND_PRINCIPE"
-#~ msgstr "São Tomé e Príncipe"
-
-#~ msgid "SENEGAL"
-#~ msgstr "Senegal"
-
-#~ msgid "SEYCHELLES"
-#~ msgstr "Seychelles"
-
-#~ msgid "SIERRA_LEONE"
-#~ msgstr "Sierra Leone"
-
-#~ msgid "SOMALIA"
-#~ msgstr "Somalia"
-
-#~ msgid "SOUTH_AFRICA"
-#~ msgstr "Sud Africa"
-
-#~ msgid "SOUTH_SUDAN"
-#~ msgstr "Sudan del Sud"
-
-#~ msgid "SUDAN"
-#~ msgstr "Sudan"
-
-#~ msgid "SWAZILAND"
-#~ msgstr "Swaziland"
-
-#~ msgid "TANZANIA"
-#~ msgstr "Tanzania"
-
-#~ msgid "TOGO"
-#~ msgstr "Togo"
-
-#~ msgid "TUNISIA"
-#~ msgstr "Tunisia"
-
-#~ msgid "UGANDA"
-#~ msgstr "Uganda"
-
-#~ msgid "ZAMBIA"
-#~ msgstr "Zambia"
-
-#~ msgid "ZIMBABWE"
-#~ msgstr "Zimbabwe"
-
-#~ msgid "AFGHANISTAN"
-#~ msgstr "Afghanistan"
-
-#~ msgid "BAHRAIN"
-#~ msgstr "Bahrein"
-
-#~ msgid "BANGLADESH"
-#~ msgstr "Bangladesh"
-
-#~ msgid "BHUTAN"
-#~ msgstr "Bhutan"
-
-#~ msgid "BRUNEI"
-#~ msgstr "Brunei"
-
-#~ msgid "BURMA"
-#~ msgstr "Burma"
-
-#~ msgid "CAMBODIA"
-#~ msgstr "Cambogia"
-
-#~ msgid "CHINA"
-#~ msgstr "Cina"
-
-#~ msgid "EAST_TIMOR"
-#~ msgstr "Timor Est"
-
-#~ msgid "INDIA"
-#~ msgstr "India"
-
-#~ msgid "INDONESIA"
-#~ msgstr "Indonesia"
-
-#~ msgid "IRAN"
-#~ msgstr "Iran"
-
-#~ msgid "IRAQ"
-#~ msgstr "Iraq"
-
-#~ msgid "ISRAEL"
-#~ msgstr "Israele"
-
-#~ msgid "JAPAN"
-#~ msgstr "Giappone"
-
-#~ msgid "JORDAN"
-#~ msgstr "Giordania"
-
-#~ msgid "KAZAKHSTAN"
-#~ msgstr "Kazakistan"
-
-#~ msgid "KOREA_NORTH"
-#~ msgstr "Corea del Nord"
-
-#~ msgid "KOREA_SOUTH"
-#~ msgstr "Corea del Sud"
-
-#~ msgid "KUWAIT"
-#~ msgstr "Kuwait"
-
-#~ msgid "KYRGYZSTAN"
-#~ msgstr "Kirghizistan"
-
-#~ msgid "LAOS"
-#~ msgstr "Laos"
-
-#~ msgid "LEBANON"
-#~ msgstr "Libano"
-
-#~ msgid "MALAYSIA"
-#~ msgstr "Malesia"
-
-#~ msgid "MALDIVES"
-#~ msgstr "Maldive"
-
-#~ msgid "MONGOLIA"
-#~ msgstr "Mongolia"
-
-#~ msgid "NEPAL"
-#~ msgstr "Nepal"
-
-#~ msgid "OMAN"
-#~ msgstr "Oman"
-
-#~ msgid "PAKISTAN"
-#~ msgstr "Pakistan"
-
-#~ msgid "PHILIPPINES"
-#~ msgstr "Filippine"
-
-#~ msgid "QATAR"
-#~ msgstr "Qatar"
-
-#~ msgid "RUSSIAN_FEDERATION"
-#~ msgstr "Russia"
-
-#~ msgid "SAUDI_ARABIA"
-#~ msgstr "Arabia Saudita"
-
-#~ msgid "SINGAPORE"
-#~ msgstr "Singapore"
-
-#~ msgid "SRI_LANKA"
-#~ msgstr "Sri Lanka"
-
-#~ msgid "SYRIA"
-#~ msgstr "Siria"
-
-#~ msgid "TAJIKISTAN"
-#~ msgstr "Tagikistan"
-
-#~ msgid "THAILAND"
-#~ msgstr "Thailandia"
-
-#~ msgid "TURKEY"
-#~ msgstr "Turchia"
-
-#~ msgid "TURKMENISTAN"
-#~ msgstr "Turkmenistan"
-
-#~ msgid "UNITED_ARAB_EMIRATES"
-#~ msgstr "Emirati Arabi Uniti"
-
-#~ msgid "UZBEKISTAN"
-#~ msgstr "Uzbekistan"
-
-#~ msgid "VIETNAM"
-#~ msgstr "Vietnam"
-
-#~ msgid "YEMEN"
-#~ msgstr "Yemen"
-
-#~ msgid "SEPTEMBER"
-#~ msgstr "Settembre"
-
-#~ msgid "OCTOBER"
-#~ msgstr "Ottobre"
-
-#~ msgid "NOVEMBER"
-#~ msgstr "Novembre"
-
-#~ msgid "DECEMBER"
-#~ msgstr "Dicembre"
-
-#~ msgid "AUTOMATIC"
-#~ msgstr "Automatico"
-
-#~ msgid "MARCH"
-#~ msgstr "Marzo"
-
-#~ msgid "APRIL"
-#~ msgstr "Aprile"
-
-#~ msgid "MANUAL"
-#~ msgstr "Manuale"
-
-#~ msgid "JANUARY"
-#~ msgstr "Gennaio"
-
-#~ msgid "FEBRUARY"
-#~ msgstr "Febbraio"
-
-#~ msgid "MAY"
-#~ msgstr "Maggio"
-
-#~ msgid "JUNE"
-#~ msgstr "Giugno"
-
-#~ msgid "JULY"
-#~ msgstr "Luglio"
-
-#~ msgid "AUGUST"
-#~ msgstr "Agosto"
-
-#~ msgid "INJURED"
-#~ msgstr "Infortunato"
-
-#~ msgid "RECOVER"
-#~ msgstr "Recupero"
-
-#, fuzzy
-#~ msgid "TITLE"
-#~ msgstr "TITLE"
-
-#, fuzzy
-#~ msgid "TEAM\n"
-#~ msgstr "TEAM\n"
-
-#, fuzzy
-#~ msgid "Jan"
-#~ msgstr "Jan"
-
-#, fuzzy
-#~ msgid ":"
-#~ msgstr ":"

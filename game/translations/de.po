@@ -294,1773 +294,1745 @@ msgstr ""
 "X-Generator: Weblate 5.10-dev\n"
 
 #: src/ui_components/team_profile/team_profile.tscn
+#: src/ui_components/info/info.tscn
+#: src/ui_components/player_profile/player_profile.tscn
+#: src/screens/dashboard/dashboard.tscn
 msgid "Info"
 msgstr "Info"
 
 #: src/ui_components/team_profile/team_profile.tscn
 #: src/ui_components/team_profile/team_profile.gd
-msgid "BUDGET"
+msgid "Budget"
 msgstr "Budget"
 
 #: src/ui_components/team_profile/team_profile.tscn
-msgid "STADIUM"
+#: src/screens/dashboard/dashboard.tscn
+msgid "Stadium"
 msgstr "Stadion"
 
 #: src/ui_components/team_profile/team_profile.tscn
+#: src/ui_components/transfers/player_offer/player_offer.tscn
+#: src/screens/dashboard/dashboard.tscn
 msgid "Players"
 msgstr "Spieler"
 
 #: src/ui_components/team_profile/team_profile.gd
 #: src/ui_components/player_profile/info_view/info_view.tscn
-msgid "PRESTIGE"
+msgid "Prestige"
 msgstr "Ansehen"
 
 #: src/ui_components/team_profile/team_profile.gd
 #: src/ui_components/visual_finances/visual_finances.tscn
-msgid "SALARY_BUDGET"
+msgid "Salary budget"
 msgstr "Gehaltsbudget"
 
 #: src/ui_components/team_profile/team_profile.gd
-msgid "PERSONS"
+msgid "Persons"
 msgstr "Personen"
 
 #: src/ui_components/team_profile/team_profile.gd
 #: src/ui_components/transfers/contract_offer/contract_offer.tscn
-msgid "YEAR"
+msgid "Year"
 msgstr "Jahr"
 
 #: src/ui_components/player_list/player_list.gd
-msgid "ALL_TEAMS"
-msgstr "Alle Teams"
+msgid "All Teams"
+msgstr ""
 
 #: src/ui_components/player_list/player_list.gd
-msgid "ALL_POS"
+msgid "All positions"
 msgstr "Alle Positionen"
 
 #: src/ui_components/player_list/player_list.gd
-msgid "ALL_LEAGUES"
-msgstr "Alle Liegen"
+msgid "All Leagues"
+msgstr ""
 
 #: src/ui_components/player_list/player_list_column/player_list_column.tscn
 #: src/ui_components/player_profile/info_view/info_view.tscn
 #: src/screens/setup/setup_manager/setup_manager.tscn
-msgid "NAME"
+msgid "Name"
 msgstr "Name"
 
 #: src/ui_components/info/info.tscn
-#: src/ui_components/player_profile/player_profile.tscn
-#: src/screens/dashboard/dashboard.tscn
-msgid "INFO"
-msgstr "Info"
-
-#: src/ui_components/info/info.tscn
-msgid "SEED"
+msgid "Seed"
 msgstr "Seed"
 
 #: src/ui_components/info/info.tscn
-msgid "COPY"
+msgid "Copy"
 msgstr "Kopieren"
 
 #: src/ui_components/info/info.tscn
-msgid "START_DATE"
+msgid "Start date"
 msgstr "Startdatum"
 
-#: src/ui_components/base/confirm_dialog/default_confirm_dialog.tscn
-#, fuzzy
-msgid "TITLE"
-msgstr "TITLE"
+#: src/ui_components/base/confirm_dialog/default_confirm_dialog.gd
+msgid "Ok"
+msgstr "OK"
 
 #: src/ui_components/base/confirm_dialog/default_confirm_dialog.tscn
 #: src/ui_components/transfers/player_offer/player_offer.tscn
 #: src/ui_components/transfers/contract_offer/contract_offer.tscn
 #: src/screens/setup/setup_world/setup_world.tscn
 #: src/screens/setup/setup_manager/setup_manager.tscn
-msgid "CANCEL"
+msgid "Cancel"
 msgstr "Abbrechen"
 
 #: src/ui_components/base/confirm_dialog/default_confirm_dialog.tscn
-msgid "NO"
+msgid "No"
 msgstr "Nein"
 
 #: src/ui_components/base/confirm_dialog/default_confirm_dialog.tscn
-msgid "YES"
+msgid "Yes"
 msgstr "Ja"
 
 #: src/ui_components/base/search_line_edit/search_line_edit.tscn
-msgid "SEARCH"
+msgid "Search"
 msgstr "Suche"
 
 #: src/ui_components/visual_finances/visual_finances.tscn
-msgid "BALANCE"
+msgid "Balance"
 msgstr "Bilanz"
 
 #: src/ui_components/visual_finances/visual_finances.tscn
-msgid "EXPENSES"
+msgid "Expenses"
 msgstr "Ausgaben"
 
 #: src/ui_components/visual_finances/visual_finances.tscn
-msgid "REAMAINING_SALARY_BUDGET"
-msgstr "Verbleibende Mittel für Gehälter"
+msgid "Reamaining salary budget"
+msgstr ""
 
 #: src/ui_components/visual_finances/visual_finances.tscn
 #: src/ui_components/transfers/contract_offer/contract_offer.tscn
-msgid "INCOME"
+msgid "Income"
 msgstr "Einkommen"
 
 #: src/ui_components/visual_competitions/visual_table/visual_table.tscn
-#, fuzzy
-msgid "TEAM\n"
-msgstr "TEAM\n"
+#: src/ui_components/player_profile/info_view/info_view.tscn
+#: src/screens/save_states_screen/save_state_entry/save_state_entry.tscn
+msgid "Team"
+msgstr "Mannschaft"
 
 #: src/ui_components/visual_competitions/visual_table/visual_table.tscn
-msgid "PLAYED"
+msgid "Played"
 msgstr "Gespielt"
 
 #: src/ui_components/visual_competitions/visual_table/visual_table.tscn
-msgid "WIN"
+msgid "Win"
 msgstr "Gewonnen"
 
 #: src/ui_components/visual_competitions/visual_table/visual_table.tscn
-msgid "DRAW"
+msgid "Draw"
 msgstr "Ausgleich"
 
 #: src/ui_components/visual_competitions/visual_table/visual_table.tscn
-msgid "LOST"
-msgstr "Verloren"
+msgid "Lost"
+msgstr ""
 
 #: src/ui_components/visual_competitions/visual_table/visual_table.tscn
-msgid "GOALS"
+msgid "Goals"
 msgstr "Tore"
 
 #: src/ui_components/visual_competitions/visual_table/visual_table.tscn
-msgid "GOALS_CONCEDED"
+msgid "Goals conceded"
 msgstr "Gegentore"
 
 #: src/ui_components/visual_competitions/visual_table/visual_table.tscn
-msgid "POINTS"
+msgid "Points"
 msgstr "Punkte"
 
 #: src/ui_components/visual_competitions/visual_knockout/visual_knockout.tscn
-msgid "KNOCKOUT"
+msgid "Knockout"
 msgstr "Knockout"
 
 #: src/ui_components/visual_competitions/visual_knockout/visual_knockout.tscn
-msgid "GROUP A"
+msgid "Group A"
 msgstr "Gruppe A"
 
 #: src/ui_components/visual_competitions/visual_knockout/visual_knockout.tscn
-msgid "FINAL"
+msgid "Final"
 msgstr "Finale"
 
 #: src/ui_components/visual_competitions/visual_knockout/visual_knockout.tscn
-msgid "GROUP B"
+msgid "Group B"
 msgstr "Gruppe B"
 
 #: src/ui_components/visual_competitions/visual_knockout/visual_knockout.tscn
-msgid "WINNER A vs WINNER B"
+msgid "Winner A vs Winner B"
 msgstr "Sieger A gegen Sieger B"
 
 #: src/ui_components/visual_competitions/visual_competitions.tscn
-msgid "LEAGUE"
+msgid "League"
 msgstr "Liga"
 
 #: src/ui_components/visual_competitions/visual_competitions.gd
-msgid "GROUP"
+msgid "Group"
 msgstr "Gruppe"
 
 #: src/ui_components/transfers/player_offer/player_offer.tscn
-msgid "TYPE"
+msgid "Type"
 msgstr "Typ"
 
 #: src/ui_components/transfers/player_offer/player_offer.tscn
-msgid "MONEY"
+msgid "Money"
 msgstr "Geld"
 
 #: src/ui_components/transfers/player_offer/player_offer.tscn
 #: src/ui_components/email/list/message_list.tscn
-msgid "DATE"
+msgid "Date"
 msgstr "Datum"
 
 #: src/ui_components/transfers/player_offer/player_offer.tscn
-#: src/screens/dashboard/dashboard.tscn
-msgid "PLAYERS"
-msgstr "Spieler"
-
-#: src/ui_components/transfers/player_offer/player_offer.tscn
-msgid "PLAYER_LIST"
+msgid "Player list"
 msgstr "Spielerliste"
 
 #: src/ui_components/transfers/player_offer/player_offer.tscn
 #: src/ui_components/transfers/contract_offer/contract_offer.tscn
-msgid "CONFIRM"
+msgid "Confirm"
 msgstr "Bestätigen"
 
 #: src/ui_components/transfers/player_offer/player_offer.gd
-msgid "TRANSFER"
+msgid "Transfer"
 msgstr "Transfer"
 
 #: src/ui_components/transfers/player_offer/player_offer.gd
-msgid "LOAN"
+msgid "Loan"
 msgstr "Leihe"
 
 #: src/ui_components/transfers/contract_offer/contract_offer.tscn
 #: src/ui_components/player_profile/player_profile.tscn
-msgid "CONTRACT"
+msgid "Contract"
 msgstr "Vetrag"
 
 #: src/ui_components/transfers/contract_offer/contract_offer.tscn
-msgid "BUY_CLAUSE"
-msgstr "Südamerika"
+msgid "Buy clause"
+msgstr ""
 
 #: src/ui_components/visual_formation/visual_formation.gd
-msgid "SUBS"
+msgid "Subs"
 msgstr "Auswechel"
 
 #: src/ui_components/visual_formation/visual_formation.gd
-msgid "REST"
+msgid "Rest"
 msgstr "Rest"
 
 #: src/ui_components/visual_formation/visual_formation.tscn
 #: src/screens/dashboard/dashboard.tscn
 #: src/screens/match/match.tscn
-msgid "FORMATION"
+msgid "Formation"
 msgstr "Aufstellung"
 
 #: src/ui_components/visual_formation/visual_formation.tscn
-msgid "CHANGE_STRATEGY"
+msgid "Change strategy"
 msgstr "Wechsel Strategie"
 
 #: src/ui_components/visual_formation/visual_formation.tscn
-msgid "TACTIC_OFFENSE"
-msgstr "Offensivtaktik"
+msgid "Tactic offense"
+msgstr ""
 
 #: src/ui_components/visual_formation/visual_formation.tscn
-msgid "INTENSITY"
+msgid "Intensity"
 msgstr "Intesität"
 
 #: src/ui_components/visual_formation/visual_formation.tscn
-msgid "MARKING"
+msgid "Marking"
 msgstr "Deckung"
 
 #: src/ui_components/visual_formation/visual_formation.tscn
-msgid "PRESSING"
+msgid "Pressing"
 msgstr "Pressing"
 
 #: src/ui_components/email/list/message_list.tscn
 #: src/ui_components/email/visual_message/visual_message.tscn
-msgid "SUBJECT"
+msgid "Subject"
 msgstr "Betreff"
 
 #: src/ui_components/email/list/message_list.tscn
 #: src/ui_components/email/visual_message/visual_message.tscn
-msgid "FROM"
+msgid "From"
 msgstr "Von"
 
 #: src/ui_components/email/list/message_list.tscn
-msgid "STAR"
+msgid "Star"
 msgstr "Stern"
 
 #: src/ui_components/email/list/message_list.gd
-msgid "NO_MESSAGE_FOUND"
+msgid "No message found"
 msgstr "Keine Nachricht gefunden"
 
 #: src/ui_components/email/list/message_row/message_row.gd
-msgid "CLICK_TO_READ_MESSAGE"
+msgid "Click to read message"
 msgstr "Zum Lesen der Nachricht anklicken"
 
 #: src/ui_components/email/email.tscn
-msgid "UNREAD"
+msgid "Unread"
 msgstr "Ungelesen"
 
 #: src/ui_components/email/email.tscn
-msgid "STARRED"
+msgid "Starred"
 msgstr "Favoriten"
 
 #: src/ui_components/email/visual_message/visual_message.tscn
-msgid "TO"
+msgid "To"
 msgstr "An"
 
 #: src/ui_components/email/visual_message/visual_message.tscn
-msgid "ACTION"
+msgid "Action"
 msgstr "Aktion"
 
 #: src/ui_components/email/visual_message/visual_message.gd
-msgid "OFFER_CONTRACT"
+msgid "Offer contract"
 msgstr "Vertrag anbieten"
 
 #: src/ui_components/player_profile/player_profile.tscn
-msgid "STATISTICS"
+msgid "Statistics"
 msgstr "Statistik"
 
 #: src/ui_components/player_profile/player_profile.tscn
-msgid "ATTRIBUTES"
+msgid "Attributes"
 msgstr "Attribute"
 
 #: src/ui_components/player_profile/info_view/info_view.tscn
-msgid "POSITION"
+msgid "Position"
 msgstr "Position"
 
 #: src/ui_components/player_profile/info_view/info_view.tscn
-msgid "ALT_POSITION"
-msgstr "Alternative Position"
+msgid "Alternative position"
+msgstr ""
 
 #: src/ui_components/player_profile/info_view/info_view.tscn
-msgid "AGE"
+msgid "Age"
 msgstr "Alter"
 
 #: src/ui_components/player_profile/info_view/info_view.tscn
-msgid "FOOT"
+msgid "Foot"
 msgstr "Fuß"
 
 #: src/ui_components/player_profile/info_view/info_view.tscn
 #: src/screens/setup/setup_manager/setup_manager.tscn
-msgid "NATIONALITY"
+msgid "Nationality"
 msgstr "Nationalität"
 
 #: src/ui_components/player_profile/info_view/info_view.tscn
-#: src/screens/save_states_screen/save_state_entry/save_state_entry.tscn
-msgid "TEAM"
-msgstr "Mannschaft"
+msgid "Number"
+msgstr ""
 
 #: src/ui_components/player_profile/info_view/info_view.tscn
-msgid "NR"
-msgstr "Nr."
-
-#: src/ui_components/player_profile/info_view/info_view.tscn
-msgid "ATTRIBUTES_AVERGE"
+msgid "Average attributes"
 msgstr "Durchschnittliche Eigenschaften"
 
 #: src/ui_components/player_profile/info_view/info_view.tscn
-msgid "VALUE"
+msgid "Value"
 msgstr "Wert"
 
 #: src/ui_components/player_profile/contract_view/contract_view.tscn
-msgid "MAKE_OFFER"
+msgid "Make offer"
 msgstr "Kaufanfrage"
 
 #: src/ui_components/visual_calendar/visual_day/visual_day.tscn
 #: src/ui_components/visual_calendar/visual_day/visual_day.gd
 #: src/screens/dashboard/dashboard.tscn
-msgid "TRANSFERMARKET"
+msgid "Transfermarket"
 msgstr "Transfermarkt"
 
 #: src/ui_components/visual_calendar/visual_day/visual_day.gd
 #: src/ui_components/visual_calendar/match_list/match_info/match_info.tscn
 #: src/screens/match/match.tscn
-msgid "HOME"
+msgid "Home"
 msgstr "Daheim"
 
 #: src/ui_components/visual_calendar/visual_day/visual_day.gd
 #: src/ui_components/visual_calendar/match_list/match_info/match_info.tscn
 #: src/screens/match/match.tscn
-msgid "AWAY"
+msgid "Away"
 msgstr "Ausärts"
 
-#: src/ui_components/visual_calendar/visual_day/visual_day.gd
-msgid ""
-msgstr ""
-
 #: src/ui_components/visual_calendar/match_list/match_info/match_info.tscn
-msgid "VS"
+msgid "vs"
 msgstr "gegen"
 
 #: src/ui_components/visual_calendar/match_list/match_list.gd
-msgid "NO_MATCH"
+msgid "No match"
 msgstr "Kein Spiel"
 
 #: src/ui_components/visual_calendar/visual_calendar.tscn
-#, fuzzy
-msgid "Jan"
-msgstr "Jan"
-
-#: src/ui_components/visual_calendar/visual_calendar.tscn
-msgid "TODAY"
+msgid "Today"
 msgstr "Heute"
 
 #: src/ui_components/visual_calendar/visual_calendar.tscn
-msgid "MONDAY"
+#: src/enum.gd
+msgid "Monday"
 msgstr "Montag"
 
 #: src/ui_components/visual_calendar/visual_calendar.tscn
-msgid "TUESDAY"
+#: src/enum.gd
+msgid "Tuesday"
 msgstr "Dienstag"
 
 #: src/ui_components/visual_calendar/visual_calendar.tscn
-msgid "WEDNESDAY"
+#: src/enum.gd
+msgid "Wednesday"
 msgstr "Mittwoch"
 
 #: src/ui_components/visual_calendar/visual_calendar.tscn
-msgid "THURSDAY"
+#: src/enum.gd
+msgid "Thursday"
 msgstr "Donnerstag"
 
 #: src/ui_components/visual_calendar/visual_calendar.tscn
-msgid "FRIDAY"
+#: src/enum.gd
+msgid "Friday"
 msgstr "Freitag"
 
 #: src/ui_components/visual_calendar/visual_calendar.tscn
-msgid "SATURDAY"
+#: src/enum.gd
+msgid "Saturday"
 msgstr "Samstag"
 
 #: src/ui_components/visual_calendar/visual_calendar.tscn
-msgid "SUNDAY"
+#: src/enum.gd
+msgid "Sunday"
 msgstr "Sonntag"
 
-#: src/match_simulator/visual_match/visual_actors/visual_player/visual_player.tscn
-#, fuzzy
-msgid ":"
-msgstr ":"
+#: src/utils/logic/email_util.gd
+msgid "Next match: {team_name}"
+msgstr ""
 
 #: src/utils/logic/email_util.gd
-#: src/screens/dashboard/dashboard.tscn
-msgid "NEXT_MATCH"
-msgstr "Nächstes Spiel"
+msgid "The next match is against {team_name}."
+msgstr ""
 
 #: src/utils/logic/email_util.gd
-msgid "WELCOME"
-msgstr "Wilkommen"
+msgid "Welcome {manager_name}"
+msgstr ""
 
 #: src/utils/logic/email_util.gd
-msgid "OFFER_ACCEPTED_TEXT"
-msgstr "Das Team nahm das Angebot an"
+msgid "{team_name} welcomes you to a new journey."
+msgstr ""
+
+#: src/utils/logic/email_util.gd
+msgid "Offer for {player_name}"
+msgstr ""
+
+#: src/utils/logic/email_util.gd
+msgid "Offer for {player name} declined"
+msgstr ""
+
+#: src/utils/logic/email_util.gd
+msgid "Offer for {player name} accepted"
+msgstr ""
 
 #: src/utils/logic/match_combination_util.gd
-msgid "CUP"
+msgid "Cup"
 msgstr "Pokal"
 
 #: src/utils/logic/match_combination_util.gd
-msgid "NATIONS_CUP"
-msgstr "Nationenmeisterschaft"
+msgid "Nations_cup"
+msgstr ""
 
 #: src/utils/logic/match_combination_util.gd
-msgid "WORLD_CUP"
+msgid "World cup"
 msgstr "Weltmeisterschaft"
 
+#: src/utils/res_util.gd
+msgid "Restoring from backup"
+msgstr ""
+
 #: src/screens/settings/settings.tscn
-#: src/screens/settings/general/general_settings.tscn
-msgid "GENERAL_SETTINGS"
+msgid "General"
 msgstr "Allgemein"
 
 #: src/screens/settings/settings.tscn
-#: src/screens/settings/input/input_settings.tscn
-msgid "INPUT_SETTINGS"
+msgid "Input"
 msgstr "Eingabe"
 
 #: src/screens/settings/settings.tscn
-msgid "DEFAULT_SETTINGS"
+msgid "Contributors"
+msgstr "Mitwirkende"
+
+#: src/screens/settings/settings.tscn
+msgid "Licenses"
+msgstr "Lizenzen"
+
+#: src/screens/settings/settings.tscn
+msgid "Default settings"
 msgstr "Standardeinstellung"
 
 #: src/screens/settings/settings.tscn
 #: src/screens/setup/setup_team/setup_team.tscn
-msgid "BACK"
+msgid "Back"
 msgstr "Zurück"
 
 #: src/screens/settings/settings.tscn
-msgid "RESTORE_DEFAULTS_TEXT"
-msgstr "Alle Einstellungen gehen verloren und werden zurück gesetzt."
-
 #: src/screens/settings/general/general_settings.tscn
-msgid "TRANSLATION_INSTRUCTIONS"
+msgid "You can fix errors or add new languages easily on Weblate, just click on the link below."
 msgstr ""
-"Du kannst auf Weblate ganz einfach Fehler beheben oder neue Sprachen "
-"hinzufügen, indem du auf den untenstehenden Link klickst."
 
 #: src/screens/settings/general/general_settings.tscn
-msgid "AUDIO"
+msgid "Language"
+msgstr "Sprache"
+
+#: src/screens/settings/general/general_settings.tscn
+msgid "Audio"
 msgstr "Audio"
 
 #: src/screens/settings/general/general_settings.tscn
-msgid "SFX_VOLUME"
-msgstr "Lautstärke der Klangeffekte"
+msgid "Sfx volume"
+msgstr ""
 
 #: src/screens/settings/general/general_settings.tscn
-msgid "INTERFACE_SETTINGS"
-msgstr "Oberfläche"
+msgid "Interface settings"
+msgstr ""
 
 #: src/screens/settings/general/general_settings.tscn
-msgid "FONT_SIZE"
+msgid "Font size"
 msgstr "Schriftgröße"
 
 #: src/screens/settings/general/general_settings.tscn
 #: src/screens/setup/setup_world/setup_world.tscn
-msgid "DEFAULT"
+msgid "Default"
 msgstr "Standard"
 
 #: src/screens/settings/general/general_settings.tscn
-msgid "SCALE"
+msgid "Scale"
 msgstr "Skala"
 
 #: src/screens/settings/general/general_settings.tscn
-msgid "SCREEN_FADE_ANIMATION"
+msgid "Screen fade animation"
 msgstr "Ansichtswechsel Animation"
 
 #: src/screens/settings/general/general_settings.tscn
-msgid "THEMES"
+msgid "Themes"
 msgstr "Themen"
 
 #: src/screens/settings/general/general_settings.tscn
-msgid "FONT_COLOR"
+msgid "Font color"
 msgstr "Schriftfarbe"
 
 #: src/screens/settings/general/general_settings.tscn
-msgid "CHANGE"
+msgid "Change"
 msgstr "Ändern"
 
 #: src/screens/settings/general/general_settings.tscn
-msgid "BUTTONS_COLOR"
+msgid "Buttons color"
 msgstr "Knopffarbe"
 
 #: src/screens/settings/general/general_settings.tscn
-msgid "BACKGROUND_COLOR"
+msgid "Background color"
 msgstr "Hintergrundfarbe"
 
 #: src/screens/settings/general/general_settings.tscn
-msgid "VERSION"
+msgid "Version"
 msgstr "Version"
 
 #: src/screens/settings/input/input_settings.tscn
-msgid "VIM_MODE"
+msgid "Vim mode"
 msgstr "Vim-Modus"
 
 #: src/screens/settings/input/input_settings.tscn
-msgid "JOYPAD_STATUS"
+msgid "Joypad status"
 msgstr "Joypad-Status"
 
 #: src/screens/settings/input/input_settings.tscn
-msgid "NO_JOYPAD_CONNECTED"
+msgid "No joypad connected"
 msgstr "Kein Joypad verbunden"
 
 #: src/screens/settings/input/input_settings.tscn
-msgid "INPUT_DETECTION_MODE"
+msgid "Input detection mode"
 msgstr "Eingangserkennungsmodus"
 
 #: src/screens/settings/input/input_settings.tscn
-msgid "INPUT_TYPE"
+msgid "Input type"
 msgstr "Eingabetyp"
 
 #: src/screens/save_states_screen/save_states_screen.tscn
-msgid "SAVE_STATES"
+msgid "Save states"
 msgstr "Spielstände"
 
 #: src/screens/save_states_screen/save_states_screen.tscn
 #: src/screens/dashboard/dashboard.tscn
-msgid "MENU"
+msgid "Menu"
 msgstr "Menü"
+
+#: src/screens/save_states_screen/save_state_entry/save_state_entry.gd
+#: src/screens/menu/menu.gd
+msgid "Loading game"
+msgstr "Spiel wird geladen"
 
 #: src/screens/save_states_screen/save_state_entry/save_state_entry.tscn
 #: src/screens/setup/setup_manager/setup_manager.tscn
-msgid "MANAGER"
+msgid "Manager"
 msgstr "Manager"
 
 #: src/screens/save_states_screen/save_state_entry/save_state_entry.tscn
-msgid "TABLE_PLACEMENT"
+msgid "Table placement"
 msgstr "Tabellenstand"
 
 #: src/screens/save_states_screen/save_state_entry/save_state_entry.tscn
-msgid "GAME_DATE"
-msgstr "Datum im Spiel"
+msgid "Game date"
+msgstr ""
 
 #: src/screens/save_states_screen/save_state_entry/save_state_entry.tscn
-msgid "LAST_SAVE"
+msgid "Last save"
 msgstr "Letzer Speicherstand"
 
 #: src/screens/save_states_screen/save_state_entry/save_state_entry.tscn
-msgid "CREATED"
+msgid "Created"
 msgstr "Erstellt"
 
 #: src/screens/save_states_screen/save_state_entry/save_state_entry.tscn
-msgid "DELETE"
+msgid "Delete"
 msgstr "Löschen"
 
 #: src/screens/save_states_screen/save_state_entry/save_state_entry.tscn
 #: src/screens/menu/menu.tscn
-msgid "LOAD_GAME"
+msgid "Load game"
 msgstr "Spiel laden"
 
-#: src/screens/save_states_screen/save_state_entry/save_state_entry.tscn
-msgid "SAVE_STATE_DELETE_INFO"
-msgstr ""
-"Das Löschen eines Speicherstandes ist dauerhaft und kann nicht rückgängig "
-"gemacht werden.\n"
-"Bist du sicher, dass du diesen Speicherstand löschen willst?"
-
 #: src/screens/dashboard/dashboard.gd
-#: src/screens/dashboard/dashboard.tscn
-msgid "EMAIL"
-msgstr "E-Mail"
-
-#: src/screens/dashboard/dashboard.gd
-msgid "START_MATCH"
+msgid "Start match"
 msgstr "Spielbeginn"
 
 #: src/screens/dashboard/dashboard.gd
-msgid "NEXT_DAY"
+msgid "Next day"
 msgstr "Nächster Tag"
 
 #: src/screens/dashboard/dashboard.gd
-msgid "NEXT_SEASON"
+msgid "Next season"
 msgstr "Nächste Saison"
 
+#: src/screens/dashboard/dashboard.gd
 #: src/screens/dashboard/dashboard.tscn
-msgid "CALENDAR"
+msgid "Email"
+msgstr ""
+
+#: src/screens/dashboard/dashboard.gd
+msgid "Simulating results"
+msgstr "Ergebnisse werden simuliert"
+
+#: src/screens/dashboard/dashboard.gd
+msgid "Saving game"
+msgstr "Spiel wird gespeichert"
+
+#: src/screens/dashboard/dashboard.tscn
+msgid "Calendar"
 msgstr "Kalender"
 
 #: src/screens/dashboard/dashboard.tscn
-msgid "COMPETITIONS"
+msgid "Competitions"
 msgstr "Wettbewerbe"
 
 #: src/screens/dashboard/dashboard.tscn
-msgid "FINANCES"
+msgid "Finances"
 msgstr "Finanzen"
 
 #: src/screens/dashboard/dashboard.tscn
-msgid "SEARCH_PLAYER"
+msgid "Coming soon"
+msgstr "Demnächst verfügbar"
+
+#: src/screens/dashboard/dashboard.tscn
+msgid "Search player"
 msgstr "Spieler suchen"
 
 #: src/screens/dashboard/dashboard.tscn
-msgid "SCOUTS"
+msgid "Scouts"
 msgstr "Scouts"
 
 #: src/screens/dashboard/dashboard.tscn
-msgid "WATCHLIST"
+msgid "Watchlist"
 msgstr "Beobachtungsliste"
 
 #: src/screens/dashboard/dashboard.tscn
-msgid "TRANSFERLIST"
+msgid "Transferlist"
 msgstr "Transferliste"
 
 #: src/screens/dashboard/dashboard.tscn
-msgid "JOBS"
+msgid "Jobs"
 msgstr "Jobs"
 
 #: src/screens/dashboard/dashboard.tscn
-msgid "HALL_OF_FAME"
+msgid "Hall of fame"
 msgstr "Hall of fame"
 
 #: src/screens/dashboard/dashboard.tscn
-msgid "NOTES"
+msgid "Notes"
 msgstr "Notizen"
 
 #: src/screens/dashboard/dashboard.tscn
 #: src/screens/menu/menu.tscn
-msgid "SETTINGS"
+msgid "Settings"
 msgstr "Einstellungen"
 
 #: src/screens/dashboard/dashboard.tscn
+msgid "Next match"
+msgstr "Nächstes Spiel"
+
+#: src/screens/dashboard/dashboard.tscn
 #: src/screens/match/match.gd
 #: src/screens/menu/menu.tscn
 #: src/screens/setup/setup_world/setup_world.tscn
 #: src/screens/setup/setup_manager/setup_manager.tscn
-msgid "CONTINUE"
+msgid "Continue"
 msgstr "Weiter"
 
 #: src/screens/dashboard/dashboard.tscn
-msgid "SAVE_TEXT"
-msgstr "Spiel speichern vor verlassen?"
+msgid "Save the game before exiting?"
+msgstr ""
 
 #: src/screens/match/match.gd
 #: src/screens/match/match.tscn
-msgid "PAUSE"
+msgid "Pause"
 msgstr "Pause"
 
 #: src/screens/match/penalties_bar/penalties_bar.tscn
-msgid "PENALTIES"
-msgstr "Strafstoße (6m)"
-
-#: src/screens/match/statistics/match_stats.gd
-msgid "0"
+msgid "Penalties"
 msgstr ""
 
 #: src/screens/match/match.tscn
-msgid "STATS"
+msgid "Stats"
 msgstr "Stats"
 
 #: src/screens/match/match.tscn
-msgid "COMMENTARY"
+msgid "Commentary"
 msgstr "Kommentare"
 
 #: src/screens/match/match.tscn
-msgid "EVENTS"
+msgid "Events"
 msgstr "Events"
 
 #: src/screens/match/match.tscn
-msgid "FULL_MATCH"
-msgstr "Vollständiges Spiel"
+#: src/enum.gd
+msgid "Full game"
+msgstr "Ganzes Spiel"
 
 #: src/screens/match/match.tscn
-msgid "SIMULATE"
+msgid "Simulate"
 msgstr "Simulieren"
 
 #: src/screens/match/match.tscn
-msgid "DASHBOARD"
+msgid "Dashboard"
 msgstr "Übersichtsseite"
 
 #: src/screens/match/match.tscn
-msgid "POSSESSION"
+msgid "Possession"
 msgstr "Ballbesitz"
 
 #: src/screens/loading_screen/loading_screen.tscn
-msgid "LOADING"
+msgid "Loading"
 msgstr "Wird geladen"
 
 #: src/screens/menu/menu.tscn
-msgid "NEW_GAME"
+msgid "New game"
 msgstr "Neues Spiel"
 
 #: src/screens/menu/menu.tscn
-msgid "EXIT"
+msgid "Exit"
 msgstr "Beenden"
 
 #: src/screens/menu/menu.tscn
-msgid "EXIT_GAME"
-msgstr "Spiel verlassen?"
+msgid "Exit game"
+msgstr ""
 
 #: src/screens/setup/setup_world/setup_world.tscn
-msgid "GAME_SETTINGS"
+msgid "Game settings"
 msgstr "Spieleinstellungen"
 
 #: src/screens/setup/setup_world/setup_world.tscn
-msgid "PLAYER_NAMES"
+msgid "Player names"
 msgstr "Spieler Namen"
 
 #: src/screens/setup/setup_world/setup_world.tscn
-msgid "START_YEAR"
-msgstr "Startjahr"
+msgid "Start year"
+msgstr ""
 
 #: src/screens/setup/setup_world/setup_world.tscn
-msgid "GENERATION_SEED"
+msgid "Generation seed"
 msgstr "Generationskode"
 
 #: src/screens/setup/setup_world/setup_world.tscn
-msgid "GENERATION_SEED_DESCRIPTION"
-msgstr "GENERATION_SEED_DESCRIPTION"
+msgid "This generation seed defines player names and attributes. When reused, it will generate exatly the same result."
+msgstr ""
 
 #: src/screens/setup/setup_world/setup_world.tscn
-msgid "RANDOM"
+msgid "Random"
 msgstr "Zufällig"
 
 #: src/screens/setup/setup_world/setup_world.gd
-msgid "GENERATING_PLAYERS"
-msgstr "Spieler werden generiert…"
+msgid "Generating players"
+msgstr ""
 
 #: src/screens/setup/setup_manager/setup_manager.tscn
-msgid "YOUR_NAME"
+msgid "Your name"
 msgstr "Dein Name"
 
 #: src/screens/setup/setup_manager/setup_manager.tscn
-msgid "SURNAME"
+msgid "Surname"
 msgstr "Nachname"
 
 #: src/screens/setup/setup_manager/setup_manager.tscn
-msgid "YOUR_SURNAME"
+msgid "Your surname"
 msgstr "Dein Nachname"
 
 #: src/screens/setup/setup_team/setup_team.tscn
-msgid "CHOOSE_TEAM"
-msgstr "Wähle dein Team"
+msgid "Choose team"
+msgstr ""
 
 #: src/screens/setup/setup_team/setup_team.tscn
-msgid "SELECT"
+msgid "Select"
 msgstr "Auswählen"
 
-#: src/resources/world/nation_names.gd
-msgid "SURINAME"
-msgstr "Surinam"
-
-#: src/resources/world/nation_names.gd
-msgid "USA"
-msgstr "USA"
-
-#: src/resources/world/nation_names.gd
-msgid "ANDORRA"
-msgstr "Andorra"
-
-#: src/resources/world/nation_names.gd
-msgid "FRANCE"
-msgstr "Frankreich"
-
-#: src/resources/world/nation_names.gd
-msgid "TUVALU"
-msgstr "Tuvaluisch"
-
-#: src/resources/world/nation_names.gd
-msgid "BULGARIA"
-msgstr "Bulgarien"
-
-#: src/resources/world/nation_names.gd
-msgid "LATVIA"
-msgstr "Lettland"
-
-#: src/resources/world/nation_names.gd
-msgid "CYPRUS"
-msgstr "Zypern"
-
-#: src/resources/world/nation_names.gd
-msgid "ROMANIA"
-msgstr "Rumänien"
-
-#: src/resources/world/nation_names.gd
-msgid "LUXEMBOURG"
-msgstr "Luxemburg"
-
-#: src/resources/world/nation_names.gd
-msgid "CROATIA"
-msgstr "Kroatien"
-
-#: src/resources/world/nation_names.gd
-msgid "DENMARK"
-msgstr "Dänemark"
-
-#: src/resources/world/nation_names.gd
-msgid "LITHUANIA"
-msgstr "Litauen"
-
-#: src/resources/world/nation_names.gd
-msgid "POLAND"
-msgstr "Polen"
-
-#: src/resources/world/nation_names.gd
-msgid "PORTUGAL"
-msgstr "Portugal"
-
-#: src/resources/world/nation_names.gd
-msgid "BOSNIA_AND_HERZEGOVINA"
-msgstr "Bosnien und Herzegowina"
-
-#: src/resources/world/nation_names.gd
-msgid "SLOVENIA"
-msgstr "Slowenien"
-
-#: src/resources/world/nation_names.gd
-msgid "SAN_MARINO"
-msgstr "San Marino"
-
-#: src/resources/world/nation_names.gd
-msgid "SLOVAKIA"
-msgstr "Slowakei"
-
-#: src/resources/world/nation_names.gd
-msgid "SERBIA"
-msgstr "Serbien"
-
-#: src/resources/world/nation_names.gd
-msgid "SPAIN"
-msgstr "Spanien"
-
-#: src/resources/world/nation_names.gd
-msgid "CUBA"
-msgstr "Kuba"
-
-#: src/resources/world/nation_names.gd
-msgid "ANGOLA"
-msgstr "Angola"
-
-#: src/resources/world/nation_names.gd
-msgid "CAMEROON"
-msgstr "Kamerun"
-
-#: src/resources/world/nation_names.gd
-msgid "CENTRAL_AFRICAN_REPUBLIC"
-msgstr "Zentralafrikanische Republik"
-
-#: src/resources/world/nation_names.gd
-msgid "SAMOA"
-msgstr "Samoa"
-
-#: src/resources/world/nation_names.gd
-msgid "GHANA"
-msgstr "Ghana"
-
-#: src/resources/world/nation_names.gd
-msgid "IVORY_COAST"
-msgstr "Elfenbeinküste"
-
-#: src/resources/world/nation_names.gd
-msgid "ETHIOPIA"
-msgstr "Äthiopien"
-
-#: src/resources/world/nation_names.gd
-msgid "ERITREA"
-msgstr "Eritrea"
-
-#: src/resources/world/nation_names.gd
-msgid "LESOTHO"
-msgstr "Lesotho"
-
-#: src/resources/world/nation_names.gd
-msgid "SENEGAL"
-msgstr "Senegal"
-
-#: src/resources/world/nation_names.gd
-msgid "AFGHANISTAN"
-msgstr "Afghanistan"
-
-#: src/resources/world/nation_names.gd
-msgid "UGANDA"
-msgstr "Uganda"
-
-#: src/resources/world/nation_names.gd
-msgid "ZIMBABWE"
-msgstr "Simbabwe"
-
-#: src/resources/world/nation_names.gd
-msgid "EAST_TIMOR"
-msgstr "Osttimor"
-
-#: src/resources/world/nation_names.gd
-msgid "CHINA"
-msgstr "China"
-
-#: src/resources/world/nation_names.gd
-msgid "BHUTAN"
-msgstr "Bhutan"
-
-#: src/resources/world/nation_names.gd
-msgid "BANGLADESH"
-msgstr "Bangladesch"
-
-#: src/resources/world/nation_names.gd
-msgid "INDONESIA"
-msgstr "Indonesien"
-
-#: src/resources/world/nation_names.gd
-msgid "TURKEY"
-msgstr "Türkei"
-
-#: src/resources/world/nation_names.gd
-msgid "GRENADA"
-msgstr "Grenada"
-
-#: src/resources/world/nation_names.gd
-msgid "MOLDOVA"
-msgstr "Moldau"
-
-#: src/resources/world/nation_names.gd
-msgid "QATAR"
-msgstr "Katar"
-
-#: src/resources/world/nation_names.gd
-msgid "ARMENIA"
-msgstr "Armenien"
-
-#: src/resources/world/nation_names.gd
-msgid "SWITZERLAND"
-msgstr "Schweiz"
-
-#: src/resources/world/nation_names.gd
-msgid "FIJI"
-msgstr "Fidschi"
-
-#: src/resources/world/nation_names.gd
-msgid "CHILE"
-msgstr "Chile"
-
-#: src/resources/world/nation_names.gd
-msgid "YEMEN"
-msgstr "Jemen"
-
-#: src/resources/world/nation_names.gd
-msgid "AUSTRIA"
-msgstr "Österreich"
-
-#: src/resources/world/nation_names.gd
-msgid "MOZAMBIQUE"
-msgstr "Mosambik"
-
-#: src/resources/world/nation_names.gd
-msgid "RWANDA"
-msgstr "Ruanda"
-
-#: src/resources/world/nation_names.gd
-msgid "BOLIVIA"
-msgstr "Bolivien"
-
-#: src/resources/world/nation_names.gd
-msgid "HAITI"
-msgstr "Haiti"
-
-#: src/resources/world/nation_names.gd
-msgid "NIGERIA"
-msgstr "Nigeria"
-
-#: src/resources/world/nation_names.gd
-msgid "PANAMA"
-msgstr "Panama"
-
-#: src/resources/world/nation_names.gd
-msgid "MONGOLIA"
-msgstr "Mongolei"
-
-#: src/resources/world/nation_names.gd
-msgid "SUDAN"
-msgstr "Sudan"
-
-#: src/resources/world/nation_names.gd
-msgid "JAMAICA"
-msgstr "Jamaika"
-
-#: src/resources/world/nation_names.gd
-msgid "MADAGASCAR"
-msgstr "Madagaskar"
-
-#: src/resources/world/nation_names.gd
-msgid "FINLAND"
-msgstr "Finnland"
-
-#: src/resources/world/nation_names.gd
-msgid "NEPAL"
-msgstr "Nepal"
-
-#: src/resources/world/nation_names.gd
-msgid "VENEZUELA"
-msgstr "Venezuela"
-
-#: src/resources/world/nation_names.gd
-msgid "KENYA"
-msgstr "Kenia"
-
-#: src/resources/world/nation_names.gd
-msgid "EL_SALVADOR"
-msgstr "El Salvador"
-
-#: src/resources/world/nation_names.gd
-msgid "COLOMBIA"
-msgstr "Kolumbien"
-
-#: src/resources/world/nation_names.gd
-msgid "DOMINICA"
-msgstr "Dominica"
-
-#: src/resources/world/nation_names.gd
-msgid "SAO_TOME_AND_PRINCIPE"
-msgstr "São Tomé und Príncipe"
-
-#: src/resources/world/nation_names.gd
-msgid "DOMINICAN_REPUBLIC"
-msgstr "Dominikanische Republik"
-
-#: src/resources/world/nation_names.gd
-msgid "PARAGUAY"
-msgstr "Paraguay"
-
-#: src/resources/world/nation_names.gd
-msgid "BAHAMAS"
-msgstr "Bahamas"
-
-#: src/resources/world/nation_names.gd
-msgid "MALTA"
-msgstr "Malta"
-
-#: src/resources/world/nation_names.gd
-msgid "CHAD"
-msgstr "Tschad"
-
-#: src/resources/world/nation_names.gd
-msgid "SOUTH_SUDAN"
-msgstr "Südsudan"
-
-#: src/resources/world/nation_names.gd
-msgid "LIBYA"
-msgstr "Libyen"
-
-#: src/resources/world/nation_names.gd
-msgid "NAMIBIA"
-msgstr "Namibia"
-
-#: src/resources/world/nation_names.gd
-msgid "ARGENTINA"
-msgstr "Argentinien"
-
-#: src/resources/world/nation_names.gd
-msgid "UNITED_KINGDOM"
-msgstr "Vereinigtes Königreich"
-
-#: src/resources/world/nation_names.gd
-msgid "SWEDEN"
-msgstr "Schweden"
-
-#: src/resources/world/nation_names.gd
-msgid "SWAZILAND"
-msgstr "Swasiland"
-
-#: src/resources/world/nation_names.gd
-msgid "AZERBAIJAN"
-msgstr "Aserbaidschan"
-
-#: src/resources/world/nation_names.gd
-msgid "IRELAND"
-msgstr "Irland"
-
-#: src/resources/world/nation_names.gd
-msgid "DEMOCRATIC_REPUBLIC_OF_CONGO"
-msgstr "Demokratische Republik Kongo"
-
-#: src/resources/world/nation_names.gd
-msgid "OMAN"
-msgstr "Oman"
-
-#: src/resources/world/nation_names.gd
-msgid "MAURITANIA"
-msgstr "Mauretanien"
-
-#: src/resources/world/nation_names.gd
-msgid "COSTA_RICA"
-msgstr "Costa Rica"
-
-#: src/resources/world/nation_names.gd
-msgid "TONGA"
-msgstr "Tonga"
-
-#: src/resources/world/nation_names.gd
-msgid "EQUATORIAL_GUINEA"
-msgstr "Äquatorialguinea"
-
-#: src/resources/world/nation_names.gd
-msgid "ITALY"
-msgstr "Italien"
-
-#: src/resources/world/nation_names.gd
-msgid "BURKINA"
-msgstr "Burkina"
-
-#: src/resources/world/nation_names.gd
-msgid "HONDURAS"
-msgstr "Honduras"
-
-#: src/resources/world/nation_names.gd
-msgid "BARBADOS"
-msgstr "Barbados"
-
-#: src/resources/world/nation_names.gd
-msgid "MEXICO"
-msgstr "Mexiko"
-
-#: src/resources/world/nation_names.gd
-msgid "PERU"
-msgstr "Peru"
-
-#: src/resources/world/nation_names.gd
-msgid "PHILIPPINES"
-msgstr "Philippinen"
-
-#: src/resources/world/nation_names.gd
-msgid "GUATEMALA"
-msgstr "Guatemala"
-
-#: src/resources/world/nation_names.gd
-msgid "KOREA_NORTH"
-msgstr "Nordkorea"
-
-#: src/resources/world/nation_names.gd
-msgid "IRAN"
-msgstr "Iran"
-
-#: src/resources/world/nation_names.gd
-msgid "ALBANIA"
-msgstr "Albanien"
-
-#: src/resources/world/nation_names.gd
-msgid "SAINT_LUCIA"
-msgstr "St. Lucia"
-
-#: src/resources/world/nation_names.gd
-msgid "VATICAN_CITY"
-msgstr "Vatikanstadt"
-
-#: src/resources/world/nation_names.gd
-msgid "TRINIDAD_AND_TOBAGO"
-msgstr "Trinidad und Tobago"
-
-#: src/resources/world/nation_names.gd
-msgid "MARSHALL_ISLANDS"
-msgstr "Marshallinseln"
-
-#: src/resources/world/nation_names.gd
-msgid "TAJIKISTAN"
-msgstr "Tadschikistan"
-
-#: src/resources/world/nation_names.gd
-msgid "BELARUS"
-msgstr "Belarus"
-
-#: src/resources/world/nation_names.gd
-msgid "UZBEKISTAN"
-msgstr "Usbekistan"
-
-#: src/resources/world/nation_names.gd
-msgid "URUGUAY"
-msgstr "Uruguay"
+#: src/screens/setup/setup_team/setup_team.gd
+msgid "Initialize game"
+msgstr "Spiel wird initialisiert"
 
 #: src/resources/world/continent_names.gd
-msgid "EUROPE"
+msgid "Africa"
+msgstr "Afrika"
+
+#: src/resources/world/continent_names.gd
+msgid "Asia"
+msgstr "Asien"
+
+#: src/resources/world/continent_names.gd
+msgid "Europe"
 msgstr "Europa"
 
-#: src/resources/world/nation_names.gd
-msgid "MALAYSIA"
-msgstr "Malaysia"
-
-#: src/resources/world/nation_names.gd
-msgid "JORDAN"
-msgstr "Jordanien"
-
-#: src/resources/world/nation_names.gd
-msgid "PALAU"
-msgstr "Palau"
-
-#: src/resources/world/nation_names.gd
-msgid "ALGERIA"
-msgstr "Algerien"
-
-#: src/resources/world/nation_names.gd
-msgid "SEYCHELLES"
-msgstr "Seychellen"
-
-#: src/resources/world/nation_names.gd
-msgid "VANUATU"
-msgstr "Vanuatu"
-
-#: src/resources/world/nation_names.gd
-msgid "THAILAND"
-msgstr "Thailand"
-
-#: src/resources/world/nation_names.gd
-msgid "SAINT_KITTS_AND_NEVIS"
-msgstr "St. Kitts und Nevis"
-
-#: src/resources/world/nation_names.gd
-msgid "MALAWI"
-msgstr "Malawi"
-
-#: src/resources/world/nation_names.gd
-msgid "SOMALIA"
-msgstr "Somalia"
-
-#: src/resources/world/nation_names.gd
-msgid "TUNISIA"
-msgstr "Tunesien"
-
-#: src/resources/world/nation_names.gd
-msgid "LAOS"
-msgstr "Laos"
-
-#: src/resources/world/nation_names.gd
-msgid "MAURITIUS"
-msgstr "Mauritius"
-
-#: src/resources/world/nation_names.gd
-msgid "MACEDONIA"
-msgstr "Mazedonien"
-
-#: src/resources/world/nation_names.gd
-msgid "NIGER"
-msgstr "Niger"
-
-#: src/resources/world/nation_names.gd
-msgid "BENIN"
-msgstr "Benin"
-
-#: src/resources/world/nation_names.gd
-msgid "KUWAIT"
-msgstr "Kuwait"
-
-#: src/resources/world/nation_names.gd
-msgid "KIRIBATI"
-msgstr "Kiribati"
-
-#: src/resources/world/nation_names.gd
-msgid "BAHRAIN"
-msgstr "Bahrain"
-
-#: src/resources/world/nation_names.gd
-msgid "ISRAEL"
-msgstr "Israel"
-
-#: src/resources/world/nation_names.gd
-msgid "INDIA"
-msgstr "Indien"
+#: src/resources/world/continent_names.gd
+msgid "Oceania"
+msgstr "Ozeanien"
 
 #: src/resources/world/continent_names.gd
-msgid "NORTH_AMERICA"
+msgid "South America"
+msgstr "Südamerika"
+
+#: src/resources/world/continent_names.gd
+msgid "North America"
 msgstr "Nordamerika"
 
 #: src/resources/world/nation_names.gd
-msgid "SRI_LANKA"
-msgstr "Sri Lanka"
+msgid "Albania"
+msgstr "Albanien"
 
 #: src/resources/world/nation_names.gd
-msgid "ANTIGUA_AND_BARBUDA"
-msgstr "Antigua und Barbuda"
+msgid "Andorra"
+msgstr "Andorra"
 
 #: src/resources/world/nation_names.gd
-msgid "LIECHTENSTEIN"
-msgstr "Liechtenstein"
+msgid "Armenia"
+msgstr "Armenien"
 
 #: src/resources/world/nation_names.gd
-msgid "KYRGYZSTAN"
-msgstr "Kirgisistan"
-
-#: src/resources/world/continent_names.gd
-msgid "SOUTH_AMERICA"
-msgstr "Südamerika"
+msgid "Austria"
+msgstr "Österreich"
 
 #: src/resources/world/nation_names.gd
-msgid "TURKMENISTAN"
-msgstr "Turkmenistan"
+msgid "Azerbaijan"
+msgstr "Aserbaidschan"
 
 #: src/resources/world/nation_names.gd
-msgid "UKRAINE"
-msgstr "Ukraine"
+msgid "Belarus"
+msgstr "Belarus"
 
 #: src/resources/world/nation_names.gd
-msgid "NEW_ZEALAND"
-msgstr "Neuseeland"
-
-#: src/resources/world/nation_names.gd
-msgid "LEBANON"
-msgstr "Libanon"
-
-#: src/resources/world/nation_names.gd
-msgid "BURUNDI"
-msgstr "Burundi"
-
-#: src/resources/world/nation_names.gd
-msgid "PAPUA_NEW_GUINEA"
-msgstr "Papua-Neuguinea"
-
-#: src/resources/world/nation_names.gd
-msgid "BRUNEI"
-msgstr "Brunei"
-
-#: src/resources/world/nation_names.gd
-msgid "JAPAN"
-msgstr "Japan"
-
-#: src/resources/world/nation_names.gd
-msgid "SAINT_VINCENT_AND_THE_GRENADINES"
-msgstr "St. Vincent und die Grenadinen"
-
-#: src/resources/world/nation_names.gd
-msgid "BELIZE"
-msgstr "Belize"
-
-#: src/resources/world/nation_names.gd
-msgid "ECUADOR"
-msgstr "Ecuador"
-
-#: src/resources/world/nation_names.gd
-msgid "GUYANA"
-msgstr "Guyana"
-
-#: src/resources/world/nation_names.gd
-msgid "GAMBIA"
-msgstr "Gambia"
-
-#: src/resources/world/nation_names.gd
-msgid "ZAMBIA"
-msgstr "Sambia"
-
-#: src/resources/world/nation_names.gd
-msgid "GREECE"
-msgstr "Griechenland"
-
-#: src/resources/world/nation_names.gd
-msgid "VIETNAM"
-msgstr "Vietnam"
-
-#: src/resources/world/nation_names.gd
-msgid "SOUTH_AFRICA"
-msgstr "Südafrika"
-
-#: src/resources/world/nation_names.gd
-msgid "NAURU"
-msgstr "Nauruisch"
-
-#: src/resources/world/nation_names.gd
-msgid "EGYPT"
-msgstr "Ägypten"
-
-#: src/resources/world/nation_names.gd
-msgid "NORWAY"
-msgstr "Norwegen"
-
-#: src/resources/world/nation_names.gd
-msgid "NETHERLANDS"
-msgstr "Niederlande"
-
-#: src/resources/world/nation_names.gd
-msgid "MONTENEGRO"
-msgstr "Montenegro"
-
-#: src/resources/world/nation_names.gd
-msgid "GEORGIA"
-msgstr "Georgien"
-
-#: src/resources/world/nation_names.gd
-msgid "KAZAKHSTAN"
-msgstr "Kasachstan"
-
-#: src/resources/world/nation_names.gd
-msgid "CANADA"
-msgstr "Kanada"
-
-#: src/resources/world/nation_names.gd
-msgid "CZECH_REPUBLIC"
-msgstr "Tschechische Republik"
-
-#: src/resources/world/nation_names.gd
-msgid "SYRIA"
-msgstr "Syrien"
-
-#: src/resources/world/nation_names.gd
-msgid "RUSSIAN_FEDERATION"
-msgstr "Russische Föderation"
-
-#: src/resources/world/nation_names.gd
-msgid "CONGO"
-msgstr "Kongo"
-
-#: src/resources/world/nation_names.gd
-msgid "UNITED_ARAB_EMIRATES"
-msgstr "Vereinigte Arabische Emirate"
-
-#: src/resources/world/nation_names.gd
-msgid "BELGIUM"
+msgid "Belgium"
 msgstr "Belgien"
 
 #: src/resources/world/nation_names.gd
-msgid "NICARAGUA"
-msgstr "Nicaragua"
+msgid "Bosnia and Herzegovina"
+msgstr "Bosnien und Herzegowina"
 
 #: src/resources/world/nation_names.gd
-msgid "SAUDI_ARABIA"
-msgstr "Saudi-Arabien"
+msgid "Bulgaria"
+msgstr "Bulgarien"
 
 #: src/resources/world/nation_names.gd
-msgid "PAKISTAN"
-msgstr "Pakistan"
+msgid "Croatia"
+msgstr "Kroatien"
 
 #: src/resources/world/nation_names.gd
-msgid "SINGAPORE"
-msgstr "Singapur"
+msgid "Cyprus"
+msgstr "Zypern"
 
 #: src/resources/world/nation_names.gd
-msgid "KOREA_SOUTH"
-msgstr "Südkorea"
+msgid "Czech Republic"
+msgstr "Tschechische Republik"
 
 #: src/resources/world/nation_names.gd
-msgid "LIBERIA"
-msgstr "Liberia"
+msgid "Denmark"
+msgstr "Dänemark"
 
 #: src/resources/world/nation_names.gd
-msgid "BURMA_"
-msgstr "Burma_"
-
-#: src/resources/world/nation_names.gd
-msgid "TANZANIA"
-msgstr "Tansania"
-
-#: src/resources/world/nation_names.gd
-msgid "TOGO"
-msgstr "Togo"
-
-#: src/resources/world/nation_names.gd
-msgid "DJIBOUTI"
-msgstr "Dschibuti"
-
-#: src/resources/world/nation_names.gd
-msgid "ESTONIA"
+msgid "Estonia"
 msgstr "Estland"
 
 #: src/resources/world/nation_names.gd
-msgid "BRAZIL"
-msgstr "Brasilien"
+msgid "Finland"
+msgstr "Finnland"
 
 #: src/resources/world/nation_names.gd
-msgid "SIERRA_LEONE"
-msgstr "Sierra Leone"
+msgid "France"
+msgstr "Frankreich"
 
 #: src/resources/world/nation_names.gd
-msgid "SOLOMON_ISLANDS"
-msgstr "Salomonen"
+msgid "Georgia"
+msgstr "Georgien"
 
 #: src/resources/world/nation_names.gd
-msgid "CAMBODIA"
-msgstr "Kambodscha"
-
-#: src/resources/world/nation_names.gd
-msgid "GUINEA"
-msgstr "Guinea"
-
-#: src/resources/world/nation_names.gd
-msgid "IRAQ"
-msgstr "Irak"
-
-#: src/resources/world/nation_names.gd
-msgid "MONACO"
-msgstr "Monaco"
-
-#: src/resources/world/continent_names.gd
-msgid "ASIA"
-msgstr "Asien"
-
-#: src/resources/world/nation_names.gd
-msgid "MALI"
-msgstr "Mali"
-
-#: src/resources/world/nation_names.gd
-msgid "AUSTRALIA"
-msgstr "Australien"
-
-#: src/resources/world/nation_names.gd
-msgid "ICELAND"
-msgstr "Island"
-
-#: src/resources/world/continent_names.gd
-msgid "AFRICA"
-msgstr "Afrika"
-
-#: src/resources/world/nation_names.gd
-msgid "MICRONESIA"
-msgstr "Mikronesien"
-
-#: src/resources/world/nation_names.gd
-msgid "MALDIVES"
-msgstr "Malediven"
-
-#: src/resources/world/nation_names.gd
-msgid "GABON"
-msgstr "Gabun"
-
-#: src/resources/world/nation_names.gd
-msgid "GERMANY"
+msgid "Germany"
 msgstr "Deutschland"
 
 #: src/resources/world/nation_names.gd
-msgid "BOTSWANA"
+msgid "Greece"
+msgstr "Griechenland"
+
+#: src/resources/world/nation_names.gd
+msgid "Hungary"
+msgstr "Ungarn"
+
+#: src/resources/world/nation_names.gd
+msgid "Iceland"
+msgstr "Island"
+
+#: src/resources/world/nation_names.gd
+msgid "Ireland"
+msgstr "Irland"
+
+#: src/resources/world/nation_names.gd
+msgid "Italy"
+msgstr "Italien"
+
+#: src/resources/world/nation_names.gd
+msgid "Latvia"
+msgstr "Lettland"
+
+#: src/resources/world/nation_names.gd
+msgid "Liechtenstein"
+msgstr "Liechtenstein"
+
+#: src/resources/world/nation_names.gd
+msgid "Lithuania"
+msgstr "Litauen"
+
+#: src/resources/world/nation_names.gd
+msgid "Luxembourg"
+msgstr "Luxemburg"
+
+#: src/resources/world/nation_names.gd
+msgid "Macedonia"
+msgstr "Mazedonien"
+
+#: src/resources/world/nation_names.gd
+msgid "Malta"
+msgstr "Malta"
+
+#: src/resources/world/nation_names.gd
+msgid "Moldova"
+msgstr "Moldau"
+
+#: src/resources/world/nation_names.gd
+msgid "Monaco"
+msgstr "Monaco"
+
+#: src/resources/world/nation_names.gd
+msgid "Montenegro"
+msgstr "Montenegro"
+
+#: src/resources/world/nation_names.gd
+msgid "Netherlands"
+msgstr "Niederlande"
+
+#: src/resources/world/nation_names.gd
+msgid "Norway"
+msgstr "Norwegen"
+
+#: src/resources/world/nation_names.gd
+msgid "Poland"
+msgstr "Polen"
+
+#: src/resources/world/nation_names.gd
+msgid "Portugal"
+msgstr "Portugal"
+
+#: src/resources/world/nation_names.gd
+msgid "Romania"
+msgstr "Rumänien"
+
+#: src/resources/world/nation_names.gd
+msgid "San Marino"
+msgstr "San Marino"
+
+#: src/resources/world/nation_names.gd
+msgid "Serbia"
+msgstr "Serbien"
+
+#: src/resources/world/nation_names.gd
+msgid "Slovakia"
+msgstr "Slowakei"
+
+#: src/resources/world/nation_names.gd
+msgid "Slovenia"
+msgstr "Slowenien"
+
+#: src/resources/world/nation_names.gd
+msgid "Spain"
+msgstr "Spanien"
+
+#: src/resources/world/nation_names.gd
+msgid "Sweden"
+msgstr "Schweden"
+
+#: src/resources/world/nation_names.gd
+msgid "Switzerland"
+msgstr "Schweiz"
+
+#: src/resources/world/nation_names.gd
+msgid "Ukraine"
+msgstr "Ukraine"
+
+#: src/resources/world/nation_names.gd
+msgid "United Kingdom"
+msgstr "Vereinigtes Königreich"
+
+#: src/resources/world/nation_names.gd
+msgid "Vatican City"
+msgstr "Vatikanstadt"
+
+#: src/resources/world/nation_names.gd
+msgid "Brazil"
+msgstr "Brasilien"
+
+#: src/resources/world/nation_names.gd
+msgid "Argentina"
+msgstr "Argentinien"
+
+#: src/resources/world/nation_names.gd
+msgid "Bolivia"
+msgstr "Bolivien"
+
+#: src/resources/world/nation_names.gd
+msgid "Chile"
+msgstr "Chile"
+
+#: src/resources/world/nation_names.gd
+msgid "Colombia"
+msgstr "Kolumbien"
+
+#: src/resources/world/nation_names.gd
+msgid "Ecuador"
+msgstr "Ecuador"
+
+#: src/resources/world/nation_names.gd
+msgid "Guyana"
+msgstr "Guyana"
+
+#: src/resources/world/nation_names.gd
+msgid "Paraguay"
+msgstr "Paraguay"
+
+#: src/resources/world/nation_names.gd
+msgid "Peru"
+msgstr "Peru"
+
+#: src/resources/world/nation_names.gd
+msgid "Suriname"
+msgstr "Surinam"
+
+#: src/resources/world/nation_names.gd
+msgid "Uruguay"
+msgstr "Uruguay"
+
+#: src/resources/world/nation_names.gd
+msgid "Venezuela"
+msgstr "Venezuela"
+
+#: src/resources/world/nation_names.gd
+msgid "Antigua and Barbuda"
+msgstr "Antigua und Barbuda"
+
+#: src/resources/world/nation_names.gd
+msgid "Bahamas"
+msgstr "Bahamas"
+
+#: src/resources/world/nation_names.gd
+msgid "Barbados"
+msgstr "Barbados"
+
+#: src/resources/world/nation_names.gd
+msgid "Belize"
+msgstr "Belize"
+
+#: src/resources/world/nation_names.gd
+msgid "Canada"
+msgstr "Kanada"
+
+#: src/resources/world/nation_names.gd
+msgid "Costa Rica"
+msgstr "Costa Rica"
+
+#: src/resources/world/nation_names.gd
+msgid "Cuba"
+msgstr "Kuba"
+
+#: src/resources/world/nation_names.gd
+msgid "Dominica"
+msgstr "Dominica"
+
+#: src/resources/world/nation_names.gd
+msgid "Dominican Republic"
+msgstr "Dominikanische Republik"
+
+#: src/resources/world/nation_names.gd
+msgid "El Salvador"
+msgstr "El Salvador"
+
+#: src/resources/world/nation_names.gd
+msgid "Grenada"
+msgstr "Grenada"
+
+#: src/resources/world/nation_names.gd
+msgid "Guatemala"
+msgstr "Guatemala"
+
+#: src/resources/world/nation_names.gd
+msgid "Haiti"
+msgstr "Haiti"
+
+#: src/resources/world/nation_names.gd
+msgid "Honduras"
+msgstr "Honduras"
+
+#: src/resources/world/nation_names.gd
+msgid "Jamaica"
+msgstr "Jamaika"
+
+#: src/resources/world/nation_names.gd
+msgid "Mexico"
+msgstr "Mexiko"
+
+#: src/resources/world/nation_names.gd
+msgid "Nicaragua"
+msgstr "Nicaragua"
+
+#: src/resources/world/nation_names.gd
+msgid "Panama"
+msgstr "Panama"
+
+#: src/resources/world/nation_names.gd
+msgid "Saint Kitts and Nevis"
+msgstr "St. Kitts und Nevis"
+
+#: src/resources/world/nation_names.gd
+msgid "Saint Lucia"
+msgstr "St. Lucia"
+
+#: src/resources/world/nation_names.gd
+msgid "Saint Vincent and the Grenadines"
+msgstr "St. Vincent und die Grenadinen"
+
+#: src/resources/world/nation_names.gd
+msgid "Trinidad and Tobago"
+msgstr "Trinidad und Tobago"
+
+#: src/resources/world/nation_names.gd
+msgid "Usa"
+msgstr "USA"
+
+#: src/resources/world/nation_names.gd
+msgid "Australia"
+msgstr "Australien"
+
+#: src/resources/world/nation_names.gd
+msgid "Fiji"
+msgstr "Fidschi"
+
+#: src/resources/world/nation_names.gd
+msgid "Kiribati"
+msgstr "Kiribati"
+
+#: src/resources/world/nation_names.gd
+msgid "Marshall Islands"
+msgstr "Marshallinseln"
+
+#: src/resources/world/nation_names.gd
+msgid "Micronesia"
+msgstr "Mikronesien"
+
+#: src/resources/world/nation_names.gd
+msgid "Nauru"
+msgstr "Nauruisch"
+
+#: src/resources/world/nation_names.gd
+msgid "New Zealand"
+msgstr "Neuseeland"
+
+#: src/resources/world/nation_names.gd
+msgid "Palau"
+msgstr "Palau"
+
+#: src/resources/world/nation_names.gd
+msgid "Papua New Guinea"
+msgstr "Papua-Neuguinea"
+
+#: src/resources/world/nation_names.gd
+msgid "Samoa"
+msgstr "Samoa"
+
+#: src/resources/world/nation_names.gd
+msgid "Solomon Islands"
+msgstr "Salomonen"
+
+#: src/resources/world/nation_names.gd
+msgid "Tonga"
+msgstr "Tonga"
+
+#: src/resources/world/nation_names.gd
+msgid "Tuvalu"
+msgstr "Tuvaluisch"
+
+#: src/resources/world/nation_names.gd
+msgid "Vanuatu"
+msgstr "Vanuatu"
+
+#: src/resources/world/nation_names.gd
+msgid "Algeria"
+msgstr "Algerien"
+
+#: src/resources/world/nation_names.gd
+msgid "Angola"
+msgstr "Angola"
+
+#: src/resources/world/nation_names.gd
+msgid "Benin"
+msgstr "Benin"
+
+#: src/resources/world/nation_names.gd
+msgid "Botswana"
 msgstr "Botswana"
 
 #: src/resources/world/nation_names.gd
-msgid "COMOROS"
-msgstr "Komoren"
-
-#: src/resources/world/continent_names.gd
-msgid "OCEANIA"
-msgstr "Ozeanien"
+msgid "Burkina"
+msgstr "Burkina"
 
 #: src/resources/world/nation_names.gd
-msgid "MOROCCO"
-msgstr "Marokko"
+msgid "Burundi"
+msgstr "Burundi"
 
 #: src/resources/world/nation_names.gd
-msgid "CAPE_VERDE"
+msgid "Cameroon"
+msgstr "Kamerun"
+
+#: src/resources/world/nation_names.gd
+msgid "Cape Verde"
 msgstr "Kap Verde"
 
 #: src/resources/world/nation_names.gd
-msgid "HUNGARY"
-msgstr "Ungarn"
-
-#: src/resources/person/player/player.gd
-msgid "WORST"
-msgstr "Schlechteste"
-
-#: src/screens/match/match.tscn src/enum.gd
-msgid "FULL_GAME"
-msgstr "Ganzes Spiel"
-
-#: src/enum.gd
-msgid "NOVEMBER"
-msgstr "November"
-
-#: src/enum.gd
-msgid "DECEMBER"
-msgstr "Dezember"
-
-#: src/enum.gd
-msgid "MALE"
-msgstr "Männlich"
-
-#: src/enum.gd
-msgid "FEMALE"
-msgstr "Weiblich"
-
-#: src/enum.gd
-msgid "MIXED"
-msgstr "Gemischt"
-
-#: src/enum.gd
-msgid "JANUARY"
-msgstr "Januar"
-
-#: src/enum.gd
-msgid "FEBRUARY"
-msgstr "Februar"
-
-#: src/enum.gd
-msgid "MARCH"
-msgstr "März"
-
-#: src/enum.gd
-msgid "APRIL"
-msgstr "April"
-
-#: src/enum.gd
-msgid "MAY"
-msgstr "Mai"
-
-#: src/enum.gd
-msgid "JUNE"
-msgstr "Juni"
-
-#: src/enum.gd
-msgid "JULY"
-msgstr "Juli"
-
-#: src/enum.gd
-msgid "AUGUST"
-msgstr "August"
-
-#: src/enum.gd
-msgid "SEPTEMBER"
-msgstr "September"
-
-#: src/enum.gd
-msgid "OCTOBER"
-msgstr "Oktober"
-
-#: src/resources/person/player/player.gd
-msgid "BAD"
-msgstr "Schlecht"
-
-#: src/resources/person/player/player.gd
-msgid "NEUTRAL"
-msgstr "Neutral"
-
-#: src/resources/person/player/player.gd
-msgid "GOOD"
-msgstr "Gut"
-
-#: src/resources/person/player/player.gd
-msgid "BEST"
-msgstr "Beste"
-
-#: src/resources/person/player/player.gd
-msgid "INJURED"
-msgstr "Verletzt"
-
-#: src/resources/person/player/player.gd
-msgid "RECOVER"
-msgstr "Erholung"
-
-#: src/enum.gd
-msgid "ONLY_GOALS"
-msgstr "Nur Tore"
-
-#: src/ui_components/base/confirm_dialog/default_confirm_dialog.gd
-msgid "OK"
-msgstr "OK"
-
-#: src/resources/person/player/player.gd
-msgid "LEFT"
-msgstr "Links"
-
-#: src/resources/person/player/player.gd
-msgid "RIGHT"
-msgstr "Rechts"
-
-#: src/screens/settings/settings.tscn
-msgid "CONTRIBUTORS"
-msgstr "Mitwirkende"
-
-#: src/screens/settings/settings.tscn
-msgid "LICENSES"
-msgstr "Lizenzen"
-
-#: src/screens/settings/general/general_settings.tscn
-msgid "LANGUAGE"
-msgstr "Sprache"
-
-#: src/screens/save_states_screen/save_state_entry/save_state_entry.gd
-#: src/screens/menu/menu.gd
-msgid "LOADING_GAME"
-msgstr "Spiel wird geladen"
-
-#: src/screens/dashboard/dashboard.gd
-msgid "SIMULATING_RESULTS"
-msgstr "Ergebnisse werden simuliert"
-
-#: src/screens/dashboard/dashboard.tscn
-msgid "COMING_SOON"
-msgstr "Demnächst verfügbar"
-
-#: src/screens/setup/setup_team/setup_team.gd
-msgid "INITIALIZE_GAME"
-msgstr "Spiel wird initialisiert"
+msgid "Central African Republic"
+msgstr "Zentralafrikanische Republik"
 
 #: src/resources/world/nation_names.gd
-msgid "BURMA"
+msgid "Chad"
+msgstr "Tschad"
+
+#: src/resources/world/nation_names.gd
+msgid "Comoros"
+msgstr "Komoren"
+
+#: src/resources/world/nation_names.gd
+msgid "Congo"
+msgstr "Kongo"
+
+#: src/resources/world/nation_names.gd
+msgid "Democratic Republic of Congo"
+msgstr "Demokratische Republik Kongo"
+
+#: src/resources/world/nation_names.gd
+msgid "Djibouti"
+msgstr "Dschibuti"
+
+#: src/resources/world/nation_names.gd
+msgid "Egypt"
+msgstr "Ägypten"
+
+#: src/resources/world/nation_names.gd
+msgid "Equatorial Guinea"
+msgstr "Äquatorialguinea"
+
+#: src/resources/world/nation_names.gd
+msgid "Eritrea"
+msgstr "Eritrea"
+
+#: src/resources/world/nation_names.gd
+msgid "Ethiopia"
+msgstr "Äthiopien"
+
+#: src/resources/world/nation_names.gd
+msgid "Gabon"
+msgstr "Gabun"
+
+#: src/resources/world/nation_names.gd
+msgid "Gambia"
+msgstr "Gambia"
+
+#: src/resources/world/nation_names.gd
+msgid "Ghana"
+msgstr "Ghana"
+
+#: src/resources/world/nation_names.gd
+msgid "Guinea"
+msgstr "Guinea"
+
+#: src/resources/world/nation_names.gd
+msgid "Ivory Coast"
+msgstr "Elfenbeinküste"
+
+#: src/resources/world/nation_names.gd
+msgid "Kenya"
+msgstr "Kenia"
+
+#: src/resources/world/nation_names.gd
+msgid "Lesotho"
+msgstr "Lesotho"
+
+#: src/resources/world/nation_names.gd
+msgid "Liberia"
+msgstr "Liberia"
+
+#: src/resources/world/nation_names.gd
+msgid "Libya"
+msgstr "Libyen"
+
+#: src/resources/world/nation_names.gd
+msgid "Madagascar"
+msgstr "Madagaskar"
+
+#: src/resources/world/nation_names.gd
+msgid "Malawi"
+msgstr "Malawi"
+
+#: src/resources/world/nation_names.gd
+msgid "Mali"
+msgstr "Mali"
+
+#: src/resources/world/nation_names.gd
+msgid "Mauritania"
+msgstr "Mauretanien"
+
+#: src/resources/world/nation_names.gd
+msgid "Mauritius"
+msgstr "Mauritius"
+
+#: src/resources/world/nation_names.gd
+msgid "Morocco"
+msgstr "Marokko"
+
+#: src/resources/world/nation_names.gd
+msgid "Mozambique"
+msgstr "Mosambik"
+
+#: src/resources/world/nation_names.gd
+msgid "Namibia"
+msgstr "Namibia"
+
+#: src/resources/world/nation_names.gd
+msgid "Niger"
+msgstr "Niger"
+
+#: src/resources/world/nation_names.gd
+msgid "Nigeria"
+msgstr "Nigeria"
+
+#: src/resources/world/nation_names.gd
+msgid "Rwanda"
+msgstr "Ruanda"
+
+#: src/resources/world/nation_names.gd
+msgid "Sao Tome and Principe"
+msgstr "São Tomé und Príncipe"
+
+#: src/resources/world/nation_names.gd
+msgid "Senegal"
+msgstr "Senegal"
+
+#: src/resources/world/nation_names.gd
+msgid "Seychelles"
+msgstr "Seychellen"
+
+#: src/resources/world/nation_names.gd
+msgid "Sierra Leone"
+msgstr "Sierra Leone"
+
+#: src/resources/world/nation_names.gd
+msgid "Somalia"
+msgstr "Somalia"
+
+#: src/resources/world/nation_names.gd
+msgid "South Africa"
+msgstr "Südafrika"
+
+#: src/resources/world/nation_names.gd
+msgid "South Sudan"
+msgstr "Südsudan"
+
+#: src/resources/world/nation_names.gd
+msgid "Sudan"
+msgstr "Sudan"
+
+#: src/resources/world/nation_names.gd
+msgid "Swaziland"
+msgstr "Swasiland"
+
+#: src/resources/world/nation_names.gd
+msgid "Tanzania"
+msgstr "Tansania"
+
+#: src/resources/world/nation_names.gd
+msgid "Togo"
+msgstr "Togo"
+
+#: src/resources/world/nation_names.gd
+msgid "Tunisia"
+msgstr "Tunesien"
+
+#: src/resources/world/nation_names.gd
+msgid "Uganda"
+msgstr "Uganda"
+
+#: src/resources/world/nation_names.gd
+msgid "Zambia"
+msgstr "Sambia"
+
+#: src/resources/world/nation_names.gd
+msgid "Zimbabwe"
+msgstr "Simbabwe"
+
+#: src/resources/world/nation_names.gd
+msgid "Afghanistan"
+msgstr "Afghanistan"
+
+#: src/resources/world/nation_names.gd
+msgid "Bahrain"
+msgstr "Bahrain"
+
+#: src/resources/world/nation_names.gd
+msgid "Bangladesh"
+msgstr "Bangladesch"
+
+#: src/resources/world/nation_names.gd
+msgid "Bhutan"
+msgstr "Bhutan"
+
+#: src/resources/world/nation_names.gd
+msgid "Brunei"
+msgstr "Brunei"
+
+#: src/resources/world/nation_names.gd
+msgid "Burma"
 msgstr "Burma"
 
+#: src/resources/world/nation_names.gd
+msgid "Cambodia"
+msgstr "Kambodscha"
+
+#: src/resources/world/nation_names.gd
+msgid "China"
+msgstr "China"
+
+#: src/resources/world/nation_names.gd
+msgid "East Timor"
+msgstr "Osttimor"
+
+#: src/resources/world/nation_names.gd
+msgid "India"
+msgstr "Indien"
+
+#: src/resources/world/nation_names.gd
+msgid "Indonesia"
+msgstr "Indonesien"
+
+#: src/resources/world/nation_names.gd
+msgid "Iran"
+msgstr "Iran"
+
+#: src/resources/world/nation_names.gd
+msgid "Iraq"
+msgstr "Irak"
+
+#: src/resources/world/nation_names.gd
+msgid "Israel"
+msgstr "Israel"
+
+#: src/resources/world/nation_names.gd
+msgid "Japan"
+msgstr "Japan"
+
+#: src/resources/world/nation_names.gd
+msgid "Jordan"
+msgstr "Jordanien"
+
+#: src/resources/world/nation_names.gd
+msgid "Kazakhstan"
+msgstr "Kasachstan"
+
+#: src/resources/world/nation_names.gd
+msgid "North Korea"
+msgstr "Nordkorea"
+
+#: src/resources/world/nation_names.gd
+msgid "South Korea"
+msgstr "Südkorea"
+
+#: src/resources/world/nation_names.gd
+msgid "Kuwait"
+msgstr "Kuwait"
+
+#: src/resources/world/nation_names.gd
+msgid "Kyrgyzstan"
+msgstr "Kirgisistan"
+
+#: src/resources/world/nation_names.gd
+msgid "Laos"
+msgstr "Laos"
+
+#: src/resources/world/nation_names.gd
+msgid "Lebanon"
+msgstr "Libanon"
+
+#: src/resources/world/nation_names.gd
+msgid "Malaysia"
+msgstr "Malaysia"
+
+#: src/resources/world/nation_names.gd
+msgid "Maldives"
+msgstr "Malediven"
+
+#: src/resources/world/nation_names.gd
+msgid "Mongolia"
+msgstr "Mongolei"
+
+#: src/resources/world/nation_names.gd
+msgid "Nepal"
+msgstr "Nepal"
+
+#: src/resources/world/nation_names.gd
+msgid "Oman"
+msgstr "Oman"
+
+#: src/resources/world/nation_names.gd
+msgid "Pakistan"
+msgstr "Pakistan"
+
+#: src/resources/world/nation_names.gd
+msgid "Philippines"
+msgstr "Philippinen"
+
+#: src/resources/world/nation_names.gd
+msgid "Qatar"
+msgstr "Katar"
+
+#: src/resources/world/nation_names.gd
+msgid "Russian Federation"
+msgstr "Russische Föderation"
+
+#: src/resources/world/nation_names.gd
+msgid "Saudi Arabia"
+msgstr "Saudi-Arabien"
+
+#: src/resources/world/nation_names.gd
+msgid "Singapore"
+msgstr "Singapur"
+
+#: src/resources/world/nation_names.gd
+msgid "Sri Lanka"
+msgstr "Sri Lanka"
+
+#: src/resources/world/nation_names.gd
+msgid "Syria"
+msgstr "Syrien"
+
+#: src/resources/world/nation_names.gd
+msgid "Tajikistan"
+msgstr "Tadschikistan"
+
+#: src/resources/world/nation_names.gd
+msgid "Thailand"
+msgstr "Thailand"
+
+#: src/resources/world/nation_names.gd
+msgid "Turkey"
+msgstr "Türkei"
+
+#: src/resources/world/nation_names.gd
+msgid "Turkmenistan"
+msgstr "Turkmenistan"
+
+#: src/resources/world/nation_names.gd
+msgid "United Arab Emirates"
+msgstr "Vereinigte Arabische Emirate"
+
+#: src/resources/world/nation_names.gd
+msgid "Uzbekistan"
+msgstr "Usbekistan"
+
+#: src/resources/world/nation_names.gd
+msgid "Vietnam"
+msgstr "Vietnam"
+
+#: src/resources/world/nation_names.gd
+msgid "Yemen"
+msgstr "Jemen"
+
 #: src/screens/settings/license/license.tscn
-msgid "READ_FULL_LICENSE"
+msgid "Game license"
+msgstr "Spiellizenz"
+
+#: src/screens/settings/license/license.tscn
+msgid "This game is Open Source and released under the AGPL v3 or later license."
+msgstr ""
+
+#: src/screens/settings/license/license.tscn
+msgid "Read full license"
 msgstr "Vollständige Lizenz lesen"
 
 #: src/screens/settings/license/license.tscn
-msgid "THIRD_PARTY_LICENSES_DESCRIPTION"
-msgstr ""
-"Dieses Spiel wurde mit der Godot Engine erstellt, die unter der MIT-Lizenz "
-"veröffentlicht wurde."
-
-#: src/screens/settings/license/license.tscn
-msgid "SOURCE_CODE"
+msgid "Source code"
 msgstr "Quellcode"
 
 #: src/screens/settings/license/license.tscn
-msgid "SOURCE_CODE_DESCRIPTION"
+msgid "The full source code of the game is available on the websites below."
 msgstr ""
-"Der vollständige Quellcode des Spiels ist auf den folgenden Websites "
-"verfügbar"
 
 #: src/screens/settings/license/license.tscn
-msgid "THIRD_PARTY_LICENSES"
+msgid "Third party licenses"
 msgstr "Drittanbieter-Lizenzen"
 
 #: src/screens/settings/license/license.tscn
-msgid "GAME_LICENSE"
-msgstr "Spiellizenz"
-
-#: src/screens/dashboard/dashboard.gd
-msgid "SAVING_GAME"
-msgstr "Spiel wird gespeichert"
-
-#: src/screens/settings/license/license.tscn
-msgid "GAME_LICENSE_DESCRIPTION"
+msgid "This game was built using the Godot Engine, that is released under the MIT license."
 msgstr ""
-"Dieses Spiel ist quelloffen und wird unter der AGPL v3 oder einer neueren "
-"Lizenz veröffentlicht."
 
 #: src/enum.gd
-msgid "KEY_ACTIONS"
+msgid "Key actions"
 msgstr "Schlüsselaktionen"
 
 #: src/enum.gd
-msgid "MANUAL"
+msgid "Only goals"
+msgstr "Nur Tore"
+
+#: src/enum.gd
+msgid "Male"
+msgstr "Männlich"
+
+#: src/enum.gd
+msgid "Female"
+msgstr "Weiblich"
+
+#: src/enum.gd
+msgid "Mixed"
+msgstr "Gemischt"
+
+#: src/enum.gd
+msgid "January"
+msgstr "Januar"
+
+#: src/enum.gd
+msgid "February"
+msgstr "Februar"
+
+#: src/enum.gd
+msgid "March"
+msgstr "März"
+
+#: src/enum.gd
+msgid "April"
+msgstr "April"
+
+#: src/enum.gd
+msgid "May"
+msgstr "Mai"
+
+#: src/enum.gd
+msgid "June"
+msgstr "Juni"
+
+#: src/enum.gd
+msgid "July"
+msgstr "Juli"
+
+#: src/enum.gd
+msgid "August"
+msgstr "August"
+
+#: src/enum.gd
+msgid "September"
+msgstr "September"
+
+#: src/enum.gd
+msgid "October"
+msgstr "Oktober"
+
+#: src/enum.gd
+msgid "November"
+msgstr "November"
+
+#: src/enum.gd
+msgid "December"
+msgstr "Dezember"
+
+#: src/enum.gd
+msgid "Automatic"
+msgstr "Automatisch"
+
+#: src/enum.gd
+msgid "Manual"
 msgstr "Manuell"
 
 #: src/enum.gd
-msgid "JOYPAD"
-msgstr "Joypad"
-
-#: src/enum.gd
-msgid "TOUCHSCREEN"
-msgstr "Touchscreen"
-
-#: src/enum.gd
-msgid "MOUSE_AND_KEYBOARD"
+msgid "Mouse and Keyboard"
 msgstr "Maus und Tastatur"
 
 #: src/enum.gd
-msgid "LEFT_AND_RIGHT"
+msgid "Joypad"
+msgstr "Joypad"
+
+#: src/enum.gd
+msgid "Touchscreen"
+msgstr "Touchscreen"
+
+#: src/enum.gd
+msgid "Left"
+msgstr "Links"
+
+#: src/enum.gd
+msgid "Right"
+msgstr "Rechts"
+
+#: src/enum.gd
+msgid "Left and right"
 msgstr "Links und rechts"
 
 #: src/enum.gd
-msgid "AUTOMATIC"
-msgstr "Automatisch"
+msgid "Worst"
+msgstr "Schlechteste"
+
+#: src/enum.gd
+msgid "Bad"
+msgstr "Schlecht"
+
+#: src/enum.gd
+msgid "Neutral"
+msgstr "Neutral"
+
+#: src/enum.gd
+msgid "Good"
+msgstr "Gut"
+
+#: src/enum.gd
+msgid "Best"
+msgstr "Beste"
+
+#: src/enum.gd
+msgid "Injured"
+msgstr "Verletzt"
+
+#: src/enum.gd
+msgid "Recover"
+msgstr "Erholung"
+
