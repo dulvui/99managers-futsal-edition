@@ -38,7 +38,7 @@ layout_mode = 2
 
 [node name="Title" type="Label" parent="MarginContainer/VBoxContainer"]
 layout_mode = 2
-text = "CHOOSE_TEAM"
+text = "Choose team"
 label_settings = ExtResource("3_fm5r7")
 
 [node name="Main" type="HBoxContainer" parent="MarginContainer/VBoxContainer"]
@@ -69,7 +69,7 @@ custom_minimum_size = Vector2(180, 0)
 layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 4
-text = "BACK"
+text = "Back"
 script = ExtResource("5_rq678")
 
 [node name="SelectTeam" type="Button" parent="MarginContainer/VBoxContainer/Buttons"]
@@ -78,7 +78,7 @@ layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 4
 theme_type_variation = &"ImportantButton"
-text = "SELECT"
+text = "Select"
 script = ExtResource("5_rq678")
 
 [connection signal="team_selected" from="MarginContainer/VBoxContainer/Main/TeamsTree" to="." method="_on_teams_tree_team_selected"]

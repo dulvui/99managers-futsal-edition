@@ -22,5 +22,5 @@ custom_minimum_size = Vector2(150, 0)
 layout_mode = 2
 size_flags_horizontal = 4
 theme_type_variation = &"ImportantButton"
-text = "MAKE_OFFER"
+text = "Make offer"
 script = ExtResource("3_yh7ku")

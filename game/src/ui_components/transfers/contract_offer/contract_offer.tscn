@@ -18,7 +18,7 @@ size_flags_vertical = 4
 
 [node name="Info" type="Label" parent="VBoxContainer"]
 layout_mode = 2
-text = "CONTRACT"
+text = "Contract"
 
 [node name="GridContainer" type="GridContainer" parent="VBoxContainer"]
 layout_mode = 2
@@ -27,7 +27,7 @@ columns = 4
 [node name="IncomeLabel" type="Label" parent="VBoxContainer/GridContainer"]
 layout_mode = 2
 size_flags_horizontal = 3
-text = "INCOME"
+text = "Income"
 
 [node name="IncomeLess" type="Button" parent="VBoxContainer/GridContainer"]
 auto_translate_mode = 2
@@ -51,7 +51,7 @@ script = ExtResource("3_ycdro")
 [node name="YearsLabel" type="Label" parent="VBoxContainer/GridContainer"]
 layout_mode = 2
 size_flags_horizontal = 3
-text = "YEAR"
+text = "Year"
 
 [node name="YearsLess" type="Button" parent="VBoxContainer/GridContainer"]
 auto_translate_mode = 2
@@ -75,7 +75,7 @@ script = ExtResource("3_ycdro")
 [node name="BuyClauseLabel" type="Label" parent="VBoxContainer/GridContainer"]
 layout_mode = 2
 size_flags_horizontal = 3
-text = "BUY_CLAUSE"
+text = "Buy clause"
 
 [node name="BuyClauseLess" type="Button" parent="VBoxContainer/GridContainer"]
 auto_translate_mode = 2
@@ -98,12 +98,12 @@ script = ExtResource("3_ycdro")
 
 [node name="Confirm" type="Button" parent="VBoxContainer"]
 layout_mode = 2
-text = "CONFIRM"
+text = "Confirm"
 script = ExtResource("3_ycdro")
 
 [node name="Cancel" type="Button" parent="VBoxContainer"]
 layout_mode = 2
-text = "CANCEL"
+text = "Cancel"
 
 [connection signal="pressed" from="VBoxContainer/GridContainer/IncomeLess" to="." method="_on_income_less_pressed"]
 [connection signal="pressed" from="VBoxContainer/GridContainer/IncomeMore" to="." method="_on_income_more_pressed"]

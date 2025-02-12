@@ -116,7 +116,7 @@ func set_players() -> void:
 
 	# add subs
 	var subs_label: Label = Label.new()
-	subs_label.text = tr("SUBS")
+	subs_label.text = tr("Subs")
 	subs_label.horizontal_alignment = HORIZONTAL_ALIGNMENT_CENTER
 	subs.add_child(subs_label)
 
@@ -132,7 +132,7 @@ func set_players() -> void:
 		# add non lineup players
 		var non_lineup_label: Label = Label.new()
 		non_lineup_label.horizontal_alignment = HORIZONTAL_ALIGNMENT_CENTER
-		non_lineup_label.text = tr("REST")
+		non_lineup_label.text = tr("Rest")
 		subs.add_child(non_lineup_label)
 
 		for p: Player in team.get_non_lineup_players():

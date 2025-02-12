@@ -43,7 +43,7 @@ layout_mode = 2
 
 [node name="SettingsLabel" type="Label" parent="VBoxContainer/Settings"]
 layout_mode = 2
-text = "GAME_SETTINGS"
+text = "Game settings"
 label_settings = ExtResource("3_mfpia")
 
 [node name="HSeparator3" type="HSeparator" parent="VBoxContainer/Settings"]
@@ -57,7 +57,7 @@ columns = 2
 [node name="PlayerNamesLabel" type="Label" parent="VBoxContainer/Settings/Container"]
 custom_minimum_size = Vector2(200, 0)
 layout_mode = 2
-text = "PLAYER_NAMES"
+text = "Player names"
 
 [node name="PlayerNames" type="OptionButton" parent="VBoxContainer/Settings/Container"]
 unique_name_in_owner = true
@@ -67,7 +67,7 @@ layout_mode = 2
 [node name="StartYearLabel" type="Label" parent="VBoxContainer/Settings/Container"]
 custom_minimum_size = Vector2(200, 0)
 layout_mode = 2
-text = "START_YEAR"
+text = "Start year"
 
 [node name="StartYear" type="SpinBox" parent="VBoxContainer/Settings/Container"]
 unique_name_in_owner = true
@@ -85,12 +85,12 @@ layout_mode = 2
 
 [node name="GenerationSeedLabel" type="Label" parent="VBoxContainer/Seed"]
 layout_mode = 2
-text = "GENERATION_SEED"
+text = "Generation seed"
 
 [node name="GenerationSeedDescription" type="Label" parent="VBoxContainer/Seed"]
 custom_minimum_size = Vector2(0, 180)
 layout_mode = 2
-text = "GENERATION_SEED_DESCRIPTION"
+text = "This generation seed defines player names and attributes. When reused, it will generate exatly the same result."
 autowrap_mode = 2
 
 [node name="GridContainer" type="HBoxContainer" parent="VBoxContainer/Seed"]
@@ -102,7 +102,7 @@ custom_minimum_size = Vector2(200, 0)
 layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 3
-text = "RANDOM"
+text = "Random"
 script = ExtResource("3_g76wv")
 
 [node name="GeneratedSeedLineEdit" type="LineEdit" parent="VBoxContainer/Seed/GridContainer"]
@@ -116,7 +116,7 @@ custom_minimum_size = Vector2(200, 0)
 layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 3
-text = "DEFAULT"
+text = "Default"
 script = ExtResource("3_g76wv")
 
 [node name="HSeparator2" type="HSeparator" parent="VBoxContainer"]
@@ -131,7 +131,7 @@ alignment = 1
 custom_minimum_size = Vector2(200, 0)
 layout_mode = 2
 size_flags_horizontal = 4
-text = "CANCEL"
+text = "Cancel"
 script = ExtResource("3_g76wv")
 metadata/_edit_use_anchors_ = true
 
@@ -140,7 +140,7 @@ custom_minimum_size = Vector2(200, 0)
 layout_mode = 2
 size_flags_horizontal = 4
 theme_type_variation = &"ImportantButton"
-text = "CONTINUE"
+text = "Continue"
 script = ExtResource("3_g76wv")
 metadata/_edit_use_anchors_ = true
 

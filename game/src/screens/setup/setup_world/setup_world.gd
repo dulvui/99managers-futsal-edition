@@ -67,7 +67,7 @@ func _on_continue_pressed() -> void:
 
 	RngUtil.reset_seed(generation_seed, player_names_option.selected)
 
-	LoadingUtil.start(tr("GENERATING_PLAYERS"), LoadingUtil.Type.GENERATION, true)
+	LoadingUtil.start(tr("Generating players"), LoadingUtil.Type.GENERATION, true)
 	Main.show_loading_screen(Const.SCREEN_SETUP_MANAGER)
 	ThreadUtil.generate_world()
 

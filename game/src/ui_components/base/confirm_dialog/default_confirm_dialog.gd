@@ -31,7 +31,7 @@ func _ready() -> void:
 	if type == Type.YES_NO:
 		cancel_button.hide()
 	elif type == Type.ONLY_OK:
-		cancel_button.text = tr("OK")
+		cancel_button.text = tr("Ok")
 		no_button.hide()
 		yes_button.hide()
 

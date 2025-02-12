@@ -25,7 +25,7 @@ columns = 2
 [node name="FormationLabel" type="Label" parent="Tactics"]
 layout_mode = 2
 size_flags_horizontal = 3
-text = "FORMATION"
+text = "Formation"
 
 [node name="FormationSelect" parent="Tactics" instance=ExtResource("4_bi7d8")]
 unique_name_in_owner = true
@@ -34,12 +34,12 @@ layout_mode = 2
 [node name="ChangeStrategyLabel" type="Label" parent="Tactics"]
 layout_mode = 2
 size_flags_horizontal = 3
-text = "CHANGE_STRATEGY"
+text = "Change strategy"
 
 [node name="ChangeStrategySelect" parent="Tactics" instance=ExtResource("4_bi7d8")]
 unique_name_in_owner = true
 layout_mode = 2
-tooltip_text = "COMING_SOON"
+tooltip text = "Coming soon"
 disabled = true
 
 [node name="HSeparator3" type="HSeparator" parent="Tactics"]
@@ -51,18 +51,18 @@ layout_mode = 2
 [node name="TacticOffenseLabel" type="Label" parent="Tactics"]
 layout_mode = 2
 size_flags_horizontal = 3
-text = "TACTIC_OFFENSE"
+text = "Tactic offense"
 
 [node name="TacticSelectOffense" parent="Tactics" instance=ExtResource("4_bi7d8")]
 unique_name_in_owner = true
 layout_mode = 2
-tooltip_text = "COMING_SOON"
+tooltip text = "Coming soon"
 disabled = true
 
 [node name="TacticOffenseIntensityLabel" type="Label" parent="Tactics"]
 layout_mode = 2
 size_flags_horizontal = 3
-text = "INTENSITY"
+text = "Intensity"
 
 [node name="TacticOffenseIntensity" type="HSlider" parent="Tactics"]
 unique_name_in_owner = true
@@ -78,22 +78,22 @@ layout_mode = 2
 [node name="TacticMarkingLabel" type="Label" parent="Tactics"]
 layout_mode = 2
 size_flags_horizontal = 3
-text = "MARKING"
+text = "Marking"
 
 [node name="TacticSelectMarking" parent="Tactics" instance=ExtResource("4_bi7d8")]
 unique_name_in_owner = true
 layout_mode = 2
-tooltip_text = "COMING_SOON"
+tooltip text = "Coming soon"
 disabled = true
 
 [node name="TacticPressingLabel" type="Label" parent="Tactics"]
 layout_mode = 2
-text = "PRESSING"
+text = "Pressing"
 
 [node name="TacticSelectPressing" parent="Tactics" instance=ExtResource("4_bi7d8")]
 unique_name_in_owner = true
 layout_mode = 2
-tooltip_text = "COMING_SOON"
+tooltip text = "Coming soon"
 disabled = true
 
 [node name="LineUp" type="VBoxContainer" parent="."]

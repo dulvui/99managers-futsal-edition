@@ -76,16 +76,16 @@ func _ready() -> void:
 	finances.setup(Global.team)
 
 	if Global.world.calendar.is_match_day():
-		continue_button.text = "START_MATCH"
+		continue_button.text = tr("Start match")
 		match_ready = true
 		next_match_button.hide()
 	else:
-		continue_button.text = "NEXT_DAY"
+		continue_button.text = tr("Next day")
 		match_ready = false
 
 	if Global.world.calendar.is_season_finished():
 		next_season = true
-		continue_button.text = "NEXT_SEASON"
+		continue_button.text = tr("Next season")
 
 	_show_active_view()
 	email_button.grab_focus()
@@ -98,9 +98,9 @@ func _ready() -> void:
 func _process(_delta: float) -> void:
 	var email_count: int = EmailUtil.count_unread_messages()
 	if email_count > 0:
-		email_button.text = "[" + str(EmailUtil.count_unread_messages()) + "] " + tr("EMAIL")
+		email_button.text = "[" + str(EmailUtil.count_unread_messages()) + "] " + tr("Email")
 	else:
-		email_button.text = tr("EMAIL")
+		email_button.text = tr("Email")
 
 
 func _on_search_action() -> void:
@@ -267,7 +267,7 @@ func _next_day() -> void:
 		return
 	if Global.world.calendar.is_season_finished():
 		next_season = true
-		continue_button.text = "NEXT_SEASON"
+		continue_button.text = tr("Next season")
 		return
 
 	# general setup
@@ -276,7 +276,7 @@ func _next_day() -> void:
 
 	if Global.world.calendar.day().matches.size() > 0:
 		# threaded simulation
-		LoadingUtil.start(tr("SIMULATING_RESULTS"), LoadingUtil.Type.MATCH_RESULTS, true)
+		LoadingUtil.start(tr("Simulating results"), LoadingUtil.Type.MATCH_RESULTS, true)
 		Main.show_loading_screen()
 		ThreadUtil.random_results()
 		
@@ -285,7 +285,7 @@ func _next_day() -> void:
 
 	# check matches
 	if Global.world.calendar.is_match_day():
-		continue_button.text = tr("START_MATCH")
+		continue_button.text = tr("Start match")
 		match_ready = true
 		next_match_button.disabled = true
 		next_match_button.hide()
@@ -355,7 +355,7 @@ func _on_menu_button_pressed() -> void:
 
 
 func _on_save_confirm_dialog_confirmed() -> void:
-	LoadingUtil.start(tr("SAVING_GAME"), LoadingUtil.Type.SAVE_GAME, true)
+	LoadingUtil.start(tr("Saving game"), LoadingUtil.Type.SAVE_GAME, true)
 	Main.show_loading_screen(Const.SCREEN_MENU)
 	Global.save_all_data()
 

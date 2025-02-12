@@ -30,7 +30,7 @@ layout_mode = 2
 [node name="BalanceLabel" type="Label" parent="Main/Balance"]
 custom_minimum_size = Vector2(400, 0)
 layout_mode = 2
-text = "BALANCE"
+text = "Balance"
 label_settings = ExtResource("2_c73cx")
 
 [node name="Balance" type="Label" parent="Main/Balance"]
@@ -45,7 +45,7 @@ layout_mode = 2
 [node name="ExpensesLabel" type="Label" parent="Main/Expenses"]
 custom_minimum_size = Vector2(400, 0)
 layout_mode = 2
-text = "EXPENSES"
+text = "Expenses"
 label_settings = ExtResource("2_c73cx")
 
 [node name="Expenses" type="Label" parent="Main/Expenses"]
@@ -60,7 +60,7 @@ layout_mode = 2
 [node name="SalaryBudgetLabel" type="Label" parent="Main/SalaryBudget"]
 custom_minimum_size = Vector2(400, 0)
 layout_mode = 2
-text = "SALARY_BUDGET"
+text = "Salary budget"
 label_settings = ExtResource("2_c73cx")
 
 [node name="SalaryBudget" type="Label" parent="Main/SalaryBudget"]
@@ -75,7 +75,7 @@ layout_mode = 2
 [node name="RemainingSalaryBudgetLabel" type="Label" parent="Main/RemainingSalaryBudget"]
 custom_minimum_size = Vector2(400, 0)
 layout_mode = 2
-text = "REAMAINING_SALARY_BUDGET"
+text = "Reamaining salary budget"
 label_settings = ExtResource("2_c73cx")
 
 [node name="RemainingSalaryBudget" type="Label" parent="Main/RemainingSalaryBudget"]
@@ -90,7 +90,7 @@ layout_mode = 2
 [node name="IncomeLabel" type="Label" parent="Main/Income"]
 custom_minimum_size = Vector2(400, 0)
 layout_mode = 2
-text = "INCOME"
+text = "Income"
 label_settings = ExtResource("2_c73cx")
 
 [node name="Income" type="Label" parent="Main/Income"]

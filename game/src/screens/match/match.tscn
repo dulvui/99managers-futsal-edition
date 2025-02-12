@@ -62,7 +62,7 @@ custom_minimum_size = Vector2(180, 0)
 layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 4
-text = "STATS"
+text = "Stats"
 script = ExtResource("4_mqt4y")
 
 [node name="CommentaryButton" type="Button" parent="Main/Content/TopBar/Buttons/Left"]
@@ -71,7 +71,7 @@ custom_minimum_size = Vector2(180, 0)
 layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 4
-text = "COMMENTARY"
+text = "Commentary"
 script = ExtResource("4_mqt4y")
 
 [node name="EventsButton" type="Button" parent="Main/Content/TopBar/Buttons/Left"]
@@ -80,7 +80,7 @@ custom_minimum_size = Vector2(180, 0)
 layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 4
-text = "EVENTS"
+text = "Events"
 script = ExtResource("4_mqt4y")
 
 [node name="FormationButton" type="Button" parent="Main/Content/TopBar/Buttons/Left"]
@@ -89,7 +89,7 @@ custom_minimum_size = Vector2(180, 0)
 layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 4
-text = "FORMATION"
+text = "Formation"
 script = ExtResource("4_mqt4y")
 
 [node name="Center" type="HBoxContainer" parent="Main/Content/TopBar/Buttons"]
@@ -116,7 +116,7 @@ script = ExtResource("4_mqt4y")
 [node name="SpeedFactor" type="Label" parent="Main/Content/TopBar/Buttons/Center/Speed"]
 unique_name_in_owner = true
 layout_mode = 2
-text = "FULL_GAME"
+text = "Full game"
 
 [node name="FasterButton" type="Button" parent="Main/Content/TopBar/Buttons/Center/Speed"]
 unique_name_in_owner = true
@@ -134,7 +134,7 @@ custom_minimum_size = Vector2(180, 0)
 layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 4
-text = "PAUSE"
+text = "Pause"
 script = ExtResource("4_mqt4y")
 
 [node name="Right" type="HBoxContainer" parent="Main/Content/TopBar/Buttons"]
@@ -148,7 +148,7 @@ custom_minimum_size = Vector2(180, 0)
 layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 4
-text = "SIMULATE"
+text = "Simulate"
 script = ExtResource("4_mqt4y")
 
 [node name="DashboardButton" type="Button" parent="Main/Content/TopBar/Buttons/Right"]
@@ -158,7 +158,7 @@ custom_minimum_size = Vector2(180, 0)
 layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 4
-text = "DASHBOARD"
+text = "Dashboard"
 script = ExtResource("4_mqt4y")
 
 [node name="TimeBar" type="ProgressBar" parent="Main/Content/TopBar"]
@@ -205,7 +205,7 @@ text = "(0)"
 unique_name_in_owner = true
 custom_minimum_size = Vector2(200, 0)
 layout_mode = 2
-text = "HOME"
+text = "Home"
 label_settings = ExtResource("5_8e8d2")
 text_overrun_behavior = 3
 
@@ -222,7 +222,7 @@ horizontal_alignment = 1
 unique_name_in_owner = true
 custom_minimum_size = Vector2(200, 0)
 layout_mode = 2
-text = "AWAY"
+text = "Away"
 label_settings = ExtResource("5_8e8d2")
 horizontal_alignment = 2
 
@@ -325,7 +325,7 @@ horizontal_alignment = 1
 [node name="Posession" type="Label" parent="Main/Content/BottomBar/PossessBar/Labels"]
 layout_mode = 2
 size_flags_horizontal = 3
-text = "POSSESSION"
+text = "Possession"
 horizontal_alignment = 1
 
 [node name="AwayPossessionLabel" type="Label" parent="Main/Content/BottomBar/PossessBar/Labels"]

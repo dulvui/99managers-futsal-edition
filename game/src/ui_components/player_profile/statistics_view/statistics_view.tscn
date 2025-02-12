@@ -4,7 +4,7 @@
 [ext_resource type="PackedScene" uid="uid://b2mwv4cl5sm6t" path="res://src/ui_components/base/swtich_option_button/switch_option_button.tscn" id="2_fwxm2"]
 [ext_resource type="PackedScene" uid="uid://b0fj7v850s6dy" path="res://src/ui_components/resource_view/resource_view.tscn" id="3_rrqxt"]
 
-[node name="STATISTICS" type="VBoxContainer"]
+[node name="Statistics" type="VBoxContainer"]
 script = ExtResource("1_h1753")
 metadata/_tab_index = 1
 

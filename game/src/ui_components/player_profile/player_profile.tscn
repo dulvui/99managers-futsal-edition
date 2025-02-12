@@ -26,21 +26,21 @@ size_flags_vertical = 3
 current_tab = 0
 script = ExtResource("3_o1pgm")
 
-[node name="INFO" parent="Main" instance=ExtResource("3_rkqc7")]
+[node name="Info" parent="Main" instance=ExtResource("3_rkqc7")]
 unique_name_in_owner = true
 layout_mode = 2
 
-[node name="STATISTICS" parent="Main" instance=ExtResource("4_hpiic")]
-unique_name_in_owner = true
-visible = false
-layout_mode = 2
-
-[node name="ATTRIBUTES" parent="Main" instance=ExtResource("3_whctl")]
+[node name="Statistics" parent="Main" instance=ExtResource("4_hpiic")]
 unique_name_in_owner = true
 visible = false
 layout_mode = 2
 
-[node name="CONTRACT" parent="Main" instance=ExtResource("7_4elh2")]
+[node name="Attributes" parent="Main" instance=ExtResource("3_whctl")]
+unique_name_in_owner = true
+visible = false
+layout_mode = 2
+
+[node name="Contract" parent="Main" instance=ExtResource("7_4elh2")]
 unique_name_in_owner = true
 visible = false
 layout_mode = 2

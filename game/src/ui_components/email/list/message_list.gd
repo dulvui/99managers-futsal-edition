@@ -44,7 +44,7 @@ func update() -> void:
 
 	if inbox_list.is_empty():
 		var label: Label = Label.new()
-		label.text = tr("NO_MESSAGE_FOUND")
+		label.text = tr("No message found")
 		list.add_child(label)
 	else:
 		# to test perfomrance of email view

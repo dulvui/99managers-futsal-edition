@@ -64,7 +64,7 @@ unique_name_in_owner = true
 auto_translate_mode = 1
 custom_minimum_size = Vector2(100, 0)
 layout_mode = 2
-text = "CANCEL"
+text = "Cancel"
 script = ExtResource("2_2aytl")
 joypad_button_event = SubResource("InputEventJoypadButton_dt0pg")
 
@@ -73,7 +73,7 @@ unique_name_in_owner = true
 auto_translate_mode = 1
 custom_minimum_size = Vector2(100, 0)
 layout_mode = 2
-text = "NO"
+text = "No"
 script = ExtResource("2_2aytl")
 joypad_button_event = SubResource("InputEventJoypadButton_4cqmx")
 
@@ -82,7 +82,7 @@ unique_name_in_owner = true
 auto_translate_mode = 1
 custom_minimum_size = Vector2(100, 0)
 layout_mode = 2
-text = "YES"
+text = "Yes"
 script = ExtResource("2_2aytl")
 joypad_button_event = SubResource("InputEventJoypadButton_vnokf")
 

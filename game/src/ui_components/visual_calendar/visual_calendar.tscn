@@ -52,7 +52,7 @@ script = ExtResource("2_nyqm0")
 [node name="Today" type="Button" parent="Calendar/Paginator"]
 custom_minimum_size = Vector2(100, 0)
 layout_mode = 2
-text = "TODAY"
+text = "Today"
 script = ExtResource("2_nyqm0")
 
 [node name="Days" type="GridContainer" parent="Calendar"]
@@ -66,43 +66,43 @@ columns = 7
 [node name="Monday" type="Label" parent="Calendar/Days"]
 custom_minimum_size = Vector2(100, 0)
 layout_mode = 2
-text = "MONDAY"
+text = "Monday"
 horizontal_alignment = 1
 
 [node name="Tuesday" type="Label" parent="Calendar/Days"]
 custom_minimum_size = Vector2(100, 0)
 layout_mode = 2
-text = "TUESDAY"
+text = "Tuesday"
 horizontal_alignment = 1
 
 [node name="Wednesday" type="Label" parent="Calendar/Days"]
 custom_minimum_size = Vector2(100, 0)
 layout_mode = 2
-text = "WEDNESDAY"
+text = "Wednesday"
 horizontal_alignment = 1
 
 [node name="Thursday" type="Label" parent="Calendar/Days"]
 custom_minimum_size = Vector2(100, 0)
 layout_mode = 2
-text = "THURSDAY"
+text = "Thursday"
 horizontal_alignment = 1
 
 [node name="Friday" type="Label" parent="Calendar/Days"]
 custom_minimum_size = Vector2(100, 0)
 layout_mode = 2
-text = "FRIDAY"
+text = "Friday"
 horizontal_alignment = 1
 
 [node name="Saturday" type="Label" parent="Calendar/Days"]
 custom_minimum_size = Vector2(100, 0)
 layout_mode = 2
-text = "SATURDAY"
+text = "Saturday"
 horizontal_alignment = 1
 
 [node name="Sunday" type="Label" parent="Calendar/Days"]
 custom_minimum_size = Vector2(100, 0)
 layout_mode = 2
-text = "SUNDAY"
+text = "Sunday"
 horizontal_alignment = 1
 
 [node name="MatchList" parent="." instance=ExtResource("3_cy82g")]

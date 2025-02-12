@@ -19,24 +19,24 @@ layout_mode = 2
 [node name="Subject" type="Label" parent="HBoxContainer"]
 layout_mode = 2
 size_flags_horizontal = 3
-text = "SUBJECT"
+text = "Subject"
 horizontal_alignment = 1
 
 [node name="From" type="Label" parent="HBoxContainer"]
 layout_mode = 2
 size_flags_horizontal = 3
-text = "FROM"
+text = "From"
 horizontal_alignment = 1
 
 [node name="Date" type="Label" parent="HBoxContainer"]
 layout_mode = 2
 size_flags_horizontal = 3
-text = "DATE"
+text = "Date"
 horizontal_alignment = 1
 
 [node name="Star" type="Label" parent="HBoxContainer"]
 layout_mode = 2
-text = "STAR"
+text = "Star"
 horizontal_alignment = 1
 
 [node name="ScrollContainer" type="ScrollContainer" parent="."]

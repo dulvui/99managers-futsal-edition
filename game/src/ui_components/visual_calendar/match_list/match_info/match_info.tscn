@@ -17,16 +17,16 @@ script = ExtResource("1_kuvam")
 [node name="Home" type="Label" parent="."]
 layout_mode = 2
 size_flags_horizontal = 3
-text = "HOME"
+text = "Home"
 text_overrun_behavior = 3
 
 [node name="Result" type="Label" parent="."]
 layout_mode = 2
-text = "VS"
+text = "vs"
 
 [node name="Away" type="Label" parent="."]
 layout_mode = 2
 size_flags_horizontal = 3
-text = "AWAY"
+text = "Away"
 horizontal_alignment = 2
 text_overrun_behavior = 3

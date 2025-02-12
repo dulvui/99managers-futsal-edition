@@ -90,7 +90,7 @@ unique_name_in_owner = true
 custom_minimum_size = Vector2(180, 0)
 layout_mode = 2
 size_flags_vertical = 4
-text = "EMAIL"
+text = "Email"
 alignment = 0
 script = ExtResource("3_kbasy")
 
@@ -99,7 +99,7 @@ unique_name_in_owner = true
 custom_minimum_size = Vector2(180, 0)
 layout_mode = 2
 size_flags_vertical = 4
-text = "CALENDAR"
+text = "Calendar"
 alignment = 0
 script = ExtResource("3_kbasy")
 
@@ -108,7 +108,7 @@ unique_name_in_owner = true
 custom_minimum_size = Vector2(180, 0)
 layout_mode = 2
 size_flags_vertical = 4
-text = "COMPETITIONS"
+text = "Competitions"
 alignment = 0
 script = ExtResource("3_kbasy")
 
@@ -120,7 +120,7 @@ unique_name_in_owner = true
 custom_minimum_size = Vector2(180, 0)
 layout_mode = 2
 size_flags_vertical = 4
-text = "FINANCES"
+text = "Finances"
 alignment = 0
 script = ExtResource("3_kbasy")
 
@@ -129,9 +129,9 @@ unique_name_in_owner = true
 custom_minimum_size = Vector2(180, 0)
 layout_mode = 2
 size_flags_vertical = 4
-tooltip_text = "COMING_SOON"
+tooltip_text = "Coming soon"
 disabled = true
-text = "STADIUM"
+text = "Stadium"
 alignment = 0
 script = ExtResource("3_kbasy")
 
@@ -143,7 +143,7 @@ unique_name_in_owner = true
 custom_minimum_size = Vector2(180, 0)
 layout_mode = 2
 size_flags_vertical = 4
-text = "FORMATION"
+text = "Formation"
 alignment = 0
 script = ExtResource("3_kbasy")
 
@@ -152,7 +152,7 @@ unique_name_in_owner = true
 custom_minimum_size = Vector2(180, 0)
 layout_mode = 2
 size_flags_vertical = 4
-text = "PLAYERS"
+text = "Players"
 alignment = 0
 script = ExtResource("3_kbasy")
 
@@ -164,7 +164,7 @@ unique_name_in_owner = true
 custom_minimum_size = Vector2(180, 0)
 layout_mode = 2
 size_flags_vertical = 4
-text = "SEARCH_PLAYER"
+text = "Search player"
 alignment = 0
 script = ExtResource("3_kbasy")
 
@@ -173,9 +173,9 @@ unique_name_in_owner = true
 custom_minimum_size = Vector2(180, 0)
 layout_mode = 2
 size_flags_vertical = 4
-tooltip_text = "COMING_SOON"
+tooltip_text = "Coming soon"
 disabled = true
-text = "SCOUTS"
+text = "Scouts"
 alignment = 0
 script = ExtResource("3_kbasy")
 
@@ -184,9 +184,9 @@ unique_name_in_owner = true
 custom_minimum_size = Vector2(180, 0)
 layout_mode = 2
 size_flags_vertical = 4
-tooltip_text = "COMING_SOON"
+tooltip_text = "Coming soon"
 disabled = true
-text = "WATCHLIST"
+text = "Watchlist"
 alignment = 0
 script = ExtResource("3_kbasy")
 
@@ -195,9 +195,9 @@ unique_name_in_owner = true
 custom_minimum_size = Vector2(180, 0)
 layout_mode = 2
 size_flags_vertical = 4
-tooltip_text = "COMING_SOON"
+tooltip_text = "Coming soon"
 disabled = true
-text = "TRANSFERLIST"
+text = "Transferlist"
 alignment = 0
 script = ExtResource("3_kbasy")
 
@@ -206,9 +206,9 @@ unique_name_in_owner = true
 custom_minimum_size = Vector2(180, 0)
 layout_mode = 2
 size_flags_vertical = 4
-tooltip_text = "COMING_SOON"
+tooltip_text = "Coming soon"
 disabled = true
-text = "TRANSFERMARKET"
+text = "Transfermarket"
 alignment = 0
 script = ExtResource("3_kbasy")
 
@@ -220,9 +220,9 @@ unique_name_in_owner = true
 custom_minimum_size = Vector2(180, 0)
 layout_mode = 2
 size_flags_vertical = 4
-tooltip_text = "COMING_SOON"
+tooltip_text = "Coming soon"
 disabled = true
-text = "JOBS"
+text = "Jobs"
 alignment = 0
 script = ExtResource("3_kbasy")
 
@@ -231,9 +231,9 @@ unique_name_in_owner = true
 custom_minimum_size = Vector2(180, 0)
 layout_mode = 2
 size_flags_vertical = 4
-tooltip_text = "COMING_SOON"
+tooltip_text = "Coming soon"
 disabled = true
-text = "HALL_OF_FAME"
+text = "Hall of fame"
 alignment = 0
 script = ExtResource("3_kbasy")
 
@@ -242,9 +242,9 @@ unique_name_in_owner = true
 custom_minimum_size = Vector2(180, 0)
 layout_mode = 2
 size_flags_vertical = 4
-tooltip_text = "COMING_SOON"
+tooltip_text = "Coming soon"
 disabled = true
-text = "NOTES"
+text = "Notes"
 alignment = 0
 script = ExtResource("3_kbasy")
 
@@ -258,8 +258,8 @@ unique_name_in_owner = true
 custom_minimum_size = Vector2(180, 0)
 layout_mode = 2
 size_flags_vertical = 4
-tooltip_text = "COMING_SOON"
-text = "INFO"
+tooltip_text = "Coming soon"
+text = "Info"
 alignment = 0
 script = ExtResource("3_kbasy")
 
@@ -268,8 +268,8 @@ unique_name_in_owner = true
 custom_minimum_size = Vector2(180, 0)
 layout_mode = 2
 size_flags_vertical = 4
-tooltip_text = "COMING_SOON"
-text = "SETTINGS"
+tooltip_text = "Coming soon"
+text = "Settings"
 alignment = 0
 script = ExtResource("3_kbasy")
 
@@ -278,9 +278,9 @@ unique_name_in_owner = true
 custom_minimum_size = Vector2(180, 0)
 layout_mode = 2
 size_flags_vertical = 4
-tooltip_text = "COMING_SOON"
+tooltip_text = "Coming soon"
 theme_type_variation = &"ImportantButton"
-text = "MENU"
+text = "Menu"
 alignment = 0
 script = ExtResource("3_kbasy")
 
@@ -360,7 +360,7 @@ layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 4
 theme_type_variation = &"ImportantButton"
-text = "NEXT_MATCH"
+text = "Next match"
 script = ExtResource("3_kbasy")
 
 [node name="ContinueButton" type="Button" parent="MarginContainer/HBoxContainer/MainContainer/PanelContainer/MarginContainer/TopBar"]
@@ -370,7 +370,7 @@ layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 4
 theme_type_variation = &"ImportantButton"
-text = "CONTINUE"
+text = "Continue"
 script = ExtResource("3_kbasy")
 key_event = SubResource("InputEventKey_j7j8p")
 joypad_button_event = SubResource("InputEventJoypadButton_k8as6")
@@ -454,7 +454,7 @@ layout_mode = 2
 
 [node name="SaveConfirmDialog" parent="." instance=ExtResource("14_t4c55")]
 unique_name_in_owner = true
-custom_text = "SAVE_TEXT"
+custom_text = "Save the game before exiting?"
 
 [connection signal="pressed" from="MarginContainer/HBoxContainer/PanelContainer/MarginContainer/Buttons/EmailButton" to="." method="_on_email_button_pressed"]
 [connection signal="pressed" from="MarginContainer/HBoxContainer/PanelContainer/MarginContainer/Buttons/CalendarButton" to="." method="_on_calendar_button_pressed"]

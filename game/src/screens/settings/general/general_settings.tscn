@@ -6,7 +6,7 @@
 [ext_resource type="Script" path="res://src/ui_components/base/defaults/default_button.gd" id="3_n2piq"]
 [ext_resource type="LabelSettings" uid="uid://c5yfa40ut1pyv" path="res://theme_base/label/label_settings.tres" id="4_jbix3"]
 
-[node name="GENERAL_SETTINGS" type="VBoxContainer"]
+[node name="General" type="VBoxContainer"]
 anchors_preset = -1
 anchor_right = 0.201
 anchor_bottom = 0.447
@@ -20,7 +20,7 @@ layout_mode = 2
 
 [node name="LanguageLabel" type="Label" parent="."]
 layout_mode = 2
-text = "LANGUAGE"
+text = "Language"
 label_settings = ExtResource("1_6o6h0")
 
 [node name="Langauge" type="VBoxContainer" parent="."]
@@ -33,7 +33,7 @@ alignment = 0
 
 [node name="TranslationInstructions" type="Label" parent="Langauge"]
 layout_mode = 2
-text = "TRANSLATION_INSTRUCTIONS"
+text = "You can fix errors or add new languages easily on Weblate, just click on the link below."
 label_settings = ExtResource("4_jbix3")
 autowrap_mode = 2
 
@@ -51,7 +51,7 @@ layout_mode = 2
 
 [node name="AudioLabel" type="Label" parent="Audio"]
 layout_mode = 2
-text = "AUDIO"
+text = "Audio"
 label_settings = ExtResource("1_6o6h0")
 
 [node name="UISfx" type="HBoxContainer" parent="Audio"]
@@ -60,7 +60,7 @@ layout_mode = 2
 [node name="UISfxVolumeLabel" type="Label" parent="Audio/UISfx"]
 layout_mode = 2
 size_flags_horizontal = 3
-text = "SFX_VOLUME"
+text = "Sfx volume"
 
 [node name="UISfxVolumeSlider" type="HSlider" parent="Audio/UISfx"]
 unique_name_in_owner = true
@@ -78,7 +78,7 @@ layout_mode = 2
 
 [node name="IterfaceLabel" type="Label" parent="Interface"]
 layout_mode = 2
-text = "INTERFACE_SETTINGS"
+text = "Interface settings"
 label_settings = ExtResource("1_6o6h0")
 
 [node name="FontSize" type="HBoxContainer" parent="Interface"]
@@ -89,7 +89,7 @@ theme_override_constants/separation = 20
 [node name="Label" type="Label" parent="Interface/FontSize"]
 layout_mode = 2
 size_flags_horizontal = 3
-text = "FONT_SIZE"
+text = "Font size"
 
 [node name="FontSizeSpinBox" type="SpinBox" parent="Interface/FontSize"]
 unique_name_in_owner = true
@@ -104,7 +104,7 @@ custom_minimum_size = Vector2(180, 0)
 layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 4
-text = "DEFAULT"
+text = "Default"
 script = ExtResource("3_n2piq")
 
 [node name="Scale" type="HBoxContainer" parent="Interface"]
@@ -113,7 +113,7 @@ layout_mode = 2
 [node name="Label" type="Label" parent="Interface/Scale"]
 layout_mode = 2
 size_flags_horizontal = 3
-text = "SCALE"
+text = "Scale"
 
 [node name="Scale1" type="Button" parent="Interface/Scale"]
 auto_translate_mode = 2
@@ -148,7 +148,7 @@ layout_mode = 2
 [node name="Label" type="Label" parent="Interface/ScreenFade"]
 layout_mode = 2
 size_flags_horizontal = 3
-text = "SCREEN_FADE_ANIMATION"
+text = "Screen fade animation"
 
 [node name="ScreenFadeButton" type="CheckButton" parent="Interface/ScreenFade"]
 unique_name_in_owner = true
@@ -166,7 +166,7 @@ layout_mode = 2
 [node name="ThemeLabel" type="Label" parent="Theme/DefautThemes"]
 layout_mode = 2
 size_flags_horizontal = 3
-text = "THEMES"
+text = "Themes"
 label_settings = ExtResource("1_6o6h0")
 
 [node name="ThemeOptionButton" type="OptionButton" parent="Theme/DefautThemes"]
@@ -184,14 +184,14 @@ theme_override_constants/separation = 10
 [node name="Label" type="Label" parent="Theme/CustomTheme/Font"]
 layout_mode = 2
 size_flags_horizontal = 3
-text = "FONT_COLOR"
+text = "Font color"
 
 [node name="FontColorButton" type="Button" parent="Theme/CustomTheme/Font"]
 custom_minimum_size = Vector2(180, 0)
 layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 4
-text = "CHANGE"
+text = "Change"
 script = ExtResource("3_n2piq")
 
 [node name="Style" type="HBoxContainer" parent="Theme/CustomTheme"]
@@ -201,14 +201,14 @@ theme_override_constants/separation = 10
 [node name="Label" type="Label" parent="Theme/CustomTheme/Style"]
 layout_mode = 2
 size_flags_horizontal = 3
-text = "BUTTONS_COLOR"
+text = "Buttons color"
 
 [node name="StyleColorButton" type="Button" parent="Theme/CustomTheme/Style"]
 custom_minimum_size = Vector2(180, 0)
 layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 4
-text = "CHANGE"
+text = "Change"
 script = ExtResource("3_n2piq")
 
 [node name="Background" type="HBoxContainer" parent="Theme/CustomTheme"]
@@ -218,14 +218,14 @@ theme_override_constants/separation = 10
 [node name="Label" type="Label" parent="Theme/CustomTheme/Background"]
 layout_mode = 2
 size_flags_horizontal = 3
-text = "BACKGROUND_COLOR"
+text = "Background color"
 
 [node name="BackgroundColorButton" type="Button" parent="Theme/CustomTheme/Background"]
 custom_minimum_size = Vector2(180, 0)
 layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 4
-text = "CHANGE"
+text = "Change"
 script = ExtResource("3_n2piq")
 
 [node name="HSeparator4" type="HSeparator" parent="."]
@@ -237,7 +237,7 @@ layout_mode = 2
 [node name="Label" type="Label" parent="Version"]
 layout_mode = 2
 size_flags_horizontal = 3
-text = "VERSION"
+text = "Version"
 label_settings = ExtResource("1_6o6h0")
 
 [node name="VersionLabel" type="Label" parent="Version"]

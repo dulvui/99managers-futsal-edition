@@ -31,7 +31,7 @@ columns = 6
 [node name="Title" type="Label" parent="MarginContainer/GridContainer"]
 custom_minimum_size = Vector2(150, 0)
 layout_mode = 2
-text = "PENALTIES"
+text = "Penalties"
 text_overrun_behavior = 3
 
 [node name="ShotIndex1" type="Label" parent="MarginContainer/GridContainer"]

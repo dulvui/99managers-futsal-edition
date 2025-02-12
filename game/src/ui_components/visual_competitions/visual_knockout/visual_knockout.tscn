@@ -15,7 +15,7 @@ script = ExtResource("1_webha")
 
 [node name="Title" type="Label" parent="."]
 layout_mode = 2
-text = "KNOCKOUT"
+text = "Knockout"
 label_settings = ExtResource("2_0fvbo")
 horizontal_alignment = 1
 
@@ -26,18 +26,18 @@ alignment = 1
 [node name="GroupALabel" type="Label" parent="Labels"]
 layout_mode = 2
 size_flags_horizontal = 3
-text = "GROUP A"
+text = "Group A"
 horizontal_alignment = 1
 
 [node name="FinalLabel" type="Label" parent="Labels"]
 layout_mode = 2
-text = "FINAL"
+text = "Final"
 horizontal_alignment = 1
 
 [node name="GroupBLabel" type="Label" parent="Labels"]
 layout_mode = 2
 size_flags_horizontal = 3
-text = "GROUP B"
+text = "Group B"
 horizontal_alignment = 1
 
 [node name="HSeparator" type="HSeparator" parent="."]
@@ -59,7 +59,7 @@ alignment = 1
 unique_name_in_owner = true
 layout_mode = 2
 size_flags_vertical = 1
-text = "WINNER A vs WINNER B"
+text = "Winner A vs Winner B"
 horizontal_alignment = 1
 vertical_alignment = 1
 

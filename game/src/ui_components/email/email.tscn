@@ -34,11 +34,11 @@ layout_mode = 2
 
 [node name="OnlyUnread" type="CheckButton" parent="Filters"]
 layout_mode = 2
-text = "UNREAD"
+text = "Unread"
 
 [node name="Starred" type="CheckButton" parent="Filters"]
 layout_mode = 2
-text = "STARRED"
+text = "Starred"
 
 [node name="HSplitContainer" type="HBoxContainer" parent="."]
 layout_mode = 2

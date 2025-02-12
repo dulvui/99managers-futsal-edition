@@ -4,12 +4,12 @@
 [ext_resource type="Script" path="res://src/screens/settings/input/input_settings.gd" id="1_e4wd1"]
 [ext_resource type="PackedScene" uid="uid://b2mwv4cl5sm6t" path="res://src/ui_components/base/swtich_option_button/switch_option_button.tscn" id="3_g1iho"]
 
-[node name="INPUT_SETTINGS" type="VBoxContainer"]
+[node name="Input" type="VBoxContainer"]
 anchors_preset = -1
-anchor_right = 0.079
-anchor_bottom = 0.098
-offset_right = -151.68
-offset_bottom = -105.84
+anchor_right = 0.209
+anchor_bottom = 0.132
+offset_right = -401.28
+offset_bottom = -142.56
 size_flags_horizontal = 3
 script = ExtResource("1_e4wd1")
 
@@ -23,7 +23,7 @@ theme_override_constants/separation = 20
 [node name="VimModeLabel" type="Label" parent="VimMode"]
 layout_mode = 2
 size_flags_horizontal = 3
-text = "VIM_MODE"
+text = "Vim mode"
 
 [node name="VimModeButton" type="CheckButton" parent="VimMode"]
 layout_mode = 2
@@ -35,12 +35,12 @@ theme_override_constants/separation = 20
 [node name="JoypadLabel" type="Label" parent="Joypad"]
 layout_mode = 2
 size_flags_horizontal = 3
-text = "JOYPAD_STATUS"
+text = "Joypad status"
 
 [node name="JoypadInfo" type="Label" parent="Joypad"]
 unique_name_in_owner = true
 layout_mode = 2
-text = "NO_JOYPAD_CONNECTED"
+text = "No joypad connected"
 label_settings = ExtResource("1_cunc8")
 
 [node name="DetectionMode" type="HBoxContainer" parent="."]
@@ -50,7 +50,7 @@ theme_override_constants/separation = 20
 [node name="DetectionModeLabel" type="Label" parent="DetectionMode"]
 layout_mode = 2
 size_flags_horizontal = 3
-text = "INPUT_DETECTION_MODE"
+text = "Input detection mode"
 
 [node name="DetectionModeButton" parent="DetectionMode" instance=ExtResource("3_g1iho")]
 unique_name_in_owner = true
@@ -63,7 +63,7 @@ theme_override_constants/separation = 20
 [node name="TypeLabel" type="Label" parent="Type"]
 layout_mode = 2
 size_flags_horizontal = 3
-text = "INPUT_TYPE"
+text = "Input type"
 
 [node name="TypeButton" parent="Type" instance=ExtResource("3_g1iho")]
 unique_name_in_owner = true

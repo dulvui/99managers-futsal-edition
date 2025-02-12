@@ -38,7 +38,7 @@ grow_vertical = 2
 
 [node name="TitleLabel" type="Label" parent="VBoxContainer"]
 layout_mode = 2
-text = "SAVE_STATES"
+text = "Save states"
 label_settings = ExtResource("2_nys0j")
 
 [node name="HSeparator" type="HSeparator" parent="VBoxContainer"]
@@ -67,7 +67,7 @@ custom_minimum_size = Vector2(180, 0)
 layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 4
-text = "MENU"
+text = "Menu"
 script = ExtResource("3_bn4hs")
 
 [connection signal="pressed" from="VBoxContainer/Menu" to="." method="_on_menu_pressed"]

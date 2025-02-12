@@ -9,10 +9,10 @@ signal offer(player: Player)
 
 var player: Player
 
-@onready var info_view: InfoView = %INFO
-@onready var attributes_view: AttributesView = %ATTRIBUTES
-@onready var statistics_view: StatisticsView = %STATISTICS
-@onready var contract_view: ContractView = %CONTRACT
+@onready var info_view: InfoView = %Info
+@onready var attributes_view: AttributesView = %Attributes
+@onready var statistics_view: StatisticsView = %Statistics
+@onready var contract_view: ContractView = %Contract
 
 
 func _ready() -> void:

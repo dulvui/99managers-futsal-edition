@@ -196,7 +196,7 @@ func _on_events_button_pressed() -> void:
 func _on_formation_button_pressed() -> void:
 	_toggle_view(formation)
 	# match_simulator.pause()
-	# pause_button.text = tr("CONTINUE")
+	# pause_button.text = tr("Continue")
 
 
 func _hide_views() -> void:
@@ -243,9 +243,9 @@ func _on_slower_button_pressed() -> void:
 func _on_pause_button_pressed() -> void:
 	var paused: bool = match_simulator.pause_toggle()
 	if paused:
-		pause_button.text = tr("CONTINUE")
+		pause_button.text = tr("Continue")
 	else:
-		pause_button.text = tr("PAUSE")
+		pause_button.text = tr("Pause")
 		_hide_views()
 		# show last view, only if not showing match currently
 		if not match_simulator.is_match_visible():

@@ -43,7 +43,7 @@ theme_override_constants/separation = 5
 
 [node name="ManagerLabel" type="Label" parent="VBoxContainer/Manager"]
 layout_mode = 2
-text = "MANAGER"
+text = "Manager"
 label_settings = ExtResource("2_qayv2")
 
 [node name="HSeparator2" type="HSeparator" parent="VBoxContainer/Manager"]
@@ -57,7 +57,7 @@ columns = 2
 [node name="NameLabel" type="Label" parent="VBoxContainer/Manager/Container"]
 custom_minimum_size = Vector2(240, 0)
 layout_mode = 2
-text = "NAME"
+text = "Name"
 
 [node name="Name" type="LineEdit" parent="VBoxContainer/Manager/Container"]
 unique_name_in_owner = true
@@ -65,12 +65,12 @@ custom_minimum_size = Vector2(400, 0)
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
-placeholder_text = "YOUR_NAME"
+placeholder_text = "Your name"
 
 [node name="SurNameLabel" type="Label" parent="VBoxContainer/Manager/Container"]
 custom_minimum_size = Vector2(240, 0)
 layout_mode = 2
-text = "SURNAME"
+text = "Surname"
 
 [node name="SurName" type="LineEdit" parent="VBoxContainer/Manager/Container"]
 unique_name_in_owner = true
@@ -78,12 +78,12 @@ custom_minimum_size = Vector2(400, 0)
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
-placeholder_text = "YOUR_SURNAME"
+placeholder_text = "Your surname"
 
 [node name="NationaltyLabel" type="Label" parent="VBoxContainer/Manager/Container"]
 custom_minimum_size = Vector2(240, 0)
 layout_mode = 2
-text = "NATIONALITY"
+text = "Nationality"
 
 [node name="Nationality" type="OptionButton" parent="VBoxContainer/Manager/Container"]
 unique_name_in_owner = true
@@ -102,7 +102,7 @@ alignment = 1
 custom_minimum_size = Vector2(200, 0)
 layout_mode = 2
 size_flags_horizontal = 4
-text = "CANCEL"
+text = "Cancel"
 script = ExtResource("2_lxnvk")
 metadata/_edit_use_anchors_ = true
 
@@ -112,7 +112,7 @@ custom_minimum_size = Vector2(200, 0)
 layout_mode = 2
 size_flags_horizontal = 4
 theme_type_variation = &"ImportantButton"
-text = "CONTINUE"
+text = "Continue"
 script = ExtResource("2_lxnvk")
 metadata/_edit_use_anchors_ = true
 

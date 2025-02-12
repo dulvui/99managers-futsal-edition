@@ -15,7 +15,7 @@ script = ExtResource("1_c8o2q")
 
 [node name="InfoLabel" type="Label" parent="."]
 layout_mode = 2
-text = "INFO"
+text = "Info"
 horizontal_alignment = 1
 
 [node name="GenerationSeed" type="HBoxContainer" parent="."]
@@ -25,7 +25,7 @@ theme_override_constants/separation = 40
 [node name="GenerationSeedLabel" type="Label" parent="GenerationSeed"]
 custom_minimum_size = Vector2(200, 0)
 layout_mode = 2
-text = "SEED"
+text = "Seed"
 
 [node name="GenerationSeed" type="Label" parent="GenerationSeed"]
 auto_translate_mode = 2
@@ -34,7 +34,7 @@ text = "palpalpalpa"
 
 [node name="CopySeed" type="Button" parent="GenerationSeed"]
 layout_mode = 2
-text = "COPY"
+text = "Copy"
 script = ExtResource("2_a2jd2")
 
 [node name="StartDate" type="HBoxContainer" parent="."]
@@ -44,7 +44,7 @@ theme_override_constants/separation = 40
 [node name="StartDateLabel" type="Label" parent="StartDate"]
 custom_minimum_size = Vector2(200, 0)
 layout_mode = 2
-text = "START_DATE"
+text = "Start date"
 
 [node name="StartDate" type="Label" parent="StartDate"]
 auto_translate_mode = 2

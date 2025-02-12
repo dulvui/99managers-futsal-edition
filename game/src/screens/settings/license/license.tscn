@@ -27,17 +27,17 @@ layout_mode = 2
 
 [node name="LicenseTitle" type="Label" parent="VBoxContainer"]
 layout_mode = 2
-text = "GAME_LICENSE"
+text = "Game license"
 label_settings = ExtResource("1_ktsq5")
 
 [node name="LicenseDescription" type="Label" parent="VBoxContainer"]
 layout_mode = 2
-text = "GAME_LICENSE_DESCRIPTION"
+text = "This game is Open Source and released under the AGPL v3 or later license."
 
 [node name="LicenseButton" type="Button" parent="VBoxContainer"]
 layout_mode = 2
 size_flags_horizontal = 0
-text = "READ_FULL_LICENSE"
+text = "Read full license"
 script = ExtResource("2_8rsxp")
 
 [node name="HSeparator" type="HSeparator" parent="VBoxContainer"]
@@ -45,12 +45,12 @@ layout_mode = 2
 
 [node name="SourceCode" type="Label" parent="VBoxContainer"]
 layout_mode = 2
-text = "SOURCE_CODE"
+text = "Source code"
 label_settings = ExtResource("1_ktsq5")
 
 [node name="SourceCodeDescription" type="Label" parent="VBoxContainer"]
 layout_mode = 2
-text = "SOURCE_CODE_DESCRIPTION"
+text = "The full source code of the game is available on the websites below."
 
 [node name="SourceCodeLinks" type="HBoxContainer" parent="VBoxContainer"]
 auto_translate_mode = 2
@@ -72,17 +72,17 @@ layout_mode = 2
 
 [node name="ThirdPartyLicenseTitle" type="Label" parent="VBoxContainer"]
 layout_mode = 2
-text = "THIRD_PARTY_LICENSES"
+text = "Third party licenses"
 label_settings = ExtResource("1_ktsq5")
 
 [node name="ThirdPartyLicenseDescription" type="Label" parent="VBoxContainer"]
 layout_mode = 2
-text = "THIRD_PARTY_LICENSES_DESCRIPTION"
+text = "This game was built using the Godot Engine, that is released under the MIT license."
 
 [node name="ThirdPartyLicenseButton" type="Button" parent="VBoxContainer"]
 layout_mode = 2
 size_flags_horizontal = 0
-text = "READ_FULL_LICENSE"
+text = "Read full license"
 script = ExtResource("2_8rsxp")
 
 [node name="LicenseDialog" parent="." instance=ExtResource("4_x52u3")]
@@ -90,7 +90,6 @@ unique_name_in_owner = true
 auto_translate_mode = 2
 size = Vector2i(800, 800)
 auto_translate = false
-custom_title = "LICENSE"
 custom_text = "                    GNU AFFERO GENERAL PUBLIC LICENSE
                        Version 3, 19 November 2007
 
@@ -759,7 +758,6 @@ unique_name_in_owner = true
 auto_translate_mode = 2
 size = Vector2i(800, 800)
 auto_translate = false
-custom_title = "THIRD_PARTY_LICENSES"
 custom_text = "Format: https://www.debian.org/doc/packaging-manuals/copyright-format/1.0/
 Comment:
  Exhaustive licensing information for files in the Godot Engine repository

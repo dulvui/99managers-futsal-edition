@@ -51,7 +51,7 @@ func _setup() -> void:
 			# label
 			var group_label: Label = Label.new()
 			var index: int = cup.groups.find(group) + 1
-			group_label.text = tr("GROUP") + " " + str(index)
+			group_label.text = tr("Group") + " " + str(index)
 			ThemeUtil.bold(group_label)
 			main.add_child(group_label)
 			# table

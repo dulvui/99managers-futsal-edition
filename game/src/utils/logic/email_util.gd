@@ -9,9 +9,6 @@ signal refresh_inbox
 # TODO check performance for whole season and see if limit is needed
 # const MAX_MESSAGES: int = 50
 
-var subject_transfer_offer: String = tr("EMAIL_SUBJECT_TRANSFER_OFFER") # TRANSLATORS: {team_name} will be filled dynamically
-var text_transfer_offer: String = tr("EMAIL_TEXT_TRANSFER_OFFER") # TRANSLATORS: {team_name} will be filled dynamically
-
 
 func latest() -> EmailMessage:
 	if Global.inbox.list.size() == 0:
@@ -28,8 +25,8 @@ func count_unread_messages() -> int:
 
 
 func next_match(p_match: Match) -> void:
-	var subject: String = tr("EMAIL_SUBJECT_NEXT_MATCH") # TRANSLATORS: {team_name} gets dynamically filled
-	var text: String = tr("EMAIL_TEXT_NEXT_MATCH") # TRANSLATORS: {team_name} gets dynamically filled
+	var subject: String = tr("Next match: {team_name}") # TRANSLATORS: {team_name} gets dynamically filled
+	var text: String = tr("The next match is against {team_name}.") # TRANSLATORS: {team_name} gets dynamically filled
 
 	var team_name: String = p_match.home.name
 	var team_id: int = p_match.home.id
@@ -45,8 +42,8 @@ func next_match(p_match: Match) -> void:
 
 
 func welcome_manager() -> void:
-	var subject: String = tr("EMAIL_SUBJECT_WELCOME") # TRANSLATORS: {manager_name} gets dynamically filled
-	var text: String = tr("EMAIL_TEXT_WELCOME") # TRANSLATORS: {team_name} will be filled dynamically
+	var subject: String = tr("Welcome {manager_name}")
+	var text: String = tr("{team_name} welcomes you to a new journey.") # TRANSLATORS: {team_name} gets dynamically filled
 	
 	subject = subject.format({"manager_name": Global.manager.get_full_name()})
 	text = text.format({"team_name": Global.team.name})
@@ -67,36 +64,52 @@ func transfer_message(transfer: Transfer) -> void:
 	match transfer.state:
 		Transfer.State.OFFER:
 			# TRANSLATORS: {player_name} gets dynamically filled
-			subject = tr("EMAIL_SUBJECT_TRANSER_OFFER")
+			subject = tr("Offer for {player_name}")
 			# TRANSLATORS: {cost}, {player_name}, {team_name} get dynamically filled
-			text = tr("EMAIL_TEXT_TRANSER_OFFER")
+			text = tr(
+			"""
+			You made an offer for {player_name} from {team_name} at {cost}.
+			{team_name} will consider the offer and respond within a few days.
+			"""
+			)
 
-			subject = subject.format({"player_name": transfer.player.get_full_name()})
+			subject = subject.format({"player_name": transfer.player.surname})
 			text = text.format(
 				{
-					"cost": transfer.cost,
+					"cost": FormatUtil.currency(transfer.cost),
 					"player_name": transfer.player.get_full_name(),
 					"team_name": sender_team.name,
 				}
 			)
 		Transfer.State.OFFER_DECLINED:
 			# TRANSLATORS: {player_name} gets dynamically filled
-			subject = tr("EMAIL_SUBJECT_TRANSER_OFFER_DECLINED")
+			subject = tr("Offer for {player name} declined")
 			# TRANSLATORS: {player_name}, {team_name} get dynamically filled
-			text = tr("EMAIL_TEXT_TRANSER_OFFER_DECLINED")
+			text = tr(
+			"""
+			Your offer for {player_name} from {team_name} at {cost} has been declined.
+			Increasing the transfer value could make them reconsider.
+			"""
+			)
 
 			subject = subject.format({"player_name": transfer.player.get_full_name()})
 			text = text.format(
 				{
 					"player_name": transfer.player.get_full_name(),
 					"team_name": sender_team.name,
+					"cost": FormatUtil.currency(transfer.cost),
 				}
 			)
 		Transfer.State.CONTRACT:
 			# TRANSLATORS: {player_name} gets dynamically filled
-			subject = tr("EMAIL_SUBJECT_TRANSER_CONTRACT")
+			subject = tr("Offer for {player name} accepted")
 			# TRANSLATORS: {player_name}, {team_name} get dynamically filled
-			text = tr("EMAIL_TEXT_TRANSER_CONTRACT")
+			text = tr(
+			"""
+			Your offer for {player_name} from {team_name} at {cost} has been accepted.
+			You can now find a contractual aggreement with {player_name}.
+			"""
+			)
 
 			subject = subject.format({"player_name": transfer.player.get_full_name()})
 			text = text.format(
@@ -138,6 +151,9 @@ func transfer_message(transfer: Transfer) -> void:
 					"team_name": sender_team.name,
 				}
 			)
+		_:
+			subject = "ERROR"
+			text = "Error in code " + transfer.player.get_full_name()
 
 	new_message(subject, text, sender_team)
 

@@ -73,7 +73,7 @@ layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 4
 theme_type_variation = &"ImportantButton"
-text = "CONTINUE"
+text = "Continue"
 script = ExtResource("4_nkxl6")
 joypad_motion_event = SubResource("InputEventJoypadMotion_eu77x")
 
@@ -83,7 +83,7 @@ custom_minimum_size = Vector2(180, 0)
 layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 4
-text = "NEW_GAME"
+text = "New game"
 script = ExtResource("4_nkxl6")
 
 [node name="LoadGame" type="Button" parent="Buttons"]
@@ -92,7 +92,7 @@ custom_minimum_size = Vector2(180, 0)
 layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 4
-text = "LOAD_GAME"
+text = "Load game"
 script = ExtResource("4_nkxl6")
 
 [node name="Settings" type="Button" parent="Buttons"]
@@ -101,7 +101,7 @@ custom_minimum_size = Vector2(180, 0)
 layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 4
-text = "SETTINGS"
+text = "Settings"
 script = ExtResource("4_nkxl6")
 
 [node name="Exit" type="Button" parent="Buttons"]
@@ -110,7 +110,7 @@ custom_minimum_size = Vector2(180, 0)
 layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 4
-text = "EXIT"
+text = "Exit"
 script = ExtResource("4_nkxl6")
 joypad_button_event = SubResource("InputEventJoypadButton_x3xqw")
 
@@ -188,7 +188,7 @@ uri = "https://store.steampowered.com/app/3334770"
 
 [node name="DefaultConfirmDialog" parent="." instance=ExtResource("6_1a2kt")]
 unique_name_in_owner = true
-custom_text = "EXIT_GAME"
+custom_text = "Exit game"
 
 [node name="Label" type="Label" parent="."]
 auto_translate_mode = 2

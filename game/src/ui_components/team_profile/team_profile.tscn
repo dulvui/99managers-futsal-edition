@@ -35,7 +35,7 @@ layout_mode = 2
 
 [node name="BudgetTitle" type="Label" parent="Info"]
 layout_mode = 2
-text = "BUDGET"
+text = "Budget"
 label_settings = ExtResource("2_e0wm0")
 
 [node name="Budget" type="Label" parent="Info"]
@@ -49,7 +49,7 @@ layout_mode = 2
 
 [node name="StadiumTitle" type="Label" parent="Info"]
 layout_mode = 2
-text = "STADIUM"
+text = "Stadium"
 label_settings = ExtResource("2_e0wm0")
 
 [node name="StadiumName" type="Label" parent="Info"]

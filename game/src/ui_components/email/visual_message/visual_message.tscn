@@ -67,7 +67,7 @@ layout_mode = 2
 [node name="SubjectLabel" type="Label" parent="MarginContainer/VBoxContainer/Subject"]
 custom_minimum_size = Vector2(120, 0)
 layout_mode = 2
-text = "SUBJECT"
+text = "Subject"
 
 [node name="Subject" type="Label" parent="MarginContainer/VBoxContainer/Subject"]
 unique_name_in_owner = true
@@ -112,7 +112,7 @@ unique_name_in_owner = true
 visible = false
 layout_mode = 2
 theme_type_variation = &"ImportantButton"
-text = "ACTION"
+text = "Action"
 script = ExtResource("3_6mero")
 
 [connection signal="meta_clicked" from="MarginContainer/VBoxContainer/PanelContainer/ScrollContainer/Message" to="." method="_on_message_meta_clicked"]

@@ -51,23 +51,23 @@ size_flags_vertical = 3
 current_tab = 0
 script = ExtResource("2_pcf3o")
 
-[node name="GENERAL_SETTINGS" parent="Main/TabContainer" instance=ExtResource("2_rfuel")]
+[node name="General" parent="Main/TabContainer" instance=ExtResource("2_rfuel")]
 unique_name_in_owner = true
 layout_mode = 2
 metadata/_tab_index = 0
 
-[node name="INPUT_SETTINGS" parent="Main/TabContainer" instance=ExtResource("3_i3rqu")]
+[node name="Input" parent="Main/TabContainer" instance=ExtResource("3_i3rqu")]
 unique_name_in_owner = true
 visible = false
 layout_mode = 2
 metadata/_tab_index = 1
 
-[node name="CONTRIBUTORS" parent="Main/TabContainer" instance=ExtResource("6_sxb32")]
+[node name="Contributors" parent="Main/TabContainer" instance=ExtResource("6_sxb32")]
 visible = false
 layout_mode = 2
 metadata/_tab_index = 2
 
-[node name="LICENSES" parent="Main/TabContainer" instance=ExtResource("5_2r602")]
+[node name="Licenses" parent="Main/TabContainer" instance=ExtResource("5_2r602")]
 visible = false
 layout_mode = 2
 metadata/_tab_index = 3
@@ -82,7 +82,7 @@ custom_minimum_size = Vector2(180, 0)
 layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 4
-text = "DEFAULT_SETTINGS"
+text = "Default settings"
 script = ExtResource("5_mtybe")
 
 [node name="Back" type="Button" parent="Main/Buttons"]
@@ -90,14 +90,13 @@ custom_minimum_size = Vector2(180, 0)
 layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 4
-text = "BACK"
+text = "Back"
 script = ExtResource("5_mtybe")
 joypad_button_event = SubResource("InputEventJoypadButton_nppw4")
 
 [node name="DefaultDialog" parent="." instance=ExtResource("5_mq35h")]
 unique_name_in_owner = true
-custom_title = "RESTORE_DEFAULTS?"
-custom_text = "RESTORE_DEFAULTS_TEXT"
+custom_text = "You can fix errors or add new languages easily on Weblate, just click on the link below."
 
 [connection signal="pressed" from="Main/Buttons/Defaults" to="." method="_on_defaults_pressed"]
 [connection signal="pressed" from="Main/Buttons/Back" to="." method="_on_back_pressed"]

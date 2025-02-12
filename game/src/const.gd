@@ -57,8 +57,8 @@ const USER_PATH: StringName = "user://"
 const SAVE_STATES_DIR: StringName = "save_states/"
 const SAVE_STATES_PATH: StringName = "user://save_states/"
 
-const SURNAME: StringName = "SURNAME"
-const POSITION: StringName = "POSITION"
+const SURNAME: StringName = "Surname"
+const POSITION: StringName = "Postition"
 
 # screens
 const SCREEN_MENU: String = "res://src/screens/menu/menu.tscn"

@@ -63,7 +63,7 @@ func setup(day: Day, competition: Competition = Global.league) -> void:
 	# show no match notice
 	if all_matches.is_empty():
 		var label: Label = Label.new()
-		label.text = tr("NO_MATCH")
+		label.text = tr("No match")
 		matches_list.add_child(label)
 
 

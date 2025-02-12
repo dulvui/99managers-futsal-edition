@@ -9,10 +9,10 @@
 
 class_name ContinentNames
 
-var africa: String = tr("AFRICA")
-var asia: String = tr("ASIA")
-var europe: String = tr("EUROPE")
-var oceania: String = tr("OCEANIA")
-var south_america: String = tr("SOUTH_AMERICA")
-var north_america: String = tr("NORTH_AMERICA")
+var africa: String = tr("Africa")
+var asia: String = tr("Asia")
+var europe: String = tr("Europe")
+var oceania: String = tr("Oceania")
+var south_america: String = tr("South America")
+var north_america: String = tr("North America")
 

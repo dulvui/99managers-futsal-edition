@@ -173,9 +173,7 @@ offset_right = 800.0
 offset_bottom = 212.0
 grow_horizontal = 2
 grow_vertical = 2
-text = "GAMEPLAY
-
-"
+text = "Gameplay"
 label_settings = ExtResource("4_angej")
 horizontal_alignment = 1
 

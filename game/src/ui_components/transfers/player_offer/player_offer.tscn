@@ -30,7 +30,7 @@ columns = 2
 [node name="TypeLabel" type="Label" parent="VBoxContainer/Details"]
 layout_mode = 2
 size_flags_horizontal = 3
-text = "TYPE"
+text = "Type"
 
 [node name="Types" type="OptionButton" parent="VBoxContainer/Details"]
 layout_mode = 2
@@ -39,7 +39,7 @@ size_flags_horizontal = 3
 [node name="MoneyLabel" type="Label" parent="VBoxContainer/Details"]
 layout_mode = 2
 size_flags_horizontal = 3
-text = "MONEY"
+text = "Money"
 
 [node name="Money" type="HBoxContainer" parent="VBoxContainer/Details"]
 layout_mode = 2
@@ -66,7 +66,7 @@ script = ExtResource("3_s2lfu")
 [node name="DateLabel" type="Label" parent="VBoxContainer/Details"]
 layout_mode = 2
 size_flags_horizontal = 3
-text = "DATE"
+text = "Date"
 
 [node name="Date" type="OptionButton" parent="VBoxContainer/Details"]
 layout_mode = 2
@@ -75,7 +75,7 @@ size_flags_horizontal = 3
 [node name="ExchangePlayersLabel" type="Label" parent="VBoxContainer/Details"]
 layout_mode = 2
 size_flags_horizontal = 3
-text = "PLAYERS"
+text = "Players"
 
 [node name="ExchangePlayers" type="OptionButton" parent="VBoxContainer/Details"]
 layout_mode = 2
@@ -84,7 +84,7 @@ size_flags_horizontal = 3
 [node name="ExchangePlayersLabel2" type="Label" parent="VBoxContainer"]
 layout_mode = 2
 size_flags_horizontal = 3
-text = "PLAYER_LIST"
+text = "Player list"
 
 [node name="ScrollContainer" type="ScrollContainer" parent="VBoxContainer"]
 custom_minimum_size = Vector2(60, 200)
@@ -107,12 +107,12 @@ alignment = 1
 
 [node name="Cancel" type="Button" parent="VBoxContainer/HBoxContainer"]
 layout_mode = 2
-text = "CANCEL"
+text = "Cancel"
 script = ExtResource("3_s2lfu")
 
 [node name="Confirm" type="Button" parent="VBoxContainer/HBoxContainer"]
 layout_mode = 2
-text = "CONFIRM"
+text = "Confirm"
 script = ExtResource("3_s2lfu")
 
 [connection signal="pressed" from="VBoxContainer/Details/Money/Less" to="." method="_on_less_pressed"]

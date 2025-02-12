@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" path="res://src/ui_components/player_profile/attributes_view/attributes_view.gd" id="1_5b24s"]
 
-[node name="ATTRIBUTES" type="HBoxContainer"]
+[node name="Attributes" type="HBoxContainer"]
 theme_override_constants/separation = 10
 alignment = 1
 script = ExtResource("1_5b24s")
