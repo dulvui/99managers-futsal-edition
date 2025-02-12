@@ -733,7 +733,7 @@ msgid ""
 msgstr ""
 
 #: src/utils/logic/email_util.gd
-msgid "Offer for {player name} accepted"
+msgid "Offer for {player_name} accepted"
 msgstr ""
 
 #: src/utils/logic/email_util.gd
@@ -747,7 +747,7 @@ msgid "Cup"
 msgstr ""
 
 #: src/utils/logic/match_combination_util.gd
-msgid "Nations_cup"
+msgid "Nations cup"
 msgstr ""
 
 #: src/utils/logic/match_combination_util.gd

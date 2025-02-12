@@ -163,7 +163,7 @@ func _initialize_club_continental_cup(p_continent: Continent) -> void:
 
 func _initialize_nations_continental_cup(p_continent: Continent) -> void:
 	# setup cup
-	p_continent.cup_nations.name =  p_continent.name + " " + tr("Nations_cup")
+	p_continent.cup_nations.name =  p_continent.name + " " + tr("Nations cup")
 	var teams: Array[Team]
 
 	# get qualified teams from every nation

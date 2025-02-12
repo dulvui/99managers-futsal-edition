@@ -93,7 +93,7 @@ func transfer_message(transfer: Transfer) -> void:
 			)
 		Transfer.State.CONTRACT:
 			# TRANSLATORS: {player_name} gets dynamically filled
-			subject = tr("Offer for {player name} accepted")
+			subject = tr("Offer for {player_name} accepted")
 			# TRANSLATORS: {player_name}, {team_name} get dynamically filled
 			text = tr("Your offer for {player_name} from {team_name} at {cost} has been accepted.\nYou can now find a contractual aggreement with {player_name}.")
 

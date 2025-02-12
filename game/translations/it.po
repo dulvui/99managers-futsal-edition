@@ -283,16 +283,16 @@ msgid ""
 msgstr ""
 "Project-Id-Version: 99 Managers Futsal Edition\n"
 "POT-Creation-Date: \n"
-"PO-Revision-Date: 2025-02-11 16:54+0000\n"
+"PO-Revision-Date: 2025-02-12 13:26+0100\n"
 "Last-Translator: Anonymous <noreply@weblate.org>\n"
-"Language-Team: Italian <https://hosted.weblate.org/projects/"
-"99-managers-futsal-edition/game/it/>\n"
+"Language-Team: Italian <https://hosted.weblate.org/projects/99-managers-"
+"futsal-edition/game/it/>\n"
 "Language: it\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 5.10-dev\n"
+"X-Generator: Poedit 3.2.2\n"
 
 #: src/ui_components/team_profile/team_profile.tscn
 #: src/ui_components/info/info.tscn
@@ -338,7 +338,7 @@ msgstr "Anno"
 
 #: src/ui_components/player_list/player_list.gd
 msgid "All Teams"
-msgstr ""
+msgstr "Tutte le squadre"
 
 #: src/ui_components/player_list/player_list.gd
 msgid "All positions"
@@ -346,7 +346,7 @@ msgstr "Tutte posizioni"
 
 #: src/ui_components/player_list/player_list.gd
 msgid "All Leagues"
-msgstr ""
+msgstr "Tutti campionati"
 
 #: src/ui_components/player_list/player_list_column/player_list_column.tscn
 #: src/ui_components/player_profile/info_view/info_view.tscn
@@ -368,7 +368,7 @@ msgstr "Data inizio"
 
 #: src/ui_components/base/confirm_dialog/default_confirm_dialog.gd
 msgid "Ok"
-msgstr ""
+msgstr "Ok"
 
 #: src/ui_components/base/confirm_dialog/default_confirm_dialog.tscn
 #: src/ui_components/transfers/player_offer/player_offer.tscn
@@ -400,7 +400,7 @@ msgstr "Spese"
 
 #: src/ui_components/visual_finances/visual_finances.tscn
 msgid "Reamaining salary budget"
-msgstr ""
+msgstr "Bilancio salario rimasto"
 
 #: src/ui_components/visual_finances/visual_finances.tscn
 #: src/ui_components/transfers/contract_offer/contract_offer.tscn
@@ -427,7 +427,7 @@ msgstr "Disegna"
 
 #: src/ui_components/visual_competitions/visual_table/visual_table.tscn
 msgid "Lost"
-msgstr ""
+msgstr "Perse"
 
 #: src/ui_components/visual_competitions/visual_table/visual_table.tscn
 msgid "Goals"
@@ -506,7 +506,7 @@ msgstr "Contratto"
 
 #: src/ui_components/transfers/contract_offer/contract_offer.tscn
 msgid "Buy clause"
-msgstr ""
+msgstr "Clausola d'acquisto"
 
 #: src/ui_components/visual_formation/visual_formation.gd
 msgid "Subs"
@@ -517,8 +517,7 @@ msgid "Rest"
 msgstr "Riposati"
 
 #: src/ui_components/visual_formation/visual_formation.tscn
-#: src/screens/dashboard/dashboard.tscn
-#: src/screens/match/match.tscn
+#: src/screens/dashboard/dashboard.tscn src/screens/match/match.tscn
 msgid "Formation"
 msgstr "Formazione"
 
@@ -528,7 +527,7 @@ msgstr "Strategia cambi"
 
 #: src/ui_components/visual_formation/visual_formation.tscn
 msgid "Tactic offense"
-msgstr ""
+msgstr "Tattica offensiva"
 
 #: src/ui_components/visual_formation/visual_formation.tscn
 msgid "Intensity"
@@ -598,7 +597,7 @@ msgstr "Posizione"
 
 #: src/ui_components/player_profile/info_view/info_view.tscn
 msgid "Alternative position"
-msgstr ""
+msgstr "Posizione alternativa"
 
 #: src/ui_components/player_profile/info_view/info_view.tscn
 msgid "Age"
@@ -615,7 +614,7 @@ msgstr "Naziolanità"
 
 #: src/ui_components/player_profile/info_view/info_view.tscn
 msgid "Number"
-msgstr ""
+msgstr "Nummero"
 
 #: src/ui_components/player_profile/info_view/info_view.tscn
 msgid "Average attributes"
@@ -659,76 +658,95 @@ msgstr "Nessuna partita"
 msgid "Today"
 msgstr "Oggi"
 
-#: src/ui_components/visual_calendar/visual_calendar.tscn
-#: src/enum.gd
+#: src/ui_components/visual_calendar/visual_calendar.tscn src/enum.gd
 msgid "Monday"
 msgstr "Lunedì"
 
-#: src/ui_components/visual_calendar/visual_calendar.tscn
-#: src/enum.gd
+#: src/ui_components/visual_calendar/visual_calendar.tscn src/enum.gd
 msgid "Tuesday"
 msgstr "Martedì"
 
-#: src/ui_components/visual_calendar/visual_calendar.tscn
-#: src/enum.gd
+#: src/ui_components/visual_calendar/visual_calendar.tscn src/enum.gd
 msgid "Wednesday"
 msgstr "Mercoledì"
 
-#: src/ui_components/visual_calendar/visual_calendar.tscn
-#: src/enum.gd
+#: src/ui_components/visual_calendar/visual_calendar.tscn src/enum.gd
 msgid "Thursday"
 msgstr "Giovedì"
 
-#: src/ui_components/visual_calendar/visual_calendar.tscn
-#: src/enum.gd
+#: src/ui_components/visual_calendar/visual_calendar.tscn src/enum.gd
 msgid "Friday"
 msgstr "Venerdi"
 
-#: src/ui_components/visual_calendar/visual_calendar.tscn
-#: src/enum.gd
+#: src/ui_components/visual_calendar/visual_calendar.tscn src/enum.gd
 msgid "Saturday"
 msgstr "Sabato"
 
-#: src/ui_components/visual_calendar/visual_calendar.tscn
-#: src/enum.gd
+#: src/ui_components/visual_calendar/visual_calendar.tscn src/enum.gd
 msgid "Sunday"
 msgstr "Domenica"
 
 #: src/utils/logic/email_util.gd
 msgid "Next match: {team_name}"
-msgstr ""
+msgstr "Prossima partita: {team_name}"
 
 #: src/utils/logic/email_util.gd
 msgid "The next match is against {team_name}."
-msgstr ""
+msgstr "La prossima partita è contro {team_name}"
 
 #: src/utils/logic/email_util.gd
 msgid "Welcome {manager_name}"
-msgstr ""
+msgstr "Benvenuto {manager_name}"
 
 #: src/utils/logic/email_util.gd
 msgid "{team_name} welcomes you to a new journey."
-msgstr ""
+msgstr "{team_name} ti da il benvenuto ad una nuova avventura."
 
 #: src/utils/logic/email_util.gd
 msgid "Offer for {player_name}"
+msgstr "Offerta per {player_name}"
+
+#: src/utils/logic/email_util.gd
+msgid ""
+"You made an offer for {player_name} from {team_name} at {cost}.\n"
+"{team_name} will consider the offer and respond within a few days."
 msgstr ""
+"Hai fatto un offerta per {player_name} della squadra {team_name} a {cost}.\n"
+"{team_name} sta valutando la tua offerta e risponderà in pochi giorni."
 
 #: src/utils/logic/email_util.gd
 msgid "Offer for {player name} declined"
-msgstr ""
+msgstr "Offerta per {player_name} non è stata accettata"
 
 #: src/utils/logic/email_util.gd
-msgid "Offer for {player name} accepted"
+msgid ""
+"Your offer for {player_name} from {team_name} at {cost} has been declined.\n"
+"Increasing the transfer value could make them reconsider."
 msgstr ""
+"La tua offerta per {player_name} della squadra {team_name} al costo di "
+"{cost} è stata respinta.\n"
+"Alzando la tua offerta potrebbe cambiare la loro decisione."
+
+#: src/utils/logic/email_util.gd
+msgid "Offer for {player_name} accepted"
+msgstr "Offerta per {player_name} accettata"
+
+#: src/utils/logic/email_util.gd
+msgid ""
+"Your offer for {player_name} from {team_name} at {cost} has been accepted.\n"
+"You can now find a contractual aggreement with {player_name}."
+msgstr ""
+"La tua offerta per {player_name} della squadra {team_name} al costo di "
+"{cost} è stata accettata.\n"
+"Puoi procedere a trovare un accordo contrattuale con {player_name}."
 
 #: src/utils/logic/match_combination_util.gd
 msgid "Cup"
-msgstr "Tazza"
+msgstr "Coppa"
 
 #: src/utils/logic/match_combination_util.gd
-msgid "Nations_cup"
-msgstr ""
+msgid "Nations cup"
+msgstr "Coppa delle nazioni"
 
 #: src/utils/logic/match_combination_util.gd
 msgid "World cup"
@@ -748,11 +766,11 @@ msgstr "Input"
 
 #: src/screens/settings/settings.tscn
 msgid "Contributors"
-msgstr ""
+msgstr "Contribuenti"
 
 #: src/screens/settings/settings.tscn
 msgid "Licenses"
-msgstr ""
+msgstr "Licenze"
 
 #: src/screens/settings/settings.tscn
 msgid "Default settings"
@@ -765,12 +783,16 @@ msgstr "Indietro"
 
 #: src/screens/settings/settings.tscn
 #: src/screens/settings/general/general_settings.tscn
-msgid "You can fix errors or add new languages easily on Weblate, just click on the link below."
+msgid ""
+"You can fix errors or add new languages easily on Weblate, just click on the "
+"link below."
 msgstr ""
+"Puoi aggiustare errori o aggiungere nuove lingue facilmente su Weblate "
+"cliccando il link sotto."
 
 #: src/screens/settings/general/general_settings.tscn
 msgid "Language"
-msgstr ""
+msgstr "Lingue"
 
 #: src/screens/settings/general/general_settings.tscn
 msgid "Audio"
@@ -778,11 +800,11 @@ msgstr "Audio"
 
 #: src/screens/settings/general/general_settings.tscn
 msgid "Sfx volume"
-msgstr ""
+msgstr "Volume effetti sonori"
 
 #: src/screens/settings/general/general_settings.tscn
 msgid "Interface settings"
-msgstr ""
+msgstr "Impostazioni interfaccia"
 
 #: src/screens/settings/general/general_settings.tscn
 msgid "Font size"
@@ -870,7 +892,7 @@ msgstr "Posto in classifica"
 
 #: src/screens/save_states_screen/save_state_entry/save_state_entry.tscn
 msgid "Game date"
-msgstr ""
+msgstr "Data del gioco"
 
 #: src/screens/save_states_screen/save_state_entry/save_state_entry.tscn
 msgid "Last save"
@@ -889,6 +911,14 @@ msgstr "Elimina"
 msgid "Load game"
 msgstr "Carica partita"
 
+#: src/screens/save_states_screen/save_state_entry/save_state_entry.tscn
+msgid ""
+"Deleting a save state is permanent and can't be undone.\n"
+"Are you sure you want delete this save state?"
+msgstr ""
+"Cancellare un salvataggio è permanente e non può essere ripristinato.\n"
+"Sei sicuro di voler cancellare questo salvataggio?"
+
 #: src/screens/dashboard/dashboard.gd
 msgid "Start match"
 msgstr "Inizia partita"
@@ -901,10 +931,9 @@ msgstr "Prossimo giorno"
 msgid "Next season"
 msgstr "Prossima stagione"
 
-#: src/screens/dashboard/dashboard.gd
-#: src/screens/dashboard/dashboard.tscn
+#: src/screens/dashboard/dashboard.gd src/screens/dashboard/dashboard.tscn
 msgid "Email"
-msgstr ""
+msgstr "Email"
 
 #: src/screens/dashboard/dashboard.gd
 msgid "Simulating results"
@@ -928,7 +957,7 @@ msgstr "Finanze"
 
 #: src/screens/dashboard/dashboard.tscn
 msgid "Coming soon"
-msgstr ""
+msgstr "In sviluppo"
 
 #: src/screens/dashboard/dashboard.tscn
 msgid "Search player"
@@ -958,8 +987,7 @@ msgstr "Hall of fame"
 msgid "Notes"
 msgstr "Note"
 
-#: src/screens/dashboard/dashboard.tscn
-#: src/screens/menu/menu.tscn
+#: src/screens/dashboard/dashboard.tscn src/screens/menu/menu.tscn
 msgid "Settings"
 msgstr "Impostazioni"
 
@@ -967,26 +995,23 @@ msgstr "Impostazioni"
 msgid "Next match"
 msgstr "Prossima partita"
 
-#: src/screens/dashboard/dashboard.tscn
-#: src/screens/match/match.gd
-#: src/screens/menu/menu.tscn
-#: src/screens/setup/setup_world/setup_world.tscn
+#: src/screens/dashboard/dashboard.tscn src/screens/match/match.gd
+#: src/screens/menu/menu.tscn src/screens/setup/setup_world/setup_world.tscn
 #: src/screens/setup/setup_manager/setup_manager.tscn
 msgid "Continue"
 msgstr "Continua"
 
 #: src/screens/dashboard/dashboard.tscn
 msgid "Save the game before exiting?"
-msgstr ""
+msgstr "Salvare la partita prima uscire?"
 
-#: src/screens/match/match.gd
-#: src/screens/match/match.tscn
+#: src/screens/match/match.gd src/screens/match/match.tscn
 msgid "Pause"
 msgstr "Pausa"
 
 #: src/screens/match/penalties_bar/penalties_bar.tscn
 msgid "Penalties"
-msgstr ""
+msgstr "Rigori"
 
 #: src/screens/match/match.tscn
 msgid "Stats"
@@ -1000,8 +1025,7 @@ msgstr "Commenti"
 msgid "Events"
 msgstr "Eventi"
 
-#: src/screens/match/match.tscn
-#: src/enum.gd
+#: src/screens/match/match.tscn src/enum.gd
 msgid "Full game"
 msgstr "Partita intera"
 
@@ -1031,7 +1055,7 @@ msgstr "Esci"
 
 #: src/screens/menu/menu.tscn
 msgid "Exit game"
-msgstr ""
+msgstr "Esci dal gioco"
 
 #: src/screens/setup/setup_world/setup_world.tscn
 msgid "Game settings"
@@ -1043,15 +1067,19 @@ msgstr "Nomi giocatori"
 
 #: src/screens/setup/setup_world/setup_world.tscn
 msgid "Start year"
-msgstr ""
+msgstr "Anno d'inizio"
 
 #: src/screens/setup/setup_world/setup_world.tscn
 msgid "Generation seed"
 msgstr "Codice generazione"
 
 #: src/screens/setup/setup_world/setup_world.tscn
-msgid "This generation seed defines player names and attributes. When reused, it will generate exatly the same result."
+msgid ""
+"This generation seed defines player names and attributes. When reused, it "
+"will generate exatly the same result."
 msgstr ""
+"Questo codice di generazione definisce nomi ed attributi dei giocatori. "
+"Riusando il stesso codice, il risultato sarà esattamente identico."
 
 #: src/screens/setup/setup_world/setup_world.tscn
 msgid "Random"
@@ -1059,7 +1087,7 @@ msgstr "Casuale"
 
 #: src/screens/setup/setup_world/setup_world.gd
 msgid "Generating players"
-msgstr ""
+msgstr "Generando giocatori"
 
 #: src/screens/setup/setup_manager/setup_manager.tscn
 msgid "Your name"
@@ -1075,7 +1103,7 @@ msgstr "Il tuo cognome"
 
 #: src/screens/setup/setup_team/setup_team.tscn
 msgid "Choose team"
-msgstr ""
+msgstr "Scegli squadra"
 
 #: src/screens/setup/setup_team/setup_team.tscn
 msgid "Select"
@@ -1083,7 +1111,7 @@ msgstr "Selezionare"
 
 #: src/screens/setup/setup_team/setup_team.gd
 msgid "Initialize game"
-msgstr ""
+msgstr "Inizializzando partita"
 
 #: src/resources/world/continent_names.gd
 msgid "Africa"
@@ -1883,31 +1911,37 @@ msgstr "Yemen"
 
 #: src/screens/settings/license/license.tscn
 msgid "Game license"
-msgstr ""
+msgstr "Licenza del gioco"
 
 #: src/screens/settings/license/license.tscn
-msgid "This game is Open Source and released under the AGPL v3 or later license."
+msgid ""
+"This game is Open Source and released under the AGPL v3 or later license."
 msgstr ""
+"Questo gioco è Open Source ed è rilasciato sotto la licenza AGPL v3 or later."
 
 #: src/screens/settings/license/license.tscn
 msgid "Read full license"
-msgstr ""
+msgstr "Leggi licenza intera"
 
 #: src/screens/settings/license/license.tscn
 msgid "Source code"
-msgstr ""
+msgstr "Codice sorgente"
 
 #: src/screens/settings/license/license.tscn
 msgid "The full source code of the game is available on the websites below."
-msgstr ""
+msgstr "Il codice sorgente completo è disponibile sui siti web seguenti."
 
 #: src/screens/settings/license/license.tscn
 msgid "Third party licenses"
-msgstr ""
+msgstr "Licenze di terze parti"
 
 #: src/screens/settings/license/license.tscn
-msgid "This game was built using the Godot Engine, that is released under the MIT license."
+msgid ""
+"This game was built using the Godot Engine, that is released under the MIT "
+"license."
 msgstr ""
+"Questo gioco è stato sviluppato usando la Godot Engine, che è rilasciata "
+"sotto la licenza MIT."
 
 #: src/enum.gd
 msgid "Key actions"
@@ -1987,7 +2021,7 @@ msgstr "Manuale"
 
 #: src/enum.gd
 msgid "Mouse and Keyboard"
-msgstr ""
+msgstr "Mouse e tastiera"
 
 #: src/enum.gd
 msgid "Joypad"
@@ -1995,7 +2029,7 @@ msgstr "Joypad"
 
 #: src/enum.gd
 msgid "Touchscreen"
-msgstr ""
+msgstr "Schermo touch"
 
 #: src/enum.gd
 msgid "Left"
@@ -2007,7 +2041,7 @@ msgstr "Destro"
 
 #: src/enum.gd
 msgid "Left and right"
-msgstr ""
+msgstr "Ambidestro"
 
 #: src/enum.gd
 msgid "Worst"
@@ -2036,4 +2070,3 @@ msgstr "Infortunato"
 #: src/enum.gd
 msgid "Recover"
 msgstr "Recupero"
-
