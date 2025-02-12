@@ -277,12 +277,11 @@
 # res://src/global.gd
 # res://src/generators/generator.gd
 #
-# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
-#
+# Максим Горпиніч <maksimgorpinic2005a@gmail.com>, 2025.
 msgid ""
 msgstr ""
 "Project-Id-Version: 99 Managers Futsal Edition\n"
-"PO-Revision-Date: 2025-02-12 08:06+0000\n"
+"PO-Revision-Date: 2025-02-13 08:45+0000\n"
 "Last-Translator: Максим Горпиніч <maksimgorpinic2005a@gmail.com>\n"
 "Language-Team: Ukrainian <https://hosted.weblate.org/projects/"
 "99-managers-futsal-edition/game/uk/>\n"
@@ -338,7 +337,7 @@ msgstr "рік"
 
 #: src/ui_components/player_list/player_list.gd
 msgid "All Teams"
-msgstr ""
+msgstr "Усі команди"
 
 #: src/ui_components/player_list/player_list.gd
 msgid "All positions"
@@ -346,7 +345,7 @@ msgstr "Усі позиції"
 
 #: src/ui_components/player_list/player_list.gd
 msgid "All Leagues"
-msgstr ""
+msgstr "Усі Ліги"
 
 #: src/ui_components/player_list/player_list_column/player_list_column.tscn
 #: src/ui_components/player_profile/info_view/info_view.tscn
@@ -400,7 +399,7 @@ msgstr "Витрати"
 
 #: src/ui_components/visual_finances/visual_finances.tscn
 msgid "Reamaining salary budget"
-msgstr ""
+msgstr "Залишок бюджету зарплати"
 
 #: src/ui_components/visual_finances/visual_finances.tscn
 #: src/ui_components/transfers/contract_offer/contract_offer.tscn
@@ -427,7 +426,7 @@ msgstr "Нічия"
 
 #: src/ui_components/visual_competitions/visual_table/visual_table.tscn
 msgid "Lost"
-msgstr ""
+msgstr "Програл"
 
 #: src/ui_components/visual_competitions/visual_table/visual_table.tscn
 msgid "Goals"
@@ -506,7 +505,7 @@ msgstr "Контракт"
 
 #: src/ui_components/transfers/contract_offer/contract_offer.tscn
 msgid "Buy clause"
-msgstr ""
+msgstr "Положення про купівлю"
 
 #: src/ui_components/visual_formation/visual_formation.gd
 msgid "Subs"
@@ -528,7 +527,7 @@ msgstr "Змінити стратегію"
 
 #: src/ui_components/visual_formation/visual_formation.tscn
 msgid "Tactic offense"
-msgstr ""
+msgstr "Тактика нападу"
 
 #: src/ui_components/visual_formation/visual_formation.tscn
 msgid "Intensity"
@@ -598,7 +597,7 @@ msgstr "Позиція"
 
 #: src/ui_components/player_profile/info_view/info_view.tscn
 msgid "Alternative position"
-msgstr ""
+msgstr "Альтернативна позиція"
 
 #: src/ui_components/player_profile/info_view/info_view.tscn
 msgid "Age"
@@ -615,7 +614,7 @@ msgstr "Національність"
 
 #: src/ui_components/player_profile/info_view/info_view.tscn
 msgid "Number"
-msgstr ""
+msgstr "Номер"
 
 #: src/ui_components/player_profile/info_view/info_view.tscn
 msgid "Average attributes"
@@ -700,23 +699,23 @@ msgstr "Наступний матч: {team_name}"
 
 #: src/utils/logic/email_util.gd
 msgid "The next match is against {team_name}."
-msgstr ""
+msgstr "Наступний матч проти {team_name}."
 
 #: src/utils/logic/email_util.gd
 msgid "Welcome {manager_name}"
-msgstr ""
+msgstr "Ласкаво просимо, {manager_name}"
 
 #: src/utils/logic/email_util.gd
 msgid "{team_name} welcomes you to a new journey."
-msgstr ""
+msgstr "{team_name} вітає вас у новій подорожі."
 
 #: src/utils/logic/email_util.gd
 msgid "Offer for {player_name}"
-msgstr ""
+msgstr "Пропозиція для {player_name}"
 
 #: src/utils/logic/email_util.gd
 msgid "Offer for {player name} declined"
-msgstr ""
+msgstr "Пропозицію для {player name} відхилено"
 
 #: src/utils/logic/email_util.gd
 msgid "Offer for {player name} accepted"
@@ -767,6 +766,8 @@ msgstr "Назад"
 #: src/screens/settings/general/general_settings.tscn
 msgid "You can fix errors or add new languages easily on Weblate, just click on the link below."
 msgstr ""
+"Ви можете легко виправити помилки або додати нові мови на Weblate, просто "
+"клацнувши посилання нижче."
 
 #: src/screens/settings/general/general_settings.tscn
 msgid "Language"
@@ -778,11 +779,11 @@ msgstr "Аудіо"
 
 #: src/screens/settings/general/general_settings.tscn
 msgid "Sfx volume"
-msgstr ""
+msgstr "Гучність SFX"
 
 #: src/screens/settings/general/general_settings.tscn
 msgid "Interface settings"
-msgstr ""
+msgstr "Налаштування інтерфейсу"
 
 #: src/screens/settings/general/general_settings.tscn
 msgid "Font size"
@@ -870,7 +871,7 @@ msgstr "Розміщення на таблиці"
 
 #: src/screens/save_states_screen/save_state_entry/save_state_entry.tscn
 msgid "Game date"
-msgstr ""
+msgstr "Дата гри"
 
 #: src/screens/save_states_screen/save_state_entry/save_state_entry.tscn
 msgid "Last save"
@@ -904,7 +905,7 @@ msgstr "Наступний сезон"
 #: src/screens/dashboard/dashboard.gd
 #: src/screens/dashboard/dashboard.tscn
 msgid "Email"
-msgstr ""
+msgstr "Електронна пошта"
 
 #: src/screens/dashboard/dashboard.gd
 msgid "Simulating results"
@@ -977,7 +978,7 @@ msgstr "Продовжити"
 
 #: src/screens/dashboard/dashboard.tscn
 msgid "Save the game before exiting?"
-msgstr ""
+msgstr "Зберегти гру перед виходом?"
 
 #: src/screens/match/match.gd
 #: src/screens/match/match.tscn
@@ -986,7 +987,7 @@ msgstr "Пауза"
 
 #: src/screens/match/penalties_bar/penalties_bar.tscn
 msgid "Penalties"
-msgstr ""
+msgstr "Штрафи"
 
 #: src/screens/match/match.tscn
 msgid "Stats"
@@ -1031,7 +1032,7 @@ msgstr "Вихід"
 
 #: src/screens/menu/menu.tscn
 msgid "Exit game"
-msgstr ""
+msgstr "Вийти з гри"
 
 #: src/screens/setup/setup_world/setup_world.tscn
 msgid "Game settings"
@@ -1043,7 +1044,7 @@ msgstr "Імена гравців"
 
 #: src/screens/setup/setup_world/setup_world.tscn
 msgid "Start year"
-msgstr ""
+msgstr "Початковий рік"
 
 #: src/screens/setup/setup_world/setup_world.tscn
 msgid "Generation seed"
@@ -1052,6 +1053,8 @@ msgstr "Код покоління"
 #: src/screens/setup/setup_world/setup_world.tscn
 msgid "This generation seed defines player names and attributes. When reused, it will generate exatly the same result."
 msgstr ""
+"Це початкове покоління визначає імена та атрибути гравців. При повторному "
+"використанні він генерує точно той самий результат."
 
 #: src/screens/setup/setup_world/setup_world.tscn
 msgid "Random"
@@ -1059,7 +1062,7 @@ msgstr "Випадковий"
 
 #: src/screens/setup/setup_world/setup_world.gd
 msgid "Generating players"
-msgstr ""
+msgstr "Генерація гравців"
 
 #: src/screens/setup/setup_manager/setup_manager.tscn
 msgid "Your name"
@@ -1075,7 +1078,7 @@ msgstr "Ваше прізвище"
 
 #: src/screens/setup/setup_team/setup_team.tscn
 msgid "Choose team"
-msgstr ""
+msgstr "Виберіть команду"
 
 #: src/screens/setup/setup_team/setup_team.tscn
 msgid "Select"
@@ -1888,6 +1891,8 @@ msgstr "Ігрова ліцензія"
 #: src/screens/settings/license/license.tscn
 msgid "This game is Open Source and released under the AGPL v3 or later license."
 msgstr ""
+"Ця гра має відкритий вихідний код і випущена за ліцензією AGPL v3 або "
+"новішої."
 
 #: src/screens/settings/license/license.tscn
 msgid "Read full license"
@@ -1899,7 +1904,7 @@ msgstr "Вихідний код"
 
 #: src/screens/settings/license/license.tscn
 msgid "The full source code of the game is available on the websites below."
-msgstr ""
+msgstr "Повний вихідний код гри доступний на веб-сайтах нижче."
 
 #: src/screens/settings/license/license.tscn
 msgid "Third party licenses"
@@ -1908,6 +1913,8 @@ msgstr "Сторонні ліцензії"
 #: src/screens/settings/license/license.tscn
 msgid "This game was built using the Godot Engine, that is released under the MIT license."
 msgstr ""
+"Цю гру створено з використанням движка Godot Engine, який випущено за "
+"ліцензією MIT."
 
 #: src/enum.gd
 msgid "Key actions"
@@ -2036,4 +2043,3 @@ msgstr "Поранений"
 #: src/enum.gd
 msgid "Recover"
 msgstr "Відновлюється"
-
