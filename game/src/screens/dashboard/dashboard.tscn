@@ -113,6 +113,7 @@ alignment = 0
 script = ExtResource("3_kbasy")
 
 [node name="HSeparator6" type="HSeparator" parent="MarginContainer/HBoxContainer/PanelContainer/MarginContainer/Buttons"]
+modulate = Color(1, 1, 1, 0)
 layout_mode = 2
 
 [node name="FinancesButton" type="Button" parent="MarginContainer/HBoxContainer/PanelContainer/MarginContainer/Buttons"]
@@ -136,6 +137,7 @@ alignment = 0
 script = ExtResource("3_kbasy")
 
 [node name="HSeparator2" type="HSeparator" parent="MarginContainer/HBoxContainer/PanelContainer/MarginContainer/Buttons"]
+modulate = Color(1, 1, 1, 0)
 layout_mode = 2
 
 [node name="FormationButton" type="Button" parent="MarginContainer/HBoxContainer/PanelContainer/MarginContainer/Buttons"]
@@ -157,6 +159,7 @@ alignment = 0
 script = ExtResource("3_kbasy")
 
 [node name="HSeparator3" type="HSeparator" parent="MarginContainer/HBoxContainer/PanelContainer/MarginContainer/Buttons"]
+modulate = Color(1, 1, 1, 0)
 layout_mode = 2
 
 [node name="SearchPlayerButton" type="Button" parent="MarginContainer/HBoxContainer/PanelContainer/MarginContainer/Buttons"]
@@ -213,6 +216,7 @@ alignment = 0
 script = ExtResource("3_kbasy")
 
 [node name="HSeparator5" type="HSeparator" parent="MarginContainer/HBoxContainer/PanelContainer/MarginContainer/Buttons"]
+modulate = Color(1, 1, 1, 0)
 layout_mode = 2
 
 [node name="JobsButton" type="Button" parent="MarginContainer/HBoxContainer/PanelContainer/MarginContainer/Buttons"]

@@ -1,9 +1,10 @@
-[gd_scene load_steps=5 format=3 uid="uid://cqcsyes1j6vwi"]
+[gd_scene load_steps=6 format=3 uid="uid://cqcsyes1j6vwi"]
 
 [ext_resource type="Theme" uid="uid://pt1hrfiuwfpg" path="res://theme_base/theme.tres" id="1_lar05"]
 [ext_resource type="Script" path="res://src/screens/setup/setup_world/setup_world.gd" id="2_s01se"]
 [ext_resource type="Script" path="res://src/ui_components/base/defaults/default_button.gd" id="3_g76wv"]
 [ext_resource type="LabelSettings" uid="uid://b4gu78rjvdfx4" path="res://theme_base/label/label_settings_title.tres" id="3_mfpia"]
+[ext_resource type="Script" path="res://src/ui_components/base/defaults/default_option_button.gd" id="4_3e6xm"]
 
 [node name="SetupWorld" type="Control"]
 layout_mode = 3
@@ -37,6 +38,66 @@ offset_bottom = 401.5
 grow_horizontal = 2
 grow_vertical = 2
 alignment = 1
+
+[node name="Manager" type="VBoxContainer" parent="VBoxContainer"]
+layout_mode = 2
+alignment = 1
+
+[node name="Manager" type="VBoxContainer" parent="VBoxContainer/Manager"]
+layout_mode = 2
+theme_override_constants/separation = 5
+
+[node name="ManagerLabel" type="Label" parent="VBoxContainer/Manager/Manager"]
+layout_mode = 2
+text = "Manager"
+label_settings = ExtResource("3_mfpia")
+
+[node name="HSeparator2" type="HSeparator" parent="VBoxContainer/Manager/Manager"]
+layout_mode = 2
+
+[node name="Container" type="GridContainer" parent="VBoxContainer/Manager/Manager"]
+layout_mode = 2
+theme_override_constants/h_separation = 30
+columns = 2
+
+[node name="NameLabel" type="Label" parent="VBoxContainer/Manager/Manager/Container"]
+custom_minimum_size = Vector2(240, 0)
+layout_mode = 2
+text = "Name"
+
+[node name="Name" type="LineEdit" parent="VBoxContainer/Manager/Manager/Container"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(400, 0)
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+placeholder_text = "Your name"
+
+[node name="SurnameLabel" type="Label" parent="VBoxContainer/Manager/Manager/Container"]
+custom_minimum_size = Vector2(240, 0)
+layout_mode = 2
+text = "Surname"
+
+[node name="Surname" type="LineEdit" parent="VBoxContainer/Manager/Manager/Container"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(400, 0)
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+placeholder_text = "Your surname"
+
+[node name="NationaltyLabel" type="Label" parent="VBoxContainer/Manager/Manager/Container"]
+custom_minimum_size = Vector2(240, 0)
+layout_mode = 2
+text = "Nationality"
+
+[node name="Nationality" type="OptionButton" parent="VBoxContainer/Manager/Manager/Container"]
+unique_name_in_owner = true
+layout_mode = 2
+script = ExtResource("4_3e6xm")
+
+[node name="HSeparator3" type="HSeparator" parent="VBoxContainer"]
+layout_mode = 2
 
 [node name="Settings" type="VBoxContainer" parent="VBoxContainer"]
 layout_mode = 2
@@ -88,7 +149,6 @@ layout_mode = 2
 text = "Generation seed"
 
 [node name="GenerationSeedDescription" type="Label" parent="VBoxContainer/Seed"]
-custom_minimum_size = Vector2(0, 180)
 layout_mode = 2
 text = "This generation seed defines player names and attributes. When reused, it will generate exatly the same result."
 autowrap_mode = 2
@@ -136,6 +196,7 @@ script = ExtResource("3_g76wv")
 metadata/_edit_use_anchors_ = true
 
 [node name="Continue" type="Button" parent="VBoxContainer/Buttons"]
+unique_name_in_owner = true
 custom_minimum_size = Vector2(200, 0)
 layout_mode = 2
 size_flags_horizontal = 4
@@ -144,6 +205,8 @@ text = "Continue"
 script = ExtResource("3_g76wv")
 metadata/_edit_use_anchors_ = true
 
+[connection signal="text_changed" from="VBoxContainer/Manager/Manager/Container/Name" to="." method="_on_name_text_changed"]
+[connection signal="text_changed" from="VBoxContainer/Manager/Manager/Container/Surname" to="." method="_on_surame_text_changed"]
 [connection signal="pressed" from="VBoxContainer/Seed/GridContainer/GenearateSeedButton" to="." method="_on_genearate_seed_button_pressed"]
 [connection signal="text_changed" from="VBoxContainer/Seed/GridContainer/GeneratedSeedLineEdit" to="." method="_on_generated_seed_line_edit_text_changed"]
 [connection signal="pressed" from="VBoxContainer/Seed/GridContainer/DefaultSeedButton" to="." method="_on_default_seed_button_pressed"]

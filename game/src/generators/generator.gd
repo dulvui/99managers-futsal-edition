@@ -53,10 +53,42 @@ var date: Dictionary
 var max_timestamp: int
 var min_timestamp: int
 
-
 func generate_world(use_test_file: bool = false) -> World:
-	var world: World = _generate_world_from_csv(use_test_file)
+	var world: World = World.new()
+	world.initialize()
 	
+	var world_csv: String = WORLD_CSV_PATH
+	if use_test_file:
+		world_csv = TEST_WORLD_CSV_PATH
+
+	var file: FileAccess = FileAccess.open(world_csv, FileAccess.READ)
+
+	# get header row
+	# CONTINENT, NATION, CITY, POPULATION
+	var header_line: PackedStringArray = file.get_csv_line()
+	var headers: Array[String] = []
+	# transform to array and make lower case
+	for header: String in header_line:
+		headers.append(header.to_lower())
+
+	while not file.eof_reached():
+		var line: PackedStringArray = file.get_csv_line()
+		if line.size() > 1:
+			var continent: String = line[0]
+			var nation: String = line[1]
+			var league: String = line[2]
+			var city: String = line[3]
+			_initialize_city(world, continent, nation, league, city)
+	
+	# sort continents, nations alphabetically
+	world.continents.sort_custom(func(a: Continent, b: Continent) -> bool: return a.name < b.name)
+	for continent: Continent in world.continents:
+		continent.nations.sort_custom(func(a: Nation, b: Nation) -> bool: return a.name < b.name)
+
+	return world
+
+
+func generate_players(world: World = Global.world) -> void:
 	# create date ranges
 	# starts from current year and subtracts min/max years
 	# youngest player can be 15 and oldest 45
@@ -102,8 +134,6 @@ func generate_world(use_test_file: bool = false) -> World:
 	_generate_club_history(world)
 	# then generate player histroy with trasnfers and statistics
 	_generate_player_history(world)
-
-	return world
 
 
 func _initialize_team(
@@ -716,41 +746,6 @@ func _generate_club_history(world: World) -> void:
 
 func _generate_player_history(_world: World) -> void:
 	pass
-
-
-func _generate_world_from_csv(use_test_file: bool = false) -> World:
-	var world: World = World.new()
-	world.initialize()
-	
-	var world_csv: String = WORLD_CSV_PATH
-	if use_test_file:
-		world_csv = TEST_WORLD_CSV_PATH
-
-	var file: FileAccess = FileAccess.open(world_csv, FileAccess.READ)
-
-	# get header row
-	# CONTINENT, NATION, CITY, POPULATION
-	var header_line: PackedStringArray = file.get_csv_line()
-	var headers: Array[String] = []
-	# transform to array and make lower case
-	for header: String in header_line:
-		headers.append(header.to_lower())
-
-	while not file.eof_reached():
-		var line: PackedStringArray = file.get_csv_line()
-		if line.size() > 1:
-			var continent: String = line[0]
-			var nation: String = line[1]
-			var league: String = line[2]
-			var city: String = line[3]
-			_initialize_city(world, continent, nation, league, city)
-	
-	# sort continents, nations alphabetically
-	world.continents.sort_custom(func(a: Continent, b: Continent) -> bool: return a.name < b.name)
-	for continent: Continent in world.continents:
-		continent.nations.sort_custom(func(a: Nation, b: Nation) -> bool: return a.name < b.name)
-
-	return world
 
 
 func _initialize_city(

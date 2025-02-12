@@ -2,18 +2,22 @@
 
 # SPDX-License-Identifier: AGPL-3.0-or-later
 
-#TODO
-# - random name button
-
 extends Control
 
 const DEFAULT_SEED: String = "289636-522140-666834"
 
 var generation_seed: String = DEFAULT_SEED
 
+# manager
+@onready var nations: OptionButton = %Nationality
+@onready var manager_name: LineEdit = %Name
+@onready var manager_surname: LineEdit = %Surname
+# game settings
 @onready var player_names_option: OptionButton = %PlayerNames
 @onready var start_year_spinbox: SpinBox = %StartYear
 @onready var generation_seed_edit: LineEdit = %GeneratedSeedLineEdit
+
+@onready var continue_button: Button = %Continue
 
 
 func _ready() -> void:
@@ -27,6 +31,16 @@ func _ready() -> void:
 	generation_seed_edit.text = generation_seed
 	# set start year to current system year
 	start_year_spinbox.get_line_edit().text = str(Time.get_datetime_dict_from_system().year)
+
+	# reset temp values
+	if Global.manager:
+		manager_name.text = Global.manager.name
+		manager_surname.text = Global.manager.surname
+
+	for nation: Nation in Global.world.get_all_nations():
+		nations.add_item(nation.name)
+
+	continue_button.disabled = manager_name.text.length() * manager_surname.text.length() == 0
 
 
 func _on_generated_seed_line_edit_text_changed(new_text: String) -> void:
@@ -44,11 +58,18 @@ func _on_default_seed_button_pressed() -> void:
 	generation_seed_edit.text = generation_seed
 
 
-func _on_back_pressed() -> void:
-	Main.change_scene(Const.SCREEN_MENU)
-
-
 func _on_continue_pressed() -> void:
+	# setup manager
+	if manager_name.text.length() * manager_surname.text.length() == 0:
+		return
+
+	var manager: Manager = Manager.new()
+	manager.name = manager_name.text
+	manager.surname = manager_surname.text
+	manager.nation = Global.world.get_all_nations()[nations.selected].name
+	Global.manager = manager
+
+	# setup generation
 	if generation_seed.length() == 0:
 		generation_seed = DEFAULT_SEED
 
@@ -68,6 +89,18 @@ func _on_continue_pressed() -> void:
 	RngUtil.reset_seed(generation_seed, player_names_option.selected)
 
 	LoadingUtil.start(tr("Generating players"), LoadingUtil.Type.GENERATION, true)
-	Main.show_loading_screen(Const.SCREEN_SETUP_MANAGER)
-	ThreadUtil.generate_world()
+	Main.show_loading_screen(Const.SCREEN_SETUP_TEAM)
+	ThreadUtil.generate_players()
+
+
+func _on_name_text_changed(_new_text: String) -> void:
+	continue_button.disabled = manager_name.text.length() * manager_surname.text.length() == 0
+
+
+func _on_surame_text_changed(_new_text: String) -> void:
+	continue_button.disabled = manager_name.text.length() * manager_surname.text.length() == 0
+
+
+func _on_back_pressed() -> void:
+	Main.change_scene(Const.SCREEN_MENU)
 
