@@ -1868,7 +1868,7 @@ msgid "Singapore"
 msgstr ""
 
 #: src/resources/world/nation_names.gd
-msgid "Sri_lanka"
+msgid "Sri Lanka"
 msgstr ""
 
 #: src/resources/world/nation_names.gd
