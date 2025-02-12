@@ -335,19 +335,21 @@ msgid "Year"
 msgstr ""
 
 #: src/ui_components/player_list/player_list.gd
-msgid "ALL_TEAMS"
+msgid "All Teams"
 msgstr ""
 
 #: src/ui_components/player_list/player_list.gd
-msgid "ALL_POS"
+msgid "All positions"
 msgstr ""
 
 #: src/ui_components/player_list/player_list.gd
-msgid "ALL_LEAGUES"
+msgid "All Leagues"
 msgstr ""
 
 #: src/ui_components/player_list/player_list_column/player_list_column.tscn
-msgid "NAME"
+#: src/ui_components/player_profile/info_view/info_view.tscn
+#: src/screens/setup/setup_manager/setup_manager.tscn
+msgid "Name"
 msgstr ""
 
 #: src/ui_components/info/info.tscn
@@ -367,15 +369,19 @@ msgid "Ok"
 msgstr ""
 
 #: src/ui_components/base/confirm_dialog/default_confirm_dialog.tscn
-msgid "CANCEL"
+#: src/ui_components/transfers/player_offer/player_offer.tscn
+#: src/ui_components/transfers/contract_offer/contract_offer.tscn
+#: src/screens/setup/setup_world/setup_world.tscn
+#: src/screens/setup/setup_manager/setup_manager.tscn
+msgid "Cancel"
 msgstr ""
 
 #: src/ui_components/base/confirm_dialog/default_confirm_dialog.tscn
-msgid "NO"
+msgid "No"
 msgstr ""
 
 #: src/ui_components/base/confirm_dialog/default_confirm_dialog.tscn
-msgid "YES"
+msgid "Yes"
 msgstr ""
 
 #: src/ui_components/base/search_line_edit/search_line_edit.tscn
@@ -400,56 +406,57 @@ msgid "Income"
 msgstr ""
 
 #: src/ui_components/visual_competitions/visual_table/visual_table.tscn
+#: src/ui_components/player_profile/info_view/info_view.tscn
 #: src/screens/save_states_screen/save_state_entry/save_state_entry.tscn
-msgid "TEAM"
+msgid "Team"
 msgstr ""
 
 #: src/ui_components/visual_competitions/visual_table/visual_table.tscn
-msgid "PLAYED"
+msgid "Played"
 msgstr ""
 
 #: src/ui_components/visual_competitions/visual_table/visual_table.tscn
-msgid "WIN"
+msgid "Win"
 msgstr ""
 
 #: src/ui_components/visual_competitions/visual_table/visual_table.tscn
-msgid "DRAW"
+msgid "Draw"
 msgstr ""
 
 #: src/ui_components/visual_competitions/visual_table/visual_table.tscn
-msgid "LOST"
+msgid "Lost"
 msgstr ""
 
 #: src/ui_components/visual_competitions/visual_table/visual_table.tscn
-msgid "GOALS"
+msgid "Goals"
 msgstr ""
 
 #: src/ui_components/visual_competitions/visual_table/visual_table.tscn
-msgid "GOALS_CONCEDED"
+msgid "Goals conceded"
 msgstr ""
 
 #: src/ui_components/visual_competitions/visual_table/visual_table.tscn
-msgid "POINTS"
+msgid "Points"
 msgstr ""
 
 #: src/ui_components/visual_competitions/visual_knockout/visual_knockout.tscn
-msgid "KNOCKOUT"
+msgid "Knockout"
 msgstr ""
 
 #: src/ui_components/visual_competitions/visual_knockout/visual_knockout.tscn
-msgid "GROUP A"
+msgid "Group A"
 msgstr ""
 
 #: src/ui_components/visual_competitions/visual_knockout/visual_knockout.tscn
-msgid "FINAL"
+msgid "Final"
 msgstr ""
 
 #: src/ui_components/visual_competitions/visual_knockout/visual_knockout.tscn
-msgid "GROUP B"
+msgid "Group B"
 msgstr ""
 
 #: src/ui_components/visual_competitions/visual_knockout/visual_knockout.tscn
-msgid "WINNER A vs WINNER B"
+msgid "Winner A vs Winner B"
 msgstr ""
 
 #: src/ui_components/visual_competitions/visual_competitions.tscn
@@ -479,22 +486,15 @@ msgstr ""
 
 #: src/ui_components/transfers/player_offer/player_offer.tscn
 #: src/ui_components/transfers/contract_offer/contract_offer.tscn
-#: src/screens/setup/setup_world/setup_world.tscn
-#: src/screens/setup/setup_manager/setup_manager.tscn
-msgid "Cancel"
-msgstr ""
-
-#: src/ui_components/transfers/player_offer/player_offer.tscn
-#: src/ui_components/transfers/contract_offer/contract_offer.tscn
 msgid "Confirm"
 msgstr ""
 
 #: src/ui_components/transfers/player_offer/player_offer.gd
-msgid "TRANSFER"
+msgid "Transfer"
 msgstr ""
 
 #: src/ui_components/transfers/player_offer/player_offer.gd
-msgid "LOAN"
+msgid "Loan"
 msgstr ""
 
 #: src/ui_components/transfers/contract_offer/contract_offer.tscn
@@ -546,6 +546,7 @@ msgid "Subject"
 msgstr ""
 
 #: src/ui_components/email/list/message_list.tscn
+#: src/ui_components/email/visual_message/visual_message.tscn
 msgid "From"
 msgstr ""
 
@@ -570,11 +571,7 @@ msgid "Starred"
 msgstr ""
 
 #: src/ui_components/email/visual_message/visual_message.tscn
-msgid "FROM"
-msgstr ""
-
-#: src/ui_components/email/visual_message/visual_message.tscn
-msgid "TO"
+msgid "To"
 msgstr ""
 
 #: src/ui_components/email/visual_message/visual_message.tscn
@@ -582,7 +579,7 @@ msgid "Action"
 msgstr ""
 
 #: src/ui_components/email/visual_message/visual_message.gd
-msgid "OFFER_CONTRACT"
+msgid "Offer contract"
 msgstr ""
 
 #: src/ui_components/player_profile/player_profile.tscn
@@ -591,11 +588,6 @@ msgstr ""
 
 #: src/ui_components/player_profile/player_profile.tscn
 msgid "Attributes"
-msgstr ""
-
-#: src/ui_components/player_profile/info_view/info_view.tscn
-#: src/screens/setup/setup_manager/setup_manager.tscn
-msgid "Name"
 msgstr ""
 
 #: src/ui_components/player_profile/info_view/info_view.tscn
@@ -620,10 +612,6 @@ msgid "Nationality"
 msgstr ""
 
 #: src/ui_components/player_profile/info_view/info_view.tscn
-msgid "Team"
-msgstr ""
-
-#: src/ui_components/player_profile/info_view/info_view.tscn
 msgid "Number"
 msgstr ""
 
@@ -636,26 +624,25 @@ msgid "Value"
 msgstr ""
 
 #: src/ui_components/player_profile/contract_view/contract_view.tscn
-msgid "MAKE_OFFER"
+msgid "Make offer"
 msgstr ""
 
 #: src/ui_components/visual_calendar/visual_day/visual_day.tscn
-msgid "TRANSFERMARKET"
+#: src/ui_components/visual_calendar/visual_day/visual_day.gd
+#: src/screens/dashboard/dashboard.tscn
+msgid "Transfermarket"
 msgstr ""
 
 #: src/ui_components/visual_calendar/visual_day/visual_day.gd
+#: src/ui_components/visual_calendar/match_list/match_info/match_info.tscn
 #: src/screens/match/match.tscn
 msgid "Home"
 msgstr ""
 
 #: src/ui_components/visual_calendar/visual_day/visual_day.gd
+#: src/ui_components/visual_calendar/match_list/match_info/match_info.tscn
 #: src/screens/match/match.tscn
 msgid "Away"
-msgstr ""
-
-#: src/ui_components/visual_calendar/visual_day/visual_day.gd
-#: src/screens/dashboard/dashboard.tscn
-msgid "Transfermarket"
 msgstr ""
 
 #: src/ui_components/visual_calendar/visual_day/visual_day.gd
@@ -663,15 +650,7 @@ msgid ""
 msgstr ""
 
 #: src/ui_components/visual_calendar/match_list/match_info/match_info.tscn
-msgid "HOME"
-msgstr ""
-
-#: src/ui_components/visual_calendar/match_list/match_info/match_info.tscn
-msgid "VS"
-msgstr ""
-
-#: src/ui_components/visual_calendar/match_list/match_info/match_info.tscn
-msgid "AWAY"
+msgid "vs"
 msgstr ""
 
 #: src/ui_components/visual_calendar/match_list/match_list.gd
@@ -739,10 +718,8 @@ msgstr ""
 
 #: src/utils/logic/email_util.gd
 msgid ""
-"\n"
-"\t\t\tYou made an offer for {player_name} from {team_name} at {cost}.\n"
-"\t\t\t{team_name} will consider the offer and respond within a few days.\n"
-"\t\t\t"
+"You made an offer for {player_name} from {team_name} at {cost}.\n"
+"\t\t\t{team_name} will consider the offer and respond within a few days."
 msgstr ""
 
 #: src/utils/logic/email_util.gd
@@ -751,10 +728,8 @@ msgstr ""
 
 #: src/utils/logic/email_util.gd
 msgid ""
-"\n"
-"\t\t\tYour offer for {player_name} from {team_name} at {cost} has been declined.\n"
-"\t\t\tIncreasing the transfer value could make them reconsider.\n"
-"\t\t\t"
+"Your offer for {player_name} from {team_name} at {cost} has been declined.\n"
+"\t\t\tIncreasing the transfer value could make them reconsider."
 msgstr ""
 
 #: src/utils/logic/email_util.gd
@@ -763,26 +738,8 @@ msgstr ""
 
 #: src/utils/logic/email_util.gd
 msgid ""
-"\n"
-"\t\t\tYour offer for {player_name} from {team_name} at {cost} has been accepted.\n"
-"\t\t\tYou can now find a contractual aggreement with {player_name}.\n"
-"\t\t\t"
-msgstr ""
-
-#: src/utils/logic/email_util.gd
-msgid "EMAIL_SUBJECT_TRANSER_CONTRACT_PENDING"
-msgstr ""
-
-#: src/utils/logic/email_util.gd
-msgid "EMAIL_TEXT_TRANSER_CONTRACT_PENDING"
-msgstr ""
-
-#: src/utils/logic/email_util.gd
-msgid "EMAIL_SUBJECT_TRANSER_SUCCESS"
-msgstr ""
-
-#: src/utils/logic/email_util.gd
-msgid "EMAIL_TEXT_TRANSER_SUCCESS"
+"Your offer for {player_name} from {team_name} at {cost} has been accepted.\n"
+"\t\t\tYou can now find a contractual aggreement with {player_name}."
 msgstr ""
 
 #: src/utils/logic/match_combination_util.gd
@@ -923,35 +880,39 @@ msgid "Loading game"
 msgstr ""
 
 #: src/screens/save_states_screen/save_state_entry/save_state_entry.tscn
-msgid "MANAGER"
+#: src/screens/setup/setup_manager/setup_manager.tscn
+msgid "Manager"
 msgstr ""
 
 #: src/screens/save_states_screen/save_state_entry/save_state_entry.tscn
-msgid "TABLE_PLACEMENT"
+msgid "Table placement"
 msgstr ""
 
 #: src/screens/save_states_screen/save_state_entry/save_state_entry.tscn
-msgid "GAME_DATE"
+msgid "Game date"
 msgstr ""
 
 #: src/screens/save_states_screen/save_state_entry/save_state_entry.tscn
-msgid "LAST_SAVE"
+msgid "Last save"
 msgstr ""
 
 #: src/screens/save_states_screen/save_state_entry/save_state_entry.tscn
-msgid "CREATED"
+msgid "Created"
 msgstr ""
 
 #: src/screens/save_states_screen/save_state_entry/save_state_entry.tscn
-msgid "DELETE"
+msgid "Delete"
 msgstr ""
 
 #: src/screens/save_states_screen/save_state_entry/save_state_entry.tscn
-msgid "LOAD_GAME"
+#: src/screens/menu/menu.tscn
+msgid "Load game"
 msgstr ""
 
 #: src/screens/save_states_screen/save_state_entry/save_state_entry.tscn
-msgid "SAVE_STATE_DELETE_INFO"
+msgid ""
+"Deleting a save state is permanent and can't be undone.\n"
+"Are you sure you want delete this save state?"
 msgstr ""
 
 #: src/screens/dashboard/dashboard.gd
@@ -1091,10 +1052,6 @@ msgid "New game"
 msgstr ""
 
 #: src/screens/menu/menu.tscn
-msgid "Load game"
-msgstr ""
-
-#: src/screens/menu/menu.tscn
 msgid "Exit"
 msgstr ""
 
@@ -1128,10 +1085,6 @@ msgstr ""
 
 #: src/screens/setup/setup_world/setup_world.gd
 msgid "Generating players"
-msgstr ""
-
-#: src/screens/setup/setup_manager/setup_manager.tscn
-msgid "Manager"
 msgstr ""
 
 #: src/screens/setup/setup_manager/setup_manager.tscn

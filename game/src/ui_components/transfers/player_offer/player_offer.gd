@@ -29,8 +29,8 @@ var selected_players: Array[Player] = []
 
 func _ready() -> void:
 	regex.compile("^[0-9]*$")
-	types.add_item("TRANSFER")
-	types.add_item("LOAN")
+	types.add_item("Transfer")
+	types.add_item("Loan")
 
 	amount_label.text = str(amount)
 

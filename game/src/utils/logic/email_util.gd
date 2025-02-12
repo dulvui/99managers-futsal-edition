@@ -67,10 +67,8 @@ func transfer_message(transfer: Transfer) -> void:
 			subject = tr("Offer for {player_name}")
 			# TRANSLATORS: {cost}, {player_name}, {team_name} get dynamically filled
 			text = tr(
-			"""
-			You made an offer for {player_name} from {team_name} at {cost}.
-			{team_name} will consider the offer and respond within a few days.
-			"""
+			"""You made an offer for {player_name} from {team_name} at {cost}.
+			{team_name} will consider the offer and respond within a few days."""
 			)
 
 			subject = subject.format({"player_name": transfer.player.surname})
@@ -86,10 +84,8 @@ func transfer_message(transfer: Transfer) -> void:
 			subject = tr("Offer for {player name} declined")
 			# TRANSLATORS: {player_name}, {team_name} get dynamically filled
 			text = tr(
-			"""
-			Your offer for {player_name} from {team_name} at {cost} has been declined.
-			Increasing the transfer value could make them reconsider.
-			"""
+			"""Your offer for {player_name} from {team_name} at {cost} has been declined.
+			Increasing the transfer value could make them reconsider."""
 			)
 
 			subject = subject.format({"player_name": transfer.player.get_full_name()})
@@ -105,10 +101,8 @@ func transfer_message(transfer: Transfer) -> void:
 			subject = tr("Offer for {player name} accepted")
 			# TRANSLATORS: {player_name}, {team_name} get dynamically filled
 			text = tr(
-			"""
-			Your offer for {player_name} from {team_name} at {cost} has been accepted.
-			You can now find a contractual aggreement with {player_name}.
-			"""
+			"""Your offer for {player_name} from {team_name} at {cost} has been accepted.
+			You can now find a contractual aggreement with {player_name}."""
 			)
 
 			subject = subject.format({"player_name": transfer.player.get_full_name()})
@@ -118,39 +112,39 @@ func transfer_message(transfer: Transfer) -> void:
 					"team_name": sender_team.name,
 				}
 			)
-		Transfer.State.CONTRACT_PENDING:
-			# TRANSLATORS: {player_name} gets dynamically filled
-			subject = tr("EMAIL_SUBJECT_TRANSER_CONTRACT_PENDING")
-			# TRANSLATORS: {player_name}, {team_name}, {income} get dynamically filled
-			text = tr("EMAIL_TEXT_TRANSER_CONTRACT_PENDING")
-
-			subject = subject.format({"player_name": transfer.player.get_full_name()})
-			text = text.format(
-				{
-					"player_name": transfer.player.get_full_name(),
-					"team_name": sender_team.name,
-					"income": transfer.contract.income,
-				}
-			)
-		Transfer.State.CONTRACT_DECLINED:
-			subject = "CONTRACT_DECLINED"
-			text = (
-				"The player " + transfer.player.get_full_name() + " acceptet the contract"
-			)
-		Transfer.State.SUCCESS:
-			# TRANSLATORS: {player_name} gets dynamically filled
-			subject = tr("EMAIL_SUBJECT_TRANSER_SUCCESS")
-			# TRANSLATORS: {cost}, {player_name}, {team_name} get dynamically filled
-			text = tr("EMAIL_TEXT_TRANSER_SUCCESS")
-
-			subject = subject.format({"player_name": transfer.player.get_full_name()})
-			text = text.format(
-				{
-					"cost": transfer.cost,
-					"player_name": transfer.player.get_full_name(),
-					"team_name": sender_team.name,
-				}
-			)
+		# Transfer.State.CONTRACT_PENDING:
+		# 	# TRANSLATORS: {player_name} gets dynamically filled
+		# 	subject = tr("EMAIL_SUBJECT_TRANSER_CONTRACT_PENDING")
+		# 	# TRANSLATORS: {player_name}, {team_name}, {income} get dynamically filled
+		# 	text = tr("EMAIL_TEXT_TRANSER_CONTRACT_PENDING")
+		#
+		# 	subject = subject.format({"player_name": transfer.player.get_full_name()})
+		# 	text = text.format(
+		# 		{
+		# 			"player_name": transfer.player.get_full_name(),
+		# 			"team_name": sender_team.name,
+		# 			"income": transfer.contract.income,
+		# 		}
+		# 	)
+		# Transfer.State.CONTRACT_DECLINED:
+		# 	subject = "CONTRACT_DECLINED"
+		# 	text = (
+		# 		"The player " + transfer.player.get_full_name() + " acceptet the contract"
+		# 	)
+		# Transfer.State.SUCCESS:
+		# 	# TRANSLATORS: {player_name} gets dynamically filled
+		# 	subject = tr("EMAIL_SUBJECT_TRANSER_SUCCESS")
+		# 	# TRANSLATORS: {cost}, {player_name}, {team_name} get dynamically filled
+		# 	text = tr("EMAIL_TEXT_TRANSER_SUCCESS")
+		#
+		# 	subject = subject.format({"player_name": transfer.player.get_full_name()})
+		# 	text = text.format(
+		# 		{
+		# 			"cost": transfer.cost,
+		# 			"player_name": transfer.player.get_full_name(),
+		# 			"team_name": sender_team.name,
+		# 		}
+		# 	)
 		_:
 			subject = "ERROR"
 			text = "Error in code " + transfer.player.get_full_name()

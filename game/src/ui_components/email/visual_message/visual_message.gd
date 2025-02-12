@@ -30,7 +30,7 @@ func show_message(p_message: EmailMessage) -> void:
 
 	if message.type == EmailMessage.Type.CONTRACT_OFFER:
 		action_button.show()
-		action_button.text = "OFFER_CONTRACT"
+		action_button.text = "Offer contract"
 	else:
 		action_button.hide()
 

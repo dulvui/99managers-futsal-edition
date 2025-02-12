@@ -57,17 +57,17 @@ func _ready() -> void:
 	columns = []
 
 	# filter and view buttons
-	team_select.add_item("ALL_TEAMS")
+	team_select.add_item("All Teams")
 	for league: League in Global.world.get_all_leagues():
 		for team: Team in league.teams:
 			if team == null or Global.team == null or team.name != Global.team.name:
 				team_select.add_item(team.name)
 
-	pos_select.add_item("ALL_POS")
+	pos_select.add_item("All positions")
 	for pos: String in Position.Type.keys():
 		pos_select.add_item(pos)
 
-	league_select.add_item("ALL_LEAGUES")
+	league_select.add_item("All Leagues")
 	for league: League in Global.world.get_all_leagues():
 		league_select.add_item(league.name)
 
@@ -334,7 +334,7 @@ func _on_league_select_item_selected(index: int) -> void:
 	# clean team selector
 	filters.erase("team")
 	team_select.clear()
-	team_select.add_item("ALL_TEAMS")
+	team_select.add_item("All Teams")
 
 	# adjust team picker according to selected league
 	for league: League in Global.world.get_all_leagues():
