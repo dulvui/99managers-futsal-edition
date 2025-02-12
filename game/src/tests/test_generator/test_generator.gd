@@ -11,8 +11,12 @@ func test() -> void:
 	RngUtil.reset_seed("TestSeed", 0)
 
 	var generator: Generator = Generator.new()
+	# generate world
 	var world: World = generator.generate_world()
 	assert(world.continents.size() > 0)
+
+	# generate players
+	generator.generate_players(world)
 
 	print("test: required properties...")
 
@@ -32,6 +36,8 @@ func test() -> void:
 		RngUtil.reset_seed("TestSeed", 0)
 
 		var test_world: World = generator.generate_world()
+		# generate players
+		generator.generate_players(test_world)
 
 		# continents
 		assert(test_world.continents.size() == world.continents.size())
