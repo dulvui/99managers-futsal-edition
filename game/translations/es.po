@@ -282,47 +282,40 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: 99 Managers Futsal Edition\n"
-"PO-Revision-Date: 2025-02-10 07:25+0000\n"
+"POT-Creation-Date: \n"
+"PO-Revision-Date: 2025-02-12 13:49+0100\n"
 "Last-Translator: Simon Dalvai <info@simondalvai.org>\n"
-"Language-Team: Spanish <https://hosted.weblate.org/projects/"
-"99-managers-futsal-edition/game/es/>\n"
+"Language-Team: Spanish <https://hosted.weblate.org/projects/99-managers-futsal-edition/game/es/>\n"
 "Language: es\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
-"Content-Transfer-Encoding: 8-bit\n"
+"Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 5.10-dev\n"
+"X-Generator: Poedit 3.2.2\n"
 
-#: src/ui_components/team_profile/team_profile.tscn
-#: src/ui_components/info/info.tscn
-#: src/ui_components/player_profile/player_profile.tscn
-#: src/screens/dashboard/dashboard.tscn
+#: src/ui_components/team_profile/team_profile.tscn src/ui_components/info/info.tscn
+#: src/ui_components/player_profile/player_profile.tscn src/screens/dashboard/dashboard.tscn
 msgid "Info"
 msgstr "Info"
 
-#: src/ui_components/team_profile/team_profile.tscn
-#: src/ui_components/team_profile/team_profile.gd
+#: src/ui_components/team_profile/team_profile.tscn src/ui_components/team_profile/team_profile.gd
 msgid "Budget"
 msgstr "Presupuesto"
 
-#: src/ui_components/team_profile/team_profile.tscn
-#: src/screens/dashboard/dashboard.tscn
+#: src/ui_components/team_profile/team_profile.tscn src/screens/dashboard/dashboard.tscn
 msgid "Stadium"
 msgstr "Estadio"
 
-#: src/ui_components/team_profile/team_profile.tscn
-#: src/ui_components/transfers/player_offer/player_offer.tscn
+#: src/ui_components/team_profile/team_profile.tscn src/ui_components/transfers/player_offer/player_offer.tscn
 #: src/screens/dashboard/dashboard.tscn
 msgid "Players"
 msgstr "Jugadores"
 
-#: src/ui_components/team_profile/team_profile.gd
-#: src/ui_components/player_profile/info_view/info_view.tscn
+#: src/ui_components/team_profile/team_profile.gd src/ui_components/player_profile/info_view/info_view.tscn
 msgid "Prestige"
 msgstr "Prestigio"
 
-#: src/ui_components/team_profile/team_profile.gd
-#: src/ui_components/visual_finances/visual_finances.tscn
+#: src/ui_components/team_profile/team_profile.gd src/ui_components/visual_finances/visual_finances.tscn
 msgid "Salary budget"
 msgstr "Presupuesto salarial"
 
@@ -330,8 +323,7 @@ msgstr "Presupuesto salarial"
 msgid "Persons"
 msgstr "Personas"
 
-#: src/ui_components/team_profile/team_profile.gd
-#: src/ui_components/transfers/contract_offer/contract_offer.tscn
+#: src/ui_components/team_profile/team_profile.gd src/ui_components/transfers/contract_offer/contract_offer.tscn
 msgid "Year"
 msgstr "Año"
 
@@ -348,8 +340,7 @@ msgid "All Leagues"
 msgstr ""
 
 #: src/ui_components/player_list/player_list_column/player_list_column.tscn
-#: src/ui_components/player_profile/info_view/info_view.tscn
-#: src/screens/setup/setup_manager/setup_manager.tscn
+#: src/ui_components/player_profile/info_view/info_view.tscn src/screens/setup/setup_manager/setup_manager.tscn
 msgid "Name"
 msgstr "Nombre"
 
@@ -371,8 +362,7 @@ msgstr ""
 
 #: src/ui_components/base/confirm_dialog/default_confirm_dialog.tscn
 #: src/ui_components/transfers/player_offer/player_offer.tscn
-#: src/ui_components/transfers/contract_offer/contract_offer.tscn
-#: src/screens/setup/setup_world/setup_world.tscn
+#: src/ui_components/transfers/contract_offer/contract_offer.tscn src/screens/setup/setup_world/setup_world.tscn
 #: src/screens/setup/setup_manager/setup_manager.tscn
 msgid "Cancel"
 msgstr "Cancelar"
@@ -446,23 +436,23 @@ msgstr "Noqueo"
 
 #: src/ui_components/visual_competitions/visual_knockout/visual_knockout.tscn
 msgid "Group A"
-msgstr "GROUP A"
+msgstr ""
 
 #: src/ui_components/visual_competitions/visual_knockout/visual_knockout.tscn
 msgid "Final"
-msgstr "FINAL"
+msgstr ""
 
 #: src/ui_components/visual_competitions/visual_knockout/visual_knockout.tscn
 msgid "Group B"
-msgstr "GROUP B"
+msgstr ""
 
 #: src/ui_components/visual_competitions/visual_knockout/visual_knockout.tscn
 msgid "Winner A vs Winner B"
-msgstr "WINNER A vs WINNER B"
+msgstr ""
 
 #: src/ui_components/visual_competitions/visual_competitions.tscn
 msgid "League"
-msgstr "LEAGUE"
+msgstr ""
 
 #: src/ui_components/visual_competitions/visual_competitions.gd
 msgid "Group"
@@ -476,14 +466,13 @@ msgstr "Tipo"
 msgid "Money"
 msgstr "Dinero"
 
-#: src/ui_components/transfers/player_offer/player_offer.tscn
-#: src/ui_components/email/list/message_list.tscn
+#: src/ui_components/transfers/player_offer/player_offer.tscn src/ui_components/email/list/message_list.tscn
 msgid "Date"
 msgstr "Fecha"
 
 #: src/ui_components/transfers/player_offer/player_offer.tscn
 msgid "Player list"
-msgstr "PLAYER_LIST"
+msgstr ""
 
 #: src/ui_components/transfers/player_offer/player_offer.tscn
 #: src/ui_components/transfers/contract_offer/contract_offer.tscn
@@ -498,8 +487,7 @@ msgstr "Transferencia"
 msgid "Loan"
 msgstr "Préstamo"
 
-#: src/ui_components/transfers/contract_offer/contract_offer.tscn
-#: src/ui_components/player_profile/player_profile.tscn
+#: src/ui_components/transfers/contract_offer/contract_offer.tscn src/ui_components/player_profile/player_profile.tscn
 msgid "Contract"
 msgstr "Contrato"
 
@@ -515,8 +503,7 @@ msgstr "Cambios"
 msgid "Rest"
 msgstr "Resto"
 
-#: src/ui_components/visual_formation/visual_formation.tscn
-#: src/screens/dashboard/dashboard.tscn
+#: src/ui_components/visual_formation/visual_formation.tscn src/screens/dashboard/dashboard.tscn
 #: src/screens/match/match.tscn
 msgid "Formation"
 msgstr "Formación"
@@ -541,13 +528,11 @@ msgstr "Marcado"
 msgid "Pressing"
 msgstr "Presión"
 
-#: src/ui_components/email/list/message_list.tscn
-#: src/ui_components/email/visual_message/visual_message.tscn
+#: src/ui_components/email/list/message_list.tscn src/ui_components/email/visual_message/visual_message.tscn
 msgid "Subject"
 msgstr "Asunto"
 
-#: src/ui_components/email/list/message_list.tscn
-#: src/ui_components/email/visual_message/visual_message.tscn
+#: src/ui_components/email/list/message_list.tscn src/ui_components/email/visual_message/visual_message.tscn
 msgid "From"
 msgstr "Desde"
 
@@ -557,11 +542,11 @@ msgstr "Estrella"
 
 #: src/ui_components/email/list/message_list.gd
 msgid "No message found"
-msgstr "NO_MESSAGE_FOUND"
+msgstr ""
 
 #: src/ui_components/email/list/message_row/message_row.gd
 msgid "Click to read message"
-msgstr "CLICK_TO_READ_MESSAGE"
+msgstr ""
 
 #: src/ui_components/email/email.tscn
 msgid "Unread"
@@ -581,7 +566,7 @@ msgstr "Acción"
 
 #: src/ui_components/email/visual_message/visual_message.gd
 msgid "Offer contract"
-msgstr "OFFER_CONTRACT"
+msgstr ""
 
 #: src/ui_components/player_profile/player_profile.tscn
 msgid "Statistics"
@@ -607,8 +592,7 @@ msgstr "Edad"
 msgid "Foot"
 msgstr "Andando"
 
-#: src/ui_components/player_profile/info_view/info_view.tscn
-#: src/screens/setup/setup_manager/setup_manager.tscn
+#: src/ui_components/player_profile/info_view/info_view.tscn src/screens/setup/setup_manager/setup_manager.tscn
 msgid "Nationality"
 msgstr "Nacionalidad"
 
@@ -618,7 +602,7 @@ msgstr ""
 
 #: src/ui_components/player_profile/info_view/info_view.tscn
 msgid "Average attributes"
-msgstr "ATTRIBUTES_AVERGE"
+msgstr ""
 
 #: src/ui_components/player_profile/info_view/info_view.tscn
 msgid "Value"
@@ -629,26 +613,23 @@ msgid "Make offer"
 msgstr "Hacer oferta"
 
 #: src/ui_components/visual_calendar/visual_day/visual_day.tscn
-#: src/ui_components/visual_calendar/visual_day/visual_day.gd
-#: src/screens/dashboard/dashboard.tscn
+#: src/ui_components/visual_calendar/visual_day/visual_day.gd src/screens/dashboard/dashboard.tscn
 msgid "Transfermarket"
 msgstr "Mercado de fichajes"
 
 #: src/ui_components/visual_calendar/visual_day/visual_day.gd
-#: src/ui_components/visual_calendar/match_list/match_info/match_info.tscn
-#: src/screens/match/match.tscn
+#: src/ui_components/visual_calendar/match_list/match_info/match_info.tscn src/screens/match/match.tscn
 msgid "Home"
 msgstr "Inicio"
 
 #: src/ui_components/visual_calendar/visual_day/visual_day.gd
-#: src/ui_components/visual_calendar/match_list/match_info/match_info.tscn
-#: src/screens/match/match.tscn
+#: src/ui_components/visual_calendar/match_list/match_info/match_info.tscn src/screens/match/match.tscn
 msgid "Away"
 msgstr "Visitante"
 
 #: src/ui_components/visual_calendar/match_list/match_info/match_info.tscn
 msgid "vs"
-msgstr "VS"
+msgstr ""
 
 #: src/ui_components/visual_calendar/match_list/match_list.gd
 msgid "No match"
@@ -658,38 +639,31 @@ msgstr "Ningún partido"
 msgid "Today"
 msgstr "Hoy"
 
-#: src/ui_components/visual_calendar/visual_calendar.tscn
-#: src/enum.gd
+#: src/ui_components/visual_calendar/visual_calendar.tscn src/enum.gd
 msgid "Monday"
 msgstr "Lunes"
 
-#: src/ui_components/visual_calendar/visual_calendar.tscn
-#: src/enum.gd
+#: src/ui_components/visual_calendar/visual_calendar.tscn src/enum.gd
 msgid "Tuesday"
 msgstr "Martes"
 
-#: src/ui_components/visual_calendar/visual_calendar.tscn
-#: src/enum.gd
+#: src/ui_components/visual_calendar/visual_calendar.tscn src/enum.gd
 msgid "Wednesday"
 msgstr "Miércoles"
 
-#: src/ui_components/visual_calendar/visual_calendar.tscn
-#: src/enum.gd
+#: src/ui_components/visual_calendar/visual_calendar.tscn src/enum.gd
 msgid "Thursday"
 msgstr "Jueves"
 
-#: src/ui_components/visual_calendar/visual_calendar.tscn
-#: src/enum.gd
+#: src/ui_components/visual_calendar/visual_calendar.tscn src/enum.gd
 msgid "Friday"
 msgstr "Viernes"
 
-#: src/ui_components/visual_calendar/visual_calendar.tscn
-#: src/enum.gd
+#: src/ui_components/visual_calendar/visual_calendar.tscn src/enum.gd
 msgid "Saturday"
 msgstr "Sábado"
 
-#: src/ui_components/visual_calendar/visual_calendar.tscn
-#: src/enum.gd
+#: src/ui_components/visual_calendar/visual_calendar.tscn src/enum.gd
 msgid "Sunday"
 msgstr "Domingo"
 
@@ -731,7 +705,7 @@ msgstr ""
 
 #: src/utils/logic/match_combination_util.gd
 msgid "World cup"
-msgstr "WORLD_CUP"
+msgstr ""
 
 #: src/utils/res_util.gd
 msgid "Restoring from backup"
@@ -757,13 +731,11 @@ msgstr ""
 msgid "Default settings"
 msgstr "Configuración por defecto"
 
-#: src/screens/settings/settings.tscn
-#: src/screens/setup/setup_team/setup_team.tscn
+#: src/screens/settings/settings.tscn src/screens/setup/setup_team/setup_team.tscn
 msgid "Back"
 msgstr "Volver"
 
-#: src/screens/settings/settings.tscn
-#: src/screens/settings/general/general_settings.tscn
+#: src/screens/settings/settings.tscn src/screens/settings/general/general_settings.tscn
 msgid "You can fix errors or add new languages easily on Weblate, just click on the link below."
 msgstr ""
 
@@ -787,8 +759,7 @@ msgstr ""
 msgid "Font size"
 msgstr "Tamaño de fuente"
 
-#: src/screens/settings/general/general_settings.tscn
-#: src/screens/setup/setup_world/setup_world.tscn
+#: src/screens/settings/general/general_settings.tscn src/screens/setup/setup_world/setup_world.tscn
 msgid "Default"
 msgstr "Por defecto"
 
@@ -848,13 +819,11 @@ msgstr "Input type"
 msgid "Save states"
 msgstr "Estados de guardado"
 
-#: src/screens/save_states_screen/save_states_screen.tscn
-#: src/screens/dashboard/dashboard.tscn
+#: src/screens/save_states_screen/save_states_screen.tscn src/screens/dashboard/dashboard.tscn
 msgid "Menu"
 msgstr "Menú"
 
-#: src/screens/save_states_screen/save_state_entry/save_state_entry.gd
-#: src/screens/menu/menu.gd
+#: src/screens/save_states_screen/save_state_entry/save_state_entry.gd src/screens/menu/menu.gd
 msgid "Loading game"
 msgstr ""
 
@@ -883,8 +852,7 @@ msgstr "Creado"
 msgid "Delete"
 msgstr "Eliminar"
 
-#: src/screens/save_states_screen/save_state_entry/save_state_entry.tscn
-#: src/screens/menu/menu.tscn
+#: src/screens/save_states_screen/save_state_entry/save_state_entry.tscn src/screens/menu/menu.tscn
 msgid "Load game"
 msgstr "Cargar juego"
 
@@ -898,10 +866,9 @@ msgstr "Próximo día"
 
 #: src/screens/dashboard/dashboard.gd
 msgid "Next season"
-msgstr "NEXT_SEASON"
+msgstr ""
 
-#: src/screens/dashboard/dashboard.gd
-#: src/screens/dashboard/dashboard.tscn
+#: src/screens/dashboard/dashboard.gd src/screens/dashboard/dashboard.tscn
 msgid "Email"
 msgstr ""
 
@@ -957,8 +924,7 @@ msgstr "Salón de la fama"
 msgid "Notes"
 msgstr "Notas"
 
-#: src/screens/dashboard/dashboard.tscn
-#: src/screens/menu/menu.tscn
+#: src/screens/dashboard/dashboard.tscn src/screens/menu/menu.tscn
 msgid "Settings"
 msgstr "Configuración"
 
@@ -966,11 +932,8 @@ msgstr "Configuración"
 msgid "Next match"
 msgstr "Próximo partido"
 
-#: src/screens/dashboard/dashboard.tscn
-#: src/screens/match/match.gd
-#: src/screens/menu/menu.tscn
-#: src/screens/setup/setup_world/setup_world.tscn
-#: src/screens/setup/setup_manager/setup_manager.tscn
+#: src/screens/dashboard/dashboard.tscn src/screens/match/match.gd src/screens/menu/menu.tscn
+#: src/screens/setup/setup_world/setup_world.tscn src/screens/setup/setup_manager/setup_manager.tscn
 msgid "Continue"
 msgstr "Continue"
 
@@ -978,8 +941,7 @@ msgstr "Continue"
 msgid "Save the game before exiting?"
 msgstr ""
 
-#: src/screens/match/match.gd
-#: src/screens/match/match.tscn
+#: src/screens/match/match.gd src/screens/match/match.tscn
 msgid "Pause"
 msgstr "Pausar"
 
@@ -999,8 +961,7 @@ msgstr "Comentario"
 msgid "Events"
 msgstr "Eventos"
 
-#: src/screens/match/match.tscn
-#: src/enum.gd
+#: src/screens/match/match.tscn src/enum.gd
 msgid "Full game"
 msgstr "Full game"
 
@@ -1914,7 +1875,7 @@ msgstr ""
 
 #: src/enum.gd
 msgid "Only goals"
-msgstr "Only goals"
+msgstr ""
 
 #: src/enum.gd
 msgid "Male"
@@ -2035,4 +1996,3 @@ msgstr "Lesionado"
 #: src/enum.gd
 msgid "Recover"
 msgstr "Recuperando"
-

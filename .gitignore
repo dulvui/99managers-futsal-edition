@@ -29,3 +29,7 @@ game/.vscode/
 
 # videos
 *.avi
+
+# gettext binary files
+game/translations/*.mo
+

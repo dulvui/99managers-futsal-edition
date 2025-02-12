@@ -282,57 +282,48 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: 99 Managers Futsal Edition\n"
-"PO-Revision-Date: 2025-02-06 15:59+0000\n"
-"Last-Translator: Weblate Translation Memory <noreply-mt-weblate-translation-"
-"memory@weblate.org>\n"
-"Language-Team: Indonesian <https://hosted.weblate.org/projects/"
-"99-managers-futsal-edition/game-gettext/id/>\n"
+"POT-Creation-Date: \n"
+"PO-Revision-Date: 2025-02-12 13:51+0100\n"
+"Last-Translator: Weblate Translation Memory <noreply-mt-weblate-translation-memory@weblate.org>\n"
+"Language-Team: Indonesian <https://hosted.weblate.org/projects/99-managers-futsal-edition/game-gettext/id/>\n"
 "Language: id\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
-"Content-Transfer-Encoding: 8-bit\n"
+"Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
-"X-Generator: Weblate 5.10-dev\n"
+"X-Generator: Poedit 3.2.2\n"
 
-#: src/ui_components/team_profile/team_profile.tscn
-#: src/ui_components/info/info.tscn
-#: src/ui_components/player_profile/player_profile.tscn
-#: src/screens/dashboard/dashboard.tscn
+#: src/ui_components/team_profile/team_profile.tscn src/ui_components/info/info.tscn
+#: src/ui_components/player_profile/player_profile.tscn src/screens/dashboard/dashboard.tscn
 msgid "Info"
 msgstr "Info"
 
-#: src/ui_components/team_profile/team_profile.tscn
-#: src/ui_components/team_profile/team_profile.gd
+#: src/ui_components/team_profile/team_profile.tscn src/ui_components/team_profile/team_profile.gd
 msgid "Budget"
 msgstr "Anggaran"
 
-#: src/ui_components/team_profile/team_profile.tscn
-#: src/screens/dashboard/dashboard.tscn
+#: src/ui_components/team_profile/team_profile.tscn src/screens/dashboard/dashboard.tscn
 msgid "Stadium"
 msgstr "Stadion"
 
-#: src/ui_components/team_profile/team_profile.tscn
-#: src/ui_components/transfers/player_offer/player_offer.tscn
+#: src/ui_components/team_profile/team_profile.tscn src/ui_components/transfers/player_offer/player_offer.tscn
 #: src/screens/dashboard/dashboard.tscn
 msgid "Players"
-msgstr "PLAYERS"
+msgstr ""
 
-#: src/ui_components/team_profile/team_profile.gd
-#: src/ui_components/player_profile/info_view/info_view.tscn
+#: src/ui_components/team_profile/team_profile.gd src/ui_components/player_profile/info_view/info_view.tscn
 msgid "Prestige"
-msgstr "PRESTIGE"
+msgstr ""
 
-#: src/ui_components/team_profile/team_profile.gd
-#: src/ui_components/visual_finances/visual_finances.tscn
+#: src/ui_components/team_profile/team_profile.gd src/ui_components/visual_finances/visual_finances.tscn
 msgid "Salary budget"
-msgstr "SALARY_BUDGET"
+msgstr ""
 
 #: src/ui_components/team_profile/team_profile.gd
 msgid "Persons"
-msgstr "PERSONS"
+msgstr ""
 
-#: src/ui_components/team_profile/team_profile.gd
-#: src/ui_components/transfers/contract_offer/contract_offer.tscn
+#: src/ui_components/team_profile/team_profile.gd src/ui_components/transfers/contract_offer/contract_offer.tscn
 msgid "Year"
 msgstr "Tahun"
 
@@ -342,15 +333,14 @@ msgstr ""
 
 #: src/ui_components/player_list/player_list.gd
 msgid "All positions"
-msgstr "ALL_POS"
+msgstr ""
 
 #: src/ui_components/player_list/player_list.gd
 msgid "All Leagues"
 msgstr ""
 
 #: src/ui_components/player_list/player_list_column/player_list_column.tscn
-#: src/ui_components/player_profile/info_view/info_view.tscn
-#: src/screens/setup/setup_manager/setup_manager.tscn
+#: src/ui_components/player_profile/info_view/info_view.tscn src/screens/setup/setup_manager/setup_manager.tscn
 msgid "Name"
 msgstr "Nama"
 
@@ -372,8 +362,7 @@ msgstr ""
 
 #: src/ui_components/base/confirm_dialog/default_confirm_dialog.tscn
 #: src/ui_components/transfers/player_offer/player_offer.tscn
-#: src/ui_components/transfers/contract_offer/contract_offer.tscn
-#: src/screens/setup/setup_world/setup_world.tscn
+#: src/ui_components/transfers/contract_offer/contract_offer.tscn src/screens/setup/setup_world/setup_world.tscn
 #: src/screens/setup/setup_manager/setup_manager.tscn
 msgid "Cancel"
 msgstr "Batal"
@@ -415,7 +404,7 @@ msgstr "Kelompok"
 
 #: src/ui_components/visual_competitions/visual_table/visual_table.tscn
 msgid "Played"
-msgstr "PLAYED"
+msgstr ""
 
 #: src/ui_components/visual_competitions/visual_table/visual_table.tscn
 msgid "Win"
@@ -431,11 +420,11 @@ msgstr ""
 
 #: src/ui_components/visual_competitions/visual_table/visual_table.tscn
 msgid "Goals"
-msgstr "GOALS"
+msgstr ""
 
 #: src/ui_components/visual_competitions/visual_table/visual_table.tscn
 msgid "Goals conceded"
-msgstr "GOALS_CONCEDED"
+msgstr ""
 
 #: src/ui_components/visual_competitions/visual_table/visual_table.tscn
 msgid "Points"
@@ -447,23 +436,23 @@ msgstr "Knockout"
 
 #: src/ui_components/visual_competitions/visual_knockout/visual_knockout.tscn
 msgid "Group A"
-msgstr "GROUP A"
+msgstr ""
 
 #: src/ui_components/visual_competitions/visual_knockout/visual_knockout.tscn
 msgid "Final"
-msgstr "FINAL"
+msgstr ""
 
 #: src/ui_components/visual_competitions/visual_knockout/visual_knockout.tscn
 msgid "Group B"
-msgstr "GROUP B"
+msgstr ""
 
 #: src/ui_components/visual_competitions/visual_knockout/visual_knockout.tscn
 msgid "Winner A vs Winner B"
-msgstr "WINNER A vs WINNER B"
+msgstr ""
 
 #: src/ui_components/visual_competitions/visual_competitions.tscn
 msgid "League"
-msgstr "LEAGUE"
+msgstr ""
 
 #: src/ui_components/visual_competitions/visual_competitions.gd
 msgid "Group"
@@ -477,14 +466,13 @@ msgstr "Tipe"
 msgid "Money"
 msgstr "Uang"
 
-#: src/ui_components/transfers/player_offer/player_offer.tscn
-#: src/ui_components/email/list/message_list.tscn
+#: src/ui_components/transfers/player_offer/player_offer.tscn src/ui_components/email/list/message_list.tscn
 msgid "Date"
 msgstr "Tanggal"
 
 #: src/ui_components/transfers/player_offer/player_offer.tscn
 msgid "Player list"
-msgstr "PLAYER_LIST"
+msgstr ""
 
 #: src/ui_components/transfers/player_offer/player_offer.tscn
 #: src/ui_components/transfers/contract_offer/contract_offer.tscn
@@ -499,10 +487,9 @@ msgstr "Transfer"
 msgid "Loan"
 msgstr "Pinjaman"
 
-#: src/ui_components/transfers/contract_offer/contract_offer.tscn
-#: src/ui_components/player_profile/player_profile.tscn
+#: src/ui_components/transfers/contract_offer/contract_offer.tscn src/ui_components/player_profile/player_profile.tscn
 msgid "Contract"
-msgstr "CONTRACT"
+msgstr ""
 
 #: src/ui_components/transfers/contract_offer/contract_offer.tscn
 msgid "Buy clause"
@@ -516,15 +503,14 @@ msgstr "SUBS"
 msgid "Rest"
 msgstr "Istirahat"
 
-#: src/ui_components/visual_formation/visual_formation.tscn
-#: src/screens/dashboard/dashboard.tscn
+#: src/ui_components/visual_formation/visual_formation.tscn src/screens/dashboard/dashboard.tscn
 #: src/screens/match/match.tscn
 msgid "Formation"
 msgstr "FORMATION"
 
 #: src/ui_components/visual_formation/visual_formation.tscn
 msgid "Change strategy"
-msgstr "CHANGE_STRATEGY"
+msgstr ""
 
 #: src/ui_components/visual_formation/visual_formation.tscn
 msgid "Tactic offense"
@@ -540,15 +526,13 @@ msgstr "MARKING"
 
 #: src/ui_components/visual_formation/visual_formation.tscn
 msgid "Pressing"
-msgstr "PRESSING"
+msgstr ""
 
-#: src/ui_components/email/list/message_list.tscn
-#: src/ui_components/email/visual_message/visual_message.tscn
+#: src/ui_components/email/list/message_list.tscn src/ui_components/email/visual_message/visual_message.tscn
 msgid "Subject"
 msgstr "Subjek"
 
-#: src/ui_components/email/list/message_list.tscn
-#: src/ui_components/email/visual_message/visual_message.tscn
+#: src/ui_components/email/list/message_list.tscn src/ui_components/email/visual_message/visual_message.tscn
 msgid "From"
 msgstr "Dari"
 
@@ -558,11 +542,11 @@ msgstr "Favorit"
 
 #: src/ui_components/email/list/message_list.gd
 msgid "No message found"
-msgstr "NO_MESSAGE_FOUND"
+msgstr ""
 
 #: src/ui_components/email/list/message_row/message_row.gd
 msgid "Click to read message"
-msgstr "CLICK_TO_READ_MESSAGE"
+msgstr ""
 
 #: src/ui_components/email/email.tscn
 msgid "Unread"
@@ -574,7 +558,7 @@ msgstr "Favorit"
 
 #: src/ui_components/email/visual_message/visual_message.tscn
 msgid "To"
-msgstr "TO"
+msgstr ""
 
 #: src/ui_components/email/visual_message/visual_message.tscn
 msgid "Action"
@@ -582,7 +566,7 @@ msgstr "Action"
 
 #: src/ui_components/email/visual_message/visual_message.gd
 msgid "Offer contract"
-msgstr "OFFER_CONTRACT"
+msgstr ""
 
 #: src/ui_components/player_profile/player_profile.tscn
 msgid "Statistics"
@@ -608,8 +592,7 @@ msgstr "Umur"
 msgid "Foot"
 msgstr "Kaki"
 
-#: src/ui_components/player_profile/info_view/info_view.tscn
-#: src/screens/setup/setup_manager/setup_manager.tscn
+#: src/ui_components/player_profile/info_view/info_view.tscn src/screens/setup/setup_manager/setup_manager.tscn
 msgid "Nationality"
 msgstr "kewarganegaraan"
 
@@ -619,7 +602,7 @@ msgstr ""
 
 #: src/ui_components/player_profile/info_view/info_view.tscn
 msgid "Average attributes"
-msgstr "ATTRIBUTES_AVERGE"
+msgstr ""
 
 #: src/ui_components/player_profile/info_view/info_view.tscn
 msgid "Value"
@@ -627,70 +610,60 @@ msgstr "Nada"
 
 #: src/ui_components/player_profile/contract_view/contract_view.tscn
 msgid "Make offer"
-msgstr "MAKE_OFFER"
+msgstr ""
 
 #: src/ui_components/visual_calendar/visual_day/visual_day.tscn
-#: src/ui_components/visual_calendar/visual_day/visual_day.gd
-#: src/screens/dashboard/dashboard.tscn
+#: src/ui_components/visual_calendar/visual_day/visual_day.gd src/screens/dashboard/dashboard.tscn
 msgid "Transfermarket"
-msgstr "TRANSFERMARKET"
+msgstr ""
 
 #: src/ui_components/visual_calendar/visual_day/visual_day.gd
-#: src/ui_components/visual_calendar/match_list/match_info/match_info.tscn
-#: src/screens/match/match.tscn
+#: src/ui_components/visual_calendar/match_list/match_info/match_info.tscn src/screens/match/match.tscn
 msgid "Home"
 msgstr "Rumah"
 
 #: src/ui_components/visual_calendar/visual_day/visual_day.gd
-#: src/ui_components/visual_calendar/match_list/match_info/match_info.tscn
-#: src/screens/match/match.tscn
+#: src/ui_components/visual_calendar/match_list/match_info/match_info.tscn src/screens/match/match.tscn
 msgid "Away"
 msgstr "Tidak di tempat"
 
 #: src/ui_components/visual_calendar/match_list/match_info/match_info.tscn
 msgid "vs"
-msgstr "VS"
+msgstr ""
 
 #: src/ui_components/visual_calendar/match_list/match_list.gd
 msgid "No match"
-msgstr "NO_MATCH"
+msgstr ""
 
 #: src/ui_components/visual_calendar/visual_calendar.tscn
 msgid "Today"
 msgstr "Hari Ini"
 
-#: src/ui_components/visual_calendar/visual_calendar.tscn
-#: src/enum.gd
+#: src/ui_components/visual_calendar/visual_calendar.tscn src/enum.gd
 msgid "Monday"
 msgstr "Senin"
 
-#: src/ui_components/visual_calendar/visual_calendar.tscn
-#: src/enum.gd
+#: src/ui_components/visual_calendar/visual_calendar.tscn src/enum.gd
 msgid "Tuesday"
 msgstr "Selasa"
 
-#: src/ui_components/visual_calendar/visual_calendar.tscn
-#: src/enum.gd
+#: src/ui_components/visual_calendar/visual_calendar.tscn src/enum.gd
 msgid "Wednesday"
 msgstr "Rabu"
 
-#: src/ui_components/visual_calendar/visual_calendar.tscn
-#: src/enum.gd
+#: src/ui_components/visual_calendar/visual_calendar.tscn src/enum.gd
 msgid "Thursday"
 msgstr "Kamis"
 
-#: src/ui_components/visual_calendar/visual_calendar.tscn
-#: src/enum.gd
+#: src/ui_components/visual_calendar/visual_calendar.tscn src/enum.gd
 msgid "Friday"
 msgstr "Jumat"
 
-#: src/ui_components/visual_calendar/visual_calendar.tscn
-#: src/enum.gd
+#: src/ui_components/visual_calendar/visual_calendar.tscn src/enum.gd
 msgid "Saturday"
 msgstr "Sabtu"
 
-#: src/ui_components/visual_calendar/visual_calendar.tscn
-#: src/enum.gd
+#: src/ui_components/visual_calendar/visual_calendar.tscn src/enum.gd
 msgid "Sunday"
 msgstr "Minggu"
 
@@ -732,7 +705,7 @@ msgstr ""
 
 #: src/utils/logic/match_combination_util.gd
 msgid "World cup"
-msgstr "WORLD_CUP"
+msgstr ""
 
 #: src/utils/res_util.gd
 msgid "Restoring from backup"
@@ -744,7 +717,7 @@ msgstr "Umum"
 
 #: src/screens/settings/settings.tscn
 msgid "Input"
-msgstr "INPUT_SETTINGS"
+msgstr ""
 
 #: src/screens/settings/settings.tscn
 msgid "Contributors"
@@ -758,13 +731,11 @@ msgstr ""
 msgid "Default settings"
 msgstr "Pengaturan bawaan"
 
-#: src/screens/settings/settings.tscn
-#: src/screens/setup/setup_team/setup_team.tscn
+#: src/screens/settings/settings.tscn src/screens/setup/setup_team/setup_team.tscn
 msgid "Back"
 msgstr "Mundur"
 
-#: src/screens/settings/settings.tscn
-#: src/screens/settings/general/general_settings.tscn
+#: src/screens/settings/settings.tscn src/screens/settings/general/general_settings.tscn
 msgid "You can fix errors or add new languages easily on Weblate, just click on the link below."
 msgstr ""
 
@@ -774,7 +745,7 @@ msgstr ""
 
 #: src/screens/settings/general/general_settings.tscn
 msgid "Audio"
-msgstr "AUDIO"
+msgstr ""
 
 #: src/screens/settings/general/general_settings.tscn
 msgid "Sfx volume"
@@ -788,8 +759,7 @@ msgstr ""
 msgid "Font size"
 msgstr "Ukuran fonta"
 
-#: src/screens/settings/general/general_settings.tscn
-#: src/screens/setup/setup_world/setup_world.tscn
+#: src/screens/settings/general/general_settings.tscn src/screens/setup/setup_world/setup_world.tscn
 msgid "Default"
 msgstr "Standar"
 
@@ -799,7 +769,7 @@ msgstr "Skala"
 
 #: src/screens/settings/general/general_settings.tscn
 msgid "Screen fade animation"
-msgstr "SCREEN_FADE_ANIMATION"
+msgstr ""
 
 #: src/screens/settings/general/general_settings.tscn
 msgid "Themes"
@@ -807,7 +777,7 @@ msgstr "Tema"
 
 #: src/screens/settings/general/general_settings.tscn
 msgid "Font color"
-msgstr "FONT_COLOR"
+msgstr ""
 
 #: src/screens/settings/general/general_settings.tscn
 msgid "Change"
@@ -815,7 +785,7 @@ msgstr "Ubah"
 
 #: src/screens/settings/general/general_settings.tscn
 msgid "Buttons color"
-msgstr "BUTTONS_COLOR"
+msgstr ""
 
 #: src/screens/settings/general/general_settings.tscn
 msgid "Background color"
@@ -827,35 +797,33 @@ msgstr "Versi"
 
 #: src/screens/settings/input/input_settings.tscn
 msgid "Vim mode"
-msgstr "VIM_MODE"
+msgstr ""
 
 #: src/screens/settings/input/input_settings.tscn
 msgid "Joypad status"
-msgstr "JOYPAD_STATUS"
+msgstr ""
 
 #: src/screens/settings/input/input_settings.tscn
 msgid "No joypad connected"
-msgstr "NO_JOYPAD_CONNECTED"
+msgstr ""
 
 #: src/screens/settings/input/input_settings.tscn
 msgid "Input detection mode"
-msgstr "INPUT_DETECTION_MODE"
+msgstr ""
 
 #: src/screens/settings/input/input_settings.tscn
 msgid "Input type"
-msgstr "INPUT_TYPE"
+msgstr ""
 
 #: src/screens/save_states_screen/save_states_screen.tscn
 msgid "Save states"
-msgstr "SAVE_STATES"
+msgstr ""
 
-#: src/screens/save_states_screen/save_states_screen.tscn
-#: src/screens/dashboard/dashboard.tscn
+#: src/screens/save_states_screen/save_states_screen.tscn src/screens/dashboard/dashboard.tscn
 msgid "Menu"
 msgstr "Menu"
 
-#: src/screens/save_states_screen/save_state_entry/save_state_entry.gd
-#: src/screens/menu/menu.gd
+#: src/screens/save_states_screen/save_state_entry/save_state_entry.gd src/screens/menu/menu.gd
 msgid "Loading game"
 msgstr ""
 
@@ -866,7 +834,7 @@ msgstr "Manajer"
 
 #: src/screens/save_states_screen/save_state_entry/save_state_entry.tscn
 msgid "Table placement"
-msgstr "TABLE_PLACEMENT"
+msgstr ""
 
 #: src/screens/save_states_screen/save_state_entry/save_state_entry.tscn
 msgid "Game date"
@@ -874,7 +842,7 @@ msgstr ""
 
 #: src/screens/save_states_screen/save_state_entry/save_state_entry.tscn
 msgid "Last save"
-msgstr "LAST_SAVE"
+msgstr ""
 
 #: src/screens/save_states_screen/save_state_entry/save_state_entry.tscn
 msgid "Created"
@@ -884,14 +852,13 @@ msgstr "Membuat"
 msgid "Delete"
 msgstr "Hapus"
 
-#: src/screens/save_states_screen/save_state_entry/save_state_entry.tscn
-#: src/screens/menu/menu.tscn
+#: src/screens/save_states_screen/save_state_entry/save_state_entry.tscn src/screens/menu/menu.tscn
 msgid "Load game"
-msgstr "LOAD_GAME"
+msgstr ""
 
 #: src/screens/dashboard/dashboard.gd
 msgid "Start match"
-msgstr "START_MATCH"
+msgstr ""
 
 #: src/screens/dashboard/dashboard.gd
 msgid "Next day"
@@ -899,10 +866,9 @@ msgstr "Keesokan harinya"
 
 #: src/screens/dashboard/dashboard.gd
 msgid "Next season"
-msgstr "NEXT_SEASON"
+msgstr ""
 
-#: src/screens/dashboard/dashboard.gd
-#: src/screens/dashboard/dashboard.tscn
+#: src/screens/dashboard/dashboard.gd src/screens/dashboard/dashboard.tscn
 msgid "Email"
 msgstr ""
 
@@ -920,11 +886,11 @@ msgstr "Kalender"
 
 #: src/screens/dashboard/dashboard.tscn
 msgid "Competitions"
-msgstr "COMPETITIONS"
+msgstr ""
 
 #: src/screens/dashboard/dashboard.tscn
 msgid "Finances"
-msgstr "FINANCES"
+msgstr ""
 
 #: src/screens/dashboard/dashboard.tscn
 msgid "Coming soon"
@@ -932,19 +898,19 @@ msgstr ""
 
 #: src/screens/dashboard/dashboard.tscn
 msgid "Search player"
-msgstr "SEARCH_PLAYER"
+msgstr ""
 
 #: src/screens/dashboard/dashboard.tscn
 msgid "Scouts"
-msgstr "SCOUTS"
+msgstr ""
 
 #: src/screens/dashboard/dashboard.tscn
 msgid "Watchlist"
-msgstr "WATCHLIST"
+msgstr ""
 
 #: src/screens/dashboard/dashboard.tscn
 msgid "Transferlist"
-msgstr "TRANSFERLIST"
+msgstr ""
 
 #: src/screens/dashboard/dashboard.tscn
 msgid "Jobs"
@@ -952,26 +918,22 @@ msgstr "Pekerjaan"
 
 #: src/screens/dashboard/dashboard.tscn
 msgid "Hall of fame"
-msgstr "HALL_OF_FAME"
+msgstr ""
 
 #: src/screens/dashboard/dashboard.tscn
 msgid "Notes"
 msgstr "Catatan"
 
-#: src/screens/dashboard/dashboard.tscn
-#: src/screens/menu/menu.tscn
+#: src/screens/dashboard/dashboard.tscn src/screens/menu/menu.tscn
 msgid "Settings"
 msgstr "Pengaturan"
 
 #: src/screens/dashboard/dashboard.tscn
 msgid "Next match"
-msgstr "NEXT_MATCH"
+msgstr ""
 
-#: src/screens/dashboard/dashboard.tscn
-#: src/screens/match/match.gd
-#: src/screens/menu/menu.tscn
-#: src/screens/setup/setup_world/setup_world.tscn
-#: src/screens/setup/setup_manager/setup_manager.tscn
+#: src/screens/dashboard/dashboard.tscn src/screens/match/match.gd src/screens/menu/menu.tscn
+#: src/screens/setup/setup_world/setup_world.tscn src/screens/setup/setup_manager/setup_manager.tscn
 msgid "Continue"
 msgstr "Lanjutkan"
 
@@ -979,8 +941,7 @@ msgstr "Lanjutkan"
 msgid "Save the game before exiting?"
 msgstr ""
 
-#: src/screens/match/match.gd
-#: src/screens/match/match.tscn
+#: src/screens/match/match.gd src/screens/match/match.tscn
 msgid "Pause"
 msgstr "Jeda"
 
@@ -994,14 +955,13 @@ msgstr "Statistik"
 
 #: src/screens/match/match.tscn
 msgid "Commentary"
-msgstr "COMMENTARY"
+msgstr ""
 
 #: src/screens/match/match.tscn
 msgid "Events"
 msgstr "Acara"
 
-#: src/screens/match/match.tscn
-#: src/enum.gd
+#: src/screens/match/match.tscn src/enum.gd
 msgid "Full game"
 msgstr ""
 
@@ -1015,7 +975,7 @@ msgstr "Beranda"
 
 #: src/screens/match/match.tscn
 msgid "Possession"
-msgstr "POSSESSION"
+msgstr ""
 
 #: src/screens/loading_screen/loading_screen.tscn
 msgid "Loading"
@@ -1039,7 +999,7 @@ msgstr "Game settings"
 
 #: src/screens/setup/setup_world/setup_world.tscn
 msgid "Player names"
-msgstr "PLAYER_NAMES"
+msgstr ""
 
 #: src/screens/setup/setup_world/setup_world.tscn
 msgid "Start year"
@@ -1047,7 +1007,7 @@ msgstr ""
 
 #: src/screens/setup/setup_world/setup_world.tscn
 msgid "Generation seed"
-msgstr "GENERATION_SEED"
+msgstr ""
 
 #: src/screens/setup/setup_world/setup_world.tscn
 msgid "This generation seed defines player names and attributes. When reused, it will generate exatly the same result."
@@ -1067,11 +1027,11 @@ msgstr "Namamu"
 
 #: src/screens/setup/setup_manager/setup_manager.tscn
 msgid "Surname"
-msgstr "SURNAME"
+msgstr ""
 
 #: src/screens/setup/setup_manager/setup_manager.tscn
 msgid "Your surname"
-msgstr "YOUR_SURNAME"
+msgstr ""
 
 #: src/screens/setup/setup_team/setup_team.tscn
 msgid "Choose team"
@@ -2036,4 +1996,3 @@ msgstr ""
 #: src/enum.gd
 msgid "Recover"
 msgstr ""
-
