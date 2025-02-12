@@ -66,10 +66,7 @@ func transfer_message(transfer: Transfer) -> void:
 			# TRANSLATORS: {player_name} gets dynamically filled
 			subject = tr("Offer for {player_name}")
 			# TRANSLATORS: {cost}, {player_name}, {team_name} get dynamically filled
-			text = tr(
-			"""You made an offer for {player_name} from {team_name} at {cost}.
-			{team_name} will consider the offer and respond within a few days."""
-			)
+			text = tr("You made an offer for {player_name} from {team_name} at {cost}.\n{team_name} will consider the offer and respond within a few days.")
 
 			subject = subject.format({"player_name": transfer.player.surname})
 			text = text.format(
@@ -83,9 +80,7 @@ func transfer_message(transfer: Transfer) -> void:
 			# TRANSLATORS: {player_name} gets dynamically filled
 			subject = tr("Offer for {player name} declined")
 			# TRANSLATORS: {player_name}, {team_name} get dynamically filled
-			text = tr(
-			"""Your offer for {player_name} from {team_name} at {cost} has been declined.
-			Increasing the transfer value could make them reconsider."""
+			text = tr("Your offer for {player_name} from {team_name} at {cost} has been declined.\nIncreasing the transfer value could make them reconsider."
 			)
 
 			subject = subject.format({"player_name": transfer.player.get_full_name()})
@@ -100,10 +95,7 @@ func transfer_message(transfer: Transfer) -> void:
 			# TRANSLATORS: {player_name} gets dynamically filled
 			subject = tr("Offer for {player name} accepted")
 			# TRANSLATORS: {player_name}, {team_name} get dynamically filled
-			text = tr(
-			"""Your offer for {player_name} from {team_name} at {cost} has been accepted.
-			You can now find a contractual aggreement with {player_name}."""
-			)
+			text = tr("Your offer for {player_name} from {team_name} at {cost} has been accepted.\nYou can now find a contractual aggreement with {player_name}.")
 
 			subject = subject.format({"player_name": transfer.player.get_full_name()})
 			text = text.format(

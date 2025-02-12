@@ -34,6 +34,7 @@ theme_override_constants/margin_bottom = 4
 
 [node name="Button" type="Button" parent="MarginContainer"]
 unique_name_in_owner = true
+auto_translate_mode = 2
 layout_mode = 2
 alignment = 0
 text_overrun_behavior = 3
