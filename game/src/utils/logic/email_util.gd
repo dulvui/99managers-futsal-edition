@@ -69,10 +69,12 @@ func transfer_message(transfer: Transfer) -> void:
 			text = tr("You made an offer for {player_name} from {team_name} at {cost}.\n{team_name} will consider the offer and respond within a few days.")
 
 			subject = subject.format({"player_name": transfer.player.surname})
+
+			var player_link: String = LinkUtil.get_player_url(transfer.player)
 			text = text.format(
 				{
 					"cost": FormatUtil.currency(transfer.cost),
-					"player_name": transfer.player.get_full_name(),
+					"player_name": player_link,
 					"team_name": sender_team.name,
 				}
 			)
@@ -84,9 +86,11 @@ func transfer_message(transfer: Transfer) -> void:
 			)
 
 			subject = subject.format({"player_name": transfer.player.get_full_name()})
+			var player_link: String = LinkUtil.get_player_url(transfer.player)
+
 			text = text.format(
 				{
-					"player_name": transfer.player.get_full_name(),
+					"player_name": player_link,
 					"team_name": sender_team.name,
 					"cost": FormatUtil.currency(transfer.cost),
 				}
@@ -98,9 +102,11 @@ func transfer_message(transfer: Transfer) -> void:
 			text = tr("Your offer for {player_name} from {team_name} at {cost} has been accepted.\nYou can now find a contractual aggreement with {player_name}.")
 
 			subject = subject.format({"player_name": transfer.player.get_full_name()})
+
+			var player_link: String = LinkUtil.get_player_url(transfer.player)
 			text = text.format(
 				{
-					"player_name": transfer.player.get_full_name(),
+					"player_name": player_link,
 					"team_name": sender_team.name,
 				}
 			)

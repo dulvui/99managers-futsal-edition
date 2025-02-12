@@ -91,7 +91,8 @@ func _ready() -> void:
 	email_button.grab_focus()
 	
 	# connect player and team signals
-	LinkUtil.team_link.connect(_on_teamlink)
+	LinkUtil.team_link.connect(_on_team_link)
+	LinkUtil.player_link.connect(_on_player_link)
 
 
 
@@ -157,9 +158,14 @@ func _on_player_list_select_player(player: Player) -> void:
 	_show_active_view(ContentViews.PLAYER_PROFILE)
 
 
-func _on_teamlink(p_team: Team) -> void:
-	team_profile.setup(p_team)
+func _on_team_link(p_team: Team) -> void:
+	team_profile.set_team(p_team)
 	_show_active_view(ContentViews.TEAM_PROFILE)
+
+
+func _on_player_link(p_player: Player) -> void:
+	player_profile.set_player(p_player)
+	_show_active_view(ContentViews.PLAYER_PROFILE)
 
 
 func _hide_all() -> void:

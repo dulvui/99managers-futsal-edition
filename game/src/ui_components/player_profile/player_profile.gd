@@ -29,3 +29,5 @@ func set_player(p_player: Player) -> void:
 	contract_view.setup(player)
 	contract_view.offer_button.pressed.connect(func() -> void: offer.emit(player))
 
+	info_view.show()
+

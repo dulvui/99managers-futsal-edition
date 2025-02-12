@@ -42,13 +42,17 @@ func _on_action_pressed() -> void:
 func _on_message_meta_clicked(meta: Variant) -> void:
 	print(meta)
 	var meta_string: String = str(meta)
-	# assume that players are insted as p + id; example p456546
+	# assume that players are insted as p + id/t + id
+	# example p456546/t45645
 	if "p" in meta_string:
-		var player_id: String = meta_string.substr(1)
-		print(player_id)
-		# var player: Player = Global.world.find
-		# LinkUtil.player_link.emit(player_id)
-		SoundUtil.play_button_sfx()
+		var parts: PackedStringArray = meta_string.split("/")
+		if parts.size() != 2:
+			print("error while parsing player link: " + meta_string)
+
+		var player_id: int = int(parts[0].substr(1))
+		var team_id: int = int(parts[1].substr(1))
+
+		LinkUtil.link_player_id(player_id, team_id)
 		return
 	# and teams as t + id
 	if "t" in meta_string:
