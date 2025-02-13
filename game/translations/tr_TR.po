@@ -286,86 +286,92 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: 99 Managers Futsal Edition\n"
-"Language: tr\n"
+"PO-Revision-Date: 2025-02-14 07:38+0000\n"
+"Last-Translator: Burak Hüseyin Ekseli <burakekseli@yandex.com>\n"
+"Language-Team: Turkish <https://hosted.weblate.org/projects/"
+"99-managers-futsal-edition/game/tr/>\n"
+"Language: tr_TR\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8-bit\n"
+"Plural-Forms: nplurals=2; plural=n != 1;\n"
+"X-Generator: Weblate 5.10-rc\n"
 
 #: src/ui_components/team_profile/team_profile.tscn
 #: src/ui_components/info/info.tscn
 #: src/ui_components/player_profile/player_profile.tscn
 #: src/screens/dashboard/dashboard.tscn
 msgid "Info"
-msgstr ""
+msgstr "Bilgi"
 
 #: src/ui_components/team_profile/team_profile.tscn
 #: src/ui_components/team_profile/team_profile.gd
 msgid "Budget"
-msgstr ""
+msgstr "Bütçe"
 
 #: src/ui_components/team_profile/team_profile.tscn
 #: src/screens/dashboard/dashboard.tscn
 msgid "Stadium"
-msgstr ""
+msgstr "Stadyum"
 
 #: src/ui_components/team_profile/team_profile.tscn
 #: src/ui_components/transfers/player_offer/player_offer.tscn
 #: src/screens/dashboard/dashboard.tscn
 msgid "Players"
-msgstr ""
+msgstr "Oyuncular"
 
 #: src/ui_components/team_profile/team_profile.gd
 #: src/ui_components/player_profile/info_view/info_view.tscn
 msgid "Prestige"
-msgstr ""
+msgstr "Prestij"
 
 #: src/ui_components/team_profile/team_profile.gd
 #: src/ui_components/visual_finances/visual_finances.tscn
 msgid "Salary budget"
-msgstr ""
+msgstr "Maaş bütçesi"
 
 #: src/ui_components/team_profile/team_profile.gd
 msgid "Persons"
-msgstr ""
+msgstr "Karakterler"
 
 #: src/ui_components/team_profile/team_profile.gd
 #: src/ui_components/transfers/contract_offer/contract_offer.tscn
 msgid "Year"
-msgstr ""
+msgstr "Yıl"
 
 #: src/ui_components/player_list/player_list.gd
 msgid "All Teams"
-msgstr ""
+msgstr "Bütün takımlar"
 
 #: src/ui_components/player_list/player_list.gd
 msgid "All positions"
-msgstr ""
+msgstr "Bütün pozisyonlar"
 
 #: src/ui_components/player_list/player_list.gd
 msgid "All Leagues"
-msgstr ""
+msgstr "Bütün Ligler"
 
 #: src/ui_components/player_list/player_list_column/player_list_column.tscn
 #: src/ui_components/player_profile/info_view/info_view.tscn
 #: src/screens/setup/setup_manager/setup_manager.tscn
 msgid "Name"
-msgstr ""
+msgstr "İsim"
 
 #: src/ui_components/info/info.tscn
 msgid "Seed"
-msgstr ""
+msgstr "Sıralama"
 
 #: src/ui_components/info/info.tscn
 msgid "Copy"
-msgstr ""
+msgstr "Kopyala"
 
 #: src/ui_components/info/info.tscn
 msgid "Start date"
-msgstr ""
+msgstr "Başlangıç tarihi"
 
 #: src/ui_components/base/confirm_dialog/default_confirm_dialog.gd
 msgid "Ok"
-msgstr ""
+msgstr "Tamam"
 
 #: src/ui_components/base/confirm_dialog/default_confirm_dialog.tscn
 #: src/ui_components/transfers/player_offer/player_offer.tscn
@@ -373,276 +379,276 @@ msgstr ""
 #: src/screens/setup/setup_world/setup_world.tscn
 #: src/screens/setup/setup_manager/setup_manager.tscn
 msgid "Cancel"
-msgstr ""
+msgstr "İptal"
 
 #: src/ui_components/base/confirm_dialog/default_confirm_dialog.tscn
 msgid "No"
-msgstr ""
+msgstr "Hayır"
 
 #: src/ui_components/base/confirm_dialog/default_confirm_dialog.tscn
 msgid "Yes"
-msgstr ""
+msgstr "Evet"
 
 #: src/ui_components/base/search_line_edit/search_line_edit.tscn
 msgid "Search"
-msgstr ""
+msgstr "Ara"
 
 #: src/ui_components/visual_finances/visual_finances.tscn
 msgid "Balance"
-msgstr ""
+msgstr "Denge"
 
 #: src/ui_components/visual_finances/visual_finances.tscn
 msgid "Expenses"
-msgstr ""
+msgstr "Giderler"
 
 #: src/ui_components/visual_finances/visual_finances.tscn
 msgid "Reamaining salary budget"
-msgstr ""
+msgstr "Kalan maaş bütçesi"
 
 #: src/ui_components/visual_finances/visual_finances.tscn
 #: src/ui_components/transfers/contract_offer/contract_offer.tscn
 msgid "Income"
-msgstr ""
+msgstr "Gelir"
 
 #: src/ui_components/visual_competitions/visual_table/visual_table.tscn
 #: src/ui_components/player_profile/info_view/info_view.tscn
 #: src/screens/save_states_screen/save_state_entry/save_state_entry.tscn
 msgid "Team"
-msgstr ""
+msgstr "Takım"
 
 #: src/ui_components/visual_competitions/visual_table/visual_table.tscn
 msgid "Played"
-msgstr ""
+msgstr "Oynandı"
 
 #: src/ui_components/visual_competitions/visual_table/visual_table.tscn
 msgid "Win"
-msgstr ""
+msgstr "Galibiyet"
 
 #: src/ui_components/visual_competitions/visual_table/visual_table.tscn
 msgid "Draw"
-msgstr ""
+msgstr "Berabere"
 
 #: src/ui_components/visual_competitions/visual_table/visual_table.tscn
 msgid "Lost"
-msgstr ""
+msgstr "Mağlubiyet"
 
 #: src/ui_components/visual_competitions/visual_table/visual_table.tscn
 msgid "Goals"
-msgstr ""
+msgstr "Goller"
 
 #: src/ui_components/visual_competitions/visual_table/visual_table.tscn
 msgid "Goals conceded"
-msgstr ""
+msgstr "Atılan goller"
 
 #: src/ui_components/visual_competitions/visual_table/visual_table.tscn
 msgid "Points"
-msgstr ""
+msgstr "Puan"
 
 #: src/ui_components/visual_competitions/visual_knockout/visual_knockout.tscn
 msgid "Knockout"
-msgstr ""
+msgstr "Nakavt"
 
 #: src/ui_components/visual_competitions/visual_knockout/visual_knockout.tscn
 msgid "Group A"
-msgstr ""
+msgstr "A Grubu"
 
 #: src/ui_components/visual_competitions/visual_knockout/visual_knockout.tscn
 msgid "Final"
-msgstr ""
+msgstr "Final"
 
 #: src/ui_components/visual_competitions/visual_knockout/visual_knockout.tscn
 msgid "Group B"
-msgstr ""
+msgstr "B Grubu"
 
 #: src/ui_components/visual_competitions/visual_knockout/visual_knockout.tscn
 msgid "Winner A vs Winner B"
-msgstr ""
+msgstr "Galip A vs Galip B"
 
 #: src/ui_components/visual_competitions/visual_competitions.tscn
 msgid "League"
-msgstr ""
+msgstr "Lig"
 
 #: src/ui_components/visual_competitions/visual_competitions.gd
 msgid "Group"
-msgstr ""
+msgstr "Grup"
 
 #: src/ui_components/transfers/player_offer/player_offer.tscn
 msgid "Type"
-msgstr ""
+msgstr "Tip"
 
 #: src/ui_components/transfers/player_offer/player_offer.tscn
 msgid "Money"
-msgstr ""
+msgstr "Para"
 
 #: src/ui_components/transfers/player_offer/player_offer.tscn
 #: src/ui_components/email/list/message_list.tscn
 msgid "Date"
-msgstr ""
+msgstr "Tarih"
 
 #: src/ui_components/transfers/player_offer/player_offer.tscn
 msgid "Player list"
-msgstr ""
+msgstr "Oyuncu listesi"
 
 #: src/ui_components/transfers/player_offer/player_offer.tscn
 #: src/ui_components/transfers/contract_offer/contract_offer.tscn
 msgid "Confirm"
-msgstr ""
+msgstr "Onayla"
 
 #: src/ui_components/transfers/player_offer/player_offer.gd
 msgid "Transfer"
-msgstr ""
+msgstr "Transfer et"
 
 #: src/ui_components/transfers/player_offer/player_offer.gd
 msgid "Loan"
-msgstr ""
+msgstr "Kredi"
 
 #: src/ui_components/transfers/contract_offer/contract_offer.tscn
 #: src/ui_components/player_profile/player_profile.tscn
 msgid "Contract"
-msgstr ""
+msgstr "Kontrat"
 
 #: src/ui_components/transfers/contract_offer/contract_offer.tscn
 msgid "Buy clause"
-msgstr ""
+msgstr "Satın alın"
 
 #: src/ui_components/visual_formation/visual_formation.gd
 msgid "Subs"
-msgstr ""
+msgstr "Abonelik ücreti"
 
 #: src/ui_components/visual_formation/visual_formation.gd
 msgid "Rest"
-msgstr ""
+msgstr "Dinlen"
 
 #: src/ui_components/visual_formation/visual_formation.tscn
 #: src/screens/dashboard/dashboard.tscn
 #: src/screens/match/match.tscn
 msgid "Formation"
-msgstr ""
+msgstr "Formasyon"
 
 #: src/ui_components/visual_formation/visual_formation.tscn
 msgid "Change strategy"
-msgstr ""
+msgstr "Taktik değiştir"
 
 #: src/ui_components/visual_formation/visual_formation.tscn
 msgid "Tactic offense"
-msgstr ""
+msgstr "Taktik hücum"
 
 #: src/ui_components/visual_formation/visual_formation.tscn
 msgid "Intensity"
-msgstr ""
+msgstr "Yoğunluk"
 
 #: src/ui_components/visual_formation/visual_formation.tscn
 msgid "Marking"
-msgstr ""
+msgstr "İşaretleme"
 
 #: src/ui_components/visual_formation/visual_formation.tscn
 msgid "Pressing"
-msgstr ""
+msgstr "Pres yapma"
 
 #: src/ui_components/email/list/message_list.tscn
 #: src/ui_components/email/visual_message/visual_message.tscn
 msgid "Subject"
-msgstr ""
+msgstr "Konu"
 
 #: src/ui_components/email/list/message_list.tscn
 #: src/ui_components/email/visual_message/visual_message.tscn
 msgid "From"
-msgstr ""
+msgstr "Kimden"
 
 #: src/ui_components/email/list/message_list.tscn
 msgid "Star"
-msgstr ""
+msgstr "Yıldız"
 
 #: src/ui_components/email/list/message_list.gd
 msgid "No message found"
-msgstr ""
+msgstr "Hiç mesaj bulunamadı"
 
 #: src/ui_components/email/list/message_row/message_row.gd
 msgid "Click to read message"
-msgstr ""
+msgstr "Mesajı okumak için tıkla"
 
 #: src/ui_components/email/email.tscn
 msgid "Unread"
-msgstr ""
+msgstr "Okunmamış"
 
 #: src/ui_components/email/email.tscn
 msgid "Starred"
-msgstr ""
+msgstr "İşaretli"
 
 #: src/ui_components/email/visual_message/visual_message.tscn
 msgid "To"
-msgstr ""
+msgstr "Kime"
 
 #: src/ui_components/email/visual_message/visual_message.tscn
 msgid "Action"
-msgstr ""
+msgstr "Eylem"
 
 #: src/ui_components/email/visual_message/visual_message.gd
 msgid "Offer contract"
-msgstr ""
+msgstr "Sözleşme öner"
 
 #: src/ui_components/player_profile/player_profile.tscn
 msgid "Statistics"
-msgstr ""
+msgstr "İstatistikler"
 
 #: src/ui_components/player_profile/player_profile.tscn
 msgid "Attributes"
-msgstr ""
+msgstr "Özellikler"
 
 #: src/ui_components/player_profile/info_view/info_view.tscn
 msgid "Position"
-msgstr ""
+msgstr "Pozisyon"
 
 #: src/ui_components/player_profile/info_view/info_view.tscn
 msgid "Alternative position"
-msgstr ""
+msgstr "Alternatif pozisyon"
 
 #: src/ui_components/player_profile/info_view/info_view.tscn
 msgid "Age"
-msgstr ""
+msgstr "Yaş"
 
 #: src/ui_components/player_profile/info_view/info_view.tscn
 msgid "Foot"
-msgstr ""
+msgstr "Ayak"
 
 #: src/ui_components/player_profile/info_view/info_view.tscn
 #: src/screens/setup/setup_manager/setup_manager.tscn
 msgid "Nationality"
-msgstr ""
+msgstr "Milliyet"
 
 #: src/ui_components/player_profile/info_view/info_view.tscn
 msgid "Number"
-msgstr ""
+msgstr "Sayı"
 
 #: src/ui_components/player_profile/info_view/info_view.tscn
 msgid "Average attributes"
-msgstr ""
+msgstr "Ortalama özellik"
 
 #: src/ui_components/player_profile/info_view/info_view.tscn
 msgid "Value"
-msgstr ""
+msgstr "Değer"
 
 #: src/ui_components/player_profile/contract_view/contract_view.tscn
 msgid "Make offer"
-msgstr ""
+msgstr "Teklif yap"
 
 #: src/ui_components/visual_calendar/visual_day/visual_day.tscn
 #: src/ui_components/visual_calendar/visual_day/visual_day.gd
 #: src/screens/dashboard/dashboard.tscn
 msgid "Transfermarket"
-msgstr ""
+msgstr "Transfer alanı"
 
 #: src/ui_components/visual_calendar/visual_day/visual_day.gd
 #: src/ui_components/visual_calendar/match_list/match_info/match_info.tscn
 #: src/screens/match/match.tscn
 msgid "Home"
-msgstr ""
+msgstr "Başlangıç"
 
 #: src/ui_components/visual_calendar/visual_day/visual_day.gd
 #: src/ui_components/visual_calendar/match_list/match_info/match_info.tscn
 #: src/screens/match/match.tscn
 msgid "Away"
-msgstr ""
+msgstr "Deplasman"
 
 #: src/ui_components/visual_calendar/visual_day/visual_day.gd
 msgid ""
@@ -650,347 +656,357 @@ msgstr ""
 
 #: src/ui_components/visual_calendar/match_list/match_info/match_info.tscn
 msgid "vs"
-msgstr ""
+msgstr "vs"
 
 #: src/ui_components/visual_calendar/match_list/match_list.gd
 msgid "No match"
-msgstr ""
+msgstr "Maç yok"
 
 #: src/ui_components/visual_calendar/visual_calendar.tscn
 msgid "Today"
-msgstr ""
+msgstr "Bugün"
 
 #: src/ui_components/visual_calendar/visual_calendar.tscn
 #: src/enum.gd
 msgid "Monday"
-msgstr ""
+msgstr "Pazartesi"
 
 #: src/ui_components/visual_calendar/visual_calendar.tscn
 #: src/enum.gd
 msgid "Tuesday"
-msgstr ""
+msgstr "Salı"
 
 #: src/ui_components/visual_calendar/visual_calendar.tscn
 #: src/enum.gd
 msgid "Wednesday"
-msgstr ""
+msgstr "Çarşamba"
 
 #: src/ui_components/visual_calendar/visual_calendar.tscn
 #: src/enum.gd
 msgid "Thursday"
-msgstr ""
+msgstr "Perşembe"
 
 #: src/ui_components/visual_calendar/visual_calendar.tscn
 #: src/enum.gd
 msgid "Friday"
-msgstr ""
+msgstr "Cuma"
 
 #: src/ui_components/visual_calendar/visual_calendar.tscn
 #: src/enum.gd
 msgid "Saturday"
-msgstr ""
+msgstr "Cumartesi"
 
 #: src/ui_components/visual_calendar/visual_calendar.tscn
 #: src/enum.gd
 msgid "Sunday"
-msgstr ""
+msgstr "Pazar"
 
 #: src/utils/logic/email_util.gd
 msgid "Next match: {team_name}"
-msgstr ""
+msgstr "Sıradaki maç: {team_name}"
 
 #: src/utils/logic/email_util.gd
 msgid "The next match is against {team_name}."
-msgstr ""
+msgstr "Sıradaki maç şuna karşı {team_name}."
 
 #: src/utils/logic/email_util.gd
 msgid "Welcome {manager_name}"
-msgstr ""
+msgstr "Hoşgeldin {team_name}"
 
 #: src/utils/logic/email_util.gd
 msgid "{team_name} welcomes you to a new journey."
-msgstr ""
+msgstr "{team_name} seni yeni bir maceraya çağırıyor."
 
 #: src/utils/logic/email_util.gd
 msgid "Offer for {player_name}"
-msgstr ""
+msgstr "{player_name} için teklif ver"
 
 #: src/utils/logic/email_util.gd
 msgid ""
 "You made an offer for {player_name} from {team_name} at {cost}.\n"
 "{team_name} will consider the offer and respond within a few days."
 msgstr ""
+"{player_name} için {team_name} takımına {cost} kadar teklif yaptın.\n"
+"{team_name} takımı teklifini düşünüp birkaç güne dönüş yapacak."
 
 #: src/utils/logic/email_util.gd
 msgid "Offer for {player name} declined"
-msgstr ""
+msgstr "{player name} için olan teklif reddedildi"
 
 #: src/utils/logic/email_util.gd
 msgid ""
 "Your offer for {player_name} from {team_name} at {cost} has been declined.\n"
 "Increasing the transfer value could make them reconsider."
 msgstr ""
+"{player_name} için {team_name} takımına {cost} teklifin reddedildi.\n"
+"Transfer ücretini arttırman yeniden değerlendirmelerini sağlayabilir."
 
 #: src/utils/logic/email_util.gd
 msgid "Offer for {player_name} accepted"
-msgstr ""
+msgstr "{player_name} için olan teklif kabul edildi"
 
 #: src/utils/logic/email_util.gd
 msgid ""
 "Your offer for {player_name} from {team_name} at {cost} has been accepted.\n"
 "You can now find a contractual aggreement with {player_name}."
 msgstr ""
+"{player_name} için {team_name} takımına {cost} teklifin kabul edildi\n"
+"{player_name} ile ön sözleşme yapabilirsin."
 
 #: src/utils/logic/match_combination_util.gd
 msgid "Cup"
-msgstr ""
+msgstr "Kupa"
 
 #: src/utils/logic/match_combination_util.gd
 msgid "Nations cup"
-msgstr ""
+msgstr "Ulusal kupa"
 
 #: src/utils/logic/match_combination_util.gd
 msgid "World cup"
-msgstr ""
+msgstr "Dünya kupası"
 
 #: src/utils/res_util.gd
 msgid "Restoring from backup"
-msgstr ""
+msgstr "Yedekten kurtarma"
 
 #: src/screens/settings/settings.tscn
 msgid "General"
-msgstr ""
+msgstr "Genel"
 
 #: src/screens/settings/settings.tscn
 msgid "Input"
-msgstr ""
+msgstr "Girdi"
 
 #: src/screens/settings/settings.tscn
 msgid "Contributors"
-msgstr ""
+msgstr "Katkıda bulunanlar"
 
 #: src/screens/settings/settings.tscn
 msgid "Licenses"
-msgstr ""
+msgstr "Lisanslar"
 
 #: src/screens/settings/settings.tscn
 msgid "Default settings"
-msgstr ""
+msgstr "Varsayılan ayarlar"
 
 #: src/screens/settings/settings.tscn
 #: src/screens/setup/setup_team/setup_team.tscn
 msgid "Back"
-msgstr ""
+msgstr "Geri"
 
 #: src/screens/settings/settings.tscn
 #: src/screens/settings/general/general_settings.tscn
 msgid "You can fix errors or add new languages easily on Weblate, just click on the link below."
 msgstr ""
+"Aşağıdaki linke tıklayarak weblate üzerinden hataları düzenleyebilir veya "
+"yeni diller ekleyebilrsin."
 
 #: src/screens/settings/general/general_settings.tscn
 msgid "Language"
-msgstr ""
+msgstr "Dil"
 
 #: src/screens/settings/general/general_settings.tscn
 msgid "Audio"
-msgstr ""
+msgstr "Ses"
 
 #: src/screens/settings/general/general_settings.tscn
 msgid "Sfx volume"
-msgstr ""
+msgstr "Sfx yüksekliği"
 
 #: src/screens/settings/general/general_settings.tscn
 msgid "Interface settings"
-msgstr ""
+msgstr "Arayüz ayarları"
 
 #: src/screens/settings/general/general_settings.tscn
 msgid "Font size"
-msgstr ""
+msgstr "Yazı tipi boyutu"
 
 #: src/screens/settings/general/general_settings.tscn
 #: src/screens/setup/setup_world/setup_world.tscn
 msgid "Default"
-msgstr ""
+msgstr "Varsayılan"
 
 #: src/screens/settings/general/general_settings.tscn
 msgid "Scale"
-msgstr ""
+msgstr "Ölçek"
 
 #: src/screens/settings/general/general_settings.tscn
 msgid "Screen fade animation"
-msgstr ""
+msgstr "Ekran solma animasyonu"
 
 #: src/screens/settings/general/general_settings.tscn
 msgid "Themes"
-msgstr ""
+msgstr "Temalar"
 
 #: src/screens/settings/general/general_settings.tscn
 msgid "Font color"
-msgstr ""
+msgstr "Yazı tipi rengi"
 
 #: src/screens/settings/general/general_settings.tscn
 msgid "Change"
-msgstr ""
+msgstr "Değiştir"
 
 #: src/screens/settings/general/general_settings.tscn
 msgid "Buttons color"
-msgstr ""
+msgstr "Buton rengi"
 
 #: src/screens/settings/general/general_settings.tscn
 msgid "Background color"
-msgstr ""
+msgstr "Arka plan rengi"
 
 #: src/screens/settings/general/general_settings.tscn
 msgid "Version"
-msgstr ""
+msgstr "Versiyon"
 
 #: src/screens/settings/input/input_settings.tscn
 msgid "Vim mode"
-msgstr ""
+msgstr "Vim modu"
 
 #: src/screens/settings/input/input_settings.tscn
 msgid "Joypad status"
-msgstr ""
+msgstr "Joypad durumu"
 
 #: src/screens/settings/input/input_settings.tscn
 msgid "No joypad connected"
-msgstr ""
+msgstr "Bağlı joypad bulunmuyor"
 
 #: src/screens/settings/input/input_settings.tscn
 msgid "Input detection mode"
-msgstr ""
+msgstr "Girdi algılama modu"
 
 #: src/screens/settings/input/input_settings.tscn
 msgid "Input type"
-msgstr ""
+msgstr "Girdi türü"
 
 #: src/screens/save_states_screen/save_states_screen.tscn
 msgid "Save states"
-msgstr ""
+msgstr "Kayıt durumu"
 
 #: src/screens/save_states_screen/save_states_screen.tscn
 #: src/screens/dashboard/dashboard.tscn
 msgid "Menu"
-msgstr ""
+msgstr "Menü"
 
 #: src/screens/save_states_screen/save_state_entry/save_state_entry.gd
 #: src/screens/menu/menu.gd
 msgid "Loading game"
-msgstr ""
+msgstr "Oyun yükleniyor"
 
 #: src/screens/save_states_screen/save_state_entry/save_state_entry.tscn
 #: src/screens/setup/setup_manager/setup_manager.tscn
 msgid "Manager"
-msgstr ""
+msgstr "Menajer"
 
 #: src/screens/save_states_screen/save_state_entry/save_state_entry.tscn
 msgid "Table placement"
-msgstr ""
+msgstr "Masa düzeni"
 
 #: src/screens/save_states_screen/save_state_entry/save_state_entry.tscn
 msgid "Game date"
-msgstr ""
+msgstr "Oyun tarihi"
 
 #: src/screens/save_states_screen/save_state_entry/save_state_entry.tscn
 msgid "Last save"
-msgstr ""
+msgstr "Son kayıt"
 
 #: src/screens/save_states_screen/save_state_entry/save_state_entry.tscn
 msgid "Created"
-msgstr ""
+msgstr "Oluşturuldu"
 
 #: src/screens/save_states_screen/save_state_entry/save_state_entry.tscn
 msgid "Delete"
-msgstr ""
+msgstr "Sil"
 
 #: src/screens/save_states_screen/save_state_entry/save_state_entry.tscn
 #: src/screens/menu/menu.tscn
 msgid "Load game"
-msgstr ""
+msgstr "Oyun yükle"
 
 #: src/screens/save_states_screen/save_state_entry/save_state_entry.tscn
 msgid ""
 "Deleting a save state is permanent and can't be undone.\n"
 "Are you sure you want delete this save state?"
 msgstr ""
+"Kayıtlı oyunu silmek kalıcı bir işlemdir ve geri alınamaz.\n"
+"Bu kaydı silmek istediğine emin misin?"
 
 #: src/screens/dashboard/dashboard.gd
 msgid "Start match"
-msgstr ""
+msgstr "Maçı başlat"
 
 #: src/screens/dashboard/dashboard.gd
 msgid "Next day"
-msgstr ""
+msgstr "Gelecek gün"
 
 #: src/screens/dashboard/dashboard.gd
 msgid "Next season"
-msgstr ""
+msgstr "Gelecek sezon"
 
 #: src/screens/dashboard/dashboard.gd
 #: src/screens/dashboard/dashboard.tscn
 msgid "Email"
-msgstr ""
+msgstr "Eposta"
 
 #: src/screens/dashboard/dashboard.gd
 msgid "Simulating results"
-msgstr ""
+msgstr "Simulasyon sonuçları"
 
 #: src/screens/dashboard/dashboard.gd
 msgid "Saving game"
-msgstr ""
+msgstr "Oyun kaydediliyor"
 
 #: src/screens/dashboard/dashboard.tscn
 msgid "Calendar"
-msgstr ""
+msgstr "Takvim"
 
 #: src/screens/dashboard/dashboard.tscn
 msgid "Competitions"
-msgstr ""
+msgstr "Yarışmalar"
 
 #: src/screens/dashboard/dashboard.tscn
 msgid "Finances"
-msgstr ""
+msgstr "Finans durumu"
 
 #: src/screens/dashboard/dashboard.tscn
 msgid "Coming soon"
-msgstr ""
+msgstr "Yakında"
 
 #: src/screens/dashboard/dashboard.tscn
 msgid "Search player"
-msgstr ""
+msgstr "Oyuncu ara"
 
 #: src/screens/dashboard/dashboard.tscn
 msgid "Scouts"
-msgstr ""
+msgstr "Yetenek avcısı"
 
 #: src/screens/dashboard/dashboard.tscn
 msgid "Watchlist"
-msgstr ""
+msgstr "İzleme listesi"
 
 #: src/screens/dashboard/dashboard.tscn
 msgid "Transferlist"
-msgstr ""
+msgstr "Transfer listesi"
 
 #: src/screens/dashboard/dashboard.tscn
 msgid "Jobs"
-msgstr ""
+msgstr "İşler"
 
 #: src/screens/dashboard/dashboard.tscn
 msgid "Hall of fame"
-msgstr ""
+msgstr "Onur listesi"
 
 #: src/screens/dashboard/dashboard.tscn
 msgid "Notes"
-msgstr ""
+msgstr "Notlar"
 
 #: src/screens/dashboard/dashboard.tscn
 #: src/screens/menu/menu.tscn
 msgid "Settings"
-msgstr ""
+msgstr "Ayarlar"
 
 #: src/screens/dashboard/dashboard.tscn
 msgid "Next match"
-msgstr ""
+msgstr "Sıradaki maç"
 
 #: src/screens/dashboard/dashboard.tscn
 #: src/screens/match/match.gd
@@ -998,1066 +1014,1072 @@ msgstr ""
 #: src/screens/setup/setup_world/setup_world.tscn
 #: src/screens/setup/setup_manager/setup_manager.tscn
 msgid "Continue"
-msgstr ""
+msgstr "Devam et"
 
 #: src/screens/dashboard/dashboard.tscn
 msgid "Save the game before exiting?"
-msgstr ""
+msgstr "Çıkmadan önce oyunu kaydet?"
 
 #: src/screens/match/match.gd
 #: src/screens/match/match.tscn
 msgid "Pause"
-msgstr ""
+msgstr "Durdur"
 
 #: src/screens/match/penalties_bar/penalties_bar.tscn
 msgid "Penalties"
-msgstr ""
+msgstr "Penaltılar"
 
 #: src/screens/match/match.tscn
 msgid "Stats"
-msgstr ""
+msgstr "İstatistik"
 
 #: src/screens/match/match.tscn
 msgid "Commentary"
-msgstr ""
+msgstr "Yorum"
 
 #: src/screens/match/match.tscn
 msgid "Events"
-msgstr ""
+msgstr "Etkinlikler"
 
 #: src/screens/match/match.tscn
 #: src/enum.gd
 msgid "Full game"
-msgstr ""
+msgstr "Tam oyun"
 
 #: src/screens/match/match.tscn
 msgid "Simulate"
-msgstr ""
+msgstr "Simule et"
 
 #: src/screens/match/match.tscn
 msgid "Dashboard"
-msgstr ""
+msgstr "Pano"
 
 #: src/screens/match/match.tscn
 msgid "Possession"
-msgstr ""
+msgstr "Sahiplik"
 
 #: src/screens/loading_screen/loading_screen.tscn
 msgid "Loading"
-msgstr ""
+msgstr "Yükleniyor"
 
 #: src/screens/menu/menu.tscn
 msgid "New game"
-msgstr ""
+msgstr "Yeni oyun"
 
 #: src/screens/menu/menu.tscn
 msgid "Exit"
-msgstr ""
+msgstr "Çık"
 
 #: src/screens/menu/menu.tscn
 msgid "Exit game"
-msgstr ""
+msgstr "Oyundan çık"
 
 #: src/screens/setup/setup_world/setup_world.tscn
 msgid "Game settings"
-msgstr ""
+msgstr "Oyun ayarları"
 
 #: src/screens/setup/setup_world/setup_world.tscn
 msgid "Player names"
-msgstr ""
+msgstr "Oyuncu isimleri"
 
 #: src/screens/setup/setup_world/setup_world.tscn
 msgid "Start year"
-msgstr ""
+msgstr "Başlangıç yılı"
 
 #: src/screens/setup/setup_world/setup_world.tscn
 msgid "Generation seed"
-msgstr ""
+msgstr "Karakter oluştur"
 
 #: src/screens/setup/setup_world/setup_world.tscn
 msgid "This generation seed defines player names and attributes. When reused, it will generate exatly the same result."
 msgstr ""
+"Karakter oluşturma oyuncuların isimlerini ve özelliklerini belirler. Tekrar "
+"kullanıldığında yine aynı sonucu verir."
 
 #: src/screens/setup/setup_world/setup_world.tscn
 msgid "Random"
-msgstr ""
+msgstr "Rastgele"
 
 #: src/screens/setup/setup_world/setup_world.gd
 msgid "Generating players"
-msgstr ""
+msgstr "Oyuncular oluşturuluyor"
 
 #: src/screens/setup/setup_manager/setup_manager.tscn
 msgid "Your name"
-msgstr ""
+msgstr "Adınız"
 
 #: src/screens/setup/setup_manager/setup_manager.tscn
 msgid "Surname"
-msgstr ""
+msgstr "Soyadınız"
 
 #: src/screens/setup/setup_manager/setup_manager.tscn
 msgid "Your surname"
-msgstr ""
+msgstr "Sizin soyadınız"
 
 #: src/screens/setup/setup_team/setup_team.tscn
 msgid "Choose team"
-msgstr ""
+msgstr "Takım seç"
 
 #: src/screens/setup/setup_team/setup_team.tscn
 msgid "Select"
-msgstr ""
+msgstr "Seç"
 
 #: src/screens/setup/setup_team/setup_team.gd
 msgid "Initialize game"
-msgstr ""
+msgstr "Oyunu başlat"
 
 #: src/resources/world/continent_names.gd
 msgid "Africa"
-msgstr ""
+msgstr "Afrika"
 
 #: src/resources/world/continent_names.gd
 msgid "Asia"
-msgstr ""
+msgstr "Asya"
 
 #: src/resources/world/continent_names.gd
 msgid "Europe"
-msgstr ""
+msgstr "Avrupa"
 
 #: src/resources/world/continent_names.gd
 msgid "Oceania"
-msgstr ""
+msgstr "Okyanusya"
 
 #: src/resources/world/continent_names.gd
 msgid "South America"
-msgstr ""
+msgstr "Güney Amerika"
 
 #: src/resources/world/continent_names.gd
 msgid "North America"
-msgstr ""
+msgstr "Kuzey Amerika"
 
 #: src/resources/world/nation_names.gd
 msgid "Albania"
-msgstr ""
+msgstr "Arnavutluk"
 
 #: src/resources/world/nation_names.gd
 msgid "Andorra"
-msgstr ""
+msgstr "Andorra"
 
 #: src/resources/world/nation_names.gd
 msgid "Armenia"
-msgstr ""
+msgstr "Ermenistan"
 
 #: src/resources/world/nation_names.gd
 msgid "Austria"
-msgstr ""
+msgstr "Avusturya"
 
 #: src/resources/world/nation_names.gd
 msgid "Azerbaijan"
-msgstr ""
+msgstr "Azarbaycan"
 
 #: src/resources/world/nation_names.gd
 msgid "Belarus"
-msgstr ""
+msgstr "Belarus"
 
 #: src/resources/world/nation_names.gd
 msgid "Belgium"
-msgstr ""
+msgstr "Belçika"
 
 #: src/resources/world/nation_names.gd
 msgid "Bosnia and Herzegovina"
-msgstr ""
+msgstr "Bosna Hersek"
 
 #: src/resources/world/nation_names.gd
 msgid "Bulgaria"
-msgstr ""
+msgstr "Bulgaristan"
 
 #: src/resources/world/nation_names.gd
 msgid "Croatia"
-msgstr ""
+msgstr "Hırvatistan"
 
 #: src/resources/world/nation_names.gd
 msgid "Cyprus"
-msgstr ""
+msgstr "Kıbrıs"
 
 #: src/resources/world/nation_names.gd
 msgid "Czech Republic"
-msgstr ""
+msgstr "Çek Cumhuriyeti"
 
 #: src/resources/world/nation_names.gd
 msgid "Denmark"
-msgstr ""
+msgstr "Danimarka"
 
 #: src/resources/world/nation_names.gd
 msgid "Estonia"
-msgstr ""
+msgstr "Estonya"
 
 #: src/resources/world/nation_names.gd
 msgid "Finland"
-msgstr ""
+msgstr "Finlandiya"
 
 #: src/resources/world/nation_names.gd
 msgid "France"
-msgstr ""
+msgstr "Fransa"
 
 #: src/resources/world/nation_names.gd
 msgid "Georgia"
-msgstr ""
+msgstr "Gürcistan"
 
 #: src/resources/world/nation_names.gd
 msgid "Germany"
-msgstr ""
+msgstr "Almanya"
 
 #: src/resources/world/nation_names.gd
 msgid "Greece"
-msgstr ""
+msgstr "Yunanistan"
 
 #: src/resources/world/nation_names.gd
 msgid "Hungary"
-msgstr ""
+msgstr "Macaristan"
 
 #: src/resources/world/nation_names.gd
 msgid "Iceland"
-msgstr ""
+msgstr "İzlanda"
 
 #: src/resources/world/nation_names.gd
 msgid "Ireland"
-msgstr ""
+msgstr "İrlanda"
 
 #: src/resources/world/nation_names.gd
 msgid "Italy"
-msgstr ""
+msgstr "İtalya"
 
 #: src/resources/world/nation_names.gd
 msgid "Latvia"
-msgstr ""
+msgstr "Latviya"
 
 #: src/resources/world/nation_names.gd
 msgid "Liechtenstein"
-msgstr ""
+msgstr "Lihtenştayn"
 
 #: src/resources/world/nation_names.gd
 msgid "Lithuania"
-msgstr ""
+msgstr "Litvanya"
 
 #: src/resources/world/nation_names.gd
 msgid "Luxembourg"
-msgstr ""
+msgstr "Lüksemburg"
 
 #: src/resources/world/nation_names.gd
 msgid "Macedonia"
-msgstr ""
+msgstr "Makedonya"
 
 #: src/resources/world/nation_names.gd
 msgid "Malta"
-msgstr ""
+msgstr "Malta"
 
 #: src/resources/world/nation_names.gd
 msgid "Moldova"
-msgstr ""
+msgstr "Moldova"
 
 #: src/resources/world/nation_names.gd
 msgid "Monaco"
-msgstr ""
+msgstr "Monako"
 
 #: src/resources/world/nation_names.gd
 msgid "Montenegro"
-msgstr ""
+msgstr "Montenegro"
 
 #: src/resources/world/nation_names.gd
 msgid "Netherlands"
-msgstr ""
+msgstr "Hollanda"
 
 #: src/resources/world/nation_names.gd
 msgid "Norway"
-msgstr ""
+msgstr "Norveç"
 
 #: src/resources/world/nation_names.gd
 msgid "Poland"
-msgstr ""
+msgstr "Polonya"
 
 #: src/resources/world/nation_names.gd
 msgid "Portugal"
-msgstr ""
+msgstr "Portekiz"
 
 #: src/resources/world/nation_names.gd
 msgid "Romania"
-msgstr ""
+msgstr "Romanya"
 
 #: src/resources/world/nation_names.gd
 msgid "San Marino"
-msgstr ""
+msgstr "San Marino"
 
 #: src/resources/world/nation_names.gd
 msgid "Serbia"
-msgstr ""
+msgstr "Sırbistan"
 
 #: src/resources/world/nation_names.gd
 msgid "Slovakia"
-msgstr ""
+msgstr "Slovakya"
 
 #: src/resources/world/nation_names.gd
 msgid "Slovenia"
-msgstr ""
+msgstr "Slovenya"
 
 #: src/resources/world/nation_names.gd
 msgid "Spain"
-msgstr ""
+msgstr "İspanya"
 
 #: src/resources/world/nation_names.gd
 msgid "Sweden"
-msgstr ""
+msgstr "İsveç"
 
 #: src/resources/world/nation_names.gd
 msgid "Switzerland"
-msgstr ""
+msgstr "İsviçre"
 
 #: src/resources/world/nation_names.gd
 msgid "Ukraine"
-msgstr ""
+msgstr "Ukrayna"
 
 #: src/resources/world/nation_names.gd
 msgid "United Kingdom"
-msgstr ""
+msgstr "Birleşik Krallık"
 
 #: src/resources/world/nation_names.gd
 msgid "Vatican City"
-msgstr ""
+msgstr "Vatikan"
 
 #: src/resources/world/nation_names.gd
 msgid "Brazil"
-msgstr ""
+msgstr "Brazilya"
 
 #: src/resources/world/nation_names.gd
 msgid "Argentina"
-msgstr ""
+msgstr "Arjantin"
 
 #: src/resources/world/nation_names.gd
 msgid "Bolivia"
-msgstr ""
+msgstr "Bolivya"
 
 #: src/resources/world/nation_names.gd
 msgid "Chile"
-msgstr ""
+msgstr "Şili"
 
 #: src/resources/world/nation_names.gd
 msgid "Colombia"
-msgstr ""
+msgstr "Kolombiya"
 
 #: src/resources/world/nation_names.gd
 msgid "Ecuador"
-msgstr ""
+msgstr "Ekvador"
 
 #: src/resources/world/nation_names.gd
 msgid "Guyana"
-msgstr ""
+msgstr "Guyana"
 
 #: src/resources/world/nation_names.gd
 msgid "Paraguay"
-msgstr ""
+msgstr "Paraguay"
 
 #: src/resources/world/nation_names.gd
 msgid "Peru"
-msgstr ""
+msgstr "Peru"
 
 #: src/resources/world/nation_names.gd
 msgid "Suriname"
-msgstr ""
+msgstr "Surinam"
 
 #: src/resources/world/nation_names.gd
 msgid "Uruguay"
-msgstr ""
+msgstr "Uruguay"
 
 #: src/resources/world/nation_names.gd
 msgid "Venezuela"
-msgstr ""
+msgstr "Venezuela"
 
 #: src/resources/world/nation_names.gd
 msgid "Antigua and Barbuda"
-msgstr ""
+msgstr "Antigua ve Barbuda"
 
 #: src/resources/world/nation_names.gd
 msgid "Bahamas"
-msgstr ""
+msgstr "Bahamalar"
 
 #: src/resources/world/nation_names.gd
 msgid "Barbados"
-msgstr ""
+msgstr "Barbados"
 
 #: src/resources/world/nation_names.gd
 msgid "Belize"
-msgstr ""
+msgstr "Beliz"
 
 #: src/resources/world/nation_names.gd
 msgid "Canada"
-msgstr ""
+msgstr "Kanada"
 
 #: src/resources/world/nation_names.gd
 msgid "Costa Rica"
-msgstr ""
+msgstr "Kosta Rika"
 
 #: src/resources/world/nation_names.gd
 msgid "Cuba"
-msgstr ""
+msgstr "Küba"
 
 #: src/resources/world/nation_names.gd
 msgid "Dominica"
-msgstr ""
+msgstr "Dominik"
 
 #: src/resources/world/nation_names.gd
 msgid "Dominican Republic"
-msgstr ""
+msgstr "Dominik Cumhuriyeti"
 
 #: src/resources/world/nation_names.gd
 msgid "El Salvador"
-msgstr ""
+msgstr "El Salvador"
 
 #: src/resources/world/nation_names.gd
 msgid "Grenada"
-msgstr ""
+msgstr "Granada"
 
 #: src/resources/world/nation_names.gd
 msgid "Guatemala"
-msgstr ""
+msgstr "Guatemala"
 
 #: src/resources/world/nation_names.gd
 msgid "Haiti"
-msgstr ""
+msgstr "Haiti"
 
 #: src/resources/world/nation_names.gd
 msgid "Honduras"
-msgstr ""
+msgstr "Honduras"
 
 #: src/resources/world/nation_names.gd
 msgid "Jamaica"
-msgstr ""
+msgstr "Jameika"
 
 #: src/resources/world/nation_names.gd
 msgid "Mexico"
-msgstr ""
+msgstr "Meksika"
 
 #: src/resources/world/nation_names.gd
 msgid "Nicaragua"
-msgstr ""
+msgstr "Nikaragua"
 
 #: src/resources/world/nation_names.gd
 msgid "Panama"
-msgstr ""
+msgstr "Panama"
 
 #: src/resources/world/nation_names.gd
 msgid "Saint Kitts and Nevis"
-msgstr ""
+msgstr "Saint Kitts ve Nevis"
 
 #: src/resources/world/nation_names.gd
 msgid "Saint Lucia"
-msgstr ""
+msgstr "Saint Lucia"
 
 #: src/resources/world/nation_names.gd
 msgid "Saint Vincent and the Grenadines"
-msgstr ""
+msgstr "Saint Vincent ve Grenadin adaları"
 
 #: src/resources/world/nation_names.gd
 msgid "Trinidad and Tobago"
-msgstr ""
+msgstr "Trinidad ve Tobago"
 
 #: src/resources/world/nation_names.gd
 msgid "Usa"
-msgstr ""
+msgstr "ABD"
 
 #: src/resources/world/nation_names.gd
 msgid "Australia"
-msgstr ""
+msgstr "Avusturalya"
 
 #: src/resources/world/nation_names.gd
 msgid "Fiji"
-msgstr ""
+msgstr "Fiji"
 
 #: src/resources/world/nation_names.gd
 msgid "Kiribati"
-msgstr ""
+msgstr "Kiribati"
 
 #: src/resources/world/nation_names.gd
 msgid "Marshall Islands"
-msgstr ""
+msgstr "Marshall adaları"
 
 #: src/resources/world/nation_names.gd
 msgid "Micronesia"
-msgstr ""
+msgstr "Mikronezya"
 
 #: src/resources/world/nation_names.gd
 msgid "Nauru"
-msgstr ""
+msgstr "Nauru"
 
 #: src/resources/world/nation_names.gd
 msgid "New Zealand"
-msgstr ""
+msgstr "Yeni Zelanda"
 
 #: src/resources/world/nation_names.gd
 msgid "Palau"
-msgstr ""
+msgstr "Palau"
 
 #: src/resources/world/nation_names.gd
 msgid "Papua New Guinea"
-msgstr ""
+msgstr "Papua Yeni Gine"
 
 #: src/resources/world/nation_names.gd
 msgid "Samoa"
-msgstr ""
+msgstr "Samoa"
 
 #: src/resources/world/nation_names.gd
 msgid "Solomon Islands"
-msgstr ""
+msgstr "Solomon adaları"
 
 #: src/resources/world/nation_names.gd
 msgid "Tonga"
-msgstr ""
+msgstr "Tonga"
 
 #: src/resources/world/nation_names.gd
 msgid "Tuvalu"
-msgstr ""
+msgstr "Tuvalu"
 
 #: src/resources/world/nation_names.gd
 msgid "Vanuatu"
-msgstr ""
+msgstr "Vanuatu"
 
 #: src/resources/world/nation_names.gd
 msgid "Algeria"
-msgstr ""
+msgstr "Cezayir"
 
 #: src/resources/world/nation_names.gd
 msgid "Angola"
-msgstr ""
+msgstr "Angola"
 
 #: src/resources/world/nation_names.gd
 msgid "Benin"
-msgstr ""
+msgstr "Benin"
 
 #: src/resources/world/nation_names.gd
 msgid "Botswana"
-msgstr ""
+msgstr "Botswana"
 
 #: src/resources/world/nation_names.gd
 msgid "Burkina"
-msgstr ""
+msgstr "Burkina"
 
 #: src/resources/world/nation_names.gd
 msgid "Burundi"
-msgstr ""
+msgstr "Brundi"
 
 #: src/resources/world/nation_names.gd
 msgid "Cameroon"
-msgstr ""
+msgstr "Kamerun"
 
 #: src/resources/world/nation_names.gd
 msgid "Cape Verde"
-msgstr ""
+msgstr "Cape Verde"
 
 #: src/resources/world/nation_names.gd
 msgid "Central African Republic"
-msgstr ""
+msgstr "Orta Afrika Cumhuriyeti"
 
 #: src/resources/world/nation_names.gd
 msgid "Chad"
-msgstr ""
+msgstr "Çad"
 
 #: src/resources/world/nation_names.gd
 msgid "Comoros"
-msgstr ""
+msgstr "Komor Adaları"
 
 #: src/resources/world/nation_names.gd
 msgid "Congo"
-msgstr ""
+msgstr "Kongo"
 
 #: src/resources/world/nation_names.gd
 msgid "Democratic Republic of Congo"
-msgstr ""
+msgstr "Demokratik Kongo Cumhuriyeti"
 
 #: src/resources/world/nation_names.gd
 msgid "Djibouti"
-msgstr ""
+msgstr "Cibuti"
 
 #: src/resources/world/nation_names.gd
 msgid "Egypt"
-msgstr ""
+msgstr "Mısır"
 
 #: src/resources/world/nation_names.gd
 msgid "Equatorial Guinea"
-msgstr ""
+msgstr "Ekvator Ginesi"
 
 #: src/resources/world/nation_names.gd
 msgid "Eritrea"
-msgstr ""
+msgstr "Eritre"
 
 #: src/resources/world/nation_names.gd
 msgid "Ethiopia"
-msgstr ""
+msgstr "Etiyopya"
 
 #: src/resources/world/nation_names.gd
 msgid "Gabon"
-msgstr ""
+msgstr "Gabon"
 
 #: src/resources/world/nation_names.gd
 msgid "Gambia"
-msgstr ""
+msgstr "Gambiya"
 
 #: src/resources/world/nation_names.gd
 msgid "Ghana"
-msgstr ""
+msgstr "Gana"
 
 #: src/resources/world/nation_names.gd
 msgid "Guinea"
-msgstr ""
+msgstr "Gine"
 
 #: src/resources/world/nation_names.gd
 msgid "Ivory Coast"
-msgstr ""
+msgstr "Fildişi Sahili"
 
 #: src/resources/world/nation_names.gd
 msgid "Kenya"
-msgstr ""
+msgstr "Kenya"
 
 #: src/resources/world/nation_names.gd
 msgid "Lesotho"
-msgstr ""
+msgstr "Lesoto"
 
 #: src/resources/world/nation_names.gd
 msgid "Liberia"
-msgstr ""
+msgstr "Liberya"
 
 #: src/resources/world/nation_names.gd
 msgid "Libya"
-msgstr ""
+msgstr "Libya"
 
 #: src/resources/world/nation_names.gd
 msgid "Madagascar"
-msgstr ""
+msgstr "Madagaskar"
 
 #: src/resources/world/nation_names.gd
 msgid "Malawi"
-msgstr ""
+msgstr "Malavi"
 
 #: src/resources/world/nation_names.gd
 msgid "Mali"
-msgstr ""
+msgstr "Mali"
 
 #: src/resources/world/nation_names.gd
 msgid "Mauritania"
-msgstr ""
+msgstr "Moritanya"
 
 #: src/resources/world/nation_names.gd
 msgid "Mauritius"
-msgstr ""
+msgstr "Mauritius"
 
 #: src/resources/world/nation_names.gd
 msgid "Morocco"
-msgstr ""
+msgstr "Fas"
 
 #: src/resources/world/nation_names.gd
 msgid "Mozambique"
-msgstr ""
+msgstr "Mozambik"
 
 #: src/resources/world/nation_names.gd
 msgid "Namibia"
-msgstr ""
+msgstr "Namibya"
 
 #: src/resources/world/nation_names.gd
 msgid "Niger"
-msgstr ""
+msgstr "Nijer"
 
 #: src/resources/world/nation_names.gd
 msgid "Nigeria"
-msgstr ""
+msgstr "Nijerya"
 
 #: src/resources/world/nation_names.gd
 msgid "Rwanda"
-msgstr ""
+msgstr "Ruanda"
 
 #: src/resources/world/nation_names.gd
 msgid "Sao Tome and Principe"
-msgstr ""
+msgstr "Sao Tome ve Principe Demokratik Cumhuriyeti"
 
 #: src/resources/world/nation_names.gd
 msgid "Senegal"
-msgstr ""
+msgstr "Senegal"
 
 #: src/resources/world/nation_names.gd
 msgid "Seychelles"
-msgstr ""
+msgstr "Seyşeller"
 
 #: src/resources/world/nation_names.gd
 msgid "Sierra Leone"
-msgstr ""
+msgstr "Sierra Leone"
 
 #: src/resources/world/nation_names.gd
 msgid "Somalia"
-msgstr ""
+msgstr "Somali"
 
 #: src/resources/world/nation_names.gd
 msgid "South Africa"
-msgstr ""
+msgstr "Güney Afrika"
 
 #: src/resources/world/nation_names.gd
 msgid "South Sudan"
-msgstr ""
+msgstr "Güney Sudan"
 
 #: src/resources/world/nation_names.gd
 msgid "Sudan"
-msgstr ""
+msgstr "Sudan"
 
 #: src/resources/world/nation_names.gd
 msgid "Swaziland"
-msgstr ""
+msgstr "Svaziland"
 
 #: src/resources/world/nation_names.gd
 msgid "Tanzania"
-msgstr ""
+msgstr "Tanzanya"
 
 #: src/resources/world/nation_names.gd
 msgid "Togo"
-msgstr ""
+msgstr "Togo"
 
 #: src/resources/world/nation_names.gd
 msgid "Tunisia"
-msgstr ""
+msgstr "Tunus"
 
 #: src/resources/world/nation_names.gd
 msgid "Uganda"
-msgstr ""
+msgstr "Uganda"
 
 #: src/resources/world/nation_names.gd
 msgid "Zambia"
-msgstr ""
+msgstr "Zambiya"
 
 #: src/resources/world/nation_names.gd
 msgid "Zimbabwe"
-msgstr ""
+msgstr "Zimbabve"
 
 #: src/resources/world/nation_names.gd
 msgid "Afghanistan"
-msgstr ""
+msgstr "Afganistan"
 
 #: src/resources/world/nation_names.gd
 msgid "Bahrain"
-msgstr ""
+msgstr "Bahreyn"
 
 #: src/resources/world/nation_names.gd
 msgid "Bangladesh"
-msgstr ""
+msgstr "Bangladeş"
 
 #: src/resources/world/nation_names.gd
 msgid "Bhutan"
-msgstr ""
+msgstr "Butan"
 
 #: src/resources/world/nation_names.gd
 msgid "Brunei"
-msgstr ""
+msgstr "Brunei"
 
 #: src/resources/world/nation_names.gd
 msgid "Burma"
-msgstr ""
+msgstr "Burma"
 
 #: src/resources/world/nation_names.gd
 msgid "Cambodia"
-msgstr ""
+msgstr "Kamboçya"
 
 #: src/resources/world/nation_names.gd
 msgid "China"
-msgstr ""
+msgstr "Çin"
 
 #: src/resources/world/nation_names.gd
 msgid "East Timor"
-msgstr ""
+msgstr "Doğu Timur"
 
 #: src/resources/world/nation_names.gd
 msgid "India"
-msgstr ""
+msgstr "Hindistan"
 
 #: src/resources/world/nation_names.gd
 msgid "Indonesia"
-msgstr ""
+msgstr "Endonezya"
 
 #: src/resources/world/nation_names.gd
 msgid "Iran"
-msgstr ""
+msgstr "İran"
 
 #: src/resources/world/nation_names.gd
 msgid "Iraq"
-msgstr ""
+msgstr "Irak"
 
 #: src/resources/world/nation_names.gd
 msgid "Israel"
-msgstr ""
+msgstr "İsrail"
 
 #: src/resources/world/nation_names.gd
 msgid "Japan"
-msgstr ""
+msgstr "Japonya"
 
 #: src/resources/world/nation_names.gd
 msgid "Jordan"
-msgstr ""
+msgstr "Ürdün"
 
 #: src/resources/world/nation_names.gd
 msgid "Kazakhstan"
-msgstr ""
+msgstr "Kazakistan"
 
 #: src/resources/world/nation_names.gd
 msgid "North Korea"
-msgstr ""
+msgstr "Kuzey Kore"
 
 #: src/resources/world/nation_names.gd
 msgid "South Korea"
-msgstr ""
+msgstr "Güney Kore"
 
 #: src/resources/world/nation_names.gd
 msgid "Kuwait"
-msgstr ""
+msgstr "Kuveyt"
 
 #: src/resources/world/nation_names.gd
 msgid "Kyrgyzstan"
-msgstr ""
+msgstr "Kırgızistan"
 
 #: src/resources/world/nation_names.gd
 msgid "Laos"
-msgstr ""
+msgstr "Laos"
 
 #: src/resources/world/nation_names.gd
 msgid "Lebanon"
-msgstr ""
+msgstr "Lübnan"
 
 #: src/resources/world/nation_names.gd
 msgid "Malaysia"
-msgstr ""
+msgstr "Malezya"
 
 #: src/resources/world/nation_names.gd
 msgid "Maldives"
-msgstr ""
+msgstr "Maldivler"
 
 #: src/resources/world/nation_names.gd
 msgid "Mongolia"
-msgstr ""
+msgstr "Moğolistan"
 
 #: src/resources/world/nation_names.gd
 msgid "Nepal"
-msgstr ""
+msgstr "Nepal"
 
 #: src/resources/world/nation_names.gd
 msgid "Oman"
-msgstr ""
+msgstr "Umman"
 
 #: src/resources/world/nation_names.gd
 msgid "Pakistan"
-msgstr ""
+msgstr "Pakistan"
 
 #: src/resources/world/nation_names.gd
 msgid "Philippines"
-msgstr ""
+msgstr "Filipinler"
 
 #: src/resources/world/nation_names.gd
 msgid "Qatar"
-msgstr ""
+msgstr "Katar"
 
 #: src/resources/world/nation_names.gd
 msgid "Russian Federation"
-msgstr ""
+msgstr "Rusya Federasyonu"
 
 #: src/resources/world/nation_names.gd
 msgid "Saudi Arabia"
-msgstr ""
+msgstr "Suudi Arabistan"
 
 #: src/resources/world/nation_names.gd
 msgid "Singapore"
-msgstr ""
+msgstr "Singapur"
 
 #: src/resources/world/nation_names.gd
 msgid "Sri Lanka"
-msgstr ""
+msgstr "Sri Lanka"
 
 #: src/resources/world/nation_names.gd
 msgid "Syria"
-msgstr ""
+msgstr "Suriye"
 
 #: src/resources/world/nation_names.gd
 msgid "Tajikistan"
-msgstr ""
+msgstr "Tacikistan"
 
 #: src/resources/world/nation_names.gd
 msgid "Thailand"
-msgstr ""
+msgstr "Tayland"
 
 #: src/resources/world/nation_names.gd
 msgid "Turkey"
-msgstr ""
+msgstr "Türkiye"
 
 #: src/resources/world/nation_names.gd
 msgid "Turkmenistan"
-msgstr ""
+msgstr "Türkmenistan"
 
 #: src/resources/world/nation_names.gd
 msgid "United Arab Emirates"
-msgstr ""
+msgstr "Birleşik Arap Emirlikleri"
 
 #: src/resources/world/nation_names.gd
 msgid "Uzbekistan"
-msgstr ""
+msgstr "Özbekistan"
 
 #: src/resources/world/nation_names.gd
 msgid "Vietnam"
-msgstr ""
+msgstr "Vietnam"
 
 #: src/resources/world/nation_names.gd
 msgid "Yemen"
-msgstr ""
+msgstr "Yemen"
 
 #: src/screens/settings/license/license.tscn
 msgid "Game license"
-msgstr ""
+msgstr "Oyun lisansı"
 
 #: src/screens/settings/license/license.tscn
 msgid "This game is Open Source and released under the AGPL v3 or later license."
 msgstr ""
+"Bu oyun Açık Kaynaktır ve AGPL v3 veya sonraki lisansı altında "
+"yayınlanmıştır."
 
 #: src/screens/settings/license/license.tscn
 msgid "Read full license"
-msgstr ""
+msgstr "Lisansın tamamını oku"
 
 #: src/screens/settings/license/license.tscn
 msgid "Source code"
-msgstr ""
+msgstr "Kaynak kodu"
 
 #: src/screens/settings/license/license.tscn
 msgid "The full source code of the game is available on the websites below."
-msgstr ""
+msgstr "Oyunun tam kaynak kodu aşağıdaki internet sayfalarında mevcuttur."
 
 #: src/screens/settings/license/license.tscn
 msgid "Third party licenses"
-msgstr ""
+msgstr "Üçüncü taraf lisansları"
 
 #: src/screens/settings/license/license.tscn
 msgid "This game was built using the Godot Engine, that is released under the MIT license."
 msgstr ""
+"Bu oyun MIT lisansı altında yayımlanan Godot Motoru kullanılarak "
+"geliştirildi."
 
 #: src/enum.gd
 msgid "Key actions"
-msgstr ""
+msgstr "Kilit Eylemler"
 
 #: src/enum.gd
 msgid "Only goals"
-msgstr ""
+msgstr "Sadece goller"
 
 #: src/enum.gd
 msgid "Male"
-msgstr ""
+msgstr "Erkek"
 
 #: src/enum.gd
 msgid "Female"
-msgstr ""
+msgstr "Kadın"
 
 #: src/enum.gd
 msgid "Mixed"
-msgstr ""
+msgstr "Karışık"
 
 #: src/enum.gd
 msgid "January"
-msgstr ""
+msgstr "Ocak"
 
 #: src/enum.gd
 msgid "February"
-msgstr ""
+msgstr "Şubat"
 
 #: src/enum.gd
 msgid "March"
-msgstr ""
+msgstr "Mart"
 
 #: src/enum.gd
 msgid "April"
-msgstr ""
+msgstr "Nisan"
 
 #: src/enum.gd
 msgid "May"
-msgstr ""
+msgstr "Mayıs"
 
 #: src/enum.gd
 msgid "June"
-msgstr ""
+msgstr "Haziran"
 
 #: src/enum.gd
 msgid "July"
-msgstr ""
+msgstr "Temmuz"
 
 #: src/enum.gd
 msgid "August"
-msgstr ""
+msgstr "Ağustos"
 
 #: src/enum.gd
 msgid "September"
-msgstr ""
+msgstr "Eylül"
 
 #: src/enum.gd
 msgid "October"
-msgstr ""
+msgstr "Ekim"
 
 #: src/enum.gd
 msgid "November"
-msgstr ""
+msgstr "Kasım"
 
 #: src/enum.gd
 msgid "December"
-msgstr ""
+msgstr "Aralık"
 
 #: src/enum.gd
 msgid "Automatic"
-msgstr ""
+msgstr "Otomatik"
 
 #: src/enum.gd
 msgid "Manual"
-msgstr ""
+msgstr "Manuel"
 
 #: src/enum.gd
 msgid "Mouse and Keyboard"
-msgstr ""
+msgstr "Klavye ve fare"
 
 #: src/enum.gd
 msgid "Joypad"
-msgstr ""
+msgstr "Joypad"
 
 #: src/enum.gd
 msgid "Touchscreen"
-msgstr ""
+msgstr "Dokunmatik ekran"
 
 #: src/enum.gd
 msgid "Left"
-msgstr ""
+msgstr "Sol"
 
 #: src/enum.gd
 msgid "Right"
-msgstr ""
+msgstr "Sağ"
 
 #: src/enum.gd
 msgid "Left and right"
-msgstr ""
+msgstr "Sol ve sağ"
 
 #: src/enum.gd
 msgid "Worst"
-msgstr ""
+msgstr "En kötü"
 
 #: src/enum.gd
 msgid "Bad"
-msgstr ""
+msgstr "Kötü"
 
 #: src/enum.gd
 msgid "Neutral"
-msgstr ""
+msgstr "Ortalama"
 
 #: src/enum.gd
 msgid "Good"
-msgstr ""
+msgstr "İyi"
 
 #: src/enum.gd
 msgid "Best"
-msgstr ""
+msgstr "En iyi"
 
 #: src/enum.gd
 msgid "Injured"
-msgstr ""
+msgstr "Yaralı"
 
 #: src/enum.gd
 msgid "Recover"
-msgstr ""
+msgstr "İyileşiyor"
