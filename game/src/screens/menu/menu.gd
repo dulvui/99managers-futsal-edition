@@ -31,6 +31,8 @@ func _ready() -> void:
 	
 	Main.check_layout_direction()
 
+	ResUtil.loading_failed.connect(_on_res_util_loading_failed)
+
 
 func _on_new_game_pressed() -> void:
 	Main.change_scene(Const.SCREEN_SETUP_WORLD)
@@ -42,6 +44,7 @@ func _on_continue_game_pressed() -> void:
 	Global.load_save_state()
 
 
+
 func _on_settings_pressed() -> void:
 	Main.change_scene(Const.SCREEN_SETTINGS)
 
@@ -50,10 +53,16 @@ func _on_load_game_pressed() -> void:
 	Main.change_scene(Const.SCREEN_SAVE_STATES)
 
 
+func _on_res_util_loading_failed() -> void:
+	Main.hide_loading_screen()
+	print("loading failed...")
+
+
 func _on_exit_pressed() -> void:
 	exit_confirm_dialog.popup_centered()
 
 
 func _on_default_confirm_dialog_confirmed() -> void:
 	get_tree().quit()
+
 

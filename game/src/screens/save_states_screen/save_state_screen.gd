@@ -24,7 +24,16 @@ func _ready() -> void:
 			entry_list.add_child(entry)
 			entry.setup(save_state)
 
+	ResUtil.loading_failed.connect(_on_res_util_loading_failed)
+
 
 func _on_menu_pressed() -> void:
 	Main.change_scene(Const.SCREEN_MENU)
+
+
+func _on_res_util_loading_failed() -> void:
+	Main.hide_loading_screen()
+	print("loading failed...")
+
+
 

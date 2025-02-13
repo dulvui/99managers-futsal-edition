@@ -12,11 +12,11 @@ enum Stage {
 
 @export var groups: Array[Group]
 @export var knockout: Knockout
+@export var stage: Stage
+@export var teams_pass_to_knockout: int
 # includes also historical winners
 # winners[-1] is latest winner
 @export var winners: Array[Team]
-@export var stage: Stage
-@export var teams_pass_to_knockout: int
 
 
 func _init(
@@ -129,9 +129,12 @@ func is_final() -> bool:
 		return false
 	return true
 
+
 func _find_group_by_team_id(team_id: int) -> Group:
 	for group: Group in groups:
 		if group.get_team_by_id(team_id) != null:
 			return group
 	print("error while seaerching team with id %s in group"%str(team_id))
 	return null
+
+

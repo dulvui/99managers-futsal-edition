@@ -100,7 +100,6 @@ func next_day() -> void:
 			t.finances.update_week(t)
 
 
-
 func next_season() -> void:
 	current_season += 1
 

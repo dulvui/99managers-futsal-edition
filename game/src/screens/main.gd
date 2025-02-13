@@ -51,6 +51,10 @@ func show_loading_screen(p_scene_name_on_load: String = "") -> void:
 	scene_fade.fade_out()
 
 
+func hide_loading_screen() -> void:
+	loading_screen.hide()
+
+
 func check_layout_direction() -> void:
 	if Global.language == "apc":
 		layout_direction = LAYOUT_DIRECTION_RTL
