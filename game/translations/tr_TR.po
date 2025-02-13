@@ -1,0 +1,2063 @@
+# LANGUAGE translation for 99 Managers Futsal Edition for the following files:
+# res://script_templates/Node/with_header.gd
+# res://src/ui_components/graphs/line_graph/line_graph.gd
+# res://src/ui_components/graphs/line_graph/line_graph.tscn
+# res://src/ui_components/graphs/bar_graph/bar_graph.gd
+# res://src/ui_components/graphs/bar_graph/bar_graph.tscn
+# res://src/ui_components/team_profile/team_profile.tscn
+# res://src/ui_components/team_profile/team_profile.gd
+# res://src/ui_components/player_list/player_list.gd
+# res://src/ui_components/player_list/player_list.tscn
+# res://src/ui_components/player_list/player_list_column/player_list_column.gd
+# res://src/ui_components/player_list/player_list_column/player_list_column.tscn
+# res://src/ui_components/info/info.gd
+# res://src/ui_components/info/info.tscn
+# res://src/ui_components/base/confirm_dialog/default_confirm_dialog.gd
+# res://src/ui_components/base/confirm_dialog/default_confirm_dialog.tscn
+# res://src/ui_components/base/animations/scene_fade.tscn
+# res://src/ui_components/base/animations/scene_fade.gd
+# res://src/ui_components/base/swtich_option_button/switch_option_button.gd
+# res://src/ui_components/base/swtich_option_button/switch_option_button.tscn
+# res://src/ui_components/base/defaults/default_option_button.gd
+# res://src/ui_components/base/defaults/default_button.gd
+# res://src/ui_components/base/defaults/default_tab_container.gd
+# res://src/ui_components/base/color_label/color_label.gd
+# res://src/ui_components/base/color_label/color_label.tscn
+# res://src/ui_components/base/search_line_edit/search_line_edit.gd
+# res://src/ui_components/base/search_line_edit/search_line_edit.tscn
+# res://src/ui_components/visual_finances/visual_finances.gd
+# res://src/ui_components/visual_finances/visual_finances.tscn
+# res://src/ui_components/visual_competitions/visual_table/visual_table.tscn
+# res://src/ui_components/visual_competitions/visual_table/visual_table.gd
+# res://src/ui_components/visual_competitions/visual_knockout/visual_knockout.gd
+# res://src/ui_components/visual_competitions/visual_knockout/visual_knockout.tscn
+# res://src/ui_components/visual_competitions/visual_competitions.tscn
+# res://src/ui_components/visual_competitions/visual_competitions.gd
+# res://src/ui_components/transfers/player_offer/player_offer.tscn
+# res://src/ui_components/transfers/player_offer/player_offer.gd
+# res://src/ui_components/transfers/contract_offer/contract_offer.tscn
+# res://src/ui_components/transfers/contract_offer/contract_offer.gd
+# res://src/ui_components/visual_formation/visual_formation.gd
+# res://src/ui_components/visual_formation/players_bar/players_bar.tscn
+# res://src/ui_components/visual_formation/players_bar/players_bar.gd
+# res://src/ui_components/visual_formation/player/formation_player.gd
+# res://src/ui_components/visual_formation/player/formation_player.tscn
+# res://src/ui_components/visual_formation/visual_formation.tscn
+# res://src/ui_components/resource_view/resource_view.gd
+# res://src/ui_components/resource_view/resource_view.tscn
+# res://src/ui_components/email/list/message_list.tscn
+# res://src/ui_components/email/list/message_list.gd
+# res://src/ui_components/email/list/message_row/message_row.tscn
+# res://src/ui_components/email/list/message_row/message_row.gd
+# res://src/ui_components/email/email.gd
+# res://src/ui_components/email/email.tscn
+# res://src/ui_components/email/visual_message/visual_message.tscn
+# res://src/ui_components/email/visual_message/visual_message.gd
+# res://src/ui_components/player_profile/attributes_view/attributes_view.tscn
+# res://src/ui_components/player_profile/attributes_view/attributes_view.gd
+# res://src/ui_components/player_profile/player_profile.gd
+# res://src/ui_components/player_profile/player_profile.tscn
+# res://src/ui_components/player_profile/info_view/info_view.tscn
+# res://src/ui_components/player_profile/info_view/info_view.gd
+# res://src/ui_components/player_profile/contract_view/contract_view.tscn
+# res://src/ui_components/player_profile/contract_view/contract_view.gd
+# res://src/ui_components/player_profile/statistics_view/statistics_view.gd
+# res://src/ui_components/player_profile/statistics_view/statistics_view.tscn
+# res://src/ui_components/visual_calendar/visual_calendar.gd
+# res://src/ui_components/visual_calendar/visual_day/visual_day.tscn
+# res://src/ui_components/visual_calendar/visual_day/visual_day.gd
+# res://src/ui_components/visual_calendar/match_list/match_info/match_info.tscn
+# res://src/ui_components/visual_calendar/match_list/match_info/match_info.gd
+# res://src/ui_components/visual_calendar/match_list/match_list.gd
+# res://src/ui_components/visual_calendar/match_list/match_list.tscn
+# res://src/ui_components/visual_calendar/visual_calendar.tscn
+# res://src/ui_components/tree_overviews/competition_tree/competitions_tree.tscn
+# res://src/ui_components/tree_overviews/competition_tree/competitions_tree.gd
+# res://src/ui_components/tree_overviews/teams_tree/teams_tree.tscn
+# res://src/ui_components/tree_overviews/teams_tree/teams_tree.gd
+# res://src/resources/team/stadium.gd
+# res://src/resources/team/finances.gd
+# res://src/resources/team/sponsor.gd
+# res://src/resources/team/board_requests.gd
+# res://src/resources/team/team.gd
+# res://src/resources/json_resource.gd
+# res://src/resources/calendar/day.gd
+# res://src/resources/calendar/month.gd
+# res://src/resources/calendar/calendar.gd
+# res://src/resources/save_states/save_states.gd
+# res://src/resources/save_states/save_state.gd
+# res://src/resources/competition/competition.gd
+# res://src/resources/competition/cup/knockout.gd
+# res://src/resources/competition/cup/cup.gd
+# res://src/resources/competition/cup/group.gd
+# res://src/resources/competition/league.gd
+# res://src/resources/competition/table/table_values.gd
+# res://src/resources/competition/table/table.gd
+# res://src/resources/match/match.gd
+# res://src/resources/match/match_statistics.gd
+# res://src/resources/formation/position/position.gd
+# res://src/resources/formation/position/position_variation.gd
+# res://src/resources/formation/tactic_defense.gd
+# res://src/resources/formation/formation.gd
+# res://src/resources/formation/tactic_offense.gd
+# res://src/resources/transfers/transfer.gd
+# res://src/resources/transfers/transfers.gd
+# res://src/resources/world/nation.gd
+# res://src/resources/world/world.gd
+# res://src/resources/world/continent.gd
+# res://src/resources/theme/theme_configuration.gd
+# res://src/resources/theme/color_variation.gd
+# res://src/resources/person/staff/staff.gd
+# res://src/resources/person/staff/roles/scout.gd
+# res://src/resources/person/staff/roles/president.gd
+# res://src/resources/person/staff/roles/agent.gd
+# res://src/resources/person/staff/roles/medical.gd
+# res://src/resources/person/staff/roles/manager.gd
+# res://src/resources/person/player/history.gd
+# res://src/resources/person/player/statistics.gd
+# res://src/resources/person/player/attributes/goalkeeper.gd
+# res://src/resources/person/player/attributes/physical.gd
+# res://src/resources/person/player/attributes/attributes.gd
+# res://src/resources/person/player/attributes/mental.gd
+# res://src/resources/person/player/attributes/technical.gd
+# res://src/resources/person/player/contract.gd
+# res://src/resources/person/player/player.gd
+# res://src/resources/person/person.gd
+# res://src/resources/email/email_message.gd
+# res://src/resources/email/inbox.gd
+# res://src/match_simulator/match_buffer/match_buffer_stats.gd
+# res://src/match_simulator/match_buffer/match_buffer_entries/match_buffer_ball_entry.gd
+# res://src/match_simulator/match_buffer/match_buffer_entries/match_buffer_stats_entry.gd
+# res://src/match_simulator/match_buffer/match_buffer_entries/match_buffer_teams_entry.gd
+# res://src/match_simulator/match_buffer/match_buffer_entries/match_buffer_entry.gd
+# res://src/match_simulator/match_buffer/match_buffer_teams.gd
+# res://src/match_simulator/match_buffer/match_buffer.gd
+# res://src/match_simulator/match_buffer/match_buffer_ball.gd
+# res://src/match_simulator/visual_match/visual_match.tscn
+# res://src/match_simulator/visual_match/visual_state_machine/visual_state_machine.tscn
+# res://src/match_simulator/visual_match/visual_state_machine/visual_state_machine.gd
+# res://src/match_simulator/visual_match/visual_actors/visual_player/visual_player.tscn
+# res://src/match_simulator/visual_match/visual_actors/visual_player/visual_player.gd
+# res://src/match_simulator/visual_match/visual_actors/visual_field/visual_field.gd
+# res://src/match_simulator/visual_match/visual_actors/visual_field/visual_field.tscn
+# res://src/match_simulator/visual_match/visual_actors/visual_goals/visual_goals.gd
+# res://src/match_simulator/visual_match/visual_actors/visual_goals/visual_goals.tscn
+# res://src/match_simulator/visual_match/visual_actors/visual_actor.gd
+# res://src/match_simulator/visual_match/visual_actors/visual_ball/visual_ball.tscn
+# res://src/match_simulator/visual_match/visual_actors/visual_ball/visual_ball.gd
+# res://src/match_simulator/visual_match/visual_actors/visual_team/visual_team.tscn
+# res://src/match_simulator/visual_match/visual_actors/visual_team/visual_team.gd
+# res://src/match_simulator/visual_match/visual_match.gd
+# res://src/match_simulator/match_simulator.tscn
+# res://src/match_simulator/match_engine/actors/team/team_state_machine/team_states/70_penalties.gd
+# res://src/match_simulator/match_engine/actors/team/team_state_machine/team_states/60_goal_celebrate.gd
+# res://src/match_simulator/match_engine/actors/team/team_state_machine/team_states/50_goalkeeper.gd
+# res://src/match_simulator/match_engine/actors/team/team_state_machine/team_states/50_corner.gd
+# res://src/match_simulator/match_engine/actors/team/team_state_machine/team_states/50_kickin.gd
+# res://src/match_simulator/match_engine/actors/team/team_state_machine/team_states/50_free_kick.gd
+# res://src/match_simulator/match_engine/actors/team/team_state_machine/team_states/40_attack.gd
+# res://src/match_simulator/match_engine/actors/team/team_state_machine/team_states/40_defend.gd
+# res://src/match_simulator/match_engine/actors/team/team_state_machine/team_states/30_kickoff.gd
+# res://src/match_simulator/match_engine/actors/team/team_state_machine/team_states/10_enter_field.gd
+# res://src/match_simulator/match_engine/actors/team/team_state_machine/team_states/20_start_position.gd
+# res://src/match_simulator/match_engine/actors/team/team_state_machine/team_state_machine_state.gd
+# res://src/match_simulator/match_engine/actors/team/team_state_machine/team_state_machine.gd
+# res://src/match_simulator/match_engine/actors/team/sim_team.gd
+# res://src/match_simulator/match_engine/actors/player/sim_player.gd
+# res://src/match_simulator/match_engine/actors/player/player_state_machine/player_state_machine.gd
+# res://src/match_simulator/match_engine/actors/player/player_state_machine/player_state_machine_state.gd
+# res://src/match_simulator/match_engine/actors/player/player_state_machine/player_states/20_attack.gd
+# res://src/match_simulator/match_engine/actors/player/player_state_machine/player_states/90_penalty_shoot.gd
+# res://src/match_simulator/match_engine/actors/player/player_state_machine/player_states/50_corner.gd
+# res://src/match_simulator/match_engine/actors/player/player_state_machine/player_states/90_penalties.gd
+# res://src/match_simulator/match_engine/actors/player/player_state_machine/player_states/70_goalkeeper_follow_ball.gd
+# res://src/match_simulator/match_engine/actors/player/player_state_machine/player_states/20_defend.gd
+# res://src/match_simulator/match_engine/actors/player/player_state_machine/player_states/40_support.gd
+# res://src/match_simulator/match_engine/actors/player/player_state_machine/player_states/40_shoot.gd
+# res://src/match_simulator/match_engine/actors/player/player_state_machine/player_states/70_goalkeeper_ball.gd
+# res://src/match_simulator/match_engine/actors/player/player_state_machine/player_states/90_goalkeeper_penalty.gd
+# res://src/match_simulator/match_engine/actors/player/player_state_machine/player_states/40_receive.gd
+# res://src/match_simulator/match_engine/actors/player/player_state_machine/player_states/30_control.gd
+# res://src/match_simulator/match_engine/actors/player/player_state_machine/player_states/30_chase_ball.gd
+# res://src/match_simulator/match_engine/actors/player/player_state_machine/player_states/40_dribble.gd
+# res://src/match_simulator/match_engine/actors/player/player_state_machine/player_states/30_idle.gd
+# res://src/match_simulator/match_engine/actors/player/player_state_machine/player_states/10_enter_field.gd
+# res://src/match_simulator/match_engine/actors/player/player_state_machine/player_states/20_start_position.gd
+# res://src/match_simulator/match_engine/actors/player/player_state_machine/player_states/50_goal.gd
+# res://src/match_simulator/match_engine/actors/field/sim_ball.gd
+# res://src/match_simulator/match_engine/actors/field/sim_field_sector.gd
+# res://src/match_simulator/match_engine/actors/field/sim_field_calculator.gd
+# res://src/match_simulator/match_engine/actors/field/sim_goals.gd
+# res://src/match_simulator/match_engine/actors/field/sim_penalty_areas.gd
+# res://src/match_simulator/match_engine/actors/field/sim_field.gd
+# res://src/match_simulator/match_engine/actors/sim_coliding_actor.gd
+# res://src/match_simulator/match_engine/actors/sim_moving_actor.gd
+# res://src/match_simulator/match_engine/match_engine.gd
+# res://src/match_simulator/match_engine/state_machine/state_machine.gd
+# res://src/match_simulator/match_engine/state_machine/state_machine_state.gd
+# res://src/match_simulator/match_simulator.gd
+# res://src/const.gd
+# res://src/simulations/administration_simulation.gd
+# res://src/simulations/player_progress.gd
+# res://src/simulations/formation_simulation.gd
+# res://src/utils/id_util.gd
+# res://src/utils/loading_util.gd
+# res://src/utils/thread_util.gd
+# res://src/utils/backup_util.gd
+# res://src/utils/logic/rng_util.gd
+# res://src/utils/logic/transfer_util.gd
+# res://src/utils/logic/email_util.gd
+# res://src/utils/logic/match_combination_util.gd
+# res://src/utils/logic/player_delevopment_util.gd
+# res://src/utils/input/input_util.gd
+# res://src/utils/input/joypad_axis_util.gd
+# res://src/utils/input/mapping_util.gd
+# res://src/utils/input/joypad_util.gd
+# res://src/utils/debug_util.gd
+# res://src/utils/res_util.gd
+# res://src/utils/ui/sound_util.gd
+# res://src/utils/ui/theme_util.gd
+# res://src/utils/ui/format_util.gd
+# res://src/tests/tests.tscn
+# res://src/tests/tests.gd
+# res://src/tests/test_gameloop/test_gameloop.tscn
+# res://src/tests/test_gameloop/test_gameloop.gd
+# res://src/tests/test_format_util/test_format_util.gd
+# res://src/tests/test_format_util/test_format_util.tscn
+# res://src/tests/test_match_engine/test_match_engine.tscn
+# res://src/tests/test_match_engine/test_match_engine.gd
+# res://src/tests/test_generator/test_generator.gd
+# res://src/tests/test_generator/test_generator.tscn
+# res://src/tests/test.gd
+# res://src/tests/test_match_combination/test_match_combination.gd
+# res://src/tests/test_match_combination/test_match_combination.tscn
+# res://src/tests/test_calendar/test_calendar.gd
+# res://src/tests/test_calendar/test_calendar.tscn
+# res://src/tests/test_res_util/test_res_util.gd
+# res://src/tests/test_res_util/test_res_util.tscn
+# res://src/screens/main.gd
+# res://src/screens/settings/settings.gd
+# res://src/screens/settings/settings.tscn
+# res://src/screens/settings/language_picker/language_picker.tscn
+# res://src/screens/settings/language_picker/language_picker.gd
+# res://src/screens/settings/general/general_settings.gd
+# res://src/screens/settings/general/general_settings.tscn
+# res://src/screens/settings/input/input_settings.tscn
+# res://src/screens/settings/input/input_settings.gd
+# res://src/screens/save_states_screen/save_states_screen.tscn
+# res://src/screens/save_states_screen/save_state_screen.gd
+# res://src/screens/save_states_screen/save_state_entry/save_state_entry.gd
+# res://src/screens/save_states_screen/save_state_entry/save_state_entry.tscn
+# res://src/screens/dashboard/dashboard.gd
+# res://src/screens/dashboard/dashboard.tscn
+# res://src/screens/match/match.gd
+# res://src/screens/match/penalties_bar/penalties_bar.tscn
+# res://src/screens/match/penalties_bar/penalties_bar.gd
+# res://src/screens/match/events/match_events.tscn
+# res://src/screens/match/events/match_events.gd
+# res://src/screens/match/statistics/match_stats.gd
+# res://src/screens/match/statistics/match_stats.tscn
+# res://src/screens/match/match.tscn
+# res://src/screens/loading_screen/loading_screen.tscn
+# res://src/screens/loading_screen/loading_screen.gd
+# res://src/screens/main.tscn
+# res://src/screens/menu/menu.gd
+# res://src/screens/menu/menu.tscn
+# res://src/screens/setup/setup_world/setup_world.tscn
+# res://src/screens/setup/setup_world/setup_world.gd
+# res://src/screens/setup/setup_language/setup_language.gd
+# res://src/screens/setup/setup_language/setup_language.tscn
+# res://src/screens/setup/setup_manager/setup_manager.tscn
+# res://src/screens/setup/setup_manager/setup_manager.gd
+# res://src/screens/setup/setup_team/setup_team.tscn
+# res://src/screens/setup/setup_team/setup_team.gd
+# res://src/screens/splash/splash_screen.tscn
+# res://src/screens/splash/splash_screen.gd
+# res://src/global.gd
+# res://src/generators/generator.gd
+# res://src/resources/world/continent_names.gd
+# res://src/resources/world/nation_names.gd
+# res://src/screens/settings/contributors/contributors.tscn
+# res://src/screens/settings/license/license.gd
+# res://src/screens/settings/license/license.tscn
+# res://src/enum.gd
+#
+# Burak Hüseyin Ekseli <burakekseli@yandex.com>, 2025.
+msgid ""
+msgstr ""
+"Project-Id-Version: 99 Managers Futsal Edition\n"
+"Language: tr\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8-bit\n"
+
+#: src/ui_components/team_profile/team_profile.tscn
+#: src/ui_components/info/info.tscn
+#: src/ui_components/player_profile/player_profile.tscn
+#: src/screens/dashboard/dashboard.tscn
+msgid "Info"
+msgstr ""
+
+#: src/ui_components/team_profile/team_profile.tscn
+#: src/ui_components/team_profile/team_profile.gd
+msgid "Budget"
+msgstr ""
+
+#: src/ui_components/team_profile/team_profile.tscn
+#: src/screens/dashboard/dashboard.tscn
+msgid "Stadium"
+msgstr ""
+
+#: src/ui_components/team_profile/team_profile.tscn
+#: src/ui_components/transfers/player_offer/player_offer.tscn
+#: src/screens/dashboard/dashboard.tscn
+msgid "Players"
+msgstr ""
+
+#: src/ui_components/team_profile/team_profile.gd
+#: src/ui_components/player_profile/info_view/info_view.tscn
+msgid "Prestige"
+msgstr ""
+
+#: src/ui_components/team_profile/team_profile.gd
+#: src/ui_components/visual_finances/visual_finances.tscn
+msgid "Salary budget"
+msgstr ""
+
+#: src/ui_components/team_profile/team_profile.gd
+msgid "Persons"
+msgstr ""
+
+#: src/ui_components/team_profile/team_profile.gd
+#: src/ui_components/transfers/contract_offer/contract_offer.tscn
+msgid "Year"
+msgstr ""
+
+#: src/ui_components/player_list/player_list.gd
+msgid "All Teams"
+msgstr ""
+
+#: src/ui_components/player_list/player_list.gd
+msgid "All positions"
+msgstr ""
+
+#: src/ui_components/player_list/player_list.gd
+msgid "All Leagues"
+msgstr ""
+
+#: src/ui_components/player_list/player_list_column/player_list_column.tscn
+#: src/ui_components/player_profile/info_view/info_view.tscn
+#: src/screens/setup/setup_manager/setup_manager.tscn
+msgid "Name"
+msgstr ""
+
+#: src/ui_components/info/info.tscn
+msgid "Seed"
+msgstr ""
+
+#: src/ui_components/info/info.tscn
+msgid "Copy"
+msgstr ""
+
+#: src/ui_components/info/info.tscn
+msgid "Start date"
+msgstr ""
+
+#: src/ui_components/base/confirm_dialog/default_confirm_dialog.gd
+msgid "Ok"
+msgstr ""
+
+#: src/ui_components/base/confirm_dialog/default_confirm_dialog.tscn
+#: src/ui_components/transfers/player_offer/player_offer.tscn
+#: src/ui_components/transfers/contract_offer/contract_offer.tscn
+#: src/screens/setup/setup_world/setup_world.tscn
+#: src/screens/setup/setup_manager/setup_manager.tscn
+msgid "Cancel"
+msgstr ""
+
+#: src/ui_components/base/confirm_dialog/default_confirm_dialog.tscn
+msgid "No"
+msgstr ""
+
+#: src/ui_components/base/confirm_dialog/default_confirm_dialog.tscn
+msgid "Yes"
+msgstr ""
+
+#: src/ui_components/base/search_line_edit/search_line_edit.tscn
+msgid "Search"
+msgstr ""
+
+#: src/ui_components/visual_finances/visual_finances.tscn
+msgid "Balance"
+msgstr ""
+
+#: src/ui_components/visual_finances/visual_finances.tscn
+msgid "Expenses"
+msgstr ""
+
+#: src/ui_components/visual_finances/visual_finances.tscn
+msgid "Reamaining salary budget"
+msgstr ""
+
+#: src/ui_components/visual_finances/visual_finances.tscn
+#: src/ui_components/transfers/contract_offer/contract_offer.tscn
+msgid "Income"
+msgstr ""
+
+#: src/ui_components/visual_competitions/visual_table/visual_table.tscn
+#: src/ui_components/player_profile/info_view/info_view.tscn
+#: src/screens/save_states_screen/save_state_entry/save_state_entry.tscn
+msgid "Team"
+msgstr ""
+
+#: src/ui_components/visual_competitions/visual_table/visual_table.tscn
+msgid "Played"
+msgstr ""
+
+#: src/ui_components/visual_competitions/visual_table/visual_table.tscn
+msgid "Win"
+msgstr ""
+
+#: src/ui_components/visual_competitions/visual_table/visual_table.tscn
+msgid "Draw"
+msgstr ""
+
+#: src/ui_components/visual_competitions/visual_table/visual_table.tscn
+msgid "Lost"
+msgstr ""
+
+#: src/ui_components/visual_competitions/visual_table/visual_table.tscn
+msgid "Goals"
+msgstr ""
+
+#: src/ui_components/visual_competitions/visual_table/visual_table.tscn
+msgid "Goals conceded"
+msgstr ""
+
+#: src/ui_components/visual_competitions/visual_table/visual_table.tscn
+msgid "Points"
+msgstr ""
+
+#: src/ui_components/visual_competitions/visual_knockout/visual_knockout.tscn
+msgid "Knockout"
+msgstr ""
+
+#: src/ui_components/visual_competitions/visual_knockout/visual_knockout.tscn
+msgid "Group A"
+msgstr ""
+
+#: src/ui_components/visual_competitions/visual_knockout/visual_knockout.tscn
+msgid "Final"
+msgstr ""
+
+#: src/ui_components/visual_competitions/visual_knockout/visual_knockout.tscn
+msgid "Group B"
+msgstr ""
+
+#: src/ui_components/visual_competitions/visual_knockout/visual_knockout.tscn
+msgid "Winner A vs Winner B"
+msgstr ""
+
+#: src/ui_components/visual_competitions/visual_competitions.tscn
+msgid "League"
+msgstr ""
+
+#: src/ui_components/visual_competitions/visual_competitions.gd
+msgid "Group"
+msgstr ""
+
+#: src/ui_components/transfers/player_offer/player_offer.tscn
+msgid "Type"
+msgstr ""
+
+#: src/ui_components/transfers/player_offer/player_offer.tscn
+msgid "Money"
+msgstr ""
+
+#: src/ui_components/transfers/player_offer/player_offer.tscn
+#: src/ui_components/email/list/message_list.tscn
+msgid "Date"
+msgstr ""
+
+#: src/ui_components/transfers/player_offer/player_offer.tscn
+msgid "Player list"
+msgstr ""
+
+#: src/ui_components/transfers/player_offer/player_offer.tscn
+#: src/ui_components/transfers/contract_offer/contract_offer.tscn
+msgid "Confirm"
+msgstr ""
+
+#: src/ui_components/transfers/player_offer/player_offer.gd
+msgid "Transfer"
+msgstr ""
+
+#: src/ui_components/transfers/player_offer/player_offer.gd
+msgid "Loan"
+msgstr ""
+
+#: src/ui_components/transfers/contract_offer/contract_offer.tscn
+#: src/ui_components/player_profile/player_profile.tscn
+msgid "Contract"
+msgstr ""
+
+#: src/ui_components/transfers/contract_offer/contract_offer.tscn
+msgid "Buy clause"
+msgstr ""
+
+#: src/ui_components/visual_formation/visual_formation.gd
+msgid "Subs"
+msgstr ""
+
+#: src/ui_components/visual_formation/visual_formation.gd
+msgid "Rest"
+msgstr ""
+
+#: src/ui_components/visual_formation/visual_formation.tscn
+#: src/screens/dashboard/dashboard.tscn
+#: src/screens/match/match.tscn
+msgid "Formation"
+msgstr ""
+
+#: src/ui_components/visual_formation/visual_formation.tscn
+msgid "Change strategy"
+msgstr ""
+
+#: src/ui_components/visual_formation/visual_formation.tscn
+msgid "Tactic offense"
+msgstr ""
+
+#: src/ui_components/visual_formation/visual_formation.tscn
+msgid "Intensity"
+msgstr ""
+
+#: src/ui_components/visual_formation/visual_formation.tscn
+msgid "Marking"
+msgstr ""
+
+#: src/ui_components/visual_formation/visual_formation.tscn
+msgid "Pressing"
+msgstr ""
+
+#: src/ui_components/email/list/message_list.tscn
+#: src/ui_components/email/visual_message/visual_message.tscn
+msgid "Subject"
+msgstr ""
+
+#: src/ui_components/email/list/message_list.tscn
+#: src/ui_components/email/visual_message/visual_message.tscn
+msgid "From"
+msgstr ""
+
+#: src/ui_components/email/list/message_list.tscn
+msgid "Star"
+msgstr ""
+
+#: src/ui_components/email/list/message_list.gd
+msgid "No message found"
+msgstr ""
+
+#: src/ui_components/email/list/message_row/message_row.gd
+msgid "Click to read message"
+msgstr ""
+
+#: src/ui_components/email/email.tscn
+msgid "Unread"
+msgstr ""
+
+#: src/ui_components/email/email.tscn
+msgid "Starred"
+msgstr ""
+
+#: src/ui_components/email/visual_message/visual_message.tscn
+msgid "To"
+msgstr ""
+
+#: src/ui_components/email/visual_message/visual_message.tscn
+msgid "Action"
+msgstr ""
+
+#: src/ui_components/email/visual_message/visual_message.gd
+msgid "Offer contract"
+msgstr ""
+
+#: src/ui_components/player_profile/player_profile.tscn
+msgid "Statistics"
+msgstr ""
+
+#: src/ui_components/player_profile/player_profile.tscn
+msgid "Attributes"
+msgstr ""
+
+#: src/ui_components/player_profile/info_view/info_view.tscn
+msgid "Position"
+msgstr ""
+
+#: src/ui_components/player_profile/info_view/info_view.tscn
+msgid "Alternative position"
+msgstr ""
+
+#: src/ui_components/player_profile/info_view/info_view.tscn
+msgid "Age"
+msgstr ""
+
+#: src/ui_components/player_profile/info_view/info_view.tscn
+msgid "Foot"
+msgstr ""
+
+#: src/ui_components/player_profile/info_view/info_view.tscn
+#: src/screens/setup/setup_manager/setup_manager.tscn
+msgid "Nationality"
+msgstr ""
+
+#: src/ui_components/player_profile/info_view/info_view.tscn
+msgid "Number"
+msgstr ""
+
+#: src/ui_components/player_profile/info_view/info_view.tscn
+msgid "Average attributes"
+msgstr ""
+
+#: src/ui_components/player_profile/info_view/info_view.tscn
+msgid "Value"
+msgstr ""
+
+#: src/ui_components/player_profile/contract_view/contract_view.tscn
+msgid "Make offer"
+msgstr ""
+
+#: src/ui_components/visual_calendar/visual_day/visual_day.tscn
+#: src/ui_components/visual_calendar/visual_day/visual_day.gd
+#: src/screens/dashboard/dashboard.tscn
+msgid "Transfermarket"
+msgstr ""
+
+#: src/ui_components/visual_calendar/visual_day/visual_day.gd
+#: src/ui_components/visual_calendar/match_list/match_info/match_info.tscn
+#: src/screens/match/match.tscn
+msgid "Home"
+msgstr ""
+
+#: src/ui_components/visual_calendar/visual_day/visual_day.gd
+#: src/ui_components/visual_calendar/match_list/match_info/match_info.tscn
+#: src/screens/match/match.tscn
+msgid "Away"
+msgstr ""
+
+#: src/ui_components/visual_calendar/visual_day/visual_day.gd
+msgid ""
+msgstr ""
+
+#: src/ui_components/visual_calendar/match_list/match_info/match_info.tscn
+msgid "vs"
+msgstr ""
+
+#: src/ui_components/visual_calendar/match_list/match_list.gd
+msgid "No match"
+msgstr ""
+
+#: src/ui_components/visual_calendar/visual_calendar.tscn
+msgid "Today"
+msgstr ""
+
+#: src/ui_components/visual_calendar/visual_calendar.tscn
+#: src/enum.gd
+msgid "Monday"
+msgstr ""
+
+#: src/ui_components/visual_calendar/visual_calendar.tscn
+#: src/enum.gd
+msgid "Tuesday"
+msgstr ""
+
+#: src/ui_components/visual_calendar/visual_calendar.tscn
+#: src/enum.gd
+msgid "Wednesday"
+msgstr ""
+
+#: src/ui_components/visual_calendar/visual_calendar.tscn
+#: src/enum.gd
+msgid "Thursday"
+msgstr ""
+
+#: src/ui_components/visual_calendar/visual_calendar.tscn
+#: src/enum.gd
+msgid "Friday"
+msgstr ""
+
+#: src/ui_components/visual_calendar/visual_calendar.tscn
+#: src/enum.gd
+msgid "Saturday"
+msgstr ""
+
+#: src/ui_components/visual_calendar/visual_calendar.tscn
+#: src/enum.gd
+msgid "Sunday"
+msgstr ""
+
+#: src/utils/logic/email_util.gd
+msgid "Next match: {team_name}"
+msgstr ""
+
+#: src/utils/logic/email_util.gd
+msgid "The next match is against {team_name}."
+msgstr ""
+
+#: src/utils/logic/email_util.gd
+msgid "Welcome {manager_name}"
+msgstr ""
+
+#: src/utils/logic/email_util.gd
+msgid "{team_name} welcomes you to a new journey."
+msgstr ""
+
+#: src/utils/logic/email_util.gd
+msgid "Offer for {player_name}"
+msgstr ""
+
+#: src/utils/logic/email_util.gd
+msgid ""
+"You made an offer for {player_name} from {team_name} at {cost}.\n"
+"{team_name} will consider the offer and respond within a few days."
+msgstr ""
+
+#: src/utils/logic/email_util.gd
+msgid "Offer for {player name} declined"
+msgstr ""
+
+#: src/utils/logic/email_util.gd
+msgid ""
+"Your offer for {player_name} from {team_name} at {cost} has been declined.\n"
+"Increasing the transfer value could make them reconsider."
+msgstr ""
+
+#: src/utils/logic/email_util.gd
+msgid "Offer for {player_name} accepted"
+msgstr ""
+
+#: src/utils/logic/email_util.gd
+msgid ""
+"Your offer for {player_name} from {team_name} at {cost} has been accepted.\n"
+"You can now find a contractual aggreement with {player_name}."
+msgstr ""
+
+#: src/utils/logic/match_combination_util.gd
+msgid "Cup"
+msgstr ""
+
+#: src/utils/logic/match_combination_util.gd
+msgid "Nations cup"
+msgstr ""
+
+#: src/utils/logic/match_combination_util.gd
+msgid "World cup"
+msgstr ""
+
+#: src/utils/res_util.gd
+msgid "Restoring from backup"
+msgstr ""
+
+#: src/screens/settings/settings.tscn
+msgid "General"
+msgstr ""
+
+#: src/screens/settings/settings.tscn
+msgid "Input"
+msgstr ""
+
+#: src/screens/settings/settings.tscn
+msgid "Contributors"
+msgstr ""
+
+#: src/screens/settings/settings.tscn
+msgid "Licenses"
+msgstr ""
+
+#: src/screens/settings/settings.tscn
+msgid "Default settings"
+msgstr ""
+
+#: src/screens/settings/settings.tscn
+#: src/screens/setup/setup_team/setup_team.tscn
+msgid "Back"
+msgstr ""
+
+#: src/screens/settings/settings.tscn
+#: src/screens/settings/general/general_settings.tscn
+msgid "You can fix errors or add new languages easily on Weblate, just click on the link below."
+msgstr ""
+
+#: src/screens/settings/general/general_settings.tscn
+msgid "Language"
+msgstr ""
+
+#: src/screens/settings/general/general_settings.tscn
+msgid "Audio"
+msgstr ""
+
+#: src/screens/settings/general/general_settings.tscn
+msgid "Sfx volume"
+msgstr ""
+
+#: src/screens/settings/general/general_settings.tscn
+msgid "Interface settings"
+msgstr ""
+
+#: src/screens/settings/general/general_settings.tscn
+msgid "Font size"
+msgstr ""
+
+#: src/screens/settings/general/general_settings.tscn
+#: src/screens/setup/setup_world/setup_world.tscn
+msgid "Default"
+msgstr ""
+
+#: src/screens/settings/general/general_settings.tscn
+msgid "Scale"
+msgstr ""
+
+#: src/screens/settings/general/general_settings.tscn
+msgid "Screen fade animation"
+msgstr ""
+
+#: src/screens/settings/general/general_settings.tscn
+msgid "Themes"
+msgstr ""
+
+#: src/screens/settings/general/general_settings.tscn
+msgid "Font color"
+msgstr ""
+
+#: src/screens/settings/general/general_settings.tscn
+msgid "Change"
+msgstr ""
+
+#: src/screens/settings/general/general_settings.tscn
+msgid "Buttons color"
+msgstr ""
+
+#: src/screens/settings/general/general_settings.tscn
+msgid "Background color"
+msgstr ""
+
+#: src/screens/settings/general/general_settings.tscn
+msgid "Version"
+msgstr ""
+
+#: src/screens/settings/input/input_settings.tscn
+msgid "Vim mode"
+msgstr ""
+
+#: src/screens/settings/input/input_settings.tscn
+msgid "Joypad status"
+msgstr ""
+
+#: src/screens/settings/input/input_settings.tscn
+msgid "No joypad connected"
+msgstr ""
+
+#: src/screens/settings/input/input_settings.tscn
+msgid "Input detection mode"
+msgstr ""
+
+#: src/screens/settings/input/input_settings.tscn
+msgid "Input type"
+msgstr ""
+
+#: src/screens/save_states_screen/save_states_screen.tscn
+msgid "Save states"
+msgstr ""
+
+#: src/screens/save_states_screen/save_states_screen.tscn
+#: src/screens/dashboard/dashboard.tscn
+msgid "Menu"
+msgstr ""
+
+#: src/screens/save_states_screen/save_state_entry/save_state_entry.gd
+#: src/screens/menu/menu.gd
+msgid "Loading game"
+msgstr ""
+
+#: src/screens/save_states_screen/save_state_entry/save_state_entry.tscn
+#: src/screens/setup/setup_manager/setup_manager.tscn
+msgid "Manager"
+msgstr ""
+
+#: src/screens/save_states_screen/save_state_entry/save_state_entry.tscn
+msgid "Table placement"
+msgstr ""
+
+#: src/screens/save_states_screen/save_state_entry/save_state_entry.tscn
+msgid "Game date"
+msgstr ""
+
+#: src/screens/save_states_screen/save_state_entry/save_state_entry.tscn
+msgid "Last save"
+msgstr ""
+
+#: src/screens/save_states_screen/save_state_entry/save_state_entry.tscn
+msgid "Created"
+msgstr ""
+
+#: src/screens/save_states_screen/save_state_entry/save_state_entry.tscn
+msgid "Delete"
+msgstr ""
+
+#: src/screens/save_states_screen/save_state_entry/save_state_entry.tscn
+#: src/screens/menu/menu.tscn
+msgid "Load game"
+msgstr ""
+
+#: src/screens/save_states_screen/save_state_entry/save_state_entry.tscn
+msgid ""
+"Deleting a save state is permanent and can't be undone.\n"
+"Are you sure you want delete this save state?"
+msgstr ""
+
+#: src/screens/dashboard/dashboard.gd
+msgid "Start match"
+msgstr ""
+
+#: src/screens/dashboard/dashboard.gd
+msgid "Next day"
+msgstr ""
+
+#: src/screens/dashboard/dashboard.gd
+msgid "Next season"
+msgstr ""
+
+#: src/screens/dashboard/dashboard.gd
+#: src/screens/dashboard/dashboard.tscn
+msgid "Email"
+msgstr ""
+
+#: src/screens/dashboard/dashboard.gd
+msgid "Simulating results"
+msgstr ""
+
+#: src/screens/dashboard/dashboard.gd
+msgid "Saving game"
+msgstr ""
+
+#: src/screens/dashboard/dashboard.tscn
+msgid "Calendar"
+msgstr ""
+
+#: src/screens/dashboard/dashboard.tscn
+msgid "Competitions"
+msgstr ""
+
+#: src/screens/dashboard/dashboard.tscn
+msgid "Finances"
+msgstr ""
+
+#: src/screens/dashboard/dashboard.tscn
+msgid "Coming soon"
+msgstr ""
+
+#: src/screens/dashboard/dashboard.tscn
+msgid "Search player"
+msgstr ""
+
+#: src/screens/dashboard/dashboard.tscn
+msgid "Scouts"
+msgstr ""
+
+#: src/screens/dashboard/dashboard.tscn
+msgid "Watchlist"
+msgstr ""
+
+#: src/screens/dashboard/dashboard.tscn
+msgid "Transferlist"
+msgstr ""
+
+#: src/screens/dashboard/dashboard.tscn
+msgid "Jobs"
+msgstr ""
+
+#: src/screens/dashboard/dashboard.tscn
+msgid "Hall of fame"
+msgstr ""
+
+#: src/screens/dashboard/dashboard.tscn
+msgid "Notes"
+msgstr ""
+
+#: src/screens/dashboard/dashboard.tscn
+#: src/screens/menu/menu.tscn
+msgid "Settings"
+msgstr ""
+
+#: src/screens/dashboard/dashboard.tscn
+msgid "Next match"
+msgstr ""
+
+#: src/screens/dashboard/dashboard.tscn
+#: src/screens/match/match.gd
+#: src/screens/menu/menu.tscn
+#: src/screens/setup/setup_world/setup_world.tscn
+#: src/screens/setup/setup_manager/setup_manager.tscn
+msgid "Continue"
+msgstr ""
+
+#: src/screens/dashboard/dashboard.tscn
+msgid "Save the game before exiting?"
+msgstr ""
+
+#: src/screens/match/match.gd
+#: src/screens/match/match.tscn
+msgid "Pause"
+msgstr ""
+
+#: src/screens/match/penalties_bar/penalties_bar.tscn
+msgid "Penalties"
+msgstr ""
+
+#: src/screens/match/match.tscn
+msgid "Stats"
+msgstr ""
+
+#: src/screens/match/match.tscn
+msgid "Commentary"
+msgstr ""
+
+#: src/screens/match/match.tscn
+msgid "Events"
+msgstr ""
+
+#: src/screens/match/match.tscn
+#: src/enum.gd
+msgid "Full game"
+msgstr ""
+
+#: src/screens/match/match.tscn
+msgid "Simulate"
+msgstr ""
+
+#: src/screens/match/match.tscn
+msgid "Dashboard"
+msgstr ""
+
+#: src/screens/match/match.tscn
+msgid "Possession"
+msgstr ""
+
+#: src/screens/loading_screen/loading_screen.tscn
+msgid "Loading"
+msgstr ""
+
+#: src/screens/menu/menu.tscn
+msgid "New game"
+msgstr ""
+
+#: src/screens/menu/menu.tscn
+msgid "Exit"
+msgstr ""
+
+#: src/screens/menu/menu.tscn
+msgid "Exit game"
+msgstr ""
+
+#: src/screens/setup/setup_world/setup_world.tscn
+msgid "Game settings"
+msgstr ""
+
+#: src/screens/setup/setup_world/setup_world.tscn
+msgid "Player names"
+msgstr ""
+
+#: src/screens/setup/setup_world/setup_world.tscn
+msgid "Start year"
+msgstr ""
+
+#: src/screens/setup/setup_world/setup_world.tscn
+msgid "Generation seed"
+msgstr ""
+
+#: src/screens/setup/setup_world/setup_world.tscn
+msgid "This generation seed defines player names and attributes. When reused, it will generate exatly the same result."
+msgstr ""
+
+#: src/screens/setup/setup_world/setup_world.tscn
+msgid "Random"
+msgstr ""
+
+#: src/screens/setup/setup_world/setup_world.gd
+msgid "Generating players"
+msgstr ""
+
+#: src/screens/setup/setup_manager/setup_manager.tscn
+msgid "Your name"
+msgstr ""
+
+#: src/screens/setup/setup_manager/setup_manager.tscn
+msgid "Surname"
+msgstr ""
+
+#: src/screens/setup/setup_manager/setup_manager.tscn
+msgid "Your surname"
+msgstr ""
+
+#: src/screens/setup/setup_team/setup_team.tscn
+msgid "Choose team"
+msgstr ""
+
+#: src/screens/setup/setup_team/setup_team.tscn
+msgid "Select"
+msgstr ""
+
+#: src/screens/setup/setup_team/setup_team.gd
+msgid "Initialize game"
+msgstr ""
+
+#: src/resources/world/continent_names.gd
+msgid "Africa"
+msgstr ""
+
+#: src/resources/world/continent_names.gd
+msgid "Asia"
+msgstr ""
+
+#: src/resources/world/continent_names.gd
+msgid "Europe"
+msgstr ""
+
+#: src/resources/world/continent_names.gd
+msgid "Oceania"
+msgstr ""
+
+#: src/resources/world/continent_names.gd
+msgid "South America"
+msgstr ""
+
+#: src/resources/world/continent_names.gd
+msgid "North America"
+msgstr ""
+
+#: src/resources/world/nation_names.gd
+msgid "Albania"
+msgstr ""
+
+#: src/resources/world/nation_names.gd
+msgid "Andorra"
+msgstr ""
+
+#: src/resources/world/nation_names.gd
+msgid "Armenia"
+msgstr ""
+
+#: src/resources/world/nation_names.gd
+msgid "Austria"
+msgstr ""
+
+#: src/resources/world/nation_names.gd
+msgid "Azerbaijan"
+msgstr ""
+
+#: src/resources/world/nation_names.gd
+msgid "Belarus"
+msgstr ""
+
+#: src/resources/world/nation_names.gd
+msgid "Belgium"
+msgstr ""
+
+#: src/resources/world/nation_names.gd
+msgid "Bosnia and Herzegovina"
+msgstr ""
+
+#: src/resources/world/nation_names.gd
+msgid "Bulgaria"
+msgstr ""
+
+#: src/resources/world/nation_names.gd
+msgid "Croatia"
+msgstr ""
+
+#: src/resources/world/nation_names.gd
+msgid "Cyprus"
+msgstr ""
+
+#: src/resources/world/nation_names.gd
+msgid "Czech Republic"
+msgstr ""
+
+#: src/resources/world/nation_names.gd
+msgid "Denmark"
+msgstr ""
+
+#: src/resources/world/nation_names.gd
+msgid "Estonia"
+msgstr ""
+
+#: src/resources/world/nation_names.gd
+msgid "Finland"
+msgstr ""
+
+#: src/resources/world/nation_names.gd
+msgid "France"
+msgstr ""
+
+#: src/resources/world/nation_names.gd
+msgid "Georgia"
+msgstr ""
+
+#: src/resources/world/nation_names.gd
+msgid "Germany"
+msgstr ""
+
+#: src/resources/world/nation_names.gd
+msgid "Greece"
+msgstr ""
+
+#: src/resources/world/nation_names.gd
+msgid "Hungary"
+msgstr ""
+
+#: src/resources/world/nation_names.gd
+msgid "Iceland"
+msgstr ""
+
+#: src/resources/world/nation_names.gd
+msgid "Ireland"
+msgstr ""
+
+#: src/resources/world/nation_names.gd
+msgid "Italy"
+msgstr ""
+
+#: src/resources/world/nation_names.gd
+msgid "Latvia"
+msgstr ""
+
+#: src/resources/world/nation_names.gd
+msgid "Liechtenstein"
+msgstr ""
+
+#: src/resources/world/nation_names.gd
+msgid "Lithuania"
+msgstr ""
+
+#: src/resources/world/nation_names.gd
+msgid "Luxembourg"
+msgstr ""
+
+#: src/resources/world/nation_names.gd
+msgid "Macedonia"
+msgstr ""
+
+#: src/resources/world/nation_names.gd
+msgid "Malta"
+msgstr ""
+
+#: src/resources/world/nation_names.gd
+msgid "Moldova"
+msgstr ""
+
+#: src/resources/world/nation_names.gd
+msgid "Monaco"
+msgstr ""
+
+#: src/resources/world/nation_names.gd
+msgid "Montenegro"
+msgstr ""
+
+#: src/resources/world/nation_names.gd
+msgid "Netherlands"
+msgstr ""
+
+#: src/resources/world/nation_names.gd
+msgid "Norway"
+msgstr ""
+
+#: src/resources/world/nation_names.gd
+msgid "Poland"
+msgstr ""
+
+#: src/resources/world/nation_names.gd
+msgid "Portugal"
+msgstr ""
+
+#: src/resources/world/nation_names.gd
+msgid "Romania"
+msgstr ""
+
+#: src/resources/world/nation_names.gd
+msgid "San Marino"
+msgstr ""
+
+#: src/resources/world/nation_names.gd
+msgid "Serbia"
+msgstr ""
+
+#: src/resources/world/nation_names.gd
+msgid "Slovakia"
+msgstr ""
+
+#: src/resources/world/nation_names.gd
+msgid "Slovenia"
+msgstr ""
+
+#: src/resources/world/nation_names.gd
+msgid "Spain"
+msgstr ""
+
+#: src/resources/world/nation_names.gd
+msgid "Sweden"
+msgstr ""
+
+#: src/resources/world/nation_names.gd
+msgid "Switzerland"
+msgstr ""
+
+#: src/resources/world/nation_names.gd
+msgid "Ukraine"
+msgstr ""
+
+#: src/resources/world/nation_names.gd
+msgid "United Kingdom"
+msgstr ""
+
+#: src/resources/world/nation_names.gd
+msgid "Vatican City"
+msgstr ""
+
+#: src/resources/world/nation_names.gd
+msgid "Brazil"
+msgstr ""
+
+#: src/resources/world/nation_names.gd
+msgid "Argentina"
+msgstr ""
+
+#: src/resources/world/nation_names.gd
+msgid "Bolivia"
+msgstr ""
+
+#: src/resources/world/nation_names.gd
+msgid "Chile"
+msgstr ""
+
+#: src/resources/world/nation_names.gd
+msgid "Colombia"
+msgstr ""
+
+#: src/resources/world/nation_names.gd
+msgid "Ecuador"
+msgstr ""
+
+#: src/resources/world/nation_names.gd
+msgid "Guyana"
+msgstr ""
+
+#: src/resources/world/nation_names.gd
+msgid "Paraguay"
+msgstr ""
+
+#: src/resources/world/nation_names.gd
+msgid "Peru"
+msgstr ""
+
+#: src/resources/world/nation_names.gd
+msgid "Suriname"
+msgstr ""
+
+#: src/resources/world/nation_names.gd
+msgid "Uruguay"
+msgstr ""
+
+#: src/resources/world/nation_names.gd
+msgid "Venezuela"
+msgstr ""
+
+#: src/resources/world/nation_names.gd
+msgid "Antigua and Barbuda"
+msgstr ""
+
+#: src/resources/world/nation_names.gd
+msgid "Bahamas"
+msgstr ""
+
+#: src/resources/world/nation_names.gd
+msgid "Barbados"
+msgstr ""
+
+#: src/resources/world/nation_names.gd
+msgid "Belize"
+msgstr ""
+
+#: src/resources/world/nation_names.gd
+msgid "Canada"
+msgstr ""
+
+#: src/resources/world/nation_names.gd
+msgid "Costa Rica"
+msgstr ""
+
+#: src/resources/world/nation_names.gd
+msgid "Cuba"
+msgstr ""
+
+#: src/resources/world/nation_names.gd
+msgid "Dominica"
+msgstr ""
+
+#: src/resources/world/nation_names.gd
+msgid "Dominican Republic"
+msgstr ""
+
+#: src/resources/world/nation_names.gd
+msgid "El Salvador"
+msgstr ""
+
+#: src/resources/world/nation_names.gd
+msgid "Grenada"
+msgstr ""
+
+#: src/resources/world/nation_names.gd
+msgid "Guatemala"
+msgstr ""
+
+#: src/resources/world/nation_names.gd
+msgid "Haiti"
+msgstr ""
+
+#: src/resources/world/nation_names.gd
+msgid "Honduras"
+msgstr ""
+
+#: src/resources/world/nation_names.gd
+msgid "Jamaica"
+msgstr ""
+
+#: src/resources/world/nation_names.gd
+msgid "Mexico"
+msgstr ""
+
+#: src/resources/world/nation_names.gd
+msgid "Nicaragua"
+msgstr ""
+
+#: src/resources/world/nation_names.gd
+msgid "Panama"
+msgstr ""
+
+#: src/resources/world/nation_names.gd
+msgid "Saint Kitts and Nevis"
+msgstr ""
+
+#: src/resources/world/nation_names.gd
+msgid "Saint Lucia"
+msgstr ""
+
+#: src/resources/world/nation_names.gd
+msgid "Saint Vincent and the Grenadines"
+msgstr ""
+
+#: src/resources/world/nation_names.gd
+msgid "Trinidad and Tobago"
+msgstr ""
+
+#: src/resources/world/nation_names.gd
+msgid "Usa"
+msgstr ""
+
+#: src/resources/world/nation_names.gd
+msgid "Australia"
+msgstr ""
+
+#: src/resources/world/nation_names.gd
+msgid "Fiji"
+msgstr ""
+
+#: src/resources/world/nation_names.gd
+msgid "Kiribati"
+msgstr ""
+
+#: src/resources/world/nation_names.gd
+msgid "Marshall Islands"
+msgstr ""
+
+#: src/resources/world/nation_names.gd
+msgid "Micronesia"
+msgstr ""
+
+#: src/resources/world/nation_names.gd
+msgid "Nauru"
+msgstr ""
+
+#: src/resources/world/nation_names.gd
+msgid "New Zealand"
+msgstr ""
+
+#: src/resources/world/nation_names.gd
+msgid "Palau"
+msgstr ""
+
+#: src/resources/world/nation_names.gd
+msgid "Papua New Guinea"
+msgstr ""
+
+#: src/resources/world/nation_names.gd
+msgid "Samoa"
+msgstr ""
+
+#: src/resources/world/nation_names.gd
+msgid "Solomon Islands"
+msgstr ""
+
+#: src/resources/world/nation_names.gd
+msgid "Tonga"
+msgstr ""
+
+#: src/resources/world/nation_names.gd
+msgid "Tuvalu"
+msgstr ""
+
+#: src/resources/world/nation_names.gd
+msgid "Vanuatu"
+msgstr ""
+
+#: src/resources/world/nation_names.gd
+msgid "Algeria"
+msgstr ""
+
+#: src/resources/world/nation_names.gd
+msgid "Angola"
+msgstr ""
+
+#: src/resources/world/nation_names.gd
+msgid "Benin"
+msgstr ""
+
+#: src/resources/world/nation_names.gd
+msgid "Botswana"
+msgstr ""
+
+#: src/resources/world/nation_names.gd
+msgid "Burkina"
+msgstr ""
+
+#: src/resources/world/nation_names.gd
+msgid "Burundi"
+msgstr ""
+
+#: src/resources/world/nation_names.gd
+msgid "Cameroon"
+msgstr ""
+
+#: src/resources/world/nation_names.gd
+msgid "Cape Verde"
+msgstr ""
+
+#: src/resources/world/nation_names.gd
+msgid "Central African Republic"
+msgstr ""
+
+#: src/resources/world/nation_names.gd
+msgid "Chad"
+msgstr ""
+
+#: src/resources/world/nation_names.gd
+msgid "Comoros"
+msgstr ""
+
+#: src/resources/world/nation_names.gd
+msgid "Congo"
+msgstr ""
+
+#: src/resources/world/nation_names.gd
+msgid "Democratic Republic of Congo"
+msgstr ""
+
+#: src/resources/world/nation_names.gd
+msgid "Djibouti"
+msgstr ""
+
+#: src/resources/world/nation_names.gd
+msgid "Egypt"
+msgstr ""
+
+#: src/resources/world/nation_names.gd
+msgid "Equatorial Guinea"
+msgstr ""
+
+#: src/resources/world/nation_names.gd
+msgid "Eritrea"
+msgstr ""
+
+#: src/resources/world/nation_names.gd
+msgid "Ethiopia"
+msgstr ""
+
+#: src/resources/world/nation_names.gd
+msgid "Gabon"
+msgstr ""
+
+#: src/resources/world/nation_names.gd
+msgid "Gambia"
+msgstr ""
+
+#: src/resources/world/nation_names.gd
+msgid "Ghana"
+msgstr ""
+
+#: src/resources/world/nation_names.gd
+msgid "Guinea"
+msgstr ""
+
+#: src/resources/world/nation_names.gd
+msgid "Ivory Coast"
+msgstr ""
+
+#: src/resources/world/nation_names.gd
+msgid "Kenya"
+msgstr ""
+
+#: src/resources/world/nation_names.gd
+msgid "Lesotho"
+msgstr ""
+
+#: src/resources/world/nation_names.gd
+msgid "Liberia"
+msgstr ""
+
+#: src/resources/world/nation_names.gd
+msgid "Libya"
+msgstr ""
+
+#: src/resources/world/nation_names.gd
+msgid "Madagascar"
+msgstr ""
+
+#: src/resources/world/nation_names.gd
+msgid "Malawi"
+msgstr ""
+
+#: src/resources/world/nation_names.gd
+msgid "Mali"
+msgstr ""
+
+#: src/resources/world/nation_names.gd
+msgid "Mauritania"
+msgstr ""
+
+#: src/resources/world/nation_names.gd
+msgid "Mauritius"
+msgstr ""
+
+#: src/resources/world/nation_names.gd
+msgid "Morocco"
+msgstr ""
+
+#: src/resources/world/nation_names.gd
+msgid "Mozambique"
+msgstr ""
+
+#: src/resources/world/nation_names.gd
+msgid "Namibia"
+msgstr ""
+
+#: src/resources/world/nation_names.gd
+msgid "Niger"
+msgstr ""
+
+#: src/resources/world/nation_names.gd
+msgid "Nigeria"
+msgstr ""
+
+#: src/resources/world/nation_names.gd
+msgid "Rwanda"
+msgstr ""
+
+#: src/resources/world/nation_names.gd
+msgid "Sao Tome and Principe"
+msgstr ""
+
+#: src/resources/world/nation_names.gd
+msgid "Senegal"
+msgstr ""
+
+#: src/resources/world/nation_names.gd
+msgid "Seychelles"
+msgstr ""
+
+#: src/resources/world/nation_names.gd
+msgid "Sierra Leone"
+msgstr ""
+
+#: src/resources/world/nation_names.gd
+msgid "Somalia"
+msgstr ""
+
+#: src/resources/world/nation_names.gd
+msgid "South Africa"
+msgstr ""
+
+#: src/resources/world/nation_names.gd
+msgid "South Sudan"
+msgstr ""
+
+#: src/resources/world/nation_names.gd
+msgid "Sudan"
+msgstr ""
+
+#: src/resources/world/nation_names.gd
+msgid "Swaziland"
+msgstr ""
+
+#: src/resources/world/nation_names.gd
+msgid "Tanzania"
+msgstr ""
+
+#: src/resources/world/nation_names.gd
+msgid "Togo"
+msgstr ""
+
+#: src/resources/world/nation_names.gd
+msgid "Tunisia"
+msgstr ""
+
+#: src/resources/world/nation_names.gd
+msgid "Uganda"
+msgstr ""
+
+#: src/resources/world/nation_names.gd
+msgid "Zambia"
+msgstr ""
+
+#: src/resources/world/nation_names.gd
+msgid "Zimbabwe"
+msgstr ""
+
+#: src/resources/world/nation_names.gd
+msgid "Afghanistan"
+msgstr ""
+
+#: src/resources/world/nation_names.gd
+msgid "Bahrain"
+msgstr ""
+
+#: src/resources/world/nation_names.gd
+msgid "Bangladesh"
+msgstr ""
+
+#: src/resources/world/nation_names.gd
+msgid "Bhutan"
+msgstr ""
+
+#: src/resources/world/nation_names.gd
+msgid "Brunei"
+msgstr ""
+
+#: src/resources/world/nation_names.gd
+msgid "Burma"
+msgstr ""
+
+#: src/resources/world/nation_names.gd
+msgid "Cambodia"
+msgstr ""
+
+#: src/resources/world/nation_names.gd
+msgid "China"
+msgstr ""
+
+#: src/resources/world/nation_names.gd
+msgid "East Timor"
+msgstr ""
+
+#: src/resources/world/nation_names.gd
+msgid "India"
+msgstr ""
+
+#: src/resources/world/nation_names.gd
+msgid "Indonesia"
+msgstr ""
+
+#: src/resources/world/nation_names.gd
+msgid "Iran"
+msgstr ""
+
+#: src/resources/world/nation_names.gd
+msgid "Iraq"
+msgstr ""
+
+#: src/resources/world/nation_names.gd
+msgid "Israel"
+msgstr ""
+
+#: src/resources/world/nation_names.gd
+msgid "Japan"
+msgstr ""
+
+#: src/resources/world/nation_names.gd
+msgid "Jordan"
+msgstr ""
+
+#: src/resources/world/nation_names.gd
+msgid "Kazakhstan"
+msgstr ""
+
+#: src/resources/world/nation_names.gd
+msgid "North Korea"
+msgstr ""
+
+#: src/resources/world/nation_names.gd
+msgid "South Korea"
+msgstr ""
+
+#: src/resources/world/nation_names.gd
+msgid "Kuwait"
+msgstr ""
+
+#: src/resources/world/nation_names.gd
+msgid "Kyrgyzstan"
+msgstr ""
+
+#: src/resources/world/nation_names.gd
+msgid "Laos"
+msgstr ""
+
+#: src/resources/world/nation_names.gd
+msgid "Lebanon"
+msgstr ""
+
+#: src/resources/world/nation_names.gd
+msgid "Malaysia"
+msgstr ""
+
+#: src/resources/world/nation_names.gd
+msgid "Maldives"
+msgstr ""
+
+#: src/resources/world/nation_names.gd
+msgid "Mongolia"
+msgstr ""
+
+#: src/resources/world/nation_names.gd
+msgid "Nepal"
+msgstr ""
+
+#: src/resources/world/nation_names.gd
+msgid "Oman"
+msgstr ""
+
+#: src/resources/world/nation_names.gd
+msgid "Pakistan"
+msgstr ""
+
+#: src/resources/world/nation_names.gd
+msgid "Philippines"
+msgstr ""
+
+#: src/resources/world/nation_names.gd
+msgid "Qatar"
+msgstr ""
+
+#: src/resources/world/nation_names.gd
+msgid "Russian Federation"
+msgstr ""
+
+#: src/resources/world/nation_names.gd
+msgid "Saudi Arabia"
+msgstr ""
+
+#: src/resources/world/nation_names.gd
+msgid "Singapore"
+msgstr ""
+
+#: src/resources/world/nation_names.gd
+msgid "Sri Lanka"
+msgstr ""
+
+#: src/resources/world/nation_names.gd
+msgid "Syria"
+msgstr ""
+
+#: src/resources/world/nation_names.gd
+msgid "Tajikistan"
+msgstr ""
+
+#: src/resources/world/nation_names.gd
+msgid "Thailand"
+msgstr ""
+
+#: src/resources/world/nation_names.gd
+msgid "Turkey"
+msgstr ""
+
+#: src/resources/world/nation_names.gd
+msgid "Turkmenistan"
+msgstr ""
+
+#: src/resources/world/nation_names.gd
+msgid "United Arab Emirates"
+msgstr ""
+
+#: src/resources/world/nation_names.gd
+msgid "Uzbekistan"
+msgstr ""
+
+#: src/resources/world/nation_names.gd
+msgid "Vietnam"
+msgstr ""
+
+#: src/resources/world/nation_names.gd
+msgid "Yemen"
+msgstr ""
+
+#: src/screens/settings/license/license.tscn
+msgid "Game license"
+msgstr ""
+
+#: src/screens/settings/license/license.tscn
+msgid "This game is Open Source and released under the AGPL v3 or later license."
+msgstr ""
+
+#: src/screens/settings/license/license.tscn
+msgid "Read full license"
+msgstr ""
+
+#: src/screens/settings/license/license.tscn
+msgid "Source code"
+msgstr ""
+
+#: src/screens/settings/license/license.tscn
+msgid "The full source code of the game is available on the websites below."
+msgstr ""
+
+#: src/screens/settings/license/license.tscn
+msgid "Third party licenses"
+msgstr ""
+
+#: src/screens/settings/license/license.tscn
+msgid "This game was built using the Godot Engine, that is released under the MIT license."
+msgstr ""
+
+#: src/enum.gd
+msgid "Key actions"
+msgstr ""
+
+#: src/enum.gd
+msgid "Only goals"
+msgstr ""
+
+#: src/enum.gd
+msgid "Male"
+msgstr ""
+
+#: src/enum.gd
+msgid "Female"
+msgstr ""
+
+#: src/enum.gd
+msgid "Mixed"
+msgstr ""
+
+#: src/enum.gd
+msgid "January"
+msgstr ""
+
+#: src/enum.gd
+msgid "February"
+msgstr ""
+
+#: src/enum.gd
+msgid "March"
+msgstr ""
+
+#: src/enum.gd
+msgid "April"
+msgstr ""
+
+#: src/enum.gd
+msgid "May"
+msgstr ""
+
+#: src/enum.gd
+msgid "June"
+msgstr ""
+
+#: src/enum.gd
+msgid "July"
+msgstr ""
+
+#: src/enum.gd
+msgid "August"
+msgstr ""
+
+#: src/enum.gd
+msgid "September"
+msgstr ""
+
+#: src/enum.gd
+msgid "October"
+msgstr ""
+
+#: src/enum.gd
+msgid "November"
+msgstr ""
+
+#: src/enum.gd
+msgid "December"
+msgstr ""
+
+#: src/enum.gd
+msgid "Automatic"
+msgstr ""
+
+#: src/enum.gd
+msgid "Manual"
+msgstr ""
+
+#: src/enum.gd
+msgid "Mouse and Keyboard"
+msgstr ""
+
+#: src/enum.gd
+msgid "Joypad"
+msgstr ""
+
+#: src/enum.gd
+msgid "Touchscreen"
+msgstr ""
+
+#: src/enum.gd
+msgid "Left"
+msgstr ""
+
+#: src/enum.gd
+msgid "Right"
+msgstr ""
+
+#: src/enum.gd
+msgid "Left and right"
+msgstr ""
+
+#: src/enum.gd
+msgid "Worst"
+msgstr ""
+
+#: src/enum.gd
+msgid "Bad"
+msgstr ""
+
+#: src/enum.gd
+msgid "Neutral"
+msgstr ""
+
+#: src/enum.gd
+msgid "Good"
+msgstr ""
+
+#: src/enum.gd
+msgid "Best"
+msgstr ""
+
+#: src/enum.gd
+msgid "Injured"
+msgstr ""
+
+#: src/enum.gd
+msgid "Recover"
+msgstr ""
