@@ -5,6 +5,7 @@
 class_name VisualStateMachine
 extends ScrollContainer
 
+const MAX_STATES: int = 3
 
 var home_team: SimTeam
 var away_team: SimTeam
@@ -26,7 +27,7 @@ func _process(_delta: float) -> void:
 		var home_label: Label = home_player_states[i]
 		# set last x states
 		home_label.text = home_player.player_res.surname + "\n"
-		var max_states: int = min(7, home_player.state_machine.buffer.size())
+		var max_states: int = min(MAX_STATES, home_player.state_machine.buffer.size())
 		for j: int in range(max_states, 1, -1):
 			home_label.text += home_player.state_machine.buffer[-j].name + "\n"
 		home_label.text += home_player.state_machine.buffer[-1].name
@@ -35,7 +36,7 @@ func _process(_delta: float) -> void:
 		var away_label: Label = away_player_states[i]
 		# set last x states
 		away_label.text = away_player.player_res.surname + "\n"
-		max_states = min(7, away_player.state_machine.buffer.size() - 1)
+		max_states = min(MAX_STATES, away_player.state_machine.buffer.size() - 1)
 		for j: int in range(max_states, 1, -1):
 			away_label.text += away_player.state_machine.buffer[-j].name + "\n"
 		away_label.text += away_player.state_machine.buffer[-1].name
