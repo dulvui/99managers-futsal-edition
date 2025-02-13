@@ -21,9 +21,6 @@ Note: Not all features/bugs are related to a Codeberg/Github issue, since I get 
 Features/issues that will [probably] be added/solved in future.
 
 - In-game editor for player and team
-- Export and import for player and team
-- Links to players and teams in emails and news
-    - on click, open player/team profile
 - Visible players' attributes during match
 - In the formation screen, visible players' positions their 'squares'.
 - Make the players' attributes visible in the formation screen, by clicking on their squares or perhaps by hovering over them.
@@ -47,6 +44,9 @@ List of features that are currently worked on.
         - Yellow and red cards
 - Translations
     - French
+- Export and import for player and team
+- Links to players and teams in emails and news
+    - on click, open player/team profile
 
 ## Done
 Features/issues that are added/solved in specific version.
