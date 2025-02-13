@@ -1,6 +1,6 @@
 [gd_scene load_steps=2 format=3 uid="uid://bc6kfu3avld0"]
 
-[ext_resource type="Script" path="res://src/screens/match/statistics/match_stats.gd" id="1_14np8"]
+[ext_resource type="Script" path="res://src/screens/match_screen/statistics/match_stats.gd" id="1_14np8"]
 
 [node name="Stats" type="GridContainer"]
 anchors_preset = 15

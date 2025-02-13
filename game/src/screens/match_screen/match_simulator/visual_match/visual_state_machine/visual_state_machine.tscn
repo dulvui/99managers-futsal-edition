@@ -1,6 +1,6 @@
 [gd_scene load_steps=2 format=3 uid="uid://bmanseg4hklw5"]
 
-[ext_resource type="Script" path="res://src/match_simulator/visual_match/visual_state_machine/visual_state_machine.gd" id="1_jrx6i"]
+[ext_resource type="Script" path="res://src/screens/match_screen/match_simulator/visual_match/visual_state_machine/visual_state_machine.gd" id="1_jrx6i"]
 
 [node name="VisualStateMachine" type="ScrollContainer"]
 anchors_preset = 15

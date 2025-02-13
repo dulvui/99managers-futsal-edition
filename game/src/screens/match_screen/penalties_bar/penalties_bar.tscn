@@ -1,6 +1,6 @@
 [gd_scene load_steps=2 format=3 uid="uid://dvuxwugywbeut"]
 
-[ext_resource type="Script" path="res://src/screens/match/penalties_bar/penalties_bar.gd" id="1_vuinl"]
+[ext_resource type="Script" path="res://src/screens/match_screen/penalties_bar/penalties_bar.gd" id="1_vuinl"]
 
 [node name="PenaltiesBar" type="PanelContainer"]
 anchors_preset = 8

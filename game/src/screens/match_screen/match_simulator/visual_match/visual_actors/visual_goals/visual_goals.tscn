@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://dvw1g6gn0s6bk"]
+
+[ext_resource type="Script" path="res://src/screens/match_screen/match_simulator/visual_match/visual_actors/visual_goals/visual_goals.gd" id="1_76gh1"]
+
+[node name="VisualGoals" type="Node2D"]
+script = ExtResource("1_76gh1")
