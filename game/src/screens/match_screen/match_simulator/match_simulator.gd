@@ -51,26 +51,10 @@ func _physics_process(delta: float) -> void:
 			passed_time = 0
 			
 			if Global.match_speed == Enum.MatchSpeed.FULL_GAME:
-				_update_engine()
-			
-			stats_entry = stats_buffer.get_entry()
+				engine.update()
+				_save_buffers()
 
-			# update visual ball
-			ball_entry = ball_buffer.get_entry()
-			visual_match.ball.update(ball_entry.pos)
-
-			# update visual teams
-			teams_entry = teams_buffer.get_entry()
-			visual_match.home_team.update(
-				teams_entry.home_pos,
-				teams_entry.home_info,
-				teams_entry.home_head_look
-			)
-			visual_match.away_team.update(
-				teams_entry.away_pos,
-				teams_entry.away_info,
-				teams_entry.away_head_look
-			)
+			_update_visuals()
 			
 			# reduce show action counter
 			if show_action_ticks > 0:
@@ -80,11 +64,11 @@ func _physics_process(delta: float) -> void:
 	else:
 		# hide_me.emit()
 		visual_match.hide_actors()
-
 		stats_entry = stats_buffer.buffer[-10]
 
 		for i: int in 10:
-			_update_engine()
+			engine.update()
+			_save_buffers()
 
 
 func setup(matchz: Match) -> void:
@@ -131,6 +115,11 @@ func setup(matchz: Match) -> void:
 
 func simulate() -> void:
 	engine.simulate()
+	
+	# save final engine sate in buffer
+	_save_buffers()
+	# show last match state
+	_update_visuals()
 
 
 func is_match_visible() -> bool:
@@ -161,10 +150,28 @@ func _on_engine_goal() -> void:
 	stats_buffer.start_replay(timestamp)
 
 
-func _update_engine() -> void:
-	engine.update()
+func _save_buffers() -> void:
 	ball_buffer.save(engine)
 	teams_buffer.save(engine)
 	stats_buffer.save(engine)
 
 
+func _update_visuals() -> void:
+	stats_entry = stats_buffer.get_entry()
+
+	# update visual ball
+	ball_entry = ball_buffer.get_entry()
+	visual_match.ball.update(ball_entry.pos)
+
+	# update visual teams
+	teams_entry = teams_buffer.get_entry()
+	visual_match.home_team.update(
+		teams_entry.home_pos,
+		teams_entry.home_info,
+		teams_entry.home_head_look
+	)
+	visual_match.away_team.update(
+		teams_entry.away_pos,
+		teams_entry.away_info,
+		teams_entry.away_head_look
+	)
