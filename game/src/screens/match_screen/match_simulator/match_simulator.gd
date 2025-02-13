@@ -6,13 +6,12 @@ class_name MatchSimulator
 extends Control
 
 signal action_message(message: String)
-# signal show_me
-# signal hide_me
 
 const CAMERA_SPEED: int = 4
 
 var passed_time: float = 0
 var wait_time: float
+# amount of ticks shown on goal or key action
 var show_action_ticks: int
 
 var engine: MatchEngine
@@ -41,34 +40,27 @@ func _physics_process(delta: float) -> void:
 	if Global.match_paused or engine.match_over:
 		return
 
-	# update engine show visual match	
 	if is_match_visible():
 		visual_match.show_actors()
-		camera.position = camera.position.lerp(visual_match.ball.global_position, delta * CAMERA_SPEED)
 		# show full match or only show key actions and goals
 		passed_time += delta
 		if passed_time >= wait_time:
 			passed_time = 0
 			
-			if Global.match_speed == Enum.MatchSpeed.FULL_GAME:
-				engine.update()
-				_save_buffers()
-
-			_update_visuals()
-			
 			# reduce show action counter
 			if show_action_ticks > 0:
 				show_action_ticks -= 1
+			else:
+				_update_engine()
+
+			_update_visuals(delta)
 
 	# update engine fast
 	else:
-		# hide_me.emit()
 		visual_match.hide_actors()
-		stats_entry = stats_buffer.buffer[-10]
-
-		for i: int in 10:
-			engine.update()
-			_save_buffers()
+		# update stats
+		stats_entry = stats_buffer.buffer[-1]
+		_update_engine(Const.TICKS / 2)
 
 
 func setup(matchz: Match) -> void:
@@ -115,7 +107,6 @@ func setup(matchz: Match) -> void:
 
 func simulate() -> void:
 	engine.simulate()
-	
 	# save final engine sate in buffer
 	_save_buffers()
 	# show last match state
@@ -145,9 +136,20 @@ func _on_engine_goal() -> void:
 	show_action_ticks = Const.TICKS * seconds
 	var timestamp: int = engine.ticks - show_action_ticks
 
+	var ticks_after_goal: int = visual_rng.randi_range(1, 3) * Const.TICKS
+	show_action_ticks += ticks_after_goal
+
+	_update_engine(ticks_after_goal)
+	
 	ball_buffer.start_replay(timestamp)
 	teams_buffer.start_replay(timestamp)
 	stats_buffer.start_replay(timestamp)
+
+
+func _update_engine(ticks: int = 1) -> void:
+	for i: int in ticks:
+		engine.update()
+		_save_buffers()
 
 
 func _save_buffers() -> void:
@@ -156,7 +158,10 @@ func _save_buffers() -> void:
 	stats_buffer.save(engine)
 
 
-func _update_visuals() -> void:
+func _update_visuals(delta: float = 1) -> void:
+	camera.position = camera.position.lerp(visual_match.ball.global_position, delta * CAMERA_SPEED)
+
+	# stats get used by match screen, so no further actions needed here
 	stats_entry = stats_buffer.get_entry()
 
 	# update visual ball
@@ -175,3 +180,5 @@ func _update_visuals() -> void:
 		teams_entry.away_info,
 		teams_entry.away_head_look
 	)
+
+

@@ -286,7 +286,8 @@ func _on_simulation_confirm_dialog_confirmed() -> void:
 
 
 func _on_simulation_dialog_denied() -> void:
-	_pause_toggle()
+	if Global.match_paused:
+		_pause_toggle()
 
 
 func _pause_toggle() -> void:
