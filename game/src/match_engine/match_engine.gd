@@ -6,7 +6,6 @@ class_name MatchEngine
 
 signal half_time
 signal full_time
-signal update_time
 signal penalties_start
 signal match_finish
 
@@ -110,7 +109,6 @@ func update() -> void:
 		time_ticks += 1
 		if time_ticks % Const.TICKS == 0:
 			time += 1
-			update_time.emit()
 
 			# update posession stats
 			if home_team.has_ball:
@@ -265,8 +263,6 @@ func _on_goal_left() -> void:
 	left_team.set_state(TeamStateStartPositions.new())
 	left_possess()
 	goal.emit()
-	# to trigger score labels update
-	update_time.emit()
 
 
 func _on_goal_right() -> void:
@@ -275,8 +271,6 @@ func _on_goal_right() -> void:
 	right_team.set_state(TeamStateStartPositions.new())
 	right_possess()
 	goal.emit()
-	# to trigger score labels update
-	update_time.emit()
 
 
 func _teams_switch_sides() -> void:

@@ -9,7 +9,6 @@ signal action_message(message: String)
 # signal show_me
 # signal hide_me
 
-const ENGINE_FUTURE_SECONDS: int = 10
 const CAMERA_SPEED: int = 4
 
 var passed_time: float = 0
@@ -24,8 +23,12 @@ var visual_rng: RandomNumberGenerator
 
 # buffer from where visual match acesses positions, info etc...
 var ball_buffer: MatchBufferBall
-var stats_buffer: MatchBufferStats
 var teams_buffer: MatchBufferTeams
+var stats_buffer: MatchBufferStats
+
+var stats_entry: MatchBufferEntryStats
+var ball_entry: MatchBufferEntryBall
+var teams_entry: MatchBufferEntryTeams
 
 @onready var visual_match: VisualMatch = %VisualMatch
 @onready var sub_viewport: SubViewport = %SubViewport
@@ -47,18 +50,17 @@ func _physics_process(delta: float) -> void:
 		if passed_time >= wait_time:
 			passed_time = 0
 			
-			var ticks: int = show_action_ticks
-
 			if Global.match_speed == Enum.MatchSpeed.FULL_GAME:
 				_update_engine()
-				ticks = engine.ticks
 			
+			stats_entry = stats_buffer.get_entry()
+
 			# update visual ball
-			var ball_entry: MatchBufferEntryBall = ball_buffer.get_entry()
+			ball_entry = ball_buffer.get_entry()
 			visual_match.ball.update(ball_entry.pos)
 
 			# update visual teams
-			var teams_entry: MatchBufferEntryTeams = teams_buffer.get_entry()
+			teams_entry = teams_buffer.get_entry()
 			visual_match.home_team.update(
 				teams_entry.home_pos,
 				teams_entry.home_info,
@@ -79,7 +81,9 @@ func _physics_process(delta: float) -> void:
 		# hide_me.emit()
 		visual_match.hide_actors()
 
-		for i: int in ENGINE_FUTURE_SECONDS:
+		stats_entry = stats_buffer.buffer[-10]
+
+		for i: int in 10:
 			_update_engine()
 
 
@@ -148,11 +152,10 @@ func _on_engine_match_finish() -> void:
 
 
 func _on_engine_goal() -> void:
-	var seconds: int = visual_rng.randi_range(3, 5) 
+	var seconds: int = visual_rng.randi_range(3, 6) 
 	show_action_ticks = Const.TICKS * seconds
 	var timestamp: int = engine.ticks - show_action_ticks
-	if timestamp > engine.ticks:
-		timestamp =	engine.ticks
+
 	ball_buffer.start_replay(timestamp)
 	teams_buffer.start_replay(timestamp)
 	stats_buffer.start_replay(timestamp)
@@ -162,5 +165,6 @@ func _update_engine() -> void:
 	engine.update()
 	ball_buffer.save(engine)
 	teams_buffer.save(engine)
+	stats_buffer.save(engine)
 
 

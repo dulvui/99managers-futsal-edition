@@ -119,7 +119,6 @@ func _ready() -> void:
 	_hide_views()
 
 	# connect match engine signals
-	match_simulator.engine.update_time.connect(_on_update_time)
 	match_simulator.engine.half_time.connect(_on_half_time)
 	match_simulator.engine.full_time.connect(_on_full_time)
 	match_simulator.engine.match_finish.connect(_on_match_finsh)
@@ -132,6 +131,26 @@ func _ready() -> void:
 
 	if DebugUtil.penalties_test:
 		_on_engine_penalties_start()
+
+
+func _physics_process(_delta: float) -> void:
+	var stats_entry: MatchBufferEntryStats = match_simulator.stats_entry
+	if stats_entry:
+		stats.update_stats(stats_entry.home_stats, stats_entry.away_stats)
+
+		minutes = int(stats_entry.time) / 60
+		seconds = int(stats_entry.time) % 60
+		time_label.text = "%02d:%02d" % [minutes, seconds]
+		time_bar.value = stats_entry.time
+
+		possess_bar.value = stats_entry.home_stats.possession
+
+		home_possession.text = str(stats_entry.home_stats.possession) + " %"
+		away_possession.text = str(stats_entry.away_stats.possession) + " %"
+		result_label.text = "%d - %d" % [stats_entry.home_stats.goals, stats_entry.away_stats.goals]
+		
+		home_fouls.text = "(%d)" % stats_entry.home_stats.fouls
+		away_fouls.text = "(%d)" % stats_entry.away_stats.fouls
 
 
 func _on_match_simulator_show() -> void:
@@ -161,24 +180,6 @@ func _on_match_finsh() -> void:
 
 	#assign result
 	matchz.set_result(home_stats.goals, away_stats.goals)
-
-
-func _on_update_time() -> void:
-	stats.update_stats(home_stats, away_stats)
-
-	minutes = int(match_simulator.engine.time) / 60
-	seconds = int(match_simulator.engine.time) % 60
-	time_label.text = "%02d:%02d" % [minutes, seconds]
-
-	time_bar.value = match_simulator.engine.time
-	possess_bar.value = home_stats.possession
-
-	home_possession.text = str(home_stats.possession) + " %"
-	away_possession.text = str(away_stats.possession) + " %"
-	result_label.text = "%d - %d" % [home_stats.goals, away_stats.goals]
-	
-	home_fouls.text = "(%d)"%home_stats.fouls
-	away_fouls.text = "(%d)"%away_stats.fouls
 
 
 func _on_commentary_button_pressed() -> void:

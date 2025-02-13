@@ -56,5 +56,5 @@ func kickoff_pass() -> void:
 	var random_player: int = owner.rng.randi_range(1, 3)
 	
 	owner.team.player_receive_ball(owner.team.players[random_player])
-	owner.field.ball.short_pass(owner.team.player_receive_ball().pos, 10)
+	owner.field.ball.short_pass(owner.team.player_receive_ball().pos, 20)
 

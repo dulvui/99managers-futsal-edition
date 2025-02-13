@@ -5,7 +5,6 @@
 # TODO add and save to match??
 # maybe also with key events? goals etc
 class_name MatchStatistics
-extends JSONResource
 
 var goals: int = 0
 var possession: int = 50
@@ -28,45 +27,27 @@ var penalty_shootout_shots: int = 0
 var penalty_shootout_goals: int = 0
 
 
-func _init(
-	p_goals: int = 0,
-	p_possession: int = 50,
-	p_shots: int = 0,
-	p_shots_on_target: int = 0,
-	p_shots_hit_post: int = 0,
-	p_passes: int = 0,
-	p_passes_success: int = 0,
-	p_kick_ins: int = 0,
-	p_free_kicks: int = 0,
-	p_penalties: int = 0,
-	p_penalties_10m: int = 0,
-	p_fouls: int = 0,
-	p_tackles: int = 0,
-	p_tackles_success: int = 0,
-	p_corners: int = 0,
-	p_yellow_cards: int = 0,
-	p_red_cards: int = 0,
-	p_penalty_shootout_shots: int = 0,
-	p_penalty_shootout_goals: int = 0,
-) -> void:
-	goals = p_goals
-	possession = p_possession
-	shots = p_shots
-	shots_on_target = p_shots_on_target
-	shots_hit_post = p_shots_hit_post
-	passes = p_passes
-	passes_success = p_passes_success
-	kick_ins = p_kick_ins
-	free_kicks = p_free_kicks
-	penalties = p_penalties
-	penalties_10m = p_penalties_10m
-	fouls = p_fouls
-	tackles = p_tackles
-	tackles_success = p_tackles_success
-	corners = p_corners
-	yellow_cards = p_yellow_cards
-	red_cards = p_red_cards
-	penalty_shootout_shots = p_penalty_shootout_shots
-	penalty_shootout_goals = p_penalty_shootout_goals
+func duplicate() -> MatchStatistics:
+	var copy: MatchStatistics = MatchStatistics.new()
+	copy.goals = goals
+	copy.possession = possession
+	copy.shots = shots
+	copy.shots_on_target = shots_on_target
+	copy.shots_hit_post = shots_hit_post
+	copy.passes = passes
+	copy.passes_success = passes_success
+	copy.kick_ins = kick_ins
+	copy.free_kicks = free_kicks
+	copy.penalties = penalties
+	copy.penalties_10m = penalties_10m
+	copy.fouls = fouls
+	copy.tackles = tackles
+	copy.tackles_success = tackles_success
+	copy.corners = corners
+	copy.yellow_cards = yellow_cards
+	copy.red_cards = red_cards
+	copy.penalty_shootout_shots = penalty_shootout_shots
+	copy.penalty_shootout_goals = penalty_shootout_goals
+	return copy
 
 
