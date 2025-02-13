@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=3 uid="uid://0u70bm8qumdr"]
+[gd_scene load_steps=12 format=3 uid="uid://0u70bm8qumdr"]
 
 [ext_resource type="Theme" uid="uid://pt1hrfiuwfpg" path="res://theme_base/theme.tres" id="1_kso5g"]
 [ext_resource type="Script" path="res://src/screens/match_screen/match_screen.gd" id="2_m8spm"]
@@ -10,6 +10,7 @@
 [ext_resource type="PackedScene" uid="uid://5agy8ull675s" path="res://src/screens/match_screen/events/match_events.tscn" id="8_46kqv"]
 [ext_resource type="PackedScene" uid="uid://i4nnwgwck615" path="res://src/ui_components/visual_formation/visual_formation.tscn" id="9_0djf7"]
 [ext_resource type="PackedScene" uid="uid://bj7f2r54xkpt1" path="res://src/ui_components/visual_formation/players_bar/players_bar.tscn" id="10_poqjf"]
+[ext_resource type="PackedScene" uid="uid://bpvg2vhxml3a1" path="res://src/ui_components/base/confirm_dialog/default_confirm_dialog.tscn" id="11_c2tcg"]
 
 [node name="MatchScreen" type="Control"]
 layout_mode = 3
@@ -340,6 +341,13 @@ horizontal_alignment = 1
 unique_name_in_owner = true
 layout_mode = 2
 
+[node name="SimulationDialog" parent="." instance=ExtResource("11_c2tcg")]
+unique_name_in_owner = true
+visible = false
+custom_title = "Simulation"
+custom_text = "Do you want to simulate the whole match?"
+type = 0
+
 [connection signal="action_message" from="MatchSimulator" to="." method="_on_match_simulator_action_message"]
 [connection signal="pressed" from="Main/Content/TopBar/Buttons/Left/StatsButton" to="." method="_on_stats_button_pressed"]
 [connection signal="pressed" from="Main/Content/TopBar/Buttons/Left/CommentaryButton" to="." method="_on_commentary_button_pressed"]
@@ -352,3 +360,5 @@ layout_mode = 2
 [connection signal="pressed" from="Main/Content/TopBar/Buttons/Right/DashboardButton" to="." method="_on_dashboard_button_pressed"]
 [connection signal="change_request" from="Main/Content/MainView/Views/MarginContainer/Formation" to="." method="_on_formation_change_request"]
 [connection signal="change_request" from="Main/Content/BottomBar/PlayersBar" to="." method="_on_players_bar_change_request"]
+[connection signal="confirmed" from="SimulationDialog" to="." method="_on_simulation_confirm_dialog_confirmed"]
+[connection signal="denied" from="SimulationDialog" to="." method="_on_simulation_dialog_denied"]

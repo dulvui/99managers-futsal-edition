@@ -58,6 +58,8 @@ var away_stats: MatchStatistics
 @onready var players_bar: PlayersBar = %PlayersBar
 @onready var penalties_bar: PenaltiesBar = %PenaltiesBar
 
+@onready var simulation_dialog: DefaultConfirmDialog = %SimulationDialog
+
 var minutes: int
 var seconds: int
 
@@ -163,11 +165,11 @@ func _on_match_simulator_hide() -> void:
 
 
 func _on_half_time() -> void:
-	_on_pause_button_pressed()
+	_pause_toggle()
 
 
 func _on_full_time() -> void:
-	_on_pause_button_pressed()
+	_pause_toggle()
 
 
 func _on_match_finsh() -> void:
@@ -242,20 +244,12 @@ func _on_slower_button_pressed() -> void:
 
 
 func _on_pause_button_pressed() -> void:
-	var paused: bool = match_simulator.pause_toggle()
-	if paused:
-		pause_button.text = tr("Continue")
-	else:
-		pause_button.text = tr("Pause")
-		_hide_views()
-		# show last view, only if not showing match currently
-		if not match_simulator.is_match_visible():
-			views.show()
-			last_active_view.show()
+	_pause_toggle()
 
 
 func _on_simulate_button_pressed() -> void:
-	match_simulator.simulate()
+	_pause_toggle()
+	simulation_dialog.show()
 
 
 func _on_match_simulator_action_message(message: String) -> void:
@@ -285,4 +279,25 @@ func _on_engine_penalties_start() -> void:
 	bottom_bar.hide()
 	penalties_bar.show()
 	penalties_bar.setup(match_simulator.engine.home_team, match_simulator.engine.away_team)
+
+
+func _on_simulation_confirm_dialog_confirmed() -> void:
+	match_simulator.simulate()
+
+
+func _on_simulation_dialog_denied() -> void:
+	_pause_toggle()
+
+
+func _pause_toggle() -> void:
+	var paused: bool = match_simulator.pause_toggle()
+	if paused:
+		pause_button.text = tr("Continue")
+	else:
+		pause_button.text = tr("Pause")
+		_hide_views()
+		# show last view, only if not showing match currently
+		if not match_simulator.is_match_visible():
+			views.show()
+			last_active_view.show()
 
