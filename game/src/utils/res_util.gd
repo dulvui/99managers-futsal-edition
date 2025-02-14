@@ -41,6 +41,7 @@ func _process(_delta: float) -> void:
 			Global.manager = Global.team.staff.manager
 			Global.transfers = Global.world.transfers
 			Global.inbox = Global.world.inbox
+			Global.save_states.get_active().is_broken = false
 
 			# add to own array, to not remove element from
 			# loading_resources_paths, while iterating
@@ -54,6 +55,7 @@ func _process(_delta: float) -> void:
 				print("restoring backup for %s gone wrong..." % loading_resource)
 				loaded_resources.append(loading_resource)
 				loading_failed.emit()
+				Global.save_states.get_active().is_broken = true
 
 			# start restoring from backup
 			else:

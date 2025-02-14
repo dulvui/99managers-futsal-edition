@@ -5,6 +5,7 @@
 extends Node
 
 # theme variations
+const BUTTON_NORMAL: StringName = "Button"
 const BUTTON_IMPORTANT: StringName = "ImportantButton"
 
 # paths

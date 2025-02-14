@@ -37,8 +37,10 @@ func _on_menu_pressed() -> void:
 
 
 func _on_res_util_loading_failed() -> void:
-	Main.hide_loading_screen()
 	print("loading failed...")
+	Main.hide_loading_screen()
+	# reload screen to show broken button
+	Main.change_scene(Const.SCREEN_SAVE_STATES)
 
 
 func _on_save_states_path_copy_pressed() -> void:

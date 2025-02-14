@@ -53,8 +53,9 @@ func _on_load_game_pressed() -> void:
 
 
 func _on_res_util_loading_failed() -> void:
-	Main.hide_loading_screen()
 	print("loading failed...")
+	Main.hide_loading_screen()
+	Main.change_scene(Const.SCREEN_SAVE_STATES)
 
 
 func _on_exit_pressed() -> void:

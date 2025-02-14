@@ -111,9 +111,15 @@ label_settings = ExtResource("2_mg3bp")
 
 [node name="Buttons" type="BoxContainer" parent="."]
 layout_mode = 2
-theme_override_constants/separation = 15
+theme_override_constants/separation = 10
 alignment = 1
 vertical = true
+
+[node name="Broken" type="Button" parent="Buttons"]
+unique_name_in_owner = true
+layout_mode = 2
+text = "Broken"
+script = ExtResource("3_ppk54")
 
 [node name="Delete" type="Button" parent="Buttons"]
 unique_name_in_owner = true
@@ -140,6 +146,17 @@ custom_title = "Delete?"
 custom_text = "Deleting a save state is permanent and can't be undone.
 Are you sure you want delete this save state?"
 
+[node name="BrokenDialog" parent="." instance=ExtResource("4_pnma1")]
+unique_name_in_owner = true
+auto_translate_mode = 1
+size = Vector2i(530, 360)
+custom_title = "Corrupted"
+custom_text = "This save state and it's backub is corrupted. You can find this save state in the following directory and see, if you can find the problem and try reloading.
+{path}"
+type = 2
+
+[connection signal="pressed" from="Buttons/Broken" to="." method="_on_broken_pressed"]
 [connection signal="pressed" from="Buttons/Delete" to="." method="_on_delete_pressed"]
 [connection signal="pressed" from="Buttons/Load" to="." method="_on_load_pressed"]
 [connection signal="confirmed" from="DeleteDialog" to="." method="_on_delete_dialog_confirmed"]
+[connection signal="confirmed" from="BrokenDialog" to="." method="_on_delete_dialog_confirmed"]
