@@ -52,6 +52,7 @@ func show_loading_screen(p_scene_name_on_load: String = "") -> void:
 
 
 func hide_loading_screen() -> void:
+	scene_fade.fade_in()
 	loading_screen.hide()
 
 

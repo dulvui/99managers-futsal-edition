@@ -10,7 +10,7 @@ extends Control
 @onready var continue_game: Button = %ContinueGame
 @onready var new_game: Button = %NewGame
 @onready var exit: Button = %Exit
-@onready var exit_confirm_dialog: DefaultConfirmDialog = %DefaultConfirmDialog
+@onready var exit_confirm_dialog: DefaultConfirmDialog = %ExitConfirmDialog
 
 
 func _ready() -> void:
@@ -42,7 +42,6 @@ func _on_continue_game_pressed() -> void:
 	LoadingUtil.start(tr("Loading game"), LoadingUtil.Type.LOAD_GAME)
 	Main.show_loading_screen(Const.SCREEN_DASHBOARD)
 	Global.load_save_state()
-
 
 
 func _on_settings_pressed() -> void:

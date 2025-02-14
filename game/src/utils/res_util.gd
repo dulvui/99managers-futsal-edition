@@ -60,16 +60,19 @@ func _process(_delta: float) -> void:
 				print("restore backup for %s..." % loading_resource)
 
 				LoadingUtil.start(tr("Restoring from backup"), LoadingUtil.Type.LOAD_GAME)
-				BackupUtil.restore_backup(loading_resource, RES_SUFFIX)
+				var backup_path: String = BackupUtil.restore_backup(loading_resource, RES_SUFFIX)
 
 				var err: Error = ResourceLoader.load_threaded_request(
-					loading_resource,
+					backup_path,
 					"Resource",
 					true,
 				)
+
+				loading_resources.append(backup_path)
+				loaded_resources.append(loading_resource)
 				
 				if err:
-					loaded_resources.append(loading_resource)
+					loaded_resources.append(backup_path)
 					print(err)
 
 	# remove loaded paths

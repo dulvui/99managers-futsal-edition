@@ -186,7 +186,7 @@ focus_mode = 2
 text = "Wishlist on Steam!"
 uri = "https://store.steampowered.com/app/3334770"
 
-[node name="DefaultConfirmDialog" parent="." instance=ExtResource("6_1a2kt")]
+[node name="ExitConfirmDialog" parent="." instance=ExtResource("6_1a2kt")]
 unique_name_in_owner = true
 custom_text = "Exit game"
 
@@ -210,4 +210,4 @@ horizontal_alignment = 1
 [connection signal="pressed" from="Buttons/LoadGame" to="." method="_on_load_game_pressed"]
 [connection signal="pressed" from="Buttons/Settings" to="." method="_on_settings_pressed"]
 [connection signal="pressed" from="Buttons/Exit" to="." method="_on_exit_pressed"]
-[connection signal="confirmed" from="DefaultConfirmDialog" to="." method="_on_default_confirm_dialog_confirmed"]
+[connection signal="confirmed" from="ExitConfirmDialog" to="." method="_on_default_confirm_dialog_confirmed"]
