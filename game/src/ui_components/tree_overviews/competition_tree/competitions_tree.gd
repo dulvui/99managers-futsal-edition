@@ -102,6 +102,7 @@ func _create_item(
 
 	if competition:
 		competitions[competition.name] = competition
+		item.set_custom_font(0, ThemeUtil.font_bold)
 
 	return item
 

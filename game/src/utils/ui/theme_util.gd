@@ -40,6 +40,9 @@ const LINE_H_THIN_FILE: StringName = BASE_PATH + "styles/lines/line_h_thin.tres"
 const LINE_V_NORMAL_FILE: StringName = BASE_PATH + "styles/lines/line_v_normal.tres"
 const LINE_V_FOCUS_FILE: StringName = BASE_PATH + "styles/lines/line_v_focus.tres"
 const LINE_V_THIN_FILE: StringName = BASE_PATH + "styles/lines/line_v_thin.tres"
+# fonts
+const FONT_FILE: StringName = BASE_PATH + "label/font.tres"
+const FONT_BOLD_FILE: StringName = BASE_PATH + "label/font_bold.tres"
 
 
 const THEMES: Dictionary = {
@@ -88,6 +91,9 @@ var line_v_thin: StyleBoxLine
 var custom_configuration: ThemeConfiguration
 var configuration: ThemeConfiguration
 
+var font: Font
+var font_bold: Font
+
 
 func _ready() -> void:
 	# load theme
@@ -133,6 +139,10 @@ func _ready() -> void:
 	line_v_normal = ResourceLoader.load(LINE_V_NORMAL_FILE, "StyleBoxLine")
 	line_v_focus = ResourceLoader.load(LINE_V_FOCUS_FILE, "StyleBoxLine")
 	line_v_thin = ResourceLoader.load(LINE_V_THIN_FILE, "StyleBoxLine")
+
+	# fonts
+	font = ResourceLoader.load(FONT_FILE, "Font")
+	font_bold = ResourceLoader.load(FONT_BOLD_FILE, "Font")
 
 	# custom theme configuration
 	custom_configuration = ThemeConfiguration.new()

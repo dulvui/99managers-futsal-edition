@@ -76,7 +76,7 @@ func _create_item(
 	team: Team = null,
 	search_string: String = "",
 	) -> TreeItem:
-	# filter by search	
+	# filter by search
 	if not search_string.is_empty() and not search_string in text.to_lower():
 		return null
 	
@@ -90,6 +90,7 @@ func _create_item(
 
 	if team:
 		teams[team.name] = team
+		item.set_custom_font(0, ThemeUtil.font_bold)
 
 	return item
 
