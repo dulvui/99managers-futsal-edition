@@ -14,6 +14,7 @@ const LANGUAGES: Dictionary = {
 	"it": "Italiano",
 	"de": "Deutsch",
 	"fr": "Français",
+	"tr_TR": "Türkçe",
 	"uk": "Українська",
 	"apc": "اللهجة الشامية",
 	"id": "Bahasa Indonesia",
