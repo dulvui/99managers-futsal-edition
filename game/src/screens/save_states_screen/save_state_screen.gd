@@ -9,6 +9,8 @@ const SaveStateEntryScene: PackedScene = preload(Const.SCENE_SAVE_STATE_ENTRY)
 
 @onready var entry_list: VBoxContainer = %EntryList
 @onready var active_save_state_entry: SaveStateEntry = %ActiveSaveState
+@onready var trash_notice: Label = %TrashNotice
+@onready var save_states_path: LineEdit = %SaveStatesPath
 
 
 func _ready() -> void:
@@ -25,6 +27,9 @@ func _ready() -> void:
 			entry.setup(save_state)
 
 	ResUtil.loading_failed.connect(_on_res_util_loading_failed)
+	
+	save_states_path.text = ProjectSettings.globalize_path(Const.SAVE_STATES_PATH)
+	trash_notice.visible = not OS.get_name() in "iOS,Web"
 
 
 func _on_menu_pressed() -> void:
@@ -35,5 +40,8 @@ func _on_res_util_loading_failed() -> void:
 	Main.hide_loading_screen()
 	print("loading failed...")
 
+
+func _on_save_states_path_copy_pressed() -> void:
+	DisplayServer.clipboard_set(ProjectSettings.globalize_path(Const.SAVE_STATES_PATH))
 
 

@@ -74,17 +74,14 @@ func initialize() -> void:
 func delete() -> void:
 	var user_dir: DirAccess = DirAccess.open(Const.SAVE_STATES_PATH)
 	if user_dir:
-		var err: int = user_dir.change_dir(id)
-		if err == OK:
-			# remove all files
-			var file_name: String = user_dir.get_next()
-			while file_name != "":
-				OS.move_to_trash(ProjectSettings.globalize_path(Const.SAVE_STATES_PATH + id + "/" + file_name))
-				file_name = user_dir.get_next()
-		# delete folder
-		err = user_dir.change_dir(Const.SAVE_STATES_PATH)
+		# delete whole folder
+		var err: int = user_dir.change_dir(Const.SAVE_STATES_PATH)
 		if err == OK and user_dir.dir_exists(id):
-			OS.move_to_trash(ProjectSettings.globalize_path(Const.SAVE_STATES_PATH + id))
+			# move to trash not not implemented on iOS and Web
+			if OS.get_name() in "iOS,Web":
+				user_dir.remove(id + "/")
+			else:
+				OS.move_to_trash(ProjectSettings.globalize_path(Const.SAVE_STATES_PATH + id + "/"))
 
 
 func _create_dir() -> void:

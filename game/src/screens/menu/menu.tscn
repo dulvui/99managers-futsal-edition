@@ -35,18 +35,17 @@ grow_vertical = 2
 [node name="SaveState" parent="." instance=ExtResource("4_5irse")]
 unique_name_in_owner = true
 layout_mode = 1
-anchor_left = 0.5
+anchor_left = 0.435677
 anchor_top = 0.22963
-anchor_right = 0.5
+anchor_right = 0.57474
 anchor_bottom = 0.22963
 offset_left = -261.5
-offset_right = 261.5
+offset_right = 268.5
 offset_bottom = 132.0
 grow_horizontal = 2
 size_flags_horizontal = 4
 size_flags_vertical = 0
 hide_buttons = true
-metadata/_edit_use_anchors_ = true
 
 [node name="Buttons" type="VBoxContainer" parent="."]
 layout_mode = 1

@@ -3,7 +3,7 @@
 # SPDX-License-Identifier: AGPL-3.0-or-later
 
 class_name SaveStateEntry
-extends VBoxContainer
+extends BoxContainer
 
 @export var hide_buttons: bool = false
 
