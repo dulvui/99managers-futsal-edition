@@ -26,7 +26,7 @@ func new_temp_state() -> void:
 	_create_dir()
 	var temp_id: String = RngUtil.uuid()
 	temp_state = SaveState.new()
-	temp_state.id = temp_id	
+	temp_state.id = temp_id
 
 
 func get_active() -> SaveState:
@@ -34,7 +34,7 @@ func get_active() -> SaveState:
 	if active == null and active_id != "":
 		active = load_state(active_id)
 		if active == null:
-			print("error while loading save state with id %s, removing it"%active_id)
+			print("error while loading save state with id %s, removing it" % active_id)
 			id_list.erase(active_id)
 			active_id = ""
 
@@ -60,6 +60,15 @@ func make_temp_active() -> void:
 	# assign metadata
 	temp_state.meta_is_temp = false
 
+	temp_state.start_date = Global.start_date
+	temp_state.id_by_type = Global.id_by_type
+	temp_state.current_season = 0
+	temp_state.generation_seed = Global.generation_seed
+	temp_state.generation_state = Global.generation_state
+	temp_state.generation_player_names = Global.generation_player_names
+
+	temp_state.initialize()
+
 	# make active
 	id_list.append(temp_state.id)
 	active_id = temp_state.id
@@ -75,7 +84,9 @@ func delete(state: SaveState) -> void:
 	# set next value to active
 	if id_list.size() > 0:
 		active = load_state(id_list[-1])
+		active_id = active.id
 	else:
+		active_id = ""
 		active = null
 
 

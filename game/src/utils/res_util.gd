@@ -92,7 +92,7 @@ func load_resources() -> void:
 	# LoadingUtil.done()
 
 
-func save_save_states(thread_world_save: bool = true) -> void:
+func save_safe_states(thread_world_save: bool = true) -> void:
 	print("saving save states...")
 	
 	# save save states and create backup
@@ -101,16 +101,8 @@ func save_save_states(thread_world_save: bool = true) -> void:
 	
 	# save resources and active save state
 	var save_state: SaveState = Global.save_states.get_active()
-	if not save_state.meta_is_temp:
-		save_state.start_date = Global.start_date
-		save_state.id_by_type = Global.id_by_type
-		save_state.current_season = Global.current_season
-		save_state.match_speed = Global.match_speed
-		save_state.generation_seed = Global.generation_seed
-		save_state.generation_state = Global.generation_state
-		save_state.generation_player_names = Global.generation_player_names
 
-		save_state.initialize()
+	if not save_state.meta_is_temp:
 		save_resource("save_state", save_state)
 
 		if thread_world_save:

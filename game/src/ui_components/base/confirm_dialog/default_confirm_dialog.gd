@@ -49,14 +49,11 @@ func _on_cancel_pressed() -> void:
 
 func _on_no_pressed() -> void:
 	hide()
+	denied.emit()
 
 
 func _on_yes_pressed() -> void:
 	hide()
 	confirmed.emit()
-
-
-func _on_popup_hide() -> void:
-	denied.emit()
 
 

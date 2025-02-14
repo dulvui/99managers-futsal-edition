@@ -109,7 +109,7 @@ func add_matches_to_calendar(
 
 	for matches: Array[Match] in match_days:
 		# check if next month
-		if day > Global.world.calendar.month(month).days.size() - 1:
+		if day >= Global.world.calendar.month(month).days.size():
 			month += 1
 			day = 0
 			# start also new month with saturday

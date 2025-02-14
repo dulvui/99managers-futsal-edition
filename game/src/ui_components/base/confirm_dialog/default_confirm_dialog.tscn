@@ -87,7 +87,6 @@ script = ExtResource("2_2aytl")
 joypad_button_event = SubResource("InputEventJoypadButton_vnokf")
 
 [connection signal="about_to_popup" from="." to="." method="_on_about_to_popup"]
-[connection signal="popup_hide" from="." to="." method="_on_popup_hide"]
 [connection signal="pressed" from="MarginContainer/VBoxContainer/HBoxContainer/Cancel" to="." method="_on_cancel_pressed"]
 [connection signal="pressed" from="MarginContainer/VBoxContainer/HBoxContainer/No" to="." method="_on_no_pressed"]
 [connection signal="pressed" from="MarginContainer/VBoxContainer/HBoxContainer/Yes" to="." method="_on_yes_pressed"]

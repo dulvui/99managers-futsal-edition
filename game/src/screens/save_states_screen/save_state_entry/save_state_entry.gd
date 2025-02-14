@@ -53,7 +53,7 @@ func _on_delete_pressed() -> void:
 func _on_delete_dialog_confirmed() -> void:
 	Global.save_states.delete(save_state)
 	Global.save_config()
-	ResUtil.save_save_states()
+	ResUtil.save_safe_states()
 	if Global.save_states.id_list.size() == 0:
 		Main.change_scene(Const.SCREEN_MENU)
 	else:

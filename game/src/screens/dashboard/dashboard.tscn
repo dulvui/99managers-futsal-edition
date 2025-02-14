@@ -458,6 +458,7 @@ layout_mode = 2
 
 [node name="SaveConfirmDialog" parent="." instance=ExtResource("14_t4c55")]
 unique_name_in_owner = true
+visible = false
 custom_text = "Save the game before exiting?"
 
 [connection signal="pressed" from="MarginContainer/HBoxContainer/PanelContainer/MarginContainer/Buttons/EmailButton" to="." method="_on_email_button_pressed"]

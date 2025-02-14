@@ -125,7 +125,7 @@ func next_season() -> void:
 
 
 func save_all_data(threaded: bool = true) -> void:
-	ResUtil.save_save_states(threaded)
+	ResUtil.save_safe_states(threaded)
 	save_config()
 
 
