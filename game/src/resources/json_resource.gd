@@ -17,9 +17,16 @@ func to_json() -> Dictionary:
 
 			if _is_primitive(property):
 				dict[property_name] = value
+				print(property_name)
+			elif value is JSONResource:
+				var d: Dictionary = (value as JSONResource).to_json()
+				dict[property_name] = d
+				breakpoint
 			elif typeof(value) == Variant.Type.TYPE_OBJECT:
 				if value is JSONResource:
-					dict[property_name] = (value as JSONResource).to_json()
+					var d: Dictionary = (value as JSONResource).to_json()
+					dict[property_name] = d
+					breakpoint
 			elif typeof(value) == Variant.Type.TYPE_ARRAY:
 				var array: Array = []
 				for item: Variant in value:

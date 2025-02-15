@@ -15,5 +15,6 @@ func test() -> void:
 	var world: World = World.new()
 	world.from_json(world_dict)
 
-	assert(world.continents.size() == world_reference.continents.size(), "WRONG")
+	assert(world.continents.size() == world_reference.continents.size())
+	assert(world.continents[0].nations.size() == world_reference.continents[0].nations.size())
 	print("test: res util done.")
