@@ -85,7 +85,7 @@ func _process(_delta: float) -> void:
 
 
 func load_resources() -> void:
-	load_threaded_resource("world")
+	# load_threaded_resource("world")
 
 	# non threaded way
 	# Global.world = load_resource("world")
@@ -97,11 +97,41 @@ func load_resources() -> void:
 	# LoadingUtil.done()
 
 
-func save_safe_states(thread_world_save: bool = true) -> void:
+	var file: FileAccess = FileAccess.open_compressed(
+		"user://world.json",
+		FileAccess.READ,
+		FileAccess.COMPRESSION_GZIP
+	)
+	var err: int = FileAccess.get_open_error()
+	print(err)
+	# file.store_var(world_json)
+	var file_text: String = file.get_as_text()
+
+	var json: JSON = JSON.new()
+	var result: int = json.parse(file_text)
+
+	if result == OK:
+		Global.world.from_json(json.get_data())
+		
+		Global.team = Global.world.get_active_team()
+		Global.league = Global.world.get_active_league()
+		Global.manager = Global.team.staff.manager
+		Global.transfers = Global.world.transfers
+		Global.inbox = Global.world.inbox
+	else:
+		print(result)
+	
+	LoadingUtil.done()
+
+
+func save_safe_states(_thread_world_save: bool = true) -> void:
 	print("saving save states...")
 	
 	# save save states and create backup
-	ResourceSaver.save(Global.save_states, Const.SAVE_STATES_PATH + "save_states" + RES_SUFFIX , ResourceSaver.FLAG_COMPRESS)
+	ResourceSaver.save(
+		Global.save_states,
+		Const.SAVE_STATES_PATH + "save_states" + RES_SUFFIX , ResourceSaver.FLAG_COMPRESS
+	)
 	BackupUtil.create_backup(Const.SAVE_STATES_PATH + "save_states", RES_SUFFIX)
 	
 	# save resources and active save state
@@ -110,10 +140,21 @@ func save_safe_states(thread_world_save: bool = true) -> void:
 	if not save_state.meta_is_temp:
 		save_resource("save_state", save_state)
 
-		if thread_world_save:
-			ThreadUtil.save_world()
-		else:
-			ResUtil.save_resource("world", Global.world)
+		var world_json: Dictionary = Global.world.to_json()
+
+		var file: FileAccess = FileAccess.open_compressed(
+			"user://world.json",
+			FileAccess.WRITE,
+			FileAccess.COMPRESSION_GZIP
+		)
+		# file.store_var(world_json)
+		file.store_string(str(world_json))
+
+
+		# if thread_world_save:
+		# 	ThreadUtil.save_world()
+		# else:
+		# 	ResUtil.save_resource("world", Global.world)
 	
 	print("saving save states done.")
 

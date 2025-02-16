@@ -13,23 +13,21 @@ func to_json() -> Dictionary:
 	for property: Dictionary in property_list:
 		if property.usage == Const.CUSTOM_PROPERTY_EXPORT:
 			var property_name: String = property.name
+			# get value from resurce itself to guss type
 			var value: Variant = get(property_name)
 
-			if _is_primitive(property):
+			if _is_primitive(value):
 				dict[property_name] = value
-				print(property_name)
 			elif value is JSONResource:
 				var d: Dictionary = (value as JSONResource).to_json()
 				dict[property_name] = d
-				breakpoint
 			elif typeof(value) == Variant.Type.TYPE_OBJECT:
 				if value is JSONResource:
 					var d: Dictionary = (value as JSONResource).to_json()
 					dict[property_name] = d
-					breakpoint
 			elif typeof(value) == Variant.Type.TYPE_ARRAY:
 				var array: Array = []
-				for item: Variant in value:
+				for item: Variant in value as Array:
 					if _is_primitive(item):
 						array.append(item)
 					elif typeof(item) == Variant.Type.TYPE_OBJECT:
@@ -81,7 +79,8 @@ func from_json(json: Dictionary) -> void:
 				set(property_name, json_value)
 			elif typeof(property.type) == Variant.Type.TYPE_OBJECT:
 				if property_value is JSONResource:
-					(property_value as JSONResource).from_json(json_value)
+					var json_resource: JSONResource = (property_value as JSONResource).from_json(json_value)
+					set(property_name, json_resource)
 				#else:
 				#print("JSONResource error, not supported object with name: " + property_name)
 			elif typeof(property_value) == Variant.Type.TYPE_ARRAY:
@@ -92,7 +91,8 @@ func from_json(json: Dictionary) -> void:
 					elif typeof(item) == Variant.Type.TYPE_OBJECT:
 						if item is JSONResource:
 							var d: Dictionary = (item as JSONResource).to_json()
-							array.append(d)
+							var json_resource: JSONResource = (property_value as JSONResource).from_json(json_value)
+							array.append(json_resource)
 						else:
 							print("JSONResource error, array not supported object with name: " + property_name)
 				set(property_name, array)
@@ -108,3 +108,5 @@ func _is_primitive(variant: Variant) -> bool:
 	if typeof(variant) == Variant.Type.TYPE_STRING_NAME:
 		return true
 	return false
+
+
