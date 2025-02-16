@@ -277,12 +277,11 @@
 # res://src/global.gd
 # res://src/generators/generator.gd
 #
-# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
-#
+# Ettore Atalan <atalanttore@googlemail.com>, 2025.
 msgid ""
 msgstr ""
 "Project-Id-Version: 99 Managers Futsal Edition\n"
-"PO-Revision-Date: 2025-02-11 05:09+0000\n"
+"PO-Revision-Date: 2025-02-17 06:05+0000\n"
 "Last-Translator: Ettore Atalan <atalanttore@googlemail.com>\n"
 "Language-Team: German <https://hosted.weblate.org/projects/"
 "99-managers-futsal-edition/game/de/>\n"
@@ -291,7 +290,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8-bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 5.10-dev\n"
+"X-Generator: Weblate 5.10\n"
 
 #: src/ui_components/team_profile/team_profile.tscn
 #: src/ui_components/info/info.tscn
@@ -337,7 +336,7 @@ msgstr "Jahr"
 
 #: src/ui_components/player_list/player_list.gd
 msgid "All Teams"
-msgstr ""
+msgstr "Alle Mannschaften"
 
 #: src/ui_components/player_list/player_list.gd
 msgid "All positions"
@@ -345,7 +344,7 @@ msgstr "Alle Positionen"
 
 #: src/ui_components/player_list/player_list.gd
 msgid "All Leagues"
-msgstr ""
+msgstr "Alle Ligen"
 
 #: src/ui_components/player_list/player_list_column/player_list_column.tscn
 #: src/ui_components/player_profile/info_view/info_view.tscn
@@ -399,7 +398,7 @@ msgstr "Ausgaben"
 
 #: src/ui_components/visual_finances/visual_finances.tscn
 msgid "Reamaining salary budget"
-msgstr ""
+msgstr "Verbleibendes Gehaltsbudget"
 
 #: src/ui_components/visual_finances/visual_finances.tscn
 #: src/ui_components/transfers/contract_offer/contract_offer.tscn
@@ -426,7 +425,7 @@ msgstr "Ausgleich"
 
 #: src/ui_components/visual_competitions/visual_table/visual_table.tscn
 msgid "Lost"
-msgstr ""
+msgstr "Verloren"
 
 #: src/ui_components/visual_competitions/visual_table/visual_table.tscn
 msgid "Goals"
@@ -505,7 +504,7 @@ msgstr "Vetrag"
 
 #: src/ui_components/transfers/contract_offer/contract_offer.tscn
 msgid "Buy clause"
-msgstr ""
+msgstr "Ablöseklausel"
 
 #: src/ui_components/visual_formation/visual_formation.gd
 msgid "Subs"
@@ -527,7 +526,7 @@ msgstr "Wechsel Strategie"
 
 #: src/ui_components/visual_formation/visual_formation.tscn
 msgid "Tactic offense"
-msgstr ""
+msgstr "Taktische Offensive"
 
 #: src/ui_components/visual_formation/visual_formation.tscn
 msgid "Intensity"
@@ -597,7 +596,7 @@ msgstr "Position"
 
 #: src/ui_components/player_profile/info_view/info_view.tscn
 msgid "Alternative position"
-msgstr ""
+msgstr "Alternative Position"
 
 #: src/ui_components/player_profile/info_view/info_view.tscn
 msgid "Age"
@@ -614,7 +613,7 @@ msgstr "Nationalität"
 
 #: src/ui_components/player_profile/info_view/info_view.tscn
 msgid "Number"
-msgstr ""
+msgstr "Nummer"
 
 #: src/ui_components/player_profile/info_view/info_view.tscn
 msgid "Average attributes"
@@ -695,27 +694,27 @@ msgstr "Sonntag"
 
 #: src/utils/logic/email_util.gd
 msgid "Next match: {team_name}"
-msgstr ""
+msgstr "Nächstes Spiel: {team_name}"
 
 #: src/utils/logic/email_util.gd
 msgid "The next match is against {team_name}."
-msgstr ""
+msgstr "Das nächste Spiel ist gegen {team_name}."
 
 #: src/utils/logic/email_util.gd
 msgid "Welcome {manager_name}"
-msgstr ""
+msgstr "Willkommen {manager_name}"
 
 #: src/utils/logic/email_util.gd
 msgid "{team_name} welcomes you to a new journey."
-msgstr ""
+msgstr "{team_name} heißt dich auf einer neuen Reise willkommen."
 
 #: src/utils/logic/email_util.gd
 msgid "Offer for {player_name}"
-msgstr ""
+msgstr "Angebot für {player_name}"
 
 #: src/utils/logic/email_util.gd
 msgid "Offer for {player name} declined"
-msgstr ""
+msgstr "Angebot für {player name} abgelehnt"
 
 #: src/utils/logic/email_util.gd
 msgid "Offer for {player name} accepted"
@@ -735,7 +734,7 @@ msgstr "Weltmeisterschaft"
 
 #: src/utils/res_util.gd
 msgid "Restoring from backup"
-msgstr ""
+msgstr "Aus Datensicherung wiederherstellen"
 
 #: src/screens/settings/settings.tscn
 msgid "General"
@@ -766,6 +765,8 @@ msgstr "Zurück"
 #: src/screens/settings/general/general_settings.tscn
 msgid "You can fix errors or add new languages easily on Weblate, just click on the link below."
 msgstr ""
+"Du kannst auf Weblate ganz einfach Fehler beheben oder neue Sprachen "
+"hinzufügen, indem du auf den unten stehenden Link klickst."
 
 #: src/screens/settings/general/general_settings.tscn
 msgid "Language"
@@ -777,11 +778,11 @@ msgstr "Audio"
 
 #: src/screens/settings/general/general_settings.tscn
 msgid "Sfx volume"
-msgstr ""
+msgstr "Spezialeffekt-Lautstärke"
 
 #: src/screens/settings/general/general_settings.tscn
 msgid "Interface settings"
-msgstr ""
+msgstr "Oberflächeneinstellungen"
 
 #: src/screens/settings/general/general_settings.tscn
 msgid "Font size"
@@ -869,7 +870,7 @@ msgstr "Tabellenstand"
 
 #: src/screens/save_states_screen/save_state_entry/save_state_entry.tscn
 msgid "Game date"
-msgstr ""
+msgstr "Spieltermin"
 
 #: src/screens/save_states_screen/save_state_entry/save_state_entry.tscn
 msgid "Last save"
@@ -903,7 +904,7 @@ msgstr "Nächste Saison"
 #: src/screens/dashboard/dashboard.gd
 #: src/screens/dashboard/dashboard.tscn
 msgid "Email"
-msgstr ""
+msgstr "E-Mail"
 
 #: src/screens/dashboard/dashboard.gd
 msgid "Simulating results"
@@ -976,7 +977,7 @@ msgstr "Weiter"
 
 #: src/screens/dashboard/dashboard.tscn
 msgid "Save the game before exiting?"
-msgstr ""
+msgstr "Spiel vor dem Beenden speichern?"
 
 #: src/screens/match/match.gd
 #: src/screens/match/match.tscn
@@ -985,7 +986,7 @@ msgstr "Pause"
 
 #: src/screens/match/penalties_bar/penalties_bar.tscn
 msgid "Penalties"
-msgstr ""
+msgstr "Strafen"
 
 #: src/screens/match/match.tscn
 msgid "Stats"
@@ -1030,7 +1031,7 @@ msgstr "Beenden"
 
 #: src/screens/menu/menu.tscn
 msgid "Exit game"
-msgstr ""
+msgstr "Spiel beenden"
 
 #: src/screens/setup/setup_world/setup_world.tscn
 msgid "Game settings"
@@ -1042,23 +1043,26 @@ msgstr "Spieler Namen"
 
 #: src/screens/setup/setup_world/setup_world.tscn
 msgid "Start year"
-msgstr ""
+msgstr "Jahresbeginn"
 
 #: src/screens/setup/setup_world/setup_world.tscn
 msgid "Generation seed"
-msgstr "Generationskode"
+msgstr "Generierungs-Seed"
 
 #: src/screens/setup/setup_world/setup_world.tscn
 msgid "This generation seed defines player names and attributes. When reused, it will generate exatly the same result."
 msgstr ""
+"Dieser Generierungs-Seed definiert Spielernamen und Attribute. Wenn er "
+"wiederverwendet wird, wird er genau das gleiche Ergebnis erzeugen."
 
 #: src/screens/setup/setup_world/setup_world.tscn
 msgid "Random"
 msgstr "Zufällig"
 
 #: src/screens/setup/setup_world/setup_world.gd
+#, fuzzy
 msgid "Generating players"
-msgstr ""
+msgstr "Spieler generieren"
 
 #: src/screens/setup/setup_manager/setup_manager.tscn
 msgid "Your name"
@@ -1074,7 +1078,7 @@ msgstr "Dein Nachname"
 
 #: src/screens/setup/setup_team/setup_team.tscn
 msgid "Choose team"
-msgstr ""
+msgstr "Mannschaft auswählen"
 
 #: src/screens/setup/setup_team/setup_team.tscn
 msgid "Select"
@@ -1887,6 +1891,8 @@ msgstr "Spiellizenz"
 #: src/screens/settings/license/license.tscn
 msgid "This game is Open Source and released under the AGPL v3 or later license."
 msgstr ""
+"Dieses Spiel ist quelloffen und wird unter der AGPL v3 oder einer neueren "
+"Lizenz veröffentlicht."
 
 #: src/screens/settings/license/license.tscn
 msgid "Read full license"
@@ -1899,6 +1905,8 @@ msgstr "Quellcode"
 #: src/screens/settings/license/license.tscn
 msgid "The full source code of the game is available on the websites below."
 msgstr ""
+"Der vollständige Quellcode des Spiels ist auf den nachstehenden Websites "
+"verfügbar."
 
 #: src/screens/settings/license/license.tscn
 msgid "Third party licenses"
@@ -1907,6 +1915,8 @@ msgstr "Drittanbieter-Lizenzen"
 #: src/screens/settings/license/license.tscn
 msgid "This game was built using the Godot Engine, that is released under the MIT license."
 msgstr ""
+"Dieses Spiel wurde mit der Godot Engine entwickelt, die unter der MIT-Lizenz "
+"veröffentlicht wurde."
 
 #: src/enum.gd
 msgid "Key actions"
@@ -2035,4 +2045,3 @@ msgstr "Verletzt"
 #: src/enum.gd
 msgid "Recover"
 msgstr "Erholung"
-
