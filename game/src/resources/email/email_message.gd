@@ -32,7 +32,7 @@ enum Type {
 
 
 func _init(
-	p_id: int = IdUtil.next_id(IdUtil.Types.EMAIL),
+	p_id: int = -1,
 	p_type: Type = Type.NEXT_MATCH,
 	p_subject: String = "",
 	p_text: String = "",
@@ -51,3 +51,7 @@ func _init(
 	date = p_date
 	read = p_read
 	starred = p_starred
+
+
+func set_id() -> void:
+	id = IdUtil.next_id(IdUtil.Types.EMAIL)

@@ -6,7 +6,6 @@ class_name ThemeConfiguration
 extends Resource
 
 
-@export var id: int
 @export var name: String
 
 @export var font_color: Color
@@ -22,7 +21,6 @@ var style_important_color_variation: ColorVariation
 
 
 func _init(
-	p_id: int = IdUtil.next_id(IdUtil.Types.THEME),
 	p_name: String = "",
 	p_font_color: Color = Color.BLACK,
 	p_style_color: Color = Color.RED,
@@ -30,7 +28,6 @@ func _init(
 	p_background_color: Color = Color.WHITE,
 	p_background_secondary_color: Color = Color.GRAY,
 ) -> void:
-	id = p_id
 	name = p_name
 	font_color = p_font_color
 	style_color = p_style_color

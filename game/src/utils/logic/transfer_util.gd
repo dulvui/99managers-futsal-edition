@@ -27,6 +27,7 @@ func update_day() -> void:
 
 
 func make_offer(transfer: Transfer) -> void:
+	transfer.set_id()
 	EmailUtil.transfer_message(transfer)
 	Global.transfers.list.append(transfer)
 

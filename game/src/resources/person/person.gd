@@ -30,7 +30,7 @@ enum Role {
 
 func _init(
 	p_role: Role = Role.UNEMPLOYED,
-	p_id: int = IdUtil.next_id(IdUtil.Types.PERSON),
+	p_id: int = -1,
 	p_nation: String = "",
 	p_name: String = "",
 	p_surname: String = "",
@@ -52,6 +52,10 @@ func _init(
 	skintone = p_skintone
 	haircolor = p_haircolor
 	eyecolor = p_eyecolor
+
+
+func set_id() -> void:
+	id = IdUtil.next_id(IdUtil.Types.PERSON)
 
 
 func get_full_name() -> String:

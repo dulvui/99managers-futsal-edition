@@ -36,7 +36,6 @@ enum P {
 	DYNAMIC,
 }
 
-@export var id: int
 @export var name: String
 @export var description: String
 @export var coordinates: Vector2
@@ -46,14 +45,12 @@ enum P {
 
 
 func _init(
-	p_id: int = IdUtil.next_id(IdUtil.Types.POSITION_VARIATION),
 	p_name: String = "",
 	p_description: String = "",
 	p_coordinates: Vector2 = Vector2.ZERO,
 	p_confidence: int = 0,
 	p_type: String = "",
 ) -> void:
-	id = p_id
 	name = p_name
 	description = p_description
 	coordinates = p_coordinates

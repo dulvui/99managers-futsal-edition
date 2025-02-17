@@ -21,7 +21,7 @@ extends JSONResource
 
 
 func _init(
-	p_id: int = IdUtil.next_id(IdUtil.Types.TEAM),
+	p_id: int = -1,
 	p_players: Array[Player] = [],
 	p_name: String = "",
 	p_finances: Finances = Finances.new(),
@@ -40,6 +40,10 @@ func _init(
 	colors = p_colors
 	formation = p_formation
 	board_requests = p_board_requests
+
+
+func set_id() -> void:
+	id = IdUtil.next_id(IdUtil.Types.TEAM)
 
 
 func get_goalkeeper() -> Player:

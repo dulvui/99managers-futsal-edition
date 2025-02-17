@@ -21,7 +21,7 @@ extends JSONResource
 
 
 func _init(
-	p_id: int = IdUtil.next_id(IdUtil.Types.MATCH),
+	p_id: int = -1,
 	p_home: Team = Team.new(),
 	p_away: Team = Team.new(),
 	p_over: bool = false,
@@ -60,6 +60,8 @@ func setup(
 	competition_id = p_competition_id
 	competition_name = p_competition_name
 	first_leg = p_first_leg
+	
+	id = IdUtil.next_id(IdUtil.Types.MATCH)
 
 
 func set_result(

@@ -14,7 +14,7 @@ extends JSONResource
 
 
 func _init(
-	p_id: int = IdUtil.next_id(IdUtil.Types.COMPETITION),
+	p_id: int = -1,
 	p_pyramid_level: int = 1,
 	p_name: String = "",
 	p_price_money: int = 0,
@@ -23,3 +23,9 @@ func _init(
 	pyramid_level = p_pyramid_level
 	name = p_name
 	price_money = p_price_money
+
+
+func set_id() -> void:
+	id = IdUtil.next_id(IdUtil.Types.COMPETITION)
+
+

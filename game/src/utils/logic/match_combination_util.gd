@@ -131,6 +131,7 @@ func _initialize_club_league_matches(competition: Competition, teams: Array[Team
 
 func _initialize_club_national_cup(p_nation: Nation) -> void:
 	# setup cup
+	p_nation.cup.set_id()
 	p_nation.cup.name = p_nation.name + " " + tr("Cup")
 	var all_teams_by_nation: Array[Team]
 	for league: League in p_nation.leagues:
@@ -146,6 +147,7 @@ func _initialize_club_national_cup(p_nation: Nation) -> void:
 
 func _initialize_club_continental_cup(p_continent: Continent) -> void:
 	# setup cup
+	p_continent.cup_clubs.set_id()
 	p_continent.cup_clubs.name =  p_continent.name + " " + tr("Cup")
 	var teams: Array[Team]
 
@@ -163,6 +165,7 @@ func _initialize_club_continental_cup(p_continent: Continent) -> void:
 
 func _initialize_nations_continental_cup(p_continent: Continent) -> void:
 	# setup cup
+	p_continent.cup_nations.set_id()
 	p_continent.cup_nations.name =  p_continent.name + " " + tr("Nations cup")
 	var teams: Array[Team]
 
@@ -180,6 +183,7 @@ func _initialize_nations_continental_cup(p_continent: Continent) -> void:
 
 func _initialize_world_cup(world: World) -> void:
 	# setup cup
+	world.world_cup.set_id()
 	world.world_cup.name = tr("World cup")
 
 	var teams: Array[Team]

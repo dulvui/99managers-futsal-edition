@@ -34,7 +34,7 @@ enum State {
 
 
 func _init(
-	p_id: int = IdUtil.next_id(IdUtil.Types.TRANSFER),
+	p_id: int = -1,
 	p_player: Player = Player.new(),
 	p_state: State = State.OFFER,
 	p_type: Type = Type.BUY,
@@ -57,6 +57,10 @@ func _init(
 	delay_days = p_delay_days
 	exchange_players = p_exchange_players
 	date = p_date
+
+
+func set_id() -> void:
+	id = IdUtil.next_id(IdUtil.Types.TRANSFER)
 
 
 func update() -> bool:

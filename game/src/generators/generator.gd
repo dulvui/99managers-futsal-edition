@@ -111,6 +111,7 @@ func generate_players(world: World = Global.world) -> void:
 		for nation: Nation in continent.nations:
 			# backup teams
 			var backup_league: League = League.new()
+			backup_league.set_id()
 			backup_league.name = "BACKUP"
 			backup_league.pyramid_level = nation.leagues.size() + 1
 			for team: Team in nation.backup_teams:
@@ -122,6 +123,7 @@ func generate_players(world: World = Global.world) -> void:
 					_initialize_team(world, nation, league, team)
 
 			# national team
+			nation.team.set_id()
 			nation.team.name = nation.name
 			# add nations best players
 			nation.team.players = world.get_best_players_by_nationality(nation)
@@ -516,6 +518,7 @@ func _create_manager(
 	world: World, team_prestige: int, team_nation: Nation, pyramid_level: int
 ) -> Manager:
 	var manager: Manager = Manager.new()
+	manager.set_id()
 	_set_person_colors(manager)
 	manager.prestige = _in_bounds_random(team_prestige)
 	var nation: Nation = _get_random_nationality(world, team_nation, team_prestige, pyramid_level)
@@ -539,6 +542,7 @@ func _create_president(
 	world: World, team_prestige: int, team_nation: Nation, pyramid_level: int
 ) -> President:
 	var president: President = President.new()
+	president.set_id()
 	_set_person_colors(president)
 	president.prestige = _in_bounds_random(team_prestige)
 	var nation: Nation = _get_random_nationality(world, team_nation, team_prestige, pyramid_level)
@@ -553,6 +557,7 @@ func _create_scout(
 	world: World, team_prestige: int, team_nation: Nation, pyramid_level: int
 ) -> Scout:
 	var scout: Scout = Scout.new()
+	scout.set_id()
 	_set_person_colors(scout)
 	scout.prestige = _in_bounds_random(team_prestige)
 	var nation: Nation = _get_random_nationality(world, team_nation, team_prestige, pyramid_level)
@@ -573,6 +578,7 @@ func _create_player(
 	p_team: Team,
 ) -> Player:
 	var player: Player = Player.new()
+	player.set_id()
 	_set_person_colors(player)
 	random_positions(player, p_position_type)
 
@@ -782,6 +788,7 @@ func _initialize_city(
 
 	# create team
 	var team: Team = Team.new()
+	team.set_id()
 	team.name = team_name
 
 	# check if team is backup team
@@ -795,6 +802,7 @@ func _initialize_city(
 		)
 		if league_filter.size() == 0:
 			league = League.new()
+			league.set_id()
 			league.name = league_name
 			league.nation_name = nation.name
 			# could bea added direclty to csv

@@ -152,6 +152,7 @@ func transfer_message(transfer: Transfer) -> void:
 
 func new_message(subject: String, text: String, sender_team: Team = Global.team) -> void:
 	var message: EmailMessage = EmailMessage.new()
+	message.set_id()
 	message.subject = subject
 	message.text = text
 	message.sender = _get_team_email_address(sender_team)

@@ -5,14 +5,12 @@
 extends Node
 
 enum Types {
-	THEME,
 	COMPETITION,
 	TEAM,
 	PERSON,
 	TRANSFER,
 	EMAIL,
 	MATCH,
-	POSITION_VARIATION,
 }
 
 
