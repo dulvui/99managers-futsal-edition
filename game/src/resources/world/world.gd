@@ -30,6 +30,17 @@ func _init(
 	inbox = p_inbox
 
 
+func from_json(dict: Dictionary) -> void:
+	super(dict)
+
+	# continents
+	if dict.has("continents"):
+		for continent_dict: Dictionary in dict["continents"]:
+			var continent: Continent = Continent.new()
+			continent.from_json(continent_dict)
+			continents.append(continent)
+
+
 func initialize() -> void:
 	calendar.initialize()
 
@@ -340,3 +351,5 @@ func promote_and_delegate_teams() -> void:
 				for team: Team in league.teams:
 					table.add_team(team)
 				league.tables.append(table)
+
+

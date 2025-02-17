@@ -8,8 +8,8 @@ extends Test
 
 func test() -> void:
 	print("test: res util...")
-	test_compressions()
 	test_from_to_json()
+	test_compressions()
 	print("test: res util done.")
 
 
@@ -21,8 +21,12 @@ func test_from_to_json() -> void:
 	var world: World = World.new()
 	world.from_json(world_json)
 
+	# continents
 	assert(world.continents.size() == world_reference.continents.size())
+	assert(world.world_cup.id == world_reference.world_cup.id)
+	# nations
 	assert(world.continents[0].nations.size() == world_reference.continents[0].nations.size())
+	breakpoint
 
 
 func test_compressions() -> void:

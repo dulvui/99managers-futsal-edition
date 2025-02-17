@@ -29,6 +29,17 @@ func _init(
 	backup_teams = p_backup_teams
 
 
+func from_json(dict: Dictionary) -> void:
+	super(dict)
+
+	# leagues
+	if dict.has("leagues"):
+		for league_dict: Dictionary in dict["leagues"]:
+			var league: League = League.new()
+			league.from_json(league_dict)
+			leagues.append(league)
+
+
 func add_league(league: League) -> void:
 	leagues.append(league)	
 
@@ -88,3 +99,5 @@ func get_all_teams(include_national_team: bool = false) -> Array[Team]:
 # to check if nation has competitions
 func is_competitive() -> bool:
 	return leagues.size() > 0
+
+
