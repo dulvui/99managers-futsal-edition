@@ -77,6 +77,16 @@ func initialize(next_season: bool = false) -> void:
 	_add_year(date.year + 1)
 
 
+func from_json(dict: Dictionary) -> void:
+	super(dict)
+
+	if dict.has("months"):
+		for month_dict: Dictionary in dict["months"]:
+			var month_new: Month = Month.new()
+			month_new.from_json(month_dict)
+			months.append(month_new)
+
+
 func next_day() -> void:
 	date = _get_next_day()
 

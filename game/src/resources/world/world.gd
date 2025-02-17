@@ -39,6 +39,11 @@ func from_json(dict: Dictionary) -> void:
 			var continent: Continent = Continent.new()
 			continent.from_json(continent_dict)
 			continents.append(continent)
+	
+	# calendar
+	if dict.has("calendar"):
+		var caledar_dict: Dictionary = dict["calendar"]
+		calendar.from_json(caledar_dict)
 
 
 func initialize() -> void:

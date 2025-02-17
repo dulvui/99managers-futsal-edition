@@ -49,6 +49,6 @@ func from_json(dict: Dictionary) -> void:
 		if property is Array:
 			return
 
-		property = dict[key]
+		set(key, dict[key])
 
 
