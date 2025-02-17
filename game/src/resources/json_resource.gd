@@ -13,7 +13,7 @@ func to_json() -> Dictionary:
 	for property: Dictionary in property_list:
 		if property.usage == Const.CUSTOM_PROPERTY_EXPORT:
 			var property_name: String = property.name
-			# get value from resurce itself to guss type
+			# get value from resurce itself to guess type
 			var value: Variant = get(property_name)
 
 			if _is_primitive(value):
@@ -21,10 +21,6 @@ func to_json() -> Dictionary:
 			elif value is JSONResource:
 				var d: Dictionary = (value as JSONResource).to_json()
 				dict[property_name] = d
-			elif typeof(value) == Variant.Type.TYPE_OBJECT:
-				if value is JSONResource:
-					var d: Dictionary = (value as JSONResource).to_json()
-					dict[property_name] = d
 			elif typeof(value) == Variant.Type.TYPE_ARRAY:
 				var array: Array = []
 				for item: Variant in value as Array:
@@ -35,43 +31,37 @@ func to_json() -> Dictionary:
 							var d: Dictionary = (item as JSONResource).to_json()
 							array.append(d)
 				dict[property_name] = array
-			elif typeof(value) == Variant.Type.TYPE_COLOR:
-				dict[property_name] = (value as Color).to_html()
 	return dict
 
 
-func from_json(json: Dictionary) -> void:
+func from_json(json: Dictionary) -> JSONResource:
 	var property_list: Array[Dictionary] = get_property_list()
 	for property: Dictionary in property_list:
-		if property.usage == Const.CUSTOM_PROPERTY or property.usage == Const.CUSTOM_PROPERTY_EXPORT:
-			print(property)
+		# if property.usage == Const.CUSTOM_PROPERTY or property.usage == Const.CUSTOM_PROPERTY_EXPORT:
+		if property.usage == Const.CUSTOM_PROPERTY_EXPORT:
 			var property_name: String = property.name
-			var property_value: Variant = get(property_name)
+			var value: Variant = get(property_name)
 			var json_value: Variant = json.get(property_name)
 
-			if _is_primitive(property_name):
+			if _is_primitive(value):
 				set(property_name, json_value)
-			elif typeof(property.type) == Variant.Type.TYPE_OBJECT:
-				if property_value is JSONResource:
-					var json_resource: JSONResource = (property_value as JSONResource).from_json(json_value)
+			elif typeof(value) == Variant.Type.TYPE_OBJECT:
+				if value is JSONResource:
+					var json_resource: JSONResource = (value as JSONResource).from_json(json_value)
 					set(property_name, json_resource)
-				#else:
-				#print("JSONResource error, not supported object with name: " + property_name)
-			elif typeof(property_value) == Variant.Type.TYPE_ARRAY:
+			elif typeof(value) == Variant.Type.TYPE_ARRAY:
 				var array: Array = []
 				for item: Variant in json_value:
-					if _is_primitive(property):
+					if _is_primitive(value):
 						array.append(item)
 					elif typeof(item) == Variant.Type.TYPE_OBJECT:
 						if item is JSONResource:
-							var d: Dictionary = (item as JSONResource).to_json()
-							var json_resource: JSONResource = (property_value as JSONResource).from_json(json_value)
+							var json_resource: JSONResource = (value as JSONResource).from_json(json_value)
 							array.append(json_resource)
 						else:
 							print("JSONResource error, array not supported object with name: " + property_name)
 				set(property_name, array)
-			elif typeof(property_value) == Variant.Type.TYPE_COLOR:
-				set(property_name, (json_value as Color).to_html())
+	return self
 
 
 func _is_primitive(variant: Variant) -> bool:
