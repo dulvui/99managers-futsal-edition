@@ -30,6 +30,13 @@ func test_compressions() -> void:
 
 	var world_json: Dictionary = world_reference.to_json()
 
+	var file: FileAccess = FileAccess.open(
+		"user://world.json",
+		FileAccess.WRITE,
+	)
+	file.store_string(str(world_json))
+
+	# with compressions
 	var file_gzip: FileAccess = FileAccess.open_compressed(
 		"user://world.json.gzip",
 		FileAccess.WRITE,
