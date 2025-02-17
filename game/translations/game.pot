@@ -1,5 +1,4 @@
 # LANGUAGE translation for 99 Managers Futsal Edition for the following files:
-# res://script_templates/Node/with_header.gd
 # res://src/ui_components/graphs/line_graph/line_graph.gd
 # res://src/ui_components/graphs/line_graph/line_graph.tscn
 # res://src/ui_components/graphs/bar_graph/bar_graph.gd
@@ -125,77 +124,6 @@
 # res://src/resources/person/person.gd
 # res://src/resources/email/email_message.gd
 # res://src/resources/email/inbox.gd
-# res://src/match_simulator/match_buffer/match_buffer_stats.gd
-# res://src/match_simulator/match_buffer/match_buffer_entries/match_buffer_ball_entry.gd
-# res://src/match_simulator/match_buffer/match_buffer_entries/match_buffer_stats_entry.gd
-# res://src/match_simulator/match_buffer/match_buffer_entries/match_buffer_teams_entry.gd
-# res://src/match_simulator/match_buffer/match_buffer_entries/match_buffer_entry.gd
-# res://src/match_simulator/match_buffer/match_buffer_teams.gd
-# res://src/match_simulator/match_buffer/match_buffer.gd
-# res://src/match_simulator/match_buffer/match_buffer_ball.gd
-# res://src/match_simulator/visual_match/visual_match.tscn
-# res://src/match_simulator/visual_match/visual_state_machine/visual_state_machine.tscn
-# res://src/match_simulator/visual_match/visual_state_machine/visual_state_machine.gd
-# res://src/match_simulator/visual_match/visual_actors/visual_player/visual_player.tscn
-# res://src/match_simulator/visual_match/visual_actors/visual_player/visual_player.gd
-# res://src/match_simulator/visual_match/visual_actors/visual_field/visual_field.gd
-# res://src/match_simulator/visual_match/visual_actors/visual_field/visual_field.tscn
-# res://src/match_simulator/visual_match/visual_actors/visual_goals/visual_goals.gd
-# res://src/match_simulator/visual_match/visual_actors/visual_goals/visual_goals.tscn
-# res://src/match_simulator/visual_match/visual_actors/visual_actor.gd
-# res://src/match_simulator/visual_match/visual_actors/visual_ball/visual_ball.tscn
-# res://src/match_simulator/visual_match/visual_actors/visual_ball/visual_ball.gd
-# res://src/match_simulator/visual_match/visual_actors/visual_team/visual_team.tscn
-# res://src/match_simulator/visual_match/visual_actors/visual_team/visual_team.gd
-# res://src/match_simulator/visual_match/visual_match.gd
-# res://src/match_simulator/match_simulator.tscn
-# res://src/match_simulator/match_engine/actors/team/team_state_machine/team_states/70_penalties.gd
-# res://src/match_simulator/match_engine/actors/team/team_state_machine/team_states/60_goal_celebrate.gd
-# res://src/match_simulator/match_engine/actors/team/team_state_machine/team_states/50_goalkeeper.gd
-# res://src/match_simulator/match_engine/actors/team/team_state_machine/team_states/50_corner.gd
-# res://src/match_simulator/match_engine/actors/team/team_state_machine/team_states/50_kickin.gd
-# res://src/match_simulator/match_engine/actors/team/team_state_machine/team_states/50_free_kick.gd
-# res://src/match_simulator/match_engine/actors/team/team_state_machine/team_states/40_attack.gd
-# res://src/match_simulator/match_engine/actors/team/team_state_machine/team_states/40_defend.gd
-# res://src/match_simulator/match_engine/actors/team/team_state_machine/team_states/30_kickoff.gd
-# res://src/match_simulator/match_engine/actors/team/team_state_machine/team_states/10_enter_field.gd
-# res://src/match_simulator/match_engine/actors/team/team_state_machine/team_states/20_start_position.gd
-# res://src/match_simulator/match_engine/actors/team/team_state_machine/team_state_machine_state.gd
-# res://src/match_simulator/match_engine/actors/team/team_state_machine/team_state_machine.gd
-# res://src/match_simulator/match_engine/actors/team/sim_team.gd
-# res://src/match_simulator/match_engine/actors/player/sim_player.gd
-# res://src/match_simulator/match_engine/actors/player/player_state_machine/player_state_machine.gd
-# res://src/match_simulator/match_engine/actors/player/player_state_machine/player_state_machine_state.gd
-# res://src/match_simulator/match_engine/actors/player/player_state_machine/player_states/20_attack.gd
-# res://src/match_simulator/match_engine/actors/player/player_state_machine/player_states/90_penalty_shoot.gd
-# res://src/match_simulator/match_engine/actors/player/player_state_machine/player_states/50_corner.gd
-# res://src/match_simulator/match_engine/actors/player/player_state_machine/player_states/90_penalties.gd
-# res://src/match_simulator/match_engine/actors/player/player_state_machine/player_states/70_goalkeeper_follow_ball.gd
-# res://src/match_simulator/match_engine/actors/player/player_state_machine/player_states/20_defend.gd
-# res://src/match_simulator/match_engine/actors/player/player_state_machine/player_states/40_support.gd
-# res://src/match_simulator/match_engine/actors/player/player_state_machine/player_states/40_shoot.gd
-# res://src/match_simulator/match_engine/actors/player/player_state_machine/player_states/70_goalkeeper_ball.gd
-# res://src/match_simulator/match_engine/actors/player/player_state_machine/player_states/90_goalkeeper_penalty.gd
-# res://src/match_simulator/match_engine/actors/player/player_state_machine/player_states/40_receive.gd
-# res://src/match_simulator/match_engine/actors/player/player_state_machine/player_states/30_control.gd
-# res://src/match_simulator/match_engine/actors/player/player_state_machine/player_states/30_chase_ball.gd
-# res://src/match_simulator/match_engine/actors/player/player_state_machine/player_states/40_dribble.gd
-# res://src/match_simulator/match_engine/actors/player/player_state_machine/player_states/30_idle.gd
-# res://src/match_simulator/match_engine/actors/player/player_state_machine/player_states/10_enter_field.gd
-# res://src/match_simulator/match_engine/actors/player/player_state_machine/player_states/20_start_position.gd
-# res://src/match_simulator/match_engine/actors/player/player_state_machine/player_states/50_goal.gd
-# res://src/match_simulator/match_engine/actors/field/sim_ball.gd
-# res://src/match_simulator/match_engine/actors/field/sim_field_sector.gd
-# res://src/match_simulator/match_engine/actors/field/sim_field_calculator.gd
-# res://src/match_simulator/match_engine/actors/field/sim_goals.gd
-# res://src/match_simulator/match_engine/actors/field/sim_penalty_areas.gd
-# res://src/match_simulator/match_engine/actors/field/sim_field.gd
-# res://src/match_simulator/match_engine/actors/sim_coliding_actor.gd
-# res://src/match_simulator/match_engine/actors/sim_moving_actor.gd
-# res://src/match_simulator/match_engine/match_engine.gd
-# res://src/match_simulator/match_engine/state_machine/state_machine.gd
-# res://src/match_simulator/match_engine/state_machine/state_machine_state.gd
-# res://src/match_simulator/match_simulator.gd
 # res://src/const.gd
 # res://src/simulations/administration_simulation.gd
 # res://src/simulations/player_progress.gd
@@ -267,8 +195,6 @@
 # res://src/screens/setup/setup_world/setup_world.gd
 # res://src/screens/setup/setup_language/setup_language.gd
 # res://src/screens/setup/setup_language/setup_language.tscn
-# res://src/screens/setup/setup_manager/setup_manager.tscn
-# res://src/screens/setup/setup_manager/setup_manager.gd
 # res://src/screens/setup/setup_team/setup_team.tscn
 # res://src/screens/setup/setup_team/setup_team.gd
 # res://src/screens/splash/splash_screen.tscn
@@ -281,12 +207,19 @@
 # res://src/screens/settings/license/license.gd
 # res://src/screens/settings/license/license.tscn
 # res://src/enum.gd
+# res://src/screens/match_screen/match_screen.gd
+# res://src/screens/match_screen/match_screen.tscn
+# res://src/screens/match_screen/penalties_bar/penalties_bar.gd
+# res://src/screens/match_screen/penalties_bar/penalties_bar.tscn
+# res://src/screens/match_screen/statistics/match_stats.gd
+# res://src/screens/match_screen/statistics/match_stats.tscn
+# res://src/screens/match_screen/events/match_events.gd
+# res://src/screens/match_screen/events/match_events.tscn
+# res://src/screens/match_screen/match_simulator/match_simulator.gd
+# res://src/screens/match_screen/match_simulator/match_simulator.tscn
 #
 # FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
 #
-#, fuzzy
-msgid ""
-msgstr ""
 "Project-Id-Version: 99 Managers Futsal Edition\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -348,7 +281,7 @@ msgstr ""
 
 #: src/ui_components/player_list/player_list_column/player_list_column.tscn
 #: src/ui_components/player_profile/info_view/info_view.tscn
-#: src/screens/setup/setup_manager/setup_manager.tscn
+#: src/screens/setup/setup_world/setup_world.tscn
 msgid "Name"
 msgstr ""
 
@@ -372,7 +305,6 @@ msgstr ""
 #: src/ui_components/transfers/player_offer/player_offer.tscn
 #: src/ui_components/transfers/contract_offer/contract_offer.tscn
 #: src/screens/setup/setup_world/setup_world.tscn
-#: src/screens/setup/setup_manager/setup_manager.tscn
 msgid "Cancel"
 msgstr ""
 
@@ -516,7 +448,7 @@ msgstr ""
 
 #: src/ui_components/visual_formation/visual_formation.tscn
 #: src/screens/dashboard/dashboard.tscn
-#: src/screens/match/match.tscn
+#: src/screens/match_screen/match_screen.tscn
 msgid "Formation"
 msgstr ""
 
@@ -607,7 +539,7 @@ msgid "Foot"
 msgstr ""
 
 #: src/ui_components/player_profile/info_view/info_view.tscn
-#: src/screens/setup/setup_manager/setup_manager.tscn
+#: src/screens/setup/setup_world/setup_world.tscn
 msgid "Nationality"
 msgstr ""
 
@@ -635,13 +567,13 @@ msgstr ""
 
 #: src/ui_components/visual_calendar/visual_day/visual_day.gd
 #: src/ui_components/visual_calendar/match_list/match_info/match_info.tscn
-#: src/screens/match/match.tscn
+#: src/screens/match_screen/match_screen.tscn
 msgid "Home"
 msgstr ""
 
 #: src/ui_components/visual_calendar/visual_day/visual_day.gd
 #: src/ui_components/visual_calendar/match_list/match_info/match_info.tscn
-#: src/screens/match/match.tscn
+#: src/screens/match_screen/match_screen.tscn
 msgid "Away"
 msgstr ""
 
@@ -870,6 +802,18 @@ msgid "Save states"
 msgstr ""
 
 #: src/screens/save_states_screen/save_states_screen.tscn
+msgid "All save states are located in the following directory"
+msgstr ""
+
+#: src/screens/save_states_screen/save_states_screen.tscn
+msgid "Copy path"
+msgstr ""
+
+#: src/screens/save_states_screen/save_states_screen.tscn
+msgid "Note: Deleted save states might still exist in your trash, if supported and not disabled by your operating system."
+msgstr ""
+
+#: src/screens/save_states_screen/save_states_screen.tscn
 #: src/screens/dashboard/dashboard.tscn
 msgid "Menu"
 msgstr ""
@@ -880,7 +824,7 @@ msgid "Loading game"
 msgstr ""
 
 #: src/screens/save_states_screen/save_state_entry/save_state_entry.tscn
-#: src/screens/setup/setup_manager/setup_manager.tscn
+#: src/screens/setup/setup_world/setup_world.tscn
 msgid "Manager"
 msgstr ""
 
@@ -901,6 +845,10 @@ msgid "Created"
 msgstr ""
 
 #: src/screens/save_states_screen/save_state_entry/save_state_entry.tscn
+msgid "Broken"
+msgstr ""
+
+#: src/screens/save_states_screen/save_state_entry/save_state_entry.tscn
 msgid "Delete"
 msgstr ""
 
@@ -913,6 +861,12 @@ msgstr ""
 msgid ""
 "Deleting a save state is permanent and can't be undone.\n"
 "Are you sure you want delete this save state?"
+msgstr ""
+
+#: src/screens/save_states_screen/save_state_entry/save_state_entry.tscn
+msgid ""
+"This save state and it's backub is corrupted. You can find this save state in the following directory and see, if you can find the problem and try reloading.\n"
+"{path}"
 msgstr ""
 
 #: src/screens/dashboard/dashboard.gd
@@ -994,53 +948,14 @@ msgid "Next match"
 msgstr ""
 
 #: src/screens/dashboard/dashboard.tscn
-#: src/screens/match/match.gd
 #: src/screens/menu/menu.tscn
 #: src/screens/setup/setup_world/setup_world.tscn
-#: src/screens/setup/setup_manager/setup_manager.tscn
+#: src/screens/match_screen/match_screen.gd
 msgid "Continue"
 msgstr ""
 
 #: src/screens/dashboard/dashboard.tscn
 msgid "Save the game before exiting?"
-msgstr ""
-
-#: src/screens/match/match.gd
-#: src/screens/match/match.tscn
-msgid "Pause"
-msgstr ""
-
-#: src/screens/match/penalties_bar/penalties_bar.tscn
-msgid "Penalties"
-msgstr ""
-
-#: src/screens/match/match.tscn
-msgid "Stats"
-msgstr ""
-
-#: src/screens/match/match.tscn
-msgid "Commentary"
-msgstr ""
-
-#: src/screens/match/match.tscn
-msgid "Events"
-msgstr ""
-
-#: src/screens/match/match.tscn
-#: src/enum.gd
-msgid "Full game"
-msgstr ""
-
-#: src/screens/match/match.tscn
-msgid "Simulate"
-msgstr ""
-
-#: src/screens/match/match.tscn
-msgid "Dashboard"
-msgstr ""
-
-#: src/screens/match/match.tscn
-msgid "Possession"
 msgstr ""
 
 #: src/screens/loading_screen/loading_screen.tscn
@@ -1057,6 +972,18 @@ msgstr ""
 
 #: src/screens/menu/menu.tscn
 msgid "Exit game"
+msgstr ""
+
+#: src/screens/setup/setup_world/setup_world.tscn
+msgid "Your name"
+msgstr ""
+
+#: src/screens/setup/setup_world/setup_world.tscn
+msgid "Surname"
+msgstr ""
+
+#: src/screens/setup/setup_world/setup_world.tscn
+msgid "Your surname"
 msgstr ""
 
 #: src/screens/setup/setup_world/setup_world.tscn
@@ -1085,18 +1012,6 @@ msgstr ""
 
 #: src/screens/setup/setup_world/setup_world.gd
 msgid "Generating players"
-msgstr ""
-
-#: src/screens/setup/setup_manager/setup_manager.tscn
-msgid "Your name"
-msgstr ""
-
-#: src/screens/setup/setup_manager/setup_manager.tscn
-msgid "Surname"
-msgstr ""
-
-#: src/screens/setup/setup_manager/setup_manager.tscn
-msgid "Your surname"
 msgstr ""
 
 #: src/screens/setup/setup_team/setup_team.tscn
@@ -1936,6 +1851,11 @@ msgid "This game was built using the Godot Engine, that is released under the MI
 msgstr ""
 
 #: src/enum.gd
+#: src/screens/match_screen/match_screen.tscn
+msgid "Full game"
+msgstr ""
+
+#: src/enum.gd
 msgid "Key actions"
 msgstr ""
 
@@ -2061,4 +1981,41 @@ msgstr ""
 
 #: src/enum.gd
 msgid "Recover"
+msgstr ""
+
+#: src/screens/match_screen/match_screen.gd
+#: src/screens/match_screen/match_screen.tscn
+msgid "Pause"
+msgstr ""
+
+#: src/screens/match_screen/match_screen.tscn
+msgid "Stats"
+msgstr ""
+
+#: src/screens/match_screen/match_screen.tscn
+msgid "Commentary"
+msgstr ""
+
+#: src/screens/match_screen/match_screen.tscn
+msgid "Events"
+msgstr ""
+
+#: src/screens/match_screen/match_screen.tscn
+msgid "Simulate"
+msgstr ""
+
+#: src/screens/match_screen/match_screen.tscn
+msgid "Dashboard"
+msgstr ""
+
+#: src/screens/match_screen/match_screen.tscn
+msgid "Possession"
+msgstr ""
+
+#: src/screens/match_screen/match_screen.tscn
+msgid "Do you want to simulate the whole match?"
+msgstr ""
+
+#: src/screens/match_screen/penalties_bar/penalties_bar.tscn
+msgid "Penalties"
 msgstr ""
