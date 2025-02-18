@@ -15,6 +15,7 @@ func test() -> void:
 
 func test_from_to_json() -> void:
 	var world_reference: World = Tests.create_mock_world(true)
+	world_reference.world_cup.id = 123
 
 	var world_json: Dictionary = world_reference.to_json()
 
@@ -38,7 +39,7 @@ func test_compressions() -> void:
 		"user://world.json",
 		FileAccess.WRITE,
 	)
-	file.store_string(str(world_json))
+	file.store_string(JSON.stringify(world_json))
 
 	# with compressions
 	var file_gzip: FileAccess = FileAccess.open_compressed(
@@ -46,34 +47,27 @@ func test_compressions() -> void:
 		FileAccess.WRITE,
 		FileAccess.COMPRESSION_GZIP
 	)
-	file_gzip.store_string(str(world_json))
+	file_gzip.store_string(JSON.stringify(world_json))
 
-	var file_brotli: FileAccess = FileAccess.open_compressed(
-		"user://world.json.brotli",
-		FileAccess.WRITE,
-		FileAccess.COMPRESSION_BROTLI
-	)
-	file_brotli.store_string(str(world_json))
-	
 	var file_zstd: FileAccess = FileAccess.open_compressed(
 		"user://world.json.zstd",
 		FileAccess.WRITE,
 		FileAccess.COMPRESSION_ZSTD
 	)
-	file_zstd.store_string(str(world_json))
+	file_zstd.store_string(JSON.stringify(world_json))
 
 	var file_deflate: FileAccess = FileAccess.open_compressed(
 		"user://world.json.deflate",
 		FileAccess.WRITE,
 		FileAccess.COMPRESSION_DEFLATE
 	)
-	file_deflate.store_string(str(world_json))
+	file_deflate.store_string(JSON.stringify(world_json))
 
 	var file_fastlz: FileAccess = FileAccess.open_compressed(
 		"user://world.json.fastlz",
 		FileAccess.WRITE,
 		FileAccess.COMPRESSION_FASTLZ
 	)
-	file_fastlz.store_string(str(world_json))
+	file_fastlz.store_string(JSON.stringify(world_json))
 
 

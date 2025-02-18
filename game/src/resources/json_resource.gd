@@ -36,19 +36,21 @@ func to_json() -> Dictionary:
 
 
 func from_json(dict: Dictionary) -> void:
+	print(dict.keys())
 	for key: String in dict.keys():
 		var property: Variant = get(key)
 
 		if property == null:
 			print("property with name %s not found" % key)
-			return
-
-		if property is JSONResource:
-			return
+			continue
 
 		if property is Array:
-			return
+			continue
 
-		set(key, dict[key])
+		if property is JSONResource:
+			(property as JSONResource).from_json(dict[key])
+			set(key, property)
+		else:
+			set(key, dict[key])
 
 
