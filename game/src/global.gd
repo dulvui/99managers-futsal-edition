@@ -61,6 +61,9 @@ func _ready() -> void:
 	# set initial scale
 	get_tree().root.content_scale_factor = theme_scale
 
+	print("enum type")
+	print(typeof(match_speed))
+
 
 func select_team(p_team: Team)-> void:
 	team = p_team

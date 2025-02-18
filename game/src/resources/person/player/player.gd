@@ -41,7 +41,7 @@ func _init(
 	p_team_id: int = 0,
 	p_surname: String = "",
 	p_nation: String = "",
-	p_birth_date: Dictionary = Time.get_datetime_dict_from_system(),
+	p_birth_date: Dictionary = Time.get_date_dict_from_system(),
 	p_form: Enum.Form = Enum.Form.GOOD,
 	p_morality: Enum.Morality = Enum.Morality.NEUTRAL,
 	p_statistics: Statistics = Statistics.new(),

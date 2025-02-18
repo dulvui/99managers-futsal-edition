@@ -30,7 +30,7 @@ func _ready() -> void:
 
 	generation_seed_edit.text = generation_seed
 	# set start year to current system year
-	start_year_spinbox.get_line_edit().text = str(Time.get_datetime_dict_from_system().year)
+	start_year_spinbox.get_line_edit().text = str(Time.get_date_dict_from_system().year)
 
 	# reset temp values
 	if Global.manager:

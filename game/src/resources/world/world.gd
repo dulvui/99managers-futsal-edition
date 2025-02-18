@@ -200,11 +200,12 @@ func get_all_nations() -> Array[Nation]:
 	return all_nations
 
 
-func get_all_leagues() -> Array[League]:
+func get_all_leagues(competitive: bool = false) -> Array[League]:
 	var leagues: Array[League] = []
 	for continent: Continent in continents:
-		for nation: Nation in continent.nations:
-			leagues.append_array(nation.leagues)
+		if not competitive or continent.is_competitive():
+			for nation: Nation in continent.nations:
+				leagues.append_array(nation.leagues)
 	return leagues
 
 

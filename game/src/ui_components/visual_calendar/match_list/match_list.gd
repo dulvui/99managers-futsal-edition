@@ -32,13 +32,13 @@ func setup(day: Day, competition: Competition = Global.league) -> void:
 	# add active competition games to top
 	_add_matches(day, competition)
 
-	# if active competition is a Legue, show other leagues first
+	# if active competition is a League, show other leagues first
 	# otherwise show other cups first
 	if competition is League:
 		var active_league: League = (competition as League)
 
 		# add leagues
-		var leagues: Array[League] = Global.world.get_all_leagues()
+		var leagues: Array[League] = Global.world.get_all_leagues(true)
 		# add  leagues with same nation as active first
 		for league: League in leagues:
 			if league.id != active_league.id and league.nation_name == active_league.nation_name:

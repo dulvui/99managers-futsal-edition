@@ -20,7 +20,7 @@ enum PlayerNames {
 #
 # Players
 #
-enum Foot { LEFT, RIGHT, LEFT_AND_RIGHT	}
+enum Foot { LEFT, RIGHT, LEFT_AND_RIGHT }
 enum Morality { WORST, BAD, NEUTRAL, GOOD, BEST }
 enum Form { INJURED, RECOVER, GOOD, BEST }
 

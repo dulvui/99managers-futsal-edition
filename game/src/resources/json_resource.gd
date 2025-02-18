@@ -15,25 +15,28 @@ func to_json() -> Dictionary:
 	# only add export vars to dictionary
 	var property_list: Array[Dictionary] = get_property_list()
 	for property: Dictionary in property_list:
-		if property.usage == Const.CUSTOM_PROPERTY_EXPORT:
-			var property_name: String = property.name
-			var value: Variant = get(property_name)
-			if value != null:
-				if value is Array:
-					var parsed_array: Array = []
-					var array: Array = (value as Array)
-					for item: Variant in array:
-						if item is JSONResource:
-							parsed_array.append((item as JSONResource).to_json())
-						# elif item is Color:
-						# 	parsed_array.append((item as Color).to_html(true))
-						else:
-							parsed_array.append(item)
-					data[property_name] = parsed_array
-				elif value is JSONResource:
-					data[property_name] = (value as JSONResource).to_json()
-				else:
-					data[property_name] = value
+		# only convert properties with @export annotation
+		# enums have own flag
+		if property.usage != Const.CUSTOM_PROPERTY_EXPORT \
+				and property.usage != Const.CUSTOM_PROPERTY_EXPORT_ENUM:
+			continue
+
+		var property_name: String = property.name
+		var value: Variant = get(property_name)
+		if value != null:
+			if value is Array:
+				var parsed_array: Array = []
+				var array: Array = (value as Array)
+				for item: Variant in array:
+					if item is JSONResource:
+						parsed_array.append((item as JSONResource).to_json())
+					else:
+						parsed_array.append(item)
+				data[property_name] = parsed_array
+			elif value is JSONResource:
+				data[property_name] = (value as JSONResource).to_json()
+			else:
+				data[property_name] = value
 	return data
 
 

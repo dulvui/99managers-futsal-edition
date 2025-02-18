@@ -34,7 +34,7 @@ func _init(
 	p_nation: String = "",
 	p_name: String = "",
 	p_surname: String = "",
-	p_birth_date: Dictionary = Time.get_datetime_dict_from_system(),
+	p_birth_date: Dictionary = Time.get_date_dict_from_system(),
 	p_prestige: int = 10,
 	p_contract: Contract = Contract.new(),
 	p_skintone: String = Color.SALMON.to_html(true),

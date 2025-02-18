@@ -81,4 +81,5 @@ const SCENE_FORMATION_PLAYER: String = "res://src/ui_components/visual_formation
 #
 const CUSTOM_PROPERTY: int = 4096
 const CUSTOM_PROPERTY_EXPORT: int = 4102
+const CUSTOM_PROPERTY_EXPORT_ENUM: int = 69638
 

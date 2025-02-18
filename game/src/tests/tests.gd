@@ -47,7 +47,7 @@ func tests_intensive() -> void:
 static func setup_mock_world(use_test_file: bool = false) -> bool:
 	if Global.world == null:
 		print("setting up mock world...")
-		Global.start_date = Time.get_datetime_dict_from_system()
+		Global.start_date = Time.get_date_dict_from_system()
 		Global.save_states.new_temp_state()
 		Global.manager = create_mock_manager()
 		Global.world = create_mock_world(use_test_file)
@@ -63,7 +63,7 @@ static func setup_mock_world(use_test_file: bool = false) -> bool:
 		
 		Global.select_team(team)
 		Global.initialize_game()
-		Global.start_date = Time.get_datetime_dict_from_system()
+		Global.start_date = Time.get_date_dict_from_system()
 		print("setting up mock world done.")
 		return true
 	return false

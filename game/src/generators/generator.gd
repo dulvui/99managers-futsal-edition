@@ -581,7 +581,7 @@ func _create_player(
 	random_positions(player, p_position_type)
 
 	# RngUtil.rng.random date from 1970 to 2007
-	var birth_date: Dictionary = Time.get_datetime_dict_from_unix_time(
+	var birth_date: Dictionary = Time.get_date_dict_from_unix_time(
 		RngUtil.rng.randi_range(0, max_timestamp)
 	)
 
