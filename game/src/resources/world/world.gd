@@ -30,22 +30,6 @@ func _init(
 	inbox = p_inbox
 
 
-func from_json(dict: Dictionary) -> void:
-	super(dict)
-
-	# continents
-	if dict.has("continents"):
-		for continent_dict: Dictionary in dict["continents"]:
-			var continent: Continent = Continent.new()
-			continent.from_json(continent_dict)
-			continents.append(continent)
-	
-	# calendar
-	if dict.has("calendar"):
-		var caledar_dict: Dictionary = dict["calendar"]
-		calendar.from_json(caledar_dict)
-
-
 func initialize() -> void:
 	calendar.initialize()
 

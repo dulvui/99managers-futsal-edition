@@ -36,7 +36,6 @@ func to_json() -> Dictionary:
 
 
 func from_json(dict: Dictionary) -> void:
-	print(dict.keys())
 	for key: String in dict.keys():
 		var property: Variant = get(key)
 
@@ -45,11 +44,23 @@ func from_json(dict: Dictionary) -> void:
 			continue
 
 		if property is Array:
-			continue
+			var array: Array[Variant] = property as Array
+			var dict_array: Array = dict[key]
+			# assuming all used resources are JSON resources
+			# could be made more precise by checking path of get_typed_script
+			if array.is_typed() and array.get_typed_class_name() == "Resource":
+				var array_script: GDScript = array.get_typed_script()
+				for dict_item: Variant in dict_array:
+					var resource: JSONResource = array_script.new()
+					resource.from_json(dict_item)
+					array.append(resource)
+			# built in types, without considering nested arrays
+			else:
+				for dict_item: Variant in dict_array:
+					array.append(dict_item)
 
-		if property is JSONResource:
+		elif property is JSONResource:
 			(property as JSONResource).from_json(dict[key])
-			set(key, property)
 		else:
 			set(key, dict[key])
 

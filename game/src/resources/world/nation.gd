@@ -29,17 +29,6 @@ func _init(
 	backup_teams = p_backup_teams
 
 
-func from_json(dict: Dictionary) -> void:
-	super(dict)
-
-	# leagues
-	if dict.has("leagues"):
-		for league_dict: Dictionary in dict["leagues"]:
-			var league: League = League.new()
-			league.from_json(league_dict)
-			leagues.append(league)
-
-
 func add_league(league: League) -> void:
 	leagues.append(league)	
 
