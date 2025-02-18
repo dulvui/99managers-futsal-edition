@@ -85,23 +85,15 @@ func _process(_delta: float) -> void:
 
 
 func load_resources() -> void:
-	# load_threaded_resource("world")
-
-	# non threaded way
-	# Global.world = load_resource("world")
-	# Global.team = Global.world.get_active_team()
-	# Global.league = Global.world.get_active_league()
-	# Global.manager = Global.team.staff.manager
-	# Global.transfers = Global.world.transfers
-	# Global.inbox = Global.world.inbox
-	# LoadingUtil.done()
-
-
 	var file: FileAccess = FileAccess.open_compressed(
 		"user://world.json",
 		FileAccess.READ,
 		FileAccess.COMPRESSION_GZIP
 	)
+	# var file: FileAccess = FileAccess.open(
+	# 	"user://world.json",
+	# 	FileAccess.READ,
+	# )
 	var err: int = FileAccess.get_open_error()
 	print(err)
 	# file.store_var(world_json)
@@ -109,9 +101,10 @@ func load_resources() -> void:
 
 	var json: JSON = JSON.new()
 	var result: int = json.parse(file_text)
-
+	
 	if result == OK:
-		Global.world.from_json(json.get_data())
+		Global.world = World.new()
+		Global.world.from_json(json.data)
 		
 		Global.team = Global.world.get_active_team()
 		Global.league = Global.world.get_active_league()
@@ -121,6 +114,7 @@ func load_resources() -> void:
 	else:
 		print(result)
 	
+	file.close()
 	LoadingUtil.done()
 
 
@@ -147,8 +141,15 @@ func save_safe_states(_thread_world_save: bool = true) -> void:
 			FileAccess.WRITE,
 			FileAccess.COMPRESSION_GZIP
 		)
+		# var file: FileAccess = FileAccess.open(
+		# 	"user://world.json",
+		# 	FileAccess.WRITE,
+		# )
 		# file.store_var(world_json)
-		file.store_string(str(world_json))
+		file.store_string(JSON.stringify(world_json))
+		file.close()
+
+	LoadingUtil.done()
 
 
 		# if thread_world_save:
@@ -173,13 +174,6 @@ func load_save_states() -> SaveStates:
 	# scane for new save states
 	save_states.scan()
 	return save_states
-
-
-func load_threaded_resource(res_key: String) -> void:
-	var path: String = Global.save_states.get_active_path(res_key + RES_SUFFIX)
-	print("loading threaded %s..."%path)
-	loading_resources.append(path)
-	ResourceLoader.load_threaded_request(path, "Resource", true)
 
 
 func load_resource(res_key: String, absolute_path: bool = false) -> Resource:

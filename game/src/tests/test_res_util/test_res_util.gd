@@ -27,7 +27,6 @@ func test_from_to_json() -> void:
 	assert(world.world_cup.id == world_reference.world_cup.id)
 	# nations
 	assert(world.continents[0].nations.size() == world_reference.continents[0].nations.size())
-	breakpoint
 
 
 func test_compressions() -> void:
