@@ -42,7 +42,6 @@ func from_json(dict: Dictionary) -> void:
 		var property: Variant = get(key)
 
 		if property == null:
-			print("property with name %s not found" % key)
 			continue
 
 		if property is Array:
@@ -58,8 +57,9 @@ func from_json(dict: Dictionary) -> void:
 					array.append(resource)
 			# built in types, without considering nested arrays
 			else:
+				var array_type: int = array.get_typed_builtin()
 				for dict_item: Variant in dict_array:
-					array.append(dict_item)
+					array.append(type_convert(dict_item, array_type))
 
 		elif property is JSONResource:
 			(property as JSONResource).from_json(dict[key])
