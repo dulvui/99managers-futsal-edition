@@ -11,12 +11,12 @@ extends HBoxContainer
 
 
 func setup(matchz: Match) -> void:
-	home.text = matchz.home.name
-	away.text = matchz.away.name
+	home.text = matchz.home_name
+	away.text = matchz.away_name
 
 	if matchz.over:
 		result.text = matchz.get_result()
 
 	# make selected team label bold
-	ThemeUtil.bold(home, matchz.home.id == Global.team.id)
-	ThemeUtil.bold(away, matchz.away.id == Global.team.id)
+	ThemeUtil.bold(home, matchz.home_id == Global.team.id)
+	ThemeUtil.bold(away, matchz.away_id == Global.team.id)

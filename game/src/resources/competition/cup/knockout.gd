@@ -13,8 +13,8 @@ enum Legs {
 
 # side a and side b of knockout graph
 # final is last remaining of teams_a vs teams_b
-@export var teams_a: Array[Team]
-@export var teams_b: Array[Team]
+@export var teams_a: Array[int]
+@export var teams_b: Array[int]
 # defines if the play once or twice against each other
 @export var legs_semi_finals: Legs
 @export var legs_final: Legs
@@ -26,8 +26,8 @@ enum Legs {
 
 
 func _init(
-	p_teams_a: Array[Team] = [],
-	p_teams_b: Array[Team] = [],
+	p_teams_a: Array[int] = [],
+	p_teams_b: Array[int] = [],
 	p_legs_semi_finals: Legs = Legs.DOUBLE,
 	p_legs_final: Legs = Legs.SINGLE,
 	p_rounds: int = 1,
@@ -81,9 +81,9 @@ func setup(
 	# add teams alterning to part a/b
 	for i: int in p_teams.size():
 		if i % 2 == 0:
-			teams_a.append(p_teams[i])
+			teams_a.append(p_teams[i].id)
 		else:
-			teams_b.append(p_teams[i])
+			teams_b.append(p_teams[i].id)
 
 
 func get_matches(cup: Cup) -> Array[Array]:
@@ -91,6 +91,8 @@ func get_matches(cup: Cup) -> Array[Array]:
 	# semifinals
 	if teams_a.size() > 1:
 		var match_day: Array[Match] = []
+		# second leg
+		var match_day_2: Array[Match] = []
 		matches_by_round_a.append([])
 		matches_by_round_b.append([])
 		# group a
@@ -114,17 +116,24 @@ func get_matches(cup: Cup) -> Array[Array]:
 		
 		# second leg
 		if legs_semi_finals == Knockout.Legs.DOUBLE:
-			var match_day_2: Array[Match] = []
 			# iterate over all matches of match day 1 and invert home/away
-			for matchz_1: Match in match_day:
+			var matches_by_second_round_a: Array[Match] = []
+			for matchz_1: Match in matches_by_round_a[-1]:
 				var matchz: Match = Match.new()
-				matchz.setup(matchz_1.away, matchz_1.home, cup.id, cup.name, matchz_1)
+				matchz.setup(matchz_1.away_id, matchz_1.home_id, cup.id, cup.name, matchz_1)
 				match_day_2.append(matchz)
 				# save also in matches by round
-				if matchz.home in teams_a:
-					matches_by_round_a[-1].append(matchz)
-				else:
-					matches_by_round_b[-1].append(matchz)
+				matches_by_second_round_a.append(matchz)
+			matches_by_round_a[-1].append_array(matches_by_second_round_a)
+
+			var matches_by_second_round_b: Array[Match] = []
+			for matchz_1: Match in matches_by_round_b[-1]:
+				var matchz: Match = Match.new()
+				matchz.setup(matchz_1.away_id, matchz_1.home_id, cup.id, cup.name, matchz_1)
+				match_day_2.append(matchz)
+				# save also in matches by round
+				matches_by_second_round_b.append(matchz)
+			matches_by_round_b[-1].append_array(matches_by_second_round_b)
 
 			matches.append(match_day_2)
 
@@ -169,9 +178,9 @@ func _prepare_next_round(matches: Array, teams: Array) -> bool:
 	for matchz: Match in matches:
 		if legs_semi_finals == Legs.SINGLE:
 			if matchz.home_goals > matchz.away_goals:
-				teams.erase(matchz.away)
+				teams.erase(matchz.away_id)
 			else:
-				teams.erase(matchz.home)
+				teams.erase(matchz.home_id)
 		else:
 			# search for matches with fist leg reference
 			if matchz.first_leg != null:
@@ -181,9 +190,9 @@ func _prepare_next_round(matches: Array, teams: Array) -> bool:
 				var team_2_goal_sum: int = first_leg.away_goals + matchz.home_goals
 
 				if  team_1_goal_sum > team_2_goal_sum:
-					teams.erase(first_leg.home)
+					teams.erase(first_leg.home_id)
 				else:
-					teams.erase(first_leg.away)
+					teams.erase(first_leg.away_id)
 
 	return true
 

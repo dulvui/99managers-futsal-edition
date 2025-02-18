@@ -739,12 +739,8 @@ func _generate_club_history(world: World) -> void:
 					# generate random results for every match
 					for match_day: Array in match_days:
 						for matchz: Match in match_day:
-							var home_goals: int = RngUtil.rng.randi_range(
-								0, matchz.home.get_prestige() / 2
-							)
-							var away_goals: int = RngUtil.rng.randi_range(
-								0, matchz.away.get_prestige() / 2
-							)
+							var home_goals: int = RngUtil.rng.randi_range(0, 10)
+							var away_goals: int = RngUtil.rng.randi_range(0, 10)
 							matchz.set_result(home_goals, away_goals, 0, 0, world)
 
 		world.promote_and_delegate_teams()
@@ -812,6 +808,7 @@ func _initialize_city(
 		else:
 			league = league_filter[0]
 
+		team.league_id = league.id
 		league.add_team(team)
 
 

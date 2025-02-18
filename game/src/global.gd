@@ -65,7 +65,7 @@ func _ready() -> void:
 func select_team(p_team: Team)-> void:
 	team = p_team
 	world.active_team_id = team.id
-	league = world.get_league_by_team_id(team.id)
+	league = world.get_league_by_id(team.league_id)
 
 
 func initialize_game(testing: bool = false) -> void:

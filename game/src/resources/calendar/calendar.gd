@@ -140,7 +140,7 @@ func format_date(p_date: Dictionary = date) -> String:
 
 func get_next_match() -> Match:
 	for matchz: Match in day().get_matches():
-		if matchz.home.name == Global.team.name or matchz.away.name == Global.team.name:
+		if matchz.home_id == Global.team.id or matchz.away_id == Global.team.id:
 			return matchz
 	return null
 

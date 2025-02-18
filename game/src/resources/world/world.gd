@@ -40,7 +40,7 @@ func random_results() -> void:
 	for matchz: Match in matches:
 		if not matchz.over:
 			# set true for fast simulation
-			match_engine.simulate_match(matchz,	true)
+			match_engine.simulate_match(matchz, true)
 
 	# check if cups are ready for next stage
 	for cup: Cup in get_all_cups():
@@ -80,7 +80,14 @@ func get_active_continent() -> Continent:
 	return null
 
 
-func get_team_by_id(team_id: int) -> Team:
+func get_team_by_id(team_id: int, league_id: int = -1) -> Team:
+	if league_id > -1:
+		var league: League = get_league_by_id(league_id)
+		if league != null:
+			for team: Team in league.teams:
+				if team.id == team_id:
+					return team
+
 	for league: League in get_all_leagues():
 		for team: Team in league.teams:
 			if team.id == team_id:
@@ -89,12 +96,13 @@ func get_team_by_id(team_id: int) -> Team:
 	return null
 
 
-func get_league_by_team_id(team_id: int) -> League:
-	for league: League in get_all_leagues():
-		for team: Team in league.teams:
-			if team.id == team_id:
-				return league
-	printerr("no league with team id " + str(team_id))
+func get_league_by_id(league_id: int) -> League:
+	for continent: Continent in continents:
+		for nation: Nation in continent.nations:
+			for league: League in nation.leagues:
+				if league.id == league_id:
+					return league
+	print("no league with id " + str(league_id))
 	return null
 
 
@@ -112,6 +120,7 @@ func get_competition_by_id(competition_id: int) -> Competition:
 			for league: League in nation.leagues:
 				if league.id == competition_id:
 					return league
+	print("no competition with id " + str(competition_id))
 	return null
 
 
@@ -339,6 +348,12 @@ func promote_and_delegate_teams() -> void:
 				var table: Table = Table.new()
 				for team: Team in league.teams:
 					table.add_team(team)
+					# reassign all league ids
+					team.league_id = league.id
 				league.tables.append(table)
+
+			# and also reassign league ids to backup teams
+			for team: Team in nation.backup_teams:
+				team.league_id = -1
 
 

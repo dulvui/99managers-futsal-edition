@@ -36,15 +36,15 @@ func test_combinations(league: League) -> void:
 		for match_day: Array in match_days:
 			for match: Match in match_day:
 				# plays at home
-				if match.home.id == team.id:
-					if not home_counter.has(match.away.id):
-						home_counter[match.away.id] = 0
-					home_counter[match.away.id] += 1
+				if match.home_id == team.id:
+					if not home_counter.has(match.away_id):
+						home_counter[match.away_id] = 0
+					home_counter[match.away_id] += 1
 				# plays away
-				if match.away.id == team.id:
-					if not away_counter.has(match.home.id):
-						away_counter[match.home.id] = 0
-					away_counter[match.home.id] += 1
+				if match.away_id == team.id:
+					if not away_counter.has(match.home_id):
+						away_counter[match.home_id] = 0
+					away_counter[match.home_id] += 1
 		# make sure counters are correct size
 		assert(home_counter.keys().size() == TEAMS - 1)
 		assert(away_counter.keys().size() == TEAMS - 1)

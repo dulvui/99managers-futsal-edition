@@ -25,11 +25,15 @@ func to_json() -> Dictionary:
 					for item: Variant in array:
 						if item is JSONResource:
 							parsed_array.append((item as JSONResource).to_json())
+						# elif item is Color:
+						# 	parsed_array.append((item as Color).to_html(true))
 						else:
 							parsed_array.append(item)
 					data[property_name] = parsed_array
 				elif value is JSONResource:
 					data[property_name] = (value as JSONResource).to_json()
+				elif value is Color:
+					data[property_name] = (value as Color).to_html(true)
 				else:
 					data[property_name] = value
 	return data
@@ -48,7 +52,7 @@ func from_json(dict: Dictionary) -> void:
 			var dict_array: Array = dict[key]
 			# assuming all used resources are JSON resources
 			# could be made more precise by checking path of get_typed_script
-			if array.is_typed() and array.get_typed_class_name() == "Resource":
+			if array.get_typed_class_name() == "Resource":
 				var array_script: GDScript = array.get_typed_script()
 				for dict_item: Variant in dict_array:
 					var resource: JSONResource = array_script.new()
@@ -61,6 +65,8 @@ func from_json(dict: Dictionary) -> void:
 
 		elif property is JSONResource:
 			(property as JSONResource).from_json(dict[key])
+		elif property is Color:
+			property = Color.html(dict[key])
 		else:
 			set(key, dict[key])
 

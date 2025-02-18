@@ -64,10 +64,13 @@ func setup(p_matchz: Match) -> void:
 	var home_has_ball: bool = _rng.randi_range(0, 1) == 0
 
 	# set up home/away team
+	var home_team_res: Team = Global.world.get_team_by_id(p_matchz.home_id, p_matchz.competition_id)
+	var away_team_res: Team = Global.world.get_team_by_id(p_matchz.away_id, p_matchz.competition_id)
+
 	home_team = SimTeam.new(_rng)
 	away_team = SimTeam.new(_rng)
-	home_team.setup(p_matchz.home, field, home_plays_left, home_has_ball)
-	away_team.setup(p_matchz.away, field, not home_plays_left, not home_has_ball)
+	home_team.setup(home_team_res, field, home_plays_left, home_has_ball)
+	away_team.setup(away_team_res, field, not home_plays_left, not home_has_ball)
 
 	home_team.team_opponents =  away_team
 	away_team.team_opponents =  home_team

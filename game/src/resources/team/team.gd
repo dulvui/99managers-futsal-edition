@@ -6,6 +6,7 @@ class_name Team
 extends JSONResource
 
 @export var id: int
+@export var league_id: int
 @export var name: String
 @export var formation: Formation
 @export var finances: Finances
@@ -22,6 +23,7 @@ extends JSONResource
 
 func _init(
 	p_id: int = -1,
+	p_league_id: int = -1,
 	p_players: Array[Player] = [],
 	p_name: String = "",
 	p_finances: Finances = Finances.new(),
@@ -32,6 +34,7 @@ func _init(
 	p_colors: Array[Color] = [Color(0, 0, 0), Color(0, 0, 0), Color(0, 0, 0)],
 ) -> void:
 	id = p_id
+	league_id = p_league_id
 	name = p_name
 	finances = p_finances
 	players = p_players

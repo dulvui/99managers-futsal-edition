@@ -69,23 +69,22 @@ func _ready() -> void:
 
 	if Global.world:
 		matchz = Global.world.calendar.get_next_match()
+		home_team = Global.world.get_team_by_id(matchz.home_id, matchz.competition_id)
+		away_team = Global.world.get_team_by_id(matchz.away_id, matchz.competition_id)
 	elif Tests.is_run_as_current_scene(self):
 		matchz = Match.new()
 		# games needs to be started at least once with a valid save state
-		matchz.home = Tests.create_mock_team()
-		matchz.away = Tests.create_mock_team()
+		home_team = Tests.create_mock_team()
+		away_team = Tests.create_mock_team()
 
 		# if running match scene, set Global team to home team
 		if not Global.team:
-			Global.team = matchz.home
-
-	home_team = matchz.home.duplicate(true)
-	away_team = matchz.away.duplicate(true)
+			Global.team = home_team
 
 	match_simulator.setup(matchz)
 
-	home_name.text = matchz.home.name
-	away_name.text = matchz.away.name
+	home_name.text = home_team.name
+	away_name.text = away_team.name
 
 	# set up formations with player controlled teams copy	
 	if home_team.id == Global.team.id:

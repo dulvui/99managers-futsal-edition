@@ -28,12 +28,17 @@ func next_match(p_match: Match) -> void:
 	var subject: String = tr("Next match: {team_name}") # TRANSLATORS: {team_name} gets dynamically filled
 	var text: String = tr("The next match is against {team_name}.") # TRANSLATORS: {team_name} gets dynamically filled
 
-	var team_name: String = p_match.home.name
-	var team_id: int = p_match.home.id
+	var team_id: int = p_match.home_id
 
-	if team_name == Global.team.name:
-		team_name = p_match.away.name
-		team_id = p_match.away.id
+	if team_id == Global.team.id:
+		team_id = p_match.away_id
+	
+	var team: Team = Global.world.get_team_by_id(team_id, p_match.competition_id)
+	if team == null:
+		print("no team with found with id " + str(team_id))
+		return
+
+	var team_name: String = team.name
 
 	subject = subject.format({"team_name": team_name})
 	text = text.format({"team_name": LinkUtil.get_team_url(team_id, team_name)})

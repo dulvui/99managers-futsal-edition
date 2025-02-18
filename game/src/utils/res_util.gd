@@ -22,80 +22,21 @@ func _ready() -> void:
 	loaded_resources = []
 
 
-func _process(_delta: float) -> void:
-	for loading_resource: String in loading_resources:
-		load_status = ResourceLoader.load_threaded_get_status(loading_resource, progress)
-
-		LoadingUtil.update(progress[0])
-		
-		# still loading
-		if load_status == ResourceLoader.ThreadLoadStatus.THREAD_LOAD_IN_PROGRESS:
-			continue
-
-		# loading success
-		if load_status == ResourceLoader.ThreadLoadStatus.THREAD_LOAD_LOADED:
-			# assign references after resources are loaded
-			Global.world = ResourceLoader.load_threaded_get(loading_resource)
-			Global.team = Global.world.get_active_team()
-			Global.league = Global.world.get_active_league()
-			Global.manager = Global.team.staff.manager
-			Global.transfers = Global.world.transfers
-			Global.inbox = Global.world.inbox
-			Global.save_states.get_active().is_broken = false
-
-			# add to own array, to not remove element from
-			# loading_resources_paths, while iterating
-			loaded_resources.append(loading_resource)
-			LoadingUtil.done()
-
-		# loading failed
-		else:
-			# check if already restoring from backup
-			if BackupUtil.BACKUP_SUFFIX in loading_resource:
-				print("restoring backup for %s gone wrong..." % loading_resource)
-				loaded_resources.append(loading_resource)
-				loading_failed.emit()
-				Global.save_states.get_active().is_broken = true
-
-			# start restoring from backup
-			else:
-				print("restore backup for %s..." % loading_resource)
-
-				LoadingUtil.start(tr("Restoring from backup"), LoadingUtil.Type.LOAD_GAME)
-				var backup_path: String = BackupUtil.restore_backup(loading_resource, RES_SUFFIX)
-
-				var err: Error = ResourceLoader.load_threaded_request(
-					backup_path,
-					"Resource",
-					true,
-				)
-
-				loading_resources.append(backup_path)
-				loaded_resources.append(loading_resource)
-				
-				if err:
-					loaded_resources.append(backup_path)
-					print(err)
-
-	# remove loaded paths
-	for loaded_path: String in loaded_resources:
-		loading_resources.erase(loaded_path)
-
-	loaded_resources.clear()
-
-
 func load_resources() -> void:
-	var file: FileAccess = FileAccess.open_compressed(
-		"user://world.json",
-		FileAccess.READ,
-		FileAccess.COMPRESSION_GZIP
-	)
-	# var file: FileAccess = FileAccess.open(
+	# var file: FileAccess = FileAccess.open_compressed(
 	# 	"user://world.json",
 	# 	FileAccess.READ,
+	# 	FileAccess.COMPRESSION_GZIP
 	# )
+	var file: FileAccess = FileAccess.open(
+		"user://world.json",
+		FileAccess.READ,
+	)
 	var err: int = FileAccess.get_open_error()
-	print(err)
+	if err != OK:
+		print(err)
+		loading_failed.emit()
+		return
 	# file.store_var(world_json)
 	var file_text: String = file.get_as_text()
 
@@ -107,12 +48,13 @@ func load_resources() -> void:
 		Global.world.from_json(json.data)
 		
 		Global.team = Global.world.get_active_team()
-		Global.league = Global.world.get_active_league()
+		Global.league = Global.world.get_league_by_id(Global.team.league_id)
 		Global.manager = Global.team.staff.manager
 		Global.transfers = Global.world.transfers
 		Global.inbox = Global.world.inbox
 	else:
 		print(result)
+		loading_failed.emit()
 	
 	file.close()
 	LoadingUtil.done()
@@ -134,23 +76,29 @@ func save_safe_states(_thread_world_save: bool = true) -> void:
 	if not save_state.meta_is_temp:
 		save_resource("save_state", save_state)
 
+		print("converting world...")
 		var world_json: Dictionary = Global.world.to_json()
-
-		var file: FileAccess = FileAccess.open_compressed(
-			"user://world.json",
-			FileAccess.WRITE,
-			FileAccess.COMPRESSION_GZIP
-		)
-		# var file: FileAccess = FileAccess.open(
+		# var file: FileAccess = FileAccess.open_compressed(
 		# 	"user://world.json",
 		# 	FileAccess.WRITE,
+		# 	FileAccess.COMPRESSION_GZIP
 		# )
-		# file.store_var(world_json)
+		print("converting world done.")
+
+		print("saving world...")
+		var file: FileAccess = FileAccess.open(
+			"user://world.json",
+			FileAccess.WRITE,
+		)
+		var err: int = FileAccess.get_open_error()
+		if err != OK:
+			print(err)
+			breakpoint
+			return
+
 		file.store_string(JSON.stringify(world_json))
 		file.close()
-
-	LoadingUtil.done()
-
+		print("saving world done.")
 
 		# if thread_world_save:
 		# 	ThreadUtil.save_world()

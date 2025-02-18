@@ -41,26 +41,31 @@ func create_combinations(competition: Competition, p_teams: Array[Team]) -> Arra
 		var match_one: Match
 		if home:
 			match_one = Match.new()
-			match_one.setup(last_team, random_teams[0], competition.id, competition.name)
+			match_one.setup(
+				last_team.id,
+				random_teams[0].id,
+				competition.id,
+				competition.name
+			)
 		else:
 			match_one = Match.new()
-			match_one.setup(random_teams[0], last_team, competition.id, competition.name)
+			match_one.setup(random_teams[0].id, last_team.id, competition.id, competition.name)
 		current_match_day.append(match_one)
 
-		var copy: Array = random_teams.duplicate(true)
+		var copy: Array[Team] = random_teams.duplicate(true)
 		copy.remove_at(0)
 
-		for j in range(0, (teams.size() / 2) - 1):
+		for j: int in range(0, (teams.size() / 2) - 1):
 			var home_index: int = j
 			var away_index: int = -j - 1
 
 			var match_two: Match
 			if home:
 				match_two = Match.new()
-				match_two.setup(copy[home_index], copy[away_index], competition.id, competition.name)
+				match_two.setup(copy[home_index].id, copy[away_index].id, competition.id, competition.name)
 			else:
 				match_two = Match.new()
-				match_two.setup(copy[away_index], copy[home_index], competition.id, competition.name)
+				match_two.setup(copy[away_index].id, copy[home_index].id, competition.id, competition.name)
 			current_match_day.append(match_two)
 
 		match_days.append(current_match_day)
@@ -73,7 +78,7 @@ func create_combinations(competition: Competition, p_teams: Array[Team]) -> Arra
 		var current_match_dayz: Array = []
 		for match_dayss: Match in match_dayz:
 			var matchzz: Match = Match.new()
-			matchzz.setup(match_dayss.away, match_dayss.home, competition.id, competition.name)
+			matchzz.setup(match_dayss.away_id, match_dayss.home_id, competition.id, competition.name)
 			current_match_dayz.append(matchzz)
 		temp_match_days.append(current_match_dayz)
 
@@ -119,7 +124,7 @@ func add_matches_to_calendar(
 					break
 
 		# assign matches
-		Global.world.calendar.day(month, day).add_matches(matches, competition.id)
+		Global.world.calendar.day(month, day).add_matches(matches)
 		# restart from same weekday
 		day += 7
 
