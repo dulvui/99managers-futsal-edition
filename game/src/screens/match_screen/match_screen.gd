@@ -107,8 +107,8 @@ func _ready() -> void:
 	)
 	
 	# set colors
-	home_color.color = home_team.get_home_color()
-	away_color.color = away_team.get_away_color(home_color.color)
+	home_color.color = Color(home_team.get_home_color())
+	away_color.color = Color(away_team.get_away_color(home_team.get_home_color()))
 
 	match_speed_label.text = Enum.get_match_speed_text()
 

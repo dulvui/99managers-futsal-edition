@@ -18,8 +18,8 @@ func setup(simulator: MatchSimulator) -> void:
 	goals.setup(simulator.engine.field)
 	ball.setup(simulator.engine.field.ball.pos)
 
-	var home_color: Color = simulator.engine.home_team.team_res.get_home_color()
-	var away_color: Color = simulator.engine.away_team.team_res.get_away_color(home_color)
+	var home_color: String = simulator.engine.home_team.team_res.get_home_color()
+	var away_color: String = simulator.engine.away_team.team_res.get_away_color(home_color)
 
 	var home_team_pos: Array[Vector2] = []
 	var home_team_info: Array[String] = []

@@ -32,12 +32,12 @@ func _physics_process(delta: float) -> void:
 func setup(
 	p_pos: Vector2,
 	p_player_info: String = "",
-	shirt_color: Color = Color.TRANSPARENT,
+	shirt_color: String = "000000",
 	p_ball: VisualBall = null,	
 ) -> void:
 	super(p_pos)
 	player_info = p_player_info
-	body.modulate = shirt_color
+	body.modulate = Color(shirt_color)
 	ball = p_ball
 
 	# set colors

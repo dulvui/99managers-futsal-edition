@@ -32,8 +32,6 @@ func to_json() -> Dictionary:
 					data[property_name] = parsed_array
 				elif value is JSONResource:
 					data[property_name] = (value as JSONResource).to_json()
-				elif value is Color:
-					data[property_name] = (value as Color).to_html(true)
 				else:
 					data[property_name] = value
 	return data
@@ -65,8 +63,6 @@ func from_json(dict: Dictionary) -> void:
 
 		elif property is JSONResource:
 			(property as JSONResource).from_json(dict[key])
-		elif property is Color:
-			property = Color.html(dict[key])
 		else:
 			set(key, dict[key])
 

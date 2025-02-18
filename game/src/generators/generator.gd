@@ -15,34 +15,32 @@ const NOISE: int = 3
 const HISTORY_YEARS: int = 10
 
 # person colors
-const SKINTONE: Array[Color] = [
-	Color("#FFE0BD"),
-	Color("#F6D3BD"),
-	Color("#E8BEAC"),
-	Color("#D4AA78"),
-	Color("#E0AC69"),
-	Color("#C68642"),
-	Color("#A16E4B"),
-	Color("#8D5524"),
-	Color("#3B2219"),
+const SKINTONE: Array[String] = [
+	"FFE0BD",
+	"F6D3BD",
+	"E8BEAC",
+	"D4AA78",
+	"E0AC69",
+	"C68642",
+	"A16E4B",
+	"8D5524",
+	"3B2219",
 ]
-const HAIR_COLORS: Array[Color] = [
-	Color("#040200"),
-	Color("#1C1C1C"),
-	Color("#23120B"),
-	Color("#3D2314"),
-	Color("#5A3825"),
-	Color("#CC9966"),
-	Color("#F6D02F"),
-	Color("#F2A900"),
-	Color("#C65D3B"),
+const HAIR_COLORS: Array[String] = [
+	"040200",
+	"1C1C1C",
+	"23120B",
+	"3D2314",
+	"5A3825",
+	"CC9966",
+	"F6D02F",
+	"F2A900",
+	"C65D3B",
 	# Color.TRANSPARENT, # bald
 ]
-const EYE_COLORS: Array[Color] = [
-	Color.BROWN,
-	Color.AQUAMARINE,
-	Color.GREEN,
-	Color.GRAY,
+const EYE_COLORS: Array[String] = [
+	"040200",
+	"000000",
 ]
 
 var leagues_data: Dictionary = {}
@@ -67,7 +65,7 @@ func generate_world(use_test_file: bool = false) -> World:
 	# CONTINENT, NATION, CITY, POPULATION
 	var header_line: PackedStringArray = file.get_csv_line()
 	var headers: Array[String] = []
-	# transform to array and make lower case
+	# transform tot array and make lower case
 	for header: String in header_line:
 		headers.append(header.to_lower())
 
@@ -820,18 +818,19 @@ func _set_person_colors(person: Person) -> void:
 
 func _set_random_shirt_colors(team: Team) -> void:
 	team.colors = []
+	var main_color: Color = Color(
+			RngUtil.rng.randf_range(0, 1),
+			RngUtil.rng.randf_range(0, 1),
+			RngUtil.rng.randf_range(0, 1)
+		)
+	team.colors.append(main_color.to_html(true))
+	team.colors.append(main_color.inverted().to_html(true))
 	team.colors.append(
 		Color(
 			RngUtil.rng.randf_range(0, 1),
 			RngUtil.rng.randf_range(0, 1),
 			RngUtil.rng.randf_range(0, 1)
-		)
+		).to_html(true)
 	)
-	team.colors.append(team.colors[0].inverted())
-	team.colors.append(
-		Color(
-			RngUtil.rng.randf_range(0, 1),
-			RngUtil.rng.randf_range(0, 1),
-			RngUtil.rng.randf_range(0, 1)
-		)
-	)
+
+

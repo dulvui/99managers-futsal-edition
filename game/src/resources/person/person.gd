@@ -23,9 +23,9 @@ enum Role {
 @export var prestige: int  # 1-20
 @export var role: Role
 @export var contract: Contract
-@export var skintone: Color
-@export var haircolor: Color
-@export var eyecolor: Color
+@export var skintone: String
+@export var haircolor: String
+@export var eyecolor: String
 
 
 func _init(
@@ -37,9 +37,9 @@ func _init(
 	p_birth_date: Dictionary = Time.get_datetime_dict_from_system(),
 	p_prestige: int = 10,
 	p_contract: Contract = Contract.new(),
-	p_skintone: Color = Color.SALMON,
-	p_haircolor: Color = Color.BROWN,
-	p_eyecolor: Color = Color.BLACK,
+	p_skintone: String = Color.SALMON.to_html(true),
+	p_haircolor: String = Color.BROWN.to_html(true),
+	p_eyecolor: String = Color.BLACK.to_html(true),
 ) -> void:
 	role = p_role
 	id = p_id

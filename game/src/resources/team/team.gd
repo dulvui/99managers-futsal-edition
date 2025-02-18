@@ -18,7 +18,7 @@ extends JSONResource
 @export var board_requests: BoardRequests
 # shirt colors
 # 0: home color, 1: away, 2 third color
-@export var colors: Array[Color]
+@export var colors: Array[String]
 
 
 func _init(
@@ -31,7 +31,7 @@ func _init(
 	p_staff: Staff = Staff.new(),
 	p_stadium: Stadium = Stadium.new(),
 	p_board_requests: BoardRequests = BoardRequests.new(),
-	p_colors: Array[Color] = [Color(0, 0, 0), Color(0, 0, 0), Color(0, 0, 0)],
+	p_colors: Array[String] = ["000000", "000000", "000000"],
 ) -> void:
 	id = p_id
 	league_id = p_league_id
@@ -90,11 +90,11 @@ func remove_player(p_player: Player) -> void:
 	players.erase(p_player)
 
 
-func get_home_color() -> Color:
+func get_home_color() -> String:
 	return colors[0]
 
 
-func get_away_color(versus_color: Color) -> Color:
+func get_away_color(versus_color: String) -> String:
 	if colors[1] != versus_color:
 		return colors[1]
 	if colors[2] != versus_color:
