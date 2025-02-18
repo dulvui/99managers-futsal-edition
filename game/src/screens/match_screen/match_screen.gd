@@ -81,7 +81,7 @@ func _ready() -> void:
 		if not Global.team:
 			Global.team = home_team
 
-	match_simulator.setup(matchz)
+	match_simulator.setup(matchz, home_team, away_team)
 
 	home_name.text = home_team.name
 	away_name.text = away_team.name

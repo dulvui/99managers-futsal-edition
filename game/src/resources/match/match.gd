@@ -67,12 +67,13 @@ func setup(
 	competition_name = p_competition_name
 	first_leg = p_first_leg
 
-	var home_team: Team = Global.world.get_team_by_id(home_id, competition_id)
-	var away_team: Team = Global.world.get_team_by_id(away_id, competition_id)
-	if home_team != null:
-		home_name = home_team.name
-	if away_team != null:
-		away_name = away_team.name
+	if Global.world:
+		var home_team: Team = Global.world.get_team_by_id(home_id, competition_id)
+		var away_team: Team = Global.world.get_team_by_id(away_id, competition_id)
+		if home_team != null:
+			home_name = home_team.name
+		if away_team != null:
+			away_name = away_team.name
 
 	id = IdUtil.next_id(IdUtil.Types.MATCH)
 

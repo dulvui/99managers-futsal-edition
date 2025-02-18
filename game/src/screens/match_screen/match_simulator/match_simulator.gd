@@ -63,12 +63,12 @@ func _physics_process(delta: float) -> void:
 		_update_engine(Const.TICKS / 2)
 
 
-func setup(matchz: Match) -> void:
+func setup(matchz: Match, p_home_team: Team = null, p_away_team: Team = null) -> void:
 	show_action_ticks = 0
 	wait_time = 1.0 / Const.TICKS
 	
 	engine = MatchEngine.new()
-	engine.setup(matchz)
+	engine.setup(matchz, p_home_team, p_away_team)
 	engine.goal.connect(_on_engine_goal)
 	engine.match_finish.connect(_on_engine_match_finish)
 

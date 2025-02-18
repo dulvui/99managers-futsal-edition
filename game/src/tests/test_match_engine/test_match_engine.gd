@@ -35,7 +35,7 @@ func test_deterministic_simulations() -> void:
 			matchz.id = i
 			matches.append(matchz)
 			matchz.setup(home_team.id, away_team.id, 1, "test")
-			match_engine.simulate_match(matchz)
+			match_engine.setup(matchz, home_team, away_team)
 			print("test: match %d with seed %d calculated"%[j + 1, i])
 	
 		# check results
@@ -54,6 +54,6 @@ func test_benchmark() -> void:
 	matchz.setup(home_team.id, away_team.id, 1, "test")
 
 	var match_engine: MatchEngine = MatchEngine.new()
-	match_engine.setup(matchz)
+	match_engine.setup(matchz, home_team, away_team)
 	match_engine.simulate()
 	print("test: match engine benchmark done.")

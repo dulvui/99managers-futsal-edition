@@ -37,7 +37,7 @@ var match_over: bool
 var _rng: RandomNumberGenerator
 
 
-func setup(p_matchz: Match) -> void:
+func setup(p_matchz: Match, p_home_team: Team = null, p_away_team: Team = null) -> void:
 	_rng = RandomNumberGenerator.new()
 	_rng.seed = p_matchz.id
 
@@ -64,8 +64,12 @@ func setup(p_matchz: Match) -> void:
 	var home_has_ball: bool = _rng.randi_range(0, 1) == 0
 
 	# set up home/away team
-	var home_team_res: Team = Global.world.get_team_by_id(p_matchz.home_id, p_matchz.competition_id)
-	var away_team_res: Team = Global.world.get_team_by_id(p_matchz.away_id, p_matchz.competition_id)
+	var home_team_res: Team = p_home_team
+	var away_team_res: Team = p_away_team
+	if home_team_res == null:
+		home_team_res = Global.world.get_team_by_id(p_matchz.home_id, p_matchz.competition_id)
+	if away_team_res == null:
+		away_team_res = Global.world.get_team_by_id(p_matchz.away_id, p_matchz.competition_id)
 
 	home_team = SimTeam.new(_rng)
 	away_team = SimTeam.new(_rng)

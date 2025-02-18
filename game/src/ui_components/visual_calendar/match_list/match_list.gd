@@ -57,7 +57,7 @@ func setup(day: Day, competition: Competition = Global.league) -> void:
 			if competition.id != cup.id:
 				_add_matches(day, cup)
 		# add other leagues matches
-		for league: League in Global.world.get_all_leagues():
+		for league: League in Global.world.get_all_leagues(true):
 			_add_matches(day, league)
 	
 	# show no match notice

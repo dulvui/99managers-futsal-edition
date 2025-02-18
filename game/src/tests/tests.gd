@@ -104,6 +104,7 @@ static func create_mock_world(use_test_file: bool) -> World:
 
 static func create_mock_league(nr: int = randi_range(0, 99), teams: int = 10) -> League:
 	var league: League = League.new()
+	league.set_id()
 	league.name = "Mock league " + str(nr)
 
 	for i: int in range(teams):
@@ -115,6 +116,7 @@ static func create_mock_league(nr: int = randi_range(0, 99), teams: int = 10) ->
 
 static func create_mock_team(nr: int = randi_range(1, 99)) -> Team:
 	var team: Team = Team.new()
+	team.set_id()
 	team.name = "Mock Team " + str(nr)
 	# set random team colors
 	team.colors = [Color.RED.to_html(true)]
@@ -129,7 +131,7 @@ static func create_mock_team(nr: int = randi_range(1, 99)) -> Team:
 
 static func create_mock_player(nr: int = randi_range(1, 99)) -> Player:
 	var player: Player = Player.new()
-
+	player.set_id()
 	player.name = "Mock"
 	player.surname = "Player " + str(nr)
 	player.nr = nr
@@ -139,6 +141,7 @@ static func create_mock_player(nr: int = randi_range(1, 99)) -> Player:
 
 static func create_mock_manager() -> Manager:
 	var manager: Manager = Manager.new()
+	manager.set_id()
 	manager.name = "Mike"
 	manager.surname = "Mock"
 	return manager
