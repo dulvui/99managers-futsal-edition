@@ -21,7 +21,7 @@ func _ready() -> void:
 
 	for save_state_id: String in Global.save_states.id_list:
 		if save_state_id != active_save_state.id:
-			var save_state: SaveState = Global.save_states.load_state(save_state_id)
+			var save_state: SaveState = ResUtil.load_save_state(save_state_id)
 			var entry: SaveStateEntry = SaveStateEntryScene.instantiate()
 			entry_list.add_child(entry)
 			entry.setup(save_state)
