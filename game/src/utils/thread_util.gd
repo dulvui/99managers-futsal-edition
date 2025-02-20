@@ -6,28 +6,35 @@ extends Node
 
 var thread: Thread
 
+func _ready() -> void:
+	thread = Thread.new()
+
 
 func initialize_game() -> void:
 	if thread and thread.is_started():
 		print("thread is already running")
 		return
-	thread = Thread.new()
 	thread.start(_initialize_game, Thread.Priority.PRIORITY_HIGH)
 
 
-func save_world() -> void:
+func save_all_data() -> void:
 	if thread and thread.is_started():
 		print("thread is already running")
 		return
-	thread = Thread.new()
-	thread.start(_save_world, Thread.Priority.PRIORITY_HIGH)
+	thread.start(_save_all_data, Thread.Priority.PRIORITY_HIGH)
+
+
+func load_data() -> void:
+	if thread and thread.is_started():
+		print("thread is already running")
+		return
+	thread.start(_save_all_data, Thread.Priority.PRIORITY_HIGH)
 
 
 func generate_players() -> void:
 	if thread and thread.is_started():
 		print("thread is already running")
 		return
-	thread = Thread.new()
 	thread.start(_generate_players, Thread.Priority.PRIORITY_HIGH)
 
 
@@ -35,7 +42,6 @@ func random_results() -> void:
 	if thread and thread.is_started():
 		print("thread is already running")
 		return
-	thread = Thread.new()
 	thread.start(_random_results, Thread.Priority.PRIORITY_HIGH)
 
 
@@ -46,9 +52,15 @@ func _initialize_game() -> void:
 	call_deferred("_loading_done")
 
 
-func _save_world() -> void:
-	print("save world in thread...")
-	ResUtil.save_resource("world", Global.world)
+func _save_all_data() -> void:
+	print("save data in thread...")
+	Global.save_all_data()
+	call_deferred("_loading_done")
+
+
+func _load_data() -> void:
+	print("load data in thread...")
+	ResUtil.load_save_state_data()
 	call_deferred("_loading_done")
 
 

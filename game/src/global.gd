@@ -147,7 +147,8 @@ func load_save_state() -> void:
 		generation_seed = save_sate.generation_seed
 		generation_state = save_sate.generation_state
 		generation_player_names = save_sate.generation_player_names
-		ResUtil.load_save_state_data()
+		# ResUtil.load_save_state_data()
+		ThreadUtil.load_data()
 	else:
 		LoadingUtil.done()
 

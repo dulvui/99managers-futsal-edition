@@ -363,7 +363,7 @@ func _on_menu_button_pressed() -> void:
 func _on_save_confirm_dialog_confirmed() -> void:
 	LoadingUtil.start(tr("Saving game"), LoadingUtil.Type.SAVE_GAME, true)
 	Main.show_loading_screen(Const.SCREEN_MENU)
-	Global.save_all_data()
+	ThreadUtil.save_all_data()
 
 
 func _on_save_confirm_dialog_denied() -> void:
