@@ -42,7 +42,7 @@ func random_results() -> void:
 func _initialize_game() -> void:
 	print("initializing game in thread...")
 	Global.initialize_game()
-	Global.save_all_data(false)
+	# Global.save_all_data()
 	call_deferred("_loading_done")
 
 

@@ -50,13 +50,9 @@ const LINEUP_PLAYERS_AMOUNT: int = 12
 const SEASON_START_DAY: int = 1
 const SEASON_START_MONTH: int = 6
 
-
+#
 # Strings
 #
-const USER_PATH: StringName = "user://"
-const SAVE_STATES_DIR: StringName = "save_states/"
-const SAVE_STATES_PATH: StringName = "user://save_states/"
-
 const SURNAME: StringName = "Surname"
 const POSITION: StringName = "Postition"
 

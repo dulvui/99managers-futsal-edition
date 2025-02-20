@@ -6,148 +6,169 @@ extends Node
 
 signal loading_failed
 
-# .res for binary/compressed resource data
-# .tres for text resource data
-const RES_SUFFIX: StringName = ".res"
-#var RES_SUFFIX: String = ".tres"
-
-var loading_resources: Array[String]
-var loaded_resources: Array[String]
-var progress: Array
-var load_status: ResourceLoader.ThreadLoadStatus
-
-
-func _ready() -> void:
-	loading_resources = []
-	loaded_resources = []
-
-
-func load_resources() -> void:
-	# var file: FileAccess = FileAccess.open_compressed(
-	# 	"user://world.json",
-	# 	FileAccess.READ,
-	# 	FileAccess.COMPRESSION_GZIP
-	# )
-	var file: FileAccess = FileAccess.open(
-		"user://world.json",
-		FileAccess.READ,
-	)
-	var err: int = FileAccess.get_open_error()
-	if err != OK:
-		print(err)
-		loading_failed.emit()
-		return
-	# file.store_var(world_json)
-	var file_text: String = file.get_as_text()
-
-	var json: JSON = JSON.new()
-	var result: int = json.parse(file_text)
-	
-	if result == OK:
-		Global.world = World.new()
-		Global.world.from_json(json.data)
-		
-		Global.team = Global.world.get_active_team()
-		Global.league = Global.world.get_league_by_id(Global.team.league_id)
-		Global.manager = Global.team.staff.manager
-		Global.transfers = Global.world.transfers
-		Global.inbox = Global.world.inbox
-	else:
-		print(result)
-		loading_failed.emit()
-	
-	file.close()
-	LoadingUtil.done()
-
-
-func save_safe_states(_thread_world_save: bool = true) -> void:
-	print("saving save states...")
-	
-	# save save states and create backup
-	ResourceSaver.save(
-		Global.save_states,
-		Const.SAVE_STATES_PATH + "save_states" + RES_SUFFIX , ResourceSaver.FLAG_COMPRESS
-	)
-	BackupUtil.create_backup(Const.SAVE_STATES_PATH + "save_states", RES_SUFFIX)
-	
-	# save resources and active save state
-	var save_state: SaveState = Global.save_states.get_active()
-
-	if not save_state.meta_is_temp:
-		save_resource("save_state", save_state)
-
-		print("converting world...")
-		var world_json: Dictionary = Global.world.to_json()
-		# var file: FileAccess = FileAccess.open_compressed(
-		# 	"user://world.json",
-		# 	FileAccess.WRITE,
-		# 	FileAccess.COMPRESSION_GZIP
-		# )
-		print("converting world done.")
-
-		print("saving world...")
-		var file: FileAccess = FileAccess.open(
-			"user://world.json",
-			FileAccess.WRITE,
-		)
-		var err: int = FileAccess.get_open_error()
-		if err != OK:
-			print(err)
-			breakpoint
-			return
-
-		file.store_string(JSON.stringify(world_json))
-		file.close()
-		print("saving world done.")
-
-		# if thread_world_save:
-		# 	ThreadUtil.save_world()
-		# else:
-		# 	ResUtil.save_resource("world", Global.world)
-	
-	print("saving save states done.")
-
-
-func save_resource(res_key: StringName, resource: Resource) -> void:
-	var path: StringName = Global.save_states.get_active_path(res_key)
-	var resource_path: StringName = path + RES_SUFFIX
-	ResourceSaver.save(resource, resource_path, ResourceSaver.FLAG_COMPRESS)
-	BackupUtil.create_backup(path, RES_SUFFIX)
+const USER_PATH: StringName = "user://"
+const SAVE_STATES_DIR: StringName = "save_states/"
+const SAVE_STATES_PATH: StringName = "user://save_states/"
+const FILE_SUFFIX: StringName = ".save"
+const BACKUP_SUFFIX: StringName = ".backup"
+const COMPRESSION_MODE: FileAccess.CompressionMode = FileAccess.CompressionMode.COMPRESSION_GZIP
+const COMPRESSION_ON: bool = true
 
 
 func load_save_states() -> SaveStates:
-	var save_states: SaveStates = load_resource(Const.SAVE_STATES_PATH + "save_states", true)
+	var save_states: SaveStates = SaveStates.new()
+	load_resource("save_states", save_states)
 	if save_states == null:
 		return SaveStates.new()
-	# scane for new save states
+	# scan for new save states
 	save_states.scan()
 	return save_states
 
 
-func load_resource(res_key: String, absolute_path: bool = false) -> Resource:
-	var path: String = res_key + RES_SUFFIX
+func save_save_states() -> void:
+	save_resource("save_states", Global.save_states)
 
-	if not absolute_path:
-		path = Global.save_states.get_active_path(res_key + RES_SUFFIX)
+
+func load_save_state(id: String) -> SaveState:
+	var save_state: SaveState = SaveState.new()
+	load_resource(id, save_state)
+	if save_state == null:
+		return SaveState.new()
+	return save_state
+
+
+func save_save_state() -> void:
+	var active: SaveState = Global.save_states.get_active()
+	save_resource(active.id, active)
+
+
+func load_save_state_data() -> void:
+	var active: SaveState = Global.save_states.get_active()
+	load_resource(active.id + "/data", Global.world)
+
+	Global.team = Global.world.get_active_team()
+	Global.league = Global.world.get_league_by_id(Global.team.league_id)
+	Global.manager = Global.team.staff.manager
+	Global.transfers = Global.world.transfers
+	Global.inbox = Global.world.inbox
+
+
+func save_save_state_data() -> void:
+	var active: SaveState = Global.save_states.get_active()
+	save_resource(active.id + "/data", Global.world)
+
+
+func load_resource(path: String, resource: JSONResource) -> void:
+	path = SAVE_STATES_PATH + path + FILE_SUFFIX
+	# open file
+	var file: FileAccess
+	if COMPRESSION_ON:
+		file = FileAccess.open_compressed(
+			path,
+			FileAccess.READ,
+			FileAccess.COMPRESSION_GZIP
+		)
+	else:
+		file = FileAccess.open(
+			path,
+			FileAccess.READ,
+		)
 	
+	# check errors
+	var err: int = FileAccess.get_open_error()
+	if err != OK:
+		print("opening world file error with code %d" % err)
+		loading_failed.emit()
+		return
+
+	# load and parse file
+	var file_text: String = file.get_as_text()
+	var json: JSON = JSON.new()
+	var result: int = json.parse(file_text)
+	
+	# check for parsing errors
+	if result != OK:
+		print("parsing world file error with code %d" % result)
+		loading_failed.emit()
+		return
+
+	# convert to json resource
+	file.close()
+	var parsed_json: Dictionary = json.data
+	resource.from_json(parsed_json)
+
+	# return parsed values
+	LoadingUtil.done()
+
+
+func save_resource(path: String, resource: JSONResource) -> void:
+	path = SAVE_STATES_PATH + path + FILE_SUFFIX
+	print("saving %s..." % path)
+	
+	print("converting resurce...")
+	var json: Dictionary = resource.to_json()
+	print("converting resource done.")
+
+	print("saving resource...")
+	var file: FileAccess
+	if COMPRESSION_ON:
+		file = FileAccess.open_compressed(
+			path,
+			FileAccess.WRITE,
+			COMPRESSION_MODE
+		)
+	else:
+		file = FileAccess.open(
+			path,
+			FileAccess.WRITE,
+		)
+
+	# check for file errors
+	var err: int = FileAccess.get_open_error()
+	if err != OK:
+		print("opening file error with code %d" % err)
+		print(err)
+		return
+
+	# save to file
+	file.store_string(JSON.stringify(json))
+	file.close()
+	
+	# create backup
+	_create_backup(path)
+	
+	print("saving %s done..." % path)
+
+
+func _create_backup(path: StringName) -> StringName:
+	var backup_path: StringName = path + BACKUP_SUFFIX
+	print("creating backup for %s..." % backup_path)
+
+	var dir_access: DirAccess = DirAccess.open(path.get_base_dir())
+	if dir_access:
+		dir_access.copy(path, backup_path)
+		print("creating backup for %s done." % path)
+	else:
+		print("creating backup for %s gone wrong." % path)
+	return path
+
+
+func _restore_backup(path: String) -> StringName:
 	# check first, if file exists
-	var file_access: FileAccess = FileAccess.open(path, FileAccess.READ)
-	if file_access == null:
-		print("resource file %s does not exist"%path)
-		return null
+	var file: FileAccess = FileAccess.open(path, FileAccess.READ)
+	if file == null:
+		print("backup file %s does not exist" % path)
+		return ""
 
-	print("loading resource %s..." % path)
+	print("restoring backup for %s..." % path)
+	var backup_path: StringName = path + BACKUP_SUFFIX
 
-	var resource: Resource = ResourceLoader.load(path)
+	var dir: DirAccess = DirAccess.open(path.get_base_dir())
+	if dir:
+		dir.copy(backup_path, path)
+		print("restoring backup for %s done." % path)
+	else:
+		print("restoring backup for %s gone wrong." % path)
+	return backup_path
 
-	if resource == null:
-		print("restoring backup...")
-		var resource_path: StringName = BackupUtil.restore_backup(path, RES_SUFFIX)
-		# try loading again
-		resource = ResourceLoader.load(resource_path)
-		if resource == null:
-			print("restoring backup gone wrong")
-		else:
-			print("restoring backup done.")
 
-	return resource

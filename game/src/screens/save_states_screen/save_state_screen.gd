@@ -28,7 +28,7 @@ func _ready() -> void:
 
 	ResUtil.loading_failed.connect(_on_res_util_loading_failed)
 	
-	save_states_path.text = ProjectSettings.globalize_path(Const.SAVE_STATES_PATH)
+	save_states_path.text = ProjectSettings.globalize_path(ResUtil.SAVE_STATES_PATH)
 	trash_notice.visible = not OS.get_name() in "iOS,Web"
 
 
@@ -44,6 +44,6 @@ func _on_res_util_loading_failed() -> void:
 
 
 func _on_save_states_path_copy_pressed() -> void:
-	DisplayServer.clipboard_set(ProjectSettings.globalize_path(Const.SAVE_STATES_PATH))
+	DisplayServer.clipboard_set(ProjectSettings.globalize_path(ResUtil.SAVE_STATES_PATH))
 
 

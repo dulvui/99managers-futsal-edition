@@ -124,9 +124,11 @@ func next_season() -> void:
 	save_all_data()
 
 
-func save_all_data(threaded: bool = true) -> void:
-	ResUtil.save_safe_states(threaded)
+func save_all_data() -> void:
 	save_config()
+	ResUtil.save_save_states()
+	ResUtil.save_save_state()
+	ResUtil.save_save_state_data()
 
 
 func set_lang(lang: String) -> void:
@@ -145,7 +147,7 @@ func load_save_state() -> void:
 		generation_seed = save_sate.generation_seed
 		generation_state = save_sate.generation_state
 		generation_player_names = save_sate.generation_player_names
-		ResUtil.load_resources()
+		ResUtil.load_save_state_data()
 	else:
 		LoadingUtil.done()
 
@@ -164,19 +166,19 @@ func save_config() -> void:
 	config.set_value("settings", "theme_custom_background_color", theme_custom_background_color)
 	config.set_value("settings", "scene_fade", scene_fade)
 
-	config.save(Const.USER_PATH + "settings.cfg")
+	config.save(ResUtil.USER_PATH + "settings.cfg")
 
-	BackupUtil.create_backup(Const.USER_PATH + "settings", ".cfg")
+	# BackupUtil.create_backup(ResUtil.USER_PATH + "settings", ".cfg")
 
 
 func _load_config() -> void:
 	config = ConfigFile.new()
-	var err: int = config.load(Const.USER_PATH + "settings.cfg")
+	var err: int = config.load(ResUtil.USER_PATH + "settings.cfg")
 	# if not, something went wrong with the file loading
 	if err != OK:
 		print("error loading settings.cfg")
-		BackupUtil.restore_backup(Const.USER_PATH + "settings", ".cfg")
-		err = config.load(Const.USER_PATH + "settings.cfg")
+		# BackupUtil.restore_backup(ResUtil.USER_PATH + "settings", ".cfg")
+		err = config.load(ResUtil.USER_PATH + "settings.cfg")
 		if err != OK:
 			print("error restoring backup for settings.cfg")
 
