@@ -5,10 +5,7 @@ SPDX-License-Identifier: CC0-1.0
 -->
 
 # Roadmap
-List of features/issues for future versions of 99 Managers™ Futsal Edition.  
-So users from [Codeberg](https://codeberg.org/dulvui/futsal-manager) and [Github](https://codeberg.org/dulvui/futsal-manager) can track issues/features with ease.
-
-Note: Not all features/bugs are related to a Codeberg/Github issue, since I get feedback also trough other channels.
+List of features/issues of 99 Managers Futsal Edition.  
 
 ## Table of contents
 - [Roadmap](#roadmap)
@@ -56,3 +53,5 @@ Features/issues that are added/solved in specific version.
 - Translations
     - Spanish
     - Portuguese
+
+

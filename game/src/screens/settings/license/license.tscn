@@ -64,7 +64,7 @@ uri = "https://codeberg.org/dulvui/99managers-futsal-edition"
 
 [node name="Github" type="LinkButton" parent="VBoxContainer/SourceCodeLinks"]
 layout_mode = 2
-text = "Github"
+text = "Github [Mirror]"
 uri = "https://github.com/dulvui/99managers-futsal-edition"
 
 [node name="HSeparator4" type="HSeparator" parent="VBoxContainer"]
