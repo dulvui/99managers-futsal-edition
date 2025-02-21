@@ -28,7 +28,7 @@ func load_data() -> void:
 	if thread and thread.is_started():
 		print("thread is already running")
 		return
-	thread.start(_save_all_data, Thread.Priority.PRIORITY_HIGH)
+	thread.start(_load_data)
 
 
 func generate_players() -> void:

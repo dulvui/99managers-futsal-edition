@@ -12,7 +12,7 @@ const SAVE_STATES_PATH: StringName = "user://save_states/"
 const FILE_SUFFIX: StringName = ".save"
 const BACKUP_SUFFIX: StringName = ".backup"
 const COMPRESSION_MODE: FileAccess.CompressionMode = FileAccess.CompressionMode.COMPRESSION_GZIP
-const COMPRESSION_ON: bool = true
+const COMPRESSION_ON: bool = false
 
 
 func load_save_states() -> SaveStates:
@@ -31,7 +31,7 @@ func save_save_states() -> void:
 
 func load_save_state(id: String) -> SaveState:
 	var save_state: SaveState = SaveState.new()
-	load_resource(id, save_state)
+	load_resource(id + "/save_state", save_state)
 	if save_state == null:
 		return SaveState.new()
 	return save_state
@@ -39,11 +39,12 @@ func load_save_state(id: String) -> SaveState:
 
 func save_save_state() -> void:
 	var active: SaveState = Global.save_states.get_active()
-	save_resource(active.id, active)
+	save_resource(active.id + "/save_state", active)
 
 
 func load_save_state_data() -> void:
 	var active: SaveState = Global.save_states.get_active()
+	Global.world = World.new()
 	load_resource(active.id + "/data", Global.world)
 
 	Global.team = Global.world.get_active_team()
@@ -77,7 +78,7 @@ func load_resource(path: String, resource: JSONResource) -> void:
 	# check errors
 	var err: int = FileAccess.get_open_error()
 	if err != OK:
-		print("opening world file error with code %d" % err)
+		print("opening file %s error with code %d" % [path, err])
 		loading_failed.emit()
 		return
 
@@ -88,7 +89,7 @@ func load_resource(path: String, resource: JSONResource) -> void:
 	
 	# check for parsing errors
 	if result != OK:
-		print("parsing world file error with code %d" % result)
+		print("parsing file %s error with code %d" % [path, result])
 		loading_failed.emit()
 		return
 
@@ -96,9 +97,6 @@ func load_resource(path: String, resource: JSONResource) -> void:
 	file.close()
 	var parsed_json: Dictionary = json.data
 	resource.from_json(parsed_json)
-
-	# return parsed values
-	LoadingUtil.done()
 
 
 func save_resource(path: String, resource: JSONResource) -> void:
