@@ -7,7 +7,6 @@ extends Control
 
 
 @onready var default_dialog: DefaultConfirmDialog = %DefaultDialog
-# upper snake case needed for translations
 @onready var general: GeneralSettings = %General
 @onready var input: InputSettings = %Input
 
@@ -23,7 +22,7 @@ func _on_defaults_pressed() -> void:
 func _on_default_dialog_confirmed() -> void:
 	general.restore_defaults()
 	input.restore_defaults()
-	Global.save_config()
+	ResUtil.save_config()
 
 
 func _on_back_pressed() -> void:

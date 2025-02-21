@@ -10,7 +10,7 @@ const SIGNS: Array = ["€", "$", "£", "₿"]
 
 
 func currency(amount: int) -> String:
-	return format_number(amount) + " " + SIGNS[Global.currency]
+	return format_number(amount) + " " + SIGNS[Global.config.currency]
 
 
 func format_date(p_date: Dictionary) -> String:

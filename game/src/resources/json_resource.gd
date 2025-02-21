@@ -5,8 +5,18 @@
 class_name JSONResource
 extends Resource
 
-
-var has_changed: bool
+# enum SaveStrategy {
+# 	ALWAYS,
+# 	MANUAL,
+# }
+#
+# var save_strategy: SaveStrategy
+#
+# var has_changed: bool
+# var changed_childs: Array[String]
+#
+# var dict_on_load: Dictionary
+# var self_hash: int
 
 
 func to_json() -> Dictionary:
@@ -20,6 +30,9 @@ func to_json() -> Dictionary:
 		if property.usage != Const.CUSTOM_PROPERTY_EXPORT \
 				and property.usage != Const.CUSTOM_PROPERTY_EXPORT_ENUM:
 			continue
+		
+		# if hash(self) == self_hash:
+		# 	return dict_on_load
 
 		var property_name: String = property.name
 		var value: Variant = get(property_name)
@@ -41,6 +54,9 @@ func to_json() -> Dictionary:
 
 
 func from_json(dict: Dictionary) -> void:
+	# dict_on_load = dict.duplicate()
+	# self_hash = hash(self)
+
 	for key: String in dict.keys():
 		var property: Variant = get(key)
 
@@ -52,8 +68,8 @@ func from_json(dict: Dictionary) -> void:
 			var dict_array: Array = dict[key]
 			# assuming all used resources are JSON resources
 			# could be made more precise by checking path of get_typed_script
-			if array.get_typed_class_name() == "Resource":
-				var array_script: GDScript = array.get_typed_script()
+			var array_script: GDScript = array.get_typed_script()
+			if array_script != null:
 				for dict_item: Variant in dict_array:
 					var resource: JSONResource = array_script.new()
 					resource.from_json(dict_item)

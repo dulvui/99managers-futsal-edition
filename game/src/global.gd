@@ -6,25 +6,10 @@ extends Node
 
 var config_version: StringName = "1"
 var version: StringName = ProjectSettings.get_setting("application/config/version")
+var config: SettingsConfig
 
-# config
-var config: ConfigFile
-
-# vars
-var language: String
-var currency: int
-var audio: Dictionary
-var input_detection_mode: Enum.InputDetectionMode
-var input_type: Enum.InputType
-var theme_index: int
-var theme_scale: float
-var theme_font_size: int
-var theme_custom_font_color: Color
-var theme_custom_style_color: Color
-var theme_custom_background_color: Color
-var scene_fade: bool
-var start_date: Dictionary
 # generator config
+var start_date: Dictionary
 var generation_seed: String
 var generation_state: int
 var generation_player_names: Enum.PlayerNames
@@ -53,13 +38,12 @@ var save_states: SaveStates
 
 func _ready() -> void:
 	print("version " + Global.version)
-	_load_config()
+	config = ResUtil.load_config()
+	TranslationServer.set_locale(config.language)
+	get_tree().root.content_scale_factor = config.theme_scale
+
 	save_states = ResUtil.load_save_states()
-	set_lang(language)
 	RngUtil.setup_rngs()
-	
-	# set initial scale
-	get_tree().root.content_scale_factor = theme_scale
 
 
 func select_team(p_team: Team)-> void:
@@ -125,16 +109,10 @@ func next_season() -> void:
 
 
 func save_all_data() -> void:
-	save_config()
+	ResUtil.save_config()
 	ResUtil.save_save_states()
 	ResUtil.save_save_state()
 	ResUtil.save_save_state_data()
-
-
-func set_lang(lang: String) -> void:
-	TranslationServer.set_locale(lang)
-	language = lang
-	save_config()
 
 
 func load_save_state() -> void:
@@ -151,49 +129,5 @@ func load_save_state() -> void:
 		ThreadUtil.load_data()
 	else:
 		LoadingUtil.done()
-
-
-func save_config() -> void:
-	config.set_value("settings", "currency", currency)
-	config.set_value("settings", "language", language)
-	config.set_value("settings", "input_detection_mode", input_detection_mode)
-	config.set_value("settings", "input_type", input_type)
-	config.set_value("settings", "audio", audio)
-	config.set_value("settings", "theme_index", theme_index)
-	config.set_value("settings", "theme_scale", theme_scale)
-	config.set_value("settings", "theme_font_size", theme_font_size)
-	config.set_value("settings", "theme_custom_font_color", theme_custom_font_color)
-	config.set_value("settings", "theme_custom_style_color", theme_custom_style_color)
-	config.set_value("settings", "theme_custom_background_color", theme_custom_background_color)
-	config.set_value("settings", "scene_fade", scene_fade)
-
-	config.save(ResUtil.USER_PATH + "settings.cfg")
-
-	# BackupUtil.create_backup(ResUtil.USER_PATH + "settings", ".cfg")
-
-
-func _load_config() -> void:
-	config = ConfigFile.new()
-	var err: int = config.load(ResUtil.USER_PATH + "settings.cfg")
-	# if not, something went wrong with the file loading
-	if err != OK:
-		print("error loading settings.cfg")
-		# BackupUtil.restore_backup(ResUtil.USER_PATH + "settings", ".cfg")
-		err = config.load(ResUtil.USER_PATH + "settings.cfg")
-		if err != OK:
-			print("error restoring backup for settings.cfg")
-
-	currency = config.get_value("settings", "currency", FormatUtil.Currencies.EURO)
-	language = config.get_value("settings", "language", "")
-	input_detection_mode = config.get_value("settings", "input_detection_mode", Enum.InputDetectionMode.AUTO)
-	input_type = config.get_value("settings", "input_type", Enum.InputType.MOUSE_AND_KEYBOARD)
-	audio = config.get_value("settings", "audio", {})
-	theme_index = config.get_value("settings", "theme_index", 0)
-	theme_scale = config.get_value("settings", "theme_scale", ThemeUtil.get_default_scale())
-	theme_font_size = config.get_value("settings", "theme_font_size", Const.FONT_SIZE_DEFAULT)
-	theme_custom_font_color = config.get_value("settings", "theme_custom_font_color", Color.BLACK)
-	theme_custom_style_color = config.get_value("settings", "theme_custom_style_color", Color.RED)
-	theme_custom_background_color = config.get_value("settings", "theme_custom_background_color", Color.WHITE)
-	scene_fade = config.get_value("settings", "scene_fade", true)
 
 

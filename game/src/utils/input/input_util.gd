@@ -28,7 +28,7 @@ func _ready() -> void:
 	timer = Timer.new()
 	add_child(timer)
 	
-	type = Global.input_type
+	type = Global.config.input_type
 
 
 func _notification(what: int) -> void:
@@ -70,7 +70,7 @@ func start_focus(node: Control) -> void:
 
 func set_type(p_type: Enum.InputType) -> void:
 	type = p_type
-	Global.input_type = type
+	Global.config.input_type = type
 	type_changed.emit(type)
 
 	timer.start(DETECTION_TIMEOUT)
@@ -95,7 +95,7 @@ func _verify_focus() -> void:
 
 
 func _verify_type(event: InputEvent) -> void:
-	if Global.input_detection_mode == Enum.InputDetectionMode.MANUAL:
+	if Global.config.input_detection_mode == Enum.InputDetectionMode.MANUAL:
 		return
 
 	if timer.time_left > 0.5:

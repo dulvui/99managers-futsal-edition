@@ -6,6 +6,11 @@ extends Node
 
 signal loading_failed
 
+const CONFIG_FILE: StringName = "settings_config"
+const SAVE_STATE_FILE: StringName = "save_state"
+const SAVE_STATES_FILE: StringName = "save_states"
+const DATA_FILE: StringName = "data"
+
 const USER_PATH: StringName = "user://"
 const SAVE_STATES_DIR: StringName = "save_states/"
 const SAVE_STATES_PATH: StringName = "user://save_states/"
@@ -16,9 +21,21 @@ const COMPRESSION_MODE: FileAccess.CompressionMode = FileAccess.CompressionMode.
 const COMPRESSION_ON: bool = true
 
 
+func save_config() -> void:
+	_save_resource(CONFIG_FILE, Global.config)
+
+
+func load_config() -> SettingsConfig:
+	var config: SettingsConfig = SettingsConfig.new()
+	_load_resource(CONFIG_FILE, config)
+	if config == null:
+		return SettingsConfig.new()
+	return config
+
+
 func load_save_states() -> SaveStates:
 	var save_states: SaveStates = SaveStates.new()
-	load_resource("save_states", save_states)
+	_load_resource(SAVE_STATES_FILE, save_states)
 	if save_states == null:
 		return SaveStates.new()
 	# scan for new save states
@@ -27,12 +44,12 @@ func load_save_states() -> SaveStates:
 
 
 func save_save_states() -> void:
-	save_resource("save_states", Global.save_states)
+	_save_resource(SAVE_STATES_FILE, Global.save_states)
 
 
 func load_save_state(id: String) -> SaveState:
 	var save_state: SaveState = SaveState.new()
-	load_resource(id + "/save_state", save_state)
+	_load_resource(id + "/" + SAVE_STATE_FILE, save_state)
 	if save_state == null:
 		return SaveState.new()
 	return save_state
@@ -40,13 +57,13 @@ func load_save_state(id: String) -> SaveState:
 
 func save_save_state() -> void:
 	var active: SaveState = Global.save_states.get_active()
-	save_resource(active.id + "/save_state", active)
+	_save_resource(active.id + "/" + SAVE_STATE_FILE, active)
 
 
 func load_save_state_data() -> void:
 	var active: SaveState = Global.save_states.get_active()
 	Global.world = World.new()
-	load_resource(active.id + "/data", Global.world)
+	_load_resource(active.id + "/" + DATA_FILE, Global.world)
 
 	Global.team = Global.world.get_active_team()
 	Global.league = Global.world.get_league_by_id(Global.team.league_id)
@@ -57,10 +74,10 @@ func load_save_state_data() -> void:
 
 func save_save_state_data() -> void:
 	var active: SaveState = Global.save_states.get_active()
-	save_resource(active.id + "/data", Global.world)
+	_save_resource(active.id + "/" + DATA_FILE, Global.world)
 
 
-func load_resource(path: String, resource: JSONResource, after_backup: bool = false) -> void:
+func _load_resource(path: String, resource: JSONResource, after_backup: bool = false) -> void:
 	var full_path: String = SAVE_STATES_PATH + path
 	# open file
 	var file: FileAccess
@@ -84,7 +101,7 @@ func load_resource(path: String, resource: JSONResource, after_backup: bool = fa
 		print("opening file %s error with code %d" % [full_path, err])
 		if not after_backup:
 			_restore_backup(full_path)
-			load_resource(path, resource, true)
+			_load_resource(path, resource, true)
 		return
 
 	# load and parse file
@@ -97,7 +114,7 @@ func load_resource(path: String, resource: JSONResource, after_backup: bool = fa
 		print("parsing file %s error with code %d" % [full_path, result])
 		if not after_backup:
 			_restore_backup(full_path)
-			load_resource(path, resource, true)
+			_load_resource(path, resource, true)
 		return
 
 	# convert to json resource
@@ -106,7 +123,7 @@ func load_resource(path: String, resource: JSONResource, after_backup: bool = fa
 	resource.from_json(parsed_json)
 
 
-func save_resource(path: String, resource: JSONResource) -> void:
+func _save_resource(path: String, resource: JSONResource) -> void:
 	path = SAVE_STATES_PATH + path
 	print("saving %s..." % path)
 	

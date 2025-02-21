@@ -23,73 +23,73 @@ var active_color_type: ColorType
 
 
 func _ready() -> void:
-	font_size_spinbox.value = Global.theme_font_size
+	font_size_spinbox.value = Global.config.theme_font_size
 	font_size_spinbox.min_value = Const.FONT_SIZE_MIN
 	font_size_spinbox.max_value = Const.FONT_SIZE_MAX
 
 	for theme_name: String in ThemeUtil.get_theme_names():
 		theme_options.add_item(theme_name)
-	theme_options.selected = Global.theme_index
+	theme_options.selected = Global.config.theme_index
 
 	version_label.text = "v" + Global.version
 	
 	ui_sfx_volume.value = SoundUtil.get_bus_volume(SoundUtil.AudioBus.UI_SFX)
-	screen_fade_button.button_pressed = Global.scene_fade
+	screen_fade_button.button_pressed = Global.config.scene_fade
 
 
 func restore_defaults() -> void:
 	# font size
-	Global.theme_font_size = Const.FONT_SIZE_DEFAULT
-	font_size_spinbox.value = Global.theme_font_size
+	Global.config.theme_font_size = Const.FONT_SIZE_DEFAULT
+	font_size_spinbox.value = Global.config.theme_font_size
 	# theme
 	ThemeUtil.reset_to_default()
 	theme_options.selected = 0
 	#scale
-	Global.theme_scale = ThemeUtil.get_default_scale()
-	get_tree().root.content_scale_factor = Global.theme_scale
+	Global.config.theme_scale = ThemeUtil.get_default_scale()
+	get_tree().root.content_scale_factor = Global.config.theme_scale
 	# audio
 	SoundUtil.restore_default()
 	ui_sfx_volume.value = SoundUtil.get_bus_volume(SoundUtil.AudioBus.UI_SFX)
 	# scene fade
-	Global.scene_fade = true
+	Global.config.scene_fade = true
 	screen_fade_button.button_pressed = true
 
 
 func _on_theme_option_button_item_selected(index: int) -> void:
 	var theme_name: String = theme_options.get_item_text(index)
 	ThemeUtil.apply_theme(theme_name)
-	Global.theme_index = index
-	Global.save_config()
+	Global.config.theme_index = index
+	ResUtil.save_config()
 
 
 func _on_font_default_button_pressed() -> void:
-	Global.theme_font_size = Const.FONT_SIZE_DEFAULT
-	font_size_spinbox.value = Global.theme_font_size
+	Global.config.theme_font_size = Const.FONT_SIZE_DEFAULT
+	font_size_spinbox.value = Global.config.theme_font_size
 	ThemeUtil.reload_active_theme()
-	Global.save_config()
+	ResUtil.save_config()
 
 
 func _on_font_size_spin_box_value_changed(value: float) -> void:
-	Global.theme_font_size = int(value)
+	Global.config.theme_font_size = int(value)
 	ThemeUtil.reload_active_theme()
-	Global.save_config()
+	ResUtil.save_config()
 
 
 func _on_font_color_button_pressed() -> void:
 	active_color_type = ColorType.FONT
-	color_picker.color = Global.theme_custom_font_color
+	color_picker.color = Global.config.theme_custom_font_color
 	color_picker_popup.popup_centered()
 
 
 func _on_style_color_button_pressed() -> void:
 	active_color_type = ColorType.STYLE
-	color_picker.color = Global.theme_custom_style_color
+	color_picker.color = Global.config.theme_custom_style_color
 	color_picker_popup.popup_centered()
 
 
 func _on_background_color_button_pressed() -> void:
 	active_color_type = ColorType.BACKGROUND
-	color_picker.color = Global.theme_custom_background_color
+	color_picker.color = Global.config.theme_custom_background_color
 	color_picker_popup.popup_centered()
 
 
@@ -101,11 +101,11 @@ func _on_color_picker_color_changed(color: Color) -> void:
 	print(color)
 	match active_color_type:
 		ColorType.FONT:
-			Global.theme_custom_font_color = color
+			Global.config.theme_custom_font_color = color.to_html(true)
 		ColorType.STYLE:
-			Global.theme_custom_style_color = color
+			Global.config.theme_custom_style_color = color.to_html(true)
 		ColorType.BACKGROUND:
-			Global.theme_custom_background_color = color
+			Global.config.theme_custom_background_color = color.to_html(true)
 		_:
 			print("color type not defined")
 
@@ -115,25 +115,25 @@ func _on_color_picker_color_changed(color: Color) -> void:
 
 func _on_scale_1_pressed() -> void:
 	get_tree().root.content_scale_factor = Const.SCALE_1
-	Global.theme_scale = Const.SCALE_1
-	Global.save_config()
+	Global.config.theme_scale = Const.SCALE_1
+	ResUtil.save_config()
 
 
 func _on_scale_2_pressed() -> void:
 	get_tree().root.content_scale_factor = Const.SCALE_2
-	Global.theme_scale = Const.SCALE_2
-	Global.save_config()
+	Global.config.theme_scale = Const.SCALE_2
+	ResUtil.save_config()
 
 
 func _on_scale_3_pressed() -> void:
 	get_tree().root.content_scale_factor = Const.SCALE_3
-	Global.theme_scale = Const.SCALE_3
-	Global.save_config()
+	Global.config.theme_scale = Const.SCALE_3
+	ResUtil.save_config()
 
 
 func _on_screen_fade_button_toggled(toggled_on: bool) -> void:
-	Global.scene_fade = toggled_on
-	Global.save_config()
+	Global.config.scene_fade = toggled_on
+	ResUtil.save_config()
 
 
 func _on_ui_sfx_volume_slider_drag_ended(value_changed:bool) -> void:
@@ -141,5 +141,5 @@ func _on_ui_sfx_volume_slider_drag_ended(value_changed:bool) -> void:
 		SoundUtil.set_bus_volume(SoundUtil.AudioBus.UI_SFX, ui_sfx_volume.value)
 		SoundUtil.set_bus_mute(SoundUtil.AudioBus.UI_SFX, ui_sfx_volume.value == ui_sfx_volume.min_value)
 		SoundUtil.play_button_sfx()
-		Global.save_config()
+		ResUtil.save_config()
 

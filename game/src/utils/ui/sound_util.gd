@@ -20,8 +20,8 @@ func _ready() -> void:
 	# create audio buses
 	for bus_id: int in AudioBus.values():
 		# initialize global config, if not yet done
-		if not Global.audio.has(bus_id):
-			Global.audio[bus_id] = {
+		if not Global.config.audio.has(bus_id):
+			Global.config.audio[bus_id] = {
 				"mute": false,
 				"volume": DEFAULT_VOLUME,
 			}
@@ -29,8 +29,8 @@ func _ready() -> void:
 		var bus_name: String = AudioBus.keys()[bus_id]
 		AudioServer.add_bus(bus_id)
 		AudioServer.set_bus_name(bus_id, bus_name)
-		AudioServer.set_bus_mute(bus_id, Global.audio[bus_id].mute)
-		AudioServer.set_bus_volume_db(bus_id, Global.audio[bus_id].volume)
+		AudioServer.set_bus_mute(bus_id, Global.config.audio[bus_id].mute)
+		AudioServer.set_bus_volume_db(bus_id, Global.config.audio[bus_id].volume)
 	
 	# button press sfx
 	button_press = AudioStreamPlayer.new()
@@ -40,29 +40,29 @@ func _ready() -> void:
 
 
 func set_bus_volume(bus_id: AudioBus, volume: float) -> void:
-	Global.audio[bus_id].volume = volume
+	Global.config.audio[bus_id].volume = volume
 	AudioServer.set_bus_volume_db(bus_id, volume)
 	print(AudioServer.get_bus_volume_db(bus_id))
-	Global.save_config()
+	ResUtil.save_config()
 
 
 func get_bus_volume(bus_id: AudioBus) -> float:
-	return Global.audio[bus_id].volume
+	return Global.config.audio[bus_id].volume
 
 
 func set_bus_mute(bus_id: AudioBus, mute: bool) -> void:
-	Global.audio[bus_id].mute = mute
+	Global.config.audio[bus_id].mute = mute
 	AudioServer.set_bus_mute(bus_id, mute)
 	print("mute bus id: %d"%bus_id)
-	Global.save_config()
+	ResUtil.save_config()
 
 
 func get_bus_mute(bus_id: AudioBus) -> bool:
-	return Global.audio[bus_id].mute
+	return Global.config.audio[bus_id].mute
 
 
 func play_button_sfx() -> void:
-	if Global.audio[AudioBus.UI_SFX].mute:
+	if Global.config.audio[AudioBus.UI_SFX].mute:
 		return
 	button_press.play()
 
@@ -70,7 +70,7 @@ func play_button_sfx() -> void:
 func restore_default() -> void:
 	for bus_id: int in AudioBus.values():
 		# initialize global config, if not yet done
-		Global.audio[bus_id] = {
+		Global.config.audio[bus_id] = {
 			"mute": false,
 			"volume": DEFAULT_VOLUME,
 		}

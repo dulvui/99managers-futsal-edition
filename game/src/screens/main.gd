@@ -57,7 +57,7 @@ func hide_loading_screen() -> void:
 
 
 func check_layout_direction() -> void:
-	if Global.language == "apc":
+	if Global.config.language == "apc":
 		layout_direction = LAYOUT_DIRECTION_RTL
 	else:
 		layout_direction = LAYOUT_DIRECTION_INHERITED

@@ -164,7 +164,7 @@ func get_weekday_text(weekday: Weekdays, short: bool = false) -> String:
 
 
 func get_input_detection_type_text() -> String:
-	match Global.input_detection_mode:
+	match Global.config.input_detection_mode:
 		InputDetectionMode.AUTO:
 			return tr("Automatic")
 		InputDetectionMode.MANUAL:
@@ -174,7 +174,7 @@ func get_input_detection_type_text() -> String:
 
 
 func get_input_type_text() -> String:
-	match Global.input_type:
+	match Global.config.input_type:
 		InputType.MOUSE_AND_KEYBOARD:
 			return tr("Mouse and Keyboard")
 		InputType.JOYPAD:
