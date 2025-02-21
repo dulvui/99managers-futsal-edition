@@ -9,10 +9,11 @@ signal loading_failed
 const USER_PATH: StringName = "user://"
 const SAVE_STATES_DIR: StringName = "save_states/"
 const SAVE_STATES_PATH: StringName = "user://save_states/"
-const FILE_SUFFIX: StringName = ".save"
+const FILE_SUFFIX: StringName = ".json"
+const FILE_SUFFIX_COMPRESS: StringName = ".save"
 const BACKUP_SUFFIX: StringName = ".backup"
 const COMPRESSION_MODE: FileAccess.CompressionMode = FileAccess.CompressionMode.COMPRESSION_GZIP
-const COMPRESSION_ON: bool = false
+const COMPRESSION_ON: bool = true
 
 
 func load_save_states() -> SaveStates:
@@ -59,27 +60,31 @@ func save_save_state_data() -> void:
 	save_resource(active.id + "/data", Global.world)
 
 
-func load_resource(path: String, resource: JSONResource) -> void:
-	path = SAVE_STATES_PATH + path + FILE_SUFFIX
+func load_resource(path: String, resource: JSONResource, after_backup: bool = false) -> void:
+	var full_path: String = SAVE_STATES_PATH + path
 	# open file
 	var file: FileAccess
 	if COMPRESSION_ON:
+		full_path += FILE_SUFFIX_COMPRESS
 		file = FileAccess.open_compressed(
-			path,
+			full_path,
 			FileAccess.READ,
 			FileAccess.COMPRESSION_GZIP
 		)
 	else:
+		full_path += FILE_SUFFIX
 		file = FileAccess.open(
-			path,
+			full_path,
 			FileAccess.READ,
 		)
 	
 	# check errors
 	var err: int = FileAccess.get_open_error()
 	if err != OK:
-		print("opening file %s error with code %d" % [path, err])
-		loading_failed.emit()
+		print("opening file %s error with code %d" % [full_path, err])
+		if not after_backup:
+			_restore_backup(full_path)
+			load_resource(path, resource, true)
 		return
 
 	# load and parse file
@@ -89,8 +94,10 @@ func load_resource(path: String, resource: JSONResource) -> void:
 	
 	# check for parsing errors
 	if result != OK:
-		print("parsing file %s error with code %d" % [path, result])
-		loading_failed.emit()
+		print("parsing file %s error with code %d" % [full_path, result])
+		if not after_backup:
+			_restore_backup(full_path)
+			load_resource(path, resource, true)
 		return
 
 	# convert to json resource
@@ -100,7 +107,7 @@ func load_resource(path: String, resource: JSONResource) -> void:
 
 
 func save_resource(path: String, resource: JSONResource) -> void:
-	path = SAVE_STATES_PATH + path + FILE_SUFFIX
+	path = SAVE_STATES_PATH + path
 	print("saving %s..." % path)
 	
 	print("converting resurce...")
@@ -110,12 +117,14 @@ func save_resource(path: String, resource: JSONResource) -> void:
 	print("saving resource...")
 	var file: FileAccess
 	if COMPRESSION_ON:
+		path += FILE_SUFFIX_COMPRESS
 		file = FileAccess.open_compressed(
 			path,
 			FileAccess.WRITE,
 			COMPRESSION_MODE
 		)
 	else:
+		path += FILE_SUFFIX
 		file = FileAccess.open(
 			path,
 			FileAccess.WRITE,
@@ -138,7 +147,7 @@ func save_resource(path: String, resource: JSONResource) -> void:
 	print("saving %s done..." % path)
 
 
-func _create_backup(path: StringName) -> StringName:
+func _create_backup(path: StringName) -> void:
 	var backup_path: StringName = path + BACKUP_SUFFIX
 	print("creating backup for %s..." % backup_path)
 
@@ -148,15 +157,15 @@ func _create_backup(path: StringName) -> StringName:
 		print("creating backup for %s done." % path)
 	else:
 		print("creating backup for %s gone wrong." % path)
-	return path
 
 
-func _restore_backup(path: String) -> StringName:
+func _restore_backup(path: String) -> void:
 	# check first, if file exists
 	var file: FileAccess = FileAccess.open(path, FileAccess.READ)
 	if file == null:
 		print("backup file %s does not exist" % path)
-		return ""
+		loading_failed.emit()
+		return
 
 	print("restoring backup for %s..." % path)
 	var backup_path: StringName = path + BACKUP_SUFFIX
@@ -167,6 +176,7 @@ func _restore_backup(path: String) -> StringName:
 		print("restoring backup for %s done." % path)
 	else:
 		print("restoring backup for %s gone wrong." % path)
-	return backup_path
+		loading_failed.emit()
+		return
 
 
