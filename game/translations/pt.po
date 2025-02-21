@@ -277,21 +277,21 @@
 # res://src/global.gd
 # res://src/generators/generator.gd
 #
-# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
-#
+# João Ricardo de Mendonça Caruço <joaocaruco77@gmail.com>, 2025.
 msgid ""
 msgstr ""
 "Project-Id-Version: 99 Managers Futsal Edition\n"
 "POT-Creation-Date: \n"
-"PO-Revision-Date: 2025-02-12 13:52+0100\n"
-"Last-Translator: Simon Dalvai <info@simondalvai.org>\n"
-"Language-Team: Portuguese <https://hosted.weblate.org/projects/99-managers-futsal-edition/game/pt/>\n"
+"PO-Revision-Date: 2025-02-22 12:25+0000\n"
+"Last-Translator: João Ricardo de Mendonça Caruço <joaocaruco77@gmail.com>\n"
+"Language-Team: Portuguese <https://hosted.weblate.org/projects/"
+"99-managers-futsal-edition/game/pt/>\n"
 "Language: pt\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n > 1;\n"
-"X-Generator: Poedit 3.2.2\n"
+"X-Generator: Weblate 5.10.1-dev\n"
 
 #: src/ui_components/team_profile/team_profile.tscn src/ui_components/info/info.tscn
 #: src/ui_components/player_profile/player_profile.tscn src/screens/dashboard/dashboard.tscn
@@ -329,7 +329,7 @@ msgstr "Ano"
 
 #: src/ui_components/player_list/player_list.gd
 msgid "All Teams"
-msgstr ""
+msgstr "Todas as equipas"
 
 #: src/ui_components/player_list/player_list.gd
 msgid "All positions"
@@ -337,7 +337,7 @@ msgstr "Todas as posições"
 
 #: src/ui_components/player_list/player_list.gd
 msgid "All Leagues"
-msgstr ""
+msgstr "Todas as Ligas"
 
 #: src/ui_components/player_list/player_list_column/player_list_column.tscn
 #: src/ui_components/player_profile/info_view/info_view.tscn src/screens/setup/setup_manager/setup_manager.tscn
@@ -358,7 +358,7 @@ msgstr "Data inicial"
 
 #: src/ui_components/base/confirm_dialog/default_confirm_dialog.gd
 msgid "Ok"
-msgstr ""
+msgstr "Ok"
 
 #: src/ui_components/base/confirm_dialog/default_confirm_dialog.tscn
 #: src/ui_components/transfers/player_offer/player_offer.tscn
@@ -389,7 +389,7 @@ msgstr "Despesas"
 
 #: src/ui_components/visual_finances/visual_finances.tscn
 msgid "Reamaining salary budget"
-msgstr ""
+msgstr "Restante orçamento salarial"
 
 #: src/ui_components/visual_finances/visual_finances.tscn
 #: src/ui_components/transfers/contract_offer/contract_offer.tscn
@@ -416,7 +416,7 @@ msgstr "Empate"
 
 #: src/ui_components/visual_competitions/visual_table/visual_table.tscn
 msgid "Lost"
-msgstr ""
+msgstr "Perdido"
 
 #: src/ui_components/visual_competitions/visual_table/visual_table.tscn
 msgid "Goals"
@@ -436,23 +436,23 @@ msgstr "Eliminação da região"
 
 #: src/ui_components/visual_competitions/visual_knockout/visual_knockout.tscn
 msgid "Group A"
-msgstr ""
+msgstr "Grupo A"
 
 #: src/ui_components/visual_competitions/visual_knockout/visual_knockout.tscn
 msgid "Final"
-msgstr ""
+msgstr "Final"
 
 #: src/ui_components/visual_competitions/visual_knockout/visual_knockout.tscn
 msgid "Group B"
-msgstr ""
+msgstr "Grupo B"
 
 #: src/ui_components/visual_competitions/visual_knockout/visual_knockout.tscn
 msgid "Winner A vs Winner B"
-msgstr ""
+msgstr "Vencedor A vs Vencedor B"
 
 #: src/ui_components/visual_competitions/visual_competitions.tscn
 msgid "League"
-msgstr ""
+msgstr "Liga"
 
 #: src/ui_components/visual_competitions/visual_competitions.gd
 msgid "Group"
@@ -472,7 +472,7 @@ msgstr "Data"
 
 #: src/ui_components/transfers/player_offer/player_offer.tscn
 msgid "Player list"
-msgstr ""
+msgstr "Lista de jogadores"
 
 #: src/ui_components/transfers/player_offer/player_offer.tscn
 #: src/ui_components/transfers/contract_offer/contract_offer.tscn
@@ -493,7 +493,7 @@ msgstr "Contrato"
 
 #: src/ui_components/transfers/contract_offer/contract_offer.tscn
 msgid "Buy clause"
-msgstr ""
+msgstr "Cláusula de compra"
 
 #: src/ui_components/visual_formation/visual_formation.gd
 msgid "Subs"
@@ -514,7 +514,7 @@ msgstr "Mudar estratégia"
 
 #: src/ui_components/visual_formation/visual_formation.tscn
 msgid "Tactic offense"
-msgstr ""
+msgstr "Tática ofensiva"
 
 #: src/ui_components/visual_formation/visual_formation.tscn
 msgid "Intensity"
@@ -542,11 +542,11 @@ msgstr "Estrela"
 
 #: src/ui_components/email/list/message_list.gd
 msgid "No message found"
-msgstr ""
+msgstr "Nenhuma mensagem"
 
 #: src/ui_components/email/list/message_row/message_row.gd
 msgid "Click to read message"
-msgstr ""
+msgstr "Clica para ler"
 
 #: src/ui_components/email/email.tscn
 msgid "Unread"
@@ -566,7 +566,7 @@ msgstr "Ação"
 
 #: src/ui_components/email/visual_message/visual_message.gd
 msgid "Offer contract"
-msgstr ""
+msgstr "Oferecer contrato"
 
 #: src/ui_components/player_profile/player_profile.tscn
 msgid "Statistics"
@@ -582,7 +582,7 @@ msgstr "Posição"
 
 #: src/ui_components/player_profile/info_view/info_view.tscn
 msgid "Alternative position"
-msgstr ""
+msgstr "Posição alternativa"
 
 #: src/ui_components/player_profile/info_view/info_view.tscn
 msgid "Age"
@@ -590,7 +590,7 @@ msgstr "Idade"
 
 #: src/ui_components/player_profile/info_view/info_view.tscn
 msgid "Foot"
-msgstr "A pé"
+msgstr "Pé"
 
 #: src/ui_components/player_profile/info_view/info_view.tscn src/screens/setup/setup_manager/setup_manager.tscn
 msgid "Nationality"
@@ -598,11 +598,11 @@ msgstr "Nacionalidade"
 
 #: src/ui_components/player_profile/info_view/info_view.tscn
 msgid "Number"
-msgstr ""
+msgstr "Número"
 
 #: src/ui_components/player_profile/info_view/info_view.tscn
 msgid "Average attributes"
-msgstr ""
+msgstr "Média dos atributos"
 
 #: src/ui_components/player_profile/info_view/info_view.tscn
 msgid "Value"
@@ -669,15 +669,15 @@ msgstr "Domingo"
 
 #: src/utils/logic/email_util.gd
 msgid "Next match: {team_name}"
-msgstr ""
+msgstr "Próximo encontro"
 
 #: src/utils/logic/email_util.gd
 msgid "The next match is against {team_name}."
-msgstr ""
+msgstr "Próximo encontro é contra"
 
 #: src/utils/logic/email_util.gd
 msgid "Welcome {manager_name}"
-msgstr ""
+msgstr "Bem-vindo"
 
 #: src/utils/logic/email_util.gd
 msgid "{team_name} welcomes you to a new journey."
