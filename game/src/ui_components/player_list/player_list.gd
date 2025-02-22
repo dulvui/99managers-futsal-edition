@@ -75,7 +75,7 @@ func _ready() -> void:
 	active_view = Views.GENERAL
 	
 	# page size scale
-	match Global.theme_scale:
+	match Global.config.theme_scale:
 		Const.SCALE_1:
 			page_size = PAGE_SIZE_1
 		Const.SCALE_2:
