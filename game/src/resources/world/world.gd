@@ -88,10 +88,14 @@ func get_team_by_id(team_id: int, league_id: int = -1) -> Team:
 				if team.id == team_id:
 					return team
 
-	for league: League in get_all_leagues():
-		for team: Team in league.teams:
-			if team.id == team_id:
-				return team
+	for continent: Continent in continents:
+		for nation in continent.nations:
+			if nation.team.id == team_id:
+				return nation.team
+			for league: League in nation.leagues:
+				for team: Team in league.teams:
+					if team.id == team_id:
+						return team
 	printerr("no team with id " + str(team_id))
 	return null
 
