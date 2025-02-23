@@ -23,7 +23,6 @@ func _init(
 
 
 func new_temp_state() -> void:
-	_create_dir()
 	var temp_id: String = RngUtil.uuid()
 	temp_state = SaveState.new()
 	temp_state.id = temp_id
@@ -96,9 +95,3 @@ func scan() -> void:
 				id_list.append(file)
 
 
-func _create_dir() -> void:
-	# create save states directory, if not exist yet
-	var user_dir: DirAccess = DirAccess.open(ResUtil.USER_PATH)
-	if not user_dir.dir_exists(ResUtil.SAVE_STATES_DIR):
-		print("dir %s not found, creating now..." % ResUtil.SAVE_STATES_PATH)
-		user_dir.make_dir(ResUtil.SAVE_STATES_DIR)

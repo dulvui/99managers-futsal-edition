@@ -131,6 +131,13 @@ func _save_resource(path: String, resource: JSONResource) -> void:
 	var json: Dictionary = resource.to_json()
 	print("converting resource done.")
 
+	# create directory, if not exist yet
+	var dir_path: String = path.get_base_dir()
+	var dir: DirAccess = DirAccess.open(USER_PATH)
+	if not dir.dir_exists(dir_path):
+		print("dir %s not found, creating now..." % dir_path)
+		dir.make_dir_recursive(dir_path)
+
 	print("saving resource...")
 	var file: FileAccess
 	if COMPRESSION_ON:

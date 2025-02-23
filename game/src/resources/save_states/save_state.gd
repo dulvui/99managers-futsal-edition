@@ -64,7 +64,6 @@ func _init(
 
 
 func initialize() -> void:
-	_create_dir()
 	# save static metadata
 	meta_team_name = Global.team.name
 	meta_manager_name = Global.manager.get_full_name()
@@ -85,14 +84,5 @@ func delete() -> void:
 				user_dir.remove(id + "/")
 			else:
 				OS.move_to_trash(ProjectSettings.globalize_path(ResUtil.SAVE_STATES_PATH + id + "/"))
-
-
-func _create_dir() -> void:
-	# create id directory, if not exist yet
-	var save_state_dir: DirAccess = DirAccess.open(ResUtil.SAVE_STATES_PATH)
-	if save_state_dir and not save_state_dir.dir_exists(id):
-		var err: int = save_state_dir.make_dir(id)
-		if err != OK:
-			print("error while creating save state dir")
 
 
