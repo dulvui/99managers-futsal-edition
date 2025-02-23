@@ -30,10 +30,6 @@ func _init(
 	inbox = p_inbox
 
 
-func initialize() -> void:
-	calendar.initialize()
-
-
 func random_results() -> void:
 	var match_engine: MatchEngine = MatchEngine.new()
 	var matches: Array = Global.world.calendar.day().get_matches()

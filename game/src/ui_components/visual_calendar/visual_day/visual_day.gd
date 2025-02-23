@@ -23,13 +23,13 @@ func setup(p_date: Day = Day.new(), matchz: Match = null) -> void:
 	month_day_label.text = tr(str(date.day))
 
 	if matchz != null:
-		if Global.team.id == matchz.home_id:
+		if Global.team.id == matchz.home.id:
 			competition_name.text = matchz.competition_name
-			team_name_label.text = "%s - %s"%[matchz.away_name, tr("Home")]
+			team_name_label.text = "%s - %s"%[matchz.away.name, tr("Home")]
 			competition.show()
-		elif Global.team.id == matchz.away_id:
+		elif Global.team.id == matchz.away.id:
 			competition_name.text = matchz.competition_name
-			team_name_label.text = "%s - %s"%[matchz.home_name, tr("Away")]
+			team_name_label.text = "%s - %s"%[matchz.home.name, tr("Away")]
 			competition.show()
 	else:
 		competition.hide()

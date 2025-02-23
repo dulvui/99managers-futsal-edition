@@ -84,7 +84,7 @@ static func create_mock_world(use_test_file: bool) -> World:
 		return generator.generate_world(true)
 	
 	var world: World =  World.new()
-	world.initialize()
+	world.calendar.initialize()
 
 	for c: int in range(2):
 		var continent: Continent = Continent.new()
@@ -109,6 +109,7 @@ static func create_mock_league(nr: int = randi_range(0, 99), teams: int = 10) ->
 
 	for i: int in range(teams):
 		var team: Team = create_mock_team(i)
+		team.set_id()
 		league.add_team(team)
 
 	return league

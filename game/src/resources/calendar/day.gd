@@ -32,12 +32,11 @@ func _init(
 
 func add_matches(p_matches: Array) -> void:
 	matches.append_array(p_matches)
-	print(matches.size())
 
 
 func get_active_match() -> Match:
 	for matchz: Match in matches:
-		if Global.team.id in [matchz.home_id, matchz.away_id]:
+		if Global.team.id in [matchz.home.id, matchz.away.id]:
 			return matchz
 	return null
 

@@ -51,9 +51,10 @@ var date: Dictionary
 var max_timestamp: int
 var min_timestamp: int
 
+
 func generate_world(use_test_file: bool = false) -> World:
 	var world: World = World.new()
-	world.initialize()
+	world.calendar.initialize()
 	
 	var world_csv: String = WORLD_CSV_PATH
 	if use_test_file:

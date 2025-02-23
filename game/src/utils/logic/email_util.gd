@@ -28,10 +28,10 @@ func next_match(p_match: Match) -> void:
 	var subject: String = tr("Next match: {team_name}") # TRANSLATORS: {team_name} gets dynamically filled
 	var text: String = tr("The next match is against {team_name}.") # TRANSLATORS: {team_name} gets dynamically filled
 
-	var team_id: int = p_match.home_id
+	var team_id: int = p_match.home.id
 
 	if team_id == Global.team.id:
-		team_id = p_match.away_id
+		team_id = p_match.away.id
 	
 	var team: Team = Global.world.get_team_by_id(team_id, p_match.competition_id)
 	if team == null:

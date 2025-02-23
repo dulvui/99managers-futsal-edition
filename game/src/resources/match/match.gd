@@ -6,10 +6,8 @@ class_name Match
 extends JSONResource
 
 @export var id: int
-@export var home_id: int
-@export var away_id: int
-@export var home_name: String
-@export var away_name: String
+@export var home: TeamBasic
+@export var away: TeamBasic
 @export var over: bool
 @export var home_goals: int
 @export var away_goals: int
@@ -24,10 +22,8 @@ extends JSONResource
 
 func _init(
 	p_id: int = -1,
-	p_home_id: int = -1,
-	p_away_id: int = -1,
-	p_home_name: String = "",
-	p_away_name: String = "",
+	p_home: TeamBasic = null,
+	p_away: TeamBasic = null,
 	p_over: bool = false,
 	p_competition_id: int = -1,
 	p_competition_name: String = "",
@@ -39,10 +35,8 @@ func _init(
 	p_first_leg: Match = null,
 ) -> void:
 	id = p_id
-	home_id = p_home_id
-	away_id = p_away_id
-	home_name = p_home_name
-	away_name = p_away_name
+	home = p_home
+	away = p_away
 	over = p_over
 	competition_id = p_competition_id
 	competition_name = p_competition_name
@@ -55,25 +49,23 @@ func _init(
 
 
 func setup(
-	p_home_id: int,
-	p_away_id: int,
+	p_home_team: TeamBasic,
+	p_away_team: TeamBasic,
 	p_competition_id: int,
 	p_competition_name: String,
 	p_first_leg: Match = null
 ) -> void:
-	home_id = p_home_id
-	away_id = p_away_id
+	home = p_home_team
+	away = p_away_team
 	competition_id = p_competition_id
 	competition_name = p_competition_name
 	first_leg = p_first_leg
 
-	if Global.world:
-		var home_team: Team = Global.world.get_team_by_id(home_id, competition_id)
-		var away_team: Team = Global.world.get_team_by_id(away_id, competition_id)
-		if home_team != null:
-			home_name = home_team.name
-		if away_team != null:
-			away_name = away_team.name
+	# make sure teams are basic
+	if home is Team:
+		home = (home as Team).get_basic()
+	if away is Team:
+		away = (away as Team).get_basic()
 
 	id = IdUtil.next_id(IdUtil.Types.MATCH)
 
@@ -99,11 +91,11 @@ func set_result(
 
 		if competition is League:
 			var league: League = (competition as League)
-			league.table().add_result(home_id, away_id, home_goals, away_goals)
+			league.table().add_result(home.id, away.id, home_goals, away_goals)
 		elif competition is Cup:
 			var cup: Cup = (competition as Cup)
 			cup.add_result(
-				home_id, away_id, home_goals, away_goals, home_penalties_goals, away_penalties_goals
+				home.id, away.id, home_goals, away_goals, home_penalties_goals, away_penalties_goals
 			)
 		else:
 			print("error competition with no valid type; id: " + str(competition_id))
@@ -117,3 +109,15 @@ func get_result() -> String:
 	
 	# with penalties
 	return "%d(%d) : (%d)%d" % [home_goals, home_penalties_goals, away_penalties_goals, away_goals]
+
+
+func inverted(is_second_match: bool = false) -> Match:
+	var inverted_match: Match = Match.new()
+	inverted_match.setup(away, home, competition_id, competition_name)
+	
+	if is_second_match:
+		first_leg = self
+	
+	return inverted_match
+
+

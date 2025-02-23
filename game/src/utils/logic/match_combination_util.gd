@@ -42,14 +42,19 @@ func create_combinations(competition: Competition, p_teams: Array[Team]) -> Arra
 		if home:
 			match_one = Match.new()
 			match_one.setup(
-				last_team.id,
-				random_teams[0].id,
+				last_team,
+				random_teams[0],
 				competition.id,
 				competition.name
 			)
 		else:
 			match_one = Match.new()
-			match_one.setup(random_teams[0].id, last_team.id, competition.id, competition.name)
+			match_one.setup(
+				random_teams[0],
+				last_team,
+				competition.id,
+				competition.name
+			)
 		current_match_day.append(match_one)
 
 		var copy: Array[Team] = random_teams.duplicate(true)
@@ -62,24 +67,23 @@ func create_combinations(competition: Competition, p_teams: Array[Team]) -> Arra
 			var match_two: Match
 			if home:
 				match_two = Match.new()
-				match_two.setup(copy[home_index].id, copy[away_index].id, competition.id, competition.name)
+				match_two.setup(copy[home_index], copy[away_index], competition.id, competition.name)
 			else:
 				match_two = Match.new()
-				match_two.setup(copy[away_index].id, copy[home_index].id, competition.id, competition.name)
+				match_two.setup(copy[away_index], copy[home_index], competition.id, competition.name)
 			current_match_day.append(match_two)
 
 		match_days.append(current_match_day)
 		_shift_array(random_teams)
 		home = not home
 
-	# second round
+	# second round, by simply switching home/away
 	var temp_match_days: Array[Array] = []
-	for match_dayz: Array[Match] in match_days:
+	for matches: Array[Match] in match_days:
 		var current_match_dayz: Array = []
-		for match_dayss: Match in match_dayz:
-			var matchzz: Match = Match.new()
-			matchzz.setup(match_dayss.away_id, match_dayss.home_id, competition.id, competition.name)
-			current_match_dayz.append(matchzz)
+		for match_first: Match in matches:
+			var match_second: Match = match_first.inverted()
+			current_match_dayz.append(match_second)
 		temp_match_days.append(current_match_dayz)
 
 	for temp: Array in temp_match_days:

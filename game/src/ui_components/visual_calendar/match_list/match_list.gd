@@ -70,6 +70,7 @@ func setup(day: Day, competition: Competition = Global.league) -> void:
 func _add_matches(day: Day, competition: Competition) -> void:
 	# get matches by competition
 	var matches: Array = Global.world.calendar.day(day.month, day.day).get_matches(competition.id)
+	print(matches.size())
 	# add to list
 	if matches.size() > 0:
 		all_matches.append_array(matches)
