@@ -55,3 +55,5 @@ func update_stats(home_stats: MatchStatistics, away_stats: MatchStatistics) -> v
 			if "possess" in statistic:
 				value += " %"
 			away_labels[statistic].text = value
+
+

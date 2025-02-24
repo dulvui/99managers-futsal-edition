@@ -131,7 +131,6 @@
 # res://src/utils/id_util.gd
 # res://src/utils/loading_util.gd
 # res://src/utils/thread_util.gd
-# res://src/utils/backup_util.gd
 # res://src/utils/logic/rng_util.gd
 # res://src/utils/logic/transfer_util.gd
 # res://src/utils/logic/email_util.gd
@@ -178,14 +177,6 @@
 # res://src/screens/save_states_screen/save_state_entry/save_state_entry.tscn
 # res://src/screens/dashboard/dashboard.gd
 # res://src/screens/dashboard/dashboard.tscn
-# res://src/screens/match/match.gd
-# res://src/screens/match/penalties_bar/penalties_bar.tscn
-# res://src/screens/match/penalties_bar/penalties_bar.gd
-# res://src/screens/match/events/match_events.tscn
-# res://src/screens/match/events/match_events.gd
-# res://src/screens/match/statistics/match_stats.gd
-# res://src/screens/match/statistics/match_stats.tscn
-# res://src/screens/match/match.tscn
 # res://src/screens/loading_screen/loading_screen.tscn
 # res://src/screens/loading_screen/loading_screen.gd
 # res://src/screens/main.tscn
@@ -658,7 +649,7 @@ msgid ""
 msgstr ""
 
 #: src/utils/logic/email_util.gd
-msgid "Offer for {player name} declined"
+msgid "Offer for {player_name} declined"
 msgstr ""
 
 #: src/utils/logic/email_util.gd

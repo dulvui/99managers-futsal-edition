@@ -85,7 +85,7 @@ func transfer_message(transfer: Transfer) -> void:
 			)
 		Transfer.State.OFFER_DECLINED:
 			# TRANSLATORS: {player_name} gets dynamically filled
-			subject = tr("Offer for {player name} declined")
+			subject = tr("Offer for {player_name} declined")
 			# TRANSLATORS: {player_name}, {team_name} get dynamically filled
 			text = tr("Your offer for {player_name} from {team_name} at {cost} has been declined.\nIncreasing the transfer value could make them reconsider."
 			)
