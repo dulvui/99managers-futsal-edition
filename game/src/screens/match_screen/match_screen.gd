@@ -69,8 +69,8 @@ func _ready() -> void:
 
 	if Global.world:
 		matchz = Global.world.calendar.get_next_match()
-		home_team = Global.world.get_team_by_id(matchz.home_id, matchz.competition_id)
-		away_team = Global.world.get_team_by_id(matchz.away_id, matchz.competition_id)
+		home_team = Global.world.get_team_by_id(matchz.home.id, matchz.competition_id)
+		away_team = Global.world.get_team_by_id(matchz.away.id, matchz.competition_id)
 	elif Tests.is_run_as_current_scene(self):
 		matchz = Match.new()
 		# games needs to be started at least once with a valid save state

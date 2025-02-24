@@ -23,8 +23,6 @@ var generation_seed: String = DEFAULT_SEED
 func _ready() -> void:
 	InputUtil.start_focus(self)
 	
-	Global.save_states.new_temp_state()
-
 	for player_name: String in Enum.PlayerNames:
 		player_names_option.add_item(player_name)
 
@@ -36,9 +34,11 @@ func _ready() -> void:
 	if Global.manager:
 		manager_name.text = Global.manager.name
 		manager_surname.text = Global.manager.surname
+	
+	var nation_names: NationNames = NationNames.new()
 
-	for nation: Nation in Global.world.get_all_nations():
-		nations.add_item(nation.name)
+	for nation: String in nation_names.get_all_nations():
+		nations.add_item(nation)
 
 	continue_button.disabled = manager_name.text.length() * manager_surname.text.length() == 0
 
@@ -66,7 +66,7 @@ func _on_continue_pressed() -> void:
 	var manager: Manager = Manager.new()
 	manager.name = manager_name.text
 	manager.surname = manager_surname.text
-	manager.nation = Global.world.get_all_nations()[nations.selected].name
+	manager.nation = nations.get_item_text(nations.selected)
 	Global.manager = manager
 
 	# setup generation

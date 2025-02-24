@@ -26,6 +26,7 @@ func _ready() -> void:
 	else:
 		InputUtil.start_focus(continue_game)
 
+
 	save_state.setup(Global.save_states.get_active())
 	
 	Main.check_layout_direction()

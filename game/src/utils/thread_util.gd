@@ -67,6 +67,7 @@ func _load_data() -> void:
 func _generate_players() -> void:
 	print("generating world in thread...")
 	var generator: Generator = Generator.new()
+	Global.world = generator.generate_world()
 	generator.generate_players()
 	call_deferred("_loading_done")
 

@@ -7,9 +7,6 @@ extends Control
 
 
 func _ready() -> void:
-	var generator: Generator = Generator.new()
-	Global.world = generator.generate_world()
-
 	if Global.config.language:
 		Main.change_scene(Const.SCREEN_MENU)
 	else:

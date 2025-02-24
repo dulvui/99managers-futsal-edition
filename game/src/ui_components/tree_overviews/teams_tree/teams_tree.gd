@@ -34,7 +34,7 @@ func select(team_name: String) -> void:
 
 
 func _initialize_tree(search_string: String = "") -> void:
-	tree.clear()	
+	tree.clear()
 	teams = {}
 	items = []
 
@@ -112,3 +112,5 @@ func _on_select() -> void:
 	if teams.has(selected_name):
 		team_selected.emit(teams[selected_name])
 		SoundUtil.play_button_sfx()
+
+

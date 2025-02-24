@@ -19,7 +19,7 @@ func next_id(type: Types) -> int:
 	var state: SaveState = Global.save_states.get_active()
 
 	var type_key: String = Types.keys()[type]
-	if type_key not in state.id_by_type:
+	if not state.id_by_type.has(type_key):
 		state.id_by_type[type_key] = 0
 	state.id_by_type[type_key] += 1
 	return state.id_by_type[type_key]

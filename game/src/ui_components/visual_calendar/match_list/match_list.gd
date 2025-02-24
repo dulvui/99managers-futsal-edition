@@ -70,7 +70,6 @@ func setup(day: Day, competition: Competition = Global.league) -> void:
 func _add_matches(day: Day, competition: Competition) -> void:
 	# get matches by competition
 	var matches: Array = Global.world.calendar.day(day.month, day.day).get_matches(competition.id)
-	print(matches.size())
 	# add to list
 	if matches.size() > 0:
 		all_matches.append_array(matches)
@@ -81,9 +80,10 @@ func _add_matches(day: Day, competition: Competition) -> void:
 			competition_label.text += " - %s"%(competition as League).nation_name
 		ThemeUtil.bold(competition_label)
 		matches_list.add_child(competition_label)
-		for matchz: Match in matches:
-			var match_row: MatchInfo = MatchInfoScene.instantiate()
-			matches_list.add_child(match_row)
-			match_row.setup(matchz)
+
+		# for matchz: Match in matches:
+		# 	var match_row: MatchInfo = MatchInfoScene.instantiate()
+		# 	matches_list.add_child(match_row)
+		# 	match_row.setup(matchz)
 
 		matches_list.add_child(HSeparator.new())

@@ -16,7 +16,7 @@ func _ready() -> void:
 
 	teams_tree.setup()
 	
-	var first_league: League = Global.world.get_all_leagues()[0]
+	var first_league: League = Global.world.get_all_leagues(true)[0]
 	active_team = first_league.teams[0]
 	team_profile.setup(active_team)
 

@@ -111,12 +111,12 @@ func get_result() -> String:
 	return "%d(%d) : (%d)%d" % [home_goals, home_penalties_goals, away_penalties_goals, away_goals]
 
 
-func inverted(is_second_match: bool = false) -> Match:
+func inverted(is_second_leg: bool = false) -> Match:
 	var inverted_match: Match = Match.new()
 	inverted_match.setup(away, home, competition_id, competition_name)
 	
-	if is_second_match:
-		first_leg = self
+	if is_second_leg:
+		inverted_match.first_leg = self
 	
 	return inverted_match
 

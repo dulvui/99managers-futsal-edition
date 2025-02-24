@@ -39,12 +39,15 @@ func get_active() -> SaveState:
 			print("error while loading save state with id %s, removing it" % active_id)
 			id_list.erase(active_id)
 			active_id = ""
+		else:
+			return active
 
 	# create new temp state, if not created yet
 	# useful when running specific scene
 	# on clean game data with non-existent save state
 	if not temp_state:
 		print("create temp")
+		breakpoint
 		new_temp_state()
 	return temp_state
 

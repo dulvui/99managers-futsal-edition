@@ -215,3 +215,15 @@ var vietnam: String = tr("Vietnam")
 var yemen: String = tr("Yemen")
 
 
+func get_all_nations() -> Array[String]:
+	var nations: Array[String] = []
+
+	var property_list: Array[Dictionary] = get_property_list()
+	for property: Dictionary in property_list:
+		if property.usage == 4096:
+			var value: String = get(property.name)
+			nations.append(value)
+
+	
+	return nations
+
