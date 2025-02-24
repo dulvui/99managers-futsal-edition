@@ -59,6 +59,11 @@ func from_json(dict: Dictionary) -> void:
 
 	for key: String in dict.keys():
 		var property: Variant = get(key)
+		
+		# cover edge case if firt leg of match.gd
+		# first leg is null in init, so manual initialization is needed
+		if key == "first_leg":
+			property = Match.new()
 
 		if property == null:
 			continue
