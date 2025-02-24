@@ -30,54 +30,53 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="Main" type="VBoxContainer" parent="."]
+[node name="MarginContainer" type="MarginContainer" parent="."]
 layout_mode = 1
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -366.0
-offset_top = -379.5
-offset_right = 366.0
-offset_bottom = 379.5
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+
+[node name="Main" type="VBoxContainer" parent="MarginContainer"]
+layout_mode = 2
 alignment = 1
 
-[node name="TabContainer" type="TabContainer" parent="Main"]
+[node name="TabContainer" type="TabContainer" parent="MarginContainer/Main"]
+custom_minimum_size = Vector2(800, 0)
 layout_mode = 2
+size_flags_horizontal = 4
 size_flags_vertical = 3
 current_tab = 0
 script = ExtResource("2_pcf3o")
 
-[node name="General" parent="Main/TabContainer" instance=ExtResource("2_rfuel")]
+[node name="General" parent="MarginContainer/Main/TabContainer" instance=ExtResource("2_rfuel")]
 unique_name_in_owner = true
 layout_mode = 2
 metadata/_tab_index = 0
 
-[node name="Input" parent="Main/TabContainer" instance=ExtResource("3_i3rqu")]
+[node name="Input" parent="MarginContainer/Main/TabContainer" instance=ExtResource("3_i3rqu")]
 unique_name_in_owner = true
 visible = false
 layout_mode = 2
 metadata/_tab_index = 1
 
-[node name="Contributors" parent="Main/TabContainer" instance=ExtResource("6_sxb32")]
+[node name="Contributors" parent="MarginContainer/Main/TabContainer" instance=ExtResource("6_sxb32")]
 visible = false
 layout_mode = 2
 metadata/_tab_index = 2
 
-[node name="Licenses" parent="Main/TabContainer" instance=ExtResource("5_2r602")]
+[node name="Licenses" parent="MarginContainer/Main/TabContainer" instance=ExtResource("5_2r602")]
 visible = false
 layout_mode = 2
 metadata/_tab_index = 3
 
-[node name="Buttons" type="HBoxContainer" parent="Main"]
+[node name="Buttons" type="HBoxContainer" parent="MarginContainer/Main"]
 layout_mode = 2
 theme_override_constants/separation = 15
 alignment = 1
 
-[node name="Defaults" type="Button" parent="Main/Buttons"]
+[node name="Defaults" type="Button" parent="MarginContainer/Main/Buttons"]
 custom_minimum_size = Vector2(180, 0)
 layout_mode = 2
 size_flags_horizontal = 4
@@ -85,7 +84,7 @@ size_flags_vertical = 4
 text = "Default settings"
 script = ExtResource("5_mtybe")
 
-[node name="Back" type="Button" parent="Main/Buttons"]
+[node name="Back" type="Button" parent="MarginContainer/Main/Buttons"]
 custom_minimum_size = Vector2(180, 0)
 layout_mode = 2
 size_flags_horizontal = 4
@@ -98,6 +97,6 @@ joypad_button_event = SubResource("InputEventJoypadButton_nppw4")
 unique_name_in_owner = true
 custom_text = "You can fix errors or add new languages easily on Weblate, just click on the link below."
 
-[connection signal="pressed" from="Main/Buttons/Defaults" to="." method="_on_defaults_pressed"]
-[connection signal="pressed" from="Main/Buttons/Back" to="." method="_on_back_pressed"]
+[connection signal="pressed" from="MarginContainer/Main/Buttons/Defaults" to="." method="_on_defaults_pressed"]
+[connection signal="pressed" from="MarginContainer/Main/Buttons/Back" to="." method="_on_back_pressed"]
 [connection signal="confirmed" from="DefaultDialog" to="." method="_on_default_dialog_confirmed"]
