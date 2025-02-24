@@ -212,14 +212,18 @@ func get_all_leagues(competitive: bool = false) -> Array[League]:
 func get_all_cups() -> Array[Cup]:
 	var cups: Array[Cup] = []
 	# world
-	cups.append(world_cup)
+	if world_cup.is_active():
+		cups.append(world_cup)
 	# continent
 	for contient: Continent in continents:
-		cups.append(contient.cup_clubs)
-		cups.append(contient.cup_nations)
+		if contient.cup_clubs.is_active():
+			cups.append(contient.cup_clubs)
+		if contient.cup_nations.is_active():
+			cups.append(contient.cup_nations)
 		# nations
 		for nation: Nation in contient.nations:
-			cups.append(nation.cup)
+			if nation.cup.is_active():
+				cups.append(nation.cup)
 	return cups
 
 

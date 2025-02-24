@@ -5,9 +5,7 @@
 class_name VisualMatchList
 extends Control
 
-const MatchInfoScene: PackedScene = preload(
-	"res://src/ui_components/visual_calendar/match_list/match_info/match_info.tscn"
-	)
+const MatchInfoScene: PackedScene = preload(Const.SCENE_MATCH_INFO)
 
 var all_matches: Array[Match]
 
@@ -81,9 +79,11 @@ func _add_matches(day: Day, competition: Competition) -> void:
 		ThemeUtil.bold(competition_label)
 		matches_list.add_child(competition_label)
 
-		# for matchz: Match in matches:
-		# 	var match_row: MatchInfo = MatchInfoScene.instantiate()
-		# 	matches_list.add_child(match_row)
-		# 	match_row.setup(matchz)
+		for matchz: Match in matches:
+			var match_row: MatchInfo = MatchInfoScene.instantiate()
+			matches_list.add_child(match_row)
+			match_row.setup(matchz)
 
 		matches_list.add_child(HSeparator.new())
+
+
