@@ -91,10 +91,7 @@ func generate_players(world: World = Global.world) -> void:
 	# create date ranges
 	# starts from current year and subtracts min/max years
 	# youngest player can be 15 and oldest 45
-	if Global.save_states and Global.save_states.temp_state:
-		date = Global.save_states.temp_state.start_date
-	else:
-		date = Time.get_date_dict_from_system()
+	date = Global.start_date
 	var max_date: Dictionary = date.duplicate()
 	max_date.month = 1
 	max_date.day = 1

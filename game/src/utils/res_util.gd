@@ -62,6 +62,7 @@ func save_save_state() -> void:
 
 func load_save_state_data() -> void:
 	var active: SaveState = Global.save_states.get_active()
+	IdUtil.id_by_type = active.id_by_type
 	Global.world = World.new()
 	_load_resource(active.id + "/" + DATA_FILE, Global.world)
 
@@ -74,6 +75,7 @@ func load_save_state_data() -> void:
 
 func save_save_state_data() -> void:
 	var active: SaveState = Global.save_states.get_active()
+	active.id_by_type = Global.id_by_type
 	_save_resource(active.id + "/" + DATA_FILE, Global.world)
 
 

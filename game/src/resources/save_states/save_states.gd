@@ -6,9 +6,6 @@ class_name SaveStates
 extends JSONResource
 
 var active: SaveState
-# for temporary save state, when creating new save state
-# becomes active_save_state, once setup is completed
-var temp_state: SaveState
 
 @export var id_list: Array[String]
 @export var active_id: String
@@ -22,10 +19,23 @@ func _init(
 	active_id = p_active_id
 
 
-func new_temp_state() -> void:
-	var temp_id: String = RngUtil.uuid()
-	temp_state = SaveState.new()
-	temp_state.id = temp_id
+func new_save_state() -> void:
+	var new_id: String = RngUtil.uuid()
+	var new_state: SaveState = SaveState.new()
+	new_state.id = new_id
+	new_state.start_date = Global.start_date
+	new_state.id_by_type = IdUtil.id_by_type
+	new_state.current_season = 0
+	new_state.generation_seed = Global.generation_seed
+	new_state.generation_state = Global.generation_state
+	new_state.generation_player_names = Global.generation_player_names
+
+	new_state.initialize()
+
+	# make active
+	id_list.append(new_state.id)
+	active_id = new_state.id
+	active = new_state
 
 
 func get_active() -> SaveState:
@@ -41,36 +51,7 @@ func get_active() -> SaveState:
 			active_id = ""
 		else:
 			return active
-
-	# create new temp state, if not created yet
-	# useful when running specific scene
-	# on clean game data with non-existent save state
-	if not temp_state:
-		print("create temp")
-		breakpoint
-		new_temp_state()
-	return temp_state
-
-
-func make_temp_active() -> void:
-	# assign metadata
-	temp_state.meta_is_temp = false
-
-	temp_state.start_date = Global.start_date
-	temp_state.id_by_type = Global.id_by_type
-	temp_state.current_season = 0
-	temp_state.generation_seed = Global.generation_seed
-	temp_state.generation_state = Global.generation_state
-	temp_state.generation_player_names = Global.generation_player_names
-
-	temp_state.initialize()
-
-	# make active
-	id_list.append(temp_state.id)
-	active_id = temp_state.id
-	active = temp_state
-
-	new_temp_state()
+	return null
 
 
 func delete(state: SaveState) -> void:

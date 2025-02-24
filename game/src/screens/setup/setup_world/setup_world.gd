@@ -59,6 +59,7 @@ func _on_default_seed_button_pressed() -> void:
 
 
 func _on_continue_pressed() -> void:
+
 	# setup manager
 	if manager_name.text.length() * manager_surname.text.length() == 0:
 		return
@@ -69,6 +70,8 @@ func _on_continue_pressed() -> void:
 	manager.nation = nations.get_item_text(nations.selected)
 	Global.manager = manager
 
+	IdUtil.reset()
+
 	# setup generation
 	if generation_seed.length() == 0:
 		generation_seed = DEFAULT_SEED
@@ -78,13 +81,12 @@ func _on_continue_pressed() -> void:
 	var start_date_str: String = (
 		"%s-%02d-%02dT00:00:00" % [start_year, Const.SEASON_START_MONTH, Const.SEASON_START_DAY]
 	)
-	Global.save_states.temp_state.start_date = Time.get_datetime_dict_from_datetime_string(
+	Global.start_date = Time.get_datetime_dict_from_datetime_string(
 		start_date_str, true
 	)
 	# also set Global.start_date, so functions like person.get_age work
-	Global.start_date = Global.save_states.temp_state.start_date
-	Global.save_states.temp_state.generation_seed = generation_seed
-	Global.save_states.temp_state.generation_player_names = player_names_option.selected as Enum.PlayerNames
+	Global.generation_seed = generation_seed
+	Global.generation_player_names = player_names_option.selected as Enum.PlayerNames
 
 	RngUtil.reset_seed(generation_seed, player_names_option.selected)
 

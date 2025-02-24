@@ -55,7 +55,7 @@ func select_team(p_team: Team)-> void:
 func initialize_game(testing: bool = false) -> void:
 	# save save state and show loading screen
 	if not testing:
-		save_states.make_temp_active()
+		save_states.new_save_state()
 
 	transfers = world.transfers
 	inbox = world.inbox
@@ -64,9 +64,6 @@ func initialize_game(testing: bool = false) -> void:
 	MatchCombinationUtil.initialize_matches()
 	print("matches initialized")
 	EmailUtil.call_deferred("welcome_manager")
-
-	match_speed = save_states.temp_state.match_speed
-	start_date = save_states.temp_state.start_date
 
 
 func next_day() -> void:

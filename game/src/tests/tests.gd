@@ -48,7 +48,6 @@ static func setup_mock_world(use_test_file: bool = false) -> bool:
 	if Global.world == null:
 		print("setting up mock world...")
 		Global.start_date = Time.get_date_dict_from_system()
-		Global.save_states.new_temp_state()
 		Global.manager = create_mock_manager()
 		Global.world = create_mock_world(use_test_file)
 

@@ -49,23 +49,25 @@ func _init(
 
 
 func setup(
-	p_home_team: TeamBasic,
-	p_away_team: TeamBasic,
+	p_home: TeamBasic,
+	p_away: TeamBasic,
 	p_competition_id: int,
 	p_competition_name: String,
 	p_first_leg: Match = null
 ) -> void:
-	home = p_home_team
-	away = p_away_team
 	competition_id = p_competition_id
 	competition_name = p_competition_name
 	first_leg = p_first_leg
 
 	# make sure teams are basic
-	if home is Team:
-		home = (home as Team).get_basic()
-	if away is Team:
-		away = (away as Team).get_basic()
+	if p_home is Team:
+		home = (p_home as Team).get_basic()
+	else:
+		home = p_home
+	if p_away is Team:
+		away = (p_away as Team).get_basic()
+	else:
+		away = p_away
 
 	id = IdUtil.next_id(IdUtil.Types.MATCH)
 

@@ -27,7 +27,7 @@ var save_state: SaveState
 func setup(p_save_state: SaveState) -> void:
 	save_state = p_save_state
 
-	if save_state == null or save_state.meta_is_temp:
+	if save_state == null:
 		hide()
 		return
 
