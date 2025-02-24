@@ -35,7 +35,7 @@ func _init(
 	p_id: String = "",
 	p_id_by_type: Dictionary = {},
 	p_config_version: String = Global.config_version,
-	p_start_date: Dictionary = Time.get_datetime_dict_from_system(),
+	p_start_date: Dictionary = {},
 	p_meta_team_name: String = "",
 	p_meta_manager_name: String = "",
 	p_meta_team_position: String = "",

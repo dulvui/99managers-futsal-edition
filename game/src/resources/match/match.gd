@@ -22,8 +22,8 @@ extends JSONResource
 
 func _init(
 	p_id: int = -1,
-	p_home: TeamBasic = null,
-	p_away: TeamBasic = null,
+	p_home: TeamBasic = TeamBasic.new(),
+	p_away: TeamBasic = TeamBasic.new(),
 	p_over: bool = false,
 	p_competition_id: int = -1,
 	p_competition_name: String = "",

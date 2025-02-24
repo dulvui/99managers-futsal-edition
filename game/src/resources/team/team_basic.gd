@@ -5,6 +5,7 @@
 class_name TeamBasic
 extends JSONResource
 
+
 @export var id: int
 @export var name: String
 @export var league_id: int
