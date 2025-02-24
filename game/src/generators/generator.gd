@@ -438,68 +438,6 @@ func _get_random_morality() -> Enum.Morality:
 	return Enum.Morality.BEST
 
 
-func _get_contract(person: Person) -> Contract:
-	var contract: Contract = Contract.new()
-	var age_factor: int = _get_age_factor(person.get_age(date))
-	contract.income = (person.prestige + age_factor) * 1000
-	contract.start_date = date
-	contract.end_date = date
-	contract.bonus_goal = 0
-	contract.bonus_clean_sheet = 0
-	contract.bonus_assist = 0
-	contract.bonus_league_title = 0
-	contract.bonus_nat_cup_title = 0
-	contract.bonus_inter_cup_title = 0
-	contract.buy_clause = 0
-	contract.is_on_loan = false
-	return contract
-
-
-func _get_person_name(nation: Nation) -> String:
-	# TODO randomly use names from other nations, with low probability
-	var nation_string: String = nation.name.to_lower()
-	
-	# check if names exist for nation, if not, pick random
-	if not names.has(nation_string):
-		nation_string = RngUtil.pick_random(names.keys())
-
-	if Global.generation_player_names == Enum.PlayerNames.MALE:
-		var size: int = (names[nation_string]["first_names_male"] as Array).size()
-		return names[nation_string]["first_names_male"][RngUtil.rng.randi() % size]
-	if Global.generation_player_names == Enum.PlayerNames.FEMALE:
-		var size: int = (names[nation_string]["first_names_female"] as Array).size()
-		return names[nation_string]["first_names_female"][RngUtil.rng.randi() % size]
-
-	var size_female: int = (names[nation_string]["first_names_female"] as Array).size()
-	var size_male: int = (names[nation_string]["first_names_male"] as Array).size()
-	var female_names: Array = names[nation_string]["first_names_female"]
-	var male_names: Array = names[nation_string]["first_names_male"]
-
-	var mixed_names: Array = []
-	mixed_names.append_array(female_names)
-	mixed_names.append_array(male_names)
-
-	return mixed_names[RngUtil.rng.randi() % (size_female + size_male)]
-
-
-func _get_person_surname(world: World, nation: Nation) -> String:
-	# TODO bigger proability for neighbour nations (needs data)
-
-	# 10% change of having random nation's surname
-	var different_nation_factor: int = RngUtil.rng.randi() % 100
-	if different_nation_factor > 90:
-		nation = RngUtil.pick_random(world.get_all_nations())
-
-	var nation_string: String = nation.name.to_lower()
-	
-	# check if names exist for nation, if not, pick random
-	if not names.has(nation_string):
-		nation_string = RngUtil.pick_random(names.keys())
-
-	var size: int = (names[nation_string]["last_names"] as Array).size()
-	return names[nation_string]["last_names"][RngUtil.rng.randi() % size]
-
-
 func _create_staff(
 	world: World, team_prestige: int, team_nation: Nation, pyramid_level: int
 ) -> Staff:
@@ -515,14 +453,10 @@ func _create_manager(
 ) -> Manager:
 	var manager: Manager = Manager.new()
 	manager.set_id()
-	_set_person_colors(manager)
 	manager.prestige = _in_bounds_random(team_prestige)
 	var nation: Nation = _get_random_nationality(world, team_nation, team_prestige, pyramid_level)
+	_set_random_person_values(manager, nation)
 	manager.nation = nation.name
-	manager.name = _get_person_name(nation)
-	manager.surname = _get_person_surname(world, nation)
-
-	manager.contract = _get_contract(manager)
 
 	# create random preferred tactics
 	manager.formation.set_variation(RngUtil.pick_random(Formation.Variations.values()))
@@ -539,13 +473,10 @@ func _create_president(
 ) -> President:
 	var president: President = President.new()
 	president.set_id()
-	_set_person_colors(president)
 	president.prestige = _in_bounds_random(team_prestige)
 	var nation: Nation = _get_random_nationality(world, team_nation, team_prestige, pyramid_level)
+	_set_random_person_values(president, nation)
 	president.nation = nation.name
-	president.name = _get_person_name(nation)
-	president.surname = _get_person_surname(world, nation)
-	president.contract = _get_contract(president)
 	return president
 
 
@@ -554,18 +485,15 @@ func _create_scout(
 ) -> Scout:
 	var scout: Scout = Scout.new()
 	scout.set_id()
-	_set_person_colors(scout)
-	scout.prestige = _in_bounds_random(team_prestige)
 	var nation: Nation = _get_random_nationality(world, team_nation, team_prestige, pyramid_level)
+	_set_random_person_values(scout, nation)
+	scout.prestige = _in_bounds_random(team_prestige)
 	scout.nation = nation.name
-	scout.name = _get_person_name(nation)
-	scout.surname = _get_person_surname(world, nation)
-	scout.contract = _get_contract(scout)
 	return scout
 
 
 func _create_player(
-	world: World,
+	_world: World,
 	nation: Nation,
 	nr: int,
 	p_prestige: int,
@@ -575,25 +503,18 @@ func _create_player(
 ) -> Player:
 	var player: Player = Player.new()
 	player.set_id()
-	_set_person_colors(player)
+
+	_set_random_person_values(player, nation)
+	
 	random_positions(player, p_position_type)
-
-	# RngUtil.rng.random date from 1970 to 2007
-	var birth_date: Dictionary = Time.get_date_dict_from_unix_time(
-		RngUtil.rng.randi_range(0, max_timestamp)
-	)
-
 	var prestige: int = _get_player_prestige(p_prestige)
 
-	player.value = _get_value(date.year - birth_date.year, prestige, player.position)
-	player.name = _get_person_name(nation)
-	player.surname = _get_person_surname(world, nation)
+	player.value = _get_value(date.year - player.birth_date.year, prestige, player.position)
 	player.team = p_team.name
 	player.team_id = p_team.id
 	player.league = p_league.name
 	player.league_id = p_league.id
 	player.statistics.team_name = p_team.name
-	player.birth_date = birth_date
 	player.nation = nation.name
 	player.foot = _get_random_foot()
 	player.morality = _get_random_morality()
@@ -603,19 +524,18 @@ func _create_player(
 	# if player is loyal, he doesnt want to leave the club,
 	# otherwise he leaves esaily, also on its own
 	player.loyality = RngUtil.rng.randi_range(1, 20)
-	player.contract = _get_contract(player)
 	player.nr = nr
 
 	player.attributes = Attributes.new()
 	player.attributes.goalkeeper = _get_goalkeeper_attributes(
-		date.year - birth_date.year, prestige, player.position
+		date.year - player.birth_date.year, prestige, player.position
 	)
-	player.attributes.mental = _get_mental(date.year - birth_date.year, prestige)
+	player.attributes.mental = _get_mental(date.year - player.birth_date.year, prestige)
 	player.attributes.technical = _get_technical(
-		date.year - birth_date.year, prestige, player.position
+		date.year - player.birth_date.year, prestige, player.position
 	)
 	player.attributes.physical = _get_physical(
-		date.year - birth_date.year, prestige, player.position
+		date.year - player.birth_date.year, prestige, player.position
 	)
 
 	var statistics: Statistics = Statistics.new()
@@ -808,10 +728,71 @@ func _initialize_city(
 		league.add_team(team)
 
 
-func _set_person_colors(person: Person) -> void:
+func _set_random_person_values(person: Person, nation: Nation) -> void:
+	# RngUtil.rng.random date from 1970 to 2007
+	person.birth_date = Time.get_date_dict_from_unix_time(
+		RngUtil.rng.randi_range(0, max_timestamp)
+	)
+
+	# colors
 	person.skintone = RngUtil.pick_random(SKINTONE)
 	person.haircolor = RngUtil.pick_random(HAIR_COLORS)
 	person.eyecolor = RngUtil.pick_random(EYE_COLORS)
+
+	# contract
+	# TODO use different contract for differen roles
+	var contract: Contract = Contract.new()
+	var age_factor: int = _get_age_factor(person.get_age(date))
+	contract.income = (person.prestige + age_factor) * 1000
+	contract.start_date = date
+	contract.end_date = date
+	contract.bonus_goal = 0
+	contract.bonus_clean_sheet = 0
+	contract.bonus_assist = 0
+	contract.bonus_league_title = 0
+	contract.bonus_nat_cup_title = 0
+	contract.bonus_inter_cup_title = 0
+	contract.buy_clause = 0
+	contract.is_on_loan = false
+	person.contract = contract
+
+	# name
+	var nation_string: String = nation.name.to_lower()
+	# check if names exist for nation, if not, pick random
+	if not names.has(nation_string):
+		nation_string = RngUtil.pick_random(names.keys())
+
+	if Global.generation_player_names == Enum.PlayerNames.MALE:
+		var size: int = (names[nation_string]["first_names_male"] as Array).size()
+		person.name = names[nation_string]["first_names_male"][RngUtil.rng.randi() % size]
+	elif Global.generation_player_names == Enum.PlayerNames.FEMALE:
+		var size: int = (names[nation_string]["first_names_female"] as Array).size()
+		person.name = names[nation_string]["first_names_female"][RngUtil.rng.randi() % size]
+	else:
+		var size_female: int = (names[nation_string]["first_names_female"] as Array).size()
+		var size_male: int = (names[nation_string]["first_names_male"] as Array).size()
+		var female_names: Array = names[nation_string]["first_names_female"]
+		var male_names: Array = names[nation_string]["first_names_male"]
+
+		var mixed_names: Array = []
+		mixed_names.append_array(female_names)
+		mixed_names.append_array(male_names)
+
+		person.name = mixed_names[RngUtil.rng.randi() % (size_female + size_male)]
+
+	# surname
+	# TODO bigger proability for neighbour nations (needs data)
+	# 10% change of having random nation's surname
+	var different_nation_factor: int = RngUtil.rng.randi() % 100
+	if different_nation_factor > 90:
+		nation_string = RngUtil.pick_random(names.keys())
+	
+	# check if names exist for nation, if not, pick random
+	if not names.has(nation_string):
+		nation_string = RngUtil.pick_random(names.keys())
+
+	var size: int = (names[nation_string]["last_names"] as Array).size()
+	person.surname = names[nation_string]["last_names"][RngUtil.rng.randi() % size]
 
 
 func _set_random_shirt_colors(team: Team) -> void:
