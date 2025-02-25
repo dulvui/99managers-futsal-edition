@@ -284,8 +284,8 @@ msgstr ""
 "Project-Id-Version: 99 Managers Futsal Edition\n"
 "PO-Revision-Date: 2025-02-11 16:54+0000\n"
 "Last-Translator: Anonymous <noreply@weblate.org>\n"
-"Language-Team: Portuguese (Brazil) <https://hosted.weblate.org/projects/"
-"99-managers-futsal-edition/game/pt_BR/>\n"
+"Language-Team: Portuguese (Brazil) <https://hosted.weblate.org/projects/99-"
+"managers-futsal-edition/game/pt_BR/>\n"
 "Language: pt_BR\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -317,6 +317,7 @@ msgid "Players"
 msgstr "Jogadores"
 
 #: src/ui_components/team_profile/team_profile.gd
+#: src/ui_components/player_list/player_list.gd
 #: src/ui_components/player_profile/info_view/info_view.tscn
 msgid "Prestige"
 msgstr "Prestígio"
@@ -336,6 +337,307 @@ msgid "Year"
 msgstr "Ano"
 
 #: src/ui_components/player_list/player_list.gd
+#: src/ui_components/player_profile/contract_view/contract_view.tscn
+#: src/screens/settings/settings.tscn
+msgid "General"
+msgstr "Geral"
+
+#: src/ui_components/player_list/player_list.gd
+#: src/ui_components/transfers/contract_offer/contract_offer.tscn
+#: src/ui_components/player_profile/player_profile.tscn
+msgid "Contract"
+msgstr "Contrato"
+
+#: src/ui_components/player_list/player_list.gd
+#: src/screens/match_screen/match_screen.tscn
+msgid "Stats"
+msgstr "Estatísticas"
+
+#: src/ui_components/player_list/player_list.gd
+msgid "Physical"
+msgstr ""
+
+#: src/ui_components/player_list/player_list.gd
+msgid "Technical"
+msgstr ""
+
+#: src/ui_components/player_list/player_list.gd
+msgid "Mental"
+msgstr ""
+
+#: src/ui_components/player_list/player_list.gd
+msgid "Goalkeeper"
+msgstr ""
+
+#: src/ui_components/player_list/player_list.gd
+#: src/ui_components/player_profile/info_view/info_view.tscn
+msgid "Position"
+msgstr "Posição"
+
+#: src/ui_components/player_list/player_list.gd
+#: src/ui_components/player_profile/info_view/info_view.tscn
+msgid "Value"
+msgstr "Valor"
+
+#: src/ui_components/player_list/player_list.gd
+#, fuzzy
+#| msgid "Nationality"
+msgid "Morality"
+msgstr "Nacionalidade"
+
+#: src/ui_components/player_list/player_list.gd
+#, fuzzy
+#| msgid "Start date"
+msgid "Birth date"
+msgstr "Data de início"
+
+#: src/ui_components/player_list/player_list.gd
+#, fuzzy
+#| msgid "Nationality"
+msgid "Nation"
+msgstr "Nacionalidade"
+
+#: src/ui_components/player_list/player_list.gd
+#: src/ui_components/visual_competitions/visual_table/visual_table.tscn
+#: src/ui_components/player_profile/info_view/info_view.tscn
+#: src/ui_components/player_profile/statistics_view/statistics_view.tscn
+#: src/screens/save_states_screen/save_state_entry/save_state_entry.tscn
+msgid "Team"
+msgstr "Time"
+
+#: src/ui_components/player_list/player_list.gd
+#: src/ui_components/player_profile/contract_view/contract_view.tscn
+#, fuzzy
+#| msgid "Salary budget"
+msgid "Salary"
+msgstr "Verba salarial"
+
+#: src/ui_components/player_list/player_list.gd
+#: src/ui_components/info/info.tscn
+#: src/ui_components/player_profile/contract_view/contract_view.tscn
+msgid "Start date"
+msgstr "Data de início"
+
+#: src/ui_components/player_list/player_list.gd
+#: src/ui_components/player_profile/contract_view/contract_view.tscn
+msgid "End date"
+msgstr ""
+
+#: src/ui_components/player_list/player_list.gd
+#: src/ui_components/transfers/contract_offer/contract_offer.tscn
+#: src/ui_components/player_profile/contract_view/contract_view.tscn
+msgid "Buy clause"
+msgstr ""
+
+#: src/ui_components/player_list/player_list.gd
+#, fuzzy
+#| msgid "Only goals"
+msgid "Bonus goal"
+msgstr "Only goals"
+
+#: src/ui_components/player_list/player_list.gd
+msgid "Bonus assist"
+msgstr ""
+
+#: src/ui_components/player_list/player_list.gd
+msgid "Bonus clean sheet"
+msgstr ""
+
+#: src/ui_components/player_list/player_list.gd
+msgid "Bonus league"
+msgstr ""
+
+#: src/ui_components/player_list/player_list.gd
+msgid "Bonus national cup"
+msgstr ""
+
+#: src/ui_components/player_list/player_list.gd
+msgid "Bonus continental cup"
+msgstr ""
+
+#: src/ui_components/player_list/player_list.gd
+#: src/ui_components/player_profile/statistics_view/statistics_view.tscn
+msgid "Games played"
+msgstr ""
+
+#: src/ui_components/player_list/player_list.gd
+#: src/ui_components/visual_competitions/visual_table/visual_table.tscn
+#: src/ui_components/player_profile/statistics_view/statistics_view.tscn
+msgid "Goals"
+msgstr "Gols"
+
+#: src/ui_components/player_list/player_list.gd
+#: src/ui_components/player_profile/statistics_view/statistics_view.tscn
+msgid "Assists"
+msgstr ""
+
+#: src/ui_components/player_list/player_list.gd
+#: src/ui_components/player_profile/statistics_view/statistics_view.tscn
+msgid "Yellow cards"
+msgstr ""
+
+#: src/ui_components/player_list/player_list.gd
+#: src/ui_components/player_profile/statistics_view/statistics_view.tscn
+msgid "Red cards"
+msgstr ""
+
+#: src/ui_components/player_list/player_list.gd
+#: src/ui_components/player_profile/statistics_view/statistics_view.tscn
+#, fuzzy
+#| msgid "Average attributes"
+msgid "Average vote"
+msgstr "Média dos atributos"
+
+#: src/ui_components/player_list/player_list.gd
+#, fuzzy
+#| msgid "Pressing"
+msgid "Agression"
+msgstr "Pressão"
+
+#: src/ui_components/player_list/player_list.gd
+#, fuzzy
+#| msgid "Action"
+msgid "Anticipation"
+msgstr "Ação"
+
+#: src/ui_components/player_list/player_list.gd
+#, fuzzy
+#| msgid "Version"
+msgid "Decisions"
+msgstr "Versão"
+
+#: src/ui_components/player_list/player_list.gd
+#, fuzzy
+#| msgid "Contract"
+msgid "Concentration"
+msgstr "Contrato"
+
+#: src/ui_components/player_list/player_list.gd
+#, fuzzy
+#| msgid "Version"
+msgid "Vision"
+msgstr "Versão"
+
+#: src/ui_components/player_list/player_list.gd
+msgid "Workrate"
+msgstr ""
+
+#: src/ui_components/player_list/player_list.gd
+#: src/ui_components/visual_formation/visual_formation.tscn
+msgid "Marking"
+msgstr "Marcação"
+
+#: src/ui_components/player_list/player_list.gd
+msgid "Reflexes"
+msgstr ""
+
+#: src/ui_components/player_list/player_list.gd
+#, fuzzy
+#| msgid "Position"
+msgid "Positioning"
+msgstr "Posição"
+
+#: src/ui_components/player_list/player_list.gd
+#, fuzzy
+#| msgid "Save states"
+msgid "Save feet"
+msgstr "Estados salvos"
+
+#: src/ui_components/player_list/player_list.gd
+#, fuzzy
+#| msgid "Save states"
+msgid "Save hands"
+msgstr "Estados salvos"
+
+#: src/ui_components/player_list/player_list.gd
+msgid "Diving"
+msgstr ""
+
+#: src/ui_components/player_list/player_list.gd
+msgid "Pace"
+msgstr ""
+
+#: src/ui_components/player_list/player_list.gd
+#, fuzzy
+#| msgid "Action"
+msgid "Acceleration"
+msgstr "Ação"
+
+#: src/ui_components/player_list/player_list.gd
+msgid "Stamina"
+msgstr ""
+
+#: src/ui_components/player_list/player_list.gd
+msgid "Strength"
+msgstr ""
+
+#: src/ui_components/player_list/player_list.gd
+msgid "Agility"
+msgstr ""
+
+#: src/ui_components/player_list/player_list.gd
+msgid "Jump"
+msgstr ""
+
+#: src/ui_components/player_list/player_list.gd
+#, fuzzy
+#| msgid "Pressing"
+msgid "Crossing"
+msgstr "Pressão"
+
+#: src/ui_components/player_list/player_list.gd
+#, fuzzy
+#| msgid "Pressing"
+msgid "Passing"
+msgstr "Pressão"
+
+#: src/ui_components/player_list/player_list.gd
+msgid "Long passing"
+msgstr ""
+
+#: src/ui_components/player_list/player_list.gd
+msgid "Tackling"
+msgstr ""
+
+#: src/ui_components/player_list/player_list.gd
+#, fuzzy
+#| msgid "Loading"
+msgid "Heading"
+msgstr "Carregando"
+
+#: src/ui_components/player_list/player_list.gd
+msgid "Interception"
+msgstr ""
+
+#: src/ui_components/player_list/player_list.gd
+#, fuzzy
+#| msgid "Settings"
+msgid "Shooting"
+msgstr "Configurações"
+
+#: src/ui_components/player_list/player_list.gd
+#, fuzzy
+#| msgid "Coming soon"
+msgid "Long shooting"
+msgstr "Em breve"
+
+#: src/ui_components/player_list/player_list.gd
+msgid "Penalty"
+msgstr ""
+
+#: src/ui_components/player_list/player_list.gd
+msgid "Finishing"
+msgstr ""
+
+#: src/ui_components/player_list/player_list.gd
+msgid "Dribbling"
+msgstr ""
+
+#: src/ui_components/player_list/player_list.gd
+msgid "Blocking"
+msgstr ""
+
+#: src/ui_components/player_list/player_list.gd
 msgid "All Teams"
 msgstr ""
 
@@ -349,7 +651,7 @@ msgstr ""
 
 #: src/ui_components/player_list/player_list_column/player_list_column.tscn
 #: src/ui_components/player_profile/info_view/info_view.tscn
-#: src/screens/setup/setup_manager/setup_manager.tscn
+#: src/screens/setup/setup_world/setup_world.tscn
 msgid "Name"
 msgstr "Nome"
 
@@ -361,10 +663,6 @@ msgstr "Semente"
 msgid "Copy"
 msgstr "Copiar"
 
-#: src/ui_components/info/info.tscn
-msgid "Start date"
-msgstr "Data de início"
-
 #: src/ui_components/base/confirm_dialog/default_confirm_dialog.gd
 msgid "Ok"
 msgstr "Ok"
@@ -373,7 +671,6 @@ msgstr "Ok"
 #: src/ui_components/transfers/player_offer/player_offer.tscn
 #: src/ui_components/transfers/contract_offer/contract_offer.tscn
 #: src/screens/setup/setup_world/setup_world.tscn
-#: src/screens/setup/setup_manager/setup_manager.tscn
 msgid "Cancel"
 msgstr "Cancelar"
 
@@ -407,12 +704,6 @@ msgid "Income"
 msgstr "Salário"
 
 #: src/ui_components/visual_competitions/visual_table/visual_table.tscn
-#: src/ui_components/player_profile/info_view/info_view.tscn
-#: src/screens/save_states_screen/save_state_entry/save_state_entry.tscn
-msgid "Team"
-msgstr "Time"
-
-#: src/ui_components/visual_competitions/visual_table/visual_table.tscn
 msgid "Played"
 msgstr "Jogos"
 
@@ -427,10 +718,6 @@ msgstr "Empate"
 #: src/ui_components/visual_competitions/visual_table/visual_table.tscn
 msgid "Lost"
 msgstr ""
-
-#: src/ui_components/visual_competitions/visual_table/visual_table.tscn
-msgid "Goals"
-msgstr "Gols"
 
 #: src/ui_components/visual_competitions/visual_table/visual_table.tscn
 msgid "Goals conceded"
@@ -461,6 +748,7 @@ msgid "Winner A vs Winner B"
 msgstr "Vencedor A vs Vencedor B"
 
 #: src/ui_components/visual_competitions/visual_competitions.tscn
+#: src/ui_components/player_profile/contract_view/contract_view.tscn
 msgid "League"
 msgstr "Liga"
 
@@ -498,15 +786,6 @@ msgstr "Transferir"
 msgid "Loan"
 msgstr "Empréstimo"
 
-#: src/ui_components/transfers/contract_offer/contract_offer.tscn
-#: src/ui_components/player_profile/player_profile.tscn
-msgid "Contract"
-msgstr "Contrato"
-
-#: src/ui_components/transfers/contract_offer/contract_offer.tscn
-msgid "Buy clause"
-msgstr ""
-
 #: src/ui_components/visual_formation/visual_formation.gd
 msgid "Subs"
 msgstr "Substituições"
@@ -517,7 +796,7 @@ msgstr "Descansar"
 
 #: src/ui_components/visual_formation/visual_formation.tscn
 #: src/screens/dashboard/dashboard.tscn
-#: src/screens/match/match.tscn
+#: src/screens/match_screen/match_screen.tscn
 msgid "Formation"
 msgstr "Formação"
 
@@ -532,10 +811,6 @@ msgstr ""
 #: src/ui_components/visual_formation/visual_formation.tscn
 msgid "Intensity"
 msgstr "Intensidade"
-
-#: src/ui_components/visual_formation/visual_formation.tscn
-msgid "Marking"
-msgstr "Marcação"
 
 #: src/ui_components/visual_formation/visual_formation.tscn
 msgid "Pressing"
@@ -592,10 +867,6 @@ msgid "Attributes"
 msgstr "Atributos"
 
 #: src/ui_components/player_profile/info_view/info_view.tscn
-msgid "Position"
-msgstr "Posição"
-
-#: src/ui_components/player_profile/info_view/info_view.tscn
 msgid "Alternative position"
 msgstr ""
 
@@ -608,7 +879,7 @@ msgid "Foot"
 msgstr "Pé"
 
 #: src/ui_components/player_profile/info_view/info_view.tscn
-#: src/screens/setup/setup_manager/setup_manager.tscn
+#: src/screens/setup/setup_world/setup_world.tscn
 msgid "Nationality"
 msgstr "Nacionalidade"
 
@@ -620,9 +891,35 @@ msgstr ""
 msgid "Average attributes"
 msgstr "Média dos atributos"
 
-#: src/ui_components/player_profile/info_view/info_view.tscn
-msgid "Value"
-msgstr "Valor"
+#: src/ui_components/player_profile/contract_view/contract_view.tscn
+msgid "Bonus"
+msgstr ""
+
+#: src/ui_components/player_profile/contract_view/contract_view.tscn
+#, fuzzy
+#| msgid "Goals"
+msgid "Goal"
+msgstr "Gols"
+
+#: src/ui_components/player_profile/contract_view/contract_view.tscn
+msgid "Assist\n"
+msgstr ""
+
+#: src/ui_components/player_profile/contract_view/contract_view.tscn
+msgid "Clean sheet"
+msgstr ""
+
+#: src/ui_components/player_profile/contract_view/contract_view.tscn
+#, fuzzy
+#| msgid "Nationality"
+msgid "National cup"
+msgstr "Nacionalidade"
+
+#: src/ui_components/player_profile/contract_view/contract_view.tscn
+#, fuzzy
+#| msgid "Continue"
+msgid "Continental cup"
+msgstr "Continuar"
 
 #: src/ui_components/player_profile/contract_view/contract_view.tscn
 msgid "Make offer"
@@ -636,13 +933,13 @@ msgstr "Transferências"
 
 #: src/ui_components/visual_calendar/visual_day/visual_day.gd
 #: src/ui_components/visual_calendar/match_list/match_info/match_info.tscn
-#: src/screens/match/match.tscn
+#: src/screens/match_screen/match_screen.tscn
 msgid "Home"
 msgstr "Casa"
 
 #: src/ui_components/visual_calendar/visual_day/visual_day.gd
 #: src/ui_components/visual_calendar/match_list/match_info/match_info.tscn
-#: src/screens/match/match.tscn
+#: src/screens/match_screen/match_screen.tscn
 msgid "Away"
 msgstr "Fora de casa"
 
@@ -658,40 +955,73 @@ msgstr "Sem partida"
 msgid "Today"
 msgstr "Hoje"
 
-#: src/ui_components/visual_calendar/visual_calendar.tscn
-#: src/enum.gd
+#: src/ui_components/visual_calendar/visual_calendar.tscn src/enum.gd
 msgid "Monday"
 msgstr "Segunda-feira"
 
-#: src/ui_components/visual_calendar/visual_calendar.tscn
-#: src/enum.gd
+#: src/ui_components/visual_calendar/visual_calendar.tscn src/enum.gd
 msgid "Tuesday"
 msgstr "Terça-feira"
 
-#: src/ui_components/visual_calendar/visual_calendar.tscn
-#: src/enum.gd
+#: src/ui_components/visual_calendar/visual_calendar.tscn src/enum.gd
 msgid "Wednesday"
 msgstr "Quarta-feira"
 
-#: src/ui_components/visual_calendar/visual_calendar.tscn
-#: src/enum.gd
+#: src/ui_components/visual_calendar/visual_calendar.tscn src/enum.gd
 msgid "Thursday"
 msgstr "Quinta-feira"
 
-#: src/ui_components/visual_calendar/visual_calendar.tscn
-#: src/enum.gd
+#: src/ui_components/visual_calendar/visual_calendar.tscn src/enum.gd
 msgid "Friday"
 msgstr "Sexta-feira"
 
-#: src/ui_components/visual_calendar/visual_calendar.tscn
-#: src/enum.gd
+#: src/ui_components/visual_calendar/visual_calendar.tscn src/enum.gd
 msgid "Saturday"
 msgstr "Sábado"
 
-#: src/ui_components/visual_calendar/visual_calendar.tscn
-#: src/enum.gd
+#: src/ui_components/visual_calendar/visual_calendar.tscn src/enum.gd
 msgid "Sunday"
 msgstr "Domingo"
+
+#: src/resources/formation/position/position.gd
+msgid "G"
+msgstr ""
+
+#: src/resources/formation/position/position.gd
+msgid "DL"
+msgstr ""
+
+#: src/resources/formation/position/position.gd
+msgid "DC"
+msgstr ""
+
+#: src/resources/formation/position/position.gd
+msgid "DR"
+msgstr ""
+
+#: src/resources/formation/position/position.gd
+msgid "C"
+msgstr ""
+
+#: src/resources/formation/position/position.gd
+msgid "WL"
+msgstr ""
+
+#: src/resources/formation/position/position.gd
+msgid "WR"
+msgstr ""
+
+#: src/resources/formation/position/position.gd
+msgid "PL"
+msgstr ""
+
+#: src/resources/formation/position/position.gd
+msgid "PC"
+msgstr ""
+
+#: src/resources/formation/position/position.gd
+msgid "PR"
+msgstr ""
 
 #: src/utils/logic/email_util.gd
 msgid "Next match: {team_name}"
@@ -714,11 +1044,29 @@ msgid "Offer for {player_name}"
 msgstr ""
 
 #: src/utils/logic/email_util.gd
-msgid "Offer for {player name} declined"
+msgid ""
+"You made an offer for {player_name} from {team_name} at {cost}.\n"
+"{team_name} will consider the offer and respond within a few days."
 msgstr ""
 
 #: src/utils/logic/email_util.gd
-msgid "Offer for {player name} accepted"
+msgid "Offer for {player_name} declined"
+msgstr ""
+
+#: src/utils/logic/email_util.gd
+msgid ""
+"Your offer for {player_name} from {team_name} at {cost} has been declined.\n"
+"Increasing the transfer value could make them reconsider."
+msgstr ""
+
+#: src/utils/logic/email_util.gd
+msgid "Offer for {player_name} accepted"
+msgstr ""
+
+#: src/utils/logic/email_util.gd
+msgid ""
+"Your offer for {player_name} from {team_name} at {cost} has been accepted.\n"
+"You can now find a contractual aggreement with {player_name}."
 msgstr ""
 
 #: src/utils/logic/match_combination_util.gd
@@ -726,7 +1074,7 @@ msgid "Cup"
 msgstr "Copa"
 
 #: src/utils/logic/match_combination_util.gd
-msgid "Nations_cup"
+msgid "Nations cup"
 msgstr ""
 
 #: src/utils/logic/match_combination_util.gd
@@ -737,9 +1085,35 @@ msgstr "Copa do Mundo"
 msgid "Restoring from backup"
 msgstr "Restaurando backup"
 
-#: src/screens/settings/settings.tscn
-msgid "General"
-msgstr "Geral"
+#: src/utils/ui/theme_util.gd
+msgid "Dark"
+msgstr ""
+
+#: src/utils/ui/theme_util.gd
+#, fuzzy
+#| msgid "Right"
+msgid "Light"
+msgstr "Direito"
+
+#: src/utils/ui/theme_util.gd
+msgid "Solarized light"
+msgstr ""
+
+#: src/utils/ui/theme_util.gd
+msgid "Solarized dark"
+msgstr ""
+
+#: src/utils/ui/theme_util.gd
+msgid "Red"
+msgstr ""
+
+#: src/utils/ui/theme_util.gd
+msgid "Hacker"
+msgstr ""
+
+#: src/utils/ui/theme_util.gd
+msgid "Custom theme"
+msgstr ""
 
 #: src/screens/settings/settings.tscn
 msgid "Input"
@@ -764,7 +1138,9 @@ msgstr "Voltar"
 
 #: src/screens/settings/settings.tscn
 #: src/screens/settings/general/general_settings.tscn
-msgid "You can fix errors or add new languages easily on Weblate, just click on the link below."
+msgid ""
+"You can fix errors or add new languages easily on Weblate, just click on the "
+"link below."
 msgstr ""
 
 #: src/screens/settings/general/general_settings.tscn
@@ -801,26 +1177,6 @@ msgid "Screen fade animation"
 msgstr "Animação de fade da tela"
 
 #: src/screens/settings/general/general_settings.tscn
-msgid "Themes"
-msgstr "Temas"
-
-#: src/screens/settings/general/general_settings.tscn
-msgid "Font color"
-msgstr "Cor da fonte"
-
-#: src/screens/settings/general/general_settings.tscn
-msgid "Change"
-msgstr "Alterar"
-
-#: src/screens/settings/general/general_settings.tscn
-msgid "Buttons color"
-msgstr "Cor dos botões"
-
-#: src/screens/settings/general/general_settings.tscn
-msgid "Background color"
-msgstr "Cor de fundo"
-
-#: src/screens/settings/general/general_settings.tscn
 msgid "Version"
 msgstr "Versão"
 
@@ -849,6 +1205,22 @@ msgid "Save states"
 msgstr "Estados salvos"
 
 #: src/screens/save_states_screen/save_states_screen.tscn
+msgid "All save states are located in the following directory"
+msgstr ""
+
+#: src/screens/save_states_screen/save_states_screen.tscn
+#, fuzzy
+#| msgid "Copy"
+msgid "Copy path"
+msgstr "Copiar"
+
+#: src/screens/save_states_screen/save_states_screen.tscn
+msgid ""
+"Note: Deleted save states might still exist in your trash, if supported and "
+"not disabled by your operating system."
+msgstr ""
+
+#: src/screens/save_states_screen/save_states_screen.tscn
 #: src/screens/dashboard/dashboard.tscn
 msgid "Menu"
 msgstr "Menu"
@@ -859,7 +1231,7 @@ msgid "Loading game"
 msgstr "Carregando jogo"
 
 #: src/screens/save_states_screen/save_state_entry/save_state_entry.tscn
-#: src/screens/setup/setup_manager/setup_manager.tscn
+#: src/screens/setup/setup_world/setup_world.tscn
 msgid "Manager"
 msgstr "Treinador"
 
@@ -880,6 +1252,10 @@ msgid "Created"
 msgstr "Criado"
 
 #: src/screens/save_states_screen/save_state_entry/save_state_entry.tscn
+msgid "Broken"
+msgstr ""
+
+#: src/screens/save_states_screen/save_state_entry/save_state_entry.tscn
 msgid "Delete"
 msgstr "Remover"
 
@@ -887,6 +1263,20 @@ msgstr "Remover"
 #: src/screens/menu/menu.tscn
 msgid "Load game"
 msgstr "Carregar jogo"
+
+#: src/screens/save_states_screen/save_state_entry/save_state_entry.tscn
+msgid ""
+"Deleting a save state is permanent and can't be undone.\n"
+"Are you sure you want delete this save state?"
+msgstr ""
+
+#: src/screens/save_states_screen/save_state_entry/save_state_entry.tscn
+msgid ""
+"This save state and it's backub is corrupted. You can find this save state "
+"in the following directory and see, if you can find the problem and try "
+"reloading.\n"
+"{path}"
+msgstr ""
 
 #: src/screens/dashboard/dashboard.gd
 msgid "Start match"
@@ -900,8 +1290,7 @@ msgstr "Continuar Jogo"
 msgid "Next season"
 msgstr "Próxima temporada"
 
-#: src/screens/dashboard/dashboard.gd
-#: src/screens/dashboard/dashboard.tscn
+#: src/screens/dashboard/dashboard.gd src/screens/dashboard/dashboard.tscn
 msgid "Email"
 msgstr ""
 
@@ -957,8 +1346,7 @@ msgstr "Hall da fama"
 msgid "Notes"
 msgstr "Notas"
 
-#: src/screens/dashboard/dashboard.tscn
-#: src/screens/menu/menu.tscn
+#: src/screens/dashboard/dashboard.tscn src/screens/menu/menu.tscn
 msgid "Settings"
 msgstr "Configurações"
 
@@ -966,55 +1354,15 @@ msgstr "Configurações"
 msgid "Next match"
 msgstr "Próxima partida"
 
-#: src/screens/dashboard/dashboard.tscn
-#: src/screens/match/match.gd
-#: src/screens/menu/menu.tscn
+#: src/screens/dashboard/dashboard.tscn src/screens/menu/menu.tscn
 #: src/screens/setup/setup_world/setup_world.tscn
-#: src/screens/setup/setup_manager/setup_manager.tscn
+#: src/screens/match_screen/match_screen.gd
 msgid "Continue"
 msgstr "Continuar"
 
 #: src/screens/dashboard/dashboard.tscn
 msgid "Save the game before exiting?"
 msgstr ""
-
-#: src/screens/match/match.gd
-#: src/screens/match/match.tscn
-msgid "Pause"
-msgstr "Pausar"
-
-#: src/screens/match/penalties_bar/penalties_bar.tscn
-msgid "Penalties"
-msgstr ""
-
-#: src/screens/match/match.tscn
-msgid "Stats"
-msgstr "Estatísticas"
-
-#: src/screens/match/match.tscn
-msgid "Commentary"
-msgstr "Narração"
-
-#: src/screens/match/match.tscn
-msgid "Events"
-msgstr "Eventos"
-
-#: src/screens/match/match.tscn
-#: src/enum.gd
-msgid "Full game"
-msgstr "Full game"
-
-#: src/screens/match/match.tscn
-msgid "Simulate"
-msgstr "Simular"
-
-#: src/screens/match/match.tscn
-msgid "Dashboard"
-msgstr "Painel de controle"
-
-#: src/screens/match/match.tscn
-msgid "Possession"
-msgstr "Posse"
 
 #: src/screens/loading_screen/loading_screen.tscn
 msgid "Loading"
@@ -1033,6 +1381,18 @@ msgid "Exit game"
 msgstr ""
 
 #: src/screens/setup/setup_world/setup_world.tscn
+msgid "Your name"
+msgstr "Seu nome"
+
+#: src/screens/setup/setup_world/setup_world.tscn
+msgid "Surname"
+msgstr "Sobrenome"
+
+#: src/screens/setup/setup_world/setup_world.tscn
+msgid "Your surname"
+msgstr "Seu sobrenome"
+
+#: src/screens/setup/setup_world/setup_world.tscn
 msgid "Game settings"
 msgstr "Configurações de jogo"
 
@@ -1049,7 +1409,9 @@ msgid "Generation seed"
 msgstr "Semente de geração"
 
 #: src/screens/setup/setup_world/setup_world.tscn
-msgid "This generation seed defines player names and attributes. When reused, it will generate exatly the same result."
+msgid ""
+"This generation seed defines player names and attributes. When reused, it "
+"will generate exatly the same result."
 msgstr ""
 
 #: src/screens/setup/setup_world/setup_world.tscn
@@ -1059,18 +1421,6 @@ msgstr "Aleatório"
 #: src/screens/setup/setup_world/setup_world.gd
 msgid "Generating players"
 msgstr ""
-
-#: src/screens/setup/setup_manager/setup_manager.tscn
-msgid "Your name"
-msgstr "Seu nome"
-
-#: src/screens/setup/setup_manager/setup_manager.tscn
-msgid "Surname"
-msgstr "Sobrenome"
-
-#: src/screens/setup/setup_manager/setup_manager.tscn
-msgid "Your surname"
-msgstr "Seu sobrenome"
 
 #: src/screens/setup/setup_team/setup_team.tscn
 msgid "Choose team"
@@ -1885,7 +2235,8 @@ msgid "Game license"
 msgstr "Licença do jogo"
 
 #: src/screens/settings/license/license.tscn
-msgid "This game is Open Source and released under the AGPL v3 or later license."
+msgid ""
+"This game is Open Source and released under the AGPL v3 or later license."
 msgstr ""
 
 #: src/screens/settings/license/license.tscn
@@ -1905,8 +2256,14 @@ msgid "Third party licenses"
 msgstr "Licenças de terceiros"
 
 #: src/screens/settings/license/license.tscn
-msgid "This game was built using the Godot Engine, that is released under the MIT license."
+msgid ""
+"This game was built using the Godot Engine, that is released under the MIT "
+"license."
 msgstr ""
+
+#: src/enum.gd src/screens/match_screen/match_screen.tscn
+msgid "Full game"
+msgstr "Full game"
 
 #: src/enum.gd
 msgid "Key actions"
@@ -2036,3 +2393,55 @@ msgstr "Lesionado"
 msgid "Recover"
 msgstr "Recuperar"
 
+#: src/screens/match_screen/match_screen.gd
+#: src/screens/match_screen/match_screen.tscn
+msgid "Pause"
+msgstr "Pausar"
+
+#: src/screens/match_screen/match_screen.tscn
+msgid "Commentary"
+msgstr "Narração"
+
+#: src/screens/match_screen/match_screen.tscn
+msgid "Events"
+msgstr "Eventos"
+
+#: src/screens/match_screen/match_screen.tscn
+msgid "Simulate"
+msgstr "Simular"
+
+#: src/screens/match_screen/match_screen.tscn
+msgid "Dashboard"
+msgstr "Painel de controle"
+
+#: src/screens/match_screen/match_screen.tscn
+msgid "Possession"
+msgstr "Posse"
+
+#: src/screens/match_screen/match_screen.tscn
+msgid "Do you want to simulate the whole match?"
+msgstr ""
+
+#: src/screens/match_screen/penalties_bar/penalties_bar.tscn
+msgid "Penalties"
+msgstr ""
+
+#: src/screens/settings/theme_picker/theme_picker.tscn
+msgid "Themes"
+msgstr "Temas"
+
+#: src/screens/settings/theme_picker/theme_picker.tscn
+msgid "Font color"
+msgstr "Cor da fonte"
+
+#: src/screens/settings/theme_picker/theme_picker.tscn
+msgid "Change"
+msgstr "Alterar"
+
+#: src/screens/settings/theme_picker/theme_picker.tscn
+msgid "Buttons color"
+msgstr "Cor dos botões"
+
+#: src/screens/settings/theme_picker/theme_picker.tscn
+msgid "Background color"
+msgstr "Cor de fundo"

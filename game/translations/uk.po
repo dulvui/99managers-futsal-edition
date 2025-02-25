@@ -284,8 +284,8 @@ msgstr ""
 "Project-Id-Version: 99 Managers Futsal Edition\n"
 "PO-Revision-Date: 2025-02-18 17:02+0000\n"
 "Last-Translator: Dan <jonweblin2205@protonmail.com>\n"
-"Language-Team: Ukrainian <https://hosted.weblate.org/projects/"
-"99-managers-futsal-edition/game/uk/>\n"
+"Language-Team: Ukrainian <https://hosted.weblate.org/projects/99-managers-"
+"futsal-edition/game/uk/>\n"
 "Language: uk\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -318,6 +318,7 @@ msgid "Players"
 msgstr "Гравці"
 
 #: src/ui_components/team_profile/team_profile.gd
+#: src/ui_components/player_list/player_list.gd
 #: src/ui_components/player_profile/info_view/info_view.tscn
 msgid "Prestige"
 msgstr "Престиж"
@@ -337,6 +338,313 @@ msgid "Year"
 msgstr "рік"
 
 #: src/ui_components/player_list/player_list.gd
+#: src/ui_components/player_profile/contract_view/contract_view.tscn
+#: src/screens/settings/settings.tscn
+msgid "General"
+msgstr "Загальні"
+
+#: src/ui_components/player_list/player_list.gd
+#: src/ui_components/transfers/contract_offer/contract_offer.tscn
+#: src/ui_components/player_profile/player_profile.tscn
+msgid "Contract"
+msgstr "Контракт"
+
+#: src/ui_components/player_list/player_list.gd
+#: src/screens/match_screen/match_screen.tscn
+msgid "Stats"
+msgstr "Статистика"
+
+#: src/ui_components/player_list/player_list.gd
+msgid "Physical"
+msgstr ""
+
+#: src/ui_components/player_list/player_list.gd
+msgid "Technical"
+msgstr ""
+
+#: src/ui_components/player_list/player_list.gd
+msgid "Mental"
+msgstr ""
+
+#: src/ui_components/player_list/player_list.gd
+msgid "Goalkeeper"
+msgstr ""
+
+#: src/ui_components/player_list/player_list.gd
+#: src/ui_components/player_profile/info_view/info_view.tscn
+msgid "Position"
+msgstr "Позиція"
+
+#: src/ui_components/player_list/player_list.gd
+#: src/ui_components/player_profile/info_view/info_view.tscn
+msgid "Value"
+msgstr "Значення"
+
+#: src/ui_components/player_list/player_list.gd
+#, fuzzy
+#| msgid "Nationality"
+msgid "Morality"
+msgstr "Національність"
+
+#: src/ui_components/player_list/player_list.gd
+#, fuzzy
+#| msgid "Start date"
+msgid "Birth date"
+msgstr "Дата початку"
+
+#: src/ui_components/player_list/player_list.gd
+#, fuzzy
+#| msgid "Nationality"
+msgid "Nation"
+msgstr "Національність"
+
+#: src/ui_components/player_list/player_list.gd
+#: src/ui_components/visual_competitions/visual_table/visual_table.tscn
+#: src/ui_components/player_profile/info_view/info_view.tscn
+#: src/ui_components/player_profile/statistics_view/statistics_view.tscn
+#: src/screens/save_states_screen/save_state_entry/save_state_entry.tscn
+msgid "Team"
+msgstr "Команда"
+
+#: src/ui_components/player_list/player_list.gd
+#: src/ui_components/player_profile/contract_view/contract_view.tscn
+#, fuzzy
+#| msgid "Salary budget"
+msgid "Salary"
+msgstr "Бюджет зарплати"
+
+#: src/ui_components/player_list/player_list.gd
+#: src/ui_components/info/info.tscn
+#: src/ui_components/player_profile/contract_view/contract_view.tscn
+msgid "Start date"
+msgstr "Дата початку"
+
+#: src/ui_components/player_list/player_list.gd
+#: src/ui_components/player_profile/contract_view/contract_view.tscn
+msgid "End date"
+msgstr ""
+
+#: src/ui_components/player_list/player_list.gd
+#: src/ui_components/transfers/contract_offer/contract_offer.tscn
+#: src/ui_components/player_profile/contract_view/contract_view.tscn
+msgid "Buy clause"
+msgstr "Положення про купівлю"
+
+#: src/ui_components/player_list/player_list.gd
+#, fuzzy
+#| msgid "Only goals"
+msgid "Bonus goal"
+msgstr "Лише голи"
+
+#: src/ui_components/player_list/player_list.gd
+msgid "Bonus assist"
+msgstr ""
+
+#: src/ui_components/player_list/player_list.gd
+msgid "Bonus clean sheet"
+msgstr ""
+
+#: src/ui_components/player_list/player_list.gd
+msgid "Bonus league"
+msgstr ""
+
+#: src/ui_components/player_list/player_list.gd
+msgid "Bonus national cup"
+msgstr ""
+
+#: src/ui_components/player_list/player_list.gd
+msgid "Bonus continental cup"
+msgstr ""
+
+#: src/ui_components/player_list/player_list.gd
+#: src/ui_components/player_profile/statistics_view/statistics_view.tscn
+#, fuzzy
+#| msgid "Game date"
+msgid "Games played"
+msgstr "Дата гри"
+
+#: src/ui_components/player_list/player_list.gd
+#: src/ui_components/visual_competitions/visual_table/visual_table.tscn
+#: src/ui_components/player_profile/statistics_view/statistics_view.tscn
+msgid "Goals"
+msgstr "Цілі"
+
+#: src/ui_components/player_list/player_list.gd
+#: src/ui_components/player_profile/statistics_view/statistics_view.tscn
+msgid "Assists"
+msgstr ""
+
+#: src/ui_components/player_list/player_list.gd
+#: src/ui_components/player_profile/statistics_view/statistics_view.tscn
+msgid "Yellow cards"
+msgstr ""
+
+#: src/ui_components/player_list/player_list.gd
+#: src/ui_components/player_profile/statistics_view/statistics_view.tscn
+msgid "Red cards"
+msgstr ""
+
+#: src/ui_components/player_list/player_list.gd
+#: src/ui_components/player_profile/statistics_view/statistics_view.tscn
+#, fuzzy
+#| msgid "Average attributes"
+msgid "Average vote"
+msgstr "Середні атрибути"
+
+#: src/ui_components/player_list/player_list.gd
+#, fuzzy
+#| msgid "Pressing"
+msgid "Agression"
+msgstr "Пресинг"
+
+#: src/ui_components/player_list/player_list.gd
+#, fuzzy
+#| msgid "Action"
+msgid "Anticipation"
+msgstr "Дія"
+
+#: src/ui_components/player_list/player_list.gd
+#, fuzzy
+#| msgid "Version"
+msgid "Decisions"
+msgstr "Версія"
+
+#: src/ui_components/player_list/player_list.gd
+#, fuzzy
+#| msgid "Contract"
+msgid "Concentration"
+msgstr "Контракт"
+
+#: src/ui_components/player_list/player_list.gd
+#, fuzzy
+#| msgid "Version"
+msgid "Vision"
+msgstr "Версія"
+
+#: src/ui_components/player_list/player_list.gd
+msgid "Workrate"
+msgstr ""
+
+#: src/ui_components/player_list/player_list.gd
+#: src/ui_components/visual_formation/visual_formation.tscn
+msgid "Marking"
+msgstr "Позначення"
+
+#: src/ui_components/player_list/player_list.gd
+msgid "Reflexes"
+msgstr ""
+
+#: src/ui_components/player_list/player_list.gd
+#, fuzzy
+#| msgid "Position"
+msgid "Positioning"
+msgstr "Позиція"
+
+#: src/ui_components/player_list/player_list.gd
+#, fuzzy
+#| msgid "Save states"
+msgid "Save feet"
+msgstr "Зберегти країни"
+
+#: src/ui_components/player_list/player_list.gd
+#, fuzzy
+#| msgid "Save states"
+msgid "Save hands"
+msgstr "Зберегти країни"
+
+#: src/ui_components/player_list/player_list.gd
+msgid "Diving"
+msgstr ""
+
+#: src/ui_components/player_list/player_list.gd
+msgid "Pace"
+msgstr ""
+
+#: src/ui_components/player_list/player_list.gd
+#, fuzzy
+#| msgid "Action"
+msgid "Acceleration"
+msgstr "Дія"
+
+#: src/ui_components/player_list/player_list.gd
+msgid "Stamina"
+msgstr ""
+
+#: src/ui_components/player_list/player_list.gd
+msgid "Strength"
+msgstr ""
+
+#: src/ui_components/player_list/player_list.gd
+msgid "Agility"
+msgstr ""
+
+#: src/ui_components/player_list/player_list.gd
+msgid "Jump"
+msgstr ""
+
+#: src/ui_components/player_list/player_list.gd
+#, fuzzy
+#| msgid "Pressing"
+msgid "Crossing"
+msgstr "Пресинг"
+
+#: src/ui_components/player_list/player_list.gd
+#, fuzzy
+#| msgid "Pressing"
+msgid "Passing"
+msgstr "Пресинг"
+
+#: src/ui_components/player_list/player_list.gd
+msgid "Long passing"
+msgstr ""
+
+#: src/ui_components/player_list/player_list.gd
+msgid "Tackling"
+msgstr ""
+
+#: src/ui_components/player_list/player_list.gd
+#, fuzzy
+#| msgid "Loading"
+msgid "Heading"
+msgstr "Завантаження"
+
+#: src/ui_components/player_list/player_list.gd
+#, fuzzy
+#| msgid "Interface settings"
+msgid "Interception"
+msgstr "Налаштування інтерфейсу"
+
+#: src/ui_components/player_list/player_list.gd
+#, fuzzy
+#| msgid "Settings"
+msgid "Shooting"
+msgstr "Налаштування"
+
+#: src/ui_components/player_list/player_list.gd
+#, fuzzy
+#| msgid "Coming soon"
+msgid "Long shooting"
+msgstr "Незабаром"
+
+#: src/ui_components/player_list/player_list.gd
+#, fuzzy
+#| msgid "Penalties"
+msgid "Penalty"
+msgstr "Штрафи"
+
+#: src/ui_components/player_list/player_list.gd
+msgid "Finishing"
+msgstr ""
+
+#: src/ui_components/player_list/player_list.gd
+msgid "Dribbling"
+msgstr ""
+
+#: src/ui_components/player_list/player_list.gd
+msgid "Blocking"
+msgstr ""
+
+#: src/ui_components/player_list/player_list.gd
 msgid "All Teams"
 msgstr "Усі команди"
 
@@ -350,7 +658,7 @@ msgstr "Усі Ліги"
 
 #: src/ui_components/player_list/player_list_column/player_list_column.tscn
 #: src/ui_components/player_profile/info_view/info_view.tscn
-#: src/screens/setup/setup_manager/setup_manager.tscn
+#: src/screens/setup/setup_world/setup_world.tscn
 msgid "Name"
 msgstr "Назва"
 
@@ -362,10 +670,6 @@ msgstr "Насіння"
 msgid "Copy"
 msgstr "Cкопіювати"
 
-#: src/ui_components/info/info.tscn
-msgid "Start date"
-msgstr "Дата початку"
-
 #: src/ui_components/base/confirm_dialog/default_confirm_dialog.gd
 msgid "Ok"
 msgstr "Гаразд"
@@ -374,7 +678,6 @@ msgstr "Гаразд"
 #: src/ui_components/transfers/player_offer/player_offer.tscn
 #: src/ui_components/transfers/contract_offer/contract_offer.tscn
 #: src/screens/setup/setup_world/setup_world.tscn
-#: src/screens/setup/setup_manager/setup_manager.tscn
 msgid "Cancel"
 msgstr "Скасувати"
 
@@ -408,12 +711,6 @@ msgid "Income"
 msgstr "Дохід"
 
 #: src/ui_components/visual_competitions/visual_table/visual_table.tscn
-#: src/ui_components/player_profile/info_view/info_view.tscn
-#: src/screens/save_states_screen/save_state_entry/save_state_entry.tscn
-msgid "Team"
-msgstr "Команда"
-
-#: src/ui_components/visual_competitions/visual_table/visual_table.tscn
 msgid "Played"
 msgstr "Зіграно"
 
@@ -428,10 +725,6 @@ msgstr "Нічия"
 #: src/ui_components/visual_competitions/visual_table/visual_table.tscn
 msgid "Lost"
 msgstr "Програл"
-
-#: src/ui_components/visual_competitions/visual_table/visual_table.tscn
-msgid "Goals"
-msgstr "Цілі"
 
 #: src/ui_components/visual_competitions/visual_table/visual_table.tscn
 msgid "Goals conceded"
@@ -462,6 +755,7 @@ msgid "Winner A vs Winner B"
 msgstr "Переможець A проти переможця B"
 
 #: src/ui_components/visual_competitions/visual_competitions.tscn
+#: src/ui_components/player_profile/contract_view/contract_view.tscn
 msgid "League"
 msgstr "Ліга"
 
@@ -499,15 +793,6 @@ msgstr "Трансфер"
 msgid "Loan"
 msgstr "Позика"
 
-#: src/ui_components/transfers/contract_offer/contract_offer.tscn
-#: src/ui_components/player_profile/player_profile.tscn
-msgid "Contract"
-msgstr "Контракт"
-
-#: src/ui_components/transfers/contract_offer/contract_offer.tscn
-msgid "Buy clause"
-msgstr "Положення про купівлю"
-
 #: src/ui_components/visual_formation/visual_formation.gd
 msgid "Subs"
 msgstr "Заміна"
@@ -518,7 +803,7 @@ msgstr "Відпочити"
 
 #: src/ui_components/visual_formation/visual_formation.tscn
 #: src/screens/dashboard/dashboard.tscn
-#: src/screens/match/match.tscn
+#: src/screens/match_screen/match_screen.tscn
 msgid "Formation"
 msgstr "Формування"
 
@@ -533,10 +818,6 @@ msgstr "Тактика нападу"
 #: src/ui_components/visual_formation/visual_formation.tscn
 msgid "Intensity"
 msgstr "Інтенсивність"
-
-#: src/ui_components/visual_formation/visual_formation.tscn
-msgid "Marking"
-msgstr "Позначення"
 
 #: src/ui_components/visual_formation/visual_formation.tscn
 msgid "Pressing"
@@ -593,10 +874,6 @@ msgid "Attributes"
 msgstr "Атрибути"
 
 #: src/ui_components/player_profile/info_view/info_view.tscn
-msgid "Position"
-msgstr "Позиція"
-
-#: src/ui_components/player_profile/info_view/info_view.tscn
 msgid "Alternative position"
 msgstr "Альтернативна позиція"
 
@@ -609,7 +886,7 @@ msgid "Foot"
 msgstr "стопа"
 
 #: src/ui_components/player_profile/info_view/info_view.tscn
-#: src/screens/setup/setup_manager/setup_manager.tscn
+#: src/screens/setup/setup_world/setup_world.tscn
 msgid "Nationality"
 msgstr "Національність"
 
@@ -621,9 +898,35 @@ msgstr "Номер"
 msgid "Average attributes"
 msgstr "Середні атрибути"
 
-#: src/ui_components/player_profile/info_view/info_view.tscn
-msgid "Value"
-msgstr "Значення"
+#: src/ui_components/player_profile/contract_view/contract_view.tscn
+msgid "Bonus"
+msgstr ""
+
+#: src/ui_components/player_profile/contract_view/contract_view.tscn
+#, fuzzy
+#| msgid "Goals"
+msgid "Goal"
+msgstr "Цілі"
+
+#: src/ui_components/player_profile/contract_view/contract_view.tscn
+msgid "Assist\n"
+msgstr ""
+
+#: src/ui_components/player_profile/contract_view/contract_view.tscn
+msgid "Clean sheet"
+msgstr ""
+
+#: src/ui_components/player_profile/contract_view/contract_view.tscn
+#, fuzzy
+#| msgid "Nations_cup"
+msgid "National cup"
+msgstr "Кубок_націй"
+
+#: src/ui_components/player_profile/contract_view/contract_view.tscn
+#, fuzzy
+#| msgid "Continue"
+msgid "Continental cup"
+msgstr "Продовжити"
 
 #: src/ui_components/player_profile/contract_view/contract_view.tscn
 msgid "Make offer"
@@ -637,13 +940,13 @@ msgstr "Ринок гравців"
 
 #: src/ui_components/visual_calendar/visual_day/visual_day.gd
 #: src/ui_components/visual_calendar/match_list/match_info/match_info.tscn
-#: src/screens/match/match.tscn
+#: src/screens/match_screen/match_screen.tscn
 msgid "Home"
 msgstr "Головна"
 
 #: src/ui_components/visual_calendar/visual_day/visual_day.gd
 #: src/ui_components/visual_calendar/match_list/match_info/match_info.tscn
-#: src/screens/match/match.tscn
+#: src/screens/match_screen/match_screen.tscn
 msgid "Away"
 msgstr "Не у домі"
 
@@ -659,40 +962,73 @@ msgstr "Немає матчів"
 msgid "Today"
 msgstr "Сьогодні"
 
-#: src/ui_components/visual_calendar/visual_calendar.tscn
-#: src/enum.gd
+#: src/ui_components/visual_calendar/visual_calendar.tscn src/enum.gd
 msgid "Monday"
 msgstr "Понеділок"
 
-#: src/ui_components/visual_calendar/visual_calendar.tscn
-#: src/enum.gd
+#: src/ui_components/visual_calendar/visual_calendar.tscn src/enum.gd
 msgid "Tuesday"
 msgstr "Вівторок"
 
-#: src/ui_components/visual_calendar/visual_calendar.tscn
-#: src/enum.gd
+#: src/ui_components/visual_calendar/visual_calendar.tscn src/enum.gd
 msgid "Wednesday"
 msgstr "Середа"
 
-#: src/ui_components/visual_calendar/visual_calendar.tscn
-#: src/enum.gd
+#: src/ui_components/visual_calendar/visual_calendar.tscn src/enum.gd
 msgid "Thursday"
 msgstr "Четвер"
 
-#: src/ui_components/visual_calendar/visual_calendar.tscn
-#: src/enum.gd
+#: src/ui_components/visual_calendar/visual_calendar.tscn src/enum.gd
 msgid "Friday"
 msgstr "П'ятниця"
 
-#: src/ui_components/visual_calendar/visual_calendar.tscn
-#: src/enum.gd
+#: src/ui_components/visual_calendar/visual_calendar.tscn src/enum.gd
 msgid "Saturday"
 msgstr "Субота"
 
-#: src/ui_components/visual_calendar/visual_calendar.tscn
-#: src/enum.gd
+#: src/ui_components/visual_calendar/visual_calendar.tscn src/enum.gd
 msgid "Sunday"
 msgstr "Неділя"
+
+#: src/resources/formation/position/position.gd
+msgid "G"
+msgstr ""
+
+#: src/resources/formation/position/position.gd
+msgid "DL"
+msgstr ""
+
+#: src/resources/formation/position/position.gd
+msgid "DC"
+msgstr ""
+
+#: src/resources/formation/position/position.gd
+msgid "DR"
+msgstr ""
+
+#: src/resources/formation/position/position.gd
+msgid "C"
+msgstr ""
+
+#: src/resources/formation/position/position.gd
+msgid "WL"
+msgstr ""
+
+#: src/resources/formation/position/position.gd
+msgid "WR"
+msgstr ""
+
+#: src/resources/formation/position/position.gd
+msgid "PL"
+msgstr ""
+
+#: src/resources/formation/position/position.gd
+msgid "PC"
+msgstr ""
+
+#: src/resources/formation/position/position.gd
+msgid "PR"
+msgstr ""
 
 #: src/utils/logic/email_util.gd
 msgid "Next match: {team_name}"
@@ -715,19 +1051,43 @@ msgid "Offer for {player_name}"
 msgstr "Пропозиція для {player_name}"
 
 #: src/utils/logic/email_util.gd
-msgid "Offer for {player name} declined"
+msgid ""
+"You made an offer for {player_name} from {team_name} at {cost}.\n"
+"{team_name} will consider the offer and respond within a few days."
+msgstr ""
+
+#: src/utils/logic/email_util.gd
+#, fuzzy
+#| msgid "Offer for {player name} declined"
+msgid "Offer for {player_name} declined"
 msgstr "Пропозицію для {player name} відхилено"
 
 #: src/utils/logic/email_util.gd
-msgid "Offer for {player name} accepted"
+msgid ""
+"Your offer for {player_name} from {team_name} at {cost} has been declined.\n"
+"Increasing the transfer value could make them reconsider."
+msgstr ""
+
+#: src/utils/logic/email_util.gd
+#, fuzzy
+#| msgid "Offer for {player name} accepted"
+msgid "Offer for {player_name} accepted"
 msgstr "Пропозицію щодо {player name} прийнято"
+
+#: src/utils/logic/email_util.gd
+msgid ""
+"Your offer for {player_name} from {team_name} at {cost} has been accepted.\n"
+"You can now find a contractual aggreement with {player_name}."
+msgstr ""
 
 #: src/utils/logic/match_combination_util.gd
 msgid "Cup"
 msgstr "Кубок"
 
 #: src/utils/logic/match_combination_util.gd
-msgid "Nations_cup"
+#, fuzzy
+#| msgid "Nations_cup"
+msgid "Nations cup"
 msgstr "Кубок_націй"
 
 #: src/utils/logic/match_combination_util.gd
@@ -738,9 +1098,35 @@ msgstr "Кубок світу"
 msgid "Restoring from backup"
 msgstr "Відновлення з резервної копії"
 
-#: src/screens/settings/settings.tscn
-msgid "General"
-msgstr "Загальні"
+#: src/utils/ui/theme_util.gd
+msgid "Dark"
+msgstr ""
+
+#: src/utils/ui/theme_util.gd
+#, fuzzy
+#| msgid "Right"
+msgid "Light"
+msgstr "Управо"
+
+#: src/utils/ui/theme_util.gd
+msgid "Solarized light"
+msgstr ""
+
+#: src/utils/ui/theme_util.gd
+msgid "Solarized dark"
+msgstr ""
+
+#: src/utils/ui/theme_util.gd
+msgid "Red"
+msgstr ""
+
+#: src/utils/ui/theme_util.gd
+msgid "Hacker"
+msgstr ""
+
+#: src/utils/ui/theme_util.gd
+msgid "Custom theme"
+msgstr ""
 
 #: src/screens/settings/settings.tscn
 msgid "Input"
@@ -765,7 +1151,9 @@ msgstr "Назад"
 
 #: src/screens/settings/settings.tscn
 #: src/screens/settings/general/general_settings.tscn
-msgid "You can fix errors or add new languages easily on Weblate, just click on the link below."
+msgid ""
+"You can fix errors or add new languages easily on Weblate, just click on the "
+"link below."
 msgstr ""
 "Ви можете легко виправити помилки або додати нові мови на Weblate, просто "
 "клацнувши посилання нижче."
@@ -804,26 +1192,6 @@ msgid "Screen fade animation"
 msgstr "Анімація згасання екрана"
 
 #: src/screens/settings/general/general_settings.tscn
-msgid "Themes"
-msgstr "Теми"
-
-#: src/screens/settings/general/general_settings.tscn
-msgid "Font color"
-msgstr "Колір шрифту"
-
-#: src/screens/settings/general/general_settings.tscn
-msgid "Change"
-msgstr "Змінити"
-
-#: src/screens/settings/general/general_settings.tscn
-msgid "Buttons color"
-msgstr "Колір кнопок"
-
-#: src/screens/settings/general/general_settings.tscn
-msgid "Background color"
-msgstr "Колір тла"
-
-#: src/screens/settings/general/general_settings.tscn
 msgid "Version"
 msgstr "Версія"
 
@@ -852,6 +1220,22 @@ msgid "Save states"
 msgstr "Зберегти країни"
 
 #: src/screens/save_states_screen/save_states_screen.tscn
+msgid "All save states are located in the following directory"
+msgstr ""
+
+#: src/screens/save_states_screen/save_states_screen.tscn
+#, fuzzy
+#| msgid "Copy"
+msgid "Copy path"
+msgstr "Cкопіювати"
+
+#: src/screens/save_states_screen/save_states_screen.tscn
+msgid ""
+"Note: Deleted save states might still exist in your trash, if supported and "
+"not disabled by your operating system."
+msgstr ""
+
+#: src/screens/save_states_screen/save_states_screen.tscn
 #: src/screens/dashboard/dashboard.tscn
 msgid "Menu"
 msgstr "Меню"
@@ -862,7 +1246,7 @@ msgid "Loading game"
 msgstr "Завантаження гри"
 
 #: src/screens/save_states_screen/save_state_entry/save_state_entry.tscn
-#: src/screens/setup/setup_manager/setup_manager.tscn
+#: src/screens/setup/setup_world/setup_world.tscn
 msgid "Manager"
 msgstr "Менеджер"
 
@@ -883,6 +1267,10 @@ msgid "Created"
 msgstr "Створено"
 
 #: src/screens/save_states_screen/save_state_entry/save_state_entry.tscn
+msgid "Broken"
+msgstr ""
+
+#: src/screens/save_states_screen/save_state_entry/save_state_entry.tscn
 msgid "Delete"
 msgstr "Вилучити"
 
@@ -890,6 +1278,20 @@ msgstr "Вилучити"
 #: src/screens/menu/menu.tscn
 msgid "Load game"
 msgstr "Завантажити гру"
+
+#: src/screens/save_states_screen/save_state_entry/save_state_entry.tscn
+msgid ""
+"Deleting a save state is permanent and can't be undone.\n"
+"Are you sure you want delete this save state?"
+msgstr ""
+
+#: src/screens/save_states_screen/save_state_entry/save_state_entry.tscn
+msgid ""
+"This save state and it's backub is corrupted. You can find this save state "
+"in the following directory and see, if you can find the problem and try "
+"reloading.\n"
+"{path}"
+msgstr ""
 
 #: src/screens/dashboard/dashboard.gd
 msgid "Start match"
@@ -903,8 +1305,7 @@ msgstr "Наступний день"
 msgid "Next season"
 msgstr "Наступний сезон"
 
-#: src/screens/dashboard/dashboard.gd
-#: src/screens/dashboard/dashboard.tscn
+#: src/screens/dashboard/dashboard.gd src/screens/dashboard/dashboard.tscn
 msgid "Email"
 msgstr "Електронна пошта"
 
@@ -960,8 +1361,7 @@ msgstr "Зал слави"
 msgid "Notes"
 msgstr "Ноти"
 
-#: src/screens/dashboard/dashboard.tscn
-#: src/screens/menu/menu.tscn
+#: src/screens/dashboard/dashboard.tscn src/screens/menu/menu.tscn
 msgid "Settings"
 msgstr "Налаштування"
 
@@ -969,55 +1369,15 @@ msgstr "Налаштування"
 msgid "Next match"
 msgstr "Наступний матч"
 
-#: src/screens/dashboard/dashboard.tscn
-#: src/screens/match/match.gd
-#: src/screens/menu/menu.tscn
+#: src/screens/dashboard/dashboard.tscn src/screens/menu/menu.tscn
 #: src/screens/setup/setup_world/setup_world.tscn
-#: src/screens/setup/setup_manager/setup_manager.tscn
+#: src/screens/match_screen/match_screen.gd
 msgid "Continue"
 msgstr "Продовжити"
 
 #: src/screens/dashboard/dashboard.tscn
 msgid "Save the game before exiting?"
 msgstr "Зберегти гру перед виходом?"
-
-#: src/screens/match/match.gd
-#: src/screens/match/match.tscn
-msgid "Pause"
-msgstr "Пауза"
-
-#: src/screens/match/penalties_bar/penalties_bar.tscn
-msgid "Penalties"
-msgstr "Штрафи"
-
-#: src/screens/match/match.tscn
-msgid "Stats"
-msgstr "Статистика"
-
-#: src/screens/match/match.tscn
-msgid "Commentary"
-msgstr "Коментарі"
-
-#: src/screens/match/match.tscn
-msgid "Events"
-msgstr "Події"
-
-#: src/screens/match/match.tscn
-#: src/enum.gd
-msgid "Full game"
-msgstr "Повна гра"
-
-#: src/screens/match/match.tscn
-msgid "Simulate"
-msgstr "Імітувати"
-
-#: src/screens/match/match.tscn
-msgid "Dashboard"
-msgstr "Панель керування"
-
-#: src/screens/match/match.tscn
-msgid "Possession"
-msgstr "Власність"
 
 #: src/screens/loading_screen/loading_screen.tscn
 msgid "Loading"
@@ -1036,6 +1396,18 @@ msgid "Exit game"
 msgstr "Вийти з гри"
 
 #: src/screens/setup/setup_world/setup_world.tscn
+msgid "Your name"
+msgstr "Ваше ім'я"
+
+#: src/screens/setup/setup_world/setup_world.tscn
+msgid "Surname"
+msgstr "Прізвище"
+
+#: src/screens/setup/setup_world/setup_world.tscn
+msgid "Your surname"
+msgstr "Ваше прізвище"
+
+#: src/screens/setup/setup_world/setup_world.tscn
 msgid "Game settings"
 msgstr "Налаштування гри"
 
@@ -1052,7 +1424,9 @@ msgid "Generation seed"
 msgstr "Код покоління"
 
 #: src/screens/setup/setup_world/setup_world.tscn
-msgid "This generation seed defines player names and attributes. When reused, it will generate exatly the same result."
+msgid ""
+"This generation seed defines player names and attributes. When reused, it "
+"will generate exatly the same result."
 msgstr ""
 "Це початкове покоління визначає імена та атрибути гравців. При повторному "
 "використанні він генерує точно той самий результат."
@@ -1064,18 +1438,6 @@ msgstr "Випадковий"
 #: src/screens/setup/setup_world/setup_world.gd
 msgid "Generating players"
 msgstr "Генерація гравців"
-
-#: src/screens/setup/setup_manager/setup_manager.tscn
-msgid "Your name"
-msgstr "Ваше ім'я"
-
-#: src/screens/setup/setup_manager/setup_manager.tscn
-msgid "Surname"
-msgstr "Прізвище"
-
-#: src/screens/setup/setup_manager/setup_manager.tscn
-msgid "Your surname"
-msgstr "Ваше прізвище"
 
 #: src/screens/setup/setup_team/setup_team.tscn
 msgid "Choose team"
@@ -1890,7 +2252,8 @@ msgid "Game license"
 msgstr "Ігрова ліцензія"
 
 #: src/screens/settings/license/license.tscn
-msgid "This game is Open Source and released under the AGPL v3 or later license."
+msgid ""
+"This game is Open Source and released under the AGPL v3 or later license."
 msgstr ""
 "Ця гра має відкритий вихідний код і випущена за ліцензією AGPL v3 або "
 "новішої."
@@ -1912,10 +2275,16 @@ msgid "Third party licenses"
 msgstr "Сторонні ліцензії"
 
 #: src/screens/settings/license/license.tscn
-msgid "This game was built using the Godot Engine, that is released under the MIT license."
+msgid ""
+"This game was built using the Godot Engine, that is released under the MIT "
+"license."
 msgstr ""
 "Цю гру створено з використанням движка Godot Engine, який випущено за "
 "ліцензією MIT."
+
+#: src/enum.gd src/screens/match_screen/match_screen.tscn
+msgid "Full game"
+msgstr "Повна гра"
 
 #: src/enum.gd
 msgid "Key actions"
@@ -2044,3 +2413,56 @@ msgstr "Поранений"
 #: src/enum.gd
 msgid "Recover"
 msgstr "Відновлюється"
+
+#: src/screens/match_screen/match_screen.gd
+#: src/screens/match_screen/match_screen.tscn
+msgid "Pause"
+msgstr "Пауза"
+
+#: src/screens/match_screen/match_screen.tscn
+msgid "Commentary"
+msgstr "Коментарі"
+
+#: src/screens/match_screen/match_screen.tscn
+msgid "Events"
+msgstr "Події"
+
+#: src/screens/match_screen/match_screen.tscn
+msgid "Simulate"
+msgstr "Імітувати"
+
+#: src/screens/match_screen/match_screen.tscn
+msgid "Dashboard"
+msgstr "Панель керування"
+
+#: src/screens/match_screen/match_screen.tscn
+msgid "Possession"
+msgstr "Власність"
+
+#: src/screens/match_screen/match_screen.tscn
+msgid "Do you want to simulate the whole match?"
+msgstr ""
+
+#: src/screens/match_screen/penalties_bar/penalties_bar.tscn
+msgid "Penalties"
+msgstr "Штрафи"
+
+#: src/screens/settings/theme_picker/theme_picker.tscn
+msgid "Themes"
+msgstr "Теми"
+
+#: src/screens/settings/theme_picker/theme_picker.tscn
+msgid "Font color"
+msgstr "Колір шрифту"
+
+#: src/screens/settings/theme_picker/theme_picker.tscn
+msgid "Change"
+msgstr "Змінити"
+
+#: src/screens/settings/theme_picker/theme_picker.tscn
+msgid "Buttons color"
+msgstr "Колір кнопок"
+
+#: src/screens/settings/theme_picker/theme_picker.tscn
+msgid "Background color"
+msgstr "Колір тла"

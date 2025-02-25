@@ -318,6 +318,7 @@ msgid "Players"
 msgstr "اللاعيبة"
 
 #: src/ui_components/team_profile/team_profile.gd
+#: src/ui_components/player_list/player_list.gd
 #: src/ui_components/player_profile/info_view/info_view.tscn
 msgid "Prestige"
 msgstr "پرستيج"
@@ -337,6 +338,299 @@ msgid "Year"
 msgstr "سنة"
 
 #: src/ui_components/player_list/player_list.gd
+#: src/ui_components/player_profile/contract_view/contract_view.tscn
+#: src/screens/settings/settings.tscn
+msgid "General"
+msgstr "عام"
+
+#: src/ui_components/player_list/player_list.gd
+#: src/ui_components/transfers/contract_offer/contract_offer.tscn
+#: src/ui_components/player_profile/player_profile.tscn
+msgid "Contract"
+msgstr "كونترا"
+
+#: src/ui_components/player_list/player_list.gd
+#: src/screens/match_screen/match_screen.tscn
+msgid "Stats"
+msgstr "ستات"
+
+#: src/ui_components/player_list/player_list.gd
+msgid "Physical"
+msgstr ""
+
+#: src/ui_components/player_list/player_list.gd
+msgid "Technical"
+msgstr ""
+
+#: src/ui_components/player_list/player_list.gd
+msgid "Mental"
+msgstr ""
+
+#: src/ui_components/player_list/player_list.gd
+msgid "Goalkeeper"
+msgstr ""
+
+#: src/ui_components/player_list/player_list.gd
+#: src/ui_components/player_profile/info_view/info_view.tscn
+msgid "Position"
+msgstr "مركز"
+
+#: src/ui_components/player_list/player_list.gd
+#: src/ui_components/player_profile/info_view/info_view.tscn
+msgid "Value"
+msgstr "قيمة"
+
+#: src/ui_components/player_list/player_list.gd
+#, fuzzy
+#| msgid "Nationality"
+msgid "Morality"
+msgstr "جنسية"
+
+#: src/ui_components/player_list/player_list.gd
+#, fuzzy
+#| msgid "Start date"
+msgid "Birth date"
+msgstr "اليوم الأول"
+
+#: src/ui_components/player_list/player_list.gd
+#, fuzzy
+#| msgid "Nationality"
+msgid "Nation"
+msgstr "جنسية"
+
+#: src/ui_components/player_list/player_list.gd
+#: src/ui_components/visual_competitions/visual_table/visual_table.tscn
+#: src/ui_components/player_profile/info_view/info_view.tscn
+#: src/ui_components/player_profile/statistics_view/statistics_view.tscn
+#: src/screens/save_states_screen/save_state_entry/save_state_entry.tscn
+msgid "Team"
+msgstr "فريق"
+
+#: src/ui_components/player_list/player_list.gd
+#: src/ui_components/player_profile/contract_view/contract_view.tscn
+#, fuzzy
+#| msgid "Salary budget"
+msgid "Salary"
+msgstr "ميزانية الرواتب"
+
+#: src/ui_components/player_list/player_list.gd
+#: src/ui_components/info/info.tscn
+#: src/ui_components/player_profile/contract_view/contract_view.tscn
+msgid "Start date"
+msgstr "اليوم الأول"
+
+#: src/ui_components/player_list/player_list.gd
+#: src/ui_components/player_profile/contract_view/contract_view.tscn
+msgid "End date"
+msgstr ""
+
+#: src/ui_components/player_list/player_list.gd
+#: src/ui_components/transfers/contract_offer/contract_offer.tscn
+#: src/ui_components/player_profile/contract_view/contract_view.tscn
+msgid "Buy clause"
+msgstr ""
+
+#: src/ui_components/player_list/player_list.gd
+msgid "Bonus goal"
+msgstr ""
+
+#: src/ui_components/player_list/player_list.gd
+msgid "Bonus assist"
+msgstr ""
+
+#: src/ui_components/player_list/player_list.gd
+msgid "Bonus clean sheet"
+msgstr ""
+
+#: src/ui_components/player_list/player_list.gd
+msgid "Bonus league"
+msgstr ""
+
+#: src/ui_components/player_list/player_list.gd
+msgid "Bonus national cup"
+msgstr ""
+
+#: src/ui_components/player_list/player_list.gd
+msgid "Bonus continental cup"
+msgstr ""
+
+#: src/ui_components/player_list/player_list.gd
+#: src/ui_components/player_profile/statistics_view/statistics_view.tscn
+msgid "Games played"
+msgstr ""
+
+#: src/ui_components/player_list/player_list.gd
+#: src/ui_components/visual_competitions/visual_table/visual_table.tscn
+#: src/ui_components/player_profile/statistics_view/statistics_view.tscn
+msgid "Goals"
+msgstr "گولات"
+
+#: src/ui_components/player_list/player_list.gd
+#: src/ui_components/player_profile/statistics_view/statistics_view.tscn
+msgid "Assists"
+msgstr ""
+
+#: src/ui_components/player_list/player_list.gd
+#: src/ui_components/player_profile/statistics_view/statistics_view.tscn
+msgid "Yellow cards"
+msgstr ""
+
+#: src/ui_components/player_list/player_list.gd
+#: src/ui_components/player_profile/statistics_view/statistics_view.tscn
+msgid "Red cards"
+msgstr ""
+
+#: src/ui_components/player_list/player_list.gd
+#: src/ui_components/player_profile/statistics_view/statistics_view.tscn
+msgid "Average vote"
+msgstr ""
+
+#: src/ui_components/player_list/player_list.gd
+#, fuzzy
+#| msgid "Pressing"
+msgid "Agression"
+msgstr "الضغط"
+
+#: src/ui_components/player_list/player_list.gd
+#, fuzzy
+#| msgid "Action"
+msgid "Anticipation"
+msgstr "أكشين"
+
+#: src/ui_components/player_list/player_list.gd
+#, fuzzy
+#| msgid "Version"
+msgid "Decisions"
+msgstr "نسخة"
+
+#: src/ui_components/player_list/player_list.gd
+#, fuzzy
+#| msgid "Contract"
+msgid "Concentration"
+msgstr "كونترا"
+
+#: src/ui_components/player_list/player_list.gd
+#, fuzzy
+#| msgid "Version"
+msgid "Vision"
+msgstr "نسخة"
+
+#: src/ui_components/player_list/player_list.gd
+msgid "Workrate"
+msgstr ""
+
+#: src/ui_components/player_list/player_list.gd
+#: src/ui_components/visual_formation/visual_formation.tscn
+msgid "Marking"
+msgstr "التغطية"
+
+#: src/ui_components/player_list/player_list.gd
+msgid "Reflexes"
+msgstr ""
+
+#: src/ui_components/player_list/player_list.gd
+#, fuzzy
+#| msgid "Position"
+msgid "Positioning"
+msgstr "مركز"
+
+#: src/ui_components/player_list/player_list.gd
+#, fuzzy
+#| msgid "Save states"
+msgid "Save feet"
+msgstr "سيّڤ الستات"
+
+#: src/ui_components/player_list/player_list.gd
+#, fuzzy
+#| msgid "Save states"
+msgid "Save hands"
+msgstr "سيّڤ الستات"
+
+#: src/ui_components/player_list/player_list.gd
+msgid "Diving"
+msgstr ""
+
+#: src/ui_components/player_list/player_list.gd
+msgid "Pace"
+msgstr ""
+
+#: src/ui_components/player_list/player_list.gd
+#, fuzzy
+#| msgid "Action"
+msgid "Acceleration"
+msgstr "أكشين"
+
+#: src/ui_components/player_list/player_list.gd
+msgid "Stamina"
+msgstr ""
+
+#: src/ui_components/player_list/player_list.gd
+msgid "Strength"
+msgstr ""
+
+#: src/ui_components/player_list/player_list.gd
+msgid "Agility"
+msgstr ""
+
+#: src/ui_components/player_list/player_list.gd
+msgid "Jump"
+msgstr ""
+
+#: src/ui_components/player_list/player_list.gd
+#, fuzzy
+#| msgid "Pressing"
+msgid "Crossing"
+msgstr "الضغط"
+
+#: src/ui_components/player_list/player_list.gd
+#, fuzzy
+#| msgid "Pressing"
+msgid "Passing"
+msgstr "الضغط"
+
+#: src/ui_components/player_list/player_list.gd
+msgid "Long passing"
+msgstr ""
+
+#: src/ui_components/player_list/player_list.gd
+msgid "Tackling"
+msgstr ""
+
+#: src/ui_components/player_list/player_list.gd
+msgid "Heading"
+msgstr ""
+
+#: src/ui_components/player_list/player_list.gd
+msgid "Interception"
+msgstr ""
+
+#: src/ui_components/player_list/player_list.gd
+#, fuzzy
+#| msgid "Settings"
+msgid "Shooting"
+msgstr "سَتِنگز"
+
+#: src/ui_components/player_list/player_list.gd
+msgid "Long shooting"
+msgstr ""
+
+#: src/ui_components/player_list/player_list.gd
+msgid "Penalty"
+msgstr ""
+
+#: src/ui_components/player_list/player_list.gd
+msgid "Finishing"
+msgstr ""
+
+#: src/ui_components/player_list/player_list.gd
+msgid "Dribbling"
+msgstr ""
+
+#: src/ui_components/player_list/player_list.gd
+msgid "Blocking"
+msgstr ""
+
+#: src/ui_components/player_list/player_list.gd
 msgid "All Teams"
 msgstr ""
 
@@ -350,7 +644,7 @@ msgstr ""
 
 #: src/ui_components/player_list/player_list_column/player_list_column.tscn
 #: src/ui_components/player_profile/info_view/info_view.tscn
-#: src/screens/setup/setup_manager/setup_manager.tscn
+#: src/screens/setup/setup_world/setup_world.tscn
 msgid "Name"
 msgstr "اسم"
 
@@ -362,10 +656,6 @@ msgstr "سْيِدْ"
 msgid "Copy"
 msgstr "كوپي"
 
-#: src/ui_components/info/info.tscn
-msgid "Start date"
-msgstr "اليوم الأول"
-
 #: src/ui_components/base/confirm_dialog/default_confirm_dialog.gd
 msgid "Ok"
 msgstr ""
@@ -374,7 +664,6 @@ msgstr ""
 #: src/ui_components/transfers/player_offer/player_offer.tscn
 #: src/ui_components/transfers/contract_offer/contract_offer.tscn
 #: src/screens/setup/setup_world/setup_world.tscn
-#: src/screens/setup/setup_manager/setup_manager.tscn
 msgid "Cancel"
 msgstr "كنسِل"
 
@@ -408,12 +697,6 @@ msgid "Income"
 msgstr ""
 
 #: src/ui_components/visual_competitions/visual_table/visual_table.tscn
-#: src/ui_components/player_profile/info_view/info_view.tscn
-#: src/screens/save_states_screen/save_state_entry/save_state_entry.tscn
-msgid "Team"
-msgstr "فريق"
-
-#: src/ui_components/visual_competitions/visual_table/visual_table.tscn
 msgid "Played"
 msgstr "نلَعب من قبل"
 
@@ -428,10 +711,6 @@ msgstr "تعادل"
 #: src/ui_components/visual_competitions/visual_table/visual_table.tscn
 msgid "Lost"
 msgstr ""
-
-#: src/ui_components/visual_competitions/visual_table/visual_table.tscn
-msgid "Goals"
-msgstr "گولات"
 
 #: src/ui_components/visual_competitions/visual_table/visual_table.tscn
 msgid "Goals conceded"
@@ -462,6 +741,7 @@ msgid "Winner A vs Winner B"
 msgstr ""
 
 #: src/ui_components/visual_competitions/visual_competitions.tscn
+#: src/ui_components/player_profile/contract_view/contract_view.tscn
 msgid "League"
 msgstr ""
 
@@ -499,15 +779,6 @@ msgstr ""
 msgid "Loan"
 msgstr ""
 
-#: src/ui_components/transfers/contract_offer/contract_offer.tscn
-#: src/ui_components/player_profile/player_profile.tscn
-msgid "Contract"
-msgstr "كونترا"
-
-#: src/ui_components/transfers/contract_offer/contract_offer.tscn
-msgid "Buy clause"
-msgstr ""
-
 #: src/ui_components/visual_formation/visual_formation.gd
 msgid "Subs"
 msgstr "بديل"
@@ -517,7 +788,8 @@ msgid "Rest"
 msgstr "راحة"
 
 #: src/ui_components/visual_formation/visual_formation.tscn
-#: src/screens/dashboard/dashboard.tscn src/screens/match/match.tscn
+#: src/screens/dashboard/dashboard.tscn
+#: src/screens/match_screen/match_screen.tscn
 msgid "Formation"
 msgstr "پوزيسيونات"
 
@@ -532,10 +804,6 @@ msgstr ""
 #: src/ui_components/visual_formation/visual_formation.tscn
 msgid "Intensity"
 msgstr "القوة"
-
-#: src/ui_components/visual_formation/visual_formation.tscn
-msgid "Marking"
-msgstr "التغطية"
 
 #: src/ui_components/visual_formation/visual_formation.tscn
 msgid "Pressing"
@@ -592,10 +860,6 @@ msgid "Attributes"
 msgstr "خصائص"
 
 #: src/ui_components/player_profile/info_view/info_view.tscn
-msgid "Position"
-msgstr "مركز"
-
-#: src/ui_components/player_profile/info_view/info_view.tscn
 msgid "Alternative position"
 msgstr ""
 
@@ -608,7 +872,7 @@ msgid "Foot"
 msgstr ""
 
 #: src/ui_components/player_profile/info_view/info_view.tscn
-#: src/screens/setup/setup_manager/setup_manager.tscn
+#: src/screens/setup/setup_world/setup_world.tscn
 msgid "Nationality"
 msgstr "جنسية"
 
@@ -620,9 +884,35 @@ msgstr ""
 msgid "Average attributes"
 msgstr ""
 
-#: src/ui_components/player_profile/info_view/info_view.tscn
-msgid "Value"
-msgstr "قيمة"
+#: src/ui_components/player_profile/contract_view/contract_view.tscn
+msgid "Bonus"
+msgstr ""
+
+#: src/ui_components/player_profile/contract_view/contract_view.tscn
+#, fuzzy
+#| msgid "Goals"
+msgid "Goal"
+msgstr "گولات"
+
+#: src/ui_components/player_profile/contract_view/contract_view.tscn
+msgid "Assist\n"
+msgstr ""
+
+#: src/ui_components/player_profile/contract_view/contract_view.tscn
+msgid "Clean sheet"
+msgstr ""
+
+#: src/ui_components/player_profile/contract_view/contract_view.tscn
+#, fuzzy
+#| msgid "Nationality"
+msgid "National cup"
+msgstr "جنسية"
+
+#: src/ui_components/player_profile/contract_view/contract_view.tscn
+#, fuzzy
+#| msgid "Continue"
+msgid "Continental cup"
+msgstr "كفّي"
 
 #: src/ui_components/player_profile/contract_view/contract_view.tscn
 msgid "Make offer"
@@ -636,13 +926,13 @@ msgstr "سوق التحويل"
 
 #: src/ui_components/visual_calendar/visual_day/visual_day.gd
 #: src/ui_components/visual_calendar/match_list/match_info/match_info.tscn
-#: src/screens/match/match.tscn
+#: src/screens/match_screen/match_screen.tscn
 msgid "Home"
 msgstr "الداخل"
 
 #: src/ui_components/visual_calendar/visual_day/visual_day.gd
 #: src/ui_components/visual_calendar/match_list/match_info/match_info.tscn
-#: src/screens/match/match.tscn
+#: src/screens/match_screen/match_screen.tscn
 msgid "Away"
 msgstr "الخارج"
 
@@ -686,6 +976,46 @@ msgstr "السبت"
 msgid "Sunday"
 msgstr "الأحد"
 
+#: src/resources/formation/position/position.gd
+msgid "G"
+msgstr ""
+
+#: src/resources/formation/position/position.gd
+msgid "DL"
+msgstr ""
+
+#: src/resources/formation/position/position.gd
+msgid "DC"
+msgstr ""
+
+#: src/resources/formation/position/position.gd
+msgid "DR"
+msgstr ""
+
+#: src/resources/formation/position/position.gd
+msgid "C"
+msgstr ""
+
+#: src/resources/formation/position/position.gd
+msgid "WL"
+msgstr ""
+
+#: src/resources/formation/position/position.gd
+msgid "WR"
+msgstr ""
+
+#: src/resources/formation/position/position.gd
+msgid "PL"
+msgstr ""
+
+#: src/resources/formation/position/position.gd
+msgid "PC"
+msgstr ""
+
+#: src/resources/formation/position/position.gd
+msgid "PR"
+msgstr ""
+
 #: src/utils/logic/email_util.gd
 msgid "Next match: {team_name}"
 msgstr ""
@@ -713,7 +1043,7 @@ msgid ""
 msgstr ""
 
 #: src/utils/logic/email_util.gd
-msgid "Offer for {player name} declined"
+msgid "Offer for {player_name} declined"
 msgstr ""
 
 #: src/utils/logic/email_util.gd
@@ -748,9 +1078,33 @@ msgstr ""
 msgid "Restoring from backup"
 msgstr ""
 
-#: src/screens/settings/settings.tscn
-msgid "General"
-msgstr "عام"
+#: src/utils/ui/theme_util.gd
+msgid "Dark"
+msgstr ""
+
+#: src/utils/ui/theme_util.gd
+msgid "Light"
+msgstr ""
+
+#: src/utils/ui/theme_util.gd
+msgid "Solarized light"
+msgstr ""
+
+#: src/utils/ui/theme_util.gd
+msgid "Solarized dark"
+msgstr ""
+
+#: src/utils/ui/theme_util.gd
+msgid "Red"
+msgstr ""
+
+#: src/utils/ui/theme_util.gd
+msgid "Hacker"
+msgstr ""
+
+#: src/utils/ui/theme_util.gd
+msgid "Custom theme"
+msgstr ""
 
 #: src/screens/settings/settings.tscn
 msgid "Input"
@@ -814,26 +1168,6 @@ msgid "Screen fade animation"
 msgstr "أنيمايشن لتلاشي الشاشة"
 
 #: src/screens/settings/general/general_settings.tscn
-msgid "Themes"
-msgstr "ألوان"
-
-#: src/screens/settings/general/general_settings.tscn
-msgid "Font color"
-msgstr "لون الكلمات"
-
-#: src/screens/settings/general/general_settings.tscn
-msgid "Change"
-msgstr "غَيّر"
-
-#: src/screens/settings/general/general_settings.tscn
-msgid "Buttons color"
-msgstr "لون الكبسات"
-
-#: src/screens/settings/general/general_settings.tscn
-msgid "Background color"
-msgstr "لون الباك-گراوند"
-
-#: src/screens/settings/general/general_settings.tscn
 msgid "Version"
 msgstr "نسخة"
 
@@ -862,6 +1196,22 @@ msgid "Save states"
 msgstr "سيّڤ الستات"
 
 #: src/screens/save_states_screen/save_states_screen.tscn
+msgid "All save states are located in the following directory"
+msgstr ""
+
+#: src/screens/save_states_screen/save_states_screen.tscn
+#, fuzzy
+#| msgid "Copy"
+msgid "Copy path"
+msgstr "كوپي"
+
+#: src/screens/save_states_screen/save_states_screen.tscn
+msgid ""
+"Note: Deleted save states might still exist in your trash, if supported and "
+"not disabled by your operating system."
+msgstr ""
+
+#: src/screens/save_states_screen/save_states_screen.tscn
 #: src/screens/dashboard/dashboard.tscn
 msgid "Menu"
 msgstr "منيو"
@@ -872,7 +1222,7 @@ msgid "Loading game"
 msgstr ""
 
 #: src/screens/save_states_screen/save_state_entry/save_state_entry.tscn
-#: src/screens/setup/setup_manager/setup_manager.tscn
+#: src/screens/setup/setup_world/setup_world.tscn
 msgid "Manager"
 msgstr "مدرب"
 
@@ -893,6 +1243,10 @@ msgid "Created"
 msgstr "نعمل"
 
 #: src/screens/save_states_screen/save_state_entry/save_state_entry.tscn
+msgid "Broken"
+msgstr ""
+
+#: src/screens/save_states_screen/save_state_entry/save_state_entry.tscn
 msgid "Delete"
 msgstr "محّي"
 
@@ -905,6 +1259,14 @@ msgstr "عوز اللعبة"
 msgid ""
 "Deleting a save state is permanent and can't be undone.\n"
 "Are you sure you want delete this save state?"
+msgstr ""
+
+#: src/screens/save_states_screen/save_state_entry/save_state_entry.tscn
+msgid ""
+"This save state and it's backub is corrupted. You can find this save state "
+"in the following directory and see, if you can find the problem and try "
+"reloading.\n"
+"{path}"
 msgstr ""
 
 #: src/screens/dashboard/dashboard.gd
@@ -983,51 +1345,15 @@ msgstr "سَتِنگز"
 msgid "Next match"
 msgstr "الماتش اللي بعده"
 
-#: src/screens/dashboard/dashboard.tscn src/screens/match/match.gd
-#: src/screens/menu/menu.tscn src/screens/setup/setup_world/setup_world.tscn
-#: src/screens/setup/setup_manager/setup_manager.tscn
+#: src/screens/dashboard/dashboard.tscn src/screens/menu/menu.tscn
+#: src/screens/setup/setup_world/setup_world.tscn
+#: src/screens/match_screen/match_screen.gd
 msgid "Continue"
 msgstr "كفّي"
 
 #: src/screens/dashboard/dashboard.tscn
 msgid "Save the game before exiting?"
 msgstr ""
-
-#: src/screens/match/match.gd src/screens/match/match.tscn
-msgid "Pause"
-msgstr "پوز"
-
-#: src/screens/match/penalties_bar/penalties_bar.tscn
-msgid "Penalties"
-msgstr ""
-
-#: src/screens/match/match.tscn
-msgid "Stats"
-msgstr "ستات"
-
-#: src/screens/match/match.tscn
-msgid "Commentary"
-msgstr "تعليق"
-
-#: src/screens/match/match.tscn
-msgid "Events"
-msgstr "إڤانتات"
-
-#: src/screens/match/match.tscn src/enum.gd
-msgid "Full game"
-msgstr ""
-
-#: src/screens/match/match.tscn
-msgid "Simulate"
-msgstr "سيميولايت"
-
-#: src/screens/match/match.tscn
-msgid "Dashboard"
-msgstr ""
-
-#: src/screens/match/match.tscn
-msgid "Possession"
-msgstr "استحواذ"
 
 #: src/screens/loading_screen/loading_screen.tscn
 msgid "Loading"
@@ -1044,6 +1370,18 @@ msgstr "ضهار"
 #: src/screens/menu/menu.tscn
 msgid "Exit game"
 msgstr ""
+
+#: src/screens/setup/setup_world/setup_world.tscn
+msgid "Your name"
+msgstr "اسمك"
+
+#: src/screens/setup/setup_world/setup_world.tscn
+msgid "Surname"
+msgstr "عيلة"
+
+#: src/screens/setup/setup_world/setup_world.tscn
+msgid "Your surname"
+msgstr "عيلتك"
 
 #: src/screens/setup/setup_world/setup_world.tscn
 msgid "Game settings"
@@ -1074,18 +1412,6 @@ msgstr "عشوائي"
 #: src/screens/setup/setup_world/setup_world.gd
 msgid "Generating players"
 msgstr ""
-
-#: src/screens/setup/setup_manager/setup_manager.tscn
-msgid "Your name"
-msgstr "اسمك"
-
-#: src/screens/setup/setup_manager/setup_manager.tscn
-msgid "Surname"
-msgstr "عيلة"
-
-#: src/screens/setup/setup_manager/setup_manager.tscn
-msgid "Your surname"
-msgstr "عيلتك"
 
 #: src/screens/setup/setup_team/setup_team.tscn
 msgid "Choose team"
@@ -1926,6 +2252,10 @@ msgid ""
 "license."
 msgstr ""
 
+#: src/enum.gd src/screens/match_screen/match_screen.tscn
+msgid "Full game"
+msgstr ""
+
 #: src/enum.gd
 msgid "Key actions"
 msgstr ""
@@ -2053,3 +2383,56 @@ msgstr "منصاب"
 #: src/enum.gd
 msgid "Recover"
 msgstr "عم يتعافى"
+
+#: src/screens/match_screen/match_screen.gd
+#: src/screens/match_screen/match_screen.tscn
+msgid "Pause"
+msgstr "پوز"
+
+#: src/screens/match_screen/match_screen.tscn
+msgid "Commentary"
+msgstr "تعليق"
+
+#: src/screens/match_screen/match_screen.tscn
+msgid "Events"
+msgstr "إڤانتات"
+
+#: src/screens/match_screen/match_screen.tscn
+msgid "Simulate"
+msgstr "سيميولايت"
+
+#: src/screens/match_screen/match_screen.tscn
+msgid "Dashboard"
+msgstr ""
+
+#: src/screens/match_screen/match_screen.tscn
+msgid "Possession"
+msgstr "استحواذ"
+
+#: src/screens/match_screen/match_screen.tscn
+msgid "Do you want to simulate the whole match?"
+msgstr ""
+
+#: src/screens/match_screen/penalties_bar/penalties_bar.tscn
+msgid "Penalties"
+msgstr ""
+
+#: src/screens/settings/theme_picker/theme_picker.tscn
+msgid "Themes"
+msgstr "ألوان"
+
+#: src/screens/settings/theme_picker/theme_picker.tscn
+msgid "Font color"
+msgstr "لون الكلمات"
+
+#: src/screens/settings/theme_picker/theme_picker.tscn
+msgid "Change"
+msgstr "غَيّر"
+
+#: src/screens/settings/theme_picker/theme_picker.tscn
+msgid "Buttons color"
+msgstr "لون الكبسات"
+
+#: src/screens/settings/theme_picker/theme_picker.tscn
+msgid "Background color"
+msgstr "لون الباك-گراوند"
