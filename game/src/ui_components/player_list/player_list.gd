@@ -24,6 +24,16 @@ const PAGE_SIZE_1: int = 36
 const PAGE_SIZE_2: int = 22
 const PAGE_SIZE_3: int = 12
 
+var views_text: Array[String] = [
+	tr("General"),
+	tr("Contract"),
+	tr("Stats"),
+	tr("Physical"),
+	tr("Technical"),
+	tr("Mental"),
+	tr("Goalkeeper"),
+]
+
 var active_view: Views
 var columns: Array[PlayerListColumn]
 
@@ -40,14 +50,14 @@ var page: int
 var page_max: int
 var page_size: int
 
-@onready var search_line_edit: SearchLineEdit = $Filters1/NameSearch
-@onready var active_view_option_button: SwitchOptionButton = $Filters1/ActiveView
-@onready var team_select: OptionButton = $Filters2/TeamSelect
-@onready var league_select: OptionButton = $Filters2/LeagueSelect
-@onready var pos_select: OptionButton = $Filters2/PositionSelect
-@onready var footer: HBoxContainer = $Footer
-@onready var page_indicator: Label = $Footer/PageIndicator
-@onready var last: Button = $Footer/Last
+@onready var search_line_edit: SearchLineEdit = %NameSearch
+@onready var active_view_option_button: SwitchOptionButton = %ActiveView
+@onready var team_select: OptionButton = %TeamSelect
+@onready var league_select: OptionButton = %LeagueSelect
+@onready var pos_select: OptionButton = %PositionSelect
+@onready var footer: HBoxContainer = %Footer
+@onready var page_indicator: Label = %PageIndicator
+@onready var last: Button = %Last
 @onready var columns_container: HBoxContainer = %Columns
 
 
@@ -71,7 +81,7 @@ func _ready() -> void:
 	for league: League in Global.world.get_all_leagues():
 		league_select.add_item(league.name)
 
-	active_view_option_button.setup(Views.keys())
+	active_view_option_button.setup(views_text)
 	active_view = Views.GENERAL
 	
 	# page size scale
@@ -286,7 +296,6 @@ func _filter() -> void:
 				key = filters.keys()[i]
 				filter_counter += 1
 				value = str(filters[key])
-				value = value.to_upper()
 
 				if key == Const.POSITION:
 					if not str(player.position.type) == value:
@@ -407,5 +416,7 @@ func _show_attributes(p_key: String) -> void:
 				var attributes: Callable = func(p: Player) -> int: return p.get_res_value(value_path)
 				_add_column(value, attributes)
 			return
+
+
 
 

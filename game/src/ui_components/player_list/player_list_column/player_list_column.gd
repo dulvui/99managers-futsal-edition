@@ -9,11 +9,6 @@ signal sort
 
 const ColorLabelScene: PackedScene = preload(Const.SCENE_COLOR_LABEL)
 
-const NOT_TRANSLATED_COLUMS: Array[StringName] = [
-	Const.SURNAME,
-	"TEAM",
-]
-
 var color_labels: Array[ColorLabel] = []
 var buttons: Array[Button] = []
 var col_name: String
@@ -28,14 +23,14 @@ func setup(
 	col_name = p_col_name
 	map_function = p_map_function
 
-	sort_button.text = p_col_name.to_upper()
-	sort_button.tooltip_text = p_col_name.to_upper()
+	sort_button.text = p_col_name
+	sort_button.tooltip_text = p_col_name
 
 	var values: Array[Variant] = players.map(map_function)
 
 	for value: Variant in values:
-		if col_name == Const.SURNAME :
-			var button: Button = DefaultButton.new()	
+		if col_name == Const.SURNAME:
+			var button: Button = DefaultButton.new()
 			button.text = str(value)
 			button.tooltip_text = col_name
 			button.alignment = HORIZONTAL_ALIGNMENT_LEFT
@@ -51,8 +46,6 @@ func setup(
 
 			if value is Dictionary:
 				value = FormatUtil.format_date(value as Dictionary)
-			elif value is String and not col_name in NOT_TRANSLATED_COLUMS:
-				value = str(value).to_upper()
 
 			label.set_value(value)
 
@@ -65,8 +58,6 @@ func update_values(players: Array[Player]) -> void:
 			color_labels[i].show()
 			if values[i] is Dictionary:
 				values[i] = FormatUtil.format_date(values[i] as Dictionary)
-			elif values[i] is String and not col_name in NOT_TRANSLATED_COLUMS:
-				values[i] = str(values[i]).to_upper()
 			color_labels[i].set_value(values[i])
 		else:
 			color_labels[i].hide()

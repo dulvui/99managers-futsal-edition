@@ -25,6 +25,7 @@ layout_mode = 2
 theme_override_constants/separation = 10
 
 [node name="NameSearch" parent="Filters1" instance=ExtResource("3_ha4c3")]
+unique_name_in_owner = true
 layout_mode = 2
 size_flags_horizontal = 3
 
@@ -33,6 +34,7 @@ modulate = Color(1, 1, 1, 0)
 layout_mode = 2
 
 [node name="ActiveView" parent="Filters1" instance=ExtResource("3_x6w1m")]
+unique_name_in_owner = true
 layout_mode = 2
 
 [node name="Filters2" type="HBoxContainer" parent="."]
@@ -40,14 +42,17 @@ layout_mode = 2
 theme_override_constants/separation = 10
 
 [node name="PositionSelect" type="OptionButton" parent="Filters2"]
+unique_name_in_owner = true
 layout_mode = 2
 script = ExtResource("5_mvocu")
 
 [node name="LeagueSelect" type="OptionButton" parent="Filters2"]
+unique_name_in_owner = true
 layout_mode = 2
 script = ExtResource("5_mvocu")
 
 [node name="TeamSelect" type="OptionButton" parent="Filters2"]
+unique_name_in_owner = true
 layout_mode = 2
 script = ExtResource("5_mvocu")
 
@@ -60,6 +65,7 @@ layout_mode = 2
 size_flags_vertical = 3
 
 [node name="Footer" type="HBoxContainer" parent="."]
+unique_name_in_owner = true
 auto_translate_mode = 2
 layout_mode = 2
 alignment = 1
@@ -83,6 +89,7 @@ text = "<"
 script = ExtResource("4_k60vt")
 
 [node name="PageIndicator" type="Label" parent="Footer"]
+unique_name_in_owner = true
 custom_minimum_size = Vector2(150, 0)
 layout_mode = 2
 text = "1 / 5"
@@ -101,6 +108,7 @@ text = ">>"
 script = ExtResource("4_k60vt")
 
 [node name="Last" type="Button" parent="Footer"]
+unique_name_in_owner = true
 custom_minimum_size = Vector2(50, 0)
 layout_mode = 2
 text = "299"

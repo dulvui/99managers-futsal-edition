@@ -106,3 +106,30 @@ func match_factor(position: Position) -> float:
 	if type in defense_types and p_type in attack_types:
 		return 0.25
 	return 0
+
+
+func get_type_text(p_type: Type = type) -> String:
+	match p_type:
+		Type.G:
+			return tr("G")
+		Type.DL:
+			return tr("DL")
+		Type.DC:
+			return tr("DC")
+		Type.DR:
+			return tr("DR")
+		Type.C:
+			return tr("C")
+		Type.WL:
+			return tr("WL")
+		Type.WR:
+			return tr("WR")
+		Type.PL:
+			return tr("PL")
+		Type.PC:
+			return tr("PC")
+		Type.PR:
+			return tr("PR")
+	return ""
+
+
