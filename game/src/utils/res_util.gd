@@ -57,6 +57,9 @@ func load_save_state(id: String) -> SaveState:
 
 func save_save_state() -> void:
 	var active: SaveState = Global.save_states.get_active()
+	if active == null:
+		print("no active save state found to save")
+		return
 	_save_resource(active.id + "/" + SAVE_STATE_FILE, active)
 
 
@@ -75,6 +78,9 @@ func load_save_state_data() -> void:
 
 func save_save_state_data() -> void:
 	var active: SaveState = Global.save_states.get_active()
+	if active == null:
+		print("no active save state found to save data")
+		return
 	active.id_by_type = Global.id_by_type
 	_save_resource(active.id + "/" + DATA_FILE, Global.world)
 
