@@ -16,7 +16,7 @@ var active_color_type: ColorType
 
 @export var show_custom: bool = true
 
-@onready var options: OptionButton = %OptionButton
+@onready var options: SwitchOptionButton = %OptionButton
 @onready var custom: VBoxContainer = %Custom
 @onready var color_picker_popup: PopupPanel = $ColorPopupPanel
 @onready var color_picker: ColorPicker = $ColorPopupPanel/MarginContainer/ColorPicker
@@ -24,9 +24,7 @@ var active_color_type: ColorType
 
 
 func _ready() -> void:
-	for theme_name: String in ThemeUtil.get_theme_names(show_custom):
-		options.add_item(theme_name)
-	options.selected = Global.config.theme_index
+	options.setup(ThemeUtil.get_theme_names(show_custom), Global.config.theme_index)
 
 	custom.visible = show_custom
 

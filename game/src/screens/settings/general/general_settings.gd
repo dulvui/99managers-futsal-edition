@@ -30,7 +30,7 @@ func restore_defaults() -> void:
 	font_size_spinbox.value = Global.config.theme_font_size
 	# theme
 	ThemeUtil.reset_to_default()
-	theme_picker.options.selected = 0
+	theme_picker.options.option_button.selected = 0
 	#scale
 	Global.config.theme_scale = ThemeUtil.get_default_scale()
 	get_tree().root.content_scale_factor = Global.config.theme_scale
