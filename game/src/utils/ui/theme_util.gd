@@ -188,6 +188,15 @@ func reset_to_default() -> void:
 	apply_theme(0)
 
 
+func title(label: Label, condition: bool = true) -> void:
+	if condition:
+		label.label_settings = label_settings_title
+
+
+func remove_title(label: Label) -> void:
+	label.label_settings = label_settings
+
+
 func bold(label: Label, condition: bool = true) -> void:
 	if condition:
 		label.label_settings = label_settings_bold
@@ -325,3 +334,5 @@ func get_default_scale() -> float:
 	if OS.get_name() in ["Android", "iOS"]:
 		return 1.5
 	return 1
+
+

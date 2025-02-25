@@ -748,9 +748,9 @@ func _set_random_person_values(person: Person, nation: Nation) -> void:
 	contract.bonus_goal = 0
 	contract.bonus_clean_sheet = 0
 	contract.bonus_assist = 0
-	contract.bonus_league_title = 0
-	contract.bonus_national_cup_title = 0
-	contract.bonus_international_cup_title = 0
+	contract.bonus_league = 0
+	contract.bonus_national_cup = 0
+	contract.bonus_continental_cup = 0
 	contract.buy_clause = 0
 	contract.is_on_loan = false
 	person.contract = contract

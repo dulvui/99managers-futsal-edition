@@ -1,7 +1,7 @@
 [gd_scene load_steps=4 format=3 uid="uid://dmd8ysnepfvi0"]
 
-[ext_resource type="PackedScene" uid="uid://b0fj7v850s6dy" path="res://src/ui_components/resource_view/resource_view.tscn" id="1_j3ylg"]
 [ext_resource type="Script" path="res://src/ui_components/player_profile/contract_view/contract_view.gd" id="1_njuoh"]
+[ext_resource type="LabelSettings" uid="uid://cc2vi4onhgmnw" path="res://theme_base/label/label_settings_bold.tres" id="2_j4fgt"]
 [ext_resource type="Script" path="res://src/ui_components/base/defaults/default_button.gd" id="3_yh7ku"]
 
 [node name="ContractView" type="VBoxContainer"]
@@ -12,7 +12,140 @@ grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_njuoh")
 
-[node name="ResourceView" parent="." instance=ExtResource("1_j3ylg")]
+[node name="Details" type="VBoxContainer" parent="."]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="Details"]
+layout_mode = 2
+text = "General"
+label_settings = ExtResource("2_j4fgt")
+
+[node name="Income" type="HBoxContainer" parent="Details"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="Details/Income"]
+custom_minimum_size = Vector2(200, 0)
+layout_mode = 2
+text = "Salary"
+
+[node name="Income" type="Label" parent="Details/Income"]
+unique_name_in_owner = true
+layout_mode = 2
+
+[node name="StartDate" type="HBoxContainer" parent="Details"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="Details/StartDate"]
+custom_minimum_size = Vector2(200, 0)
+layout_mode = 2
+text = "Start date"
+
+[node name="StartDate" type="Label" parent="Details/StartDate"]
+unique_name_in_owner = true
+layout_mode = 2
+
+[node name="EndDate" type="HBoxContainer" parent="Details"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="Details/EndDate"]
+custom_minimum_size = Vector2(200, 0)
+layout_mode = 2
+text = "Start date"
+
+[node name="EndDate" type="Label" parent="Details/EndDate"]
+unique_name_in_owner = true
+layout_mode = 2
+
+[node name="BuyClause" type="HBoxContainer" parent="Details"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="Details/BuyClause"]
+custom_minimum_size = Vector2(200, 0)
+layout_mode = 2
+text = "Buy clause"
+
+[node name="BuyClause" type="Label" parent="Details/BuyClause"]
+unique_name_in_owner = true
+layout_mode = 2
+
+[node name="Bonus" type="VBoxContainer" parent="."]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="Bonus"]
+layout_mode = 2
+text = "Bonus"
+label_settings = ExtResource("2_j4fgt")
+
+[node name="Goal" type="HBoxContainer" parent="Bonus"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="Bonus/Goal"]
+custom_minimum_size = Vector2(200, 0)
+layout_mode = 2
+text = "Goal"
+
+[node name="Goal" type="Label" parent="Bonus/Goal"]
+unique_name_in_owner = true
+layout_mode = 2
+
+[node name="Assist" type="HBoxContainer" parent="Bonus"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="Bonus/Assist"]
+custom_minimum_size = Vector2(200, 0)
+layout_mode = 2
+text = "Assist
+"
+
+[node name="Assist" type="Label" parent="Bonus/Assist"]
+unique_name_in_owner = true
+layout_mode = 2
+
+[node name="CleanSheet" type="HBoxContainer" parent="Bonus"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="Bonus/CleanSheet"]
+custom_minimum_size = Vector2(200, 0)
+layout_mode = 2
+text = "Clean sheet"
+
+[node name="CleanSheet" type="Label" parent="Bonus/CleanSheet"]
+unique_name_in_owner = true
+layout_mode = 2
+
+[node name="League" type="HBoxContainer" parent="Bonus"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="Bonus/League"]
+custom_minimum_size = Vector2(200, 0)
+layout_mode = 2
+text = "League"
+
+[node name="League" type="Label" parent="Bonus/League"]
+unique_name_in_owner = true
+layout_mode = 2
+
+[node name="NationalCub" type="HBoxContainer" parent="Bonus"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="Bonus/NationalCub"]
+custom_minimum_size = Vector2(200, 0)
+layout_mode = 2
+text = "National cup"
+
+[node name="NationalCup" type="Label" parent="Bonus/NationalCub"]
+unique_name_in_owner = true
+layout_mode = 2
+
+[node name="ContinentalCub" type="HBoxContainer" parent="Bonus"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="Bonus/ContinentalCub"]
+custom_minimum_size = Vector2(200, 0)
+layout_mode = 2
+text = "Continental cup"
+
+[node name="ContinentalCup" type="Label" parent="Bonus/ContinentalCub"]
 unique_name_in_owner = true
 layout_mode = 2
 

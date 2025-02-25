@@ -42,7 +42,7 @@ func update_week(team: Team) -> void:
 	expenses[-1] += team.staff.get_salary()
 
 	for player: Player in team.players:
-		expenses[-1] += player.contract.income_week
+		expenses[-1] += player.contract.income / 52
 
 	balance[-1] -= expenses[-1]
 

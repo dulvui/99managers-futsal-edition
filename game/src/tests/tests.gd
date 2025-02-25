@@ -136,6 +136,8 @@ static func create_mock_player(nr: int = randi_range(1, 99)) -> Player:
 	player.surname = "Player " + str(nr)
 	player.nr = nr
 	player.birth_date = Time.get_date_dict_from_system()
+	player.contract.start_date = Time.get_date_dict_from_system()
+	player.contract.end_date = Time.get_date_dict_from_system()
 
 	return player
 
