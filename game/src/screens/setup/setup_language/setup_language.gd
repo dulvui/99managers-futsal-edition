@@ -4,6 +4,7 @@
 
 extends Control
 
+
 func _ready() -> void:
 	InputUtil.start_focus(self)
 

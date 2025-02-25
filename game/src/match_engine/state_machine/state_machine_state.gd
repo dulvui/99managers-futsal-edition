@@ -4,7 +4,6 @@
 
 class_name StateMachineState
 
-
 var name: String
 
 
@@ -30,4 +29,3 @@ func exit() -> void:
 func set_state(_p_next_state: StateMachineState) -> void:
 	# print("set state " + p_next_state.name)
 	pass
-

@@ -41,20 +41,10 @@ func create_combinations(competition: Competition, p_teams: Array[Team]) -> Arra
 		var match_one: Match
 		if home:
 			match_one = Match.new()
-			match_one.setup(
-				last_team,
-				random_teams[0],
-				competition.id,
-				competition.name
-			)
+			match_one.setup(last_team, random_teams[0], competition.id, competition.name)
 		else:
 			match_one = Match.new()
-			match_one.setup(
-				random_teams[0],
-				last_team,
-				competition.id,
-				competition.name
-			)
+			match_one.setup(random_teams[0], last_team, competition.id, competition.name)
 		current_match_day.append(match_one)
 
 		var copy: Array[Team] = random_teams.duplicate(true)
@@ -67,10 +57,14 @@ func create_combinations(competition: Competition, p_teams: Array[Team]) -> Arra
 			var match_two: Match
 			if home:
 				match_two = Match.new()
-				match_two.setup(copy[home_index], copy[away_index], competition.id, competition.name)
+				match_two.setup(
+					copy[home_index], copy[away_index], competition.id, competition.name
+				)
 			else:
 				match_two = Match.new()
-				match_two.setup(copy[away_index], copy[home_index], competition.id, competition.name)
+				match_two.setup(
+					copy[away_index], copy[home_index], competition.id, competition.name
+				)
 			current_match_day.append(match_two)
 
 		match_days.append(current_match_day)
@@ -106,10 +100,10 @@ func add_matches_to_calendar(
 	if competition is Cup:
 		weekday = Enum.Weekdays.WEDNESDAY
 		# except finals, are sundays
-		var cup: Cup = (competition as Cup)
+		var cup: Cup = competition as Cup
 		if cup.is_final():
 			weekday = Enum.Weekdays.SUNDAY
-		
+
 	# start with given weekday of next week
 	for i: int in range(8, 1, -1):
 		if Global.world.calendar.day(month, i).weekday == weekday:
@@ -157,7 +151,7 @@ func _initialize_club_national_cup(p_nation: Nation) -> void:
 func _initialize_club_continental_cup(p_continent: Continent) -> void:
 	# setup cup
 	p_continent.cup_clubs.set_id()
-	p_continent.cup_clubs.name =  p_continent.name + " " + tr("Cup")
+	p_continent.cup_clubs.name = p_continent.name + " " + tr("Cup")
 	var teams: Array[Team]
 
 	# get qualified teams from every nation
@@ -175,7 +169,7 @@ func _initialize_club_continental_cup(p_continent: Continent) -> void:
 func _initialize_nations_continental_cup(p_continent: Continent) -> void:
 	# setup cup
 	p_continent.cup_nations.set_id()
-	p_continent.cup_nations.name =  p_continent.name + " " + tr("Nations cup")
+	p_continent.cup_nations.name = p_continent.name + " " + tr("Nations cup")
 	var teams: Array[Team]
 
 	# get qualified teams from every nation
@@ -199,12 +193,12 @@ func _initialize_world_cup(world: World) -> void:
 	for continent: Continent in world.continents:
 		for nation: Nation in continent.nations:
 			teams.append(nation.team)
-	
+
 	# limit to 20 teams for now
 	# TODO choose best teams
 	if teams.size() > 16:
 		teams = teams.slice(0, 16)
-	
+
 	world.world_cup.setup(teams)
 
 	# create matches for first round group a

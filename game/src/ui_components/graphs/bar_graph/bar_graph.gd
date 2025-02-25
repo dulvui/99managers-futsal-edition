@@ -5,7 +5,6 @@
 class_name BarGraph
 extends VBoxContainer
 
-
 @onready var positive_values: HBoxContainer = %PositiveValues
 @onready var negative_values: HBoxContainer = %NegativeValues
 
@@ -18,12 +17,7 @@ func _ready() -> void:
 		setup(test_values, "hello", "world")
 
 
-func setup(
-	values: Array[int],
-	_x_axis: String = "",
-	_y_axis: String = ""
-) -> void:
-
+func setup(values: Array[int], _x_axis: String = "", _y_axis: String = "") -> void:
 	# find min/max value
 	var max_value: int = 0
 	for value: int in values:
@@ -39,7 +33,7 @@ func setup(
 		bar.show_percentage = false
 		bar.size_flags_vertical = Control.SIZE_FILL
 		bar.size_flags_horizontal = Control.SIZE_EXPAND_FILL
-		
+
 		var placeholder: ProgressBar = ProgressBar.new()
 		placeholder.max_value = max_value
 		placeholder.value = 0
@@ -56,4 +50,3 @@ func setup(
 			bar.fill_mode = ProgressBar.FillMode.FILL_TOP_TO_BOTTOM
 			negative_values.add_child(bar)
 			positive_values.add_child(placeholder)
-

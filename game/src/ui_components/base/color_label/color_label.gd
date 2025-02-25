@@ -7,6 +7,7 @@ extends Label
 
 @export var value_name: String
 
+
 func setup(p_value_name: String) -> void:
 	value_name = p_value_name
 	tooltip_text = value_name
@@ -27,4 +28,3 @@ func set_value(value: Variant) -> void:
 	# check if not number, treadet as string
 	elif is_instance_of(value, TYPE_STRING) and not (value as String).is_valid_int():
 		horizontal_alignment = HORIZONTAL_ALIGNMENT_LEFT
-

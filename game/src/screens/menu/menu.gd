@@ -20,15 +20,14 @@ func _ready() -> void:
 
 	if not Global.save_states or Global.save_states.id_list.size() == 0:
 		load_game.hide()
-		continue_game.hide() 
+		continue_game.hide()
 		InputUtil.start_focus(new_game)
 		new_game.theme_type_variation = ThemeUtil.BUTTON_IMPORTANT
 	else:
 		InputUtil.start_focus(continue_game)
 
-
 	save_state.setup(Global.save_states.get_active())
-	
+
 	Main.check_layout_direction()
 
 	ResUtil.loading_failed.connect(_on_res_util_loading_failed)
@@ -64,5 +63,3 @@ func _on_exit_pressed() -> void:
 
 func _on_default_confirm_dialog_confirmed() -> void:
 	get_tree().quit()
-
-

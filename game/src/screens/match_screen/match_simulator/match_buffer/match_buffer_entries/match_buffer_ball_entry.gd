@@ -5,8 +5,5 @@
 class_name MatchBufferEntryBall
 extends MatchBufferEntry
 
-
 var pos: Vector2
 var rot: float
-
-

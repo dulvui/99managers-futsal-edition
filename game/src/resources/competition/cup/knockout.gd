@@ -113,7 +113,7 @@ func get_matches(cup: Cup) -> Array[Array]:
 			matches_by_round_b[-1].append(matchz)
 
 		matches.append(match_day)
-		
+
 		# second leg
 		if legs_semi_finals == Knockout.Legs.DOUBLE:
 			# iterate over all matches of match day 1 and invert home/away
@@ -143,7 +143,7 @@ func get_matches(cup: Cup) -> Array[Array]:
 		matchz.setup(teams_a[0], teams_b[0], cup.id, cup.name)
 		var final_match_day: Array[Match] = [matchz]
 		matches.append(final_match_day)
-		
+
 		# second leg
 		if legs_final == Legs.DOUBLE:
 			var matchz_2: Match = matchz.inverted(true)
@@ -172,7 +172,7 @@ func _prepare_next_round(matches: Array, teams: Array[TeamBasic]) -> bool:
 	for matchz: Match in matches:
 		if not matchz.over:
 			return false
-	
+
 	# eliminate teams
 	for matchz: Match in matches:
 		if legs_semi_finals == Legs.SINGLE:
@@ -184,15 +184,12 @@ func _prepare_next_round(matches: Array, teams: Array[TeamBasic]) -> bool:
 			# search for matches with fist leg reference
 			if matchz.first_leg != null:
 				var first_leg: Match = matchz.first_leg
-				
+
 				var team_1_goal_sum: int = first_leg.home_goals + matchz.away_goals
 				var team_2_goal_sum: int = first_leg.away_goals + matchz.home_goals
 
-				if  team_1_goal_sum > team_2_goal_sum:
+				if team_1_goal_sum > team_2_goal_sum:
 					teams.erase(first_leg.home)
 				else:
 					teams.erase(first_leg.away)
 	return true
-
-
-

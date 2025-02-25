@@ -5,9 +5,9 @@
 class_name DefaultOptionButton
 extends OptionButton
 
+
 func _ready() -> void:
 	var height: int = int(get_viewport_rect().size.y / 3)
 	var width: int = int(get_viewport_rect().size.y / 3)
 
 	get_popup().max_size = Vector2(width, height)
-

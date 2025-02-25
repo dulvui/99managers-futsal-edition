@@ -73,7 +73,7 @@ func setup(
 	simulated = Global.team and Global.team.id != team_res.id
 
 	stats = MatchStatistics.new()
-	
+
 	for player: Player in team_res.get_starting_players():
 		# setup
 		var sim_player: SimPlayer = SimPlayer.new(rng)
@@ -84,7 +84,7 @@ func setup(
 	players[0].make_goalkeeper()
 
 	_set_start_positions()
-	
+
 	state_machine = TeamStateMachine.new(rng, field, self)
 
 
@@ -95,9 +95,9 @@ func update() -> void:
 	# recover bench players stamina
 	for player: Player in team_res.players.slice(5):
 		player.recover_stamina()
-	
+
 	state_machine.execute()
-	
+
 	# TODO
 	# check injuries
 
@@ -144,7 +144,10 @@ func auto_change() -> void:
 
 		# get tired players
 		for sim_player: SimPlayer in players:
-			if sim_player.player_res.stamina < 0.5 and sim_player.ticks_in_field > PLAYER_MIN_TICKS_IN_FIELD:
+			if (
+				sim_player.player_res.stamina < 0.5
+				and sim_player.ticks_in_field > PLAYER_MIN_TICKS_IN_FIELD
+			):
 				low_stamina_players.append(sim_player)
 
 		# stop if no players need to be changed
@@ -153,20 +156,18 @@ func auto_change() -> void:
 
 		# sort bench per stamina
 		var bench: Array[Player] = team_res.get_sub_players()
-		bench.sort_custom(
-			func(a: Player, b: Player) -> bool:
-				return a.stamina > b.stamina
-		)
-		
+		bench.sort_custom(func(a: Player, b: Player) -> bool: return a.stamina > b.stamina)
+
 		# TODO take real positions in field, not player pos
 		# because player could play in different position
-		
+
 		# find best position machting player and change them
 		var no_matching_sim_players: Array[SimPlayer] = []
 		for sim_player: SimPlayer in low_stamina_players:
 			var possible_sub_players: Array[Player] = bench.filter(
-				func(p: Player) -> bool:
-					return p.position.match_factor(sim_player.player_res.position) >= 0.5
+				func(p: Player) -> bool: return (
+					p.position.match_factor(sim_player.player_res.position) >= 0.5
+				)
 			)
 			if possible_sub_players.size() > 0:
 				var sub_player: Player = possible_sub_players.pop_front()
@@ -183,7 +184,7 @@ func auto_change() -> void:
 			if sub_player:
 				team_res.change_players(sim_player.player_res, sub_player)
 				auto_change_request = true
-		
+
 		# trigger change player request only once
 		if auto_change_request:
 			change_players_request()
@@ -261,7 +262,7 @@ func find_nearest_player_to(position: Vector2, exclude: Array[SimPlayer] = []) -
 			if nearest == null:
 				nearest = player
 				continue
-			
+
 			if player.pos.distance_squared_to(position) < nearest.pos.distance_squared_to(position):
 				nearest = player
 	return nearest
@@ -286,4 +287,4 @@ func _set_start_positions() -> void:
 		var start_pos: Vector2 = team_res.formation.get_start_pos(
 			field.size, players.find(player), left_half
 		)
-		player.start_pos = start_pos	
+		player.start_pos = start_pos

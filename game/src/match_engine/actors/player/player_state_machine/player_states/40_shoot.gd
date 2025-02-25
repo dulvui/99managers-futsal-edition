@@ -14,4 +14,3 @@ func enter() -> void:
 	owner.field.ball.shoot_on_goal(owner.player.player_res, owner.team.left_half)
 	set_state(PlayerStateAttack.new())
 	return
-

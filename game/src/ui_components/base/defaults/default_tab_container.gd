@@ -6,7 +6,6 @@ class_name DefaultTabContainer
 extends TabContainer
 
 
-
 func _ready() -> void:
 	tab_clicked.connect(_tab_clicked)
 

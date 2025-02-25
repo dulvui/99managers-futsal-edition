@@ -14,7 +14,7 @@ func enter() -> void:
 	var deviation: Vector2 = Vector2(0, 20 * (owner.team.players.find(owner.player) + 1))
 	if owner.team.left_half:
 		deviation = -deviation
-	
+
 	var destination: Vector2 = owner.field.center + deviation
 	owner.player.head_look = destination
 	owner.player.set_destination(destination)

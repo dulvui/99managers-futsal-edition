@@ -26,31 +26,13 @@ func _init(
 	physical = p_physical
 
 
-func field_player_average() -> int:
-	var value: int = 0
+func field_player_average() -> float:
+	var value: float = 0.0
 	value += mental.average()
 	value += technical.average()
 	value += physical.average()
-	return value / 3
+	return value / 3.0
 
 
-func goal_keeper_average() -> int:
+func goal_keeper_average() -> float:
 	return goalkeeper.average()
-
-
-# get dynamically dictionary of all attributes goalkeeper, mental ecc...
-# with all its sub attributes as string array
-func get_all_attributes() -> Dictionary:
-	var attributes: Dictionary = {}
-	for property: Dictionary in get_property_list():
-		if property.usage == Const.CUSTOM_PROPERTY_EXPORT:
-			var sub_attributes: Array[StringName] = []
-			# get sub attributes
-			var attribute: Resource = get(property.name)
-			for a_property: Dictionary in attribute.get_property_list():
-				if a_property.usage == Const.CUSTOM_PROPERTY_EXPORT:
-					sub_attributes.append(a_property.name)
-			
-			attributes[property.name] = sub_attributes
-
-	return attributes

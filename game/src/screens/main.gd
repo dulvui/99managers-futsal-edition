@@ -4,7 +4,6 @@
 
 extends Control
 
-
 @onready var version: Label = %Version
 @onready var content: PanelContainer = %Content
 @onready var scene_fade: SceneFade = %SceneFade
@@ -20,19 +19,19 @@ func _ready() -> void:
 	previous_scenes = []
 	scene_name_on_load = ""
 	version.text = "v" + Global.version
-	
+
 	scene_fade.fade_in()
 
 
 func change_scene(scene_path: String) -> void:
 	await scene_fade.fade_out()
-	
+
 	for child: Node in content.get_children():
 		content.remove_child(child)
 		child.queue_free()
-	
+
 	_append_scene_to_buffer(scene_path)
-	
+
 	var scene: PackedScene = load(scene_path)
 	content.add_child(scene.instantiate())
 	scene_fade.fade_in()
@@ -76,4 +75,3 @@ func _on_loading_screen_loaded(_type: int) -> void:
 	else:
 		scene_fade.fade_in()
 	loading_screen.hide()
-

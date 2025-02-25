@@ -35,5 +35,3 @@ func update(p_pos: Vector2) -> void:
 	last_pos = position
 	time_passed = 0.0
 	factor = 0
-
-

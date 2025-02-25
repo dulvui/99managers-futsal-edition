@@ -15,7 +15,7 @@ func _ready() -> void:
 	InputUtil.start_focus(self)
 
 	teams_tree.setup()
-	
+
 	var first_league: League = Global.world.get_all_leagues(true)[0]
 	active_team = first_league.teams[0]
 	team_profile.setup(active_team)
@@ -40,5 +40,3 @@ func _on_select_team_pressed() -> void:
 
 func _on_back_pressed() -> void:
 	Main.previous_scene()
-
-

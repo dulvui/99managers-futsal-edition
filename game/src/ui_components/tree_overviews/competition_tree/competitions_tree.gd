@@ -40,7 +40,7 @@ func _initialize_tree(search_string: String = "") -> void:
 	tree.clear()
 	competitions = {}
 	items = []
-	
+
 	# world competitons
 	var world_item: TreeItem = _create_item("WORLD")
 	_create_item("WORLD CUP", world_item, Global.world.world_cup, search_string)
@@ -60,9 +60,12 @@ func _initialize_tree(search_string: String = "") -> void:
 					# nation cups
 					_create_item(nation.cup.name, nation_item, nation.cup, search_string)
 			# continental cups
-			_create_item(continent.cup_clubs.name, continent_item, continent.cup_clubs, search_string)
-			_create_item(continent.cup_nations.name, continent_item, continent.cup_nations, search_string)
-	
+			_create_item(
+				continent.cup_clubs.name, continent_item, continent.cup_clubs, search_string
+			)
+			_create_item(
+				continent.cup_nations.name, continent_item, continent.cup_nations, search_string
+			)
 
 	# remove empty tree items
 	if not search_string.is_empty():
@@ -70,7 +73,10 @@ func _initialize_tree(search_string: String = "") -> void:
 		for i: int in 4:
 			var empty_tree_items: Array[TreeItem] = []
 			for tree_item: TreeItem in items:
-				if not search_string in tree_item.get_text(0).to_lower() and tree_item.get_child_count() == 0:
+				if (
+					not search_string in tree_item.get_text(0).to_lower()
+					and tree_item.get_child_count() == 0
+				):
 					empty_tree_items.append(tree_item)
 			for tree_item: TreeItem in empty_tree_items:
 				items.erase(tree_item)
@@ -78,7 +84,7 @@ func _initialize_tree(search_string: String = "") -> void:
 
 		if items.is_empty():
 			_create_item("NO_COMPETITION_FOUND")
-	
+
 	select(competition_name)
 
 
@@ -87,8 +93,8 @@ func _create_item(
 	parent: TreeItem = null,
 	competition: Competition = null,
 	search_string: String = "",
-	) -> TreeItem:
-	# filter by search	
+) -> TreeItem:
+	# filter by search
 	if not search_string.is_empty() and not search_string in text.to_lower():
 		return null
 

@@ -50,7 +50,15 @@ func get_matches(competition_id: int = -1) -> Array:
 
 
 func to_format_string() -> String:
-	return Enum.get_weekday_text(weekday) + " " + str(day) + " " + Enum.get_month_text(month - 1) + " " + str(year)
+	return (
+		Enum.get_weekday_text(weekday)
+		+ " "
+		+ str(day)
+		+ " "
+		+ Enum.get_month_text(month - 1)
+		+ " "
+		+ str(year)
+	)
 
 
 func is_same_day(p_day: Day) -> bool:
@@ -61,5 +69,3 @@ func is_same_day(p_day: Day) -> bool:
 	if year != p_day.year:
 		return false
 	return true
-
-

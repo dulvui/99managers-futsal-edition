@@ -9,8 +9,8 @@ const MAX_STATES: int = 3
 
 var home_team: SimTeam
 var away_team: SimTeam
-var home_player_states: Array[Label] 
-var away_player_states: Array[Label] 
+var home_player_states: Array[Label]
+var away_player_states: Array[Label]
 
 @onready var home_team_container: VBoxContainer = %Home
 @onready var away_team_container: VBoxContainer = %Away
@@ -43,7 +43,6 @@ func _process(_delta: float) -> void:
 
 
 func setup(p_home_team: SimTeam, p_away_team: SimTeam) -> void:
-
 	if not DebugUtil.visual_state_machine:
 		queue_free()
 

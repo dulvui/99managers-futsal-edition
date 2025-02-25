@@ -5,7 +5,6 @@
 class_name InputSettings
 extends VBoxContainer
 
-
 @onready var joypad_info: Label = %JoypadInfo
 @onready var type_button: SwitchOptionButton = %TypeButton
 @onready var detection_mode_button: SwitchOptionButton = %DetectionModeButton
@@ -14,8 +13,7 @@ extends VBoxContainer
 func _ready() -> void:
 	# joypad info
 	JoypadUtil.joypad_changed.connect(
-		func() -> void:
-			joypad_info.text = JoypadUtil.get_joypad_type_string()
+		func() -> void: joypad_info.text = JoypadUtil.get_joypad_type_string()
 	)
 	joypad_info.text = JoypadUtil.get_joypad_type_string()
 
@@ -41,8 +39,6 @@ func _on_detection_mode_button_item_selected(index: int) -> void:
 	ResUtil.save_config()
 
 
-
 func _on_type_button_item_selected(index: int) -> void:
 	InputUtil.type = index as Enum.InputType
 	ResUtil.save_config()
-

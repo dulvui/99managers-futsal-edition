@@ -16,11 +16,8 @@ func enter() -> void:
 
 
 func execute() -> void:
-	
 	# try to control ball
 	if owner.player.is_touching_ball():
 		owner.field.ball.stop()
 		owner.team.player_control(owner.player)
 		return
-
-

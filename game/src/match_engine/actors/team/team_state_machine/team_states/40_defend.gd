@@ -20,13 +20,13 @@ func execute() -> void:
 	if owner.team.has_ball:
 		set_state(TeamStateAttack.new())
 		return
-	
+
 	if not owner.field.clock_running:
 		return
 
 	if owner.field.goalkeeper_ball:
 		return
-	
+
 	if owner.field.kickin:
 		return
 

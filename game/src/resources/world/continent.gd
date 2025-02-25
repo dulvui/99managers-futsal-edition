@@ -29,5 +29,3 @@ func is_competitive() -> bool:
 		if nation.is_competitive():
 			return true
 	return false
-
-

@@ -5,7 +5,6 @@
 class_name SearchLineEdit
 extends LineEdit
 
-
 @onready var shortcut: Button = %Shortcut
 
 
@@ -19,5 +18,3 @@ func _on_focus_exited() -> void:
 
 func _on_shortcut_button_pressed() -> void:
 	grab_focus()
-
-

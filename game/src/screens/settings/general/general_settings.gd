@@ -5,7 +5,6 @@
 class_name GeneralSettings
 extends VBoxContainer
 
-
 @onready var ui_sfx_volume: HSlider = %UISfxVolumeSlider
 @onready var version_label: Label = %VersionLabel
 @onready var font_size_spinbox: SpinBox = %FontSizeSpinBox
@@ -19,7 +18,7 @@ func _ready() -> void:
 	font_size_spinbox.max_value = Const.FONT_SIZE_MAX
 
 	version_label.text = "v" + Global.version
-	
+
 	ui_sfx_volume.value = SoundUtil.get_bus_volume(SoundUtil.AudioBus.UI_SFX)
 	screen_fade_button.button_pressed = Global.config.scene_fade
 
@@ -78,10 +77,11 @@ func _on_screen_fade_button_toggled(toggled_on: bool) -> void:
 	ResUtil.save_config()
 
 
-func _on_ui_sfx_volume_slider_drag_ended(value_changed:bool) -> void:
+func _on_ui_sfx_volume_slider_drag_ended(value_changed: bool) -> void:
 	if value_changed:
 		SoundUtil.set_bus_volume(SoundUtil.AudioBus.UI_SFX, ui_sfx_volume.value)
-		SoundUtil.set_bus_mute(SoundUtil.AudioBus.UI_SFX, ui_sfx_volume.value == ui_sfx_volume.min_value)
+		SoundUtil.set_bus_mute(
+			SoundUtil.AudioBus.UI_SFX, ui_sfx_volume.value == ui_sfx_volume.min_value
+		)
 		SoundUtil.play_button_sfx()
 		ResUtil.save_config()
-

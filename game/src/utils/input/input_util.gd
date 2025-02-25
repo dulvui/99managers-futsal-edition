@@ -21,13 +21,13 @@ var timer: Timer
 
 func _ready() -> void:
 	focused = true
-	
+
 	viewport = get_viewport()
 	viewport.gui_focus_changed.connect(_on_gui_focus_change)
-	
+
 	timer = Timer.new()
 	add_child(timer)
-	
+
 	type = Global.config.input_type
 
 
@@ -41,13 +41,12 @@ func _notification(what: int) -> void:
 
 func _input(event: InputEvent) -> void:
 	if focused:
-		
 		# only verify focus, when pressed
 		if event.is_pressed():
 			_verify_focus()
 
 		_verify_type(event)
-		
+
 		JoypadAxisUtil.handle_event(event)
 
 		return
@@ -61,7 +60,7 @@ func start_focus(node: Control) -> void:
 	if node.focus_mode == node.FOCUS_NONE:
 		# find next control to focus
 		first_focus = node.find_next_valid_focus()
-	
+
 	if first_focus:
 		first_focus.grab_focus()
 	else:

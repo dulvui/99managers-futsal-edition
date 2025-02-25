@@ -33,7 +33,7 @@ func test_combinations(league: League) -> void:
 		# [team_id] = 1
 		var home_counter: Dictionary = {}
 		var away_counter: Dictionary = {}
-		
+
 		for match_day: Array in match_days:
 			for match: Match in match_day:
 				# plays at home
@@ -55,7 +55,6 @@ func test_combinations(league: League) -> void:
 		# test away
 		for key: int in away_counter.keys():
 			assert(away_counter[key] == 1)
-
 
 	print("test: combinations done...")
 

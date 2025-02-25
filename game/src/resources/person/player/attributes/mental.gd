@@ -14,14 +14,12 @@ extends JSONResource
 @export var anticipation: int
 # probability of taking best next move/action
 @export var decisions: int
-# reducing with	stamina probability of taking best next move/action
+# reducing with stamina probability of taking best next move/action
 @export var concentration: int
-# if prefer dribble or pass 
-@export var teamwork: int
 # seek pass distance
 @export var vision: int
 # intensity of marking and attack movements
-@export var work_rate: int
+@export var workrate: int
 # probability of choosing best support spot
 @export var offensive_movement: int
 # probability of choosing best marking spot
@@ -33,32 +31,26 @@ func _init(
 	p_anticipation: int = Const.MAX_PRESTIGE,
 	p_decisions: int = Const.MAX_PRESTIGE,
 	p_concentration: int = Const.MAX_PRESTIGE,
-	p_teamwork: int = Const.MAX_PRESTIGE,
 	p_vision: int = Const.MAX_PRESTIGE,
-	p_work_rate: int = Const.MAX_PRESTIGE,
-	p_offensive_movement: int = Const.MAX_PRESTIGE,
+	p_workrate: int = Const.MAX_PRESTIGE,
 	p_marking: int = Const.MAX_PRESTIGE,
 ) -> void:
 	aggression = p_aggression
 	anticipation = p_anticipation
 	decisions = p_decisions
 	concentration = p_concentration
-	teamwork = p_teamwork
 	vision = p_vision
-	work_rate = p_work_rate
-	offensive_movement = p_offensive_movement
+	workrate = p_workrate
 	marking = p_marking
 
 
-func average() -> int:
+func average() -> float:
 	var value: int = 0
 	value += aggression
 	value += anticipation
 	value += decisions
 	value += concentration
-	value += teamwork
 	value += vision
-	value += work_rate
-	value += offensive_movement
+	value += workrate
 	value += marking
-	return value / 9
+	return value / 7.0

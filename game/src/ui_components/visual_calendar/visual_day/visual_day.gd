@@ -25,11 +25,11 @@ func setup(p_date: Day = Day.new(), matchz: Match = null) -> void:
 	if matchz != null:
 		if Global.team.id == matchz.home.id:
 			competition_name.text = matchz.competition_name
-			team_name_label.text = "%s - %s"%[matchz.away.name, tr("Home")]
+			team_name_label.text = "%s - %s" % [matchz.away.name, tr("Home")]
 			competition.show()
 		elif Global.team.id == matchz.away.id:
 			competition_name.text = matchz.competition_name
-			team_name_label.text = "%s - %s"%[matchz.home.name, tr("Away")]
+			team_name_label.text = "%s - %s" % [matchz.home.name, tr("Away")]
 			competition.show()
 	else:
 		competition.hide()
@@ -42,7 +42,6 @@ func setup(p_date: Day = Day.new(), matchz: Match = null) -> void:
 		market_label.text = tr("Transfermarket")
 	else:
 		market_label.text = ""
-
 
 
 func unselect() -> void:

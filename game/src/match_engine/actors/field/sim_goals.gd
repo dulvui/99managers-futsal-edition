@@ -55,65 +55,101 @@ func _init(field: SimField) -> void:
 
 	# colissions
 	var post_size: float = 1.0 * field.PIXEL_FACTOR
-	
+
 	# top left
-	post_top_left_top = CollidingActor.new(
-		post_top_left + Vector2(-post_size, -post_size),
-		post_top_left + Vector2(0, -post_size),
+	post_top_left_top = (
+		CollidingActor
+		. new(
+			post_top_left + Vector2(-post_size, -post_size),
+			post_top_left + Vector2(0, -post_size),
+		)
 	)
-	post_top_left_right = CollidingActor.new(
-		post_top_left + Vector2(0, -post_size),
-		post_top_left + Vector2(0, 0),
+	post_top_left_right = (
+		CollidingActor
+		. new(
+			post_top_left + Vector2(0, -post_size),
+			post_top_left + Vector2(0, 0),
+		)
 	)
-	post_top_left_bottom = CollidingActor.new(
-		post_top_left + Vector2(0, 0),
-		post_top_left + Vector2(-post_size, 0),
+	post_top_left_bottom = (
+		CollidingActor
+		. new(
+			post_top_left + Vector2(0, 0),
+			post_top_left + Vector2(-post_size, 0),
+		)
 	)
 	# top right
-	post_top_right_top = CollidingActor.new(
-		post_top_right + Vector2(post_size, post_size),
-		post_top_right + Vector2(0, post_size),
+	post_top_right_top = (
+		CollidingActor
+		. new(
+			post_top_right + Vector2(post_size, post_size),
+			post_top_right + Vector2(0, post_size),
+		)
 	)
-	post_top_right_left = CollidingActor.new(
-		post_top_right + Vector2(0, post_size),
-		post_top_right + Vector2(0, 0),
+	post_top_right_left = (
+		CollidingActor
+		. new(
+			post_top_right + Vector2(0, post_size),
+			post_top_right + Vector2(0, 0),
+		)
 	)
-	post_top_right_bottom = CollidingActor.new(
-		post_top_right + Vector2(0, 0),
-		post_top_right + Vector2(post_size, 0),
+	post_top_right_bottom = (
+		CollidingActor
+		. new(
+			post_top_right + Vector2(0, 0),
+			post_top_right + Vector2(post_size, 0),
+		)
 	)
 
 	# bottom left
-	post_bottom_left_top = CollidingActor.new(
-		post_bottom_left + Vector2(-post_size, 0),
-		post_bottom_left + Vector2(0, 0),
+	post_bottom_left_top = (
+		CollidingActor
+		. new(
+			post_bottom_left + Vector2(-post_size, 0),
+			post_bottom_left + Vector2(0, 0),
+		)
 	)
-	post_bottom_left_right = CollidingActor.new(
-		post_bottom_left + Vector2(0, 0),
-		post_bottom_left + Vector2(0, -post_size),
+	post_bottom_left_right = (
+		CollidingActor
+		. new(
+			post_bottom_left + Vector2(0, 0),
+			post_bottom_left + Vector2(0, -post_size),
+		)
 	)
-	post_bottom_left_bottom = CollidingActor.new(
-		post_bottom_left + Vector2(0, -post_size),
-		post_bottom_left + Vector2(-post_size, -post_size),
+	post_bottom_left_bottom = (
+		CollidingActor
+		. new(
+			post_bottom_left + Vector2(0, -post_size),
+			post_bottom_left + Vector2(-post_size, -post_size),
+		)
 	)
 	# bottom right
-	post_bottom_right_top = CollidingActor.new(
-		post_bottom_right + Vector2(post_size, 0),
-		post_bottom_right + Vector2(0, 0),
+	post_bottom_right_top = (
+		CollidingActor
+		. new(
+			post_bottom_right + Vector2(post_size, 0),
+			post_bottom_right + Vector2(0, 0),
+		)
 	)
-	post_bottom_right_left = CollidingActor.new(
-		post_bottom_right + Vector2(0, 0),
-		post_bottom_right + Vector2(0, post_size),
+	post_bottom_right_left = (
+		CollidingActor
+		. new(
+			post_bottom_right + Vector2(0, 0),
+			post_bottom_right + Vector2(0, post_size),
+		)
 	)
-	post_bottom_right_bottom = CollidingActor.new(
-		post_bottom_right + Vector2(0, post_size),
-		post_bottom_right + Vector2(post_size, post_size),
+	post_bottom_right_bottom = (
+		CollidingActor
+		. new(
+			post_bottom_right + Vector2(0, post_size),
+			post_bottom_right + Vector2(post_size, post_size),
+		)
 	)
 
 
 func is_goal_right(ball: SimBall) -> bool:
 	var intersection: Variant = Geometry2D.segment_intersects_segment(
-			ball.last_pos, ball.pos, post_bottom_right, post_top_right
+		ball.last_pos, ball.pos, post_bottom_right, post_top_right
 	)
 
 	if intersection and intersection.y < post_bottom and intersection.y > post_top:
@@ -123,7 +159,7 @@ func is_goal_right(ball: SimBall) -> bool:
 
 func is_goal_left(ball: SimBall) -> bool:
 	var intersection: Variant = Geometry2D.segment_intersects_segment(
-			ball.last_pos, ball.pos, post_bottom_left, post_top_left
+		ball.last_pos, ball.pos, post_bottom_left, post_top_left
 	)
 
 	if intersection and intersection.y < post_bottom and intersection.y > post_top:

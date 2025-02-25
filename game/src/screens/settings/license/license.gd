@@ -4,7 +4,6 @@
 
 extends Control
 
-
 @onready var license_dialog: DefaultConfirmDialog = %LicenseDialog
 @onready var third_party_license_dialog: DefaultConfirmDialog = %ThirdPartyLicenseDialog
 
@@ -15,4 +14,3 @@ func _on_license_button_pressed() -> void:
 
 func _on_third_party_license_button_pressed() -> void:
 	third_party_license_dialog.show()
-

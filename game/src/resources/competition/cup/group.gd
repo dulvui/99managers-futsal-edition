@@ -44,5 +44,5 @@ func is_over() -> bool:
 	for table_value: TableValues in table.teams:
 		if table_value.games_played == teams.size() - 2:
 			over_count += 1
-	
+
 	return over_count == teams.size()

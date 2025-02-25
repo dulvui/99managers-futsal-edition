@@ -5,7 +5,6 @@
 class_name Technical
 extends JSONResource
 
-
 # all attributes self describing
 @export var crossing: int
 @export var passing: int
@@ -49,8 +48,8 @@ func _init(
 	blocking = p_blocking
 
 
-func average() -> int:
-	var value: int = 0
+func average() -> float:
+	var value: float = 0
 	value += crossing
 	value += passing
 	value += long_passing
@@ -63,4 +62,4 @@ func average() -> int:
 	value += finishing
 	value += dribbling
 	value += blocking
-	return value / 12
+	return value / 12.0

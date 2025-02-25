@@ -76,9 +76,9 @@ func setup(p_matchz: Match, p_home_team: Team = null, p_away_team: Team = null) 
 	home_team.setup(home_team_res, field, home_plays_left, home_has_ball)
 	away_team.setup(away_team_res, field, not home_plays_left, not home_has_ball)
 
-	home_team.team_opponents =  away_team
-	away_team.team_opponents =  home_team
-	
+	home_team.team_opponents = away_team
+	away_team.team_opponents = home_team
+
 	# set left/right pointers to home/away team
 	left_team = home_team
 	right_team = away_team
@@ -157,7 +157,7 @@ func simulate(end_time: int = -1) -> void:
 	else:
 		while not match_over:
 			update()
-	
+
 	# print time passed for simulation
 	var load_time: int = Time.get_ticks_msec() - start_time
 	print("benchmark in: " + str(load_time) + " ms")
@@ -176,7 +176,7 @@ func simulate_match(matchz: Match, fast: bool = false) -> void:
 		var away_goals: int = _rng.randi() % 10
 		var home_penalties_goals: int = 0
 		var away_penalties_goals: int = 0
-		
+
 		# penalties
 		if matchz.no_draw and home_goals == away_goals:
 			# fast and easy...
@@ -187,21 +187,27 @@ func simulate_match(matchz: Match, fast: bool = false) -> void:
 			else:
 				away_penalties_goals += 1
 
-		matchz.set_result(
-			home_goals,
-			away_goals,
-			home_penalties_goals,
-			away_penalties_goals,
+		(
+			matchz
+			. set_result(
+				home_goals,
+				away_goals,
+				home_penalties_goals,
+				away_penalties_goals,
+			)
 		)
 		return
 	setup(matchz)
 	simulate()
 
-	matchz.set_result(
-		home_team.stats.goals,
-		away_team.stats.goals,
-		home_team.stats.penalty_shootout_goals,
-		away_team.stats.penalty_shootout_goals,
+	(
+		matchz
+		. set_result(
+			home_team.stats.goals,
+			away_team.stats.goals,
+			home_team.stats.penalty_shootout_goals,
+			away_team.stats.penalty_shootout_goals,
+		)
 	)
 
 
@@ -258,7 +264,7 @@ func _on_touch_line_out() -> void:
 	else:
 		left_possess()
 		left_team.stats.kick_ins += 1
-	
+
 	left_possess()
 	left_team.set_state(TeamStateKickin.new())
 	right_team.set_state(TeamStateKickin.new())
@@ -287,7 +293,7 @@ func _teams_switch_sides() -> void:
 	else:
 		left_team = home_team
 		right_team = away_team
-	
+
 	field.left_team = away_team
 	field.right_team = home_team
 	left_team.left_half = true
@@ -310,7 +316,7 @@ func _recover_stamina(minutes: int) -> void:
 func _on_half_time() -> void:
 	field.ball.set_pos(field.center)
 	_teams_switch_sides()
-	_recover_stamina(15)	
+	_recover_stamina(15)
 	half_time.emit()
 
 
@@ -330,7 +336,7 @@ func _on_full_time() -> void:
 func _on_over_time() -> void:
 	field.ball.set_pos(field.center)
 	_teams_switch_sides()
-	_recover_stamina(5)	
+	_recover_stamina(5)
 
 
 func _on_full_over_time() -> void:
@@ -349,8 +355,8 @@ func _on_full_over_time() -> void:
 		field.goal_right.connect(_on_penalties_goal)
 		# connect team penaties shot signals
 		left_team.penalties_shot.connect(_check_penalties_over)
-		right_team.penalties_shot.connect( _check_penalties_over)
-		
+		right_team.penalties_shot.connect(_check_penalties_over)
+
 		penalties_start.emit()
 
 		# TODO show player order selection, and add ALL players
@@ -365,25 +371,25 @@ func _on_full_over_time() -> void:
 
 
 func _check_penalties_over() -> void:
-	var	home_shots: int = home_team.stats.penalty_shootout_shots
-	var	home_goals: int = home_team.stats.penalty_shootout_goals
+	var home_shots: int = home_team.stats.penalty_shootout_shots
+	var home_goals: int = home_team.stats.penalty_shootout_goals
 
-	var	away_shots: int = away_team.stats.penalty_shootout_shots
-	var	away_goals: int = away_team.stats.penalty_shootout_goals
+	var away_shots: int = away_team.stats.penalty_shootout_shots
+	var away_goals: int = away_team.stats.penalty_shootout_goals
 
 	# check if teams still need to shoot 5 shots per team
 	if home_shots + away_shots < Const.PENALTY_KICKS * 2:
 		var home_goals_max: int = home_goals + Const.PENALTY_KICKS - home_shots
 		var away_goals_max: int = away_goals + Const.PENALTY_KICKS - away_shots
 		# check if home made more goals than away has made and away still can make
-		if home_goals >	away_goals_max: 
+		if home_goals > away_goals_max:
 			match_over = true
 			penalties = false
 			field.clock_running = false
 			match_finish.emit()
 			return
 		# check if away made more goals than home has made and home still can make
-		if away_goals >	home_goals_max: 
+		if away_goals > home_goals_max:
 			match_over = true
 			penalties = false
 			field.clock_running = false
@@ -404,4 +410,3 @@ func _on_penalties_goal() -> void:
 		left_team.stats.penalty_shootout_goals += 1
 	else:
 		right_team.stats.penalty_shootout_goals += 1
-

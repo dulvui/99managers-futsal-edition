@@ -19,7 +19,7 @@ func execute() -> void:
 		owner.team.gain_possession()
 		owner.team.player_control(owner.player)
 		return
-	
+
 	# make sure goalkeeper doesn't follow ball too far away from penalty area
 	if owner.player.is_goalkeeper:
 		if owner.player.left_half:
@@ -30,4 +30,3 @@ func execute() -> void:
 			if owner.player.pos.distance_to(owner.player.right_base) > 80:
 				set_state(PlayerStateDefend.new())
 				return
-

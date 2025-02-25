@@ -16,10 +16,10 @@ func test() -> void:
 func test_deterministic_simulations() -> void:
 	print("test: deterministic simulation...")
 	var matches: Array[Match] = []
-	
+
 	const MATCH_AMOUNT: int = 3
 	const SEED_AMOUNT: int = 9
-	
+
 	var match_engine: MatchEngine = MatchEngine.new()
 
 	# simulate matches
@@ -36,13 +36,13 @@ func test_deterministic_simulations() -> void:
 			matches.append(matchz)
 			matchz.setup(home_team, away_team, 1, "test")
 			match_engine.setup(matchz, home_team, away_team)
-			print("test: match %d with seed %d calculated"%[j + 1, i])
-	
+			print("test: match %d with seed %d calculated" % [j + 1, i])
+
 		# check results
 		for j: int in MATCH_AMOUNT:
 			assert(matches[j].home_goals == matches[j - 1].home_goals)
 			assert(matches[j].away_goals == matches[j - 1].away_goals)
-	
+
 	print("test: deterministic simulation done.")
 
 

@@ -51,9 +51,9 @@ func setup(
 	player_res = p_player_res
 	field = p_field
 	left_half = p_left_half
-	
+
 	state_machine = PlayerStateMachine.new(field, self, p_team)
-	
+
 	# goalkeeper properties
 	left_base = Vector2(field.line_left + 30, field.size.y / 2)
 	right_base = Vector2(field.line_right - 30, field.size.y / 2)
@@ -63,7 +63,7 @@ func update() -> void:
 	ticks_in_field += 1
 
 	state_machine.execute()
-	
+
 	if speed > 0:
 		player_res.consume_stamina(speed)
 

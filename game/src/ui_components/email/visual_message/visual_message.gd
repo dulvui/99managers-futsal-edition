@@ -59,4 +59,3 @@ func _on_message_meta_clicked(meta: Variant) -> void:
 		var team_id: int = int(meta_string.substr(1))
 		LinkUtil.link_team_id(team_id)
 		return
-

@@ -53,14 +53,17 @@ func _initialize_tree(search_string: String = "") -> void:
 						var league_item: TreeItem = _create_item(league.name, nation_item)
 						for team: Team in league.teams:
 							_create_item(team.name, league_item, team, search_string)
-	
+
 	# remove empty tree items
 	if not search_string.is_empty():
 		# check 4 times, to remove also empty continents and world
 		for i: int in 4:
 			var empty_tree_items: Array[TreeItem] = []
 			for tree_item: TreeItem in items:
-				if not search_string in tree_item.get_text(0).to_lower() and tree_item.get_child_count() == 0:
+				if (
+					not search_string in tree_item.get_text(0).to_lower()
+					and tree_item.get_child_count() == 0
+				):
 					empty_tree_items.append(tree_item)
 			for tree_item: TreeItem in empty_tree_items:
 				items.erase(tree_item)
@@ -75,11 +78,11 @@ func _create_item(
 	parent: TreeItem = null,
 	team: Team = null,
 	search_string: String = "",
-	) -> TreeItem:
+) -> TreeItem:
 	# filter by search
 	if not search_string.is_empty() and not search_string in text.to_lower():
 		return null
-	
+
 	var item: TreeItem
 	if parent:
 		item = parent.create_child()
@@ -112,5 +115,3 @@ func _on_select() -> void:
 	if teams.has(selected_name):
 		team_selected.emit(teams[selected_name])
 		SoundUtil.play_button_sfx()
-
-

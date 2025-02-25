@@ -7,9 +7,10 @@ extends GridContainer
 
 var dynamic_labels: Array[Label]
 
+
 func _ready() -> void:
 	Tests.setup_mock_world(true)
-	
+
 	dynamic_labels = []
 
 
@@ -17,7 +18,7 @@ func setup(table: Table) -> void:
 	# clear grid
 	for label: Label in dynamic_labels:
 		label.queue_free()
-	
+
 	# transform table dictionary to array
 	var table_array: Array[TableValues] = table.to_sorted_array()
 
@@ -89,5 +90,3 @@ func setup(table: Table) -> void:
 func _style_label(label: Label) -> void:
 	label.horizontal_alignment = HORIZONTAL_ALIGNMENT_RIGHT
 	label.custom_minimum_size = Vector2(60, 0)
-
-

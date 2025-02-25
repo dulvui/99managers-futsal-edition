@@ -75,5 +75,3 @@ func _draw() -> void:
 			field.LINE_WIDTH * .2,
 			field.LINE_WIDTH * .2
 		)
-
-

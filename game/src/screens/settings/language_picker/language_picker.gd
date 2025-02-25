@@ -20,6 +20,7 @@ const LANGUAGES: Dictionary = {
 	"id": "Bahasa Indonesia",
 }
 
+
 func _ready() -> void:
 	# toggle active language
 	var button_group: ButtonGroup = ButtonGroup.new()
@@ -27,7 +28,7 @@ func _ready() -> void:
 		var button: Button = DefaultButton.new()
 		button.text = LANGUAGES[language_key]
 		button.button_group = button_group
-		button.button_pressed = Global.config.language == language_key 
+		button.button_pressed = Global.config.language == language_key
 		button.pressed.connect(_on_button_pressed.bind(language_key))
 		add_child(button)
 
@@ -36,4 +37,3 @@ func _on_button_pressed(language_key: String) -> void:
 	Global.config.set_lang(language_key)
 	Main.check_layout_direction()
 	language_change.emit()
-

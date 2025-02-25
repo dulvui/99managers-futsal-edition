@@ -5,7 +5,6 @@
 class_name ThemePicker
 extends VBoxContainer
 
-
 enum ColorType {
 	FONT,
 	STYLE,
@@ -22,12 +21,10 @@ var active_color_type: ColorType
 @onready var color_picker: ColorPicker = $ColorPopupPanel/MarginContainer/ColorPicker
 
 
-
 func _ready() -> void:
 	options.setup(ThemeUtil.get_theme_names(show_custom), Global.config.theme_index)
 
 	custom.visible = show_custom
-
 
 
 func _on_option_button_item_selected(index: int) -> void:
@@ -72,5 +69,3 @@ func _on_color_picker_color_changed(color: Color) -> void:
 
 	if ThemeUtil.is_custom_theme():
 		ThemeUtil.reload_active_theme()
-
-

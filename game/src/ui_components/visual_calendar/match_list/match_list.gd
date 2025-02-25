@@ -18,9 +18,9 @@ func setup(day: Day, competition: Competition = Global.league) -> void:
 	# remove children
 	for child: Node in matches_list.get_children():
 		child.queue_free()
-	
+
 	all_matches = []
-	
+
 	# reset scroll posiiton
 	scroll_container.scroll_horizontal = 0
 	scroll_container.scroll_vertical = 0
@@ -33,7 +33,7 @@ func setup(day: Day, competition: Competition = Global.league) -> void:
 	# if active competition is a League, show other leagues first
 	# otherwise show other cups first
 	if competition is League:
-		var active_league: League = (competition as League)
+		var active_league: League = competition as League
 
 		# add leagues
 		var leagues: Array[League] = Global.world.get_all_leagues(true)
@@ -57,7 +57,7 @@ func setup(day: Day, competition: Competition = Global.league) -> void:
 		# add other leagues matches
 		for league: League in Global.world.get_all_leagues(true):
 			_add_matches(day, league)
-	
+
 	# show no match notice
 	if all_matches.is_empty():
 		var label: Label = Label.new()
@@ -75,7 +75,7 @@ func _add_matches(day: Day, competition: Competition) -> void:
 		var competition_label: Label = Label.new()
 		competition_label.text = competition.name
 		if competition is League:
-			competition_label.text += " - %s"%(competition as League).nation_name
+			competition_label.text += " - %s" % (competition as League).nation_name
 		ThemeUtil.bold(competition_label)
 		matches_list.add_child(competition_label)
 
@@ -85,5 +85,3 @@ func _add_matches(day: Day, competition: Competition) -> void:
 			match_row.setup(matchz)
 
 		matches_list.add_child(HSeparator.new())
-
-

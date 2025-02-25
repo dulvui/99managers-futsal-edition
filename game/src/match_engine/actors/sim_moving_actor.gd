@@ -78,7 +78,7 @@ func move() -> void:
 	if speed > 0:
 		last_pos = pos
 		pos = next_pos
-		
+
 		# calc next pos
 		if direction != Vector2.INF:
 			next_pos += direction * speed * Const.SPEED
@@ -86,7 +86,7 @@ func move() -> void:
 			next_pos = pos.move_toward(destination, speed * Const.SPEED)
 		elif follow_actor != null:
 			next_pos = pos.move_toward(follow_actor.pos, speed * Const.SPEED)
-	
+
 		if speed <= 0:
 			stop()
 
@@ -95,4 +95,3 @@ func _reset_movents() -> void:
 	direction = Vector2.INF
 	destination = Vector2.INF
 	follow_actor = null
-

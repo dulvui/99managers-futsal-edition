@@ -55,7 +55,7 @@ var min_timestamp: int
 func generate_world(use_test_file: bool = false) -> World:
 	var world: World = World.new()
 	world.calendar.initialize()
-	
+
 	var world_csv: String = WORLD_CSV_PATH
 	if use_test_file:
 		world_csv = TEST_WORLD_CSV_PATH
@@ -78,7 +78,7 @@ func generate_world(use_test_file: bool = false) -> World:
 			var league: String = line[2]
 			var city: String = line[3]
 			_initialize_city(world, continent, nation, league, city)
-	
+
 	# sort continents, nations alphabetically
 	world.continents.sort_custom(func(a: Continent, b: Continent) -> bool: return a.name < b.name)
 	for continent: Continent in world.continents:
@@ -100,7 +100,6 @@ func generate_players(world: World = Global.world) -> void:
 	max_date.year -= 30
 	min_timestamp = Time.get_unix_time_from_datetime_dict(max_date)
 
-
 	# generate players
 	_load_person_names(world)
 	for continent: Continent in world.continents:
@@ -112,7 +111,7 @@ func generate_players(world: World = Global.world) -> void:
 			backup_league.pyramid_level = nation.leagues.size() + 1
 			for team: Team in nation.backup_teams:
 				_initialize_team(world, nation, backup_league, team)
-			
+
 			# league teams
 			for league: League in nation.leagues:
 				for team: Team in league.teams:
@@ -156,7 +155,7 @@ func _initialize_team(
 
 	# assign manager preffered formation to team
 	team.formation = team.staff.manager.formation
-	
+
 	# assign players after formation has been choosen, to assign correct players positions
 	_assign_players_to_team(world, league, team, nation, temp_team_prestige)
 
@@ -166,14 +165,16 @@ func _initialize_team(
 	# calulate balance
 	team.finances.balance[-1] = team.finances.expenses[-1]
 	# add random bonus depending on team prestige
-	team.finances.balance[-1] += RngUtil.rng.randi_range(temp_team_prestige * 1_000, temp_team_prestige * 100_000)
+	team.finances.balance[-1] += RngUtil.rng.randi_range(
+		temp_team_prestige * 1_000, temp_team_prestige * 100_000
+	)
 
 
 func _assign_players_to_team(
-	world: World,league: League, team: Team, nation: Nation, prestige: int
+	world: World, league: League, team: Team, nation: Nation, prestige: int
 ) -> Team:
 	var nr: int = 1
-	
+
 	# lineup
 	for amount: int in team.formation.goalkeeper:
 		var position_type: Position.Type = Position.Type.G
@@ -219,7 +220,7 @@ func _assign_players_to_team(
 		)
 		team.players.append(player)
 		nr += 1
-	
+
 	# bench and rest
 	for position_type: int in Position.Type.values():
 		var amount: int = RngUtil.rng.randi_range(2, 5)
@@ -244,7 +245,7 @@ func _get_random_defense_position_type() -> Position.Type:
 	positions.append(Position.Type.DC)
 	positions.append(Position.Type.DL)
 	positions.append(Position.Type.DR)
-	return RngUtil.pick_random(positions)  
+	return RngUtil.pick_random(positions)
 
 
 func _get_random_center_position_type() -> Position.Type:
@@ -252,7 +253,7 @@ func _get_random_center_position_type() -> Position.Type:
 	positions.append(Position.Type.C)
 	positions.append(Position.Type.WL)
 	positions.append(Position.Type.WR)
-	return RngUtil.pick_random(positions)  
+	return RngUtil.pick_random(positions)
 
 
 func _get_random_attack_position_type() -> Position.Type:
@@ -260,7 +261,7 @@ func _get_random_attack_position_type() -> Position.Type:
 	positions.append(Position.Type.PC)
 	positions.append(Position.Type.PL)
 	positions.append(Position.Type.PR)
-	return RngUtil.pick_random(positions)  
+	return RngUtil.pick_random(positions)
 
 
 func _get_goalkeeper_attributes(age: int, prestige: int, position: Position) -> Goalkeeper:
@@ -361,7 +362,6 @@ func _get_mental(age: int, prestige: int) -> Mental:
 
 	attribtues.decisions = _in_bounds_random(offensive_factor, max_potential)
 	attribtues.concentration = _in_bounds_random(offensive_factor, max_potential)
-	attribtues.teamwork = _in_bounds_random(offensive_factor, max_potential)
 	attribtues.vision = _in_bounds_random(offensive_factor, max_potential)
 	attribtues.workrate = _in_bounds_random(offensive_factor, max_potential)
 	attribtues.offensive_movement = _in_bounds_random(offensive_factor, max_potential)
@@ -407,7 +407,7 @@ func _get_value(age: int, prestige: int, position: Position) -> int:
 
 func _get_random_foot() -> Enum.Foot:
 	var random: int = RngUtil.rng.randi_range(1, 100)
-	if  random < 10:
+	if random < 10:
 		return Enum.Foot.LEFT_AND_RIGHT
 	if random < 35:
 		return Enum.Foot.LEFT
@@ -505,7 +505,7 @@ func _create_player(
 	player.set_id()
 
 	_set_random_person_values(player, nation)
-	
+
 	random_positions(player, p_position_type)
 	var prestige: int = _get_player_prestige(p_prestige)
 
@@ -729,9 +729,7 @@ func _initialize_city(
 
 func _set_random_person_values(person: Person, nation: Nation) -> void:
 	# RngUtil.rng.random date from 1970 to 2007
-	person.birth_date = Time.get_date_dict_from_unix_time(
-		RngUtil.rng.randi_range(0, max_timestamp)
-	)
+	person.birth_date = Time.get_date_dict_from_unix_time(RngUtil.rng.randi_range(0, max_timestamp))
 
 	# colors
 	person.skintone = RngUtil.pick_random(SKINTONE)
@@ -785,7 +783,7 @@ func _set_random_person_values(person: Person, nation: Nation) -> void:
 	var different_nation_factor: int = RngUtil.rng.randi() % 100
 	if different_nation_factor > 90:
 		nation_string = RngUtil.pick_random(names.keys())
-	
+
 	# check if names exist for nation, if not, pick random
 	if not names.has(nation_string):
 		nation_string = RngUtil.pick_random(names.keys())
@@ -797,18 +795,17 @@ func _set_random_person_values(person: Person, nation: Nation) -> void:
 func _set_random_shirt_colors(team: Team) -> void:
 	team.colors = []
 	var main_color: Color = Color(
-			RngUtil.rng.randf_range(0, 1),
-			RngUtil.rng.randf_range(0, 1),
-			RngUtil.rng.randf_range(0, 1)
-		)
+		RngUtil.rng.randf_range(0, 1), RngUtil.rng.randf_range(0, 1), RngUtil.rng.randf_range(0, 1)
+	)
 	team.colors.append(main_color.to_html(true))
 	team.colors.append(main_color.inverted().to_html(true))
 	team.colors.append(
-		Color(
-			RngUtil.rng.randf_range(0, 1),
-			RngUtil.rng.randf_range(0, 1),
-			RngUtil.rng.randf_range(0, 1)
-		).to_html(true)
+		(
+			Color(
+				RngUtil.rng.randf_range(0, 1),
+				RngUtil.rng.randf_range(0, 1),
+				RngUtil.rng.randf_range(0, 1)
+			)
+			. to_html(true)
+		)
 	)
-
-

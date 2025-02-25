@@ -85,7 +85,6 @@ text = "Number"
 unique_name_in_owner = true
 auto_translate_mode = 2
 layout_mode = 2
-text = "Bronzolo"
 
 [node name="AttributesAverageLabel" type="Label" parent="."]
 layout_mode = 2
@@ -95,7 +94,6 @@ text = "Average attributes"
 unique_name_in_owner = true
 auto_translate_mode = 2
 layout_mode = 2
-text = "Bronzolo"
 
 [node name="PrestigeLabel" type="Label" parent="."]
 layout_mode = 2
@@ -105,7 +103,6 @@ text = "Prestige"
 unique_name_in_owner = true
 auto_translate_mode = 2
 layout_mode = 2
-text = "Bronzolo"
 
 [node name="ValueLabel" type="Label" parent="."]
 layout_mode = 2

@@ -5,7 +5,6 @@
 class_name SimBall
 extends MovingActor
 
-
 const DECELERATION: float = 0.05
 
 # ball players collision timer
@@ -81,9 +80,7 @@ func shoot_on_goal(player: Player, left_half: bool) -> void:
 	else:
 		random_target = field.goals.left
 
-	random_target += Vector2(
-		0, rng.randi_range(-field.goals.size, field.goals.size)
-	)
+	random_target += Vector2(0, rng.randi_range(-field.goals.size, field.goals.size))
 
 	shoot(random_target, power * rng.randi_range(1, 3))
 
@@ -98,15 +95,13 @@ func penalty(player: Player, left_half: bool) -> void:
 		random_target = field.goals.right
 	else:
 		random_target = field.goals.left
-	
+
 	# 1.0 best, 0.05 worst
 	var aim_factor: float = 20.0 / player.attributes.technical.penalty
 	# 0.6 best, 1.55 worst
 	var aim: float = 0.6 + (1.0 - aim_factor)
 
-	random_target += Vector2(
-		0, rng.randi_range(-field.goals.size * aim, field.goals.size * aim)
-	)
+	random_target += Vector2(0, rng.randi_range(-field.goals.size * aim, field.goals.size * aim))
 
 	shoot(random_target, power * rng.randi_range(1, 3))
 

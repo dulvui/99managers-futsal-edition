@@ -7,4 +7,3 @@ extends Control
 
 func _on_default_button_pressed() -> void:
 	Main.change_scene(Const.SCREEN_MENU)
-

@@ -145,48 +145,42 @@ func get_all_players_by_nationality(nation: Nation) -> Array[Player]:
 func get_best_players_by_nationality(nation: Nation) -> Array[Player]:
 	var best_players: Array[Player] = []
 	var players: Array[Player] = get_all_players_by_nationality(nation)
-	
+
 	# goal keepers
 	var best_goalkeepers: Array[Player] = players.filter(
-		func(player: Player) -> bool:
-			return player.position.type == Position.Type.G
+		func(player: Player) -> bool: return player.position.type == Position.Type.G
 	)
 	best_goalkeepers.sort_custom(
-		func(a: Player, b: Player) -> bool:
-			return a.get_goalkeeper_attributes() > b.get_goalkeeper_attributes() 
+		func(a: Player, b: Player) -> bool: return (
+			a.get_goalkeeper_attributes() > b.get_goalkeeper_attributes()
+		)
 	)
 	best_players.append_array(best_goalkeepers.slice(0, 3))
-	
+
 	# defenders
 	var best_defenders: Array[Player] = players.filter(
-		func(player: Player) -> bool:
-			return player.position.type in Position.defense_types
+		func(player: Player) -> bool: return player.position.type in Position.defense_types
 	)
 	best_defenders.sort_custom(
-		func(a: Player, b: Player) -> bool:
-			return a.get_overall() > b.get_overall()
+		func(a: Player, b: Player) -> bool: return a.get_overall() > b.get_overall()
 	)
 	best_players.append_array(best_defenders.slice(0, 5))
 
 	# centers
 	var best_centers: Array[Player] = players.filter(
-		func(player: Player) -> bool:
-			return player.position.type in Position.center_types
+		func(player: Player) -> bool: return player.position.type in Position.center_types
 	)
 	best_centers.sort_custom(
-		func(a: Player, b: Player) -> bool:
-			return a.get_overall() > b.get_overall()
+		func(a: Player, b: Player) -> bool: return a.get_overall() > b.get_overall()
 	)
 	best_players.append_array(best_centers.slice(0, 5))
 
 	# attackers
 	var best_attackers: Array[Player] = players.filter(
-		func(player: Player) -> bool:
-			return player.position.type in Position.attack_types
+		func(player: Player) -> bool: return player.position.type in Position.attack_types
 	)
 	best_attackers.sort_custom(
-		func(a: Player, b: Player) -> bool:
-			return a.get_overall() > b.get_overall()
+		func(a: Player, b: Player) -> bool: return a.get_overall() > b.get_overall()
 	)
 	best_players.append_array(best_attackers.slice(0, 5))
 
@@ -360,5 +354,3 @@ func promote_and_delegate_teams() -> void:
 			# and also reassign league ids to backup teams
 			for team: Team in nation.backup_teams:
 				team.league_id = -1
-
-

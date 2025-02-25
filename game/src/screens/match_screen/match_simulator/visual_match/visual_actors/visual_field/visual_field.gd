@@ -83,5 +83,3 @@ func _draw() -> void:
 		Color.WHITE,
 		field.LINE_WIDTH
 	)
-
-

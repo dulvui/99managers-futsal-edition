@@ -30,5 +30,5 @@ func get_salary() -> int:
 			var variant: Variant = get(property.name)
 			if variant is Person:
 				salary += (variant as Person).contract.income
-	
+
 	return salary

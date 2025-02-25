@@ -32,7 +32,7 @@ func _init(
 	p_theme_custom_style_color: String = Color.RED.to_html(true),
 	p_theme_custom_background_color: String = Color.WHITE.to_html(true),
 	p_scene_fade: bool = true,
-	) -> void:
+) -> void:
 	language = p_language
 	currency = p_currency
 	audio = p_audio
@@ -51,5 +51,3 @@ func set_lang(lang: String) -> void:
 	TranslationServer.set_locale(lang)
 	language = lang
 	ResUtil.save_config()
-
-

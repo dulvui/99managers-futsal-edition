@@ -41,7 +41,7 @@ func test() -> void:
 
 		# continents
 		assert(test_world.continents.size() == world.continents.size())
-		
+
 		# nations
 		for j: int in world.continents.size():
 			var continent: Continent = world.continents[j]
@@ -51,7 +51,7 @@ func test() -> void:
 			var test_nations_size: int = test_continent.nations.size()
 
 			assert(nations_size == test_nations_size)
-		
+
 			# leagues
 			for k: int in continent.nations.size():
 				var nation: Nation = continent.nations[k]
@@ -91,7 +91,6 @@ func test() -> void:
 							var test_player_name: String = test_player.get_full_name()
 
 							assert(player_name == test_player_name)
-
 
 	print("test: deterministic done.")
 

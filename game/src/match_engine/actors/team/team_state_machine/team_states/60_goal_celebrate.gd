@@ -5,7 +5,6 @@
 class_name TeamStateGoalCelebrate
 extends TeamStateMachineState
 
-
 const MAX: int = 3
 const MIN: int = 1
 
@@ -29,5 +28,3 @@ func execute() -> void:
 	celebration_time -= 1
 	if celebration_time < 0:
 		set_state(TeamStateStartPositions.new())
-
-

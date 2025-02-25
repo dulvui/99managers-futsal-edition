@@ -46,7 +46,7 @@ func _physics_process(delta: float) -> void:
 		passed_time += delta
 		if passed_time >= wait_time:
 			passed_time = 0
-			
+
 			# reduce show action counter
 			if show_action_ticks > 0:
 				show_action_ticks -= 1
@@ -66,7 +66,7 @@ func _physics_process(delta: float) -> void:
 func setup(matchz: Match, p_home_team: Team = null, p_away_team: Team = null) -> void:
 	show_action_ticks = 0
 	wait_time = 1.0 / Const.TICKS
-	
+
 	engine = MatchEngine.new()
 	engine.setup(matchz, p_home_team, p_away_team)
 	engine.goal.connect(_on_engine_goal)
@@ -114,7 +114,9 @@ func simulate() -> void:
 
 
 func is_match_visible() -> bool:
-	return Global.match_speed == Enum.MatchSpeed.FULL_GAME or engine.penalties or show_action_ticks > 0
+	return (
+		Global.match_speed == Enum.MatchSpeed.FULL_GAME or engine.penalties or show_action_ticks > 0
+	)
 
 
 func pause_toggle() -> bool:
@@ -132,7 +134,7 @@ func _on_engine_match_finish() -> void:
 
 
 func _on_engine_goal() -> void:
-	var seconds: int = visual_rng.randi_range(3, 6) 
+	var seconds: int = visual_rng.randi_range(3, 6)
 	show_action_ticks = Const.TICKS * seconds
 	var timestamp: int = engine.ticks - show_action_ticks
 
@@ -140,7 +142,7 @@ func _on_engine_goal() -> void:
 	show_action_ticks += ticks_after_goal
 
 	_update_engine(ticks_after_goal)
-	
+
 	ball_buffer.start_replay(timestamp)
 	teams_buffer.start_replay(timestamp)
 	stats_buffer.start_replay(timestamp)
@@ -171,14 +173,8 @@ func _update_visuals(delta: float = 1) -> void:
 	# update visual teams
 	teams_entry = teams_buffer.get_entry()
 	visual_match.home_team.update(
-		teams_entry.home_pos,
-		teams_entry.home_info,
-		teams_entry.home_head_look
+		teams_entry.home_pos, teams_entry.home_info, teams_entry.home_head_look
 	)
 	visual_match.away_team.update(
-		teams_entry.away_pos,
-		teams_entry.away_info,
-		teams_entry.away_head_look
+		teams_entry.away_pos, teams_entry.away_info, teams_entry.away_head_look
 	)
-
-

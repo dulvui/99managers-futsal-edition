@@ -4,7 +4,6 @@
 
 class_name SimFieldSector
 
-
 var position: Vector2
 var score: float
 
@@ -12,5 +11,3 @@ var score: float
 func setup(x: int, y: int) -> void:
 	position = Vector2(x, y)
 	score = 0
-
-

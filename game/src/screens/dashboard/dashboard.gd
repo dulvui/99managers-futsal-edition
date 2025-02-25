@@ -63,7 +63,7 @@ var active_view: ContentViews = ContentViews.EMAIL
 
 func _ready() -> void:
 	Tests.setup_mock_world(true)
-	
+
 	team = Global.team
 
 	manager_label.text = Global.manager.get_full_name()
@@ -89,11 +89,10 @@ func _ready() -> void:
 
 	_show_active_view()
 	email_button.grab_focus()
-	
+
 	# connect player and team signals
 	LinkUtil.team_link.connect(_on_team_link)
 	LinkUtil.player_link.connect(_on_player_link)
-
 
 
 func _process(_delta: float) -> void:
@@ -255,11 +254,11 @@ func _next_day() -> void:
 	if match_ready:
 		# thread simulation
 		# ThreadUtil.random_results()
-		
+
 		# non threaded simulation
 		# Global.world.random_results()
 		print("TODO simulate other matches")
-		
+
 		Main.change_scene(Const.SCREEN_MATCH)
 		return
 
@@ -285,7 +284,7 @@ func _next_day() -> void:
 		LoadingUtil.start(tr("Simulating results"), LoadingUtil.Type.MATCH_RESULTS, true)
 		Main.show_loading_screen()
 		ThreadUtil.random_results()
-		
+
 		# non threaded simulation
 		# Global.world.random_r=esults()
 
@@ -368,6 +367,3 @@ func _on_save_confirm_dialog_confirmed() -> void:
 
 func _on_save_confirm_dialog_denied() -> void:
 	Main.change_scene(Const.SCREEN_MENU)
-
-
-

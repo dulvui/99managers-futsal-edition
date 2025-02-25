@@ -12,8 +12,7 @@ func _init() -> void:
 
 func enter() -> void:
 	var deviation: Vector2 = Vector2(
-		owner.rng.randi_range(-150, 150),
-		owner.rng.randi_range(-150, 150)
+		owner.rng.randi_range(-150, 150), owner.rng.randi_range(-150, 150)
 	)
 
 	owner.player.set_destination(owner.field.center + deviation)

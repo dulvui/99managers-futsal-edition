@@ -18,11 +18,11 @@ var team: Team
 
 func _ready() -> void:
 	change_players = []
-	
+
 
 func setup(p_team: Team) -> void:
 	team = p_team
-	
+
 	change_strategy_select.setup(Formation.ChangeStrategy.keys(), team.formation.change_strategy)
 
 	for player: Player in team.get_starting_players():
@@ -33,13 +33,13 @@ func setup(p_team: Team) -> void:
 		# set node name to player id, so it can be accessed easily
 		players.add_child(formation_player)
 		formation_player.name = str(player.id)
-	
+
 	# transparent separator between players and bench
 	var separator: VSeparator = VSeparator.new()
 	separator.modulate = Color.TRANSPARENT
 	separator.custom_minimum_size = Vector2(50, 0)
 	players.add_child(separator)
-	
+
 	# bench
 	for player: Player in team.get_sub_players():
 		var formation_player: VisualFormationPlayer = FormationPlayer.instantiate()
@@ -73,7 +73,7 @@ func _on_formation_player_select(player: Player) -> void:
 
 			team.change_players(change_players[0], change_players[1])
 			change_request.emit()
-			
+
 			change_players.clear()
 	else:
 		change_players.erase(player)
@@ -81,5 +81,3 @@ func _on_formation_player_select(player: Player) -> void:
 
 func _on_change_strategy_select_item_selected(index: int) -> void:
 	team.formation.change_strategy = index as Formation.ChangeStrategy
-
-

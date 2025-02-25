@@ -10,5 +10,3 @@ extends Control
 func _ready() -> void:
 	theme = ThemeUtil.get_active_theme()
 	animation_player.play("Teaser")
-
-

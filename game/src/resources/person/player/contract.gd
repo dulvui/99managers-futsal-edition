@@ -42,5 +42,3 @@ func _init(
 	bonus_continental_cup = p_bonus_continental_cup
 	buy_clause = p_buy_clause
 	is_on_loan = p_is_on_loan
-
-

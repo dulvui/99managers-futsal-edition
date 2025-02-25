@@ -37,5 +37,3 @@ func execute() -> void:
 		set_state(TeamStateAttack.new())
 	else:
 		set_state(TeamStateDefend.new())
-
-

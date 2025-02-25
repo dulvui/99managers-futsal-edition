@@ -20,7 +20,7 @@ var rng: RandomNumberGenerator
 func _init(p_rng: RandomNumberGenerator, p_field: SimField) -> void:
 	rng = p_rng
 	field = p_field
-	
+
 	# initialize buffer
 	buffer = []
 	same_state_count = 0

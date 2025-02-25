@@ -55,5 +55,3 @@ func _on_no_pressed() -> void:
 func _on_yes_pressed() -> void:
 	hide()
 	confirmed.emit()
-
-

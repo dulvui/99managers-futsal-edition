@@ -5,7 +5,6 @@
 class_name Physical
 extends JSONResource
 
-
 # all attributes self describing
 @export var pace: int
 @export var acceleration: int
@@ -31,12 +30,12 @@ func _init(
 	jump = p_jump
 
 
-func average() -> int:
-	var value: int = 0
+func average() -> float:
+	var value: float = 0
 	value += pace
 	value += acceleration
 	value += stamina
 	value += strength
 	value += agility
 	value += jump
-	return value / 6
+	return value / 6.0

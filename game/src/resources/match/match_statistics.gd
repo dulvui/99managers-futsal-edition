@@ -49,5 +49,3 @@ func duplicate() -> MatchStatistics:
 	copy.penalty_shootout_shots = penalty_shootout_shots
 	copy.penalty_shootout_goals = penalty_shootout_goals
 	return copy
-
-

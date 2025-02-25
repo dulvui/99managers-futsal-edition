@@ -74,5 +74,3 @@ func _on_delete_dialog_confirmed() -> void:
 
 func _on_broken_pressed() -> void:
 	broken_dialog.popup()
-
-

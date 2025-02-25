@@ -5,11 +5,11 @@
 class_name TeamStateMachine
 extends StateMachine
 
-
 var team: SimTeam
 var players: Array[SimPlayer]
 
-func _init(p_rng:RandomNumberGenerator, p_field: SimField, p_team: SimTeam) -> void:
+
+func _init(p_rng: RandomNumberGenerator, p_field: SimField, p_team: SimTeam) -> void:
 	super(p_rng, p_field)
 	team = p_team
 	players = team.players
@@ -19,4 +19,3 @@ func _init(p_rng:RandomNumberGenerator, p_field: SimField, p_team: SimTeam) -> v
 func set_state(p_state: StateMachineState) -> void:
 	(p_state as TeamStateMachineState).owner = self
 	super(p_state)
-

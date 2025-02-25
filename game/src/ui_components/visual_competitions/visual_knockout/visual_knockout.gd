@@ -7,7 +7,7 @@ extends VBoxContainer
 
 const MatchInfoScene: PackedScene = preload(
 	"res://src/ui_components/visual_calendar/match_list/match_info/match_info.tscn"
-	)
+)
 
 @onready var group_a: HBoxContainer = %GroupA
 @onready var group_b: HBoxContainer = %GroupB

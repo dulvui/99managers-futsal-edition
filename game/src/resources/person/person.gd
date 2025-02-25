@@ -69,6 +69,3 @@ func get_age(date: Dictionary) -> int:
 	if date.month == birth_date.month and date.day >= birth_date.day:
 		return years + 1
 	return years
-
-
-

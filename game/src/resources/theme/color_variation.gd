@@ -5,7 +5,6 @@
 class_name ColorVariation
 extends Resource
 
-
 @export var normal: Color
 @export var pressed: Color
 @export var hover: Color
@@ -20,7 +19,7 @@ func _init(color: Color) -> void:
 	pressed = color.darkened(0.1)
 	hover = color.lightened(0.3)
 	disabled = color.darkened(0.4)
-	
+
 	# alpsha channel
 	focus.a = color.a * 0.9
 	pressed.a = color.a * 0.9

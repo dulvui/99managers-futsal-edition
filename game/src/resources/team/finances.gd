@@ -5,7 +5,6 @@
 class_name Finances
 extends JSONResource
 
-
 # weekly values, [-1] is latest
 @export var balance: Array[int]
 @export var income: Array[int]
@@ -19,6 +18,7 @@ extends JSONResource
 @export var income_tax_history: Array[int]
 
 @export var sponsor: Sponsor
+
 
 func _init(
 	p_balance: Array[int] = [0],
@@ -54,7 +54,6 @@ func update_week(team: Team) -> void:
 
 
 func update_season(team: Team) -> void:
-
 	var total_income: int = 0
 	for i: int in income:
 		total_income += i
@@ -62,7 +61,7 @@ func update_season(team: Team) -> void:
 	var total_expenses: int = 0
 	for i: int in expenses:
 		total_expenses += i
-	
+
 	var total_profit: int = total_income - total_expenses
 
 	# calculate taxes, base on profits, and can't be less than 0
@@ -73,7 +72,7 @@ func update_season(team: Team) -> void:
 	income_history.append(income)
 	expenses_history.append(expenses)
 	income_tax_history.append(income_tax)
-	
+
 	# reset values
 	balance = [-income_tax]
 	income = [0]

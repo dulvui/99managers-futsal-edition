@@ -34,7 +34,7 @@ func _ready() -> void:
 	# setup automatically, if run in editor and is run by 'Run current scene'
 	if Tests.is_run_as_current_scene(self):
 		setup(false, Tests.create_mock_team())
-	
+
 	change_players = []
 
 
@@ -84,9 +84,7 @@ func set_players() -> void:
 	if team.formation.goalkeeper > 0:
 		var formation_player: VisualFormationPlayer = FormationPlayer.instantiate()
 		formation_player.set_player(team.get_goalkeeper())
-		formation_player.select.connect(
-			_on_select_player.bind(formation_player)
-		)
+		formation_player.select.connect(_on_select_player.bind(formation_player))
 		goalkeeper.add_child(formation_player)
 		pos_count += 1
 
@@ -126,7 +124,7 @@ func set_players() -> void:
 		formation_player.select.connect(_on_select_player.bind(formation_player))
 		subs.add_child(formation_player)
 		pos_count += 1
-	
+
 	if not only_lineup:
 		subs.add_child(HSeparator.new())
 		# add non lineup players
@@ -140,7 +138,7 @@ func set_players() -> void:
 			formation_player.set_player(p, team)
 			formation_player.select.connect(_on_select_player.bind(formation_player))
 			subs.add_child(formation_player)
-	
+
 
 func _update_formation(index: int) -> void:
 	team.formation = Formation.new(index)
@@ -169,7 +167,7 @@ func _change_player() -> void:
 		player1.reparent(parent0)
 		parent0.move_child(player1, index0)
 		parent1.move_child(player0, index1)
-		
+
 		team.change_players(change_players[0].player, change_players[1].player)
 		change_request.emit()
 
@@ -208,5 +206,3 @@ func _on_tactic_select_pressing_item_selected(index: int) -> void:
 func _on_tactic_offense_intensity_value_changed(value: float) -> void:
 	team.formation.tactic_offense.intensity = int(value)
 	tactic_request.emit()
-
-

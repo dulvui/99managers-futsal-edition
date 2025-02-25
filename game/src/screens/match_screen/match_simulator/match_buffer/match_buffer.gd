@@ -38,4 +38,3 @@ func start_replay(ticks_to_show: int = -1) -> void:
 		if buffer[buffer_index].ticks <= ticks_to_show:
 			return
 		buffer_index -= 1
-

@@ -50,7 +50,7 @@ func _init(
 	tactic_defense = p_tactic_defense
 	tactic_offense = p_tactic_offense
 	positions = p_positions
-	
+
 	set_variation(variation)
 
 
@@ -97,5 +97,3 @@ func get_start_pos(field_size: Vector2, index: int, left_side: bool) -> Vector2:
 		pos = field_size - pos
 
 	return pos
-
-

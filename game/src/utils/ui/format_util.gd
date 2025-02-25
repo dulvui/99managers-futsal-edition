@@ -30,10 +30,8 @@ func format_number(number: int) -> String:
 	var string: String = str(number)
 
 	for i: int in range(string.length(), 0, -3):
-		formatted = formatted.substr(0 , i) + " " + formatted.substr(i)
-	
+		formatted = formatted.substr(0, i) + " " + formatted.substr(i)
+
 	formatted = formatted.rstrip(" ")
 	# print(string + " becomes '" + formatted + "'")
 	return formatted
-
-

@@ -14,7 +14,7 @@ signal email_action(message: EmailMessage)
 
 func _ready() -> void:
 	Tests.setup_mock_world(true)
-		
+
 	message_container.show_message(EmailUtil.latest())
 	update_messages()
 
@@ -45,7 +45,5 @@ func _on_starred_toggled(toggled_on: bool) -> void:
 	message_list.starred(toggled_on)
 
 
-func _on_search_line_edit_text_changed(new_text:String) -> void:
+func _on_search_line_edit_text_changed(new_text: String) -> void:
 	message_list.search(new_text)
-
-

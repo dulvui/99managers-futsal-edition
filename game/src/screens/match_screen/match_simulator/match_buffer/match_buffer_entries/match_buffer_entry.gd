@@ -4,5 +4,4 @@
 
 class_name MatchBufferEntry
 
-
 var ticks: int

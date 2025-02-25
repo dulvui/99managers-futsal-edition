@@ -19,14 +19,14 @@ func execute() -> void:
 	# if player doesn't touch balls, follow it
 	if not owner.player.is_touching_ball():
 		owner.player.follow(owner.field.ball)
-		return 
-	
+		return
+
 	owner.player.stop()
 	owner.field.ball.stop()
-	
+
 	# player is touching ball
 	# try to shoot, dribble and pass
-	
+
 	if should_shoot():
 		set_state(PlayerStateShoot.new())
 		return
@@ -61,31 +61,30 @@ func should_dribble() -> bool:
 		for player: SimPlayer in owner.team.team_opponents.players:
 			if player.pos.x < owner.player.pos.x:
 				opposing_player_count += 1
-	
+
 	return owner.rng.randi() % 100 < 100 - (opposing_player_count * 20)
 
 
 func pass_ball() -> void:
 	# find best pass
 	var best_player: SimPlayer
-	var delta: float = 1.79769e308 # max float
+	var delta: float = 1.79769e308  # max float
 	for player: SimPlayer in owner.team.players:
 		if player != owner.player:
 			var distance: float = player.pos.distance_squared_to(owner.player.pos)
 			if distance < delta:
 				delta = distance
 				best_player = player
-	
+
 	owner.team.player_receive_ball(best_player)
 	owner.field.ball.short_pass(owner.team.player_receive_ball().pos, 20)
 	owner.team.stats.passes += 1
 
 
-
 func pass_ball_random() -> void:
 	var random_player: SimPlayer
 	var random_index: int = owner.rng.randi() % 5
-	
+
 	if random_index == owner.team.players.find(owner.player):
 		random_index += 1
 		random_index %= 5

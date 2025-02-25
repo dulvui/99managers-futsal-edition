@@ -5,7 +5,6 @@
 class_name VisualFinances
 extends Control
 
-
 @onready var balance: Label = %Balance
 @onready var expenses: Label = %Expenses
 @onready var income: Label = %Income
@@ -25,5 +24,3 @@ func setup(team: Team = Global.team) -> void:
 
 	salary_budget.text = FormatUtil.currency(team.finances.get_salary_budget())
 	remaining_salary_budget.text = FormatUtil.currency(team.finances.get_remaining_salary_budget())
-
-

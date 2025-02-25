@@ -24,7 +24,7 @@ func setup(player: Player) -> void:
 	# show offer button, only for players that are not in your team
 	if Global.team:
 		offer_button.visible = not Global.team.players.has(player)
-	
+
 	income.text = FormatUtil.currency(player.contract.income)
 	buy_clause.text = FormatUtil.currency(player.contract.buy_clause)
 	start_date.text = FormatUtil.format_date(player.contract.start_date)
@@ -36,5 +36,3 @@ func setup(player: Player) -> void:
 	bonus_league.text = FormatUtil.currency(player.contract.bonus_league)
 	bonus_national_cup.text = FormatUtil.currency(player.contract.bonus_national_cup)
 	bonus_continental_cup.text = FormatUtil.currency(player.contract.bonus_continental_cup)
-
-

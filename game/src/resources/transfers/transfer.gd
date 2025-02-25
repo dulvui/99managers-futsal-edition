@@ -19,7 +19,6 @@ enum State {
 	CONTRACT_DECLINED,
 }
 
-
 @export var id: int
 @export var player: Player
 @export var state: State
@@ -103,5 +102,3 @@ func _update_state() -> void:
 					state = State.CONTRACT_DECLINED
 				else:
 					state = State.CONTRACT
-
-

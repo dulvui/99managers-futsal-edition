@@ -7,5 +7,6 @@ extends StateMachineState
 
 var owner: TeamStateMachine
 
+
 func set_state(next_state: StateMachineState) -> void:
 	owner.set_state(next_state)

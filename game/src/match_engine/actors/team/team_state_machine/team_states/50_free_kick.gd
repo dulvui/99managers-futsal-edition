@@ -13,7 +13,7 @@ func _init() -> void:
 func execute() -> void:
 	pass
 	# if team has ball
-		# move player to free kick
-		# shoot
+	# move player to free kick
+	# shoot
 	# else
-		# some players make wall
+	# some players make wall

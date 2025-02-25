@@ -75,7 +75,5 @@ func scan() -> void:
 		var file: String = dir.get_next()
 		if dir.current_is_dir():
 			if not file in id_list:
-				print("new state id found %s"%file)
+				print("new state id found %s" % file)
 				id_list.append(file)
-
-

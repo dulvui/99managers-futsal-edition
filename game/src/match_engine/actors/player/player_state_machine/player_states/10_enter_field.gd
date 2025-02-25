@@ -11,7 +11,7 @@ func _init() -> void:
 
 
 func enter() -> void:
-	# start from center bottom	
+	# start from center bottom
 	var start_position: Vector2 = owner.field.center
 	# move down
 	start_position.y += owner.field.size.y / 2 + 50
@@ -29,7 +29,7 @@ func enter() -> void:
 		destination.x -= (owner.team.players.find(owner.player) + 1) * 30
 	else:
 		destination.x += (owner.team.players.find(owner.player) + 1) * 30
-	
+
 	# add some noise
 	start_position.x += owner.rng.randi_range(-5, 5)
 	start_position.y += owner.rng.randi_range(-5, 5)
@@ -44,6 +44,6 @@ func enter() -> void:
 func execute() -> void:
 	if not owner.player.destination_reached():
 		return
-	
+
 	# look towards bottom
 	owner.player.head_look += Vector2(0, 100)

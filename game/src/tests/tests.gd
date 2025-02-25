@@ -16,7 +16,7 @@ extends Node
 
 func _ready() -> void:
 	print("Start test suite")
-	
+
 	tests_fast()
 	tests_intensive()
 
@@ -59,7 +59,7 @@ static func setup_mock_world(use_test_file: bool = false) -> bool:
 						team = nation.leagues[0].teams[0]
 						break
 				break
-		
+
 		Global.select_team(team)
 		Global.initialize_game(true)
 		Global.start_date = Time.get_date_dict_from_system()
@@ -81,8 +81,8 @@ static func create_mock_world(use_test_file: bool) -> World:
 	if use_test_file:
 		var generator: Generator = Generator.new()
 		return generator.generate_world(true)
-	
-	var world: World =  World.new()
+
+	var world: World = World.new()
 	world.calendar.initialize()
 
 	for c: int in range(2):

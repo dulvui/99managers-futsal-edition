@@ -14,7 +14,6 @@ signal l2
 
 const THRESHOLD: float = 1
 
-
 # ui events to map for joypad axis helper
 var ui_left_event: InputEventAction
 var ui_right_event: InputEventAction
@@ -56,18 +55,18 @@ func _ready() -> void:
 func handle_event(event: InputEvent) -> void:
 	if not event is InputEventJoypadMotion:
 		return
-	
+
 	var motion_event: InputEventJoypadMotion = event as InputEventJoypadMotion
 
 	match motion_event.axis:
 		JOY_AXIS_TRIGGER_LEFT:
 			if motion_event.axis_value >= THRESHOLD:
 				l2.emit()
-				Input.parse_input_event(trigger_left_event)	
+				Input.parse_input_event(trigger_left_event)
 		JOY_AXIS_TRIGGER_RIGHT:
 			if motion_event.axis_value >= THRESHOLD:
 				r2.emit()
-				Input.parse_input_event(trigger_right_event)	
+				Input.parse_input_event(trigger_right_event)
 		JOY_AXIS_LEFT_X, JOY_AXIS_RIGHT_X:
 			if motion_event.axis_value <= -THRESHOLD:
 				Input.parse_input_event(ui_left_event)
@@ -77,4 +76,4 @@ func handle_event(event: InputEvent) -> void:
 			if motion_event.axis_value <= -THRESHOLD:
 				Input.parse_input_event(ui_up_event)
 			elif motion_event.axis_value >= THRESHOLD:
-				Input.parse_input_event(ui_down_event)	
+				Input.parse_input_event(ui_down_event)

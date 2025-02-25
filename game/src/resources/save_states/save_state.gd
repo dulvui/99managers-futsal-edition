@@ -5,7 +5,6 @@
 class_name SaveState
 extends JSONResource
 
-
 @export var id: String
 @export var config_version: String
 @export var config_version_history: Dictionary
@@ -80,6 +79,6 @@ func delete() -> void:
 			if OS.get_name() in "iOS,Web":
 				user_dir.remove(id + "/")
 			else:
-				OS.move_to_trash(ProjectSettings.globalize_path(ResUtil.SAVE_STATES_PATH + id + "/"))
-
-
+				OS.move_to_trash(
+					ProjectSettings.globalize_path(ResUtil.SAVE_STATES_PATH + id + "/")
+				)

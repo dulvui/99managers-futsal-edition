@@ -5,9 +5,6 @@
 class_name Goalkeeper
 extends JSONResource
 
-const AMOUNT: int = 6
-
-
 # ticks/time needed to react to shot
 @export var reflexes: int
 # probability of choosing potentially best position in goal
@@ -44,5 +41,5 @@ func sum() -> int:
 	return value
 
 
-func average() -> int:
-	return sum() / AMOUNT
+func average() -> float:
+	return sum() / 5.0

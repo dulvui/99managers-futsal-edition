@@ -25,15 +25,29 @@ const BOX_FOCUS_FILE: StringName = BASE_PATH + "styles/box/box_focus.tres"
 const BOX_HOVER_FILE: StringName = BASE_PATH + "styles/box/box_hover.tres"
 const BOX_DISABLED_FILE: StringName = BASE_PATH + "styles/box/box_disabled.tres"
 # style important boxes flat
-const BOX_IMPORTANT_NORMAL_FILE: StringName = BASE_PATH + "styles/box_important/box_important_normal.tres"
-const BOX_IMPORTANT_PRESSED_FILE: StringName = BASE_PATH + "styles/box_important/box_important_pressed.tres"
-const BOX_IMPORTANT_FOCUS_FILE: StringName = BASE_PATH + "styles/box_important/box_important_focus.tres"
-const BOX_IMPORTANT_HOVER_FILE: StringName = BASE_PATH + "styles/box_important/box_important_hover.tres"
-const BOX_IMPORTANT_DISABLED_FILE: StringName = BASE_PATH + "styles/box_important/box_important_disabled.tres"
+const BOX_IMPORTANT_NORMAL_FILE: StringName = (
+	BASE_PATH + "styles/box_important/box_important_normal.tres"
+)
+const BOX_IMPORTANT_PRESSED_FILE: StringName = (
+	BASE_PATH + "styles/box_important/box_important_pressed.tres"
+)
+const BOX_IMPORTANT_FOCUS_FILE: StringName = (
+	BASE_PATH + "styles/box_important/box_important_focus.tres"
+)
+const BOX_IMPORTANT_HOVER_FILE: StringName = (
+	BASE_PATH + "styles/box_important/box_important_hover.tres"
+)
+const BOX_IMPORTANT_DISABLED_FILE: StringName = (
+	BASE_PATH + "styles/box_important/box_important_disabled.tres"
+)
 # style backgrounds
 const BOX_BACKGROUND_FILE: StringName = BASE_PATH + "styles/box/box_background.tres"
-const BOX_BACKGROUND_SECONDARY_FILE: StringName = BASE_PATH + "styles/box/box_background_secondary.tres"
-const BOX_BACKGROUND_BORDERED_FILE: StringName = BASE_PATH + "styles/box/box_background_bordered.tres"
+const BOX_BACKGROUND_SECONDARY_FILE: StringName = (
+	BASE_PATH + "styles/box/box_background_secondary.tres"
+)
+const BOX_BACKGROUND_BORDERED_FILE: StringName = (
+	BASE_PATH + "styles/box/box_background_bordered.tres"
+)
 # style boxes line
 const LINE_H_NORMAL_FILE: StringName = BASE_PATH + "styles/lines/line_h_normal.tres"
 const LINE_H_FOCUS_FILE: StringName = BASE_PATH + "styles/lines/line_h_focus.tres"
@@ -45,12 +59,11 @@ const LINE_V_THIN_FILE: StringName = BASE_PATH + "styles/lines/line_v_thin.tres"
 const FONT_FILE: StringName = BASE_PATH + "label/font.tres"
 const FONT_BOLD_FILE: StringName = BASE_PATH + "label/font_bold.tres"
 
-
 const THEMES: Dictionary = {
-	"DARK": "theme_dark.tres", 
-	"LIGHT": "theme_light.tres", 
-	"SOLARIZED_LIGHT": "theme_solarized_light.tres", 
-	"SOLARIZED_DARK": "theme_solarized_dark.tres", 
+	"DARK": "theme_dark.tres",
+	"LIGHT": "theme_light.tres",
+	"SOLARIZED_LIGHT": "theme_solarized_light.tres",
+	"SOLARIZED_DARK": "theme_solarized_dark.tres",
 	"RED": "theme_red.tres",
 	"HACKER": "theme_hacker.tres",
 	"CUSTOM": "",
@@ -120,7 +133,7 @@ func _ready() -> void:
 	box_focus = ResourceLoader.load(BOX_FOCUS_FILE, "StyleBoxFlat")
 	box_hover = ResourceLoader.load(BOX_HOVER_FILE, "StyleBoxFlat")
 	box_disabled = ResourceLoader.load(BOX_DISABLED_FILE, "StyleBoxFlat")
-	
+
 	# style important boxes flat
 	box_important_normal = ResourceLoader.load(BOX_IMPORTANT_NORMAL_FILE, "StyleBoxFlat")
 	box_important_pressed = ResourceLoader.load(BOX_IMPORTANT_PRESSED_FILE, "StyleBoxFlat")
@@ -243,13 +256,13 @@ func _apply_configuration(p_configuration: ThemeConfiguration) -> void:
 	box_important_pressed.bg_color = configuration.style_important_color_variation.pressed
 	box_important_hover.bg_color = configuration.style_important_color_variation.hover
 	box_important_disabled.bg_color = configuration.style_important_color_variation.disabled
-	
+
 	# background
 	box_background.bg_color = configuration.background_color
 	box_background_secondary.bg_color = configuration.background_secondary_color
 	box_background_bordered.bg_color = configuration.background_color
 	box_background_bordered.border_color = configuration.font_color
-	
+
 	# line colors
 	line_h_normal.color = configuration.style_color_variation.normal
 	line_h_focus.color = configuration.style_color_variation.focus
@@ -275,17 +288,17 @@ func _apply_configuration(p_configuration: ThemeConfiguration) -> void:
 
 	# fontsize
 	# theme.default_font_size = Global.theme_font_size
-	# label_settings.font_size = Global.theme_font_size 
+	# label_settings.font_size = Global.theme_font_size
 	# label_settings_bold.font_size = Global.theme_font_size
 	# label_settings_title.font_size = Global.theme_font_size * 1.4
 	# label_settings_outline.font_size = Global.theme_font_size
 
 	# labels
 	theme.set_color("font_color", "Label", configuration.font_color)
-	
+
 	# rich text label
 	theme.set_color("default_color", "RichTextLabel", configuration.font_color)
-	
+
 	# button font colors
 	theme.set_color("font_color", "Button", configuration.font_color)
 	theme.set_color("font_focus_color", "Button", configuration.font_color_variation.focus)
@@ -303,7 +316,7 @@ func _apply_configuration(p_configuration: ThemeConfiguration) -> void:
 	# link button
 	theme.set_color("font_color", "LinkButton", configuration.font_color)
 	theme.set_color("font_hover_color", "LinkButton", configuration.font_color_variation.hover)
-	
+
 	# progress bar
 	theme.set_color("font_color", "ProgressBar", configuration.font_color)
 
@@ -321,18 +334,20 @@ func _apply_configuration(p_configuration: ThemeConfiguration) -> void:
 	theme.set_color("font_selected_color", "Tree", configuration.font_color_variation.focus)
 	theme.set_color("font_outline_color", "Tree", configuration.font_color_variation.hover)
 	theme.set_color("font_disabled_color", "Tree", configuration.font_color_variation.disabled)
-	
+
 	# tab container
 	theme.set_color("font_selected_color", "TabContainer", configuration.font_color)
-	theme.set_color("font_unselected_color", "TabContainer", configuration.font_color_variation.focus)
+	theme.set_color(
+		"font_unselected_color", "TabContainer", configuration.font_color_variation.focus
+	)
 	theme.set_color("font_hovered_color", "TabContainer", configuration.font_color_variation.focus)
 	theme.set_color("font_outline_color", "TabContainer", configuration.font_color_variation.hover)
-	theme.set_color("font_disabled_color", "TabContainer", configuration.font_color_variation.disabled)
+	theme.set_color(
+		"font_disabled_color", "TabContainer", configuration.font_color_variation.disabled
+	)
 
 
 func get_default_scale() -> float:
 	if OS.get_name() in ["Android", "iOS"]:
 		return 1.5
 	return 1
-
-

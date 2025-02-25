@@ -46,17 +46,16 @@ func pass_ball() -> void:
 	# find best pass
 	var best_player: SimPlayer
 	var player_control: SimPlayer = owner.team.player_control()
-	var delta: float = 1.79769e308 # max float
+	var delta: float = 1.79769e308  # max float
 	for player: SimPlayer in owner.team.players:
 		if player != player_control:
 			var distance: float = player.pos.distance_squared_to(player_control.pos)
 			if distance < delta:
 				delta = distance
 				best_player = player
-	
+
 	owner.team.player_receive_ball(best_player)
 	owner.field.ball.short_pass(owner.team.player_receive_ball().pos, 20)
 	owner.team.stats.passes += 1
-	
-	owner.field.kickin = false
 
+	owner.field.kickin = false

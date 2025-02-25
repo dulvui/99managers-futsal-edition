@@ -18,7 +18,6 @@ func enter() -> void:
 func execute() -> void:
 	if not owner.player.destination_reached():
 		return
-	
+
 	owner.player.head_look = Vector2.ZERO
 	owner.player.set_state(PlayerStateIdle.new())
-

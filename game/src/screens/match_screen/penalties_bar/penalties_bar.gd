@@ -38,7 +38,7 @@ func setup(home_team: SimTeam, away_team: SimTeam) -> void:
 	second_result_index = 0
 
 	# shot number indicators in first line
-	number_labels =	[]
+	number_labels = []
 	for i: int in Const.PENALTY_KICKS:
 		var label: Label = get_node("%ShotIndex" + str(i + 1))
 		number_labels.append(label)
@@ -83,7 +83,7 @@ func update() -> void:
 		first_color_rect_last.color = Color.WHITE
 		var second_color_rect_last: ColorRect = get_node("%SecondResult5")
 		second_color_rect_last.color = Color.WHITE
-	
+
 	if shots_index % 2 == 0:
 		# first team
 		if first_team.stats.penalty_shootout_goals == first_goals:

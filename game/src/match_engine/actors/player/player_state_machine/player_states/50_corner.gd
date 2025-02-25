@@ -5,7 +5,6 @@
 class_name PlayerStateCorner
 extends PlayerStateMachineState
 
-
 var wait_counter: int
 var wait: int
 
@@ -20,7 +19,7 @@ func enter() -> void:
 	if owner.player.is_goalkeeper:
 		owner.player.set_state(PlayerStateGoalkeeperFollowBall.new())
 		return
-	
+
 	# check if player kicks corner
 	if owner.team.has_ball and owner.team.player_control() == owner.player:
 		wait = owner.rng.randi_range(2, 5)
@@ -30,7 +29,7 @@ func enter() -> void:
 	# move player into the area
 	# by moving it near the penalty spot, with random deviation
 	# TODO replace with corner tatics
-	var deviation: Vector2 = Vector2(owner.rng.randi_range(-50, 50),owner.rng.randi_range(-50, 50))
+	var deviation: Vector2 = Vector2(owner.rng.randi_range(-50, 50), owner.rng.randi_range(-50, 50))
 	if owner.team.left_half:
 		if owner.team.has_ball:
 			owner.player.set_destination(owner.field.penalty_areas.spot_right + deviation)

@@ -143,5 +143,3 @@ func _on_confirm_pressed() -> void:
 
 	TransferUtil.make_offer(transfer)
 	confirm.emit()
-
-

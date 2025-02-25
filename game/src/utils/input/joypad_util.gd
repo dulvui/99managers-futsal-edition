@@ -80,16 +80,16 @@ func _register_joypad(id: int, connected: bool) -> void:
 		# check if can and should be ignored
 		if _should_be_ignored(info):
 			return
-		
+
 		# register joypad
 		joypads[id] = {
 			"info": info,
 			"type": _guess_type(info),
 		}
 		_set_active()
-		print("joypad connected id: %d info: %s"%[id, info])
+		print("joypad connected id: %d info: %s" % [id, info])
 	else:
-		print("joypad disconnected id %d"%id)
+		print("joypad disconnected id %d" % id)
 		_set_active()
 		joypads.erase(id)
 
@@ -117,7 +117,7 @@ func _should_be_ignored(info: Dictionary) -> bool:
 	if "vendor_id" in info and "product_id" in info:
 		var ignore_device: bool = Input.should_ignore_device(info.vendor_id, info.product_id)
 		if ignore_device:
-			print("joypad ignored info: %s"%info)
+			print("joypad ignored info: %s" % info)
 			return true
 	return false
 

@@ -5,7 +5,6 @@
 class_name TeamStatePenalties
 extends TeamStateMachineState
 
-
 var shooting_player_index: int
 var shooting_player: SimPlayer
 var goalkeeper: SimPlayer
@@ -22,10 +21,10 @@ func enter() -> void:
 	# move players to center in line
 	for player: SimPlayer in owner.team.players:
 		player.set_state(PlayerStatePenalties.new())
-		
+
 		if player.is_goalkeeper:
 			goalkeeper = player
-	
+
 	if owner.team.has_ball:
 		next_shooter(false)
 	else:
@@ -45,7 +44,7 @@ func execute() -> void:
 		owner.team.penalties_shot_taken()
 		# move player that has just shot to center
 		shooting_player.set_state(PlayerStatePenalties.new())
-		shooting_player	= null
+		shooting_player = null
 		# make goalkeeper active
 		goalkeeper.set_state(PlayerStateGoalkeeperPenalty.new())
 		# change possession
@@ -62,8 +61,6 @@ func next_shooter(increment: bool = true) -> void:
 	if increment:
 		shooting_player_index += 1
 		shooting_player_index %= owner.team.players.size()
-	
+
 	shooting_player = owner.team.players[shooting_player_index]
 	owner.team.players[shooting_player_index].set_state(PlayerStatePenaltyShoot.new())
-
-

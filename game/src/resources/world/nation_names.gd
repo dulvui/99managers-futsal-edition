@@ -224,6 +224,4 @@ func get_all_nations() -> Array[String]:
 			var value: String = get(property.name)
 			nations.append(value)
 
-	
 	return nations
-

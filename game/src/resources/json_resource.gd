@@ -27,10 +27,12 @@ func to_json() -> Dictionary:
 	for property: Dictionary in property_list:
 		# only convert properties with @export annotation
 		# enums have own flag
-		if property.usage != Const.CUSTOM_PROPERTY_EXPORT \
-				and property.usage != Const.CUSTOM_PROPERTY_EXPORT_ENUM:
+		if (
+			property.usage != Const.CUSTOM_PROPERTY_EXPORT
+			and property.usage != Const.CUSTOM_PROPERTY_EXPORT_ENUM
+		):
 			continue
-		
+
 		# if hash(self) == self_hash:
 		# 	return dict_on_load
 
@@ -39,7 +41,7 @@ func to_json() -> Dictionary:
 		if value != null:
 			if value is Array:
 				var parsed_array: Array = []
-				var array: Array = (value as Array)
+				var array: Array = value as Array
 				for item: Variant in array:
 					if item is JSONResource:
 						parsed_array.append((item as JSONResource).to_json())
@@ -59,7 +61,7 @@ func from_json(dict: Dictionary) -> void:
 
 	for key: String in dict.keys():
 		var property: Variant = get(key)
-		
+
 		# cover edge case if firt leg of match.gd
 		# first leg is null in init, so manual initialization is needed
 		if key == "first_leg":
@@ -89,5 +91,3 @@ func from_json(dict: Dictionary) -> void:
 			(property as JSONResource).from_json(dict[key])
 		else:
 			set(key, dict[key])
-
-

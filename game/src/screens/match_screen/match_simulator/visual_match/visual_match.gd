@@ -5,7 +5,6 @@
 class_name VisualMatch
 extends Node2D
 
-
 @onready var home_team: VisualTeam = $VisualTeamHome
 @onready var away_team: VisualTeam = $VisualTeamAway
 @onready var ball: VisualBall = $VisualBall
@@ -46,5 +45,3 @@ func show_actors() -> void:
 	ball.show()
 	home_team.show()
 	away_team.show()
-
-

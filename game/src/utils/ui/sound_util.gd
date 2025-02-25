@@ -4,7 +4,6 @@
 
 extends Node
 
-
 enum AudioBus {
 	UI_SFX,
 	MATCH_SFX,
@@ -31,7 +30,7 @@ func _ready() -> void:
 		AudioServer.set_bus_name(bus_id, bus_name)
 		AudioServer.set_bus_mute(bus_id, Global.config.audio[bus_id].mute)
 		AudioServer.set_bus_volume_db(bus_id, Global.config.audio[bus_id].volume)
-	
+
 	# button press sfx
 	button_press = AudioStreamPlayer.new()
 	add_child(button_press)
@@ -53,7 +52,7 @@ func get_bus_volume(bus_id: AudioBus) -> float:
 func set_bus_mute(bus_id: AudioBus, mute: bool) -> void:
 	Global.config.audio[bus_id].mute = mute
 	AudioServer.set_bus_mute(bus_id, mute)
-	print("mute bus id: %d"%bus_id)
+	print("mute bus id: %d" % bus_id)
 	ResUtil.save_config()
 
 
@@ -74,4 +73,3 @@ func restore_default() -> void:
 			"mute": false,
 			"volume": DEFAULT_VOLUME,
 		}
-

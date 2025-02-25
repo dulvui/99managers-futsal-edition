@@ -5,8 +5,12 @@
 class_name VisualCompetitions
 extends HBoxContainer
 
-const VisualTableScene: PackedScene = preload("res://src/ui_components/visual_competitions/visual_table/visual_table.tscn")
-const VisualKnockoutScene: PackedScene = preload("res://src/ui_components/visual_competitions/visual_knockout/visual_knockout.tscn")
+const VisualTableScene: PackedScene = preload(
+	"res://src/ui_components/visual_competitions/visual_table/visual_table.tscn"
+)
+const VisualKnockoutScene: PackedScene = preload(
+	"res://src/ui_components/visual_competitions/visual_knockout/visual_knockout.tscn"
+)
 
 var competition: Competition
 var season_index: int
@@ -37,14 +41,14 @@ func _setup() -> void:
 	# clean scroll container
 	for child: Node in main.get_children():
 		child.queue_free()
-	
+
 	if competition is League:
-		var league: League = (competition as League)
+		var league: League = competition as League
 		var table: VisualTable = VisualTableScene.instantiate()
 		main.add_child(table)
 		table.setup(league.tables[season_index])
 	else:
-		var cup: Cup = (competition as Cup)
+		var cup: Cup = competition as Cup
 
 		# groups
 		for group: Group in cup.groups:
@@ -95,4 +99,3 @@ func _on_active_button_pressed() -> void:
 	season_index = season_amount - 1
 	seasons_button.option_button.selected = 0
 	_setup()
-

@@ -33,7 +33,7 @@ func setup(
 	p_pos: Vector2,
 	p_player_info: String = "",
 	shirt_color: String = "000000",
-	p_ball: VisualBall = null,	
+	p_ball: VisualBall = null,
 ) -> void:
 	super(p_pos)
 	player_info = p_player_info
@@ -46,7 +46,9 @@ func setup(
 	# eyes.modulate = sim_player.player_res.eyecolor
 
 
-func update(p_pos: Vector2, p_player_info: String = "", p_head_look: Vector2 = Vector2.ZERO) -> void:
+func update(
+	p_pos: Vector2, p_player_info: String = "", p_head_look: Vector2 = Vector2.ZERO
+) -> void:
 	super(p_pos)
 	player_info = p_player_info
 	head_look = p_head_look

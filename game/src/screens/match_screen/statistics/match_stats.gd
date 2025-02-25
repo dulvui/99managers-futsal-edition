@@ -5,7 +5,6 @@
 class_name VisualMatchStats
 extends GridContainer
 
-
 var home_labels: Dictionary
 var away_labels: Dictionary
 
@@ -26,11 +25,11 @@ func _ready() -> void:
 			label.text = statistic.to_upper()
 
 			var home_label: Label = Label.new()
-			home_label.text = str(0) # NO_TRANSLATE 
+			home_label.text = str(0)  # NO_TRANSLATE
 			home_labels[statistic] = home_label
-			
+
 			var away_label: Label = Label.new()
-			away_label.text = str(0) # NO_TRANSLATE
+			away_label.text = str(0)  # NO_TRANSLATE
 			away_labels[statistic] = away_label
 
 			add_child(home_label)
@@ -55,5 +54,3 @@ func update_stats(home_stats: MatchStatistics, away_stats: MatchStatistics) -> v
 			if "possess" in statistic:
 				value += " %"
 			away_labels[statistic].text = value
-
-

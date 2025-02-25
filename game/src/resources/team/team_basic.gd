@@ -5,7 +5,6 @@
 class_name TeamBasic
 extends JSONResource
 
-
 @export var id: int
 @export var name: String
 @export var league_id: int
@@ -19,5 +18,3 @@ func _init(
 	id = p_id
 	name = p_name
 	league_id = p_league_id
-
-

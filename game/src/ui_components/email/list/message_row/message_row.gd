@@ -39,4 +39,3 @@ func _on_read_button_pressed() -> void:
 	ThemeUtil.remove_bold(subject_label)
 	ThemeUtil.remove_bold(sender_label)
 	ThemeUtil.remove_bold(date_label)
-

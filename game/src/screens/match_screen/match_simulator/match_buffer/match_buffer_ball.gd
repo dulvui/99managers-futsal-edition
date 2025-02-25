@@ -15,5 +15,3 @@ func save(engine: MatchEngine) -> void:
 
 func get_entry() -> MatchBufferEntryBall:
 	return super() as MatchBufferEntryBall
-
-

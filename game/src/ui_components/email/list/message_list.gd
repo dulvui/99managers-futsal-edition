@@ -74,5 +74,3 @@ func search(text: String) -> void:
 
 func _on_row_pressed(message: EmailMessage) -> void:
 	show_message.emit(message)
-
-

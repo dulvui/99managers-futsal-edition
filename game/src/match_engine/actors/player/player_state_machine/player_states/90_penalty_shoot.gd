@@ -5,9 +5,9 @@
 class_name PlayerStatePenaltyShoot
 extends PlayerStateMachineState
 
-
 var wait: int
 var wait_after_shot: int
+
 
 func _init() -> void:
 	super("PlayerStatePenaltyShoot")
@@ -18,7 +18,7 @@ func enter() -> void:
 	owner.player.head_look = owner.field.penalty_areas.spot_left
 	owner.player.set_destination(owner.field.penalty_areas.spot_left + Vector2(10, 0))
 
-	wait = 3 
+	wait = 3
 	wait_after_shot = owner.player.rng.randi_range(2, 7)
 
 
@@ -28,7 +28,7 @@ func execute() -> void:
 		return
 
 	owner.player.head_look = Vector2.ZERO
-	
+
 	# wait for goalkeeper to be ready
 	if not owner.field.penalty_ready:
 		return

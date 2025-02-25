@@ -15,4 +15,3 @@ var europe: String = tr("Europe")
 var oceania: String = tr("Oceania")
 var south_america: String = tr("South America")
 var north_america: String = tr("North America")
-

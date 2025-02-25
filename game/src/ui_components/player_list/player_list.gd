@@ -156,13 +156,13 @@ func _show_active_column() -> void:
 	
 	match active_view:
 		Views.MENTAL:
-			_show_attributes("mental")
+			_show_mental()
 		Views.PHYSICAL:
-			_show_attributes("physical")
+			_show_physical()
 		Views.TECHNICAL:
-			_show_attributes("technical")
+			_show_technical()
 		Views.GOALKEEPER:
-			_show_attributes("goalkeeper")
+			_show_goalkeeper()
 		Views.CONTRACT:
 			_show_contract()
 		Views.STATS:
@@ -369,54 +369,96 @@ func _on_active_view_item_selected(index: int) -> void:
 
 
 func _show_general() -> void:
-	var positions: Callable = func(p: Player) -> String: return Position.Type.keys()[p.position.type]
-	_add_column(Const.POSITION, positions)
-	var values: Callable = func(p: Player) -> String: return FormatUtil.currency(p.value)
-	_add_column("VALUE", values)
-	var presitge_stars: Callable = func(p: Player) -> String: return p.get_prestige_stars()
-	_add_column("PRESTIGE", presitge_stars)
-	var moralities: Callable = func(p: Player) -> String: return Enum.get_morality_text(p)
-	_add_column("MORALITY", moralities)
-	var birth_dates: Callable = func(p: Player) -> Dictionary: return p.birth_date
-	_add_column("BIRTH_DATE", birth_dates)
-	var nationalities: Callable = func(p: Player) -> String: return p.nation
-	_add_column("NATION", nationalities)
-	var team_names: Callable = func(p: Player) -> String: return p.team
-	_add_column("TEAM", team_names)
+	_add_column(tr("Position"), func(p: Player) -> String:
+		return Position.Type.keys()[p.position.type])
+	_add_column(tr("Value"), func(p: Player) -> String:
+		return FormatUtil.currency(p.value))
+	_add_column(tr("Prestige"), func(p: Player) -> String:
+		return p.get_prestige_stars())
+	_add_column(tr("Morality"), func(p: Player) -> String:
+		return Enum.get_morality_text(p))
+	_add_column(tr("Birth date"), func(p: Player) -> String:
+		return FormatUtil.format_date(p.birth_date))
+	_add_column(tr("Nation"), func(p: Player) -> String:
+		return p.nation)
+	_add_column(tr("Team"), func(p: Player) -> String:
+		return p.team)
 
 
 func _show_contract() -> void:
-	for c: Dictionary in Contract.new().get_property_list():
-		if c.usage == Const.CUSTOM_PROPERTY_EXPORT:
-			var stats: Callable = func(p: Player) -> Variant:
-				var value: Variant = p.contract.get(c.name)
-				# for dates
-				if typeof(value) == Variant.Type.TYPE_DICTIONARY:
-					return value
-				# for income
-				if "income" in c.name:
-					return FormatUtil.currency(value)
-				return str(value)
-			_add_column(c.name, stats)
+	_add_column(tr("Salary"), func(p: Player) -> String:
+		return FormatUtil.currency(p.contract.income))
+	_add_column(tr("Start date"), func(p: Player) -> String:
+		return FormatUtil.format_date(p.contract.start_date))
+	_add_column(tr("End date"), func(p: Player) -> String:
+		return FormatUtil.format_date(p.contract.end_date))
+	_add_column(tr("Buy clause"), func(p: Player) -> String:
+		return FormatUtil.currency(p.contract.buy_clause))
+	# bonus
+	_add_column(tr("Bonus goal"), func(p: Player) -> String:
+		return FormatUtil.currency(p.contract.bonus_goal))
+	_add_column(tr("Bonus assist"), func(p: Player) -> String:
+		return FormatUtil.currency(p.contract.bonus_assist))
+	_add_column(tr("Bonus clean sheet"), func(p: Player) -> String:
+		return FormatUtil.currency(p.contract.bonus_clean_sheet))
+	_add_column(tr("Bonus league"), func(p: Player) -> String:
+		return FormatUtil.currency(p.contract.bonus_league))
+	_add_column(tr("Bonus national cup"), func(p: Player) -> String:
+		return FormatUtil.currency(p.contract.bonus_national_cup))
+	_add_column(tr("Bonus continental cup"), func(p: Player) -> String:
+		return FormatUtil.currency(p.contract.bonus_continental_cup))
 
 
 func _show_statistics() -> void:
-	for s: Dictionary in Statistics.new().get_property_list():
-		if s.usage == Const.CUSTOM_PROPERTY_EXPORT:
-			var stats: Callable = func(p: Player) -> String: return str(p.statistics.get(s.name))
-			_add_column(s.name, stats)
+	_add_column(tr("Games played"), func(p: Player) -> String: return str(p.statistics.games_played))
+	_add_column(tr("Goals"), func(p: Player) -> String: return str(p.statistics.goals))
+	_add_column(tr("Assists"), func(p: Player) -> String: return str(p.statistics.assists))
+	_add_column(tr("Yellow cards"), func(p: Player) -> String: return str(p.statistics.yellow_cards))
+	_add_column(tr("Red cards"), func(p: Player) -> String: return str(p.statistics.red_cards))
+	_add_column(tr("Average vote"), func(p: Player) -> String: return str(p.statistics.average_vote))
+
+#
+# Attributes
+#
+func _show_mental() -> void:
+	_add_column(tr("Agression"), func(p: Player) -> int: return p.attributes.mental.aggression)
+	_add_column(tr("Anticipation"), func(p: Player) -> int: return p.attributes.mental.anticipation)
+	_add_column(tr("Decisions"), func(p: Player) -> int: return p.attributes.mental.decisions)
+	_add_column(tr("Concentration"), func(p: Player) -> int: return p.attributes.mental.concentration)
+	_add_column(tr("Vision"), func(p: Player) -> int: return p.attributes.mental.vision)
+	_add_column(tr("Workrate"), func(p: Player) -> int: return p.attributes.mental.workrate)
+	_add_column(tr("Marking"), func(p: Player) -> int: return p.attributes.mental.marking)
 
 
-func _show_attributes(p_key: String) -> void:
-	var attribute_names: Dictionary = Attributes.new().get_all_attributes()
-	for key: String in attribute_names.keys():
-		if key == p_key:
-			for value: String in attribute_names[key]:
-				var value_path: Array[String] = ["attributes", key, value]
-				var attributes: Callable = func(p: Player) -> int: return p.get_res_value(value_path)
-				_add_column(value, attributes)
-			return
+func _show_goalkeeper() -> void:
+	_add_column(tr("Reflexes"), func(p: Player) -> int: return p.attributes.goalkeeper.reflexes)
+	_add_column(tr("Positioning"), func(p: Player) -> int: return p.attributes.goalkeeper.positioning)
+	_add_column(tr("Save feet"), func(p: Player) -> int: return p.attributes.goalkeeper.save_feet)
+	_add_column(tr("Save hands"), func(p: Player) -> int: return p.attributes.goalkeeper.save_hands)
+	_add_column(tr("Diving"), func(p: Player) -> int: return p.attributes.goalkeeper.diving)
 
 
+func _show_physical() -> void:
+	_add_column(tr("Pace"), func(p: Player) -> int: return p.attributes.physical.pace)
+	_add_column(tr("Acceleration"), func(p: Player) -> int: return p.attributes.physical.acceleration)
+	_add_column(tr("Stamina"), func(p: Player) -> int: return p.attributes.physical.stamina)
+	_add_column(tr("Strength"), func(p: Player) -> int: return p.attributes.physical.strength)
+	_add_column(tr("Agility"), func(p: Player) -> int: return p.attributes.physical.agility)
+	_add_column(tr("Jump"), func(p: Player) -> int: return p.attributes.physical.jump)
+
+
+func _show_technical() -> void:
+	_add_column(tr("Crossing"), func(p: Player) -> int: return p.attributes.technical.crossing)
+	_add_column(tr("Passing"), func(p: Player) -> int: return p.attributes.technical.passing)
+	_add_column(tr("Long passing"), func(p: Player) -> int: return p.attributes.technical.long_passing)
+	_add_column(tr("Tackling"), func(p: Player) -> int: return p.attributes.technical.tackling)
+	_add_column(tr("Heading"), func(p: Player) -> int: return p.attributes.technical.heading)
+	_add_column(tr("Interception"), func(p: Player) -> int: return p.attributes.technical.interception)
+	_add_column(tr("Shooting"), func(p: Player) -> int: return p.attributes.technical.shooting)
+	_add_column(tr("Long shooting"), func(p: Player) -> int: return p.attributes.technical.long_shooting)
+	_add_column(tr("Penalty"), func(p: Player) -> int: return p.attributes.technical.penalty)
+	_add_column(tr("Finishing"), func(p: Player) -> int: return p.attributes.technical.finishing)
+	_add_column(tr("Dribbling"), func(p: Player) -> int: return p.attributes.technical.dribbling)
+	_add_column(tr("Blocking"), func(p: Player) -> int: return p.attributes.technical.blocking)
 
 

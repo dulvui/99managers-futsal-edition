@@ -92,10 +92,10 @@ func set_result(
 		var competition: Competition = world.get_competition_by_id(competition_id)
 
 		if competition is League:
-			var league: League = (competition as League)
+			var league: League = competition as League
 			league.table().add_result(home.id, away.id, home_goals, away_goals)
 		elif competition is Cup:
-			var cup: Cup = (competition as Cup)
+			var cup: Cup = competition as Cup
 			cup.add_result(
 				home.id, away.id, home_goals, away_goals, home_penalties_goals, away_penalties_goals
 			)
@@ -108,7 +108,7 @@ func get_result() -> String:
 		return ""
 	if home_penalties_goals == 0 and away_penalties_goals == 0:
 		return "%d : %d" % [home_goals, away_goals]
-	
+
 	# with penalties
 	return "%d(%d) : (%d)%d" % [home_goals, home_penalties_goals, away_penalties_goals, away_goals]
 
@@ -116,10 +116,8 @@ func get_result() -> String:
 func inverted(is_second_leg: bool = false) -> Match:
 	var inverted_match: Match = Match.new()
 	inverted_match.setup(away, home, competition_id, competition_name)
-	
+
 	if is_second_leg:
 		inverted_match.first_leg = self
-	
+
 	return inverted_match
-
-

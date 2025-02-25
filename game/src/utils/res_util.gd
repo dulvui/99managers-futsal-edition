@@ -91,18 +91,17 @@ func _load_resource(path: String, resource: JSONResource, after_backup: bool = f
 	var file: FileAccess
 	if COMPRESSION_ON:
 		full_path += FILE_SUFFIX_COMPRESS
-		file = FileAccess.open_compressed(
-			full_path,
-			FileAccess.READ,
-			FileAccess.COMPRESSION_GZIP
-		)
+		file = FileAccess.open_compressed(full_path, FileAccess.READ, FileAccess.COMPRESSION_GZIP)
 	else:
 		full_path += FILE_SUFFIX
-		file = FileAccess.open(
-			full_path,
-			FileAccess.READ,
+		file = (
+			FileAccess
+			. open(
+				full_path,
+				FileAccess.READ,
+			)
 		)
-	
+
 	# check errors
 	var err: int = FileAccess.get_open_error()
 	if err != OK:
@@ -117,7 +116,7 @@ func _load_resource(path: String, resource: JSONResource, after_backup: bool = f
 	var file_text: String = file.get_as_text()
 	var json: JSON = JSON.new()
 	var result: int = json.parse(file_text)
-	
+
 	# check for parsing errors
 	if result != OK:
 		print("parsing file %s error with code %d" % [full_path, result])
@@ -135,7 +134,7 @@ func _load_resource(path: String, resource: JSONResource, after_backup: bool = f
 func _save_resource(path: String, resource: JSONResource) -> void:
 	path = SAVE_STATES_PATH + path
 	print("saving %s..." % path)
-	
+
 	print("converting resurce...")
 	var json: Dictionary = resource.to_json()
 	print("converting resource done.")
@@ -151,16 +150,15 @@ func _save_resource(path: String, resource: JSONResource) -> void:
 	var file: FileAccess
 	if COMPRESSION_ON:
 		path += FILE_SUFFIX_COMPRESS
-		file = FileAccess.open_compressed(
-			path,
-			FileAccess.WRITE,
-			COMPRESSION_MODE
-		)
+		file = FileAccess.open_compressed(path, FileAccess.WRITE, COMPRESSION_MODE)
 	else:
 		path += FILE_SUFFIX
-		file = FileAccess.open(
-			path,
-			FileAccess.WRITE,
+		file = (
+			FileAccess
+			. open(
+				path,
+				FileAccess.WRITE,
+			)
 		)
 
 	# check for file errors
@@ -173,10 +171,10 @@ func _save_resource(path: String, resource: JSONResource) -> void:
 	# save to file
 	file.store_string(JSON.stringify(json))
 	file.close()
-	
+
 	# create backup
 	_create_backup(path)
-	
+
 	print("saving %s done..." % path)
 
 
@@ -211,5 +209,3 @@ func _restore_backup(path: String) -> void:
 		print("restoring backup for %s gone wrong." % path)
 		loading_failed.emit()
 		return
-
-

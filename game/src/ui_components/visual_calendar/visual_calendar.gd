@@ -38,7 +38,10 @@ func setup_days() -> void:
 
 	# to start with monday, fill other days with placeholders
 	var monday_counter: int = 7
-	while Global.world.calendar.month(current_month).days[monday_counter].weekday != Enum.Weekdays.MONDAY:
+	while (
+		Global.world.calendar.month(current_month).days[monday_counter].weekday
+		!= Enum.Weekdays.MONDAY
+	):
 		monday_counter -= 1
 
 		var placeholder: Control = Control.new()
@@ -60,7 +63,7 @@ func setup_days() -> void:
 
 	var active_year: String = Enum.get_month_text(current_year + (int(current_month - 1) / 12))
 	var active_month: String = str(current_month % 12)
-	page_label.text =  active_month + " " + active_year
+	page_label.text = active_month + " " + active_year
 
 
 func _on_calendar_day_pressed(day: Day, matchz: Match) -> void:

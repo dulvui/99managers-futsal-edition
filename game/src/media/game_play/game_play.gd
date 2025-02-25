@@ -18,12 +18,12 @@ extends Control
 func _ready() -> void:
 	theme = ThemeUtil.get_active_theme()
 	Tests.setup_mock_world(true)
-	
+
 	# search next match day, to have real team and player names
 	Tests.find_next_matchday()
 
 	mouse_cursor.hide()
-	
+
 	# match
 	var match_scene: PackedScene = load(Const.SCREEN_MATCH)
 	var match_screen: MatchScreen = match_scene.instantiate()
@@ -41,9 +41,8 @@ func _ready() -> void:
 	match_screen.modulate = Color.TRANSPARENT
 	teaser.modulate = Color.TRANSPARENT
 	dashboard_screen.modulate = Color.TRANSPARENT
-	
-	Global.match_speed = Enum.MatchSpeed.FULL_GAME
 
+	Global.match_speed = Enum.MatchSpeed.FULL_GAME
 
 	# match
 	await show_screen(6, match_screen)
@@ -77,7 +76,6 @@ func _ready() -> void:
 	await fade_in(icon)
 	await wait(1)
 	# await fade_out(icon)
-	
 
 	# quit scene to finish registration
 	get_tree().quit()
@@ -94,7 +92,7 @@ func show_teaser(time: float, title: String, text: String = "", do_fade_out: boo
 	else:
 		teaser_text.show()
 		teaser_text.text = text
-	
+
 	await fade_in(teaser)
 	await wait(time)
 	if do_fade_out:
@@ -112,11 +110,10 @@ func show_screen(time: float, screen: Node) -> void:
 func fade_in(node: Node) -> void:
 	var tween: Tween = create_tween()
 	tween.tween_property(node, "modulate", Color.WHITE, 0.25)
-	await tween.finished 
+	await tween.finished
 
 
 func fade_out(node: Node) -> void:
 	var tween: Tween = create_tween()
 	tween.tween_property(node, "modulate", Color.TRANSPARENT, 0.25)
-	await tween.finished 
-
+	await tween.finished

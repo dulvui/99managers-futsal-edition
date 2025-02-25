@@ -30,7 +30,7 @@ func _init(
 
 
 func add_league(league: League) -> void:
-	leagues.append(league)	
+	leagues.append(league)
 
 
 func get_league_by_id(league_id: int) -> League:
@@ -56,7 +56,7 @@ func get_continental_cup_qualified_teams() -> Array[Team]:
 
 	var league: League = get_league_by_pyramid_level(1)
 	var table: Array[TableValues] = league.table().to_sorted_array()
-	
+
 	# always qualify a quarter of teams??
 	for i: int in table.size() / 4:
 		teams.append(get_team_by_id(table[i].team_id))
@@ -75,7 +75,7 @@ func get_team_by_id(team_id: int) -> Team:
 
 func get_all_teams(include_national_team: bool = false) -> Array[Team]:
 	var teams: Array[Team] = []
-	
+
 	if include_national_team:
 		teams.append(team)
 
@@ -88,5 +88,3 @@ func get_all_teams(include_national_team: bool = false) -> Array[Team]:
 # to check if nation has competitions
 func is_competitive() -> bool:
 	return leagues.size() > 0
-
-

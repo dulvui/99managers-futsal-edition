@@ -46,7 +46,7 @@ func _ready() -> void:
 	RngUtil.setup_rngs()
 
 
-func select_team(p_team: Team)-> void:
+func select_team(p_team: Team) -> void:
 	team = p_team
 	world.active_team_id = team.id
 	league = world.get_league_by_id(team.league_id)
@@ -89,7 +89,7 @@ func next_season() -> void:
 	# player contracts
 	# transfer markets
 	# save competition results in history
-	
+
 	if world.calendar.day().weekday == Enum.Weekdays.MONDAY:
 		# update finances
 		for t: Team in world.get_all_teams():
@@ -126,5 +126,3 @@ func load_save_state() -> void:
 		ThreadUtil.load_data()
 	else:
 		LoadingUtil.done()
-
-

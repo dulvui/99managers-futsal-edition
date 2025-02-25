@@ -11,5 +11,5 @@ func _ready() -> void:
 		Main.change_scene(Const.SCREEN_MENU)
 	else:
 		Main.change_scene(Const.SCREEN_SETUP_LANGUAGE)
-	
+
 	queue_free()

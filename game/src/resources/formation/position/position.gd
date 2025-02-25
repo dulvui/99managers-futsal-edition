@@ -76,8 +76,8 @@ func random_variations() -> void:
 
 
 func match_factor(position: Position) -> float:
-	var p_type : Type = position.type
-	
+	var p_type: Type = position.type
+
 	# propably a mock player
 	if type == null:
 		return 0
@@ -131,5 +131,3 @@ func get_type_text(p_type: Type = type) -> String:
 		Type.PR:
 			return tr("PR")
 	return ""
-
-

@@ -118,7 +118,9 @@ func consume_stamina(speed: float) -> void:
 	# consume stamina with  calc 21 - [20,1]
 	# best case Const.MAX_PRESTIGE * 1
 	# worst case Const.MAX_PRESTIGE * 20
-	var consumation: float = Const.STAMINA_FACTOR * (Const.MAX_PRESTIGE + 1 - attributes.physical.stamina) * speed
+	var consumation: float = (
+		Const.STAMINA_FACTOR * (Const.MAX_PRESTIGE + 1 - attributes.physical.stamina) * speed
+	)
 	# print("stamina: %d consumtion: %f"%[attributes.physical.stamina, consumation])
 	stamina = maxf(0, stamina - consumation)
 
@@ -129,5 +131,3 @@ func position_match_factor(p_position: Position) -> float:
 		var alt_factor: float = alt_position.match_factor(p_position)
 		factor = max(factor, alt_factor)
 	return factor
-
-

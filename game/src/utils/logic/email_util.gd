@@ -25,14 +25,14 @@ func count_unread_messages() -> int:
 
 
 func next_match(p_match: Match) -> void:
-	var subject: String = tr("Next match: {team_name}") # TRANSLATORS: {team_name} gets dynamically filled
-	var text: String = tr("The next match is against {team_name}.") # TRANSLATORS: {team_name} gets dynamically filled
+	var subject: String = tr("Next match: {team_name}")  # TRANSLATORS: {team_name} gets dynamically filled
+	var text: String = tr("The next match is against {team_name}.")  # TRANSLATORS: {team_name} gets dynamically filled
 
 	var team_id: int = p_match.home.id
 
 	if team_id == Global.team.id:
 		team_id = p_match.away.id
-	
+
 	var team: Team = Global.world.get_team_by_id(team_id, p_match.competition_id)
 	if team == null:
 		print("no team with found with id " + str(team_id))
@@ -48,8 +48,8 @@ func next_match(p_match: Match) -> void:
 
 func welcome_manager() -> void:
 	var subject: String = tr("Welcome {manager_name}")
-	var text: String = tr("{team_name} welcomes you to a new journey.") # TRANSLATORS: {team_name} gets dynamically filled
-	
+	var text: String = tr("{team_name} welcomes you to a new journey.")  # TRANSLATORS: {team_name} gets dynamically filled
+
 	subject = subject.format({"manager_name": Global.manager.get_full_name()})
 	text = text.format({"team_name": Global.team.name})
 
@@ -71,49 +71,63 @@ func transfer_message(transfer: Transfer) -> void:
 			# TRANSLATORS: {player_name} gets dynamically filled
 			subject = tr("Offer for {player_name}")
 			# TRANSLATORS: {cost}, {player_name}, {team_name} get dynamically filled
-			text = tr("You made an offer for {player_name} from {team_name} at {cost}.\n{team_name} will consider the offer and respond within a few days.")
+			text = tr(
+				"You made an offer for {player_name} from {team_name} at {cost}.\n{team_name} will consider the offer and respond within a few days."
+			)
 
 			subject = subject.format({"player_name": transfer.player.surname})
 
 			var player_link: String = LinkUtil.get_player_url(transfer.player)
-			text = text.format(
-				{
-					"cost": FormatUtil.currency(transfer.cost),
-					"player_name": player_link,
-					"team_name": sender_team.name,
-				}
+			text = (
+				text
+				. format(
+					{
+						"cost": FormatUtil.currency(transfer.cost),
+						"player_name": player_link,
+						"team_name": sender_team.name,
+					}
+				)
 			)
 		Transfer.State.OFFER_DECLINED:
 			# TRANSLATORS: {player_name} gets dynamically filled
 			subject = tr("Offer for {player_name} declined")
 			# TRANSLATORS: {player_name}, {team_name} get dynamically filled
-			text = tr("Your offer for {player_name} from {team_name} at {cost} has been declined.\nIncreasing the transfer value could make them reconsider."
+			text = tr(
+				"Your offer for {player_name} from {team_name} at {cost} has been declined.\nIncreasing the transfer value could make them reconsider."
 			)
 
 			subject = subject.format({"player_name": transfer.player.get_full_name()})
 			var player_link: String = LinkUtil.get_player_url(transfer.player)
 
-			text = text.format(
-				{
-					"player_name": player_link,
-					"team_name": sender_team.name,
-					"cost": FormatUtil.currency(transfer.cost),
-				}
+			text = (
+				text
+				. format(
+					{
+						"player_name": player_link,
+						"team_name": sender_team.name,
+						"cost": FormatUtil.currency(transfer.cost),
+					}
+				)
 			)
 		Transfer.State.CONTRACT:
 			# TRANSLATORS: {player_name} gets dynamically filled
 			subject = tr("Offer for {player_name} accepted")
 			# TRANSLATORS: {player_name}, {team_name} get dynamically filled
-			text = tr("Your offer for {player_name} from {team_name} at {cost} has been accepted.\nYou can now find a contractual aggreement with {player_name}.")
+			text = tr(
+				"Your offer for {player_name} from {team_name} at {cost} has been accepted.\nYou can now find a contractual aggreement with {player_name}."
+			)
 
 			subject = subject.format({"player_name": transfer.player.get_full_name()})
 
 			var player_link: String = LinkUtil.get_player_url(transfer.player)
-			text = text.format(
-				{
-					"player_name": player_link,
-					"team_name": sender_team.name,
-				}
+			text = (
+				text
+				. format(
+					{
+						"player_name": player_link,
+						"team_name": sender_team.name,
+					}
+				)
 			)
 		# Transfer.State.CONTRACT_PENDING:
 		# 	# TRANSLATORS: {player_name} gets dynamically filled
@@ -186,7 +200,6 @@ func _get_team_email_address(team: Team = Global.team) -> String:
 	email += "@" + team.name.replace(" ", "") + ".com"
 	email = email.to_lower()
 	return email
-
 
 	#Type.NEXT_SEASON:
 	#message["message"] = "The new season begins."

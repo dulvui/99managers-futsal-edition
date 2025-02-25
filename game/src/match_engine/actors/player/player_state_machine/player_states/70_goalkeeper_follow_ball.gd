@@ -29,12 +29,21 @@ func execute() -> void:
 	# only follow if in own half
 	if owner.player.left_half:
 		if owner.field.ball.pos.x < owner.field.size.x / 2:
-			owner.player.set_destination(owner.player.left_base + owner.player.left_base.direction_to(owner.field.ball.pos) * 40)
+			owner.player.set_destination(
+				(
+					owner.player.left_base
+					+ owner.player.left_base.direction_to(owner.field.ball.pos) * 40
+				)
+			)
 		else:
 			owner.player.set_destination(owner.player.left_base)
 	else:
 		if owner.field.ball.pos.x > owner.field.size.x / 2:
-			owner.player.set_destination(owner.player.right_base + owner.player.right_base.direction_to(owner.field.ball.pos) * 40)
+			owner.player.set_destination(
+				(
+					owner.player.right_base
+					+ owner.player.right_base.direction_to(owner.field.ball.pos) * 40
+				)
+			)
 		else:
 			owner.player.set_destination(owner.player.right_base)
-

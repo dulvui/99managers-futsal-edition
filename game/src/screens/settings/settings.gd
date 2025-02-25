@@ -5,7 +5,6 @@
 class_name Settings
 extends Control
 
-
 @onready var default_dialog: DefaultConfirmDialog = %DefaultDialog
 @onready var general: GeneralSettings = %General
 @onready var input: InputSettings = %Input
@@ -27,4 +26,3 @@ func _on_default_dialog_confirmed() -> void:
 
 func _on_back_pressed() -> void:
 	Main.previous_scene()
-

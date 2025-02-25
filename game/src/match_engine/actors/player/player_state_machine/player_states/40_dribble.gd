@@ -18,4 +18,3 @@ func enter() -> void:
 		owner.field.ball.dribble(owner.player.pos + Vector2(-50, 0), 10)
 	owner.player.follow(owner.field.ball, 10)
 	set_state(PlayerStateControl.new())
-

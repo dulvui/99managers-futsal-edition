@@ -12,7 +12,6 @@ signal goal_line_out_right
 signal goal_left
 signal goal_right
 
-
 # 1 meter = x PIXEL_FACTOR
 const PIXEL_FACTOR: int = 28
 
@@ -24,7 +23,6 @@ const LINE_WIDTH: float = 0.10 * PIXEL_FACTOR  # in cm
 
 # distance between wall and line
 const WALL_DISTANCE: int = 5 * PIXEL_FACTOR
-
 
 # Note: don't use Rect2, to keep simple and human-readable names for coordinates
 var size: Vector2  # with borders
@@ -93,7 +91,7 @@ func _init(rng: RandomNumberGenerator) -> void:
 	# ball
 	ball = SimBall.new(rng)
 	ball.setup(self)
-	
+
 	# flags
 	clock_running = false
 	goalkeeper_ball = false
@@ -193,7 +191,7 @@ func _check_goal_line() -> bool:
 
 		goal_line_out_left.emit()
 		return true
-		
+
 	# right
 	if ball.pos.x > line_right:
 		clock_running = false
@@ -236,13 +234,13 @@ func _check_ball_wall_colissions() -> void:
 		if colission != null:
 			ball.direction = colission
 			return
-	
+
 	if ball.direction.x < 0:
 		colission = wall_left.collides(ball.last_pos, ball.pos)
 		if colission != null:
 			ball.direction = colission
 			return
-	else:	
+	else:
 		colission = wall_right.collides(ball.last_pos, ball.pos)
 		if colission != null:
 			ball.direction = colission

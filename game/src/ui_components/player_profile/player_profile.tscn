@@ -23,11 +23,12 @@ metadata/_edit_use_anchors_ = true
 [node name="Main" type="TabContainer" parent="."]
 layout_mode = 2
 size_flags_vertical = 3
-current_tab = 0
+current_tab = 2
 script = ExtResource("3_o1pgm")
 
 [node name="Info" parent="Main" instance=ExtResource("3_rkqc7")]
 unique_name_in_owner = true
+visible = false
 layout_mode = 2
 
 [node name="Statistics" parent="Main" instance=ExtResource("4_hpiic")]
@@ -37,7 +38,6 @@ layout_mode = 2
 
 [node name="Attributes" parent="Main" instance=ExtResource("3_whctl")]
 unique_name_in_owner = true
-visible = false
 layout_mode = 2
 
 [node name="Contract" parent="Main" instance=ExtResource("7_4elh2")]

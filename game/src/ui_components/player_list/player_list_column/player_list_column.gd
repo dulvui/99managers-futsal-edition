@@ -17,9 +17,7 @@ var map_function: Callable
 @onready var sort_button: Button = $SortButton
 
 
-func setup(
-	p_col_name: String, players: Array[Player], p_map_function: Callable
-) -> void:
+func setup(p_col_name: String, players: Array[Player], p_map_function: Callable) -> void:
 	col_name = p_col_name
 	map_function = p_map_function
 
@@ -43,10 +41,6 @@ func setup(
 			add_child(label)
 			label.tooltip_text = col_name
 			label.setup(col_name)
-
-			if value is Dictionary:
-				value = FormatUtil.format_date(value as Dictionary)
-
 			label.set_value(value)
 
 
@@ -56,12 +50,10 @@ func update_values(players: Array[Player]) -> void:
 	for i: int in color_labels.size():
 		if i < values.size():
 			color_labels[i].show()
-			if values[i] is Dictionary:
-				values[i] = FormatUtil.format_date(values[i] as Dictionary)
 			color_labels[i].set_value(values[i])
 		else:
 			color_labels[i].hide()
-	
+
 	# name buttons
 	for i: int in buttons.size():
 		if i < values.size():

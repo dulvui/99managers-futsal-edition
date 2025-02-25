@@ -5,7 +5,6 @@
 class_name Stadium
 extends JSONResource
 
-
 @export var name: String
 @export var capacity: int
 @export var year_built: int

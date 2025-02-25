@@ -56,5 +56,3 @@ func _init(
 	coordinates = p_coordinates
 	confidence = p_confidence
 	type = p_type
-
-

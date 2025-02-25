@@ -99,8 +99,8 @@ func next_stage() -> void:
 			setup_knockout()
 			MatchCombinationUtil.add_matches_to_calendar(self, get_matches())
 	elif knockout.prepare_next_round():
-			# add next round matches calendar
-			MatchCombinationUtil.add_matches_to_calendar(self, get_matches())
+		# add next round matches calendar
+		MatchCombinationUtil.add_matches_to_calendar(self, get_matches())
 
 
 func get_matches() -> Array[Array]:
@@ -126,7 +126,7 @@ func _get_group_matches() -> Array[Array]:
 
 	for group: Group in groups:
 		matches.append_array(MatchCombinationUtil.create_combinations(self, group.teams))
-	
+
 	return matches
 
 
@@ -138,7 +138,5 @@ func _find_group_by_team_id(team_id: int) -> Group:
 	for group: Group in groups:
 		if group.get_team_by_id(team_id) != null:
 			return group
-	print("error while seaerching team with id %s in group"%str(team_id))
+	print("error while seaerching team with id %s in group" % str(team_id))
 	return null
-
-

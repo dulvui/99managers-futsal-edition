@@ -22,7 +22,7 @@ var generation_seed: String = DEFAULT_SEED
 
 func _ready() -> void:
 	InputUtil.start_focus(self)
-	
+
 	for player_name: Enum.PlayerNames in Enum.PlayerNames.values():
 		player_names_option.add_item(Enum.get_player_names_text(player_name))
 
@@ -34,7 +34,7 @@ func _ready() -> void:
 	if Global.manager:
 		manager_name.text = Global.manager.name
 		manager_surname.text = Global.manager.surname
-	
+
 	var nation_names: NationNames = NationNames.new()
 
 	for nation: String in nation_names.get_all_nations():
@@ -59,7 +59,6 @@ func _on_default_seed_button_pressed() -> void:
 
 
 func _on_continue_pressed() -> void:
-
 	# setup manager
 	if manager_name.text.length() * manager_surname.text.length() == 0:
 		return
@@ -81,9 +80,7 @@ func _on_continue_pressed() -> void:
 	var start_date_str: String = (
 		"%d-%02d-%02dT00:00:00" % [start_year, Const.SEASON_START_MONTH, Const.SEASON_START_DAY]
 	)
-	Global.start_date = Time.get_datetime_dict_from_datetime_string(
-		start_date_str, true
-	)
+	Global.start_date = Time.get_datetime_dict_from_datetime_string(start_date_str, true)
 	# also set Global.start_date, so functions like person.get_age work
 	Global.generation_seed = generation_seed
 	Global.generation_player_names = player_names_option.selected as Enum.PlayerNames
@@ -105,4 +102,3 @@ func _on_surame_text_changed(_new_text: String) -> void:
 
 func _on_back_pressed() -> void:
 	Main.change_scene(Const.SCREEN_MENU)
-

@@ -5,13 +5,24 @@
 class_name StatisticsView
 extends VBoxContainer
 
+var value_labels: Array[Label]
+
 @onready var grid: GridContainer = %GridContainer
 
+
+func _ready() -> void:
+	value_labels = []
+
+
 func setup(player: Player) -> void:
+	# clear labels first
+	for label: Label in value_labels:
+		label.queue_free()
+
 	_add_statistics(player.statistics, player.team)
 	for history: History in player.history:
 		_add_statistics(history.statistics, history.team_name)
-	
+
 
 func _add_statistics(statistics: Statistics, team_name: String) -> void:
 	var team: Label = Label.new()
@@ -35,7 +46,7 @@ func _add_statistics(statistics: Statistics, team_name: String) -> void:
 	yellow_cards.text = str(statistics.yellow_cards)
 	red_cards.text = str(statistics.red_cards)
 	average_vote.text = str(statistics.average_vote)
-	
+
 	grid.add_child(team)
 	grid.add_child(games_played)
 	grid.add_child(goals)
@@ -44,4 +55,10 @@ func _add_statistics(statistics: Statistics, team_name: String) -> void:
 	grid.add_child(red_cards)
 	grid.add_child(average_vote)
 
-
+	value_labels.append(team)
+	value_labels.append(games_played)
+	value_labels.append(goals)
+	value_labels.append(assists)
+	value_labels.append(yellow_cards)
+	value_labels.append(red_cards)
+	value_labels.append(average_vote)

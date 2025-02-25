@@ -6,6 +6,7 @@ extends Node
 
 var thread: Thread
 
+
 func _ready() -> void:
 	thread = Thread.new()
 

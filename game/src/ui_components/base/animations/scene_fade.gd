@@ -28,4 +28,3 @@ func fade_out(duration: float = DURATION) -> void:
 	tween = create_tween()
 	tween.tween_property(self, "modulate", Color.WHITE, duration)
 	await tween.finished
-

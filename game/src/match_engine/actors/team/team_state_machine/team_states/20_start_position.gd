@@ -5,7 +5,6 @@
 class_name TeamStateStartPositions
 extends TeamStateMachineState
 
-
 const WAIT: int = 1
 
 var ticks: int
@@ -30,11 +29,10 @@ func execute() -> void:
 	for player: SimPlayer in owner.players:
 		if not player.destination_reached():
 			return
-	
+
 	# wait a bit before kick off
 	ticks += 1
 	if ticks < WAIT:
 		return
 
 	set_state(TeamStateKickoff.new())
-

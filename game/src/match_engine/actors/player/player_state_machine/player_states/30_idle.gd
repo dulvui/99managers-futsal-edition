@@ -7,5 +7,6 @@ extends PlayerStateMachineState
 
 # does nothing
 
+
 func _init() -> void:
 	super("PlayerStateIdle")
