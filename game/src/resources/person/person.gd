@@ -63,6 +63,12 @@ func get_full_name() -> String:
 
 
 func get_age(date: Dictionary) -> int:
-	return date.year - birth_date.year
+	var years: int = date.year - birth_date.year - 1
+	if date.month > birth_date.month:
+		return years + 1
+	if date.month == birth_date.month and date.day >= birth_date.day:
+		return years + 1
+	return years
+
 
 
