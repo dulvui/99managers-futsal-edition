@@ -363,7 +363,7 @@ func _get_mental(age: int, prestige: int) -> Mental:
 	attribtues.concentration = _in_bounds_random(offensive_factor, max_potential)
 	attribtues.teamwork = _in_bounds_random(offensive_factor, max_potential)
 	attribtues.vision = _in_bounds_random(offensive_factor, max_potential)
-	attribtues.work_rate = _in_bounds_random(offensive_factor, max_potential)
+	attribtues.workrate = _in_bounds_random(offensive_factor, max_potential)
 	attribtues.offensive_movement = _in_bounds_random(offensive_factor, max_potential)
 
 	return attribtues
@@ -514,7 +514,6 @@ func _create_player(
 	player.team_id = p_team.id
 	player.league = p_league.name
 	player.league_id = p_league.id
-	player.statistics.team_name = p_team.name
 	player.nation = nation.name
 	player.foot = _get_random_foot()
 	player.morality = _get_random_morality()
@@ -542,8 +541,8 @@ func _create_player(
 	statistics.games_played = 0
 	statistics.goals = 0
 	statistics.assists = 0
-	statistics.yellow_card = 0
-	statistics.red_card = 0
+	statistics.yellow_cards = 0
+	statistics.red_cards = 0
 	statistics.average_vote = 0
 	player.statistics = statistics
 	# TODO create history
@@ -750,8 +749,8 @@ func _set_random_person_values(person: Person, nation: Nation) -> void:
 	contract.bonus_clean_sheet = 0
 	contract.bonus_assist = 0
 	contract.bonus_league_title = 0
-	contract.bonus_nat_cup_title = 0
-	contract.bonus_inter_cup_title = 0
+	contract.bonus_national_cup_title = 0
+	contract.bonus_international_cup_title = 0
 	contract.buy_clause = 0
 	contract.is_on_loan = false
 	person.contract = contract
