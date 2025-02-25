@@ -1,10 +1,11 @@
-[gd_scene load_steps=6 format=3 uid="uid://cywaob6jab2pj"]
+[gd_scene load_steps=7 format=3 uid="uid://cywaob6jab2pj"]
 
 [ext_resource type="LabelSettings" uid="uid://cc2vi4onhgmnw" path="res://theme_base/label/label_settings_bold.tres" id="1_6o6h0"]
 [ext_resource type="Script" path="res://src/screens/settings/general/general_settings.gd" id="1_gl78q"]
 [ext_resource type="PackedScene" uid="uid://djrvl8pvkr7aa" path="res://src/screens/settings/language_picker/language_picker.tscn" id="2_p1exx"]
 [ext_resource type="Script" path="res://src/ui_components/base/defaults/default_button.gd" id="3_n2piq"]
 [ext_resource type="LabelSettings" uid="uid://c5yfa40ut1pyv" path="res://theme_base/label/label_settings.tres" id="4_jbix3"]
+[ext_resource type="PackedScene" uid="uid://can4wvc3g3b84" path="res://src/screens/settings/theme_picker/theme_picker.tscn" id="6_ryj47"]
 
 [node name="General" type="VBoxContainer"]
 anchors_preset = -1
@@ -157,76 +158,9 @@ layout_mode = 2
 [node name="HSeparator7" type="HSeparator" parent="."]
 layout_mode = 2
 
-[node name="Theme" type="VBoxContainer" parent="."]
-layout_mode = 2
-
-[node name="DefautThemes" type="HBoxContainer" parent="Theme"]
-layout_mode = 2
-
-[node name="ThemeLabel" type="Label" parent="Theme/DefautThemes"]
-layout_mode = 2
-size_flags_horizontal = 3
-text = "Themes"
-label_settings = ExtResource("1_6o6h0")
-
-[node name="ThemeOptionButton" type="OptionButton" parent="Theme/DefautThemes"]
+[node name="ThemePicker" parent="." instance=ExtResource("6_ryj47")]
 unique_name_in_owner = true
 layout_mode = 2
-size_flags_horizontal = 10
-
-[node name="CustomTheme" type="VBoxContainer" parent="Theme"]
-layout_mode = 2
-
-[node name="Font" type="HBoxContainer" parent="Theme/CustomTheme"]
-layout_mode = 2
-theme_override_constants/separation = 10
-
-[node name="Label" type="Label" parent="Theme/CustomTheme/Font"]
-layout_mode = 2
-size_flags_horizontal = 3
-text = "Font color"
-
-[node name="FontColorButton" type="Button" parent="Theme/CustomTheme/Font"]
-custom_minimum_size = Vector2(180, 0)
-layout_mode = 2
-size_flags_horizontal = 4
-size_flags_vertical = 4
-text = "Change"
-script = ExtResource("3_n2piq")
-
-[node name="Style" type="HBoxContainer" parent="Theme/CustomTheme"]
-layout_mode = 2
-theme_override_constants/separation = 10
-
-[node name="Label" type="Label" parent="Theme/CustomTheme/Style"]
-layout_mode = 2
-size_flags_horizontal = 3
-text = "Buttons color"
-
-[node name="StyleColorButton" type="Button" parent="Theme/CustomTheme/Style"]
-custom_minimum_size = Vector2(180, 0)
-layout_mode = 2
-size_flags_horizontal = 4
-size_flags_vertical = 4
-text = "Change"
-script = ExtResource("3_n2piq")
-
-[node name="Background" type="HBoxContainer" parent="Theme/CustomTheme"]
-layout_mode = 2
-theme_override_constants/separation = 10
-
-[node name="Label" type="Label" parent="Theme/CustomTheme/Background"]
-layout_mode = 2
-size_flags_horizontal = 3
-text = "Background color"
-
-[node name="BackgroundColorButton" type="Button" parent="Theme/CustomTheme/Background"]
-custom_minimum_size = Vector2(180, 0)
-layout_mode = 2
-size_flags_horizontal = 4
-size_flags_vertical = 4
-text = "Change"
-script = ExtResource("3_n2piq")
 
 [node name="HSeparator4" type="HSeparator" parent="."]
 layout_mode = 2
@@ -248,29 +182,6 @@ size_flags_horizontal = 3
 text = "v1.0.0"
 horizontal_alignment = 2
 
-[node name="ColorPopupPanel" type="PopupPanel" parent="."]
-auto_translate_mode = 1
-size = Vector2i(400, 526)
-
-[node name="MarginContainer" type="MarginContainer" parent="ColorPopupPanel"]
-offset_left = 10.0
-offset_top = 4.0
-offset_right = 390.0
-offset_bottom = 522.0
-theme_override_constants/margin_left = 10
-theme_override_constants/margin_top = 10
-theme_override_constants/margin_right = 10
-theme_override_constants/margin_bottom = 10
-
-[node name="ColorPicker" type="ColorPicker" parent="ColorPopupPanel/MarginContainer"]
-layout_mode = 2
-deferred_mode = true
-can_add_swatches = false
-sampler_visible = false
-color_modes_visible = false
-presets_visible = false
-metadata/_edit_use_anchors_ = true
-
 [connection signal="drag_ended" from="Audio/UISfx/UISfxVolumeSlider" to="." method="_on_ui_sfx_volume_slider_drag_ended"]
 [connection signal="value_changed" from="Interface/FontSize/FontSizeSpinBox" to="." method="_on_font_size_spin_box_value_changed"]
 [connection signal="pressed" from="Interface/FontSize/FontDefaultButton" to="." method="_on_font_default_button_pressed"]
@@ -278,8 +189,3 @@ metadata/_edit_use_anchors_ = true
 [connection signal="pressed" from="Interface/Scale/Scale2" to="." method="_on_scale_2_pressed"]
 [connection signal="pressed" from="Interface/Scale/Scale3" to="." method="_on_scale_3_pressed"]
 [connection signal="toggled" from="Interface/ScreenFade/ScreenFadeButton" to="." method="_on_screen_fade_button_toggled"]
-[connection signal="item_selected" from="Theme/DefautThemes/ThemeOptionButton" to="." method="_on_theme_option_button_item_selected"]
-[connection signal="pressed" from="Theme/CustomTheme/Font/FontColorButton" to="." method="_on_font_color_button_pressed"]
-[connection signal="pressed" from="Theme/CustomTheme/Style/StyleColorButton" to="." method="_on_style_color_button_pressed"]
-[connection signal="pressed" from="Theme/CustomTheme/Background/BackgroundColorButton" to="." method="_on_background_color_button_pressed"]
-[connection signal="color_changed" from="ColorPopupPanel/MarginContainer/ColorPicker" to="." method="_on_color_picker_color_changed"]

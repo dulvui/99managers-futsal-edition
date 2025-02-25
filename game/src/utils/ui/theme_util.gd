@@ -151,7 +151,7 @@ func _ready() -> void:
 	custom_configuration.style_color = Color(Global.config.theme_custom_style_color)
 	custom_configuration.background_color = Color(Global.config.theme_custom_background_color)
 
-	apply_theme(THEMES.keys()[Global.config.theme_index])
+	apply_theme(Global.config.theme_index)
 
 
 func get_active_theme() -> Theme:
@@ -163,12 +163,20 @@ func is_custom_theme() -> bool:
 
 
 func get_theme_names() -> Array:
-	return THEMES.keys()
+	return [
+		tr("Dark"),
+		tr("Light"),
+		tr("Solarized light"),
+		tr("Solarized dark"),
+		tr("Red"),
+		tr("Hacker"),
+		tr("Custom theme"),
+	]
 
 
 func reset_to_default() -> void:
 	Global.config.theme_index = 0
-	apply_theme(THEMES.keys()[0])
+	apply_theme(0)
 
 
 func bold(label: Label, condition: bool = true) -> void:
@@ -181,18 +189,19 @@ func remove_bold(label: Label) -> void:
 
 
 func reload_active_theme() -> void:
-	apply_theme(THEMES.keys()[Global.config.theme_index])
+	apply_theme(Global.config.theme_index)
 
 
-func apply_theme(theme_name: StringName) -> void:
-	if theme_name == "CUSTOM":
+func apply_theme(theme_index: int) -> void:
+	# custom theme always last index
+	if theme_index == THEMES.size() - 1:
 		custom_configuration.font_color = Color(Global.config.theme_custom_font_color)
 		custom_configuration.style_color = Color(Global.config.theme_custom_style_color)
 		custom_configuration.background_color = Color(Global.config.theme_custom_background_color)
 		custom_configuration.setup()
 		_apply_configuration(custom_configuration)
 	else:
-		var theme_file: StringName = THEMES[theme_name]
+		var theme_file: StringName = THEMES.values()[theme_index]
 		configuration = ResourceLoader.load(THEMES_PATH + theme_file)
 		configuration.setup()
 		_apply_configuration(configuration)
