@@ -61,7 +61,7 @@ static func setup_mock_world(use_test_file: bool = false) -> bool:
 				break
 		
 		Global.select_team(team)
-		Global.initialize_game()
+		Global.initialize_game(true)
 		Global.start_date = Time.get_date_dict_from_system()
 		print("setting up mock world done.")
 		return true
@@ -135,6 +135,7 @@ static func create_mock_player(nr: int = randi_range(1, 99)) -> Player:
 	player.name = "Mock"
 	player.surname = "Player " + str(nr)
 	player.nr = nr
+	player.birth_date = Time.get_date_dict_from_system()
 
 	return player
 
