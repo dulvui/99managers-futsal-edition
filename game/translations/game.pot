@@ -208,6 +208,8 @@
 # res://src/screens/match_screen/events/match_events.tscn
 # res://src/screens/match_screen/match_simulator/match_simulator.gd
 # res://src/screens/match_screen/match_simulator/match_simulator.tscn
+# res://src/screens/settings/theme_picker/theme_picker.gd
+# res://src/screens/settings/theme_picker/theme_picker.tscn
 #
 # FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
 #
@@ -684,6 +686,34 @@ msgstr ""
 msgid "Restoring from backup"
 msgstr ""
 
+#: src/utils/ui/theme_util.gd
+msgid "Dark"
+msgstr ""
+
+#: src/utils/ui/theme_util.gd
+msgid "Light"
+msgstr ""
+
+#: src/utils/ui/theme_util.gd
+msgid "Solarized light"
+msgstr ""
+
+#: src/utils/ui/theme_util.gd
+msgid "Solarized dark"
+msgstr ""
+
+#: src/utils/ui/theme_util.gd
+msgid "Red"
+msgstr ""
+
+#: src/utils/ui/theme_util.gd
+msgid "Hacker"
+msgstr ""
+
+#: src/utils/ui/theme_util.gd
+msgid "Custom theme"
+msgstr ""
+
 #: src/screens/settings/settings.tscn
 msgid "General"
 msgstr ""
@@ -745,26 +775,6 @@ msgstr ""
 
 #: src/screens/settings/general/general_settings.tscn
 msgid "Screen fade animation"
-msgstr ""
-
-#: src/screens/settings/general/general_settings.tscn
-msgid "Themes"
-msgstr ""
-
-#: src/screens/settings/general/general_settings.tscn
-msgid "Font color"
-msgstr ""
-
-#: src/screens/settings/general/general_settings.tscn
-msgid "Change"
-msgstr ""
-
-#: src/screens/settings/general/general_settings.tscn
-msgid "Buttons color"
-msgstr ""
-
-#: src/screens/settings/general/general_settings.tscn
-msgid "Background color"
 msgstr ""
 
 #: src/screens/settings/general/general_settings.tscn
@@ -2012,4 +2022,24 @@ msgstr ""
 
 #: src/screens/match_screen/penalties_bar/penalties_bar.tscn
 msgid "Penalties"
+msgstr ""
+
+#: src/screens/settings/theme_picker/theme_picker.tscn
+msgid "Themes"
+msgstr ""
+
+#: src/screens/settings/theme_picker/theme_picker.tscn
+msgid "Font color"
+msgstr ""
+
+#: src/screens/settings/theme_picker/theme_picker.tscn
+msgid "Change"
+msgstr ""
+
+#: src/screens/settings/theme_picker/theme_picker.tscn
+msgid "Buttons color"
+msgstr ""
+
+#: src/screens/settings/theme_picker/theme_picker.tscn
+msgid "Background color"
 msgstr ""

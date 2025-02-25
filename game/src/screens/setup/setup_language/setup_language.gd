@@ -9,4 +9,4 @@ func _ready() -> void:
 
 
 func _on_language_picker_language_change() -> void:
-	Main.change_scene(Const.SCREEN_MENU)
+	Main.change_scene(Const.SCREEN_SETUP_THEME)

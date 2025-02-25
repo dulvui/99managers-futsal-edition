@@ -27,6 +27,7 @@ layout_mode = 2
 size_flags_horizontal = 10
 
 [node name="Custom" type="VBoxContainer" parent="."]
+unique_name_in_owner = true
 layout_mode = 2
 
 [node name="Font" type="HBoxContainer" parent="Custom"]

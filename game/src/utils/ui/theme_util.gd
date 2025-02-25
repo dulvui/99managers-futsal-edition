@@ -162,7 +162,17 @@ func is_custom_theme() -> bool:
 	return THEMES.keys()[Global.config.theme_index] == "CUSTOM"
 
 
-func get_theme_names() -> Array:
+func get_theme_names(show_custom: bool = false) -> Array:
+	if show_custom:
+		return [
+			tr("Dark"),
+			tr("Light"),
+			tr("Solarized light"),
+			tr("Solarized dark"),
+			tr("Red"),
+			tr("Hacker"),
+			tr("Custom theme"),
+		]
 	return [
 		tr("Dark"),
 		tr("Light"),
@@ -170,7 +180,6 @@ func get_theme_names() -> Array:
 		tr("Solarized dark"),
 		tr("Red"),
 		tr("Hacker"),
-		tr("Custom theme"),
 	]
 
 
