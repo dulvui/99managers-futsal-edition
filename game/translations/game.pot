@@ -822,10 +822,6 @@ msgstr ""
 msgid "Away"
 msgstr ""
 
-#: src/ui_components/visual_calendar/visual_day/visual_day.gd
-msgid ""
-msgstr ""
-
 #: src/ui_components/visual_calendar/match_list/match_info/match_info.tscn
 msgid "vs"
 msgstr ""
