@@ -23,12 +23,12 @@ var generation_seed: String = DEFAULT_SEED
 func _ready() -> void:
 	InputUtil.start_focus(self)
 	
-	for player_name: String in Enum.PlayerNames:
-		player_names_option.add_item(player_name)
+	for player_name: Enum.PlayerNames in Enum.PlayerNames.values():
+		player_names_option.add_item(Enum.get_player_names_text(player_name))
 
 	generation_seed_edit.text = generation_seed
 	# set start year to current system year
-	start_year_spinbox.get_line_edit().text = str(Time.get_date_dict_from_system().year)
+	start_year_spinbox.value = Time.get_date_dict_from_system().year
 
 	# reset temp values
 	if Global.manager:
@@ -77,9 +77,9 @@ func _on_continue_pressed() -> void:
 		generation_seed = DEFAULT_SEED
 
 	# start date in fomrat YYYY-MM-DDTHH:MM:SS
-	var start_year: String = start_year_spinbox.get_line_edit().text
+	var start_year: int = int(start_year_spinbox.value)
 	var start_date_str: String = (
-		"%s-%02d-%02dT00:00:00" % [start_year, Const.SEASON_START_MONTH, Const.SEASON_START_DAY]
+		"%d-%02d-%02dT00:00:00" % [start_year, Const.SEASON_START_MONTH, Const.SEASON_START_DAY]
 	)
 	Global.start_date = Time.get_datetime_dict_from_datetime_string(
 		start_date_str, true

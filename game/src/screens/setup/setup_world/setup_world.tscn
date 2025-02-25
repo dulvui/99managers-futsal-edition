@@ -136,7 +136,7 @@ custom_minimum_size = Vector2(200, 0)
 layout_mode = 2
 min_value = 2000.0
 max_value = 3000.0
-value = 2024.0
+value = 2000.0
 
 [node name="HSeparator" type="HSeparator" parent="VBoxContainer"]
 layout_mode = 2

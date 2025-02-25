@@ -93,8 +93,10 @@ func get_match_speed_text() -> String:
 			return tr("Full game")
 
 
-func get_generation_player_names_text() -> String:
-	match Global.generation_player_names:
+func get_player_names_text(
+	player_names: PlayerNames = Global.generation_player_names
+) -> String:
+	match player_names:
 		PlayerNames.MALE:
 			return tr("Male")
 		PlayerNames.FEMALE:
