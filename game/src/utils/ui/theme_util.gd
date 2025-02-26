@@ -312,6 +312,14 @@ func _apply_configuration(p_configuration: ThemeConfiguration) -> void:
 	theme.set_color("icon_hover_color", "Button", configuration.font_color_variation.hover)
 	theme.set_color("icon_pressed_color", "Button", configuration.font_color_variation.pressed)
 	theme.set_color("icon_disabled_color", "Button", configuration.font_color_variation.disabled)
+	
+	# check button font colors
+	theme.set_color("font_color", "CheckButton", configuration.font_color)
+	theme.set_color("font_focus_color", "CheckButton", configuration.font_color_variation.focus)
+	theme.set_color("font_hover_color", "CheckButton", configuration.font_color_variation.hover)
+	theme.set_color("font_pressed_color", "CheckButton", configuration.font_color_variation.pressed)
+	theme.set_color("font_hover_pressed_color", "CheckButton", configuration.font_color_variation.hover)
+	theme.set_color("font_disabled_color", "CheckButton", configuration.font_color_variation.disabled)
 
 	# link button
 	theme.set_color("font_color", "LinkButton", configuration.font_color)
