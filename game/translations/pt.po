@@ -278,20 +278,21 @@
 # res://src/generators/generator.gd
 #
 # João Ricardo de Mendonça Caruço <joaocaruco77@gmail.com>, 2025.
+# Simon Dalvai <info@simondalvai.org>, 2025.
 msgid ""
 msgstr ""
 "Project-Id-Version: 99 Managers Futsal Edition\n"
 "POT-Creation-Date: \n"
-"PO-Revision-Date: 2025-02-22 12:25+0000\n"
-"Last-Translator: João Ricardo de Mendonça Caruço <joaocaruco77@gmail.com>\n"
-"Language-Team: Portuguese <https://hosted.weblate.org/projects/99-managers-"
-"futsal-edition/game/pt/>\n"
+"PO-Revision-Date: 2025-02-26 10:01+0000\n"
+"Last-Translator: Simon Dalvai <info@simondalvai.org>\n"
+"Language-Team: Portuguese <https://hosted.weblate.org/projects/"
+"99-managers-futsal-edition/game/pt/>\n"
 "Language: pt\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n > 1;\n"
-"X-Generator: Weblate 5.10.1-dev\n"
+"X-Generator: Weblate 5.10.2-dev\n"
 
 #: src/ui_components/team_profile/team_profile.tscn
 #: src/ui_components/info/info.tscn
@@ -355,19 +356,19 @@ msgstr "Estatísticas"
 
 #: src/ui_components/player_list/player_list.gd
 msgid "Physical"
-msgstr ""
+msgstr "Físico"
 
 #: src/ui_components/player_list/player_list.gd
 msgid "Technical"
-msgstr ""
+msgstr "Técnico"
 
 #: src/ui_components/player_list/player_list.gd
 msgid "Mental"
-msgstr ""
+msgstr "Mental"
 
 #: src/ui_components/player_list/player_list.gd
 msgid "Goalkeeper"
-msgstr ""
+msgstr "Guarda Redes"
 
 #: src/ui_components/player_list/player_list.gd
 #: src/ui_components/player_profile/info_view/info_view.tscn
@@ -380,22 +381,16 @@ msgid "Value"
 msgstr "Valor"
 
 #: src/ui_components/player_list/player_list.gd
-#, fuzzy
-#| msgid "Nationality"
 msgid "Morality"
-msgstr "Nacionalidade"
+msgstr "Moral"
 
 #: src/ui_components/player_list/player_list.gd
-#, fuzzy
-#| msgid "Start date"
 msgid "Birth date"
-msgstr "Data inicial"
+msgstr "Data de nascimento"
 
 #: src/ui_components/player_list/player_list.gd
-#, fuzzy
-#| msgid "Nationality"
 msgid "Nation"
-msgstr "Nacionalidade"
+msgstr "Nação"
 
 #: src/ui_components/player_list/player_list.gd
 #: src/ui_components/visual_competitions/visual_table/visual_table.tscn
@@ -474,12 +469,12 @@ msgstr ""
 #: src/ui_components/player_list/player_list.gd
 #: src/ui_components/player_profile/statistics_view/statistics_view.tscn
 msgid "Yellow cards"
-msgstr ""
+msgstr "Cartões Amarelos"
 
 #: src/ui_components/player_list/player_list.gd
 #: src/ui_components/player_profile/statistics_view/statistics_view.tscn
 msgid "Red cards"
-msgstr ""
+msgstr "Cartões Vermelhos"
 
 #: src/ui_components/player_list/player_list.gd
 #: src/ui_components/player_profile/statistics_view/statistics_view.tscn
@@ -495,28 +490,20 @@ msgid "Agression"
 msgstr "Pressão"
 
 #: src/ui_components/player_list/player_list.gd
-#, fuzzy
-#| msgid "Action"
 msgid "Anticipation"
-msgstr "Ação"
+msgstr "Antecipação"
 
 #: src/ui_components/player_list/player_list.gd
-#, fuzzy
-#| msgid "Version"
 msgid "Decisions"
-msgstr "Versão"
+msgstr "Decisões"
 
 #: src/ui_components/player_list/player_list.gd
-#, fuzzy
-#| msgid "Contract"
 msgid "Concentration"
-msgstr "Contrato"
+msgstr "Concentração"
 
 #: src/ui_components/player_list/player_list.gd
-#, fuzzy
-#| msgid "Version"
 msgid "Vision"
-msgstr "Versão"
+msgstr "Visão"
 
 #: src/ui_components/player_list/player_list.gd
 msgid "Workrate"
@@ -555,85 +542,75 @@ msgstr ""
 
 #: src/ui_components/player_list/player_list.gd
 msgid "Pace"
-msgstr ""
+msgstr "Velocidade"
 
 #: src/ui_components/player_list/player_list.gd
-#, fuzzy
-#| msgid "Action"
 msgid "Acceleration"
-msgstr "Ação"
+msgstr "Aceleração"
 
 #: src/ui_components/player_list/player_list.gd
 msgid "Stamina"
-msgstr ""
+msgstr "Resistência"
 
 #: src/ui_components/player_list/player_list.gd
 msgid "Strength"
-msgstr ""
+msgstr "Força"
 
 #: src/ui_components/player_list/player_list.gd
 msgid "Agility"
-msgstr ""
+msgstr "Agilidade"
 
 #: src/ui_components/player_list/player_list.gd
 msgid "Jump"
-msgstr ""
+msgstr "Salto"
 
 #: src/ui_components/player_list/player_list.gd
-#, fuzzy
-#| msgid "Pressing"
 msgid "Crossing"
-msgstr "Pressão"
+msgstr "Cruzamento"
 
 #: src/ui_components/player_list/player_list.gd
-#, fuzzy
-#| msgid "Pressing"
 msgid "Passing"
-msgstr "Pressão"
+msgstr "Passe"
 
 #: src/ui_components/player_list/player_list.gd
 msgid "Long passing"
-msgstr ""
+msgstr "Passes longos"
 
 #: src/ui_components/player_list/player_list.gd
 msgid "Tackling"
-msgstr ""
+msgstr "Desarme"
 
 #: src/ui_components/player_list/player_list.gd
-#, fuzzy
-#| msgid "Loading"
 msgid "Heading"
-msgstr "Carregando"
+msgstr "Cabeceamento"
 
 #: src/ui_components/player_list/player_list.gd
 msgid "Interception"
-msgstr ""
+msgstr "Interceção"
 
 #: src/ui_components/player_list/player_list.gd
-#, fuzzy
-#| msgid "Settings"
 msgid "Shooting"
-msgstr "Configurações"
+msgstr "Remate"
 
 #: src/ui_components/player_list/player_list.gd
 msgid "Long shooting"
-msgstr ""
+msgstr "Remates longos"
 
 #: src/ui_components/player_list/player_list.gd
 msgid "Penalty"
-msgstr ""
+msgstr "Penálti"
 
 #: src/ui_components/player_list/player_list.gd
 msgid "Finishing"
-msgstr ""
+msgstr "Finalização"
 
 #: src/ui_components/player_list/player_list.gd
 msgid "Dribbling"
-msgstr ""
+msgstr "Drible"
 
 #: src/ui_components/player_list/player_list.gd
 msgid "Blocking"
-msgstr ""
+msgstr "Bloqueios"
 
 #: src/ui_components/player_list/player_list.gd
 msgid "All Teams"
@@ -983,43 +960,43 @@ msgstr "Domingo"
 
 #: src/resources/formation/position/position.gd
 msgid "G"
-msgstr ""
+msgstr "GR"
 
 #: src/resources/formation/position/position.gd
 msgid "DL"
-msgstr ""
+msgstr "DE"
 
 #: src/resources/formation/position/position.gd
 msgid "DC"
-msgstr ""
+msgstr "DC"
 
 #: src/resources/formation/position/position.gd
 msgid "DR"
-msgstr ""
+msgstr "DD"
 
 #: src/resources/formation/position/position.gd
 msgid "C"
-msgstr ""
+msgstr "C"
 
 #: src/resources/formation/position/position.gd
 msgid "WL"
-msgstr ""
+msgstr "AE"
 
 #: src/resources/formation/position/position.gd
 msgid "WR"
-msgstr ""
+msgstr "AD"
 
 #: src/resources/formation/position/position.gd
 msgid "PL"
-msgstr ""
+msgstr "PE"
 
 #: src/resources/formation/position/position.gd
 msgid "PC"
-msgstr ""
+msgstr "PC"
 
 #: src/resources/formation/position/position.gd
 msgid "PR"
-msgstr ""
+msgstr "PR"
 
 #: src/utils/logic/email_util.gd
 msgid "Next match: {team_name}"
@@ -1085,27 +1062,27 @@ msgstr ""
 
 #: src/utils/ui/theme_util.gd
 msgid "Dark"
-msgstr ""
+msgstr "Escuro"
 
 #: src/utils/ui/theme_util.gd
 msgid "Light"
-msgstr ""
+msgstr "Claro"
 
 #: src/utils/ui/theme_util.gd
 msgid "Solarized light"
-msgstr ""
+msgstr "Claro ensolarado"
 
 #: src/utils/ui/theme_util.gd
 msgid "Solarized dark"
-msgstr ""
+msgstr "Escuro ensolarado"
 
 #: src/utils/ui/theme_util.gd
 msgid "Red"
-msgstr ""
+msgstr "Vermelho"
 
 #: src/utils/ui/theme_util.gd
 msgid "Hacker"
-msgstr ""
+msgstr "Hacker"
 
 #: src/utils/ui/theme_util.gd
 msgid "Custom theme"
@@ -1138,6 +1115,8 @@ msgid ""
 "You can fix errors or add new languages easily on Weblate, just click on the "
 "link below."
 msgstr ""
+"You can fix errors or add new languages easily on Weblate, just click on the "
+"link below."
 
 #: src/screens/settings/general/general_settings.tscn
 msgid "Language"
@@ -2331,11 +2310,11 @@ msgstr "Dezembro"
 
 #: src/enum.gd
 msgid "Automatic"
-msgstr ""
+msgstr "Automático"
 
 #: src/enum.gd
 msgid "Manual"
-msgstr ""
+msgstr "Manual"
 
 #: src/enum.gd
 msgid "Mouse and Keyboard"
@@ -2343,7 +2322,7 @@ msgstr ""
 
 #: src/enum.gd
 msgid "Joypad"
-msgstr ""
+msgstr "Joypad"
 
 #: src/enum.gd
 msgid "Touchscreen"
