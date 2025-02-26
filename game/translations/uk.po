@@ -282,10 +282,10 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: 99 Managers Futsal Edition\n"
-"PO-Revision-Date: 2025-02-26 10:01+0000\n"
+"PO-Revision-Date: 2025-02-27 16:01+0000\n"
 "Last-Translator: Максим Горпиніч <maksimgorpinic2005a@gmail.com>\n"
-"Language-Team: Ukrainian <https://hosted.weblate.org/projects/99-managers-"
-"futsal-edition/game/uk/>\n"
+"Language-Team: Ukrainian <https://hosted.weblate.org/projects/"
+"99-managers-futsal-edition/game/uk/>\n"
 "Language: uk\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -789,11 +789,11 @@ msgstr "Відпочити"
 
 #: src/ui_components/visual_formation/players_bar/players_bar.tscn
 msgid "Players with low stamina will be changed automatically."
-msgstr ""
+msgstr "Гравці з низькою витривалістю будуть змінені автоматично."
 
 #: src/ui_components/visual_formation/players_bar/players_bar.tscn
 msgid "Auto change"
-msgstr ""
+msgstr "Автоматична зміна"
 
 #: src/ui_components/visual_formation/visual_formation.tscn
 #: src/screens/dashboard/dashboard.tscn
@@ -860,36 +860,28 @@ msgid "Offer contract"
 msgstr "Договір пропозиції"
 
 #: src/ui_components/player_profile/attributes_view/attributes_view.tscn
-#, fuzzy
-#| msgid "Agression"
 msgid "Aggression"
-msgstr "Напад"
+msgstr "Агресія"
 
 #: src/ui_components/player_profile/attributes_view/attributes_view.tscn
 msgid "Offensive movement"
-msgstr ""
+msgstr "Наступальний рух"
 
 #: src/ui_components/player_profile/attributes_view/attributes_view.tscn
-#, fuzzy
-#| msgid "Technical"
 msgid "Techical"
-msgstr "Технічний"
+msgstr "Технічні"
 
 #: src/ui_components/player_profile/player_profile.tscn
 msgid "Attributes"
 msgstr "Атрибути"
 
 #: src/ui_components/player_profile/player_profile.tscn
-#, fuzzy
-#| msgid "Statistics"
 msgid "Statistics\n"
-msgstr "Статистика"
+msgstr "Статистика\n"
 
 #: src/ui_components/player_profile/player_profile.tscn
-#, fuzzy
-#| msgid "Contract"
 msgid "Contract\n"
-msgstr "Контракт"
+msgstr "Договір\n"
 
 #: src/ui_components/player_profile/info_view/info_view.tscn
 msgid "Alternative position"
@@ -945,10 +937,8 @@ msgid "Make offer"
 msgstr "Зробити пропозицію"
 
 #: src/ui_components/player_profile/statistics_view/statistics_view.tscn
-#, fuzzy
-#| msgid "Watchlist"
 msgid "Matches"
-msgstr "Список спостережень"
+msgstr "Сірники"
 
 #: src/ui_components/visual_calendar/visual_day/visual_day.gd
 #: src/ui_components/visual_calendar/match_list/match_info/match_info.tscn
@@ -2472,53 +2462,51 @@ msgstr "Штрафи"
 
 #: src/screens/match_screen/statistics/match_stats.tscn
 msgid "0"
-msgstr ""
+msgstr "0"
 
 #: src/screens/match_screen/statistics/match_stats.tscn
 msgid "50 %"
-msgstr ""
+msgstr "50 %"
 
 #: src/screens/match_screen/statistics/match_stats.tscn
 msgid "0 (0)"
-msgstr ""
+msgstr "0 (0)"
 
 #: src/screens/match_screen/statistics/match_stats.tscn
 msgid "Shots (on target)"
-msgstr ""
+msgstr "Удари (у ворота)"
 
 #: src/screens/match_screen/statistics/match_stats.tscn
 msgid "Shots hit post"
-msgstr ""
+msgstr "Постріли влучили у штангу"
 
 #: src/screens/match_screen/statistics/match_stats.tscn
 msgid "Passes (success)"
-msgstr ""
+msgstr "Паси (успіх)"
 
 #: src/screens/match_screen/statistics/match_stats.tscn
 msgid "Kick-ins"
-msgstr ""
+msgstr "Кик-іни"
 
 #: src/screens/match_screen/statistics/match_stats.tscn
 msgid "Free kicks"
-msgstr ""
+msgstr "Вільні удари"
 
 #: src/screens/match_screen/statistics/match_stats.tscn
-#, fuzzy
-#| msgid "Penalties"
 msgid "Penalties 10m"
-msgstr "Штрафи"
+msgstr "Штрафні 10м"
 
 #: src/screens/match_screen/statistics/match_stats.tscn
 msgid "Fouls"
-msgstr ""
+msgstr "Фоли"
 
 #: src/screens/match_screen/statistics/match_stats.tscn
 msgid "Tackles (success)"
-msgstr ""
+msgstr "Відбирає (успіх)"
 
 #: src/screens/match_screen/statistics/match_stats.tscn
 msgid "Corners"
-msgstr ""
+msgstr "Кути"
 
 #: src/screens/settings/theme_picker/theme_picker.tscn
 msgid "Themes"
