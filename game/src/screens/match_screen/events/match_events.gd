@@ -37,10 +37,18 @@ func event_away(time: int, text: String) -> void:
 	list.add_child(label)
 
 
-func halftime(home_goals: int, away_goals: int) -> void:
+func half_time(home_goals: int, away_goals: int) -> void:
 	var label: Label = Label.new()
 	label.horizontal_alignment = HORIZONTAL_ALIGNMENT_CENTER
 	label.text = "%d : %d" % [home_goals, away_goals]
 	list.add_child(HSeparator.new())
 	list.add_child(label)
 	list.add_child(HSeparator.new())
+
+
+func full_time(home_goals: int, away_goals: int) -> void:
+	var label: Label = Label.new()
+	label.horizontal_alignment = HORIZONTAL_ALIGNMENT_CENTER
+	label.text = "%d : %d" % [home_goals, away_goals]
+	list.add_child(HSeparator.new())
+	list.add_child(label)

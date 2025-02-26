@@ -67,6 +67,7 @@ var seconds: int
 func _ready() -> void:
 	InputUtil.start_focus(self)
 
+	# setup match and check if running tests
 	if Global.world:
 		matchz = Global.world.calendar.get_next_match()
 		home_team = Global.world.get_team_by_id(matchz.home.id, matchz.competition_id)
@@ -80,13 +81,13 @@ func _ready() -> void:
 		# if running match scene, set Global team to home team
 		if not Global.team:
 			Global.team = home_team
+	else:
+		print("error while setting up match screen, no match found.")
 
 	match_simulator.setup(matchz, home_team, away_team)
 
-	home_name.text = home_team.name
-	away_name.text = away_team.name
 
-	# set up formations with player controlled teams copy	
+	# set up formations with player controlled teams copy
 	if home_team.id == Global.team.id:
 		formation.setup(true, home_team)
 		players_bar.setup(home_team)
@@ -106,6 +107,10 @@ func _ready() -> void:
 				formation.set_players()
 	)
 	
+	# name labels
+	home_name.text = home_team.name
+	away_name.text = away_team.name
+
 	# set colors
 	home_color.color = Color(home_team.get_home_color())
 	away_color.color = Color(away_team.get_away_color(home_team.get_home_color()))
@@ -123,12 +128,9 @@ func _ready() -> void:
 	match_simulator.engine.half_time.connect(_on_half_time)
 	match_simulator.engine.full_time.connect(_on_full_time)
 	match_simulator.engine.match_finish.connect(_on_match_finsh)
-	# match_simulator.show_me.connect(_on_match_simulator_show)
-	# match_simulator.hide_me.connect(_on_match_simulator_hide)
+	match_simulator.engine.penalties_start.connect(_on_engine_penalties_start)
 	match_simulator.engine.home_team.penalties_shot.connect(func() -> void: penalties_bar.update())
 	match_simulator.engine.away_team.penalties_shot.connect(func() -> void: penalties_bar.update())
-
-	match_simulator.engine.penalties_start.connect(_on_engine_penalties_start)
 	
 	# show goals of first leg in events
 	if matchz.first_leg != null:
@@ -136,6 +138,7 @@ func _ready() -> void:
 	else:
 		events.start()
 
+	# to test penalties directly
 	if DebugUtil.penalties_test:
 		_on_engine_penalties_start()
 
@@ -145,33 +148,28 @@ func _physics_process(_delta: float) -> void:
 	if stats_entry:
 		stats.update_stats(stats_entry.home_stats, stats_entry.away_stats)
 
-		minutes = int(stats_entry.time) / 60
+		# update time
+		minutes = int(stats_entry.time / 60.0)
 		seconds = int(stats_entry.time) % 60
 		time_label.text = "%02d:%02d" % [minutes, seconds]
 
+		# update bars
 		time_bar.value = stats_entry.time
-
 		possess_bar.value = stats_entry.home_stats.possession
 
+		# update labels
 		home_possession.text = str(stats_entry.home_stats.possession) + " %"
 		away_possession.text = str(stats_entry.away_stats.possession) + " %"
 		result_label.text = "%d - %d" % [stats_entry.home_stats.goals, stats_entry.away_stats.goals]
-		
 		home_fouls.text = "(%d)" % stats_entry.home_stats.fouls
 		away_fouls.text = "(%d)" % stats_entry.away_stats.fouls
 
-
-func _on_match_simulator_show() -> void:
-	_hide_views()
-
-
-func _on_match_simulator_hide() -> void:
-	views.show()
-	last_active_view.show()
-
-
+#
+# match time signals
+#
 func _on_half_time() -> void:
 	_pause_toggle()
+	events.half_time(home_stats.goals, away_stats.goals)
 
 
 func _on_full_time() -> void:
@@ -186,10 +184,14 @@ func _on_match_finsh() -> void:
 	simulate_button.hide()
 	dashboard_button.show()
 
+	events.full_time(home_stats.goals, away_stats.goals)
+
 	#assign result
 	matchz.set_result(home_stats.goals, away_stats.goals)
 
-
+#
+# button pressed signals
+#
 func _on_commentary_button_pressed() -> void:
 	_toggle_view(comments)
 
@@ -204,33 +206,6 @@ func _on_events_button_pressed() -> void:
 
 func _on_formation_button_pressed() -> void:
 	_toggle_view(formation)
-	# match_simulator.pause()
-	# pause_button.text = tr("Continue")
-
-
-func _hide_views() -> void:
-	views.hide()
-	comments.hide()
-	stats.hide()
-	events.hide()
-	formation.hide()
-
-
-func _toggle_view_buttons() -> void:
-	events_button.disabled = not events_button.disabled
-	stats_button.disabled = not stats_button.disabled
-	formation_button.disabled = not formation_button.disabled
-
-
-func _toggle_view(view: Control) -> void:
-	if match_simulator.is_match_visible() and view.visible:
-		view.hide()
-		views.hide()
-	else:
-		_hide_views()
-		view.show()
-		views.show()
-	last_active_view = view
 
 
 func _on_dashboard_button_pressed() -> void:
@@ -258,14 +233,31 @@ func _on_simulate_button_pressed() -> void:
 	simulation_dialog.show()
 
 
-func _on_match_simulator_action_message(message: String) -> void:
-	if comments.get_child_count() > MAX_COMMENTS:
-		comments.remove_child(comments.get_child(0))
-	var new_line: Label = Label.new()
-	new_line.text = time_label.text + " " + message
-	comments.add_child(new_line)
+#
+# views control
+#
+func _hide_views() -> void:
+	views.hide()
+	comments.hide()
+	stats.hide()
+	events.hide()
+	formation.hide()
 
 
+func _toggle_view(view: Control) -> void:
+	if match_simulator.is_match_visible() and view.visible:
+		view.hide()
+		views.hide()
+	else:
+		_hide_views()
+		view.show()
+		views.show()
+	last_active_view = view
+
+
+#
+# formation/player par change functions
+#
 func _on_formation_change_request() -> void:
 	# players_bar.update_players()
 	match_simulator.engine.home_team.change_players_request()
@@ -287,6 +279,9 @@ func _on_engine_penalties_start() -> void:
 	penalties_bar.setup(match_simulator.engine.home_team, match_simulator.engine.away_team)
 
 
+#
+# simulation dialog
+#
 func _on_simulation_confirm_dialog_confirmed() -> void:
 	match_simulator.simulate()
 
@@ -296,6 +291,9 @@ func _on_simulation_dialog_denied() -> void:
 		_pause_toggle()
 
 
+#
+# helper functions
+#
 func _pause_toggle() -> void:
 	var paused: bool = match_simulator.pause_toggle()
 	if paused:
@@ -307,4 +305,13 @@ func _pause_toggle() -> void:
 		if not match_simulator.is_match_visible():
 			views.show()
 			last_active_view.show()
+
+
+func _on_match_simulator_action_message(message: String) -> void:
+	if comments.get_child_count() > MAX_COMMENTS:
+		comments.remove_child(comments.get_child(0))
+	var new_line: Label = Label.new()
+	new_line.text = time_label.text + " " + message
+	comments.add_child(new_line)
+
 

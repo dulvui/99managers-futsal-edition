@@ -5,7 +5,6 @@
 class_name MatchSimulator
 extends Control
 
-signal event(message: String)
 signal action_message(message: String)
 
 const CAMERA_SPEED: int = 4
@@ -25,7 +24,7 @@ var visual_rng: RandomNumberGenerator
 var ball_buffer: MatchBufferBall
 var teams_buffer: MatchBufferTeams
 var stats_buffer: MatchBufferStats
-
+# latest buffer entries
 var stats_entry: MatchBufferEntryStats
 var ball_entry: MatchBufferEntryBall
 var teams_entry: MatchBufferEntryTeams
@@ -51,6 +50,7 @@ func _physics_process(delta: float) -> void:
 			# reduce show action counter
 			if show_action_ticks > 0:
 				show_action_ticks -= 1
+			# if no action currently to show, engine can be updated
 			else:
 				_update_engine()
 
@@ -74,7 +74,6 @@ func setup(matchz: Match, p_home_team: Team = null, p_away_team: Team = null) ->
 	engine.match_finish.connect(_on_engine_match_finish)
 
 	# setup visual match
-	# get colors
 	visual_match.setup(self)
 
 	# visual state machine for debug
@@ -87,8 +86,8 @@ func setup(matchz: Match, p_home_team: Team = null, p_away_team: Team = null) ->
 	var camera_offset: int = 100
 	camera.limit_left = -camera_offset
 	camera.limit_top = -camera_offset
-	camera.limit_right = engine.field.size.x + camera_offset
-	camera.limit_bottom = engine.field.size.y + camera_offset
+	camera.limit_right = int(engine.field.size.x) + camera_offset
+	camera.limit_bottom = int(engine.field.size.y) + camera_offset
 
 	# reset match_paused
 	Global.match_paused = false

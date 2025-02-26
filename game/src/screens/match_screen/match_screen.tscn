@@ -57,6 +57,15 @@ layout_mode = 2
 size_flags_horizontal = 3
 theme_override_constants/separation = 5
 
+[node name="FormationButton" type="Button" parent="Main/Content/TopBar/Buttons/Left"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(180, 0)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+text = "Formation"
+script = ExtResource("4_fwmog")
+
 [node name="StatsButton" type="Button" parent="Main/Content/TopBar/Buttons/Left"]
 unique_name_in_owner = true
 custom_minimum_size = Vector2(180, 0)
@@ -64,15 +73,6 @@ layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 4
 text = "Stats"
-script = ExtResource("4_fwmog")
-
-[node name="CommentaryButton" type="Button" parent="Main/Content/TopBar/Buttons/Left"]
-unique_name_in_owner = true
-custom_minimum_size = Vector2(180, 0)
-layout_mode = 2
-size_flags_horizontal = 4
-size_flags_vertical = 4
-text = "Commentary"
 script = ExtResource("4_fwmog")
 
 [node name="EventsButton" type="Button" parent="Main/Content/TopBar/Buttons/Left"]
@@ -84,13 +84,14 @@ size_flags_vertical = 4
 text = "Events"
 script = ExtResource("4_fwmog")
 
-[node name="FormationButton" type="Button" parent="Main/Content/TopBar/Buttons/Left"]
+[node name="CommentaryButton" type="Button" parent="Main/Content/TopBar/Buttons/Left"]
 unique_name_in_owner = true
 custom_minimum_size = Vector2(180, 0)
 layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 4
-text = "Formation"
+disabled = true
+text = "Commentary"
 script = ExtResource("4_fwmog")
 
 [node name="Center" type="HBoxContainer" parent="Main/Content/TopBar/Buttons"]
@@ -349,10 +350,10 @@ custom_text = "Do you want to simulate the whole match?"
 type = 0
 
 [connection signal="action_message" from="MatchSimulator" to="." method="_on_match_simulator_action_message"]
-[connection signal="pressed" from="Main/Content/TopBar/Buttons/Left/StatsButton" to="." method="_on_stats_button_pressed"]
-[connection signal="pressed" from="Main/Content/TopBar/Buttons/Left/CommentaryButton" to="." method="_on_commentary_button_pressed"]
-[connection signal="pressed" from="Main/Content/TopBar/Buttons/Left/EventsButton" to="." method="_on_events_button_pressed"]
 [connection signal="pressed" from="Main/Content/TopBar/Buttons/Left/FormationButton" to="." method="_on_formation_button_pressed"]
+[connection signal="pressed" from="Main/Content/TopBar/Buttons/Left/StatsButton" to="." method="_on_stats_button_pressed"]
+[connection signal="pressed" from="Main/Content/TopBar/Buttons/Left/EventsButton" to="." method="_on_events_button_pressed"]
+[connection signal="pressed" from="Main/Content/TopBar/Buttons/Left/CommentaryButton" to="." method="_on_commentary_button_pressed"]
 [connection signal="pressed" from="Main/Content/TopBar/Buttons/Center/Speed/SlowerButton" to="." method="_on_slower_button_pressed"]
 [connection signal="pressed" from="Main/Content/TopBar/Buttons/Center/Speed/FasterButton" to="." method="_on_faster_button_pressed"]
 [connection signal="pressed" from="Main/Content/TopBar/Buttons/Center/PauseButton" to="." method="_on_pause_button_pressed"]

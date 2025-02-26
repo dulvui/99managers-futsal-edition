@@ -187,27 +187,22 @@ func simulate_match(matchz: Match, fast: bool = false) -> void:
 			else:
 				away_penalties_goals += 1
 
-		(
-			matchz
-			. set_result(
-				home_goals,
-				away_goals,
-				home_penalties_goals,
-				away_penalties_goals,
-			)
+		matchz.set_result(
+			home_goals,
+			away_goals,
+			home_penalties_goals,
+			away_penalties_goals,
 		)
 		return
+
 	setup(matchz)
 	simulate()
 
-	(
-		matchz
-		. set_result(
-			home_team.stats.goals,
-			away_team.stats.goals,
-			home_team.stats.penalty_shootout_goals,
-			away_team.stats.penalty_shootout_goals,
-		)
+	matchz.set_result(
+		home_team.stats.goals,
+		away_team.stats.goals,
+		home_team.stats.penalty_shootout_goals,
+		away_team.stats.penalty_shootout_goals,
 	)
 
 
