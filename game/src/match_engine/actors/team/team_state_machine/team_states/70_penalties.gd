@@ -62,5 +62,7 @@ func next_shooter(increment: bool = true) -> void:
 		shooting_player_index += 1
 		shooting_player_index %= owner.team.players.size()
 
+	# set ball position
+	owner.field.ball.set_pos(owner.field.penalty_areas.spot_left)
 	shooting_player = owner.team.players[shooting_player_index]
 	owner.team.players[shooting_player_index].set_state(PlayerStatePenaltyShoot.new())

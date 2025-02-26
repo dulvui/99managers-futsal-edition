@@ -14,9 +14,8 @@ func _init() -> void:
 
 
 func enter() -> void:
-	owner.field.ball.set_pos(owner.field.penalty_areas.spot_left)
-	owner.player.head_look = owner.field.penalty_areas.spot_left
-	owner.player.set_destination(owner.field.penalty_areas.spot_left + Vector2(10, 0))
+	owner.player.head_look = owner.field.ball.pos
+	owner.player.set_destination(owner.field.ball.pos)
 
 	wait = 3
 	wait_after_shot = owner.player.rng.randi_range(2, 7)
