@@ -129,6 +129,12 @@ func _ready() -> void:
 	match_simulator.engine.away_team.penalties_shot.connect(func() -> void: penalties_bar.update())
 
 	match_simulator.engine.penalties_start.connect(_on_engine_penalties_start)
+	
+	# show goals of first leg in events
+	if matchz.first_leg != null:
+		events.start(matchz.first_leg.home_goals, matchz.first_leg.away_goals)
+	else:
+		events.start()
 
 	if DebugUtil.penalties_test:
 		_on_engine_penalties_start()
@@ -142,6 +148,7 @@ func _physics_process(_delta: float) -> void:
 		minutes = int(stats_entry.time) / 60
 		seconds = int(stats_entry.time) % 60
 		time_label.text = "%02d:%02d" % [minutes, seconds]
+
 		time_bar.value = stats_entry.time
 
 		possess_bar.value = stats_entry.home_stats.possession

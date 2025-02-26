@@ -5,6 +5,7 @@
 class_name MatchSimulator
 extends Control
 
+signal event(message: String)
 signal action_message(message: String)
 
 const CAMERA_SPEED: int = 4

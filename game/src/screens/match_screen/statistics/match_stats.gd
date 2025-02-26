@@ -5,52 +5,64 @@
 class_name VisualMatchStats
 extends GridContainer
 
-var home_labels: Dictionary
-var away_labels: Dictionary
+
+@onready var goals_home: Label = %GoalsHome
+@onready var goals_away: Label = %GoalsAway
+@onready var possession_home: Label = %PossessionHome
+@onready var possession_away: Label = %PossessionAway
+@onready var shots_home: Label = %ShotsHome
+@onready var shots_away: Label = %ShotsAway
+@onready var shots_hit_post_home: Label = %ShotsHitPostHome
+@onready var shots_hit_post_away: Label = %ShotsHitPostAway
+@onready var passes_home: Label = %PassesHome
+@onready var passes_away: Label = %PassesAway
+@onready var kick_ins_home: Label = %KickInsHome
+@onready var kick_ins_away: Label = %KickInsAway
+@onready var free_kicks_home: Label = %FreeKicksHome
+@onready var free_kicks_away: Label = %FreeKicksAway
+@onready var penalties_home: Label = %PenaltiesHome
+@onready var penalties_away: Label = %PenaltiesAway
+@onready var penalties_10m_home: Label = %Penalties10mHome
+@onready var penalties_10m_away: Label = %Penalties10mAway
+@onready var fouls_home: Label = %FoulsHome
+@onready var fouls_away: Label = %FoulsAway
+@onready var tackles_home: Label = %TacklesHome
+@onready var tackles_away: Label = %TacklesAway
+@onready var corners_home: Label = %CornersHome
+@onready var corners_away: Label = %CornersAway
+@onready var yellow_cards_home: Label = %YellowCardsHome
+@onready var yellow_cards_away: Label = %YellowCardsAway
+@onready var red_cards_home: Label = %RedCardsHome
+@onready var red_cards_away: Label = %RedCardsAway
 
 
-func _ready() -> void:
-	home_labels = {}
-	away_labels = {}
+func update_stats(home: MatchStatistics, away: MatchStatistics) -> void:
+	goals_home.text = str(home.goals)
+	goals_away.text = str(away.goals)
+	possession_home.text = str(home.possession) + " %"
+	possession_away.text = str(away.possession) + " %"
+	shots_home.text = "%d (%d)" % [home.shots, home.shots_on_target]
+	shots_away.text = "%d (%d)" % [away.shots, away.shots_on_target]
+	shots_hit_post_home.text = str(home.shots_hit_post)
+	shots_hit_post_away.text = str(away.shots_hit_post)
+	passes_home.text = "%d (%d)" % [home.passes, home.passes_success]
+	passes_away.text = "%d (%d)" % [away.passes, away.passes_success]
+	kick_ins_home.text = str(home.kick_ins)
+	kick_ins_away.text = str(away.kick_ins)
+	free_kicks_home.text = str(home.free_kicks)
+	free_kicks_away.text = str(away.free_kicks)
+	penalties_home.text = str(home.penalties)
+	penalties_away.text = str(away.penalties)
+	penalties_10m_home.text = str(home.penalties_10m)
+	penalties_10m_away.text = str(away.penalties_10m)
+	fouls_home.text = str(home.fouls)
+	fouls_away.text = str(away.fouls)
+	tackles_home.text = "%d (%d)" % [home.tackles, home.tackles_success]
+	tackles_away.text = "%d (%d)" % [away.tackles, away.tackles_success]
+	corners_home.text = str(home.corners)
+	corners_away.text = str(away.corners)
+	yellow_cards_home.text = str(home.yellow_cards)
+	yellow_cards_away.text = str(away.yellow_cards)
+	red_cards_home.text = str(home.red_cards)
+	red_cards_away.text = str(away.red_cards)
 
-	# create labels
-	var match_stats: MatchStatistics = MatchStatistics.new()
-	for property: Dictionary in match_stats.get_property_list():
-		if property.usage == Const.CUSTOM_PROPERTY:
-			var label: Label = Label.new()
-			ThemeUtil.bold(label)
-			label.custom_minimum_size.x = 400
-			label.horizontal_alignment = HORIZONTAL_ALIGNMENT_CENTER
-			var statistic: String = property.name
-			label.text = statistic.to_upper()
-
-			var home_label: Label = Label.new()
-			home_label.text = str(0)  # NO_TRANSLATE
-			home_labels[statistic] = home_label
-
-			var away_label: Label = Label.new()
-			away_label.text = str(0)  # NO_TRANSLATE
-			away_labels[statistic] = away_label
-
-			add_child(home_label)
-			add_child(label)
-			add_child(away_label)
-
-
-func update_stats(home_stats: MatchStatistics, away_stats: MatchStatistics) -> void:
-	# home
-	for property: Dictionary in home_stats.get_property_list():
-		if property.usage == Const.CUSTOM_PROPERTY:
-			var statistic: String = property.name
-			var value: String = str(home_stats[property.name])
-			if "possess" in statistic:
-				value += " %"
-			home_labels[statistic].text = value
-	# away
-	for property: Dictionary in away_stats.get_property_list():
-		if property.usage == Const.CUSTOM_PROPERTY:
-			var statistic: String = property.name
-			var value: String = str(away_stats[property.name])
-			if "possess" in statistic:
-				value += " %"
-			away_labels[statistic].text = value

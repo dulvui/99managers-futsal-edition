@@ -1,6 +1,7 @@
-[gd_scene load_steps=2 format=3 uid="uid://bc6kfu3avld0"]
+[gd_scene load_steps=3 format=3 uid="uid://bc6kfu3avld0"]
 
 [ext_resource type="Script" path="res://src/screens/match_screen/statistics/match_stats.gd" id="1_14np8"]
+[ext_resource type="LabelSettings" uid="uid://cc2vi4onhgmnw" path="res://theme_base/label/label_settings_bold.tres" id="2_nwjly"]
 
 [node name="Stats" type="GridContainer"]
 anchors_preset = 15
@@ -12,3 +13,255 @@ size_flags_horizontal = 4
 size_flags_vertical = 4
 columns = 3
 script = ExtResource("1_14np8")
+
+[node name="GoalsHome" type="Label" parent="."]
+unique_name_in_owner = true
+layout_mode = 2
+text = "0"
+
+[node name="Goals" type="Label" parent="."]
+custom_minimum_size = Vector2(400, 0)
+layout_mode = 2
+text = "Goals"
+label_settings = ExtResource("2_nwjly")
+horizontal_alignment = 1
+
+[node name="GoalsAway" type="Label" parent="."]
+unique_name_in_owner = true
+layout_mode = 2
+text = "0"
+horizontal_alignment = 2
+
+[node name="PossessionHome" type="Label" parent="."]
+unique_name_in_owner = true
+layout_mode = 2
+text = "50 %"
+
+[node name="Possession" type="Label" parent="."]
+custom_minimum_size = Vector2(400, 0)
+layout_mode = 2
+text = "Possession"
+label_settings = ExtResource("2_nwjly")
+horizontal_alignment = 1
+
+[node name="PossessionAway" type="Label" parent="."]
+unique_name_in_owner = true
+layout_mode = 2
+text = "50 %"
+horizontal_alignment = 2
+
+[node name="ShotsHome" type="Label" parent="."]
+unique_name_in_owner = true
+layout_mode = 2
+text = "0 (0)"
+
+[node name="Shots" type="Label" parent="."]
+custom_minimum_size = Vector2(400, 0)
+layout_mode = 2
+text = "Shots (on target)"
+label_settings = ExtResource("2_nwjly")
+horizontal_alignment = 1
+
+[node name="ShotsAway" type="Label" parent="."]
+unique_name_in_owner = true
+layout_mode = 2
+text = "0 (0)"
+horizontal_alignment = 2
+
+[node name="ShotsHitPostHome" type="Label" parent="."]
+unique_name_in_owner = true
+layout_mode = 2
+text = "0"
+
+[node name="ShotsHitPost" type="Label" parent="."]
+custom_minimum_size = Vector2(400, 0)
+layout_mode = 2
+text = "Shots hit post"
+label_settings = ExtResource("2_nwjly")
+horizontal_alignment = 1
+
+[node name="ShotsHitPostAway" type="Label" parent="."]
+unique_name_in_owner = true
+layout_mode = 2
+text = "0"
+horizontal_alignment = 2
+
+[node name="PassesHome" type="Label" parent="."]
+unique_name_in_owner = true
+layout_mode = 2
+text = "0 (0)"
+
+[node name="Passes" type="Label" parent="."]
+custom_minimum_size = Vector2(400, 0)
+layout_mode = 2
+text = "Passes (success)"
+label_settings = ExtResource("2_nwjly")
+horizontal_alignment = 1
+
+[node name="PassesAway" type="Label" parent="."]
+unique_name_in_owner = true
+layout_mode = 2
+text = "0 (0)"
+horizontal_alignment = 2
+
+[node name="KickInsHome" type="Label" parent="."]
+unique_name_in_owner = true
+layout_mode = 2
+text = "0"
+
+[node name="KickIns" type="Label" parent="."]
+custom_minimum_size = Vector2(400, 0)
+layout_mode = 2
+text = "Kick-ins"
+label_settings = ExtResource("2_nwjly")
+horizontal_alignment = 1
+
+[node name="KickInsAway" type="Label" parent="."]
+unique_name_in_owner = true
+layout_mode = 2
+text = "0"
+horizontal_alignment = 2
+
+[node name="FreeKicksHome" type="Label" parent="."]
+unique_name_in_owner = true
+layout_mode = 2
+text = "0"
+
+[node name="FreeKicks" type="Label" parent="."]
+custom_minimum_size = Vector2(400, 0)
+layout_mode = 2
+text = "Free kicks"
+label_settings = ExtResource("2_nwjly")
+horizontal_alignment = 1
+
+[node name="FreeKicksAway" type="Label" parent="."]
+unique_name_in_owner = true
+layout_mode = 2
+text = "0"
+horizontal_alignment = 2
+
+[node name="PenaltiesHome" type="Label" parent="."]
+unique_name_in_owner = true
+layout_mode = 2
+text = "0"
+
+[node name="Penalties" type="Label" parent="."]
+custom_minimum_size = Vector2(400, 0)
+layout_mode = 2
+text = "Penalties"
+label_settings = ExtResource("2_nwjly")
+horizontal_alignment = 1
+
+[node name="PenaltiesAway" type="Label" parent="."]
+unique_name_in_owner = true
+layout_mode = 2
+text = "0"
+horizontal_alignment = 2
+
+[node name="Penalties10mHome" type="Label" parent="."]
+unique_name_in_owner = true
+layout_mode = 2
+text = "0"
+
+[node name="Penalties10m" type="Label" parent="."]
+custom_minimum_size = Vector2(400, 0)
+layout_mode = 2
+text = "Penalties 10m"
+label_settings = ExtResource("2_nwjly")
+horizontal_alignment = 1
+
+[node name="Penalties10mAway" type="Label" parent="."]
+unique_name_in_owner = true
+layout_mode = 2
+text = "0"
+horizontal_alignment = 2
+
+[node name="FoulsHome" type="Label" parent="."]
+unique_name_in_owner = true
+layout_mode = 2
+text = "0"
+
+[node name="Fouls" type="Label" parent="."]
+custom_minimum_size = Vector2(400, 0)
+layout_mode = 2
+text = "Fouls"
+label_settings = ExtResource("2_nwjly")
+horizontal_alignment = 1
+
+[node name="FoulsAway" type="Label" parent="."]
+unique_name_in_owner = true
+layout_mode = 2
+text = "0"
+horizontal_alignment = 2
+
+[node name="TacklesHome" type="Label" parent="."]
+unique_name_in_owner = true
+layout_mode = 2
+text = "0 (0)"
+
+[node name="Tackles" type="Label" parent="."]
+custom_minimum_size = Vector2(400, 0)
+layout_mode = 2
+text = "Tackles (success)"
+label_settings = ExtResource("2_nwjly")
+horizontal_alignment = 1
+
+[node name="TacklesAway" type="Label" parent="."]
+unique_name_in_owner = true
+layout_mode = 2
+text = "0 (0)"
+horizontal_alignment = 2
+
+[node name="CornersHome" type="Label" parent="."]
+unique_name_in_owner = true
+layout_mode = 2
+text = "0"
+
+[node name="Corners" type="Label" parent="."]
+custom_minimum_size = Vector2(400, 0)
+layout_mode = 2
+text = "Corners"
+label_settings = ExtResource("2_nwjly")
+horizontal_alignment = 1
+
+[node name="CornersAway" type="Label" parent="."]
+unique_name_in_owner = true
+layout_mode = 2
+text = "0"
+horizontal_alignment = 2
+
+[node name="YellowCardsHome" type="Label" parent="."]
+unique_name_in_owner = true
+layout_mode = 2
+text = "0"
+
+[node name="YellowCards" type="Label" parent="."]
+custom_minimum_size = Vector2(400, 0)
+layout_mode = 2
+text = "Yellow cards"
+label_settings = ExtResource("2_nwjly")
+horizontal_alignment = 1
+
+[node name="YellowCardsAway" type="Label" parent="."]
+unique_name_in_owner = true
+layout_mode = 2
+text = "0"
+horizontal_alignment = 2
+
+[node name="RedCardsHome" type="Label" parent="."]
+unique_name_in_owner = true
+layout_mode = 2
+text = "0"
+
+[node name="RedCards" type="Label" parent="."]
+custom_minimum_size = Vector2(400, 0)
+layout_mode = 2
+text = "Red cards"
+label_settings = ExtResource("2_nwjly")
+horizontal_alignment = 1
+
+[node name="RedCardsAway" type="Label" parent="."]
+unique_name_in_owner = true
+layout_mode = 2
+text = "0"
+horizontal_alignment = 2
