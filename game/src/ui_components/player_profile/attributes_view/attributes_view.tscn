@@ -16,122 +16,6 @@ theme_override_constants/separation = 40
 script = ExtResource("1_5b24s")
 metadata/_tab_index = 2
 
-[node name="Goalkeeper" type="GridContainer" parent="."]
-layout_mode = 2
-size_flags_vertical = 0
-theme_override_constants/h_separation = 25
-columns = 2
-
-[node name="Title" type="Label" parent="Goalkeeper"]
-layout_mode = 2
-text = "Goalkeeper"
-label_settings = ExtResource("2_lgwcu")
-
-[node name="TitlePlaceholdes" type="Label" parent="Goalkeeper"]
-layout_mode = 2
-
-[node name="ReflexesLabel" type="Label" parent="Goalkeeper"]
-layout_mode = 2
-text = "Reflexes"
-
-[node name="Reflexes" parent="Goalkeeper" instance=ExtResource("3_7lr25")]
-unique_name_in_owner = true
-layout_mode = 2
-
-[node name="PositioningLabel" type="Label" parent="Goalkeeper"]
-layout_mode = 2
-text = "Positioning"
-
-[node name="Positioning" parent="Goalkeeper" instance=ExtResource("3_7lr25")]
-unique_name_in_owner = true
-layout_mode = 2
-
-[node name="SaveFeetLabel" type="Label" parent="Goalkeeper"]
-layout_mode = 2
-text = "Save feet"
-
-[node name="SaveFeet" parent="Goalkeeper" instance=ExtResource("3_7lr25")]
-unique_name_in_owner = true
-layout_mode = 2
-
-[node name="SaveHandsLabel" type="Label" parent="Goalkeeper"]
-layout_mode = 2
-text = "Save hands"
-
-[node name="SaveHands" parent="Goalkeeper" instance=ExtResource("3_7lr25")]
-unique_name_in_owner = true
-layout_mode = 2
-
-[node name="DivingLabel" type="Label" parent="Goalkeeper"]
-layout_mode = 2
-text = "Diving"
-
-[node name="Diving" parent="Goalkeeper" instance=ExtResource("3_7lr25")]
-unique_name_in_owner = true
-layout_mode = 2
-
-[node name="Physical" type="GridContainer" parent="."]
-layout_mode = 2
-size_flags_vertical = 0
-theme_override_constants/h_separation = 25
-columns = 2
-
-[node name="Title" type="Label" parent="Physical"]
-layout_mode = 2
-text = "Physical"
-label_settings = ExtResource("2_lgwcu")
-
-[node name="TitlePlaceholdes" parent="Physical" instance=ExtResource("3_7lr25")]
-layout_mode = 2
-
-[node name="PaceLabel" type="Label" parent="Physical"]
-layout_mode = 2
-text = "Pace"
-
-[node name="Pace" parent="Physical" instance=ExtResource("3_7lr25")]
-unique_name_in_owner = true
-layout_mode = 2
-
-[node name="AccelerationLabel" type="Label" parent="Physical"]
-layout_mode = 2
-text = "Acceleration"
-
-[node name="Acceleration" parent="Physical" instance=ExtResource("3_7lr25")]
-unique_name_in_owner = true
-layout_mode = 2
-
-[node name="StaminaLabel" type="Label" parent="Physical"]
-layout_mode = 2
-text = "Stamina"
-
-[node name="Stamina" parent="Physical" instance=ExtResource("3_7lr25")]
-unique_name_in_owner = true
-layout_mode = 2
-
-[node name="StrengthLabel" type="Label" parent="Physical"]
-layout_mode = 2
-text = "Strength"
-
-[node name="Strength" parent="Physical" instance=ExtResource("3_7lr25")]
-unique_name_in_owner = true
-layout_mode = 2
-
-[node name="AgilityLabel" type="Label" parent="Physical"]
-layout_mode = 2
-text = "Agility"
-
-[node name="Agility" parent="Physical" instance=ExtResource("3_7lr25")]
-unique_name_in_owner = true
-layout_mode = 2
-
-[node name="JumpLabel" type="Label" parent="Physical"]
-layout_mode = 2
-text = "Jump"
-
-[node name="Jump" parent="Physical" instance=ExtResource("3_7lr25")]
-unique_name_in_owner = true
-layout_mode = 2
-
 [node name="Mental" type="GridContainer" parent="."]
 layout_mode = 2
 size_flags_vertical = 0
@@ -207,6 +91,125 @@ layout_mode = 2
 text = "Marking"
 
 [node name="Marking" parent="Mental" instance=ExtResource("3_7lr25")]
+unique_name_in_owner = true
+layout_mode = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+layout_mode = 2
+
+[node name="Goalkeeper" type="GridContainer" parent="VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 0
+theme_override_constants/h_separation = 25
+columns = 2
+
+[node name="Title" type="Label" parent="VBoxContainer/Goalkeeper"]
+layout_mode = 2
+text = "Goalkeeper"
+label_settings = ExtResource("2_lgwcu")
+
+[node name="TitlePlaceholdes" type="Label" parent="VBoxContainer/Goalkeeper"]
+layout_mode = 2
+
+[node name="ReflexesLabel" type="Label" parent="VBoxContainer/Goalkeeper"]
+layout_mode = 2
+text = "Reflexes"
+
+[node name="Reflexes" parent="VBoxContainer/Goalkeeper" instance=ExtResource("3_7lr25")]
+unique_name_in_owner = true
+layout_mode = 2
+
+[node name="PositioningLabel" type="Label" parent="VBoxContainer/Goalkeeper"]
+layout_mode = 2
+text = "Positioning"
+
+[node name="Positioning" parent="VBoxContainer/Goalkeeper" instance=ExtResource("3_7lr25")]
+unique_name_in_owner = true
+layout_mode = 2
+
+[node name="SaveFeetLabel" type="Label" parent="VBoxContainer/Goalkeeper"]
+layout_mode = 2
+text = "Save feet"
+
+[node name="SaveFeet" parent="VBoxContainer/Goalkeeper" instance=ExtResource("3_7lr25")]
+unique_name_in_owner = true
+layout_mode = 2
+
+[node name="SaveHandsLabel" type="Label" parent="VBoxContainer/Goalkeeper"]
+layout_mode = 2
+text = "Save hands"
+
+[node name="SaveHands" parent="VBoxContainer/Goalkeeper" instance=ExtResource("3_7lr25")]
+unique_name_in_owner = true
+layout_mode = 2
+
+[node name="DivingLabel" type="Label" parent="VBoxContainer/Goalkeeper"]
+layout_mode = 2
+text = "Diving"
+
+[node name="Diving" parent="VBoxContainer/Goalkeeper" instance=ExtResource("3_7lr25")]
+unique_name_in_owner = true
+layout_mode = 2
+
+[node name="Physical" type="GridContainer" parent="VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 0
+theme_override_constants/h_separation = 25
+columns = 2
+
+[node name="Title" type="Label" parent="VBoxContainer/Physical"]
+layout_mode = 2
+text = "Physical"
+label_settings = ExtResource("2_lgwcu")
+
+[node name="TitlePlaceholdes" parent="VBoxContainer/Physical" instance=ExtResource("3_7lr25")]
+layout_mode = 2
+
+[node name="PaceLabel" type="Label" parent="VBoxContainer/Physical"]
+layout_mode = 2
+text = "Pace"
+
+[node name="Pace" parent="VBoxContainer/Physical" instance=ExtResource("3_7lr25")]
+unique_name_in_owner = true
+layout_mode = 2
+
+[node name="AccelerationLabel" type="Label" parent="VBoxContainer/Physical"]
+layout_mode = 2
+text = "Acceleration"
+
+[node name="Acceleration" parent="VBoxContainer/Physical" instance=ExtResource("3_7lr25")]
+unique_name_in_owner = true
+layout_mode = 2
+
+[node name="StaminaLabel" type="Label" parent="VBoxContainer/Physical"]
+layout_mode = 2
+text = "Stamina"
+
+[node name="Stamina" parent="VBoxContainer/Physical" instance=ExtResource("3_7lr25")]
+unique_name_in_owner = true
+layout_mode = 2
+
+[node name="StrengthLabel" type="Label" parent="VBoxContainer/Physical"]
+layout_mode = 2
+text = "Strength"
+
+[node name="Strength" parent="VBoxContainer/Physical" instance=ExtResource("3_7lr25")]
+unique_name_in_owner = true
+layout_mode = 2
+
+[node name="AgilityLabel" type="Label" parent="VBoxContainer/Physical"]
+layout_mode = 2
+text = "Agility"
+
+[node name="Agility" parent="VBoxContainer/Physical" instance=ExtResource("3_7lr25")]
+unique_name_in_owner = true
+layout_mode = 2
+
+[node name="JumpLabel" type="Label" parent="VBoxContainer/Physical"]
+layout_mode = 2
+text = "Jump"
+
+[node name="Jump" parent="VBoxContainer/Physical" instance=ExtResource("3_7lr25")]
 unique_name_in_owner = true
 layout_mode = 2
 

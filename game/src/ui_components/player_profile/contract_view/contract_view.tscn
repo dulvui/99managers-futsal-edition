@@ -76,76 +76,80 @@ layout_mode = 2
 text = "Bonus"
 label_settings = ExtResource("2_j4fgt")
 
-[node name="Goal" type="HBoxContainer" parent="Bonus"]
+[node name="GridContainer" type="GridContainer" parent="Bonus"]
+layout_mode = 2
+columns = 2
+
+[node name="Goal" type="HBoxContainer" parent="Bonus/GridContainer"]
 layout_mode = 2
 
-[node name="Label" type="Label" parent="Bonus/Goal"]
+[node name="Label" type="Label" parent="Bonus/GridContainer/Goal"]
 custom_minimum_size = Vector2(200, 0)
 layout_mode = 2
 text = "Goal"
 
-[node name="Goal" type="Label" parent="Bonus/Goal"]
+[node name="Goal" type="Label" parent="Bonus/GridContainer/Goal"]
 unique_name_in_owner = true
 layout_mode = 2
 
-[node name="Assist" type="HBoxContainer" parent="Bonus"]
+[node name="Assist" type="HBoxContainer" parent="Bonus/GridContainer"]
 layout_mode = 2
 
-[node name="Label" type="Label" parent="Bonus/Assist"]
+[node name="Label" type="Label" parent="Bonus/GridContainer/Assist"]
 custom_minimum_size = Vector2(200, 0)
 layout_mode = 2
 text = "Assist
 "
 
-[node name="Assist" type="Label" parent="Bonus/Assist"]
+[node name="Assist" type="Label" parent="Bonus/GridContainer/Assist"]
 unique_name_in_owner = true
 layout_mode = 2
 
-[node name="CleanSheet" type="HBoxContainer" parent="Bonus"]
+[node name="CleanSheet" type="HBoxContainer" parent="Bonus/GridContainer"]
 layout_mode = 2
 
-[node name="Label" type="Label" parent="Bonus/CleanSheet"]
+[node name="Label" type="Label" parent="Bonus/GridContainer/CleanSheet"]
 custom_minimum_size = Vector2(200, 0)
 layout_mode = 2
 text = "Clean sheet"
 
-[node name="CleanSheet" type="Label" parent="Bonus/CleanSheet"]
+[node name="CleanSheet" type="Label" parent="Bonus/GridContainer/CleanSheet"]
 unique_name_in_owner = true
 layout_mode = 2
 
-[node name="League" type="HBoxContainer" parent="Bonus"]
+[node name="League" type="HBoxContainer" parent="Bonus/GridContainer"]
 layout_mode = 2
 
-[node name="Label" type="Label" parent="Bonus/League"]
+[node name="Label" type="Label" parent="Bonus/GridContainer/League"]
 custom_minimum_size = Vector2(200, 0)
 layout_mode = 2
 text = "League"
 
-[node name="League" type="Label" parent="Bonus/League"]
+[node name="League" type="Label" parent="Bonus/GridContainer/League"]
 unique_name_in_owner = true
 layout_mode = 2
 
-[node name="NationalCub" type="HBoxContainer" parent="Bonus"]
+[node name="NationalCub" type="HBoxContainer" parent="Bonus/GridContainer"]
 layout_mode = 2
 
-[node name="Label" type="Label" parent="Bonus/NationalCub"]
+[node name="Label" type="Label" parent="Bonus/GridContainer/NationalCub"]
 custom_minimum_size = Vector2(200, 0)
 layout_mode = 2
 text = "National cup"
 
-[node name="NationalCup" type="Label" parent="Bonus/NationalCub"]
+[node name="NationalCup" type="Label" parent="Bonus/GridContainer/NationalCub"]
 unique_name_in_owner = true
 layout_mode = 2
 
-[node name="ContinentalCub" type="HBoxContainer" parent="Bonus"]
+[node name="ContinentalCub" type="HBoxContainer" parent="Bonus/GridContainer"]
 layout_mode = 2
 
-[node name="Label" type="Label" parent="Bonus/ContinentalCub"]
+[node name="Label" type="Label" parent="Bonus/GridContainer/ContinentalCub"]
 custom_minimum_size = Vector2(200, 0)
 layout_mode = 2
 text = "Continental cup"
 
-[node name="ContinentalCup" type="Label" parent="Bonus/ContinentalCub"]
+[node name="ContinentalCup" type="Label" parent="Bonus/GridContainer/ContinentalCub"]
 unique_name_in_owner = true
 layout_mode = 2
 

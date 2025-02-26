@@ -18,6 +18,7 @@ func setup(player: Player) -> void:
 	# clear labels first
 	for label: Label in value_labels:
 		label.queue_free()
+	value_labels.clear()
 
 	_add_statistics(player.statistics, player.team)
 	for history: History in player.history:

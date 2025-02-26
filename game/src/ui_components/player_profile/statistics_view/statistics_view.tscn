@@ -1,7 +1,6 @@
-[gd_scene load_steps=3 format=3 uid="uid://b4oxudl2hadi7"]
+[gd_scene load_steps=2 format=3 uid="uid://b4oxudl2hadi7"]
 
 [ext_resource type="Script" path="res://src/ui_components/player_profile/statistics_view/statistics_view.gd" id="1_h1753"]
-[ext_resource type="LabelSettings" uid="uid://cc2vi4onhgmnw" path="res://theme_base/label/label_settings_bold.tres" id="2_2buwv"]
 
 [node name="Statistics" type="VBoxContainer"]
 anchors_preset = 15
@@ -20,34 +19,27 @@ columns = 7
 [node name="TeamLabel" type="Label" parent="GridContainer"]
 layout_mode = 2
 text = "Team"
-label_settings = ExtResource("2_2buwv")
 
 [node name="GamesPlayedLabel" type="Label" parent="GridContainer"]
 layout_mode = 2
-text = "Games played"
-label_settings = ExtResource("2_2buwv")
+text = "Matches"
 
 [node name="GoalsLabel" type="Label" parent="GridContainer"]
 layout_mode = 2
 text = "Goals"
-label_settings = ExtResource("2_2buwv")
 
 [node name="AssistsLabel" type="Label" parent="GridContainer"]
 layout_mode = 2
 text = "Assists"
-label_settings = ExtResource("2_2buwv")
 
 [node name="YellowCardsLabel" type="Label" parent="GridContainer"]
 layout_mode = 2
 text = "Yellow cards"
-label_settings = ExtResource("2_2buwv")
 
 [node name="RedCardsLabel" type="Label" parent="GridContainer"]
 layout_mode = 2
 text = "Red cards"
-label_settings = ExtResource("2_2buwv")
 
 [node name="AverageVoteLabel" type="Label" parent="GridContainer"]
 layout_mode = 2
 text = "Average vote"
-label_settings = ExtResource("2_2buwv")

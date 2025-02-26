@@ -1,8 +1,9 @@
-[gd_scene load_steps=7 format=3 uid="uid://dtvkd1ks3xiqc"]
+[gd_scene load_steps=8 format=3 uid="uid://dtvkd1ks3xiqc"]
 
 [ext_resource type="Theme" uid="uid://pt1hrfiuwfpg" path="res://theme_base/theme.tres" id="1"]
 [ext_resource type="Script" path="res://src/ui_components/player_profile/player_profile.gd" id="2"]
 [ext_resource type="PackedScene" uid="uid://o6iglxooy6g3" path="res://src/ui_components/player_profile/info_view/info_view.tscn" id="3_rkqc7"]
+[ext_resource type="LabelSettings" uid="uid://b4gu78rjvdfx4" path="res://theme_base/label/label_settings_title.tres" id="3_uqqup"]
 [ext_resource type="PackedScene" uid="uid://c1ybc8k2e473c" path="res://src/ui_components/player_profile/attributes_view/attributes_view.tscn" id="3_whctl"]
 [ext_resource type="PackedScene" uid="uid://b4oxudl2hadi7" path="res://src/ui_components/player_profile/statistics_view/statistics_view.tscn" id="4_hpiic"]
 [ext_resource type="PackedScene" uid="uid://dmd8ysnepfvi0" path="res://src/ui_components/player_profile/contract_view/contract_view.tscn" id="7_4elh2"]
@@ -17,32 +18,85 @@ grow_vertical = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
 theme = ExtResource("1")
+theme_override_constants/margin_left = 0
+theme_override_constants/margin_top = 0
+theme_override_constants/margin_right = 0
+theme_override_constants/margin_bottom = 0
 script = ExtResource("2")
 metadata/_edit_use_anchors_ = true
 
 [node name="GridContainer" type="GridContainer" parent="."]
 layout_mode = 2
-theme_override_constants/h_separation = 40
-theme_override_constants/v_separation = 40
 columns = 2
 
-[node name="Info" parent="GridContainer" instance=ExtResource("3_rkqc7")]
+[node name="InfoContainer" type="VBoxContainer" parent="GridContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme_override_constants/separation = 15
+
+[node name="Label" type="Label" parent="GridContainer/InfoContainer"]
+layout_mode = 2
+text = "General"
+label_settings = ExtResource("3_uqqup")
+
+[node name="Info" parent="GridContainer/InfoContainer" instance=ExtResource("3_rkqc7")]
 unique_name_in_owner = true
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
 
-[node name="Attributes" parent="GridContainer" instance=ExtResource("3_whctl")]
+[node name="AttributesContainer" type="VBoxContainer" parent="GridContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme_override_constants/separation = 15
+
+[node name="Label" type="Label" parent="GridContainer/AttributesContainer"]
+layout_mode = 2
+text = "Attributes"
+label_settings = ExtResource("3_uqqup")
+
+[node name="Attributes" parent="GridContainer/AttributesContainer" instance=ExtResource("3_whctl")]
 unique_name_in_owner = true
 layout_mode = 2
 
-[node name="Statistics" parent="GridContainer" instance=ExtResource("4_hpiic")]
+[node name="StatisticsContainer" type="VBoxContainer" parent="GridContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme_override_constants/separation = 15
+
+[node name="Label" type="Label" parent="GridContainer/StatisticsContainer"]
+layout_mode = 2
+text = "Statistics
+"
+label_settings = ExtResource("3_uqqup")
+
+[node name="ScrollContainer" type="ScrollContainer" parent="GridContainer/StatisticsContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+horizontal_scroll_mode = 0
+
+[node name="Statistics" parent="GridContainer/StatisticsContainer/ScrollContainer" instance=ExtResource("4_hpiic")]
 unique_name_in_owner = true
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
 
-[node name="Contract" parent="GridContainer" instance=ExtResource("7_4elh2")]
+[node name="ContractContainer" type="VBoxContainer" parent="GridContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme_override_constants/separation = 15
+
+[node name="Label" type="Label" parent="GridContainer/ContractContainer"]
+layout_mode = 2
+text = "Contract
+"
+label_settings = ExtResource("3_uqqup")
+
+[node name="Contract" parent="GridContainer/ContractContainer" instance=ExtResource("7_4elh2")]
 unique_name_in_owner = true
 layout_mode = 2
 size_flags_horizontal = 3
