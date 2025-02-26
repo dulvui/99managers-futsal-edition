@@ -211,6 +211,7 @@
 #
 # FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
 #
+#, fuzzy
 msgid ""
 msgstr ""
 "Project-Id-Version: 99 Managers Futsal Edition\n"
@@ -220,7 +221,6 @@ msgstr ""
 
 #: src/ui_components/team_profile/team_profile.tscn
 #: src/ui_components/info/info.tscn
-#: src/ui_components/player_profile/player_profile.tscn
 #: src/screens/dashboard/dashboard.tscn
 msgid "Info"
 msgstr ""
@@ -262,6 +262,7 @@ msgid "Year"
 msgstr ""
 
 #: src/ui_components/player_list/player_list.gd
+#: src/ui_components/player_profile/player_profile.tscn
 #: src/ui_components/player_profile/contract_view/contract_view.tscn
 #: src/screens/settings/settings.tscn
 msgid "General"
@@ -269,7 +270,6 @@ msgstr ""
 
 #: src/ui_components/player_list/player_list.gd
 #: src/ui_components/transfers/contract_offer/contract_offer.tscn
-#: src/ui_components/player_profile/player_profile.tscn
 msgid "Contract"
 msgstr ""
 
@@ -279,6 +279,7 @@ msgid "Stats"
 msgstr ""
 
 #: src/ui_components/player_list/player_list.gd
+#: src/ui_components/player_profile/attributes_view/attributes_view.tscn
 msgid "Physical"
 msgstr ""
 
@@ -287,10 +288,12 @@ msgid "Technical"
 msgstr ""
 
 #: src/ui_components/player_list/player_list.gd
+#: src/ui_components/player_profile/attributes_view/attributes_view.tscn
 msgid "Mental"
 msgstr ""
 
 #: src/ui_components/player_list/player_list.gd
+#: src/ui_components/player_profile/attributes_view/attributes_view.tscn
 msgid "Goalkeeper"
 msgstr ""
 
@@ -371,13 +374,13 @@ msgid "Bonus continental cup"
 msgstr ""
 
 #: src/ui_components/player_list/player_list.gd
-#: src/ui_components/player_profile/statistics_view/statistics_view.tscn
 msgid "Games played"
 msgstr ""
 
 #: src/ui_components/player_list/player_list.gd
 #: src/ui_components/visual_competitions/visual_table/visual_table.tscn
 #: src/ui_components/player_profile/statistics_view/statistics_view.tscn
+#: src/screens/match_screen/statistics/match_stats.tscn
 msgid "Goals"
 msgstr ""
 
@@ -388,11 +391,13 @@ msgstr ""
 
 #: src/ui_components/player_list/player_list.gd
 #: src/ui_components/player_profile/statistics_view/statistics_view.tscn
+#: src/screens/match_screen/statistics/match_stats.tscn
 msgid "Yellow cards"
 msgstr ""
 
 #: src/ui_components/player_list/player_list.gd
 #: src/ui_components/player_profile/statistics_view/statistics_view.tscn
+#: src/screens/match_screen/statistics/match_stats.tscn
 msgid "Red cards"
 msgstr ""
 
@@ -406,119 +411,148 @@ msgid "Agression"
 msgstr ""
 
 #: src/ui_components/player_list/player_list.gd
+#: src/ui_components/player_profile/attributes_view/attributes_view.tscn
 msgid "Anticipation"
 msgstr ""
 
 #: src/ui_components/player_list/player_list.gd
+#: src/ui_components/player_profile/attributes_view/attributes_view.tscn
 msgid "Decisions"
 msgstr ""
 
 #: src/ui_components/player_list/player_list.gd
+#: src/ui_components/player_profile/attributes_view/attributes_view.tscn
 msgid "Concentration"
 msgstr ""
 
 #: src/ui_components/player_list/player_list.gd
+#: src/ui_components/player_profile/attributes_view/attributes_view.tscn
 msgid "Vision"
 msgstr ""
 
 #: src/ui_components/player_list/player_list.gd
+#: src/ui_components/player_profile/attributes_view/attributes_view.tscn
 msgid "Workrate"
 msgstr ""
 
 #: src/ui_components/player_list/player_list.gd
 #: src/ui_components/visual_formation/visual_formation.tscn
+#: src/ui_components/player_profile/attributes_view/attributes_view.tscn
 msgid "Marking"
 msgstr ""
 
 #: src/ui_components/player_list/player_list.gd
+#: src/ui_components/player_profile/attributes_view/attributes_view.tscn
 msgid "Reflexes"
 msgstr ""
 
 #: src/ui_components/player_list/player_list.gd
+#: src/ui_components/player_profile/attributes_view/attributes_view.tscn
 msgid "Positioning"
 msgstr ""
 
 #: src/ui_components/player_list/player_list.gd
+#: src/ui_components/player_profile/attributes_view/attributes_view.tscn
 msgid "Save feet"
 msgstr ""
 
 #: src/ui_components/player_list/player_list.gd
+#: src/ui_components/player_profile/attributes_view/attributes_view.tscn
 msgid "Save hands"
 msgstr ""
 
 #: src/ui_components/player_list/player_list.gd
+#: src/ui_components/player_profile/attributes_view/attributes_view.tscn
 msgid "Diving"
 msgstr ""
 
 #: src/ui_components/player_list/player_list.gd
+#: src/ui_components/player_profile/attributes_view/attributes_view.tscn
 msgid "Pace"
 msgstr ""
 
 #: src/ui_components/player_list/player_list.gd
+#: src/ui_components/player_profile/attributes_view/attributes_view.tscn
 msgid "Acceleration"
 msgstr ""
 
 #: src/ui_components/player_list/player_list.gd
+#: src/ui_components/player_profile/attributes_view/attributes_view.tscn
 msgid "Stamina"
 msgstr ""
 
 #: src/ui_components/player_list/player_list.gd
+#: src/ui_components/player_profile/attributes_view/attributes_view.tscn
 msgid "Strength"
 msgstr ""
 
 #: src/ui_components/player_list/player_list.gd
+#: src/ui_components/player_profile/attributes_view/attributes_view.tscn
 msgid "Agility"
 msgstr ""
 
 #: src/ui_components/player_list/player_list.gd
+#: src/ui_components/player_profile/attributes_view/attributes_view.tscn
 msgid "Jump"
 msgstr ""
 
 #: src/ui_components/player_list/player_list.gd
+#: src/ui_components/player_profile/attributes_view/attributes_view.tscn
 msgid "Crossing"
 msgstr ""
 
 #: src/ui_components/player_list/player_list.gd
+#: src/ui_components/player_profile/attributes_view/attributes_view.tscn
 msgid "Passing"
 msgstr ""
 
 #: src/ui_components/player_list/player_list.gd
+#: src/ui_components/player_profile/attributes_view/attributes_view.tscn
 msgid "Long passing"
 msgstr ""
 
 #: src/ui_components/player_list/player_list.gd
+#: src/ui_components/player_profile/attributes_view/attributes_view.tscn
 msgid "Tackling"
 msgstr ""
 
 #: src/ui_components/player_list/player_list.gd
+#: src/ui_components/player_profile/attributes_view/attributes_view.tscn
 msgid "Heading"
 msgstr ""
 
 #: src/ui_components/player_list/player_list.gd
+#: src/ui_components/player_profile/attributes_view/attributes_view.tscn
 msgid "Interception"
 msgstr ""
 
 #: src/ui_components/player_list/player_list.gd
+#: src/ui_components/player_profile/attributes_view/attributes_view.tscn
 msgid "Shooting"
 msgstr ""
 
 #: src/ui_components/player_list/player_list.gd
+#: src/ui_components/player_profile/attributes_view/attributes_view.tscn
 msgid "Long shooting"
 msgstr ""
 
 #: src/ui_components/player_list/player_list.gd
+#: src/ui_components/player_profile/attributes_view/attributes_view.tscn
 msgid "Penalty"
 msgstr ""
 
 #: src/ui_components/player_list/player_list.gd
+#: src/ui_components/player_profile/attributes_view/attributes_view.tscn
 msgid "Finishing"
 msgstr ""
 
 #: src/ui_components/player_list/player_list.gd
+#: src/ui_components/player_profile/attributes_view/attributes_view.tscn
 msgid "Dribbling"
 msgstr ""
 
 #: src/ui_components/player_list/player_list.gd
+#: src/ui_components/player_profile/attributes_view/attributes_view.tscn
 msgid "Blocking"
 msgstr ""
 
@@ -679,6 +713,14 @@ msgstr ""
 msgid "Rest"
 msgstr ""
 
+#: src/ui_components/visual_formation/players_bar/players_bar.tscn
+msgid "Players with low stamina will be changed automatically."
+msgstr ""
+
+#: src/ui_components/visual_formation/players_bar/players_bar.tscn
+msgid "Auto change"
+msgstr ""
+
 #: src/ui_components/visual_formation/visual_formation.tscn
 #: src/screens/dashboard/dashboard.tscn
 #: src/screens/match_screen/match_screen.tscn
@@ -743,12 +785,28 @@ msgstr ""
 msgid "Offer contract"
 msgstr ""
 
-#: src/ui_components/player_profile/player_profile.tscn
-msgid "Statistics"
+#: src/ui_components/player_profile/attributes_view/attributes_view.tscn
+msgid "Aggression"
+msgstr ""
+
+#: src/ui_components/player_profile/attributes_view/attributes_view.tscn
+msgid "Offensive movement"
+msgstr ""
+
+#: src/ui_components/player_profile/attributes_view/attributes_view.tscn
+msgid "Techical"
 msgstr ""
 
 #: src/ui_components/player_profile/player_profile.tscn
 msgid "Attributes"
+msgstr ""
+
+#: src/ui_components/player_profile/player_profile.tscn
+msgid "Statistics\n"
+msgstr ""
+
+#: src/ui_components/player_profile/player_profile.tscn
+msgid "Contract\n"
 msgstr ""
 
 #: src/ui_components/player_profile/info_view/info_view.tscn
@@ -804,10 +862,8 @@ msgstr ""
 msgid "Make offer"
 msgstr ""
 
-#: src/ui_components/visual_calendar/visual_day/visual_day.tscn
-#: src/ui_components/visual_calendar/visual_day/visual_day.gd
-#: src/screens/dashboard/dashboard.tscn
-msgid "Transfermarket"
+#: src/ui_components/player_profile/statistics_view/statistics_view.tscn
+msgid "Matches"
 msgstr ""
 
 #: src/ui_components/visual_calendar/visual_day/visual_day.gd
@@ -820,6 +876,11 @@ msgstr ""
 #: src/ui_components/visual_calendar/match_list/match_info/match_info.tscn
 #: src/screens/match_screen/match_screen.tscn
 msgid "Away"
+msgstr ""
+
+#: src/ui_components/visual_calendar/visual_day/visual_day.gd
+#: src/screens/dashboard/dashboard.tscn
+msgid "Transfermarket"
 msgstr ""
 
 #: src/ui_components/visual_calendar/match_list/match_info/match_info.tscn
@@ -2290,6 +2351,7 @@ msgid "Dashboard"
 msgstr ""
 
 #: src/screens/match_screen/match_screen.tscn
+#: src/screens/match_screen/statistics/match_stats.tscn
 msgid "Possession"
 msgstr ""
 
@@ -2298,7 +2360,56 @@ msgid "Do you want to simulate the whole match?"
 msgstr ""
 
 #: src/screens/match_screen/penalties_bar/penalties_bar.tscn
+#: src/screens/match_screen/statistics/match_stats.tscn
 msgid "Penalties"
+msgstr ""
+
+#: src/screens/match_screen/statistics/match_stats.tscn
+msgid "0"
+msgstr ""
+
+#: src/screens/match_screen/statistics/match_stats.tscn
+msgid "50 %"
+msgstr ""
+
+#: src/screens/match_screen/statistics/match_stats.tscn
+msgid "0 (0)"
+msgstr ""
+
+#: src/screens/match_screen/statistics/match_stats.tscn
+msgid "Shots (on target)"
+msgstr ""
+
+#: src/screens/match_screen/statistics/match_stats.tscn
+msgid "Shots hit post"
+msgstr ""
+
+#: src/screens/match_screen/statistics/match_stats.tscn
+msgid "Passes (success)"
+msgstr ""
+
+#: src/screens/match_screen/statistics/match_stats.tscn
+msgid "Kick-ins"
+msgstr ""
+
+#: src/screens/match_screen/statistics/match_stats.tscn
+msgid "Free kicks"
+msgstr ""
+
+#: src/screens/match_screen/statistics/match_stats.tscn
+msgid "Penalties 10m"
+msgstr ""
+
+#: src/screens/match_screen/statistics/match_stats.tscn
+msgid "Fouls"
+msgstr ""
+
+#: src/screens/match_screen/statistics/match_stats.tscn
+msgid "Tackles (success)"
+msgstr ""
+
+#: src/screens/match_screen/statistics/match_stats.tscn
+msgid "Corners"
 msgstr ""
 
 #: src/screens/settings/theme_picker/theme_picker.tscn
