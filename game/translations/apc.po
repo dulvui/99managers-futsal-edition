@@ -277,22 +277,21 @@
 # res://src/global.gd
 # res://src/generators/generator.gd
 #
-# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
-#
+# Simon Dalvai <info@simondalvai.org>, 2025.
 msgid ""
 msgstr ""
 "Project-Id-Version: 99 Managers Futsal Edition\n"
 "POT-Creation-Date: \n"
-"PO-Revision-Date: 2025-02-12 13:47+0100\n"
+"PO-Revision-Date: 2025-02-26 10:01+0000\n"
 "Last-Translator: Simon Dalvai <info@simondalvai.org>\n"
-"Language-Team: Arabic (Levantine) <https://hosted.weblate.org/projects/99-"
-"managers-futsal-edition/game/apc/>\n"
+"Language-Team: Arabic (Levantine) <https://hosted.weblate.org/projects/"
+"99-managers-futsal-edition/game/apc/>\n"
 "Language: apc\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Poedit 3.2.2\n"
+"X-Generator: Weblate 5.10.2-dev\n"
 
 #: src/ui_components/team_profile/team_profile.tscn
 #: src/ui_components/info/info.tscn
@@ -356,19 +355,19 @@ msgstr "ستات"
 
 #: src/ui_components/player_list/player_list.gd
 msgid "Physical"
-msgstr ""
+msgstr "بدني"
 
 #: src/ui_components/player_list/player_list.gd
 msgid "Technical"
-msgstr ""
+msgstr "تقني"
 
 #: src/ui_components/player_list/player_list.gd
 msgid "Mental"
-msgstr ""
+msgstr "ذهنية"
 
 #: src/ui_components/player_list/player_list.gd
 msgid "Goalkeeper"
-msgstr ""
+msgstr "گولار"
 
 #: src/ui_components/player_list/player_list.gd
 #: src/ui_components/player_profile/info_view/info_view.tscn
@@ -381,22 +380,16 @@ msgid "Value"
 msgstr "قيمة"
 
 #: src/ui_components/player_list/player_list.gd
-#, fuzzy
-#| msgid "Nationality"
 msgid "Morality"
-msgstr "جنسية"
+msgstr "أخلاق"
 
 #: src/ui_components/player_list/player_list.gd
-#, fuzzy
-#| msgid "Start date"
 msgid "Birth date"
-msgstr "اليوم الأول"
+msgstr "تاريخ الولادة"
 
 #: src/ui_components/player_list/player_list.gd
-#, fuzzy
-#| msgid "Nationality"
 msgid "Nation"
-msgstr "جنسية"
+msgstr "دولة"
 
 #: src/ui_components/player_list/player_list.gd
 #: src/ui_components/visual_competitions/visual_table/visual_table.tscn
@@ -473,12 +466,12 @@ msgstr ""
 #: src/ui_components/player_list/player_list.gd
 #: src/ui_components/player_profile/statistics_view/statistics_view.tscn
 msgid "Yellow cards"
-msgstr ""
+msgstr "كروتة صفرا"
 
 #: src/ui_components/player_list/player_list.gd
 #: src/ui_components/player_profile/statistics_view/statistics_view.tscn
 msgid "Red cards"
-msgstr ""
+msgstr "كروتة حمرا"
 
 #: src/ui_components/player_list/player_list.gd
 #: src/ui_components/player_profile/statistics_view/statistics_view.tscn
@@ -492,28 +485,20 @@ msgid "Agression"
 msgstr "الضغط"
 
 #: src/ui_components/player_list/player_list.gd
-#, fuzzy
-#| msgid "Action"
 msgid "Anticipation"
-msgstr "أكشين"
+msgstr "توقع"
 
 #: src/ui_components/player_list/player_list.gd
-#, fuzzy
-#| msgid "Version"
 msgid "Decisions"
-msgstr "نسخة"
+msgstr "قرارات"
 
 #: src/ui_components/player_list/player_list.gd
-#, fuzzy
-#| msgid "Contract"
 msgid "Concentration"
-msgstr "كونترا"
+msgstr "تركيز"
 
 #: src/ui_components/player_list/player_list.gd
-#, fuzzy
-#| msgid "Version"
 msgid "Vision"
-msgstr "نسخة"
+msgstr "رؤية"
 
 #: src/ui_components/player_list/player_list.gd
 msgid "Workrate"
@@ -552,83 +537,75 @@ msgstr ""
 
 #: src/ui_components/player_list/player_list.gd
 msgid "Pace"
-msgstr ""
+msgstr "سرعة"
 
 #: src/ui_components/player_list/player_list.gd
-#, fuzzy
-#| msgid "Action"
 msgid "Acceleration"
-msgstr "أكشين"
+msgstr "تسارع"
 
 #: src/ui_components/player_list/player_list.gd
 msgid "Stamina"
-msgstr ""
+msgstr "ستامينا"
 
 #: src/ui_components/player_list/player_list.gd
 msgid "Strength"
-msgstr ""
+msgstr "قوة"
 
 #: src/ui_components/player_list/player_list.gd
 msgid "Agility"
-msgstr ""
+msgstr "خفه الحركه"
 
 #: src/ui_components/player_list/player_list.gd
 msgid "Jump"
-msgstr ""
+msgstr "نط"
 
 #: src/ui_components/player_list/player_list.gd
-#, fuzzy
-#| msgid "Pressing"
 msgid "Crossing"
-msgstr "الضغط"
+msgstr "عرضية"
 
 #: src/ui_components/player_list/player_list.gd
-#, fuzzy
-#| msgid "Pressing"
 msgid "Passing"
-msgstr "الضغط"
+msgstr "پاس"
 
 #: src/ui_components/player_list/player_list.gd
 msgid "Long passing"
-msgstr ""
+msgstr "پاسات طويلة"
 
 #: src/ui_components/player_list/player_list.gd
 msgid "Tackling"
-msgstr ""
+msgstr "تاكل"
 
 #: src/ui_components/player_list/player_list.gd
 msgid "Heading"
-msgstr ""
+msgstr "راس"
 
 #: src/ui_components/player_list/player_list.gd
 msgid "Interception"
-msgstr ""
+msgstr "اعتراض"
 
 #: src/ui_components/player_list/player_list.gd
-#, fuzzy
-#| msgid "Settings"
 msgid "Shooting"
-msgstr "سَتِنگز"
+msgstr "شوت"
 
 #: src/ui_components/player_list/player_list.gd
 msgid "Long shooting"
-msgstr ""
+msgstr "شوتة طويلة"
 
 #: src/ui_components/player_list/player_list.gd
 msgid "Penalty"
-msgstr ""
+msgstr "پينالتي"
 
 #: src/ui_components/player_list/player_list.gd
 msgid "Finishing"
-msgstr ""
+msgstr "تخليص"
 
 #: src/ui_components/player_list/player_list.gd
 msgid "Dribbling"
-msgstr ""
+msgstr "دريبل"
 
 #: src/ui_components/player_list/player_list.gd
 msgid "Blocking"
-msgstr ""
+msgstr "بلوك"
 
 #: src/ui_components/player_list/player_list.gd
 msgid "All Teams"
@@ -978,43 +955,43 @@ msgstr "الأحد"
 
 #: src/resources/formation/position/position.gd
 msgid "G"
-msgstr ""
+msgstr "حارس"
 
 #: src/resources/formation/position/position.gd
 msgid "DL"
-msgstr ""
+msgstr "دفاع شمال"
 
 #: src/resources/formation/position/position.gd
 msgid "DC"
-msgstr ""
+msgstr "دفاع نُص"
 
 #: src/resources/formation/position/position.gd
 msgid "DR"
-msgstr ""
+msgstr "دفاع يمين"
 
 #: src/resources/formation/position/position.gd
 msgid "C"
-msgstr ""
+msgstr "نٌص"
 
 #: src/resources/formation/position/position.gd
 msgid "WL"
-msgstr ""
+msgstr "جنح شمال"
 
 #: src/resources/formation/position/position.gd
 msgid "WR"
-msgstr ""
+msgstr "جنح يمين"
 
 #: src/resources/formation/position/position.gd
 msgid "PL"
-msgstr ""
+msgstr "هجوم شمال"
 
 #: src/resources/formation/position/position.gd
 msgid "PC"
-msgstr ""
+msgstr "هجوم نٌص"
 
 #: src/resources/formation/position/position.gd
 msgid "PR"
-msgstr ""
+msgstr "هجوم يمين"
 
 #: src/utils/logic/email_util.gd
 msgid "Next match: {team_name}"
@@ -1080,27 +1057,27 @@ msgstr ""
 
 #: src/utils/ui/theme_util.gd
 msgid "Dark"
-msgstr ""
+msgstr "غامق"
 
 #: src/utils/ui/theme_util.gd
 msgid "Light"
-msgstr ""
+msgstr "فاتح"
 
 #: src/utils/ui/theme_util.gd
 msgid "Solarized light"
-msgstr ""
+msgstr "فاتح و مشمس"
 
 #: src/utils/ui/theme_util.gd
 msgid "Solarized dark"
-msgstr ""
+msgstr "غامق و مشمس"
 
 #: src/utils/ui/theme_util.gd
 msgid "Red"
-msgstr ""
+msgstr "أحمر"
 
 #: src/utils/ui/theme_util.gd
 msgid "Hacker"
-msgstr ""
+msgstr "هاكر"
 
 #: src/utils/ui/theme_util.gd
 msgid "Custom theme"
@@ -1133,6 +1110,8 @@ msgid ""
 "You can fix errors or add new languages easily on Weblate, just click on the "
 "link below."
 msgstr ""
+"You can fix errors or add new languages easily on Weblate, just click on the "
+"link below."
 
 #: src/screens/settings/general/general_settings.tscn
 msgid "Language"
@@ -1177,7 +1156,7 @@ msgstr "وضعية"
 
 #: src/screens/settings/input/input_settings.tscn
 msgid "Joypad status"
-msgstr ""
+msgstr "Joypad status"
 
 #: src/screens/settings/input/input_settings.tscn
 msgid "No joypad connected"
@@ -1185,11 +1164,11 @@ msgstr "مش موصول دجوي-پاد"
 
 #: src/screens/settings/input/input_settings.tscn
 msgid "Input detection mode"
-msgstr ""
+msgstr "Input detection mode"
 
 #: src/screens/settings/input/input_settings.tscn
 msgid "Input type"
-msgstr ""
+msgstr "Input type"
 
 #: src/screens/save_states_screen/save_states_screen.tscn
 msgid "Save states"
@@ -1427,115 +1406,115 @@ msgstr ""
 
 #: src/resources/world/continent_names.gd
 msgid "Africa"
-msgstr ""
+msgstr "Africa"
 
 #: src/resources/world/continent_names.gd
 msgid "Asia"
-msgstr ""
+msgstr "Asia"
 
 #: src/resources/world/continent_names.gd
 msgid "Europe"
-msgstr ""
+msgstr "Europe"
 
 #: src/resources/world/continent_names.gd
 msgid "Oceania"
-msgstr ""
+msgstr "Oceania"
 
 #: src/resources/world/continent_names.gd
 msgid "South America"
-msgstr ""
+msgstr "South America"
 
 #: src/resources/world/continent_names.gd
 msgid "North America"
-msgstr ""
+msgstr "North America"
 
 #: src/resources/world/nation_names.gd
 msgid "Albania"
-msgstr ""
+msgstr "Albania"
 
 #: src/resources/world/nation_names.gd
 msgid "Andorra"
-msgstr ""
+msgstr "Andorra"
 
 #: src/resources/world/nation_names.gd
 msgid "Armenia"
-msgstr ""
+msgstr "Armenia"
 
 #: src/resources/world/nation_names.gd
 msgid "Austria"
-msgstr ""
+msgstr "Austria"
 
 #: src/resources/world/nation_names.gd
 msgid "Azerbaijan"
-msgstr ""
+msgstr "Azerbaijan"
 
 #: src/resources/world/nation_names.gd
 msgid "Belarus"
-msgstr ""
+msgstr "Belarus"
 
 #: src/resources/world/nation_names.gd
 msgid "Belgium"
-msgstr ""
+msgstr "Belgium"
 
 #: src/resources/world/nation_names.gd
 msgid "Bosnia and Herzegovina"
-msgstr ""
+msgstr "Bosnia and Herzegovina"
 
 #: src/resources/world/nation_names.gd
 msgid "Bulgaria"
-msgstr ""
+msgstr "Bulgaria"
 
 #: src/resources/world/nation_names.gd
 msgid "Croatia"
-msgstr ""
+msgstr "Croatia"
 
 #: src/resources/world/nation_names.gd
 msgid "Cyprus"
-msgstr ""
+msgstr "Cyprus"
 
 #: src/resources/world/nation_names.gd
 msgid "Czech Republic"
-msgstr ""
+msgstr "Czech Republic"
 
 #: src/resources/world/nation_names.gd
 msgid "Denmark"
-msgstr ""
+msgstr "Denmark"
 
 #: src/resources/world/nation_names.gd
 msgid "Estonia"
-msgstr ""
+msgstr "Estonia"
 
 #: src/resources/world/nation_names.gd
 msgid "Finland"
-msgstr ""
+msgstr "Finland"
 
 #: src/resources/world/nation_names.gd
 msgid "France"
-msgstr ""
+msgstr "France"
 
 #: src/resources/world/nation_names.gd
 msgid "Georgia"
-msgstr ""
+msgstr "Georgia"
 
 #: src/resources/world/nation_names.gd
 msgid "Germany"
-msgstr ""
+msgstr "Germany"
 
 #: src/resources/world/nation_names.gd
 msgid "Greece"
-msgstr ""
+msgstr "Greece"
 
 #: src/resources/world/nation_names.gd
 msgid "Hungary"
-msgstr ""
+msgstr "Hungary"
 
 #: src/resources/world/nation_names.gd
 msgid "Iceland"
-msgstr ""
+msgstr "Iceland"
 
 #: src/resources/world/nation_names.gd
 msgid "Ireland"
-msgstr ""
+msgstr "Ireland"
 
 #: src/resources/world/nation_names.gd
 msgid "Italy"
@@ -1543,55 +1522,55 @@ msgstr "إيطاليا"
 
 #: src/resources/world/nation_names.gd
 msgid "Latvia"
-msgstr ""
+msgstr "Latvia"
 
 #: src/resources/world/nation_names.gd
 msgid "Liechtenstein"
-msgstr ""
+msgstr "Liechtenstein"
 
 #: src/resources/world/nation_names.gd
 msgid "Lithuania"
-msgstr ""
+msgstr "Lithuania"
 
 #: src/resources/world/nation_names.gd
 msgid "Luxembourg"
-msgstr ""
+msgstr "Luxembourg"
 
 #: src/resources/world/nation_names.gd
 msgid "Macedonia"
-msgstr ""
+msgstr "Macedonia"
 
 #: src/resources/world/nation_names.gd
 msgid "Malta"
-msgstr ""
+msgstr "Malta"
 
 #: src/resources/world/nation_names.gd
 msgid "Moldova"
-msgstr ""
+msgstr "Moldova"
 
 #: src/resources/world/nation_names.gd
 msgid "Monaco"
-msgstr ""
+msgstr "Monaco"
 
 #: src/resources/world/nation_names.gd
 msgid "Montenegro"
-msgstr ""
+msgstr "Montenegro"
 
 #: src/resources/world/nation_names.gd
 msgid "Netherlands"
-msgstr ""
+msgstr "Netherlands"
 
 #: src/resources/world/nation_names.gd
 msgid "Norway"
-msgstr ""
+msgstr "Norway"
 
 #: src/resources/world/nation_names.gd
 msgid "Poland"
-msgstr ""
+msgstr "Poland"
 
 #: src/resources/world/nation_names.gd
 msgid "Portugal"
-msgstr ""
+msgstr "Portugal"
 
 #: src/resources/world/nation_names.gd
 msgid "Romania"
@@ -1599,19 +1578,19 @@ msgstr "رومانيا"
 
 #: src/resources/world/nation_names.gd
 msgid "San Marino"
-msgstr ""
+msgstr "San Marino"
 
 #: src/resources/world/nation_names.gd
 msgid "Serbia"
-msgstr ""
+msgstr "Serbia"
 
 #: src/resources/world/nation_names.gd
 msgid "Slovakia"
-msgstr ""
+msgstr "Slovakia"
 
 #: src/resources/world/nation_names.gd
 msgid "Slovenia"
-msgstr ""
+msgstr "Slovenia"
 
 #: src/resources/world/nation_names.gd
 msgid "Spain"
@@ -1619,159 +1598,159 @@ msgstr "إسپانيا"
 
 #: src/resources/world/nation_names.gd
 msgid "Sweden"
-msgstr ""
+msgstr "Sweden"
 
 #: src/resources/world/nation_names.gd
 msgid "Switzerland"
-msgstr ""
+msgstr "Switzerland"
 
 #: src/resources/world/nation_names.gd
 msgid "Ukraine"
-msgstr ""
+msgstr "Ukraine"
 
 #: src/resources/world/nation_names.gd
 msgid "United Kingdom"
-msgstr ""
+msgstr "United Kingdom"
 
 #: src/resources/world/nation_names.gd
 msgid "Vatican City"
-msgstr ""
+msgstr "Vatican City"
 
 #: src/resources/world/nation_names.gd
 msgid "Brazil"
-msgstr ""
+msgstr "Brazil"
 
 #: src/resources/world/nation_names.gd
 msgid "Argentina"
-msgstr ""
+msgstr "Argentina"
 
 #: src/resources/world/nation_names.gd
 msgid "Bolivia"
-msgstr ""
+msgstr "Bolivia"
 
 #: src/resources/world/nation_names.gd
 msgid "Chile"
-msgstr ""
+msgstr "Chile"
 
 #: src/resources/world/nation_names.gd
 msgid "Colombia"
-msgstr ""
+msgstr "Colombia"
 
 #: src/resources/world/nation_names.gd
 msgid "Ecuador"
-msgstr ""
+msgstr "Ecuador"
 
 #: src/resources/world/nation_names.gd
 msgid "Guyana"
-msgstr ""
+msgstr "Guyana"
 
 #: src/resources/world/nation_names.gd
 msgid "Paraguay"
-msgstr ""
+msgstr "Paraguay"
 
 #: src/resources/world/nation_names.gd
 msgid "Peru"
-msgstr ""
+msgstr "Peru"
 
 #: src/resources/world/nation_names.gd
 msgid "Suriname"
-msgstr ""
+msgstr "Suriname"
 
 #: src/resources/world/nation_names.gd
 msgid "Uruguay"
-msgstr ""
+msgstr "Uruguay"
 
 #: src/resources/world/nation_names.gd
 msgid "Venezuela"
-msgstr ""
+msgstr "Venezuela"
 
 #: src/resources/world/nation_names.gd
 msgid "Antigua and Barbuda"
-msgstr ""
+msgstr "Antigua and Barbuda"
 
 #: src/resources/world/nation_names.gd
 msgid "Bahamas"
-msgstr ""
+msgstr "Bahamas"
 
 #: src/resources/world/nation_names.gd
 msgid "Barbados"
-msgstr ""
+msgstr "Barbados"
 
 #: src/resources/world/nation_names.gd
 msgid "Belize"
-msgstr ""
+msgstr "Belize"
 
 #: src/resources/world/nation_names.gd
 msgid "Canada"
-msgstr ""
+msgstr "Canada"
 
 #: src/resources/world/nation_names.gd
 msgid "Costa Rica"
-msgstr ""
+msgstr "Costa Rica"
 
 #: src/resources/world/nation_names.gd
 msgid "Cuba"
-msgstr ""
+msgstr "Cuba"
 
 #: src/resources/world/nation_names.gd
 msgid "Dominica"
-msgstr ""
+msgstr "Dominica"
 
 #: src/resources/world/nation_names.gd
 msgid "Dominican Republic"
-msgstr ""
+msgstr "Dominican Republic"
 
 #: src/resources/world/nation_names.gd
 msgid "El Salvador"
-msgstr ""
+msgstr "El Salvador"
 
 #: src/resources/world/nation_names.gd
 msgid "Grenada"
-msgstr ""
+msgstr "Grenada"
 
 #: src/resources/world/nation_names.gd
 msgid "Guatemala"
-msgstr ""
+msgstr "Guatemala"
 
 #: src/resources/world/nation_names.gd
 msgid "Haiti"
-msgstr ""
+msgstr "Haiti"
 
 #: src/resources/world/nation_names.gd
 msgid "Honduras"
-msgstr ""
+msgstr "Honduras"
 
 #: src/resources/world/nation_names.gd
 msgid "Jamaica"
-msgstr ""
+msgstr "Jamaica"
 
 #: src/resources/world/nation_names.gd
 msgid "Mexico"
-msgstr ""
+msgstr "Mexico"
 
 #: src/resources/world/nation_names.gd
 msgid "Nicaragua"
-msgstr ""
+msgstr "Nicaragua"
 
 #: src/resources/world/nation_names.gd
 msgid "Panama"
-msgstr ""
+msgstr "Panama"
 
 #: src/resources/world/nation_names.gd
 msgid "Saint Kitts and Nevis"
-msgstr ""
+msgstr "Saint Kitts and Nevis"
 
 #: src/resources/world/nation_names.gd
 msgid "Saint Lucia"
-msgstr ""
+msgstr "Saint Lucia"
 
 #: src/resources/world/nation_names.gd
 msgid "Saint Vincent and the Grenadines"
-msgstr ""
+msgstr "Saint Vincent and the Grenadines"
 
 #: src/resources/world/nation_names.gd
 msgid "Trinidad and Tobago"
-msgstr ""
+msgstr "Trinidad and Tobago"
 
 #: src/resources/world/nation_names.gd
 msgid "Usa"
@@ -1779,291 +1758,291 @@ msgstr ""
 
 #: src/resources/world/nation_names.gd
 msgid "Australia"
-msgstr ""
+msgstr "Australia"
 
 #: src/resources/world/nation_names.gd
 msgid "Fiji"
-msgstr ""
+msgstr "Fiji"
 
 #: src/resources/world/nation_names.gd
 msgid "Kiribati"
-msgstr ""
+msgstr "Kiribati"
 
 #: src/resources/world/nation_names.gd
 msgid "Marshall Islands"
-msgstr ""
+msgstr "Marshall Islands"
 
 #: src/resources/world/nation_names.gd
 msgid "Micronesia"
-msgstr ""
+msgstr "Micronesia"
 
 #: src/resources/world/nation_names.gd
 msgid "Nauru"
-msgstr ""
+msgstr "Nauru"
 
 #: src/resources/world/nation_names.gd
 msgid "New Zealand"
-msgstr ""
+msgstr "New Zealand"
 
 #: src/resources/world/nation_names.gd
 msgid "Palau"
-msgstr ""
+msgstr "Palau"
 
 #: src/resources/world/nation_names.gd
 msgid "Papua New Guinea"
-msgstr ""
+msgstr "Papua New Guinea"
 
 #: src/resources/world/nation_names.gd
 msgid "Samoa"
-msgstr ""
+msgstr "Samoa"
 
 #: src/resources/world/nation_names.gd
 msgid "Solomon Islands"
-msgstr ""
+msgstr "Solomon Islands"
 
 #: src/resources/world/nation_names.gd
 msgid "Tonga"
-msgstr ""
+msgstr "Tonga"
 
 #: src/resources/world/nation_names.gd
 msgid "Tuvalu"
-msgstr ""
+msgstr "Tuvalu"
 
 #: src/resources/world/nation_names.gd
 msgid "Vanuatu"
-msgstr ""
+msgstr "Vanuatu"
 
 #: src/resources/world/nation_names.gd
 msgid "Algeria"
-msgstr ""
+msgstr "Algeria"
 
 #: src/resources/world/nation_names.gd
 msgid "Angola"
-msgstr ""
+msgstr "Angola"
 
 #: src/resources/world/nation_names.gd
 msgid "Benin"
-msgstr ""
+msgstr "Benin"
 
 #: src/resources/world/nation_names.gd
 msgid "Botswana"
-msgstr ""
+msgstr "Botswana"
 
 #: src/resources/world/nation_names.gd
 msgid "Burkina"
-msgstr ""
+msgstr "Burkina"
 
 #: src/resources/world/nation_names.gd
 msgid "Burundi"
-msgstr ""
+msgstr "Burundi"
 
 #: src/resources/world/nation_names.gd
 msgid "Cameroon"
-msgstr ""
+msgstr "Cameroon"
 
 #: src/resources/world/nation_names.gd
 msgid "Cape Verde"
-msgstr ""
+msgstr "Cape Verde"
 
 #: src/resources/world/nation_names.gd
 msgid "Central African Republic"
-msgstr ""
+msgstr "Central African Republic"
 
 #: src/resources/world/nation_names.gd
 msgid "Chad"
-msgstr ""
+msgstr "Chad"
 
 #: src/resources/world/nation_names.gd
 msgid "Comoros"
-msgstr ""
+msgstr "Comoros"
 
 #: src/resources/world/nation_names.gd
 msgid "Congo"
-msgstr ""
+msgstr "Congo"
 
 #: src/resources/world/nation_names.gd
 msgid "Democratic Republic of Congo"
-msgstr ""
+msgstr "Democratic Republic of Congo"
 
 #: src/resources/world/nation_names.gd
 msgid "Djibouti"
-msgstr ""
+msgstr "Djibouti"
 
 #: src/resources/world/nation_names.gd
 msgid "Egypt"
-msgstr ""
+msgstr "Egypt"
 
 #: src/resources/world/nation_names.gd
 msgid "Equatorial Guinea"
-msgstr ""
+msgstr "Equatorial Guinea"
 
 #: src/resources/world/nation_names.gd
 msgid "Eritrea"
-msgstr ""
+msgstr "Eritrea"
 
 #: src/resources/world/nation_names.gd
 msgid "Ethiopia"
-msgstr ""
+msgstr "Ethiopia"
 
 #: src/resources/world/nation_names.gd
 msgid "Gabon"
-msgstr ""
+msgstr "Gabon"
 
 #: src/resources/world/nation_names.gd
 msgid "Gambia"
-msgstr ""
+msgstr "Gambia"
 
 #: src/resources/world/nation_names.gd
 msgid "Ghana"
-msgstr ""
+msgstr "Ghana"
 
 #: src/resources/world/nation_names.gd
 msgid "Guinea"
-msgstr ""
+msgstr "Guinea"
 
 #: src/resources/world/nation_names.gd
 msgid "Ivory Coast"
-msgstr ""
+msgstr "Ivory Coast"
 
 #: src/resources/world/nation_names.gd
 msgid "Kenya"
-msgstr ""
+msgstr "Kenya"
 
 #: src/resources/world/nation_names.gd
 msgid "Lesotho"
-msgstr ""
+msgstr "Lesotho"
 
 #: src/resources/world/nation_names.gd
 msgid "Liberia"
-msgstr ""
+msgstr "Liberia"
 
 #: src/resources/world/nation_names.gd
 msgid "Libya"
-msgstr ""
+msgstr "Libya"
 
 #: src/resources/world/nation_names.gd
 msgid "Madagascar"
-msgstr ""
+msgstr "Madagascar"
 
 #: src/resources/world/nation_names.gd
 msgid "Malawi"
-msgstr ""
+msgstr "Malawi"
 
 #: src/resources/world/nation_names.gd
 msgid "Mali"
-msgstr ""
+msgstr "Mali"
 
 #: src/resources/world/nation_names.gd
 msgid "Mauritania"
-msgstr ""
+msgstr "Mauritania"
 
 #: src/resources/world/nation_names.gd
 msgid "Mauritius"
-msgstr ""
+msgstr "Mauritius"
 
 #: src/resources/world/nation_names.gd
 msgid "Morocco"
-msgstr ""
+msgstr "Morocco"
 
 #: src/resources/world/nation_names.gd
 msgid "Mozambique"
-msgstr ""
+msgstr "Mozambique"
 
 #: src/resources/world/nation_names.gd
 msgid "Namibia"
-msgstr ""
+msgstr "Namibia"
 
 #: src/resources/world/nation_names.gd
 msgid "Niger"
-msgstr ""
+msgstr "Niger"
 
 #: src/resources/world/nation_names.gd
 msgid "Nigeria"
-msgstr ""
+msgstr "Nigeria"
 
 #: src/resources/world/nation_names.gd
 msgid "Rwanda"
-msgstr ""
+msgstr "Rwanda"
 
 #: src/resources/world/nation_names.gd
 msgid "Sao Tome and Principe"
-msgstr ""
+msgstr "Sao Tome and Principe"
 
 #: src/resources/world/nation_names.gd
 msgid "Senegal"
-msgstr ""
+msgstr "Senegal"
 
 #: src/resources/world/nation_names.gd
 msgid "Seychelles"
-msgstr ""
+msgstr "Seychelles"
 
 #: src/resources/world/nation_names.gd
 msgid "Sierra Leone"
-msgstr ""
+msgstr "Sierra Leone"
 
 #: src/resources/world/nation_names.gd
 msgid "Somalia"
-msgstr ""
+msgstr "Somalia"
 
 #: src/resources/world/nation_names.gd
 msgid "South Africa"
-msgstr ""
+msgstr "South Africa"
 
 #: src/resources/world/nation_names.gd
 msgid "South Sudan"
-msgstr ""
+msgstr "South Sudan"
 
 #: src/resources/world/nation_names.gd
 msgid "Sudan"
-msgstr ""
+msgstr "Sudan"
 
 #: src/resources/world/nation_names.gd
 msgid "Swaziland"
-msgstr ""
+msgstr "Swaziland"
 
 #: src/resources/world/nation_names.gd
 msgid "Tanzania"
-msgstr ""
+msgstr "Tanzania"
 
 #: src/resources/world/nation_names.gd
 msgid "Togo"
-msgstr ""
+msgstr "Togo"
 
 #: src/resources/world/nation_names.gd
 msgid "Tunisia"
-msgstr ""
+msgstr "Tunisia"
 
 #: src/resources/world/nation_names.gd
 msgid "Uganda"
-msgstr ""
+msgstr "Uganda"
 
 #: src/resources/world/nation_names.gd
 msgid "Zambia"
-msgstr ""
+msgstr "Zambia"
 
 #: src/resources/world/nation_names.gd
 msgid "Zimbabwe"
-msgstr ""
+msgstr "Zimbabwe"
 
 #: src/resources/world/nation_names.gd
 msgid "Afghanistan"
-msgstr ""
+msgstr "Afghanistan"
 
 #: src/resources/world/nation_names.gd
 msgid "Bahrain"
-msgstr ""
+msgstr "Bahrain"
 
 #: src/resources/world/nation_names.gd
 msgid "Bangladesh"
-msgstr ""
+msgstr "Bangladesh"
 
 #: src/resources/world/nation_names.gd
 msgid "Bhutan"
-msgstr ""
+msgstr "Bhutan"
 
 #: src/resources/world/nation_names.gd
 msgid "Brunei"
-msgstr ""
+msgstr "Brunei"
 
 #: src/resources/world/nation_names.gd
 msgid "Burma"
@@ -2071,47 +2050,47 @@ msgstr ""
 
 #: src/resources/world/nation_names.gd
 msgid "Cambodia"
-msgstr ""
+msgstr "Cambodia"
 
 #: src/resources/world/nation_names.gd
 msgid "China"
-msgstr ""
+msgstr "China"
 
 #: src/resources/world/nation_names.gd
 msgid "East Timor"
-msgstr ""
+msgstr "East Timor"
 
 #: src/resources/world/nation_names.gd
 msgid "India"
-msgstr ""
+msgstr "India"
 
 #: src/resources/world/nation_names.gd
 msgid "Indonesia"
-msgstr ""
+msgstr "Indonesia"
 
 #: src/resources/world/nation_names.gd
 msgid "Iran"
-msgstr ""
+msgstr "Iran"
 
 #: src/resources/world/nation_names.gd
 msgid "Iraq"
-msgstr ""
+msgstr "Iraq"
 
 #: src/resources/world/nation_names.gd
 msgid "Israel"
-msgstr ""
+msgstr "Israel"
 
 #: src/resources/world/nation_names.gd
 msgid "Japan"
-msgstr ""
+msgstr "Japan"
 
 #: src/resources/world/nation_names.gd
 msgid "Jordan"
-msgstr ""
+msgstr "Jordan"
 
 #: src/resources/world/nation_names.gd
 msgid "Kazakhstan"
-msgstr ""
+msgstr "Kazakhstan"
 
 #: src/resources/world/nation_names.gd
 msgid "North Korea"
@@ -2123,103 +2102,103 @@ msgstr ""
 
 #: src/resources/world/nation_names.gd
 msgid "Kuwait"
-msgstr ""
+msgstr "Kuwait"
 
 #: src/resources/world/nation_names.gd
 msgid "Kyrgyzstan"
-msgstr ""
+msgstr "Kyrgyzstan"
 
 #: src/resources/world/nation_names.gd
 msgid "Laos"
-msgstr ""
+msgstr "Laos"
 
 #: src/resources/world/nation_names.gd
 msgid "Lebanon"
-msgstr ""
+msgstr "Lebanon"
 
 #: src/resources/world/nation_names.gd
 msgid "Malaysia"
-msgstr ""
+msgstr "Malaysia"
 
 #: src/resources/world/nation_names.gd
 msgid "Maldives"
-msgstr ""
+msgstr "Maldives"
 
 #: src/resources/world/nation_names.gd
 msgid "Mongolia"
-msgstr ""
+msgstr "Mongolia"
 
 #: src/resources/world/nation_names.gd
 msgid "Nepal"
-msgstr ""
+msgstr "Nepal"
 
 #: src/resources/world/nation_names.gd
 msgid "Oman"
-msgstr ""
+msgstr "Oman"
 
 #: src/resources/world/nation_names.gd
 msgid "Pakistan"
-msgstr ""
+msgstr "Pakistan"
 
 #: src/resources/world/nation_names.gd
 msgid "Philippines"
-msgstr ""
+msgstr "Philippines"
 
 #: src/resources/world/nation_names.gd
 msgid "Qatar"
-msgstr ""
+msgstr "Qatar"
 
 #: src/resources/world/nation_names.gd
 msgid "Russian Federation"
-msgstr ""
+msgstr "Russian Federation"
 
 #: src/resources/world/nation_names.gd
 msgid "Saudi Arabia"
-msgstr ""
+msgstr "Saudi Arabia"
 
 #: src/resources/world/nation_names.gd
 msgid "Singapore"
-msgstr ""
+msgstr "Singapore"
 
 #: src/resources/world/nation_names.gd
 msgid "Sri Lanka"
-msgstr ""
+msgstr "Sri Lanka"
 
 #: src/resources/world/nation_names.gd
 msgid "Syria"
-msgstr ""
+msgstr "Syria"
 
 #: src/resources/world/nation_names.gd
 msgid "Tajikistan"
-msgstr ""
+msgstr "Tajikistan"
 
 #: src/resources/world/nation_names.gd
 msgid "Thailand"
-msgstr ""
+msgstr "Thailand"
 
 #: src/resources/world/nation_names.gd
 msgid "Turkey"
-msgstr ""
+msgstr "Turkey"
 
 #: src/resources/world/nation_names.gd
 msgid "Turkmenistan"
-msgstr ""
+msgstr "Turkmenistan"
 
 #: src/resources/world/nation_names.gd
 msgid "United Arab Emirates"
-msgstr ""
+msgstr "United Arab Emirates"
 
 #: src/resources/world/nation_names.gd
 msgid "Uzbekistan"
-msgstr ""
+msgstr "Uzbekistan"
 
 #: src/resources/world/nation_names.gd
 msgid "Vietnam"
-msgstr ""
+msgstr "Vietnam"
 
 #: src/resources/world/nation_names.gd
 msgid "Yemen"
-msgstr ""
+msgstr "Yemen"
 
 #: src/screens/settings/license/license.tscn
 msgid "Game license"
@@ -2254,7 +2233,7 @@ msgstr ""
 
 #: src/enum.gd src/screens/match_screen/match_screen.tscn
 msgid "Full game"
-msgstr ""
+msgstr "Full game"
 
 #: src/enum.gd
 msgid "Key actions"
@@ -2262,7 +2241,7 @@ msgstr ""
 
 #: src/enum.gd
 msgid "Only goals"
-msgstr ""
+msgstr "Only goals"
 
 #: src/enum.gd
 msgid "Male"
@@ -2326,11 +2305,11 @@ msgstr "كانون الأول"
 
 #: src/enum.gd
 msgid "Automatic"
-msgstr ""
+msgstr "أوتوماتيكي"
 
 #: src/enum.gd
 msgid "Manual"
-msgstr ""
+msgstr "يدوي"
 
 #: src/enum.gd
 msgid "Mouse and Keyboard"
@@ -2338,7 +2317,7 @@ msgstr ""
 
 #: src/enum.gd
 msgid "Joypad"
-msgstr ""
+msgstr "Joypad"
 
 #: src/enum.gd
 msgid "Touchscreen"
