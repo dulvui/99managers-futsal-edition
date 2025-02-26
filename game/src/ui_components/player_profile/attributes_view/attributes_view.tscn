@@ -1,33 +1,321 @@
-[gd_scene load_steps=2 format=3 uid="uid://c1ybc8k2e473c"]
+[gd_scene load_steps=4 format=3 uid="uid://c1ybc8k2e473c"]
 
 [ext_resource type="Script" path="res://src/ui_components/player_profile/attributes_view/attributes_view.gd" id="1_5b24s"]
+[ext_resource type="LabelSettings" uid="uid://cc2vi4onhgmnw" path="res://theme_base/label/label_settings_bold.tres" id="2_lgwcu"]
+[ext_resource type="PackedScene" uid="uid://b3y6tq2i5pg3b" path="res://src/ui_components/base/color_label/color_label.tscn" id="3_7lr25"]
 
 [node name="Attributes" type="HBoxContainer"]
-theme_override_constants/separation = 10
-alignment = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme_override_constants/separation = 40
 script = ExtResource("1_5b24s")
 metadata/_tab_index = 2
 
 [node name="Goalkeeper" type="GridContainer" parent="."]
 layout_mode = 2
-size_flags_horizontal = 3
 size_flags_vertical = 0
+theme_override_constants/h_separation = 25
 columns = 2
+
+[node name="Title" type="Label" parent="Goalkeeper"]
+layout_mode = 2
+text = "Goalkeeper"
+label_settings = ExtResource("2_lgwcu")
+
+[node name="TitlePlaceholdes" type="Label" parent="Goalkeeper"]
+layout_mode = 2
+
+[node name="ReflexesLabel" type="Label" parent="Goalkeeper"]
+layout_mode = 2
+text = "Reflexes"
+
+[node name="Reflexes" parent="Goalkeeper" instance=ExtResource("3_7lr25")]
+unique_name_in_owner = true
+layout_mode = 2
+
+[node name="PositioningLabel" type="Label" parent="Goalkeeper"]
+layout_mode = 2
+text = "Positioning"
+
+[node name="Positioning" parent="Goalkeeper" instance=ExtResource("3_7lr25")]
+unique_name_in_owner = true
+layout_mode = 2
+
+[node name="SaveFeetLabel" type="Label" parent="Goalkeeper"]
+layout_mode = 2
+text = "Save feet"
+
+[node name="SaveFeet" parent="Goalkeeper" instance=ExtResource("3_7lr25")]
+unique_name_in_owner = true
+layout_mode = 2
+
+[node name="SaveHandsLabel" type="Label" parent="Goalkeeper"]
+layout_mode = 2
+text = "Save hands"
+
+[node name="SaveHands" parent="Goalkeeper" instance=ExtResource("3_7lr25")]
+unique_name_in_owner = true
+layout_mode = 2
+
+[node name="DivingLabel" type="Label" parent="Goalkeeper"]
+layout_mode = 2
+text = "Diving"
+
+[node name="Diving" parent="Goalkeeper" instance=ExtResource("3_7lr25")]
+unique_name_in_owner = true
+layout_mode = 2
 
 [node name="Physical" type="GridContainer" parent="."]
 layout_mode = 2
-size_flags_horizontal = 3
 size_flags_vertical = 0
+theme_override_constants/h_separation = 25
 columns = 2
+
+[node name="Title" type="Label" parent="Physical"]
+layout_mode = 2
+text = "Physical"
+label_settings = ExtResource("2_lgwcu")
+
+[node name="TitlePlaceholdes" parent="Physical" instance=ExtResource("3_7lr25")]
+layout_mode = 2
+
+[node name="PaceLabel" type="Label" parent="Physical"]
+layout_mode = 2
+text = "Pace"
+
+[node name="Pace" parent="Physical" instance=ExtResource("3_7lr25")]
+unique_name_in_owner = true
+layout_mode = 2
+
+[node name="AccelerationLabel" type="Label" parent="Physical"]
+layout_mode = 2
+text = "Acceleration"
+
+[node name="Acceleration" parent="Physical" instance=ExtResource("3_7lr25")]
+unique_name_in_owner = true
+layout_mode = 2
+
+[node name="StaminaLabel" type="Label" parent="Physical"]
+layout_mode = 2
+text = "Stamina"
+
+[node name="Stamina" parent="Physical" instance=ExtResource("3_7lr25")]
+unique_name_in_owner = true
+layout_mode = 2
+
+[node name="StrengthLabel" type="Label" parent="Physical"]
+layout_mode = 2
+text = "Strength"
+
+[node name="Strength" parent="Physical" instance=ExtResource("3_7lr25")]
+unique_name_in_owner = true
+layout_mode = 2
+
+[node name="AgilityLabel" type="Label" parent="Physical"]
+layout_mode = 2
+text = "Agility"
+
+[node name="Agility" parent="Physical" instance=ExtResource("3_7lr25")]
+unique_name_in_owner = true
+layout_mode = 2
+
+[node name="JumpLabel" type="Label" parent="Physical"]
+layout_mode = 2
+text = "Jump"
+
+[node name="Jump" parent="Physical" instance=ExtResource("3_7lr25")]
+unique_name_in_owner = true
+layout_mode = 2
 
 [node name="Mental" type="GridContainer" parent="."]
 layout_mode = 2
-size_flags_horizontal = 3
 size_flags_vertical = 0
+theme_override_constants/h_separation = 25
 columns = 2
+
+[node name="Title" type="Label" parent="Mental"]
+layout_mode = 2
+text = "Mental"
+label_settings = ExtResource("2_lgwcu")
+
+[node name="TitlePlaceholdes" type="Label" parent="Mental"]
+layout_mode = 2
+
+[node name="AggressionLabel" type="Label" parent="Mental"]
+layout_mode = 2
+text = "Aggression"
+
+[node name="Aggression" parent="Mental" instance=ExtResource("3_7lr25")]
+unique_name_in_owner = true
+layout_mode = 2
+
+[node name="AnticipationLabel" type="Label" parent="Mental"]
+layout_mode = 2
+text = "Anticipation"
+
+[node name="Anticipation" parent="Mental" instance=ExtResource("3_7lr25")]
+unique_name_in_owner = true
+layout_mode = 2
+
+[node name="DecisionsLabel" type="Label" parent="Mental"]
+layout_mode = 2
+text = "Decisions"
+
+[node name="Decisions" parent="Mental" instance=ExtResource("3_7lr25")]
+unique_name_in_owner = true
+layout_mode = 2
+
+[node name="ConcentrationLabel" type="Label" parent="Mental"]
+layout_mode = 2
+text = "Concentration"
+
+[node name="Concentration" parent="Mental" instance=ExtResource("3_7lr25")]
+unique_name_in_owner = true
+layout_mode = 2
+
+[node name="VisionLabel" type="Label" parent="Mental"]
+layout_mode = 2
+text = "Vision"
+
+[node name="Vision" parent="Mental" instance=ExtResource("3_7lr25")]
+unique_name_in_owner = true
+layout_mode = 2
+
+[node name="WorkrateLabel" type="Label" parent="Mental"]
+layout_mode = 2
+text = "Workrate"
+
+[node name="Workrate" parent="Mental" instance=ExtResource("3_7lr25")]
+unique_name_in_owner = true
+layout_mode = 2
+
+[node name="OffensiveMovementLabel" type="Label" parent="Mental"]
+layout_mode = 2
+text = "Offensive movement"
+
+[node name="OffensiveMovement" parent="Mental" instance=ExtResource("3_7lr25")]
+unique_name_in_owner = true
+layout_mode = 2
+
+[node name="MarkingLabel" type="Label" parent="Mental"]
+layout_mode = 2
+text = "Marking"
+
+[node name="Marking" parent="Mental" instance=ExtResource("3_7lr25")]
+unique_name_in_owner = true
+layout_mode = 2
 
 [node name="Technical" type="GridContainer" parent="."]
 layout_mode = 2
-size_flags_horizontal = 3
 size_flags_vertical = 0
+theme_override_constants/h_separation = 25
 columns = 2
+
+[node name="Title" type="Label" parent="Technical"]
+layout_mode = 2
+text = "Techical"
+label_settings = ExtResource("2_lgwcu")
+
+[node name="TitlePlaceholdes" type="Label" parent="Technical"]
+layout_mode = 2
+
+[node name="CrossingLabel" type="Label" parent="Technical"]
+layout_mode = 2
+text = "Crossing"
+
+[node name="Crossing" parent="Technical" instance=ExtResource("3_7lr25")]
+unique_name_in_owner = true
+layout_mode = 2
+
+[node name="PassingLabel" type="Label" parent="Technical"]
+layout_mode = 2
+text = "Passing"
+
+[node name="Passing" parent="Technical" instance=ExtResource("3_7lr25")]
+unique_name_in_owner = true
+layout_mode = 2
+
+[node name="LongPassingLabel" type="Label" parent="Technical"]
+layout_mode = 2
+text = "Long passing"
+
+[node name="LongPassing" parent="Technical" instance=ExtResource("3_7lr25")]
+unique_name_in_owner = true
+layout_mode = 2
+
+[node name="TacklingLabel" type="Label" parent="Technical"]
+layout_mode = 2
+text = "Tackling"
+
+[node name="Tackling" parent="Technical" instance=ExtResource("3_7lr25")]
+unique_name_in_owner = true
+layout_mode = 2
+
+[node name="HeadingLabel" type="Label" parent="Technical"]
+layout_mode = 2
+text = "Heading"
+
+[node name="Heading" parent="Technical" instance=ExtResource("3_7lr25")]
+unique_name_in_owner = true
+layout_mode = 2
+
+[node name="InterceptionLabel" type="Label" parent="Technical"]
+layout_mode = 2
+text = "Interception"
+
+[node name="Interception" parent="Technical" instance=ExtResource("3_7lr25")]
+unique_name_in_owner = true
+layout_mode = 2
+
+[node name="ShootingLabel" type="Label" parent="Technical"]
+layout_mode = 2
+text = "Shooting"
+
+[node name="Shooting" parent="Technical" instance=ExtResource("3_7lr25")]
+unique_name_in_owner = true
+layout_mode = 2
+
+[node name="LongShootingLabel" type="Label" parent="Technical"]
+layout_mode = 2
+text = "Long shooting"
+
+[node name="LongShooting" parent="Technical" instance=ExtResource("3_7lr25")]
+unique_name_in_owner = true
+layout_mode = 2
+
+[node name="PenaltyLabel" type="Label" parent="Technical"]
+layout_mode = 2
+text = "Penalty"
+
+[node name="Penalty" parent="Technical" instance=ExtResource("3_7lr25")]
+unique_name_in_owner = true
+layout_mode = 2
+
+[node name="FinishingLabel" type="Label" parent="Technical"]
+layout_mode = 2
+text = "Finishing"
+
+[node name="Finishing" parent="Technical" instance=ExtResource("3_7lr25")]
+unique_name_in_owner = true
+layout_mode = 2
+
+[node name="DribblingLabel" type="Label" parent="Technical"]
+layout_mode = 2
+text = "Dribbling"
+
+[node name="Dribbling" parent="Technical" instance=ExtResource("3_7lr25")]
+unique_name_in_owner = true
+layout_mode = 2
+
+[node name="BlockingLabel" type="Label" parent="Technical"]
+layout_mode = 2
+text = "Blocking"
+
+[node name="Blocking" parent="Technical" instance=ExtResource("3_7lr25")]
+unique_name_in_owner = true
+layout_mode = 2
