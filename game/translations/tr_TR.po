@@ -286,16 +286,16 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: 99 Managers Futsal Edition\n"
-"PO-Revision-Date: 2025-02-14 07:38+0000\n"
+"PO-Revision-Date: 2025-02-28 09:50+0000\n"
 "Last-Translator: Burak Hüseyin Ekseli <burakekseli@yandex.com>\n"
-"Language-Team: Turkish <https://hosted.weblate.org/projects/99-managers-"
-"futsal-edition/game/tr/>\n"
+"Language-Team: Turkish <https://hosted.weblate.org/projects/"
+"99-managers-futsal-edition/game/tr/>\n"
 "Language: tr_TR\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8-bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 5.10-rc\n"
+"X-Generator: Weblate 5.10.2-rc\n"
 
 #: src/ui_components/team_profile/team_profile.tscn
 #: src/ui_components/info/info.tscn src/screens/dashboard/dashboard.tscn
@@ -358,21 +358,21 @@ msgstr "İstatistik"
 #: src/ui_components/player_list/player_list.gd
 #: src/ui_components/player_profile/attributes_view/attributes_view.tscn
 msgid "Physical"
-msgstr ""
+msgstr "Fiziksel"
 
 #: src/ui_components/player_list/player_list.gd
 msgid "Technical"
-msgstr ""
+msgstr "Teknik"
 
 #: src/ui_components/player_list/player_list.gd
 #: src/ui_components/player_profile/attributes_view/attributes_view.tscn
 msgid "Mental"
-msgstr ""
+msgstr "Zihinsel"
 
 #: src/ui_components/player_list/player_list.gd
 #: src/ui_components/player_profile/attributes_view/attributes_view.tscn
 msgid "Goalkeeper"
-msgstr ""
+msgstr "Kaleci"
 
 #: src/ui_components/player_list/player_list.gd
 #: src/ui_components/player_profile/info_view/info_view.tscn
@@ -385,22 +385,16 @@ msgid "Value"
 msgstr "Değer"
 
 #: src/ui_components/player_list/player_list.gd
-#, fuzzy
-#| msgid "Nationality"
 msgid "Morality"
-msgstr "Milliyet"
+msgstr "Ahlak"
 
 #: src/ui_components/player_list/player_list.gd
-#, fuzzy
-#| msgid "Start date"
 msgid "Birth date"
-msgstr "Başlangıç tarihi"
+msgstr "Doğum tarihi"
 
 #: src/ui_components/player_list/player_list.gd
-#, fuzzy
-#| msgid "Nationality"
 msgid "Nation"
-msgstr "Milliyet"
+msgstr "Ülke"
 
 #: src/ui_components/player_list/player_list.gd
 #: src/ui_components/visual_competitions/visual_table/visual_table.tscn
@@ -412,10 +406,8 @@ msgstr "Takım"
 
 #: src/ui_components/player_list/player_list.gd
 #: src/ui_components/player_profile/contract_view/contract_view.tscn
-#, fuzzy
-#| msgid "Salary budget"
 msgid "Salary"
-msgstr "Maaş bütçesi"
+msgstr "Maaş"
 
 #: src/ui_components/player_list/player_list.gd
 #: src/ui_components/info/info.tscn
@@ -426,7 +418,7 @@ msgstr "Başlangıç tarihi"
 #: src/ui_components/player_list/player_list.gd
 #: src/ui_components/player_profile/contract_view/contract_view.tscn
 msgid "End date"
-msgstr ""
+msgstr "Bitiş tarihi"
 
 #: src/ui_components/player_list/player_list.gd
 #: src/ui_components/transfers/contract_offer/contract_offer.tscn
@@ -435,38 +427,32 @@ msgid "Buy clause"
 msgstr "Satın alın"
 
 #: src/ui_components/player_list/player_list.gd
-#, fuzzy
-#| msgid "Only goals"
 msgid "Bonus goal"
-msgstr "Sadece goller"
+msgstr "Bonus goller"
 
 #: src/ui_components/player_list/player_list.gd
 msgid "Bonus assist"
-msgstr ""
+msgstr "Bonus asistler"
 
 #: src/ui_components/player_list/player_list.gd
 msgid "Bonus clean sheet"
-msgstr ""
+msgstr "Bonus temiz sayfa"
 
 #: src/ui_components/player_list/player_list.gd
 msgid "Bonus league"
-msgstr ""
+msgstr "Bonus lig"
 
 #: src/ui_components/player_list/player_list.gd
-#, fuzzy
-#| msgid "Nations cup"
 msgid "Bonus national cup"
-msgstr "Ulusal kupa"
+msgstr "Bonus ulusal kupa"
 
 #: src/ui_components/player_list/player_list.gd
 msgid "Bonus continental cup"
-msgstr ""
+msgstr "Bonus kıtasal kupa"
 
 #: src/ui_components/player_list/player_list.gd
-#, fuzzy
-#| msgid "Game date"
 msgid "Games played"
-msgstr "Oyun tarihi"
+msgstr "Oynanan maç sayısı"
 
 #: src/ui_components/player_list/player_list.gd
 #: src/ui_components/visual_competitions/visual_table/visual_table.tscn
@@ -478,65 +464,53 @@ msgstr "Goller"
 #: src/ui_components/player_list/player_list.gd
 #: src/ui_components/player_profile/statistics_view/statistics_view.tscn
 msgid "Assists"
-msgstr ""
+msgstr "Asistler"
 
 #: src/ui_components/player_list/player_list.gd
 #: src/ui_components/player_profile/statistics_view/statistics_view.tscn
 #: src/screens/match_screen/statistics/match_stats.tscn
 msgid "Yellow cards"
-msgstr ""
+msgstr "Sarı kartlar"
 
 #: src/ui_components/player_list/player_list.gd
 #: src/ui_components/player_profile/statistics_view/statistics_view.tscn
 #: src/screens/match_screen/statistics/match_stats.tscn
 msgid "Red cards"
-msgstr ""
+msgstr "Kırmızı kartlar"
 
 #: src/ui_components/player_list/player_list.gd
 #: src/ui_components/player_profile/statistics_view/statistics_view.tscn
-#, fuzzy
-#| msgid "Average attributes"
 msgid "Average vote"
-msgstr "Ortalama özellik"
+msgstr "Ortalama oy"
 
 #: src/ui_components/player_list/player_list.gd
-#, fuzzy
-#| msgid "Pressing"
 msgid "Agression"
-msgstr "Pres yapma"
+msgstr "Pres"
 
 #: src/ui_components/player_list/player_list.gd
 #: src/ui_components/player_profile/attributes_view/attributes_view.tscn
-#, fuzzy
-#| msgid "Action"
 msgid "Anticipation"
-msgstr "Eylem"
+msgstr "Öngörü"
 
 #: src/ui_components/player_list/player_list.gd
 #: src/ui_components/player_profile/attributes_view/attributes_view.tscn
-#, fuzzy
-#| msgid "Version"
 msgid "Decisions"
-msgstr "Versiyon"
+msgstr "Kararlar"
 
 #: src/ui_components/player_list/player_list.gd
 #: src/ui_components/player_profile/attributes_view/attributes_view.tscn
-#, fuzzy
-#| msgid "Contract"
 msgid "Concentration"
-msgstr "Kontrat"
+msgstr "Konsantrasyon"
 
 #: src/ui_components/player_list/player_list.gd
 #: src/ui_components/player_profile/attributes_view/attributes_view.tscn
-#, fuzzy
-#| msgid "Version"
 msgid "Vision"
-msgstr "Versiyon"
+msgstr "Vizyon"
 
 #: src/ui_components/player_list/player_list.gd
 #: src/ui_components/player_profile/attributes_view/attributes_view.tscn
 msgid "Workrate"
-msgstr ""
+msgstr "Çalışma hızı"
 
 #: src/ui_components/player_list/player_list.gd
 #: src/ui_components/visual_formation/visual_formation.tscn
@@ -547,139 +521,117 @@ msgstr "İşaretleme"
 #: src/ui_components/player_list/player_list.gd
 #: src/ui_components/player_profile/attributes_view/attributes_view.tscn
 msgid "Reflexes"
-msgstr ""
+msgstr "Refleksler"
 
 #: src/ui_components/player_list/player_list.gd
 #: src/ui_components/player_profile/attributes_view/attributes_view.tscn
-#, fuzzy
-#| msgid "Position"
 msgid "Positioning"
-msgstr "Pozisyon"
+msgstr "Konumlanma"
 
 #: src/ui_components/player_list/player_list.gd
 #: src/ui_components/player_profile/attributes_view/attributes_view.tscn
-#, fuzzy
-#| msgid "Save states"
 msgid "Save feet"
-msgstr "Kayıt durumu"
+msgstr "Ayakla kurtarma"
 
 #: src/ui_components/player_list/player_list.gd
 #: src/ui_components/player_profile/attributes_view/attributes_view.tscn
-#, fuzzy
-#| msgid "Save states"
 msgid "Save hands"
-msgstr "Kayıt durumu"
+msgstr "Elle kurtarma"
 
 #: src/ui_components/player_list/player_list.gd
 #: src/ui_components/player_profile/attributes_view/attributes_view.tscn
 msgid "Diving"
-msgstr ""
+msgstr "Dalma"
 
 #: src/ui_components/player_list/player_list.gd
 #: src/ui_components/player_profile/attributes_view/attributes_view.tscn
 msgid "Pace"
-msgstr ""
+msgstr "Tempo"
 
 #: src/ui_components/player_list/player_list.gd
 #: src/ui_components/player_profile/attributes_view/attributes_view.tscn
-#, fuzzy
-#| msgid "Action"
 msgid "Acceleration"
-msgstr "Eylem"
+msgstr "Hızlanma"
 
 #: src/ui_components/player_list/player_list.gd
 #: src/ui_components/player_profile/attributes_view/attributes_view.tscn
 msgid "Stamina"
-msgstr ""
+msgstr "Dayanıklılık"
 
 #: src/ui_components/player_list/player_list.gd
 #: src/ui_components/player_profile/attributes_view/attributes_view.tscn
 msgid "Strength"
-msgstr ""
+msgstr "Fiziki güç"
 
 #: src/ui_components/player_list/player_list.gd
 #: src/ui_components/player_profile/attributes_view/attributes_view.tscn
 msgid "Agility"
-msgstr ""
+msgstr "Çeviklik"
 
 #: src/ui_components/player_list/player_list.gd
 #: src/ui_components/player_profile/attributes_view/attributes_view.tscn
 msgid "Jump"
-msgstr ""
+msgstr "Zıplama"
 
 #: src/ui_components/player_list/player_list.gd
 #: src/ui_components/player_profile/attributes_view/attributes_view.tscn
-#, fuzzy
-#| msgid "Pressing"
 msgid "Crossing"
-msgstr "Pres yapma"
+msgstr "Kesme"
 
 #: src/ui_components/player_list/player_list.gd
 #: src/ui_components/player_profile/attributes_view/attributes_view.tscn
-#, fuzzy
-#| msgid "Pressing"
 msgid "Passing"
-msgstr "Pres yapma"
+msgstr "Pas"
 
 #: src/ui_components/player_list/player_list.gd
 #: src/ui_components/player_profile/attributes_view/attributes_view.tscn
 msgid "Long passing"
-msgstr ""
+msgstr "Uzun pas"
 
 #: src/ui_components/player_list/player_list.gd
 #: src/ui_components/player_profile/attributes_view/attributes_view.tscn
 msgid "Tackling"
-msgstr ""
+msgstr "Çalım"
 
 #: src/ui_components/player_list/player_list.gd
 #: src/ui_components/player_profile/attributes_view/attributes_view.tscn
-#, fuzzy
-#| msgid "Loading"
 msgid "Heading"
-msgstr "Yükleniyor"
+msgstr "Başa baş mücadele"
 
 #: src/ui_components/player_list/player_list.gd
 #: src/ui_components/player_profile/attributes_view/attributes_view.tscn
-#, fuzzy
-#| msgid "Interface settings"
 msgid "Interception"
-msgstr "Arayüz ayarları"
+msgstr "Topu ele geçirme"
 
 #: src/ui_components/player_list/player_list.gd
 #: src/ui_components/player_profile/attributes_view/attributes_view.tscn
-#, fuzzy
-#| msgid "Settings"
 msgid "Shooting"
-msgstr "Ayarlar"
+msgstr "Şut"
 
 #: src/ui_components/player_list/player_list.gd
 #: src/ui_components/player_profile/attributes_view/attributes_view.tscn
-#, fuzzy
-#| msgid "Coming soon"
 msgid "Long shooting"
-msgstr "Yakında"
+msgstr "Uzun şut"
 
 #: src/ui_components/player_list/player_list.gd
 #: src/ui_components/player_profile/attributes_view/attributes_view.tscn
-#, fuzzy
-#| msgid "Penalties"
 msgid "Penalty"
-msgstr "Penaltılar"
+msgstr "Penaltı"
 
 #: src/ui_components/player_list/player_list.gd
 #: src/ui_components/player_profile/attributes_view/attributes_view.tscn
 msgid "Finishing"
-msgstr ""
+msgstr "Bitirme"
 
 #: src/ui_components/player_list/player_list.gd
 #: src/ui_components/player_profile/attributes_view/attributes_view.tscn
 msgid "Dribbling"
-msgstr ""
+msgstr "Top sürme"
 
 #: src/ui_components/player_list/player_list.gd
 #: src/ui_components/player_profile/attributes_view/attributes_view.tscn
 msgid "Blocking"
-msgstr ""
+msgstr "Engelleme"
 
 #: src/ui_components/player_list/player_list.gd
 msgid "All Teams"
@@ -840,11 +792,11 @@ msgstr "Dinlen"
 
 #: src/ui_components/visual_formation/players_bar/players_bar.tscn
 msgid "Players with low stamina will be changed automatically."
-msgstr ""
+msgstr "Dayanıklılığı düşük olan oyuncular otomatik olarak değiştirilecek."
 
 #: src/ui_components/visual_formation/players_bar/players_bar.tscn
 msgid "Auto change"
-msgstr ""
+msgstr "Otomatik oyuncu değişimi"
 
 #: src/ui_components/visual_formation/visual_formation.tscn
 #: src/screens/dashboard/dashboard.tscn
@@ -911,34 +863,28 @@ msgid "Offer contract"
 msgstr "Sözleşme öner"
 
 #: src/ui_components/player_profile/attributes_view/attributes_view.tscn
-#, fuzzy
-#| msgid "Pressing"
 msgid "Aggression"
-msgstr "Pres yapma"
+msgstr "Agresyon"
 
 #: src/ui_components/player_profile/attributes_view/attributes_view.tscn
 msgid "Offensive movement"
-msgstr ""
+msgstr "Ofansif hareket"
 
 #: src/ui_components/player_profile/attributes_view/attributes_view.tscn
 msgid "Techical"
-msgstr ""
+msgstr "Teknik"
 
 #: src/ui_components/player_profile/player_profile.tscn
 msgid "Attributes"
 msgstr "Özellikler"
 
 #: src/ui_components/player_profile/player_profile.tscn
-#, fuzzy
-#| msgid "Statistics"
 msgid "Statistics\n"
-msgstr "İstatistikler"
+msgstr "İstatistikler\n"
 
 #: src/ui_components/player_profile/player_profile.tscn
-#, fuzzy
-#| msgid "Contract"
 msgid "Contract\n"
-msgstr "Kontrat"
+msgstr "Kontrat\n"
 
 #: src/ui_components/player_profile/info_view/info_view.tscn
 msgid "Alternative position"
@@ -967,43 +913,35 @@ msgstr "Ortalama özellik"
 
 #: src/ui_components/player_profile/contract_view/contract_view.tscn
 msgid "Bonus"
-msgstr ""
+msgstr "Bonus"
 
 #: src/ui_components/player_profile/contract_view/contract_view.tscn
-#, fuzzy
-#| msgid "Goals"
 msgid "Goal"
-msgstr "Goller"
+msgstr "Gol"
 
 #: src/ui_components/player_profile/contract_view/contract_view.tscn
 msgid "Assist\n"
-msgstr ""
+msgstr "Asist\n"
 
 #: src/ui_components/player_profile/contract_view/contract_view.tscn
 msgid "Clean sheet"
-msgstr ""
+msgstr "Temiz sayfa"
 
 #: src/ui_components/player_profile/contract_view/contract_view.tscn
-#, fuzzy
-#| msgid "Nations cup"
 msgid "National cup"
 msgstr "Ulusal kupa"
 
 #: src/ui_components/player_profile/contract_view/contract_view.tscn
-#, fuzzy
-#| msgid "Continue"
 msgid "Continental cup"
-msgstr "Devam et"
+msgstr "Kıtasal kupa"
 
 #: src/ui_components/player_profile/contract_view/contract_view.tscn
 msgid "Make offer"
 msgstr "Teklif yap"
 
 #: src/ui_components/player_profile/statistics_view/statistics_view.tscn
-#, fuzzy
-#| msgid "Watchlist"
 msgid "Matches"
-msgstr "İzleme listesi"
+msgstr "Maçlar"
 
 #: src/ui_components/visual_calendar/visual_day/visual_day.gd
 #: src/ui_components/visual_calendar/match_list/match_info/match_info.tscn
@@ -1064,43 +1002,43 @@ msgstr "Pazar"
 
 #: src/resources/formation/position/position.gd
 msgid "G"
-msgstr ""
+msgstr "KL"
 
 #: src/resources/formation/position/position.gd
 msgid "DL"
-msgstr ""
+msgstr "SLB"
 
 #: src/resources/formation/position/position.gd
 msgid "DC"
-msgstr ""
+msgstr "STP"
 
 #: src/resources/formation/position/position.gd
 msgid "DR"
-msgstr ""
+msgstr "SĞB"
 
 #: src/resources/formation/position/position.gd
 msgid "C"
-msgstr ""
+msgstr "MO"
 
 #: src/resources/formation/position/position.gd
 msgid "WL"
-msgstr ""
+msgstr "SLK"
 
 #: src/resources/formation/position/position.gd
 msgid "WR"
-msgstr ""
+msgstr "SĞK"
 
 #: src/resources/formation/position/position.gd
 msgid "PL"
-msgstr ""
+msgstr "SF"
 
 #: src/resources/formation/position/position.gd
 msgid "PC"
-msgstr ""
+msgstr "CM"
 
 #: src/resources/formation/position/position.gd
 msgid "PR"
-msgstr ""
+msgstr "ST"
 
 #: src/utils/logic/email_util.gd
 msgid "Next match: {team_name}"
@@ -1131,10 +1069,8 @@ msgstr ""
 "{team_name} takımı teklifini düşünüp birkaç güne dönüş yapacak."
 
 #: src/utils/logic/email_util.gd
-#, fuzzy
-#| msgid "Offer for {player name} declined"
 msgid "Offer for {player_name} declined"
-msgstr "{player name} için olan teklif reddedildi"
+msgstr "{player_name} için olan teklif reddedildi"
 
 #: src/utils/logic/email_util.gd
 msgid ""
@@ -1174,33 +1110,31 @@ msgstr "Yedekten kurtarma"
 
 #: src/utils/ui/theme_util.gd
 msgid "Dark"
-msgstr ""
+msgstr "Karanlık"
 
 #: src/utils/ui/theme_util.gd
-#, fuzzy
-#| msgid "Right"
 msgid "Light"
-msgstr "Sağ"
+msgstr "Aydınlık"
 
 #: src/utils/ui/theme_util.gd
 msgid "Solarized light"
-msgstr ""
+msgstr "Solarize aydınlık"
 
 #: src/utils/ui/theme_util.gd
 msgid "Solarized dark"
-msgstr ""
+msgstr "Solarize karanlık"
 
 #: src/utils/ui/theme_util.gd
 msgid "Red"
-msgstr ""
+msgstr "Kırmızı"
 
 #: src/utils/ui/theme_util.gd
 msgid "Hacker"
-msgstr ""
+msgstr "Hacker"
 
 #: src/utils/ui/theme_util.gd
 msgid "Custom theme"
-msgstr ""
+msgstr "Özel tema"
 
 #: src/screens/settings/settings.tscn
 msgid "Input"
@@ -1295,19 +1229,19 @@ msgstr "Kayıt durumu"
 
 #: src/screens/save_states_screen/save_states_screen.tscn
 msgid "All save states are located in the following directory"
-msgstr ""
+msgstr "Bütün oyun kayıtları şu konumda yer almaktadır"
 
 #: src/screens/save_states_screen/save_states_screen.tscn
-#, fuzzy
-#| msgid "Copy"
 msgid "Copy path"
-msgstr "Kopyala"
+msgstr "Konumu kopyala"
 
 #: src/screens/save_states_screen/save_states_screen.tscn
 msgid ""
 "Note: Deleted save states might still exist in your trash, if supported and "
 "not disabled by your operating system."
 msgstr ""
+"Not: Silinen kayıt dosyaları eğer işletim sisteminizce veya destekleniyorsa "
+"halen Geri Dönüşüm Kutusunda yer alabilir."
 
 #: src/screens/save_states_screen/save_states_screen.tscn
 #: src/screens/dashboard/dashboard.tscn
@@ -1342,7 +1276,7 @@ msgstr "Oluşturuldu"
 
 #: src/screens/save_states_screen/save_state_entry/save_state_entry.tscn
 msgid "Broken"
-msgstr ""
+msgstr "Bozulmuş"
 
 #: src/screens/save_states_screen/save_state_entry/save_state_entry.tscn
 msgid "Delete"
@@ -1368,6 +1302,9 @@ msgid ""
 "reloading.\n"
 "{path}"
 msgstr ""
+"Bu kayıt dosyası ve yedeği bozulmuş durumdadır. İlgili konumda kayıt "
+"dosyasını bulabilir, onarmayı deneyebilir ve yeniden yükleyebilirsiniz.\n"
+"{path}"
 
 #: src/screens/dashboard/dashboard.gd
 msgid "Start match"
@@ -2518,7 +2455,7 @@ msgstr "Sahiplik"
 
 #: src/screens/match_screen/match_screen.tscn
 msgid "Do you want to simulate the whole match?"
-msgstr ""
+msgstr "Bütün maçı simüle etmek istediğinize emin misiniz?"
 
 #: src/screens/match_screen/penalties_bar/penalties_bar.tscn
 #: src/screens/match_screen/statistics/match_stats.tscn
@@ -2527,53 +2464,51 @@ msgstr "Penaltılar"
 
 #: src/screens/match_screen/statistics/match_stats.tscn
 msgid "0"
-msgstr ""
+msgstr "0"
 
 #: src/screens/match_screen/statistics/match_stats.tscn
 msgid "50 %"
-msgstr ""
+msgstr "% 50"
 
 #: src/screens/match_screen/statistics/match_stats.tscn
 msgid "0 (0)"
-msgstr ""
+msgstr "0 (0)"
 
 #: src/screens/match_screen/statistics/match_stats.tscn
 msgid "Shots (on target)"
-msgstr ""
+msgstr "Şutlar (hedefi bulan)"
 
 #: src/screens/match_screen/statistics/match_stats.tscn
 msgid "Shots hit post"
-msgstr ""
+msgstr "Direği bulan şutlar"
 
 #: src/screens/match_screen/statistics/match_stats.tscn
 msgid "Passes (success)"
-msgstr ""
+msgstr "Paslar (başarılı)"
 
 #: src/screens/match_screen/statistics/match_stats.tscn
 msgid "Kick-ins"
-msgstr ""
+msgstr "Taç atışları"
 
 #: src/screens/match_screen/statistics/match_stats.tscn
 msgid "Free kicks"
-msgstr ""
+msgstr "Serbest vuruşlar"
 
 #: src/screens/match_screen/statistics/match_stats.tscn
-#, fuzzy
-#| msgid "Penalties"
 msgid "Penalties 10m"
-msgstr "Penaltılar"
+msgstr "Penaltılar 10m"
 
 #: src/screens/match_screen/statistics/match_stats.tscn
 msgid "Fouls"
-msgstr ""
+msgstr "Fauller"
 
 #: src/screens/match_screen/statistics/match_stats.tscn
 msgid "Tackles (success)"
-msgstr ""
+msgstr "Çalımlar (başarılı)"
 
 #: src/screens/match_screen/statistics/match_stats.tscn
 msgid "Corners"
-msgstr ""
+msgstr "Köşe vuruşları"
 
 #: src/screens/settings/theme_picker/theme_picker.tscn
 msgid "Themes"
