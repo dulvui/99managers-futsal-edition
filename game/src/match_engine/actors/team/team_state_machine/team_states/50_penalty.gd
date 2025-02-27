@@ -33,6 +33,13 @@ func enter() -> void:
 	
 	if owner.team.has_ball:
 		shooting_player = owner.team.players[-1]
+		# find best penalty taker currently on field
+		for player: SimPlayer in owner.team.players:
+			if player.is_goalkeeper:
+				continue
+			if player.player_res.attributes.technical.penalty > \
+					shooting_player.player_res.attributes.technical.penalty:
+				shooting_player = player
 		shooting_player.set_state(PlayerStatePenaltyShoot.new())
 	else:
 		goalkeeper.set_state(PlayerStateGoalkeeperPenalty.new())

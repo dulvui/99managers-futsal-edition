@@ -70,7 +70,8 @@ func setup(matchz: Match, p_home_team: Team = null, p_away_team: Team = null) ->
 
 	engine = MatchEngine.new()
 	engine.setup(matchz, p_home_team, p_away_team)
-	engine.goal.connect(_on_engine_goal)
+	engine.goal.connect(_on_engine_key_action)
+	engine.key_action.connect(_on_engine_key_action)
 	engine.match_finish.connect(_on_engine_match_finish)
 
 	# setup visual match
@@ -133,15 +134,15 @@ func _on_engine_match_finish() -> void:
 	Global.match_paused = true
 
 
-func _on_engine_goal() -> void:
+func _on_engine_key_action() -> void:
 	var seconds: int = visual_rng.randi_range(3, 6)
 	show_action_ticks = Const.TICKS * seconds
 	var timestamp: int = engine.ticks - show_action_ticks
 
-	var ticks_after_goal: int = visual_rng.randi_range(1, 3) * Const.TICKS
-	show_action_ticks += ticks_after_goal
+	var ticks_after: int = visual_rng.randi_range(3, 6) * Const.TICKS
+	show_action_ticks += ticks_after
 
-	_update_engine(ticks_after_goal)
+	_update_engine(ticks_after)
 
 	ball_buffer.start_replay(timestamp)
 	teams_buffer.start_replay(timestamp)

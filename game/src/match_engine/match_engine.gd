@@ -10,7 +10,7 @@ signal penalties_start
 signal match_finish
 
 signal goal
-# signal key_action
+signal key_action
 
 var field: SimField
 var home_team: SimTeam
@@ -226,10 +226,12 @@ func right_possess() -> void:
 
 func _on_home_commits_foul(foul_position: Vector2) -> void:
 	_check_foul_result(home_team, foul_position)
+	key_action.emit()
 
 
 func _on_away_commits_foul(foul_position: Vector2) -> void:
 	_check_foul_result(away_team, foul_position)
+	key_action.emit()
 
 
 func _check_foul_result(commiting_team: SimTeam, foul_position: Vector2) -> void:
@@ -276,6 +278,7 @@ func _on_goal_line_out_left() -> void:
 		right_team.stats.corners += 1
 		left_team.set_state(TeamStateCorner.new())
 		right_team.set_state(TeamStateCorner.new())
+		key_action.emit()
 		return
 
 	# goalkeeper ball
@@ -292,6 +295,7 @@ func _on_goal_line_out_right() -> void:
 		left_team.stats.corners += 1
 		left_team.set_state(TeamStateCorner.new())
 		right_team.set_state(TeamStateCorner.new())
+		key_action.emit()
 		return
 
 	# goalkeeper ball

@@ -291,6 +291,14 @@ text = "Long shooting"
 unique_name_in_owner = true
 layout_mode = 2
 
+[node name="FreeKickLabel" type="Label" parent="Technical"]
+layout_mode = 2
+text = "Free kick"
+
+[node name="FreeKick" parent="Technical" instance=ExtResource("3_7lr25")]
+unique_name_in_owner = true
+layout_mode = 2
+
 [node name="PenaltyLabel" type="Label" parent="Technical"]
 layout_mode = 2
 text = "Penalty"

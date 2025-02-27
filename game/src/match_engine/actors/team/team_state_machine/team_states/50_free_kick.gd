@@ -5,46 +5,69 @@
 class_name TeamStateFreeKick
 extends TeamStateMachineState
 
+var shooting_player: SimPlayer
 
 func _init() -> void:
 	super("TeamStateFreeKick")
 
 
 func enter() -> void:
-	# define penalty spot side
-	var penalty_spot: Vector2
-	if owner.team.has_ball and owner.team.left_half:
-		penalty_spot = owner.field.penalty_areas.spot_right
-	else:
-		penalty_spot = owner.field.penalty_areas.spot_left
-	# set ball position
-	owner.field.ball.set_pos(penalty_spot)
-	
-	# move players to above penalty spot line and min 5m away from spot
-	for player: SimPlayer in owner.team.players:
-		if not player.is_goalkeeper:
-			# start from min 5m distance
-			var deviation: int = owner.field.PIXEL_FACTOR * 5
-			# add random 0 to 10 meters
-			deviation += player.rng.randi_range(0, owner.field.PIXEL_FACTOR * 10)
-			# randomly make deviation negative
-			if player.rng.randi() % 2 == 0:
-				deviation = -deviation
-			player.set_destination(Vector2(penalty_spot.x, penalty_spot.y + deviation))
-			player.set_state(PlayerStateIdle.new())
-	
 	if owner.team.has_ball:
-		var shooting_player: SimPlayer = owner.team.players[-1]
-		shooting_player.set_state(PlayerStatePenaltyShoot.new())
+		shooting_player = owner.team.players[-1]
+		# find best freekick taker currently on field
+		for player: SimPlayer in owner.team.players:
+			player.set_state(PlayerStateIdle.new())
+			if player.is_goalkeeper:
+				continue
+			if player.player_res.attributes.technical.free_kick > \
+					shooting_player.player_res.attributes.technical.free_kick:
+				shooting_player = player
+
+		# move other players forward, except one defender in the back
+		var defending_player_found: bool = false
+		for player: SimPlayer in owner.team.players:
+			if player.is_goalkeeper:
+				continue
+			if player == shooting_player:
+				continue
+			if not defending_player_found:
+				defending_player_found = true
+				player.move_defense_pos()
+				continue
+			player.move_offense_pos()
+
+		# make player shoot
+		shooting_player.set_state(PlayerStateFreeKick.new())
 	else:
-		var goalkeeper: SimPlayer = owner.team.players[0]
-		goalkeeper.set_state(PlayerStateGoalkeeperPenalty.new())
+		# let some players build a wall
+		var players_in_wall: int = 1
+
+		# move wall 5m away and between ball and goal
+		var wall_position: Vector2 = owner.field.ball.pos
+		if owner.team.left_half:
+			wall_position += wall_position.direction_to(owner.field.goals.left) * owner.field.PIXEL_FACTOR * 5
+		else:
+			wall_position += wall_position.direction_to(owner.field.goals.right) * owner.field.PIXEL_FACTOR * 5
+
+		for player: SimPlayer in owner.team.players:
+			player.set_state(PlayerStateIdle.new())
+			if player.is_goalkeeper:
+				continue
+			if players_in_wall > 0:
+				players_in_wall -= 1
+				player.set_destination(wall_position)
+				continue
+
+			player.move_defense_pos()
 
 
 func execute() -> void:
-	pass
-	# if team has ball
-	# move player to free kick
-	# shoot
-	# else
-	# some players make wall
+	if owner.team.has_ball:
+		if shooting_player != null:
+			# wait for shooting player to shoot
+			if shooting_player.state_machine.state is PlayerStateFreeKick:
+				return
+			owner.team.set_state(TeamStateAttack.new())
+			owner.team.team_opponents.set_state(TeamStateDefend.new())
+
+
