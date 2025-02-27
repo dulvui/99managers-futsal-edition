@@ -43,12 +43,13 @@ func enter() -> void:
 
 
 func execute() -> void:
-	if owner.team.player_control() == owner.player:
-		if owner.player.destination_reached():
-			wait_counter += 1
-			if wait_counter >= wait:
-				corner_kick()
-				owner.player.set_state(PlayerStateAttack.new())
+	if owner.team.has_ball:
+		if owner.team.player_control() == owner.player:
+			if owner.player.destination_reached():
+				wait_counter += 1
+				if wait_counter >= wait:
+					corner_kick()
+					owner.player.set_state(PlayerStateAttack.new())
 
 
 func exit() -> void:

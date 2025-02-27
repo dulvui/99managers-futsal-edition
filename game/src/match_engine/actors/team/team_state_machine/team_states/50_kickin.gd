@@ -11,6 +11,7 @@ func _init() -> void:
 
 
 func enter() -> void:
+	owner.field.clock_running = false
 	owner.field.kickin = true
 
 	if owner.team.has_ball:
@@ -19,7 +20,7 @@ func enter() -> void:
 			if not player.is_goalkeeper:
 				player.move_offense_pos()
 
-		owner.team.player_control(owner.team.player_nearest_to_ball())
+		owner.team.player_control(owner.team.player_nearest_to_ball([owner.team.players[0]]))
 		owner.team.player_control().set_destination(owner.field.ball.pos)
 	else:
 		for player: SimPlayer in owner.team.players:
@@ -39,6 +40,7 @@ func execute() -> void:
 
 
 func exit() -> void:
+	owner.field.kickin = false
 	owner.field.clock_running = true
 
 
@@ -58,4 +60,3 @@ func pass_ball() -> void:
 	owner.field.ball.short_pass(owner.team.player_receive_ball().pos, 20)
 	owner.team.stats.passes += 1
 
-	owner.field.kickin = false

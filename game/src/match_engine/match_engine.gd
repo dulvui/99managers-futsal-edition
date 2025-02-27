@@ -283,8 +283,8 @@ func _on_goal_line_out_left() -> void:
 	if left_team.has_ball:
 		right_possess()
 		right_team.stats.corners += 1
-		left_team.set_state(TeamStateCorner.new())
 		right_team.set_state(TeamStateCorner.new())
+		left_team.set_state(TeamStateCorner.new())
 		key_action.emit()
 		return
 
