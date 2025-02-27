@@ -70,9 +70,9 @@ func setup(matchz: Match, p_home_team: Team = null, p_away_team: Team = null) ->
 
 	engine = MatchEngine.new()
 	engine.setup(matchz, p_home_team, p_away_team)
-	engine.goal.connect(_on_engine_key_action)
-	engine.key_action.connect(_on_engine_key_action)
-	engine.match_finish.connect(_on_engine_match_finish)
+	engine.goal.connect(_on_engine_key_action.bind(true))
+	engine.key_action.connect(_on_engine_key_action.bind(false))
+	engine.match_finish.connect(_on_engine_match_finish.bind(false))
 
 	# setup visual match
 	visual_match.setup(self)
@@ -134,20 +134,21 @@ func _on_engine_match_finish() -> void:
 	Global.match_paused = true
 
 
-func _on_engine_key_action() -> void:
+func _on_engine_key_action(goal: bool) -> void:
 	if not is_match_visible():
-		var seconds: int = visual_rng.randi_range(6, 12)
-		show_action_ticks = Const.TICKS * seconds
-		var timestamp: int = engine.ticks - show_action_ticks
+		if Global.match_speed == Enum.MatchSpeed.KEY_ACTIONS or goal:
+			var seconds: int = visual_rng.randi_range(6, 12)
+			show_action_ticks = Const.TICKS * seconds
+			var timestamp: int = engine.ticks - show_action_ticks
 
-		var ticks_after: int = visual_rng.randi_range(6, 12) * Const.TICKS
-		show_action_ticks += ticks_after
+			var ticks_after: int = visual_rng.randi_range(6, 12) * Const.TICKS
+			show_action_ticks += ticks_after
 
-		_update_engine(ticks_after)
+			_update_engine(ticks_after)
 
-		ball_buffer.start_replay(timestamp)
-		teams_buffer.start_replay(timestamp)
-		stats_buffer.start_replay(timestamp)
+			ball_buffer.start_replay(timestamp)
+			teams_buffer.start_replay(timestamp)
+			stats_buffer.start_replay(timestamp)
 
 
 func _update_engine(ticks: int = 1) -> void:
