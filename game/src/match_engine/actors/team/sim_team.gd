@@ -25,8 +25,6 @@ var change_request: bool
 var has_ball: bool
 var left_half: bool
 var ready_for_kickoff: bool
-# to count fouls per half and give
-var fouls_count: int
 
 # false, if team is controlled by player
 var simulated: bool
@@ -68,8 +66,6 @@ func setup(
 	change_request = false
 	ready_for_kickoff = false
 	do_change = false
-
-	fouls_count = 0
 
 	auto_change_request = false
 	low_stamina_players = []

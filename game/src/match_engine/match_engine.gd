@@ -225,50 +225,54 @@ func right_possess() -> void:
 
 
 func _on_home_commits_foul(foul_position: Vector2) -> void:
-	home_team.stats.fouls += 1
 	_check_foul_result(home_team, foul_position)
 	key_action.emit()
 
 
 func _on_away_commits_foul(foul_position: Vector2) -> void:
-	away_team.stats.fouls += 1
 	_check_foul_result(away_team, foul_position)
 	key_action.emit()
 
 
 func _check_foul_result(commiting_team: SimTeam, foul_position: Vector2) -> void:
-	commiting_team.fouls_count += 1
+	commiting_team.stats.fouls_count += 1
+	commiting_team.stats.fouls += 1
 	commiting_team.team_opponents.gain_possession()
 	field.clock_running = false
 
 	# check penalty
 	if commiting_team.left_half:
 		if Geometry2D.is_point_in_polygon(foul_position, field.penalty_areas.left):
+			commiting_team.team_opponents.stats.penalties += 1
 			field.ball.set_pos(field.penalty_areas.spot_left)
 			home_team.set_state(TeamStatePenalty.new())
 			away_team.set_state(TeamStatePenalty.new())
 			return
 	else:
 		if Geometry2D.is_point_in_polygon(foul_position, field.penalty_areas.right):
+			commiting_team.team_opponents.stats.penalties += 1
 			field.ball.set_pos(field.penalty_areas.spot_right)
 			home_team.set_state(TeamStatePenalty.new())
 			away_team.set_state(TeamStatePenalty.new())
 			return
 
 	# check penalty 10m
-	if commiting_team.fouls_count >= 6:
+	if commiting_team.stats.fouls_count >= 6:
 		if commiting_team.left_half:
+			commiting_team.team_opponents.stats.penalties_10m += 1
 			field.ball.set_pos(field.penalty_areas.spot_10m_left)
 			home_team.set_state(TeamStatePenalty.new())
 			away_team.set_state(TeamStatePenalty.new())
 			return
 		else:
+			commiting_team.team_opponents.stats.penalties_10m += 1
 			field.ball.set_pos(field.penalty_areas.spot_10m_right)
 			home_team.set_state(TeamStatePenalty.new())
 			away_team.set_state(TeamStatePenalty.new())
 			return
 
 	# free kick
+	commiting_team.team_opponents.stats.free_kicks += 1
 	field.ball.set_pos(foul_position)
 	home_team.set_state(TeamStateFreeKick.new())
 	away_team.set_state(TeamStateFreeKick.new())
@@ -339,8 +343,8 @@ func _on_goal_right() -> void:
 
 func _teams_switch_sides() -> void:
 	# reset foul counter
-	home_team.fouls_count = 0
-	away_team.fouls_count = 0
+	home_team.stats.fouls_count = 0
+	away_team.stats.fouls_count = 0
 
 	if home_team.left_half:
 		left_team = away_team

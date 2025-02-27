@@ -18,6 +18,8 @@ var free_kicks: int = 0
 var penalties: int = 0
 var penalties_10m: int = 0  # from 10 meters, after 6 fouls
 var fouls: int = 0
+# to count fouls per half and give
+var fouls_count: int = 0
 var tackles: int = 0
 var tackles_success: int = 0
 var corners: int = 0
@@ -41,6 +43,7 @@ func duplicate() -> MatchStatistics:
 	copy.penalties = penalties
 	copy.penalties_10m = penalties_10m
 	copy.fouls = fouls
+	copy.fouls_count = fouls_count
 	copy.tackles = tackles
 	copy.tackles_success = tackles_success
 	copy.corners = corners
@@ -49,3 +52,5 @@ func duplicate() -> MatchStatistics:
 	copy.penalty_shootout_shots = penalty_shootout_shots
 	copy.penalty_shootout_goals = penalty_shootout_goals
 	return copy
+
+

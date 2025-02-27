@@ -16,6 +16,8 @@ extends GridContainer
 @onready var shots_hit_post_away: Label = %ShotsHitPostAway
 @onready var passes_home: Label = %PassesHome
 @onready var passes_away: Label = %PassesAway
+@onready var passes_accuracy_home: Label = %PassesAccuracyHome
+@onready var passes_accuracy_away: Label = %PassesAccuracyAway
 @onready var kick_ins_home: Label = %KickInsHome
 @onready var kick_ins_away: Label = %KickInsAway
 @onready var free_kicks_home: Label = %FreeKicksHome
@@ -39,14 +41,22 @@ extends GridContainer
 func update_stats(home: MatchStatistics, away: MatchStatistics) -> void:
 	goals_home.text = str(home.goals)
 	goals_away.text = str(away.goals)
-	possession_home.text = str(home.possession) + " %"
-	possession_away.text = str(away.possession) + " %"
+	possession_home.text = str(home.possession) + "%"
+	possession_away.text = str(away.possession) + "%"
 	shots_home.text = "%d (%d)" % [home.shots, home.shots_on_target]
 	shots_away.text = "%d (%d)" % [away.shots, away.shots_on_target]
 	shots_hit_post_home.text = str(home.shots_hit_post)
 	shots_hit_post_away.text = str(away.shots_hit_post)
 	passes_home.text = "%d (%d)" % [home.passes, home.passes_success]
 	passes_away.text = "%d (%d)" % [away.passes, away.passes_success]
+	if home.passes == 0:
+		passes_accuracy_home.text = "100 %"
+	else:
+		passes_accuracy_home.text = str(int((home.passes_success * 1.0 / home.passes) * 100.0)) + "%"
+	if away.passes == 0:
+		passes_accuracy_away.text = "100 %"
+	else:
+		passes_accuracy_away.text = str(int((away.passes_success * 1.0 / away.passes) * 100.0)) + "%"
 	kick_ins_home.text = str(home.kick_ins)
 	kick_ins_away.text = str(away.kick_ins)
 	free_kicks_home.text = str(home.free_kicks)
