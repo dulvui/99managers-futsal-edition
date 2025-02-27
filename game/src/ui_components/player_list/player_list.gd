@@ -456,6 +456,7 @@ func _show_technical() -> void:
 	_add_column(tr("Interception"), func(p: Player) -> int: return p.attributes.technical.interception)
 	_add_column(tr("Shooting"), func(p: Player) -> int: return p.attributes.technical.shooting)
 	_add_column(tr("Long shooting"), func(p: Player) -> int: return p.attributes.technical.long_shooting)
+	_add_column(tr("Free kick"), func(p: Player) -> int: return p.attributes.technical.free_kick)
 	_add_column(tr("Penalty"), func(p: Player) -> int: return p.attributes.technical.penalty)
 	_add_column(tr("Finishing"), func(p: Player) -> int: return p.attributes.technical.finishing)
 	_add_column(tr("Dribbling"), func(p: Player) -> int: return p.attributes.technical.dribbling)

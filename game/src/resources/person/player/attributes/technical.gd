@@ -14,6 +14,7 @@ extends JSONResource
 @export var interception: int
 @export var shooting: int
 @export var long_shooting: int
+@export var free_kick: int
 @export var penalty: int
 @export var finishing: int
 @export var dribbling: int
@@ -29,6 +30,7 @@ func _init(
 	p_interception: int = Const.MAX_PRESTIGE,
 	p_shooting: int = Const.MAX_PRESTIGE,
 	p_long_shooting: int = Const.MAX_PRESTIGE,
+	p_free_kick: int = Const.MAX_PRESTIGE,
 	p_penalty: int = Const.MAX_PRESTIGE,
 	p_finishing: int = Const.MAX_PRESTIGE,
 	p_dribbling: int = Const.MAX_PRESTIGE,
@@ -42,6 +44,7 @@ func _init(
 	interception = p_interception
 	shooting = p_shooting
 	long_shooting = p_long_shooting
+	free_kick = p_free_kick
 	penalty = p_penalty
 	finishing = p_finishing
 	dribbling = p_dribbling
@@ -58,8 +61,9 @@ func average() -> float:
 	value += interception
 	value += shooting
 	value += long_shooting
+	value += free_kick
 	value += penalty
 	value += finishing
 	value += dribbling
 	value += blocking
-	return value / 12.0
+	return value / 13.0

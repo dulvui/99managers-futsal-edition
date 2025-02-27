@@ -36,6 +36,7 @@ extends HBoxContainer
 @onready var interception: ColorLabel = %Interception
 @onready var shooting: ColorLabel = %Shooting
 @onready var long_shooting: ColorLabel = %LongShooting
+@onready var free_kick: ColorLabel = %FreeKick
 @onready var penalty: ColorLabel = %Penalty
 @onready var finishing: ColorLabel = %Finishing
 @onready var dribbling: ColorLabel = %Dribbling
@@ -101,6 +102,8 @@ func setup(player: Player) -> void:
 	shooting.set_value(player.attributes.technical.shooting)
 	long_shooting.setup("Long_shooting")
 	long_shooting.set_value(player.attributes.technical.long_shooting)
+	free_kick.setup("Free kick")
+	free_kick.set_value(player.attributes.technical.free_kick)
 	penalty.setup("Penalty")
 	penalty.set_value(player.attributes.technical.penalty)
 	finishing.setup("Finishing")
