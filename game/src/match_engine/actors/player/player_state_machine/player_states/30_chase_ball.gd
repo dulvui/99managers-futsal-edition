@@ -15,6 +15,15 @@ func enter() -> void:
 
 
 func execute() -> void:
+	# check for foul
+	var controlling_player: SimPlayer = owner.team.team_opponents.player_control()
+	if owner.player.collides(controlling_player):
+		# TODO take aggressivity and other attributes into account
+		if owner.player.rng.randi_range(0, 100) > 80:
+			owner.team.foul.emit(controlling_player.pos)
+			return
+	
+	# check if ball can be taken
 	if owner.player.is_touching_ball():
 		owner.team.gain_possession()
 		owner.team.player_control(owner.player)

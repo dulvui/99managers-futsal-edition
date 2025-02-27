@@ -135,7 +135,6 @@ func update() -> void:
 
 		_check_ball_wall_colissions()
 		_check_ball_players_colissions()
-		# _check_player_colissions()
 	elif penalties:
 		goals.check_post_colissions(ball)
 		_check_ball_wall_colissions()
@@ -266,13 +265,6 @@ func _check_ball_players_colissions() -> void:
 		if player.collides(ball):
 			ball.stop()
 			return
-
-
-func _check_player_colissions() -> void:
-	for player: SimPlayer in left_team.players:
-		for player2: SimPlayer in right_team.players:
-			if player.collides(player2):
-				player.stop()
 
 
 func _check_goal_line_penalties() -> void:

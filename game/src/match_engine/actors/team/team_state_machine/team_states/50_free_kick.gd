@@ -34,9 +34,10 @@ func enter() -> void:
 			player.set_state(PlayerStateIdle.new())
 	
 	if owner.team.has_ball:
-		shooting_player = owner.team.players[-1]
+		var shooting_player: SimPlayer = owner.team.players[-1]
 		shooting_player.set_state(PlayerStatePenaltyShoot.new())
 	else:
+		var goalkeeper: SimPlayer = owner.team.players[0]
 		goalkeeper.set_state(PlayerStateGoalkeeperPenalty.new())
 
 
