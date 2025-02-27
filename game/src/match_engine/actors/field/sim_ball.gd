@@ -108,21 +108,19 @@ func penalty(player: Player) -> void:
 	shoot(random_target, power * rng.randi_range(1, 3))
 
 
-func free_kick(player: Player) -> void:
-	var left_half: bool = pos.x < field.size.x / 2
-
-	var power: int = player.attributes.technical.shooting / 2
+func free_kick(player: SimPlayer) -> void:
+	var power: int = player.player_res.attributes.technical.shooting
 
 	colission_timer = 0
 
 	var random_target: Vector2
-	if left_half:
+	if player.left_half:
 		random_target = field.goals.right
 	else:
 		random_target = field.goals.left
 
 	# 1.0 best, 0.05 worst
-	var aim_factor: float = 20.0 / player.attributes.technical.free_kick
+	var aim_factor: float = 20.0 / player.player_res.attributes.technical.free_kick
 	# 0.6 best, 1.55 worst
 	var aim: float = 0.6 + (1.0 - aim_factor)
 

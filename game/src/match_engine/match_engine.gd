@@ -225,11 +225,13 @@ func right_possess() -> void:
 
 
 func _on_home_commits_foul(foul_position: Vector2) -> void:
+	home_team.stats.fouls += 1
 	_check_foul_result(home_team, foul_position)
 	key_action.emit()
 
 
 func _on_away_commits_foul(foul_position: Vector2) -> void:
+	away_team.stats.fouls += 1
 	_check_foul_result(away_team, foul_position)
 	key_action.emit()
 
@@ -237,6 +239,7 @@ func _on_away_commits_foul(foul_position: Vector2) -> void:
 func _check_foul_result(commiting_team: SimTeam, foul_position: Vector2) -> void:
 	commiting_team.fouls_count += 1
 	commiting_team.team_opponents.gain_possession()
+	field.clock_running = false
 
 	# check penalty
 	if commiting_team.left_half:

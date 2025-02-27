@@ -39,6 +39,8 @@ func _init(p_rng: RandomNumberGenerator, p_radius: float = 9) -> void:
 
 	head_look = Vector2.ZERO
 
+	is_goalkeeper = false
+
 	ticks_in_field = 0
 
 

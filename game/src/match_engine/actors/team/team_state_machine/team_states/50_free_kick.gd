@@ -27,6 +27,7 @@ func enter() -> void:
 		var defending_player_found: bool = false
 		for player: SimPlayer in owner.team.players:
 			if player.is_goalkeeper:
+				player.move_defense_pos()
 				continue
 			if player == shooting_player:
 				continue

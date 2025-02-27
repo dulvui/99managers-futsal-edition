@@ -15,10 +15,16 @@ func _init() -> void:
 
 func enter() -> void:
 	owner.player.head_look = owner.field.ball.pos
-	owner.player.set_destination(owner.field.ball.pos)
+	# move player 1m behind ball
+	var destination: Vector2 = owner.field.ball.pos
+	if owner.player.left_half:
+		destination += destination.direction_to(owner.field.goals.left) * owner.field.PIXEL_FACTOR * 1
+	else:
+		destination += destination.direction_to(owner.field.goals.right) * owner.field.PIXEL_FACTOR * 1
+	owner.player.set_destination(destination)
 
 	wait = owner.player.rng.randi_range(3, 7)
-	wait_after_shot = owner.player.rng.randi_range(2, 7)
+	wait_after_shot = 1
 
 
 func execute() -> void:
@@ -36,13 +42,15 @@ func execute() -> void:
 	# TODO decicde if shooting or passing
 
 	# shoot
-	owner.field.ball.free_kick(owner.player.player_res)
+	owner.field.ball.free_kick(owner.player)
+	# resume clock
+	owner.field.clock_running = true
+
+	# go idle and let team move player back to center, if needed
+	owner.player.set_state(PlayerStateIdle.new())
 
 	if wait_after_shot > 0:
 		wait_after_shot -= 1
 		return
-
-	# go idle and let team move player back to center, if needed
-	owner.player.set_state(PlayerStateIdle.new())
 
 

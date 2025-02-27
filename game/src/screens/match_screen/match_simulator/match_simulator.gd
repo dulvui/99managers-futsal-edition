@@ -135,18 +135,19 @@ func _on_engine_match_finish() -> void:
 
 
 func _on_engine_key_action() -> void:
-	var seconds: int = visual_rng.randi_range(3, 6)
-	show_action_ticks = Const.TICKS * seconds
-	var timestamp: int = engine.ticks - show_action_ticks
+	if not is_match_visible():
+		var seconds: int = visual_rng.randi_range(6, 12)
+		show_action_ticks = Const.TICKS * seconds
+		var timestamp: int = engine.ticks - show_action_ticks
 
-	var ticks_after: int = visual_rng.randi_range(3, 6) * Const.TICKS
-	show_action_ticks += ticks_after
+		var ticks_after: int = visual_rng.randi_range(6, 12) * Const.TICKS
+		show_action_ticks += ticks_after
 
-	_update_engine(ticks_after)
+		_update_engine(ticks_after)
 
-	ball_buffer.start_replay(timestamp)
-	teams_buffer.start_replay(timestamp)
-	stats_buffer.start_replay(timestamp)
+		ball_buffer.start_replay(timestamp)
+		teams_buffer.start_replay(timestamp)
+		stats_buffer.start_replay(timestamp)
 
 
 func _update_engine(ticks: int = 1) -> void:
