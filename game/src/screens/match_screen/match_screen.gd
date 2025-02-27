@@ -22,10 +22,11 @@ var away_stats: MatchStatistics
 # views
 @onready var match_simulator: MatchSimulator = $MatchSimulator
 @onready var views: MarginContainer = %Views
-@onready var stats: VisualMatchStats = %Stats
 @onready var comments: VBoxContainer = %Log
-@onready var events: MatchEvents = %Events
 @onready var formation: VisualFormation = %Formation
+@onready var overview: HBoxContainer = %Overview
+@onready var stats: VisualMatchStats = %Stats
+@onready var events: MatchEvents = %Events
 
 # top bar
 @onready var time_label: Label = %Time
@@ -48,9 +49,6 @@ var away_stats: MatchStatistics
 @onready var faster_button: Button = %FasterButton
 @onready var slower_button: Button = %SlowerButton
 @onready var match_speed_label: Label = %SpeedFactor
-@onready var events_button: Button = %EventsButton
-@onready var stats_button: Button = %StatsButton
-@onready var formation_button: Button = %FormationButton
 @onready var simulate_button: Button = %SimulateButton
 @onready var dashboard_button: Button = %DashboardButton
 
@@ -121,7 +119,7 @@ func _ready() -> void:
 	home_stats = match_simulator.engine.home_team.stats
 	away_stats = match_simulator.engine.away_team.stats
 	
-	last_active_view = stats
+	last_active_view = overview
 	_hide_views()
 
 	# connect match engine signals
@@ -192,19 +190,12 @@ func _on_match_finsh() -> void:
 #
 # button pressed signals
 #
-func _on_commentary_button_pressed() -> void:
-	_toggle_view(comments)
+
+func _on_overview_button_pressed() -> void:
+	_toggle_view(overview)
 
 
-func _on_stats_button_pressed() -> void:
-	_toggle_view(stats)
-
-
-func _on_events_button_pressed() -> void:
-	_toggle_view(events)
-
-
-func _on_formation_button_pressed() -> void:
+func _on_players_bar_show_formation() -> void:
 	_toggle_view(formation)
 
 
@@ -238,9 +229,8 @@ func _on_simulate_button_pressed() -> void:
 #
 func _hide_views() -> void:
 	views.hide()
+	overview.hide()
 	comments.hide()
-	stats.hide()
-	events.hide()
 	formation.hide()
 
 
@@ -271,7 +261,6 @@ func _on_players_bar_change_request() -> void:
 
 
 func _on_engine_penalties_start() -> void:
-	formation_button.disabled = true
 	slower_button.disabled = true
 	faster_button.disabled = true
 	bottom_bar.hide()

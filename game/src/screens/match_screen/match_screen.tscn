@@ -57,42 +57,13 @@ layout_mode = 2
 size_flags_horizontal = 3
 theme_override_constants/separation = 5
 
-[node name="FormationButton" type="Button" parent="Main/Content/TopBar/Buttons/Left"]
+[node name="OverviewButton" type="Button" parent="Main/Content/TopBar/Buttons/Left"]
 unique_name_in_owner = true
 custom_minimum_size = Vector2(180, 0)
 layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 4
-text = "Formation"
-script = ExtResource("4_fwmog")
-
-[node name="StatsButton" type="Button" parent="Main/Content/TopBar/Buttons/Left"]
-unique_name_in_owner = true
-custom_minimum_size = Vector2(180, 0)
-layout_mode = 2
-size_flags_horizontal = 4
-size_flags_vertical = 4
-text = "Stats"
-script = ExtResource("4_fwmog")
-
-[node name="EventsButton" type="Button" parent="Main/Content/TopBar/Buttons/Left"]
-unique_name_in_owner = true
-custom_minimum_size = Vector2(180, 0)
-layout_mode = 2
-size_flags_horizontal = 4
-size_flags_vertical = 4
-text = "Events"
-script = ExtResource("4_fwmog")
-
-[node name="CommentaryButton" type="Button" parent="Main/Content/TopBar/Buttons/Left"]
-unique_name_in_owner = true
-visible = false
-custom_minimum_size = Vector2(180, 0)
-layout_mode = 2
-size_flags_horizontal = 4
-size_flags_vertical = 4
-disabled = true
-text = "Commentary"
+text = "Overview"
 script = ExtResource("4_fwmog")
 
 [node name="Center" type="HBoxContainer" parent="Main/Content/TopBar/Buttons"]
@@ -279,20 +250,24 @@ unique_name_in_owner = true
 visible = false
 layout_mode = 2
 
-[node name="Stats" parent="Main/Content/MainView/Views/MarginContainer" instance=ExtResource("7_qx6fv")]
-unique_name_in_owner = true
-visible = false
-layout_mode = 2
-
-[node name="Events" parent="Main/Content/MainView/Views/MarginContainer" instance=ExtResource("8_46kqv")]
-unique_name_in_owner = true
-visible = false
-layout_mode = 2
-
 [node name="Formation" parent="Main/Content/MainView/Views/MarginContainer" instance=ExtResource("9_0djf7")]
 unique_name_in_owner = true
 visible = false
 layout_mode = 2
+
+[node name="Overview" type="HBoxContainer" parent="Main/Content/MainView/Views/MarginContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+
+[node name="Stats" parent="Main/Content/MainView/Views/MarginContainer/Overview" instance=ExtResource("7_qx6fv")]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 6
+
+[node name="Events" parent="Main/Content/MainView/Views/MarginContainer/Overview" instance=ExtResource("8_46kqv")]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
 
 [node name="BottomBar" type="VBoxContainer" parent="Main/Content"]
 unique_name_in_owner = true
@@ -351,10 +326,7 @@ custom_text = "Do you want to simulate the whole match?"
 type = 0
 
 [connection signal="action_message" from="MatchSimulator" to="." method="_on_match_simulator_action_message"]
-[connection signal="pressed" from="Main/Content/TopBar/Buttons/Left/FormationButton" to="." method="_on_formation_button_pressed"]
-[connection signal="pressed" from="Main/Content/TopBar/Buttons/Left/StatsButton" to="." method="_on_stats_button_pressed"]
-[connection signal="pressed" from="Main/Content/TopBar/Buttons/Left/EventsButton" to="." method="_on_events_button_pressed"]
-[connection signal="pressed" from="Main/Content/TopBar/Buttons/Left/CommentaryButton" to="." method="_on_commentary_button_pressed"]
+[connection signal="pressed" from="Main/Content/TopBar/Buttons/Left/OverviewButton" to="." method="_on_overview_button_pressed"]
 [connection signal="pressed" from="Main/Content/TopBar/Buttons/Center/Speed/SlowerButton" to="." method="_on_slower_button_pressed"]
 [connection signal="pressed" from="Main/Content/TopBar/Buttons/Center/Speed/FasterButton" to="." method="_on_faster_button_pressed"]
 [connection signal="pressed" from="Main/Content/TopBar/Buttons/Center/PauseButton" to="." method="_on_pause_button_pressed"]
@@ -362,5 +334,6 @@ type = 0
 [connection signal="pressed" from="Main/Content/TopBar/Buttons/Right/DashboardButton" to="." method="_on_dashboard_button_pressed"]
 [connection signal="change_request" from="Main/Content/MainView/Views/MarginContainer/Formation" to="." method="_on_formation_change_request"]
 [connection signal="change_request" from="Main/Content/BottomBar/PlayersBar" to="." method="_on_players_bar_change_request"]
+[connection signal="show_formation" from="Main/Content/BottomBar/PlayersBar" to="." method="_on_players_bar_show_formation"]
 [connection signal="confirmed" from="SimulationDialog" to="." method="_on_simulation_confirm_dialog_confirmed"]
 [connection signal="denied" from="SimulationDialog" to="." method="_on_simulation_dialog_denied"]

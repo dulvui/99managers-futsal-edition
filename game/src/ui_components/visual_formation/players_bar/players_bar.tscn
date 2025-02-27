@@ -1,6 +1,7 @@
-[gd_scene load_steps=2 format=3 uid="uid://bj7f2r54xkpt1"]
+[gd_scene load_steps=3 format=3 uid="uid://bj7f2r54xkpt1"]
 
 [ext_resource type="Script" path="res://src/ui_components/visual_formation/players_bar/players_bar.gd" id="1_ehtta"]
+[ext_resource type="Script" path="res://src/ui_components/base/defaults/default_button.gd" id="2_cjbpv"]
 
 [node name="PlayersBar" type="HBoxContainer"]
 anchors_preset = -1
@@ -13,9 +14,17 @@ size_flags_vertical = 3
 script = ExtResource("1_ehtta")
 metadata/_edit_use_anchors_ = true
 
-[node name="ChangeButton" type="CheckButton" parent="."]
+[node name="Buttons" type="VBoxContainer" parent="."]
+layout_mode = 2
+alignment = 1
+
+[node name="FormationButton" type="Button" parent="Buttons"]
+layout_mode = 2
+text = "Formation"
+script = ExtResource("2_cjbpv")
+
+[node name="ChangeButton" type="CheckButton" parent="Buttons"]
 unique_name_in_owner = true
-custom_minimum_size = Vector2(0, 60)
 layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 4
@@ -36,4 +45,5 @@ vertical_scroll_mode = 0
 unique_name_in_owner = true
 layout_mode = 2
 
-[connection signal="toggled" from="ChangeButton" to="." method="_on_change_button_toggled"]
+[connection signal="pressed" from="Buttons/FormationButton" to="." method="_on_formation_button_pressed"]
+[connection signal="toggled" from="Buttons/ChangeButton" to="." method="_on_change_button_toggled"]

@@ -6,6 +6,7 @@ class_name PlayersBar
 extends HBoxContainer
 
 signal change_request
+signal show_formation
 
 const FormationPlayer: PackedScene = preload(Const.SCENE_FORMATION_PLAYER)
 
@@ -91,4 +92,9 @@ func _on_change_button_toggled(toggled_on: bool) -> void:
 		team.formation.change_strategy = Formation.ChangeStrategy.AUTO
 	else:
 		team.formation.change_strategy = Formation.ChangeStrategy.MANUAL
+
+
+func _on_formation_button_pressed() -> void:
+	show_formation.emit()
+
 
