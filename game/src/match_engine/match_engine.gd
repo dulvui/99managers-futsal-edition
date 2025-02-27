@@ -85,6 +85,10 @@ func setup(p_matchz: Match, p_home_team: Team = null, p_away_team: Team = null) 
 	field.left_team = home_team
 	field.right_team = away_team
 
+	# fouls signals
+	home_team.foul.connect(_on_home_commits_foul)
+	away_team.foul.connect(_on_away_commits_foul)
+
 	# test penalties
 	if DebugUtil.penalties_test:
 		no_draw = true
@@ -220,6 +224,51 @@ func right_possess() -> void:
 	field.force_update_calculator()
 
 
+func _on_home_commits_foul(foul_position: Vector2) -> void:
+	_check_foul_result(home_team, foul_position)
+
+
+func _on_away_commits_foul(foul_position: Vector2) -> void:
+	_check_foul_result(away_team, foul_position)
+
+
+func _check_foul_result(commiting_team: SimTeam, foul_position: Vector2) -> void:
+	commiting_team.fouls_count += 1
+	commiting_team.team_opponents.gain_possession()
+
+	# check penalty
+	if commiting_team.left_half:
+		if Geometry2D.is_point_in_polygon(foul_position, field.penalty_areas.left):
+			field.ball.set_pos(field.penalty_areas.spot_left)
+			home_team.set_state(TeamStatePenalty.new())
+			away_team.set_state(TeamStatePenalty.new())
+			return
+	else:
+		if Geometry2D.is_point_in_polygon(foul_position, field.penalty_areas.right):
+			field.ball.set_pos(field.penalty_areas.spot_right)
+			home_team.set_state(TeamStatePenalty.new())
+			away_team.set_state(TeamStatePenalty.new())
+			return
+
+	# check penalty 10m
+	if commiting_team.fouls_count >= 6:
+		if commiting_team.left_half:
+			field.ball.set_pos(field.penalty_areas.spot_10m_left)
+			home_team.set_state(TeamStatePenalty.new())
+			away_team.set_state(TeamStatePenalty.new())
+			return
+		else:
+			field.ball.set_pos(field.penalty_areas.spot_10m_right)
+			home_team.set_state(TeamStatePenalty.new())
+			away_team.set_state(TeamStatePenalty.new())
+			return
+
+	# free kick
+	field.ball.set_pos(foul_position)
+	home_team.set_state(TeamStateFreeKick.new())
+	away_team.set_state(TeamStateFreeKick.new())
+
+
 func _on_goal_line_out_left() -> void:
 	# corner
 	if left_team.has_ball:
@@ -282,6 +331,10 @@ func _on_goal_right() -> void:
 
 
 func _teams_switch_sides() -> void:
+	# reset foul counter
+	home_team.fouls_count = 0
+	away_team.fouls_count = 0
+
 	if home_team.left_half:
 		left_team = away_team
 		right_team = home_team

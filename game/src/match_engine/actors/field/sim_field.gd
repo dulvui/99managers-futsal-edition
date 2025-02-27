@@ -49,6 +49,8 @@ var penalties: bool
 # could potentially be replaced with referree
 var penalty_ready: bool
 
+var freekick_spot: Vector2
+
 # add all resources here, so they can be accessedeasily
 # especiially inside the state machines
 var ball: SimBall

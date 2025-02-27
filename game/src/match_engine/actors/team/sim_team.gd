@@ -5,6 +5,7 @@
 class_name SimTeam
 
 signal player_changed
+signal foul(pos: Vector2)
 signal penalties_shot
 
 # player should stay at least 2 minutes in field before he can be changed
@@ -24,6 +25,8 @@ var change_request: bool
 var has_ball: bool
 var left_half: bool
 var ready_for_kickoff: bool
+# to count fouls per half and give
+var fouls_count: int
 
 # false, if team is controlled by player
 var simulated: bool
@@ -65,6 +68,8 @@ func setup(
 	change_request = false
 	ready_for_kickoff = false
 	do_change = false
+
+	fouls_count = 0
 
 	auto_change_request = false
 	low_stamina_players = []
