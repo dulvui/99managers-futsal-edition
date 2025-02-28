@@ -38,7 +38,7 @@ script = ExtResource("2_nyqm0")
 
 [node name="Page" type="Label" parent="Calendar/Paginator"]
 unique_name_in_owner = true
-custom_minimum_size = Vector2(100, 0)
+custom_minimum_size = Vector2(150, 0)
 layout_mode = 2
 horizontal_alignment = 1
 
