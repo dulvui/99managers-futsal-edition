@@ -68,12 +68,11 @@ func initialize(next_season: bool = false) -> void:
 	# set start date
 	date.day = Const.SEASON_START_DAY
 	date.month = Const.SEASON_START_MONTH
-
-	# add 1 year at start to have total 2 years
-	if not next_season:
-		_add_year(date.year)
-
-	# next season, only 1 year gets appended
+	
+	# clear previous season, if exists
+	months = []
+	# always add two years to calendar
+	_add_year(date.year)
 	_add_year(date.year + 1)
 
 
