@@ -6,10 +6,10 @@
 
 [node name="Input" type="VBoxContainer"]
 anchors_preset = -1
-anchor_right = 0.209
-anchor_bottom = 0.132
-offset_right = -401.28
-offset_bottom = -142.56
+anchor_right = 0.271
+anchor_bottom = 0.131
+offset_right = -520.32
+offset_bottom = -141.48
 size_flags_horizontal = 3
 script = ExtResource("1_e4wd1")
 
@@ -54,6 +54,7 @@ text = "Input detection mode"
 
 [node name="DetectionModeButton" parent="DetectionMode" instance=ExtResource("3_g1iho")]
 unique_name_in_owner = true
+custom_minimum_size = Vector2(320, 30)
 layout_mode = 2
 
 [node name="Type" type="HBoxContainer" parent="."]
@@ -67,6 +68,7 @@ text = "Input type"
 
 [node name="TypeButton" parent="Type" instance=ExtResource("3_g1iho")]
 unique_name_in_owner = true
+custom_minimum_size = Vector2(320, 30)
 layout_mode = 2
 
 [connection signal="item_selected" from="DetectionMode/DetectionModeButton" to="." method="_on_detection_mode_button_item_selected"]
