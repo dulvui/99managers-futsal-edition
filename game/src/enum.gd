@@ -67,6 +67,7 @@ enum InputDetectionMode {
 	AUTO,
 	MANUAL,
 }
+var input_detection_mode: Array[String] = ["Automatic", "Manual"]
 
 enum InputType {
 	JOYPAD,
@@ -74,7 +75,7 @@ enum InputType {
 	TOUCHSCREEN,
 }
 
-var input_detection_mode: Array[String] = ["Automatic", "Manual"]
+var input_type: Array[String] = ["Joypad", "Mouse and keybaord","Touchscreen"]
 
 
 #

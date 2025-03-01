@@ -26,8 +26,22 @@ func _ready() -> void:
 func get_joypad_type_string() -> String:
 	if not joypads.is_empty():
 		_set_active()
-		return Type.keys()[active_joypad.type]
-	return "NO_JOYPAD_CONNECTED"
+		return get_type_text(active_joypad.type)
+	return tr("No joypad connected")
+
+
+func get_type_text(type: Type) -> String:
+	match type:
+		Type.PLAYSTATION:
+			return "Playstation"
+		Type.XBOX:
+			return "Xbox"
+		Type.NINTENDO:
+			return "Nintendo"
+		Type.STEAM:
+			return "Steam"
+		_:
+			return "Generic"
 
 
 func get_button_sign(button: JoyButton) -> String:

@@ -18,7 +18,7 @@ func _ready() -> void:
 	joypad_info.text = JoypadUtil.get_joypad_type_string()
 
 	# type
-	type_button.setup(Enum.InputType.keys(), Global.config.input_type)
+	type_button.setup(Enum.input_type, Global.config.input_type)
 	# detection mode
 	detection_mode_button.setup(Enum.input_detection_mode, Global.config.input_detection_mode)
 

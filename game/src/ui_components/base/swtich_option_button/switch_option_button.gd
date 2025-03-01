@@ -17,7 +17,7 @@ signal item_selected(index: int)
 func setup(items: Array, selected: int = 0) -> void:
 	option_button.clear()
 	for item: String in items:
-		option_button.add_item(item)
+		option_button.add_item(tr(item))
 	option_button.selected = selected
 
 	option_button.disabled = disabled
@@ -25,9 +25,9 @@ func setup(items: Array, selected: int = 0) -> void:
 	next_button.disabled = disabled
 
 	if not tooltip_text.is_empty():
-		option_button.tooltip_text = tooltip_text
-		prev_button.tooltip_text = tooltip_text
-		next_button.tooltip_text = tooltip_text
+		option_button.tooltip_text = tr(tooltip_text)
+		prev_button.tooltip_text = tr(tooltip_text)
+		next_button.tooltip_text = tr(tooltip_text)
 	else:
 		option_button.tooltip_text = option_button.text
 
