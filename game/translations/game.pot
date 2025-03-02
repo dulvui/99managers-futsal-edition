@@ -274,7 +274,6 @@ msgid "Contract"
 msgstr ""
 
 #: src/ui_components/player_list/player_list.gd
-#: src/screens/match_screen/match_screen.tscn
 msgid "Stats"
 msgstr ""
 
@@ -538,6 +537,11 @@ msgstr ""
 
 #: src/ui_components/player_list/player_list.gd
 #: src/ui_components/player_profile/attributes_view/attributes_view.tscn
+msgid "Free kick"
+msgstr ""
+
+#: src/ui_components/player_list/player_list.gd
+#: src/ui_components/player_profile/attributes_view/attributes_view.tscn
 msgid "Penalty"
 msgstr ""
 
@@ -714,17 +718,17 @@ msgid "Rest"
 msgstr ""
 
 #: src/ui_components/visual_formation/players_bar/players_bar.tscn
+#: src/ui_components/visual_formation/visual_formation.tscn
+#: src/screens/dashboard/dashboard.tscn
+msgid "Formation"
+msgstr ""
+
+#: src/ui_components/visual_formation/players_bar/players_bar.tscn
 msgid "Players with low stamina will be changed automatically."
 msgstr ""
 
 #: src/ui_components/visual_formation/players_bar/players_bar.tscn
 msgid "Auto change"
-msgstr ""
-
-#: src/ui_components/visual_formation/visual_formation.tscn
-#: src/screens/dashboard/dashboard.tscn
-#: src/screens/match_screen/match_screen.tscn
-msgid "Formation"
 msgstr ""
 
 #: src/ui_components/visual_formation/visual_formation.tscn
@@ -1028,6 +1032,11 @@ msgstr ""
 msgid "World cup"
 msgstr ""
 
+#: src/utils/input/joypad_util.gd
+#: src/screens/settings/input/input_settings.tscn
+msgid "No joypad connected"
+msgstr ""
+
 #: src/utils/res_util.gd
 msgid "Restoring from backup"
 msgstr ""
@@ -1129,10 +1138,6 @@ msgstr ""
 
 #: src/screens/settings/input/input_settings.tscn
 msgid "Joypad status"
-msgstr ""
-
-#: src/screens/settings/input/input_settings.tscn
-msgid "No joypad connected"
 msgstr ""
 
 #: src/screens/settings/input/input_settings.tscn
@@ -2335,11 +2340,7 @@ msgid "Pause"
 msgstr ""
 
 #: src/screens/match_screen/match_screen.tscn
-msgid "Commentary"
-msgstr ""
-
-#: src/screens/match_screen/match_screen.tscn
-msgid "Events"
+msgid "Overview"
 msgstr ""
 
 #: src/screens/match_screen/match_screen.tscn
@@ -2364,6 +2365,10 @@ msgstr ""
 msgid "Penalties"
 msgstr ""
 
+#: src/screens/match_screen/statistics/match_stats.gd
+msgid "100 %"
+msgstr ""
+
 #: src/screens/match_screen/statistics/match_stats.tscn
 msgid "0"
 msgstr ""
@@ -2386,6 +2391,10 @@ msgstr ""
 
 #: src/screens/match_screen/statistics/match_stats.tscn
 msgid "Passes (success)"
+msgstr ""
+
+#: src/screens/match_screen/statistics/match_stats.tscn
+msgid "Passes accuracy"
 msgstr ""
 
 #: src/screens/match_screen/statistics/match_stats.tscn
