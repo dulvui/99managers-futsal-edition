@@ -24,15 +24,15 @@ grow_vertical = 2
 
 [node name="VBoxContainer" type="VBoxContainer" parent="."]
 layout_mode = 1
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -500.0
-offset_top = -450.5
-offset_right = 500.0
-offset_bottom = 450.5
+anchors_preset = -1
+anchor_left = 0.24
+anchor_top = 0.083
+anchor_right = 0.76
+anchor_bottom = 0.917
+offset_left = -0.800018
+offset_top = -0.140007
+offset_right = 0.799927
+offset_bottom = 0.139954
 grow_horizontal = 2
 grow_vertical = 2
 
