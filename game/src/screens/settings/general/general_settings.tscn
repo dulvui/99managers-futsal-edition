@@ -9,15 +9,12 @@
 
 [node name="General" type="VBoxContainer"]
 anchors_preset = -1
-anchor_right = 0.201
-anchor_bottom = 0.447
-offset_right = -385.92
-offset_bottom = -482.76
+anchor_right = 0.178
+anchor_bottom = 0.441
+offset_right = -341.76
+offset_bottom = -476.28
 size_flags_horizontal = 3
 script = ExtResource("1_gl78q")
-
-[node name="HSeparator5" type="HSeparator" parent="."]
-layout_mode = 2
 
 [node name="LanguageLabel" type="Label" parent="."]
 layout_mode = 2
@@ -44,9 +41,6 @@ layout_mode = 2
 text = "weblate.org"
 uri = "https://hosted.weblate.org/engage/99-managers-futsal-edition/"
 
-[node name="HSeparator3" type="HSeparator" parent="."]
-layout_mode = 2
-
 [node name="Audio" type="VBoxContainer" parent="."]
 layout_mode = 2
 
@@ -70,9 +64,6 @@ size_flags_horizontal = 3
 min_value = -60.0
 max_value = 0.0
 step = 5.0
-
-[node name="HSeparator6" type="HSeparator" parent="."]
-layout_mode = 2
 
 [node name="Interface" type="VBoxContainer" parent="."]
 layout_mode = 2
@@ -155,14 +146,8 @@ text = "Screen fade animation"
 unique_name_in_owner = true
 layout_mode = 2
 
-[node name="HSeparator7" type="HSeparator" parent="."]
-layout_mode = 2
-
 [node name="ThemePicker" parent="." instance=ExtResource("6_ryj47")]
 unique_name_in_owner = true
-layout_mode = 2
-
-[node name="HSeparator4" type="HSeparator" parent="."]
 layout_mode = 2
 
 [node name="Version" type="HBoxContainer" parent="."]
