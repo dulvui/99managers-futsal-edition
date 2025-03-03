@@ -40,10 +40,9 @@ func _ready() -> void:
 		setup(false, Tests.create_mock_team())
 
 	change_players = []
-	camera.zoom = Vector2(1.0 / Global.config.theme_scale, 1.0 / Global.config.theme_scale)
+	camera.zoom = Vector2(1.5 / Global.config.theme_scale, 1.5 / Global.config.theme_scale)
 
 	field.setup(SimField.new(RandomNumberGenerator.new()))
-	
 
 
 func setup(p_only_lineup: bool, p_team: Team = Global.team) -> void:
@@ -51,8 +50,8 @@ func setup(p_only_lineup: bool, p_team: Team = Global.team) -> void:
 	team = p_team
 
 	# set up fomation options
-	formation_select.setup(Formation.Variations.keys(), team.formation.variation)
-	change_strategy_select.setup(Formation.ChangeStrategy.keys(), team.formation.change_strategy)
+	formation_select.setup(Formation.VARIATIONS_TEXT, team.formation.variation)
+	change_strategy_select.setup(Formation.CHANGE_STRATEGY_TEXT, team.formation.change_strategy)
 
 	# tactics offense
 	tactic_select_offense.setup(
@@ -193,21 +192,21 @@ func _on_formation_button_item_selected(index: int) -> void:
 
 
 func _on_change_strategy_select_item_selected(index: int) -> void:
-	team.formation.change_strategy = index
+	team.formation.change_strategy = index as Formation.ChangeStrategy
 
 
 func _on_tactic_select_offense_item_selected(index: int) -> void:
-	team.formation.tactic_offense.tactic = index
+	team.formation.tactic_offense.tactic = index as TacticOffense.Tactics
 	tactic_request.emit()
 
 
 func _on_tactic_select_marking_item_selected(index: int) -> void:
-	team.formation.tactic_defense.marking = index
+	team.formation.tactic_defense.marking = index as TacticDefense.Marking
 	tactic_request.emit()
 
 
 func _on_tactic_select_pressing_item_selected(index: int) -> void:
-	team.formation.tactic_defense.pressing = index
+	team.formation.tactic_defense.pressing = index as TacticDefense.Pressing
 	tactic_request.emit()
 
 

@@ -16,6 +16,16 @@ enum Variations {
 	F1400,
 }
 
+const VARIATIONS_TEXT: Array[String] = [
+	"2-2",
+	"1-2-1",
+	"1-1-2",
+	"2-1-1",
+	"1-3",
+	"3-1",
+	"4-0",
+]
+
 # defines if automated changes and strategy
 enum ChangeStrategy {
 	# change players if stamina is low
@@ -23,6 +33,11 @@ enum ChangeStrategy {
 	# manual change
 	MANUAL,
 }
+
+const CHANGE_STRATEGY_TEXT: Array[String] = [
+	"Auto",
+	"Manual",
+]
 
 @export var variation: Variations
 @export var change_strategy: ChangeStrategy
@@ -97,3 +112,14 @@ func get_start_pos(field_size: Vector2, index: int, left_side: bool) -> Vector2:
 		pos = field_size - pos
 
 	return pos
+
+
+func get_change_strategy_text() -> String:
+	match change_strategy:
+		ChangeStrategy.AUTO:
+			return tr("Auto")
+		ChangeStrategy.MANUAL:
+			return tr("MANUAL")
+		_:
+			return tr("Auto")
+
