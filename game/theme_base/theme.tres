@@ -69,6 +69,7 @@ MarginContainer/constants/margin_left = 40
 MarginContainer/constants/margin_right = 40
 MarginContainer/constants/margin_top = 40
 Panel/styles/panel = ExtResource("14_ia1gv")
+PanelContainer/styles/panel = ExtResource("14_ia1gv")
 PopupMenu/colors/font_color = Color(0.875, 0.875, 0.875, 1)
 PopupMenu/colors/font_hover_color = Color(0.875, 0.875, 0.875, 1)
 PopupMenu/styles/hover = ExtResource("5_5kcn0")
