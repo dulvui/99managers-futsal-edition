@@ -40,6 +40,7 @@ var _rng: RandomNumberGenerator
 func setup(p_matchz: Match, p_home_team: Team = null, p_away_team: Team = null) -> void:
 	_rng = RandomNumberGenerator.new()
 	_rng.seed = p_matchz.id
+	_rng.state = 0
 
 	no_draw = p_matchz.no_draw
 	over_time = false
