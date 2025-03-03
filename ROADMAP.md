@@ -21,7 +21,6 @@ Features/issues that will [probably] be added/solved in future.
 - Visible players' attributes during match
 - In the formation screen, visible players' positions their 'squares'.
 - Make the players' attributes visible in the formation screen, by clicking on their squares or perhaps by hovering over them.
-- Add a futsal court design when selecting your starting lineup showing where each position is located.
 - For the selection of the starting lineup, first select players in the 'Players' section,
   then you drag the selected players to their positions in the formation screen,
   instead of having the entire squad there.
@@ -35,9 +34,6 @@ List of features that are currently worked on.
 - Buy and sell players
 - Match engine
     - Fouls
-        - Free kicks
-        - Penalties
-        - Penalties (10m) after 6 fouls
         - Yellow and red cards
 - Translations
     - French
@@ -48,10 +44,15 @@ List of features that are currently worked on.
 ## Done
 Features/issues that are added/solved in specific version.
 
+### v0.3.0
 - Better match engine
     - Use finite state machines for teams and players
 - Translations
     - Spanish
     - Portuguese
-
-
+- Add a futsal court design when selecting your starting lineup showing where each position is located.
+- Match engine
+    - Fouls
+        - Free kicks
+        - Penalties
+        - Penalties (10m) after 6 fouls
