@@ -13,11 +13,6 @@ size_flags_horizontal = 3
 size_flags_vertical = 3
 script = ExtResource("1_c8o2q")
 
-[node name="InfoLabel" type="Label" parent="."]
-layout_mode = 2
-text = "Info"
-horizontal_alignment = 1
-
 [node name="GenerationSeed" type="HBoxContainer" parent="."]
 layout_mode = 2
 theme_override_constants/separation = 40
@@ -25,7 +20,7 @@ theme_override_constants/separation = 40
 [node name="GenerationSeedLabel" type="Label" parent="GenerationSeed"]
 custom_minimum_size = Vector2(200, 0)
 layout_mode = 2
-text = "Seed"
+text = "Generation seed"
 
 [node name="GenerationSeed" type="Label" parent="GenerationSeed"]
 auto_translate_mode = 2

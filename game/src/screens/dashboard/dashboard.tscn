@@ -35,8 +35,7 @@ unicode = 99
 [sub_resource type="InputEventJoypadButton" id="InputEventJoypadButton_k8as6"]
 button_index = 6
 
-[node name="Dashboard" type="Control"]
-layout_mode = 3
+[node name="Dashboard" type="PanelContainer"]
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
@@ -45,47 +44,27 @@ grow_vertical = 2
 theme = ExtResource("1")
 script = ExtResource("2")
 
-[node name="Panel" type="Panel" parent="."]
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-
-[node name="MarginContainer" type="MarginContainer" parent="."]
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-theme_override_constants/margin_left = 0
-theme_override_constants/margin_top = 0
-theme_override_constants/margin_right = 0
-theme_override_constants/margin_bottom = 0
-
-[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer"]
+[node name="HBoxContainer" type="HBoxContainer" parent="."]
 layout_mode = 2
 theme_override_constants/separation = 0
 
-[node name="PanelContainer" type="PanelContainer" parent="MarginContainer/HBoxContainer"]
+[node name="PanelContainer" type="PanelContainer" parent="HBoxContainer"]
 layout_mode = 2
 theme_override_styles/panel = ExtResource("3_718t5")
 
-[node name="MarginContainer" type="MarginContainer" parent="MarginContainer/HBoxContainer/PanelContainer"]
+[node name="MarginContainer" type="MarginContainer" parent="HBoxContainer/PanelContainer"]
 layout_mode = 2
 theme_override_constants/margin_left = 15
 theme_override_constants/margin_top = 15
 theme_override_constants/margin_right = 15
 theme_override_constants/margin_bottom = 15
 
-[node name="Buttons" type="VBoxContainer" parent="MarginContainer/HBoxContainer/PanelContainer/MarginContainer"]
+[node name="Buttons" type="VBoxContainer" parent="HBoxContainer/PanelContainer/MarginContainer"]
 custom_minimum_size = Vector2(200, 0)
 layout_mode = 2
 theme_override_constants/separation = 10
 
-[node name="EmailButton" type="Button" parent="MarginContainer/HBoxContainer/PanelContainer/MarginContainer/Buttons"]
+[node name="EmailButton" type="Button" parent="HBoxContainer/PanelContainer/MarginContainer/Buttons"]
 unique_name_in_owner = true
 custom_minimum_size = Vector2(180, 0)
 layout_mode = 2
@@ -94,7 +73,7 @@ text = "Email"
 alignment = 0
 script = ExtResource("3_kbasy")
 
-[node name="CalendarButton" type="Button" parent="MarginContainer/HBoxContainer/PanelContainer/MarginContainer/Buttons"]
+[node name="CalendarButton" type="Button" parent="HBoxContainer/PanelContainer/MarginContainer/Buttons"]
 unique_name_in_owner = true
 custom_minimum_size = Vector2(180, 0)
 layout_mode = 2
@@ -103,7 +82,7 @@ text = "Calendar"
 alignment = 0
 script = ExtResource("3_kbasy")
 
-[node name="CompetitionsButton" type="Button" parent="MarginContainer/HBoxContainer/PanelContainer/MarginContainer/Buttons"]
+[node name="CompetitionsButton" type="Button" parent="HBoxContainer/PanelContainer/MarginContainer/Buttons"]
 unique_name_in_owner = true
 custom_minimum_size = Vector2(180, 0)
 layout_mode = 2
@@ -112,11 +91,11 @@ text = "Competitions"
 alignment = 0
 script = ExtResource("3_kbasy")
 
-[node name="HSeparator6" type="HSeparator" parent="MarginContainer/HBoxContainer/PanelContainer/MarginContainer/Buttons"]
+[node name="HSeparator6" type="HSeparator" parent="HBoxContainer/PanelContainer/MarginContainer/Buttons"]
 modulate = Color(1, 1, 1, 0)
 layout_mode = 2
 
-[node name="FinancesButton" type="Button" parent="MarginContainer/HBoxContainer/PanelContainer/MarginContainer/Buttons"]
+[node name="FinancesButton" type="Button" parent="HBoxContainer/PanelContainer/MarginContainer/Buttons"]
 unique_name_in_owner = true
 custom_minimum_size = Vector2(180, 0)
 layout_mode = 2
@@ -125,7 +104,7 @@ text = "Finances"
 alignment = 0
 script = ExtResource("3_kbasy")
 
-[node name="StadiumButton" type="Button" parent="MarginContainer/HBoxContainer/PanelContainer/MarginContainer/Buttons"]
+[node name="StadiumButton" type="Button" parent="HBoxContainer/PanelContainer/MarginContainer/Buttons"]
 unique_name_in_owner = true
 custom_minimum_size = Vector2(180, 0)
 layout_mode = 2
@@ -136,11 +115,11 @@ text = "Stadium"
 alignment = 0
 script = ExtResource("3_kbasy")
 
-[node name="HSeparator2" type="HSeparator" parent="MarginContainer/HBoxContainer/PanelContainer/MarginContainer/Buttons"]
+[node name="HSeparator2" type="HSeparator" parent="HBoxContainer/PanelContainer/MarginContainer/Buttons"]
 modulate = Color(1, 1, 1, 0)
 layout_mode = 2
 
-[node name="FormationButton" type="Button" parent="MarginContainer/HBoxContainer/PanelContainer/MarginContainer/Buttons"]
+[node name="FormationButton" type="Button" parent="HBoxContainer/PanelContainer/MarginContainer/Buttons"]
 unique_name_in_owner = true
 custom_minimum_size = Vector2(180, 0)
 layout_mode = 2
@@ -149,7 +128,7 @@ text = "Formation"
 alignment = 0
 script = ExtResource("3_kbasy")
 
-[node name="PlayersButton" type="Button" parent="MarginContainer/HBoxContainer/PanelContainer/MarginContainer/Buttons"]
+[node name="PlayersButton" type="Button" parent="HBoxContainer/PanelContainer/MarginContainer/Buttons"]
 unique_name_in_owner = true
 custom_minimum_size = Vector2(180, 0)
 layout_mode = 2
@@ -158,11 +137,11 @@ text = "Players"
 alignment = 0
 script = ExtResource("3_kbasy")
 
-[node name="HSeparator3" type="HSeparator" parent="MarginContainer/HBoxContainer/PanelContainer/MarginContainer/Buttons"]
+[node name="HSeparator3" type="HSeparator" parent="HBoxContainer/PanelContainer/MarginContainer/Buttons"]
 modulate = Color(1, 1, 1, 0)
 layout_mode = 2
 
-[node name="SearchPlayerButton" type="Button" parent="MarginContainer/HBoxContainer/PanelContainer/MarginContainer/Buttons"]
+[node name="SearchPlayerButton" type="Button" parent="HBoxContainer/PanelContainer/MarginContainer/Buttons"]
 unique_name_in_owner = true
 custom_minimum_size = Vector2(180, 0)
 layout_mode = 2
@@ -171,7 +150,7 @@ text = "Search player"
 alignment = 0
 script = ExtResource("3_kbasy")
 
-[node name="ScoutsButton" type="Button" parent="MarginContainer/HBoxContainer/PanelContainer/MarginContainer/Buttons"]
+[node name="ScoutsButton" type="Button" parent="HBoxContainer/PanelContainer/MarginContainer/Buttons"]
 unique_name_in_owner = true
 custom_minimum_size = Vector2(180, 0)
 layout_mode = 2
@@ -182,7 +161,7 @@ text = "Scouts"
 alignment = 0
 script = ExtResource("3_kbasy")
 
-[node name="WatchListButton" type="Button" parent="MarginContainer/HBoxContainer/PanelContainer/MarginContainer/Buttons"]
+[node name="WatchListButton" type="Button" parent="HBoxContainer/PanelContainer/MarginContainer/Buttons"]
 unique_name_in_owner = true
 custom_minimum_size = Vector2(180, 0)
 layout_mode = 2
@@ -193,7 +172,7 @@ text = "Watchlist"
 alignment = 0
 script = ExtResource("3_kbasy")
 
-[node name="TransferListButton" type="Button" parent="MarginContainer/HBoxContainer/PanelContainer/MarginContainer/Buttons"]
+[node name="TransferListButton" type="Button" parent="HBoxContainer/PanelContainer/MarginContainer/Buttons"]
 unique_name_in_owner = true
 custom_minimum_size = Vector2(180, 0)
 layout_mode = 2
@@ -204,7 +183,7 @@ text = "Transferlist"
 alignment = 0
 script = ExtResource("3_kbasy")
 
-[node name="TransfersButton" type="Button" parent="MarginContainer/HBoxContainer/PanelContainer/MarginContainer/Buttons"]
+[node name="TransfersButton" type="Button" parent="HBoxContainer/PanelContainer/MarginContainer/Buttons"]
 unique_name_in_owner = true
 custom_minimum_size = Vector2(180, 0)
 layout_mode = 2
@@ -215,11 +194,11 @@ text = "Transfermarket"
 alignment = 0
 script = ExtResource("3_kbasy")
 
-[node name="HSeparator5" type="HSeparator" parent="MarginContainer/HBoxContainer/PanelContainer/MarginContainer/Buttons"]
+[node name="HSeparator5" type="HSeparator" parent="HBoxContainer/PanelContainer/MarginContainer/Buttons"]
 modulate = Color(1, 1, 1, 0)
 layout_mode = 2
 
-[node name="JobsButton" type="Button" parent="MarginContainer/HBoxContainer/PanelContainer/MarginContainer/Buttons"]
+[node name="JobsButton" type="Button" parent="HBoxContainer/PanelContainer/MarginContainer/Buttons"]
 unique_name_in_owner = true
 custom_minimum_size = Vector2(180, 0)
 layout_mode = 2
@@ -230,7 +209,7 @@ text = "Jobs"
 alignment = 0
 script = ExtResource("3_kbasy")
 
-[node name="HallOfFameButton" type="Button" parent="MarginContainer/HBoxContainer/PanelContainer/MarginContainer/Buttons"]
+[node name="HallOfFameButton" type="Button" parent="HBoxContainer/PanelContainer/MarginContainer/Buttons"]
 unique_name_in_owner = true
 custom_minimum_size = Vector2(180, 0)
 layout_mode = 2
@@ -241,7 +220,7 @@ text = "Hall of fame"
 alignment = 0
 script = ExtResource("3_kbasy")
 
-[node name="NotesButton" type="Button" parent="MarginContainer/HBoxContainer/PanelContainer/MarginContainer/Buttons"]
+[node name="NotesButton" type="Button" parent="HBoxContainer/PanelContainer/MarginContainer/Buttons"]
 unique_name_in_owner = true
 custom_minimum_size = Vector2(180, 0)
 layout_mode = 2
@@ -252,12 +231,12 @@ text = "Notes"
 alignment = 0
 script = ExtResource("3_kbasy")
 
-[node name="HSeparator4" type="HSeparator" parent="MarginContainer/HBoxContainer/PanelContainer/MarginContainer/Buttons"]
+[node name="HSeparator4" type="HSeparator" parent="HBoxContainer/PanelContainer/MarginContainer/Buttons"]
 modulate = Color(1, 1, 1, 0)
 layout_mode = 2
 size_flags_vertical = 3
 
-[node name="InfoButton" type="Button" parent="MarginContainer/HBoxContainer/PanelContainer/MarginContainer/Buttons"]
+[node name="InfoButton" type="Button" parent="HBoxContainer/PanelContainer/MarginContainer/Buttons"]
 unique_name_in_owner = true
 custom_minimum_size = Vector2(180, 0)
 layout_mode = 2
@@ -267,7 +246,7 @@ text = "Info"
 alignment = 0
 script = ExtResource("3_kbasy")
 
-[node name="SettingsButton" type="Button" parent="MarginContainer/HBoxContainer/PanelContainer/MarginContainer/Buttons"]
+[node name="SettingsButton" type="Button" parent="HBoxContainer/PanelContainer/MarginContainer/Buttons"]
 unique_name_in_owner = true
 custom_minimum_size = Vector2(180, 0)
 layout_mode = 2
@@ -277,7 +256,7 @@ text = "Settings"
 alignment = 0
 script = ExtResource("3_kbasy")
 
-[node name="MenuButton" type="Button" parent="MarginContainer/HBoxContainer/PanelContainer/MarginContainer/Buttons"]
+[node name="MenuButton" type="Button" parent="HBoxContainer/PanelContainer/MarginContainer/Buttons"]
 unique_name_in_owner = true
 custom_minimum_size = Vector2(180, 0)
 layout_mode = 2
@@ -288,27 +267,27 @@ text = "Menu"
 alignment = 0
 script = ExtResource("3_kbasy")
 
-[node name="MainContainer" type="VBoxContainer" parent="MarginContainer/HBoxContainer"]
+[node name="MainContainer" type="VBoxContainer" parent="HBoxContainer"]
 layout_mode = 2
 size_flags_horizontal = 3
 theme_override_constants/separation = 10
 
-[node name="PanelContainer" type="PanelContainer" parent="MarginContainer/HBoxContainer/MainContainer"]
+[node name="PanelContainer" type="PanelContainer" parent="HBoxContainer/MainContainer"]
 layout_mode = 2
 theme_override_styles/panel = ExtResource("3_718t5")
 
-[node name="MarginContainer" type="MarginContainer" parent="MarginContainer/HBoxContainer/MainContainer/PanelContainer"]
+[node name="Top" type="MarginContainer" parent="HBoxContainer/MainContainer/PanelContainer"]
 layout_mode = 2
 theme_override_constants/margin_left = 15
-theme_override_constants/margin_top = 15
+theme_override_constants/margin_top = 10
 theme_override_constants/margin_right = 15
-theme_override_constants/margin_bottom = 15
+theme_override_constants/margin_bottom = 10
 
-[node name="TopBar" type="HBoxContainer" parent="MarginContainer/HBoxContainer/MainContainer/PanelContainer/MarginContainer"]
+[node name="TopBar" type="HBoxContainer" parent="HBoxContainer/MainContainer/PanelContainer/Top"]
 layout_mode = 2
 theme_override_constants/separation = 20
 
-[node name="PrevViewButton" type="Button" parent="MarginContainer/HBoxContainer/MainContainer/PanelContainer/MarginContainer/TopBar"]
+[node name="PrevViewButton" type="Button" parent="HBoxContainer/MainContainer/PanelContainer/Top/TopBar"]
 unique_name_in_owner = true
 auto_translate_mode = 2
 custom_minimum_size = Vector2(50, 0)
@@ -319,7 +298,7 @@ text = "<"
 script = ExtResource("3_kbasy")
 joypad_button_event = SubResource("InputEventJoypadButton_3gkim")
 
-[node name="NextViewButton" type="Button" parent="MarginContainer/HBoxContainer/MainContainer/PanelContainer/MarginContainer/TopBar"]
+[node name="NextViewButton" type="Button" parent="HBoxContainer/MainContainer/PanelContainer/Top/TopBar"]
 unique_name_in_owner = true
 auto_translate_mode = 2
 custom_minimum_size = Vector2(50, 0)
@@ -330,33 +309,33 @@ text = ">"
 script = ExtResource("3_kbasy")
 joypad_button_event = SubResource("InputEventJoypadButton_btuom")
 
-[node name="ManagerName" type="Label" parent="MarginContainer/HBoxContainer/MainContainer/PanelContainer/MarginContainer/TopBar"]
+[node name="ManagerName" type="Label" parent="HBoxContainer/MainContainer/PanelContainer/Top/TopBar"]
 unique_name_in_owner = true
 auto_translate_mode = 2
 layout_mode = 2
 text = "Simon Dalvai"
 label_settings = ExtResource("4_bc3th")
 
-[node name="TeamName" type="Label" parent="MarginContainer/HBoxContainer/MainContainer/PanelContainer/MarginContainer/TopBar"]
+[node name="TeamName" type="Label" parent="HBoxContainer/MainContainer/PanelContainer/Top/TopBar"]
 unique_name_in_owner = true
 auto_translate_mode = 2
 layout_mode = 2
 text = "Bolzano Futsal"
 label_settings = ExtResource("4_bc3th")
 
-[node name="VSeparator" type="VSeparator" parent="MarginContainer/HBoxContainer/MainContainer/PanelContainer/MarginContainer/TopBar"]
+[node name="VSeparator" type="VSeparator" parent="HBoxContainer/MainContainer/PanelContainer/Top/TopBar"]
 self_modulate = Color(1, 1, 1, 0)
 layout_mode = 2
 size_flags_horizontal = 3
 
-[node name="Date" type="Label" parent="MarginContainer/HBoxContainer/MainContainer/PanelContainer/MarginContainer/TopBar"]
+[node name="Date" type="Label" parent="HBoxContainer/MainContainer/PanelContainer/Top/TopBar"]
 unique_name_in_owner = true
 auto_translate_mode = 2
 layout_mode = 2
 text = "24/08/2002"
 label_settings = ExtResource("4_bc3th")
 
-[node name="NextMatchButton" type="Button" parent="MarginContainer/HBoxContainer/MainContainer/PanelContainer/MarginContainer/TopBar"]
+[node name="NextMatchButton" type="Button" parent="HBoxContainer/MainContainer/PanelContainer/Top/TopBar"]
 unique_name_in_owner = true
 visible = false
 custom_minimum_size = Vector2(180, 0)
@@ -367,7 +346,7 @@ theme_type_variation = &"ImportantButton"
 text = "Next match"
 script = ExtResource("3_kbasy")
 
-[node name="ContinueButton" type="Button" parent="MarginContainer/HBoxContainer/MainContainer/PanelContainer/MarginContainer/TopBar"]
+[node name="ContinueButton" type="Button" parent="HBoxContainer/MainContainer/PanelContainer/Top/TopBar"]
 unique_name_in_owner = true
 custom_minimum_size = Vector2(180, 0)
 layout_mode = 2
@@ -379,11 +358,7 @@ script = ExtResource("3_kbasy")
 key_event = SubResource("InputEventKey_j7j8p")
 joypad_button_event = SubResource("InputEventJoypadButton_k8as6")
 
-[node name="HSeparator" type="HSeparator" parent="MarginContainer/HBoxContainer/MainContainer"]
-visible = false
-layout_mode = 2
-
-[node name="MarginContainer" type="MarginContainer" parent="MarginContainer/HBoxContainer/MainContainer"]
+[node name="Main" type="MarginContainer" parent="HBoxContainer/MainContainer"]
 layout_mode = 2
 size_flags_vertical = 3
 theme_override_constants/margin_left = 10
@@ -391,67 +366,67 @@ theme_override_constants/margin_top = 10
 theme_override_constants/margin_right = 15
 theme_override_constants/margin_bottom = 10
 
-[node name="Content" type="BoxContainer" parent="MarginContainer/HBoxContainer/MainContainer/MarginContainer"]
+[node name="Content" type="BoxContainer" parent="HBoxContainer/MainContainer/Main"]
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
 
-[node name="Email" parent="MarginContainer/HBoxContainer/MainContainer/MarginContainer/Content" instance=ExtResource("6")]
+[node name="Email" parent="HBoxContainer/MainContainer/Main/Content" instance=ExtResource("6")]
 unique_name_in_owner = true
 visible = false
 layout_mode = 2
 
-[node name="Competitions" parent="MarginContainer/HBoxContainer/MainContainer/MarginContainer/Content" instance=ExtResource("7")]
+[node name="Competitions" parent="HBoxContainer/MainContainer/Main/Content" instance=ExtResource("7")]
 unique_name_in_owner = true
 visible = false
 layout_mode = 2
 
-[node name="Calendar" parent="MarginContainer/HBoxContainer/MainContainer/MarginContainer/Content" instance=ExtResource("3")]
+[node name="Calendar" parent="HBoxContainer/MainContainer/Main/Content" instance=ExtResource("3")]
 unique_name_in_owner = true
 visible = false
 layout_mode = 2
 
-[node name="Formation" parent="MarginContainer/HBoxContainer/MainContainer/MarginContainer/Content" instance=ExtResource("5")]
+[node name="Formation" parent="HBoxContainer/MainContainer/Main/Content" instance=ExtResource("5")]
 unique_name_in_owner = true
 visible = false
 layout_mode = 2
 
-[node name="AllPlayerList" parent="MarginContainer/HBoxContainer/MainContainer/MarginContainer/Content" instance=ExtResource("8_nkdvo")]
+[node name="AllPlayerList" parent="HBoxContainer/MainContainer/Main/Content" instance=ExtResource("8_nkdvo")]
 unique_name_in_owner = true
 visible = false
 layout_mode = 2
 
-[node name="PlayerList" parent="MarginContainer/HBoxContainer/MainContainer/MarginContainer/Content" instance=ExtResource("8_nkdvo")]
+[node name="PlayerList" parent="HBoxContainer/MainContainer/Main/Content" instance=ExtResource("8_nkdvo")]
 unique_name_in_owner = true
 visible = false
 layout_mode = 2
 
-[node name="Info" parent="MarginContainer/HBoxContainer/MainContainer/MarginContainer/Content" instance=ExtResource("8_bk8g0")]
+[node name="Info" parent="HBoxContainer/MainContainer/Main/Content" instance=ExtResource("8_bk8g0")]
 unique_name_in_owner = true
 visible = false
 layout_mode = 2
 
-[node name="PlayerProfile" parent="MarginContainer/HBoxContainer/MainContainer/MarginContainer/Content" instance=ExtResource("11_838pl")]
+[node name="PlayerProfile" parent="HBoxContainer/MainContainer/Main/Content" instance=ExtResource("11_838pl")]
 unique_name_in_owner = true
 visible = false
 layout_mode = 2
 
-[node name="TeamProfile" parent="MarginContainer/HBoxContainer/MainContainer/MarginContainer/Content" instance=ExtResource("13_0hk3g")]
+[node name="TeamProfile" parent="HBoxContainer/MainContainer/Main/Content" instance=ExtResource("13_0hk3g")]
 unique_name_in_owner = true
 visible = false
 layout_mode = 2
 
-[node name="PlayerOffer" parent="MarginContainer/HBoxContainer/MainContainer/MarginContainer/Content" instance=ExtResource("8")]
+[node name="PlayerOffer" parent="HBoxContainer/MainContainer/Main/Content" instance=ExtResource("8")]
 unique_name_in_owner = true
 visible = false
 layout_mode = 2
 
-[node name="ContractOffer" parent="MarginContainer/HBoxContainer/MainContainer/MarginContainer/Content" instance=ExtResource("9")]
+[node name="ContractOffer" parent="HBoxContainer/MainContainer/Main/Content" instance=ExtResource("9")]
 unique_name_in_owner = true
 visible = false
 layout_mode = 2
 
-[node name="Finances" parent="MarginContainer/HBoxContainer/MainContainer/MarginContainer/Content" instance=ExtResource("15_jfh6w")]
+[node name="Finances" parent="HBoxContainer/MainContainer/Main/Content" instance=ExtResource("15_jfh6w")]
 unique_name_in_owner = true
 visible = false
 layout_mode = 2
@@ -461,27 +436,27 @@ unique_name_in_owner = true
 visible = false
 custom_text = "Save the game before exiting?"
 
-[connection signal="pressed" from="MarginContainer/HBoxContainer/PanelContainer/MarginContainer/Buttons/EmailButton" to="." method="_on_email_button_pressed"]
-[connection signal="pressed" from="MarginContainer/HBoxContainer/PanelContainer/MarginContainer/Buttons/CalendarButton" to="." method="_on_calendar_button_pressed"]
-[connection signal="pressed" from="MarginContainer/HBoxContainer/PanelContainer/MarginContainer/Buttons/CompetitionsButton" to="." method="_on_competitions_button_pressed"]
-[connection signal="pressed" from="MarginContainer/HBoxContainer/PanelContainer/MarginContainer/Buttons/FinancesButton" to="." method="_on_finances_button_pressed"]
-[connection signal="pressed" from="MarginContainer/HBoxContainer/PanelContainer/MarginContainer/Buttons/FormationButton" to="." method="_on_formation_button_pressed"]
-[connection signal="pressed" from="MarginContainer/HBoxContainer/PanelContainer/MarginContainer/Buttons/PlayersButton" to="." method="_on_players_button_pressed"]
-[connection signal="pressed" from="MarginContainer/HBoxContainer/PanelContainer/MarginContainer/Buttons/SearchPlayerButton" to="." method="_on_search_player_button_pressed"]
-[connection signal="pressed" from="MarginContainer/HBoxContainer/PanelContainer/MarginContainer/Buttons/InfoButton" to="." method="_on_info_button_pressed"]
-[connection signal="pressed" from="MarginContainer/HBoxContainer/PanelContainer/MarginContainer/Buttons/SettingsButton" to="." method="_on_settings_button_pressed"]
-[connection signal="pressed" from="MarginContainer/HBoxContainer/PanelContainer/MarginContainer/Buttons/MenuButton" to="." method="_on_menu_button_pressed"]
-[connection signal="pressed" from="MarginContainer/HBoxContainer/MainContainer/PanelContainer/MarginContainer/TopBar/PrevViewButton" to="." method="_on_prev_view_button_pressed"]
-[connection signal="pressed" from="MarginContainer/HBoxContainer/MainContainer/PanelContainer/MarginContainer/TopBar/NextViewButton" to="." method="_on_next_view_button_pressed"]
-[connection signal="pressed" from="MarginContainer/HBoxContainer/MainContainer/PanelContainer/MarginContainer/TopBar/NextMatchButton" to="." method="_on_next_match_button_pressed"]
-[connection signal="pressed" from="MarginContainer/HBoxContainer/MainContainer/PanelContainer/MarginContainer/TopBar/ContinueButton" to="." method="_on_continue_button_pressed"]
-[connection signal="email_action" from="MarginContainer/HBoxContainer/MainContainer/MarginContainer/Content/Email" to="." method="_on_email_email_action"]
-[connection signal="select_player" from="MarginContainer/HBoxContainer/MainContainer/MarginContainer/Content/AllPlayerList" to="." method="_on_all_player_list_select_player"]
-[connection signal="select_player" from="MarginContainer/HBoxContainer/MainContainer/MarginContainer/Content/PlayerList" to="." method="_on_player_list_select_player"]
-[connection signal="offer" from="MarginContainer/HBoxContainer/MainContainer/MarginContainer/Content/PlayerProfile" to="." method="_on_player_profile_offer"]
-[connection signal="cancel" from="MarginContainer/HBoxContainer/MainContainer/MarginContainer/Content/PlayerOffer" to="." method="_on_player_offer_cancel"]
-[connection signal="confirm" from="MarginContainer/HBoxContainer/MainContainer/MarginContainer/Content/PlayerOffer" to="." method="_on_player_offer_confirm"]
-[connection signal="cancel" from="MarginContainer/HBoxContainer/MainContainer/MarginContainer/Content/ContractOffer" to="." method="_on_contract_offer_cancel"]
-[connection signal="confirm" from="MarginContainer/HBoxContainer/MainContainer/MarginContainer/Content/ContractOffer" to="." method="_on_contract_offer_confirm"]
+[connection signal="pressed" from="HBoxContainer/PanelContainer/MarginContainer/Buttons/EmailButton" to="." method="_on_email_button_pressed"]
+[connection signal="pressed" from="HBoxContainer/PanelContainer/MarginContainer/Buttons/CalendarButton" to="." method="_on_calendar_button_pressed"]
+[connection signal="pressed" from="HBoxContainer/PanelContainer/MarginContainer/Buttons/CompetitionsButton" to="." method="_on_competitions_button_pressed"]
+[connection signal="pressed" from="HBoxContainer/PanelContainer/MarginContainer/Buttons/FinancesButton" to="." method="_on_finances_button_pressed"]
+[connection signal="pressed" from="HBoxContainer/PanelContainer/MarginContainer/Buttons/FormationButton" to="." method="_on_formation_button_pressed"]
+[connection signal="pressed" from="HBoxContainer/PanelContainer/MarginContainer/Buttons/PlayersButton" to="." method="_on_players_button_pressed"]
+[connection signal="pressed" from="HBoxContainer/PanelContainer/MarginContainer/Buttons/SearchPlayerButton" to="." method="_on_search_player_button_pressed"]
+[connection signal="pressed" from="HBoxContainer/PanelContainer/MarginContainer/Buttons/InfoButton" to="." method="_on_info_button_pressed"]
+[connection signal="pressed" from="HBoxContainer/PanelContainer/MarginContainer/Buttons/SettingsButton" to="." method="_on_settings_button_pressed"]
+[connection signal="pressed" from="HBoxContainer/PanelContainer/MarginContainer/Buttons/MenuButton" to="." method="_on_menu_button_pressed"]
+[connection signal="pressed" from="HBoxContainer/MainContainer/PanelContainer/Top/TopBar/PrevViewButton" to="." method="_on_prev_view_button_pressed"]
+[connection signal="pressed" from="HBoxContainer/MainContainer/PanelContainer/Top/TopBar/NextViewButton" to="." method="_on_next_view_button_pressed"]
+[connection signal="pressed" from="HBoxContainer/MainContainer/PanelContainer/Top/TopBar/NextMatchButton" to="." method="_on_next_match_button_pressed"]
+[connection signal="pressed" from="HBoxContainer/MainContainer/PanelContainer/Top/TopBar/ContinueButton" to="." method="_on_continue_button_pressed"]
+[connection signal="email_action" from="HBoxContainer/MainContainer/Main/Content/Email" to="." method="_on_email_email_action"]
+[connection signal="select_player" from="HBoxContainer/MainContainer/Main/Content/AllPlayerList" to="." method="_on_all_player_list_select_player"]
+[connection signal="select_player" from="HBoxContainer/MainContainer/Main/Content/PlayerList" to="." method="_on_player_list_select_player"]
+[connection signal="offer" from="HBoxContainer/MainContainer/Main/Content/PlayerProfile" to="." method="_on_player_profile_offer"]
+[connection signal="cancel" from="HBoxContainer/MainContainer/Main/Content/PlayerOffer" to="." method="_on_player_offer_cancel"]
+[connection signal="confirm" from="HBoxContainer/MainContainer/Main/Content/PlayerOffer" to="." method="_on_player_offer_confirm"]
+[connection signal="cancel" from="HBoxContainer/MainContainer/Main/Content/ContractOffer" to="." method="_on_contract_offer_cancel"]
+[connection signal="confirm" from="HBoxContainer/MainContainer/Main/Content/ContractOffer" to="." method="_on_contract_offer_confirm"]
 [connection signal="confirmed" from="SaveConfirmDialog" to="." method="_on_save_confirm_dialog_confirmed"]
 [connection signal="denied" from="SaveConfirmDialog" to="." method="_on_save_confirm_dialog_denied"]
