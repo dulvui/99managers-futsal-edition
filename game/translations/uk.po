@@ -282,10 +282,10 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: 99 Managers Futsal Edition\n"
-"PO-Revision-Date: 2025-03-03 07:16+0000\n"
-"Last-Translator: Dan <jonweblin2205@protonmail.com>\n"
-"Language-Team: Ukrainian <https://hosted.weblate.org/projects/99-managers-"
-"futsal-edition/game/uk/>\n"
+"PO-Revision-Date: 2025-03-04 08:11+0000\n"
+"Last-Translator: Максим Горпиніч <maksimgorpinic2005a@gmail.com>\n"
+"Language-Team: Ukrainian <https://hosted.weblate.org/projects/"
+"99-managers-futsal-edition/game/uk/>\n"
 "Language: uk\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -918,10 +918,8 @@ msgid "Goal"
 msgstr "Мета"
 
 #: src/ui_components/player_profile/contract_view/contract_view.tscn
-#, fuzzy
-#| msgid "Assists"
 msgid "Assist"
-msgstr "Ассисти"
+msgstr "Асист"
 
 #: src/ui_components/player_profile/contract_view/contract_view.tscn
 msgid "Clean sheet"
@@ -1041,10 +1039,8 @@ msgid "PR"
 msgstr "PR"
 
 #: src/resources/formation/formation.gd
-#, fuzzy
-#| msgid "Automatic"
 msgid "Auto"
-msgstr "Автоматичний"
+msgstr "Авто"
 
 #: src/resources/formation/formation.gd src/enum.gd
 msgid "Manual"
@@ -1287,7 +1283,7 @@ msgstr "Створено"
 
 #: src/screens/save_states_screen/save_state_entry/save_state_entry.tscn
 msgid "Corrupt"
-msgstr ""
+msgstr "Корумпований"
 
 #: src/screens/save_states_screen/save_state_entry/save_state_entry.tscn
 msgid "Delete"
@@ -1307,20 +1303,13 @@ msgstr ""
 "Ви впевнені, що хочете видалити цей стан збереження?"
 
 #: src/screens/save_states_screen/save_state_entry/save_state_entry.tscn
-#, fuzzy
-#| msgid ""
-#| "This save state and it's backub is corrupted. You can find this save "
-#| "state in the following directory and see, if you can find the problem and "
-#| "try reloading.\n"
-#| "{path}"
 msgid ""
 "This save state and it's backup is corrupted. You can find this save state "
 "in the following directory for further diagnostics.\n"
 "{path}"
 msgstr ""
-"Цей стан збереження та його резервний файл пошкоджено. Ви можете знайти цей "
-"стан збереження в наступному каталозі та перевірити, чи зможете ви знайти "
-"проблему та спробувати перезавантажити.\n"
+"Цей стан збереження та його резервна копія пошкоджені. Ви можете знайти цей "
+"стан збереження в наступному каталозі для подальшої діагностики.\n"
 "{path}"
 
 #: src/screens/dashboard/dashboard.gd
@@ -2274,10 +2263,8 @@ msgid "Yemen"
 msgstr "Ємен"
 
 #: src/screens/settings/contributors/contributors.tscn
-#, fuzzy
-#| msgid "Transferlist"
 msgid "Translations"
-msgstr "Список трансферів"
+msgstr "Переклади"
 
 #: src/screens/settings/license/license.tscn
 msgid "Game license"
