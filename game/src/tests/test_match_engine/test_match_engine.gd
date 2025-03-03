@@ -36,6 +36,7 @@ func test_deterministic_simulations() -> void:
 			matches.append(matchz)
 			matchz.setup(home_team, away_team, 1, "test")
 			match_engine.setup(matchz, home_team, away_team)
+			match_engine.simulate()
 			print("test: match %d with seed %d calculated" % [j + 1, i])
 
 		# check results
