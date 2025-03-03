@@ -11,7 +11,7 @@ grow_horizontal = 2
 grow_vertical = 2
 size_flags_horizontal = 4
 size_flags_vertical = 3
-columns = 9
+columns = 8
 script = ExtResource("1_kvugy")
 
 [node name="Pos" type="Label" parent="."]
@@ -28,55 +28,72 @@ text = "Team"
 label_settings = ExtResource("2_ia1mi")
 
 [node name="Played" type="Label" parent="."]
-custom_minimum_size = Vector2(20, 0)
+custom_minimum_size = Vector2(40, 0)
 layout_mode = 2
 tooltip_text = "Played"
 mouse_filter = 1
-text = "P"
+text = "Played"
 label_settings = ExtResource("2_ia1mi")
 horizontal_alignment = 1
+text_overrun_behavior = 1
+visible_characters = 3
+visible_ratio = 0.5
 
 [node name="Win" type="Label" parent="."]
-custom_minimum_size = Vector2(20, 0)
+custom_minimum_size = Vector2(40, 0)
 layout_mode = 2
 tooltip_text = "Win"
 mouse_filter = 1
-text = "W"
+text = "Win"
 label_settings = ExtResource("2_ia1mi")
 horizontal_alignment = 1
+text_overrun_behavior = 1
+visible_characters = 3
 
 [node name="Draw" type="Label" parent="."]
-custom_minimum_size = Vector2(20, 0)
+custom_minimum_size = Vector2(40, 0)
 layout_mode = 2
 tooltip_text = "Draw"
 mouse_filter = 1
-text = "D"
+text = "Draw"
 label_settings = ExtResource("2_ia1mi")
 horizontal_alignment = 1
+text_overrun_behavior = 1
+visible_characters = 3
+visible_ratio = 0.75
 
 [node name="Loose" type="Label" parent="."]
-custom_minimum_size = Vector2(20, 0)
+custom_minimum_size = Vector2(40, 0)
 layout_mode = 2
 tooltip_text = "Lost"
 mouse_filter = 1
-text = "L"
+text = "Lost"
 label_settings = ExtResource("2_ia1mi")
 horizontal_alignment = 1
+text_overrun_behavior = 1
+visible_characters = 3
+visible_ratio = 0.75
 
 [node name="Goals" type="Label" parent="."]
-custom_minimum_size = Vector2(20, 0)
+custom_minimum_size = Vector2(40, 0)
 layout_mode = 2
 tooltip_text = "Goals"
 mouse_filter = 1
-text = "G"
+text = "Goals"
 label_settings = ExtResource("2_ia1mi")
 horizontal_alignment = 1
+text_overrun_behavior = 1
+visible_characters = 3
+visible_ratio = 0.6
 
 [node name="Points" type="Label" parent="."]
-custom_minimum_size = Vector2(20, 0)
+custom_minimum_size = Vector2(40, 0)
 layout_mode = 2
 tooltip_text = "Points"
 mouse_filter = 1
-text = "P"
+text = "Points"
 label_settings = ExtResource("2_ia1mi")
 horizontal_alignment = 1
+text_overrun_behavior = 1
+visible_characters = 3
+visible_ratio = 0.5

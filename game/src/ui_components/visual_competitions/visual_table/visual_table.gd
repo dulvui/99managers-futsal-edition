@@ -25,7 +25,6 @@ func setup(table: Table) -> void:
 	var pos: int = 1
 	for team: TableValues in table_array:
 		var pos_label: Label = Label.new()
-		pos_label.horizontal_alignment = HORIZONTAL_ALIGNMENT_LEFT
 		pos_label.text = str(pos)
 		dynamic_labels.append(pos_label)
 		pos += 1
@@ -80,7 +79,7 @@ func setup(table: Table) -> void:
 
 
 func _style_label(label: Label) -> void:
-	label.horizontal_alignment = HORIZONTAL_ALIGNMENT_RIGHT
-	label.custom_minimum_size = Vector2(60, 0)
+	label.horizontal_alignment = HORIZONTAL_ALIGNMENT_CENTER
+	label.custom_minimum_size = Vector2(40, 0)
 
 
