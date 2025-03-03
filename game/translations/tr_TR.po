@@ -298,7 +298,7 @@ msgstr ""
 "X-Generator: Weblate 5.10.2-rc\n"
 
 #: src/ui_components/team_profile/team_profile.tscn
-#: src/ui_components/info/info.tscn src/screens/dashboard/dashboard.tscn
+#: src/screens/dashboard/dashboard.tscn
 msgid "Info"
 msgstr "Bilgi"
 
@@ -658,8 +658,9 @@ msgid "Name"
 msgstr "İsim"
 
 #: src/ui_components/info/info.tscn
-msgid "Seed"
-msgstr "Sıralama"
+#: src/screens/setup/setup_world/setup_world.tscn
+msgid "Generation seed"
+msgstr "Karakter oluştur"
 
 #: src/ui_components/info/info.tscn
 msgid "Copy"
@@ -720,10 +721,6 @@ msgstr "Berabere"
 #: src/ui_components/visual_competitions/visual_table/visual_table.tscn
 msgid "Lost"
 msgstr "Mağlubiyet"
-
-#: src/ui_components/visual_competitions/visual_table/visual_table.tscn
-msgid "Goals conceded"
-msgstr "Atılan goller"
 
 #: src/ui_components/visual_competitions/visual_table/visual_table.tscn
 msgid "Points"
@@ -926,8 +923,10 @@ msgid "Goal"
 msgstr "Gol"
 
 #: src/ui_components/player_profile/contract_view/contract_view.tscn
-msgid "Assist\n"
-msgstr "Asist\n"
+#, fuzzy
+#| msgid "Assists"
+msgid "Assist"
+msgstr "Asistler"
 
 #: src/ui_components/player_profile/contract_view/contract_view.tscn
 msgid "Clean sheet"
@@ -1045,6 +1044,16 @@ msgstr "CM"
 #: src/resources/formation/position/position.gd
 msgid "PR"
 msgstr "ST"
+
+#: src/resources/formation/formation.gd
+#, fuzzy
+#| msgid "Automatic"
+msgid "Auto"
+msgstr "Otomatik"
+
+#: src/resources/formation/formation.gd src/enum.gd
+msgid "Manual"
+msgstr "Manuel"
 
 #: src/utils/logic/email_util.gd
 msgid "Next match: {team_name}"
@@ -1282,8 +1291,8 @@ msgid "Created"
 msgstr "Oluşturuldu"
 
 #: src/screens/save_states_screen/save_state_entry/save_state_entry.tscn
-msgid "Broken"
-msgstr "Bozulmuş"
+msgid "Corrupt"
+msgstr ""
 
 #: src/screens/save_states_screen/save_state_entry/save_state_entry.tscn
 msgid "Delete"
@@ -1303,10 +1312,15 @@ msgstr ""
 "Bu kaydı silmek istediğine emin misin?"
 
 #: src/screens/save_states_screen/save_state_entry/save_state_entry.tscn
+#, fuzzy
+#| msgid ""
+#| "This save state and it's backub is corrupted. You can find this save "
+#| "state in the following directory and see, if you can find the problem and "
+#| "try reloading.\n"
+#| "{path}"
 msgid ""
-"This save state and it's backub is corrupted. You can find this save state "
-"in the following directory and see, if you can find the problem and try "
-"reloading.\n"
+"This save state and it's backup is corrupted. You can find this save state "
+"in the following directory for further diagnostics.\n"
 "{path}"
 msgstr ""
 "Bu kayıt dosyası ve yedeği bozulmuş durumdadır. İlgili konumda kayıt "
@@ -1438,10 +1452,6 @@ msgstr "Oyuncu isimleri"
 #: src/screens/setup/setup_world/setup_world.tscn
 msgid "Start year"
 msgstr "Başlangıç yılı"
-
-#: src/screens/setup/setup_world/setup_world.tscn
-msgid "Generation seed"
-msgstr "Karakter oluştur"
 
 #: src/screens/setup/setup_world/setup_world.tscn
 msgid ""
@@ -2267,6 +2277,12 @@ msgstr "Vietnam"
 msgid "Yemen"
 msgstr "Yemen"
 
+#: src/screens/settings/contributors/contributors.tscn
+#, fuzzy
+#| msgid "Transferlist"
+msgid "Translations"
+msgstr "Transfer listesi"
+
 #: src/screens/settings/license/license.tscn
 msgid "Game license"
 msgstr "Oyun lisansı"
@@ -2379,10 +2395,6 @@ msgid "Automatic"
 msgstr "Otomatik"
 
 #: src/enum.gd
-msgid "Manual"
-msgstr "Manuel"
-
-#: src/enum.gd
 msgid "Mouse and Keyboard"
 msgstr "Klavye ve fare"
 
@@ -2465,22 +2477,6 @@ msgstr "Bütün maçı simüle etmek istediğinize emin misiniz?"
 msgid "Penalties"
 msgstr "Penaltılar"
 
-#: src/screens/match_screen/statistics/match_stats.gd
-msgid "100 %"
-msgstr ""
-
-#: src/screens/match_screen/statistics/match_stats.tscn
-msgid "0"
-msgstr "0"
-
-#: src/screens/match_screen/statistics/match_stats.tscn
-msgid "50 %"
-msgstr "% 50"
-
-#: src/screens/match_screen/statistics/match_stats.tscn
-msgid "0 (0)"
-msgstr "0 (0)"
-
 #: src/screens/match_screen/statistics/match_stats.tscn
 msgid "Shots (on target)"
 msgstr "Şutlar (hedefi bulan)"
@@ -2540,6 +2536,27 @@ msgstr "Buton rengi"
 #: src/screens/settings/theme_picker/theme_picker.tscn
 msgid "Background color"
 msgstr "Arka plan rengi"
+
+#~ msgid "Seed"
+#~ msgstr "Sıralama"
+
+#~ msgid "Goals conceded"
+#~ msgstr "Atılan goller"
+
+#~ msgid "Assist\n"
+#~ msgstr "Asist\n"
+
+#~ msgid "Broken"
+#~ msgstr "Bozulmuş"
+
+#~ msgid "0"
+#~ msgstr "0"
+
+#~ msgid "50 %"
+#~ msgstr "% 50"
+
+#~ msgid "0 (0)"
+#~ msgstr "0 (0)"
 
 #~ msgid "Commentary"
 #~ msgstr "Yorum"

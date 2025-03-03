@@ -294,7 +294,7 @@ msgstr ""
 "X-Generator: Weblate 5.10.2-dev\n"
 
 #: src/ui_components/team_profile/team_profile.tscn
-#: src/ui_components/info/info.tscn src/screens/dashboard/dashboard.tscn
+#: src/screens/dashboard/dashboard.tscn
 msgid "Info"
 msgstr "Info"
 
@@ -668,8 +668,9 @@ msgid "Name"
 msgstr "Name"
 
 #: src/ui_components/info/info.tscn
-msgid "Seed"
-msgstr "Seed"
+#: src/screens/setup/setup_world/setup_world.tscn
+msgid "Generation seed"
+msgstr "Generierungs-Seed"
 
 #: src/ui_components/info/info.tscn
 msgid "Copy"
@@ -730,10 +731,6 @@ msgstr "Ausgleich"
 #: src/ui_components/visual_competitions/visual_table/visual_table.tscn
 msgid "Lost"
 msgstr "Verloren"
-
-#: src/ui_components/visual_competitions/visual_table/visual_table.tscn
-msgid "Goals conceded"
-msgstr "Gegentore"
 
 #: src/ui_components/visual_competitions/visual_table/visual_table.tscn
 msgid "Points"
@@ -946,7 +943,7 @@ msgid "Goal"
 msgstr "Tore"
 
 #: src/ui_components/player_profile/contract_view/contract_view.tscn
-msgid "Assist\n"
+msgid "Assist"
 msgstr ""
 
 #: src/ui_components/player_profile/contract_view/contract_view.tscn
@@ -1071,6 +1068,16 @@ msgstr "PZ"
 #: src/resources/formation/position/position.gd
 msgid "PR"
 msgstr "PR"
+
+#: src/resources/formation/formation.gd
+#, fuzzy
+#| msgid "Automatic"
+msgid "Auto"
+msgstr "Automatisch"
+
+#: src/resources/formation/formation.gd src/enum.gd
+msgid "Manual"
+msgstr "Manuell"
 
 #: src/utils/logic/email_util.gd
 msgid "Next match: {team_name}"
@@ -1306,7 +1313,7 @@ msgid "Created"
 msgstr "Erstellt"
 
 #: src/screens/save_states_screen/save_state_entry/save_state_entry.tscn
-msgid "Broken"
+msgid "Corrupt"
 msgstr ""
 
 #: src/screens/save_states_screen/save_state_entry/save_state_entry.tscn
@@ -1326,9 +1333,8 @@ msgstr ""
 
 #: src/screens/save_states_screen/save_state_entry/save_state_entry.tscn
 msgid ""
-"This save state and it's backub is corrupted. You can find this save state "
-"in the following directory and see, if you can find the problem and try "
-"reloading.\n"
+"This save state and it's backup is corrupted. You can find this save state "
+"in the following directory for further diagnostics.\n"
 "{path}"
 msgstr ""
 
@@ -1457,10 +1463,6 @@ msgstr "Spieler Namen"
 #: src/screens/setup/setup_world/setup_world.tscn
 msgid "Start year"
 msgstr "Jahresbeginn"
-
-#: src/screens/setup/setup_world/setup_world.tscn
-msgid "Generation seed"
-msgstr "Generierungs-Seed"
 
 #: src/screens/setup/setup_world/setup_world.tscn
 msgid ""
@@ -2287,6 +2289,12 @@ msgstr "Vietnam"
 msgid "Yemen"
 msgstr "Jemen"
 
+#: src/screens/settings/contributors/contributors.tscn
+#, fuzzy
+#| msgid "Transferlist"
+msgid "Translations"
+msgstr "Transferliste"
+
 #: src/screens/settings/license/license.tscn
 msgid "Game license"
 msgstr "Spiellizenz"
@@ -2401,10 +2409,6 @@ msgid "Automatic"
 msgstr "Automatisch"
 
 #: src/enum.gd
-msgid "Manual"
-msgstr "Manuell"
-
-#: src/enum.gd
 msgid "Mouse and Keyboard"
 msgstr "Maus und Tastatur"
 
@@ -2487,22 +2491,6 @@ msgstr ""
 msgid "Penalties"
 msgstr "Strafen"
 
-#: src/screens/match_screen/statistics/match_stats.gd
-msgid "100 %"
-msgstr ""
-
-#: src/screens/match_screen/statistics/match_stats.tscn
-msgid "0"
-msgstr ""
-
-#: src/screens/match_screen/statistics/match_stats.tscn
-msgid "50 %"
-msgstr ""
-
-#: src/screens/match_screen/statistics/match_stats.tscn
-msgid "0 (0)"
-msgstr ""
-
 #: src/screens/match_screen/statistics/match_stats.tscn
 msgid "Shots (on target)"
 msgstr ""
@@ -2564,6 +2552,12 @@ msgstr "Knopffarbe"
 #: src/screens/settings/theme_picker/theme_picker.tscn
 msgid "Background color"
 msgstr "Hintergrundfarbe"
+
+#~ msgid "Seed"
+#~ msgstr "Seed"
+
+#~ msgid "Goals conceded"
+#~ msgstr "Gegentore"
 
 #~ msgid "Commentary"
 #~ msgstr "Kommentare"

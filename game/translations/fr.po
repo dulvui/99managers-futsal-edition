@@ -295,7 +295,7 @@ msgstr ""
 "X-Generator: Poedit 3.2.2\n"
 
 #: src/ui_components/team_profile/team_profile.tscn
-#: src/ui_components/info/info.tscn src/screens/dashboard/dashboard.tscn
+#: src/screens/dashboard/dashboard.tscn
 msgid "Info"
 msgstr "Info"
 
@@ -687,8 +687,9 @@ msgid "Name"
 msgstr "Nom"
 
 #: src/ui_components/info/info.tscn
-msgid "Seed"
-msgstr "Semer"
+#: src/screens/setup/setup_world/setup_world.tscn
+msgid "Generation seed"
+msgstr "Generation seed"
 
 #: src/ui_components/info/info.tscn
 msgid "Copy"
@@ -749,10 +750,6 @@ msgstr "Égalité"
 #: src/ui_components/visual_competitions/visual_table/visual_table.tscn
 msgid "Lost"
 msgstr ""
-
-#: src/ui_components/visual_competitions/visual_table/visual_table.tscn
-msgid "Goals conceded"
-msgstr "Goals conceded"
 
 #: src/ui_components/visual_competitions/visual_table/visual_table.tscn
 msgid "Points"
@@ -963,7 +960,7 @@ msgid "Goal"
 msgstr "Objectifs"
 
 #: src/ui_components/player_profile/contract_view/contract_view.tscn
-msgid "Assist\n"
+msgid "Assist"
 msgstr ""
 
 #: src/ui_components/player_profile/contract_view/contract_view.tscn
@@ -1087,6 +1084,14 @@ msgstr ""
 
 #: src/resources/formation/position/position.gd
 msgid "PR"
+msgstr ""
+
+#: src/resources/formation/formation.gd
+msgid "Auto"
+msgstr ""
+
+#: src/resources/formation/formation.gd src/enum.gd
+msgid "Manual"
 msgstr ""
 
 #: src/utils/logic/email_util.gd
@@ -1317,7 +1322,7 @@ msgid "Created"
 msgstr "Créé"
 
 #: src/screens/save_states_screen/save_state_entry/save_state_entry.tscn
-msgid "Broken"
+msgid "Corrupt"
 msgstr ""
 
 #: src/screens/save_states_screen/save_state_entry/save_state_entry.tscn
@@ -1337,9 +1342,8 @@ msgstr ""
 
 #: src/screens/save_states_screen/save_state_entry/save_state_entry.tscn
 msgid ""
-"This save state and it's backub is corrupted. You can find this save state "
-"in the following directory and see, if you can find the problem and try "
-"reloading.\n"
+"This save state and it's backup is corrupted. You can find this save state "
+"in the following directory for further diagnostics.\n"
 "{path}"
 msgstr ""
 
@@ -1468,10 +1472,6 @@ msgstr "Nom des joueurs"
 #: src/screens/setup/setup_world/setup_world.tscn
 msgid "Start year"
 msgstr ""
-
-#: src/screens/setup/setup_world/setup_world.tscn
-msgid "Generation seed"
-msgstr "Generation seed"
 
 #: src/screens/setup/setup_world/setup_world.tscn
 msgid ""
@@ -2295,6 +2295,12 @@ msgstr "Viêt Nam"
 msgid "Yemen"
 msgstr "Yémen"
 
+#: src/screens/settings/contributors/contributors.tscn
+#, fuzzy
+#| msgid "Transferlist"
+msgid "Translations"
+msgstr "Transferlist"
+
 #: src/screens/settings/license/license.tscn
 msgid "Game license"
 msgstr ""
@@ -2403,10 +2409,6 @@ msgid "Automatic"
 msgstr ""
 
 #: src/enum.gd
-msgid "Manual"
-msgstr ""
-
-#: src/enum.gd
 msgid "Mouse and Keyboard"
 msgstr ""
 
@@ -2489,22 +2491,6 @@ msgstr ""
 msgid "Penalties"
 msgstr ""
 
-#: src/screens/match_screen/statistics/match_stats.gd
-msgid "100 %"
-msgstr ""
-
-#: src/screens/match_screen/statistics/match_stats.tscn
-msgid "0"
-msgstr ""
-
-#: src/screens/match_screen/statistics/match_stats.tscn
-msgid "50 %"
-msgstr ""
-
-#: src/screens/match_screen/statistics/match_stats.tscn
-msgid "0 (0)"
-msgstr ""
-
 #: src/screens/match_screen/statistics/match_stats.tscn
 msgid "Shots (on target)"
 msgstr ""
@@ -2564,6 +2550,12 @@ msgstr "Couleur du bouton"
 #: src/screens/settings/theme_picker/theme_picker.tscn
 msgid "Background color"
 msgstr "Couleur d'arrière-plan"
+
+#~ msgid "Seed"
+#~ msgstr "Semer"
+
+#~ msgid "Goals conceded"
+#~ msgstr "Goals conceded"
 
 #~ msgid "Commentary"
 #~ msgstr "Commentary"
