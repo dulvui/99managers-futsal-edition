@@ -22,7 +22,7 @@ extends JSONResource
 @export var meta_last_save: Dictionary
 @export var meta_game_date: Dictionary
 @export var meta_create_date: Dictionary
-@export var is_broken: bool
+@export var is_corrupt: bool
 
 
 func _init(
@@ -40,7 +40,7 @@ func _init(
 	p_meta_team_position: String = "",
 	p_meta_last_save: Dictionary = {},
 	p_meta_game_date: Dictionary = {},
-	p_is_broken: bool = false,
+	p_is_corrupt: bool = false,
 ) -> void:
 	id = p_id
 	config_version = p_config_version
@@ -56,7 +56,7 @@ func _init(
 	meta_team_position = p_meta_team_position
 	meta_last_save = p_meta_last_save
 	meta_game_date = p_meta_game_date
-	is_broken = p_is_broken
+	is_corrupt = p_is_corrupt
 
 
 func initialize() -> void:

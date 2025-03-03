@@ -39,7 +39,7 @@ func _on_menu_pressed() -> void:
 func _on_res_util_loading_failed() -> void:
 	print("loading failed...")
 	Main.hide_loading_screen()
-	# reload screen to show broken button
+	# reload screen to show corrupt button
 	Main.change_scene(Const.SCREEN_SAVE_STATES)
 
 

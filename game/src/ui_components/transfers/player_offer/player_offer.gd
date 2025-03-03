@@ -94,7 +94,7 @@ func remove_from_list(p_player: Player) -> void:
 	selected_players.erase(p_player)
 	exchange_players.append(p_player)
 
-	# might be broken after Godot 4 upgrade, check _player and selected player
+	# might be corrupt after Godot 4 upgrade, check _player and selected player
 	# before only _player existed
 	for selected_player: Player in selected_players:
 		var remove_button: Button = DefaultButton.new()

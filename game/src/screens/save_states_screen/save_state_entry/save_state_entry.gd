@@ -16,12 +16,12 @@ var save_state: SaveState
 @onready var game_date: Label = %GameDate
 @onready var last_save_date: Label = %LastSaveDate
 
-@onready var broken_button: Button = %Broken
+@onready var corrupt_button: Button = %Corrupt
 @onready var delete_button: Button = %Delete
 @onready var load_button: Button = %Load
 
 @onready var delete_dialog: DefaultConfirmDialog = %DeleteDialog
-@onready var broken_dialog: DefaultConfirmDialog = %BrokenDialog
+@onready var corrupt_dialog: DefaultConfirmDialog = %CorruptDialog
 
 
 func setup(p_save_state: SaveState) -> void:
@@ -40,12 +40,12 @@ func setup(p_save_state: SaveState) -> void:
 
 	delete_button.visible = not hide_buttons
 	load_button.visible = not hide_buttons
-	broken_button.visible = not hide_buttons and save_state.is_broken
+	corrupt_button.visible = not hide_buttons and save_state.is_corrupt
 
-	if save_state.is_broken:
+	if save_state.is_corrupt:
 		load_button.theme_type_variation = ThemeUtil.BUTTON_NORMAL
-		broken_button.theme_type_variation = ThemeUtil.BUTTON_IMPORTANT
-		broken_dialog.rich_text_label.text = broken_dialog.custom_text.format(
+		corrupt_button.theme_type_variation = ThemeUtil.BUTTON_IMPORTANT
+		corrupt_dialog.rich_text_label.text = corrupt_dialog.custom_text.format(
 			{"path": ProjectSettings.globalize_path(ResUtil.SAVE_STATES_PATH + "/" + save_state.id)}
 		)
 
@@ -72,5 +72,5 @@ func _on_delete_dialog_confirmed() -> void:
 		Main.change_scene(Const.SCREEN_SAVE_STATES)
 
 
-func _on_broken_pressed() -> void:
-	broken_dialog.popup()
+func _on_corrupt_pressed() -> void:
+	corrupt_dialog.popup()

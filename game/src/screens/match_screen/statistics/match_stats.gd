@@ -50,11 +50,11 @@ func update_stats(home: MatchStatistics, away: MatchStatistics) -> void:
 	passes_home.text = "%d (%d)" % [home.passes, home.passes_success]
 	passes_away.text = "%d (%d)" % [away.passes, away.passes_success]
 	if home.passes == 0:
-		passes_accuracy_home.text = "100 %"
+		passes_accuracy_home.text = str(100) + "%"
 	else:
 		passes_accuracy_home.text = str(int((home.passes_success * 1.0 / home.passes) * 100.0)) + "%"
 	if away.passes == 0:
-		passes_accuracy_away.text = "100 %"
+		passes_accuracy_away.text = str(100) + "%"
 	else:
 		passes_accuracy_away.text = str(int((away.passes_success * 1.0 / away.passes) * 100.0)) + "%"
 	kick_ins_home.text = str(home.kick_ins)

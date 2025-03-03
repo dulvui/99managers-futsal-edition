@@ -98,8 +98,7 @@ layout_mode = 2
 [node name="Label" type="Label" parent="Bonus/GridContainer/Assist"]
 custom_minimum_size = Vector2(200, 0)
 layout_mode = 2
-text = "Assist
-"
+text = "Assist"
 
 [node name="Assist" type="Label" parent="Bonus/GridContainer/Assist"]
 unique_name_in_owner = true

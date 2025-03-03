@@ -220,7 +220,6 @@ msgstr ""
 "Content-Transfer-Encoding: 8-bit\n"
 
 #: src/ui_components/team_profile/team_profile.tscn
-#: src/ui_components/info/info.tscn
 #: src/screens/dashboard/dashboard.tscn
 msgid "Info"
 msgstr ""
@@ -579,7 +578,8 @@ msgid "Name"
 msgstr ""
 
 #: src/ui_components/info/info.tscn
-msgid "Seed"
+#: src/screens/setup/setup_world/setup_world.tscn
+msgid "Generation seed"
 msgstr ""
 
 #: src/ui_components/info/info.tscn
@@ -640,10 +640,6 @@ msgstr ""
 
 #: src/ui_components/visual_competitions/visual_table/visual_table.tscn
 msgid "Lost"
-msgstr ""
-
-#: src/ui_components/visual_competitions/visual_table/visual_table.tscn
-msgid "Goals conceded"
 msgstr ""
 
 #: src/ui_components/visual_competitions/visual_table/visual_table.tscn
@@ -847,7 +843,7 @@ msgid "Goal"
 msgstr ""
 
 #: src/ui_components/player_profile/contract_view/contract_view.tscn
-msgid "Assist\n"
+msgid "Assist"
 msgstr ""
 
 #: src/ui_components/player_profile/contract_view/contract_view.tscn
@@ -972,6 +968,15 @@ msgstr ""
 
 #: src/resources/formation/position/position.gd
 msgid "PR"
+msgstr ""
+
+#: src/resources/formation/formation.gd
+msgid "Auto"
+msgstr ""
+
+#: src/resources/formation/formation.gd
+#: src/enum.gd
+msgid "Manual"
 msgstr ""
 
 #: src/utils/logic/email_util.gd
@@ -1196,7 +1201,7 @@ msgid "Created"
 msgstr ""
 
 #: src/screens/save_states_screen/save_state_entry/save_state_entry.tscn
-msgid "Broken"
+msgid "Corrupt"
 msgstr ""
 
 #: src/screens/save_states_screen/save_state_entry/save_state_entry.tscn
@@ -1216,7 +1221,7 @@ msgstr ""
 
 #: src/screens/save_states_screen/save_state_entry/save_state_entry.tscn
 msgid ""
-"This save state and it's backub is corrupted. You can find this save state in the following directory and see, if you can find the problem and try reloading.\n"
+"This save state and it's backup is corrupted. You can find this save state in the following directory for further diagnostics.\n"
 "{path}"
 msgstr ""
 
@@ -1347,10 +1352,6 @@ msgstr ""
 
 #: src/screens/setup/setup_world/setup_world.tscn
 msgid "Start year"
-msgstr ""
-
-#: src/screens/setup/setup_world/setup_world.tscn
-msgid "Generation seed"
 msgstr ""
 
 #: src/screens/setup/setup_world/setup_world.tscn
@@ -2173,6 +2174,10 @@ msgstr ""
 msgid "Yemen"
 msgstr ""
 
+#: src/screens/settings/contributors/contributors.tscn
+msgid "Translations"
+msgstr ""
+
 #: src/screens/settings/license/license.tscn
 msgid "Game license"
 msgstr ""
@@ -2279,10 +2284,6 @@ msgid "Automatic"
 msgstr ""
 
 #: src/enum.gd
-msgid "Manual"
-msgstr ""
-
-#: src/enum.gd
 msgid "Mouse and Keyboard"
 msgstr ""
 
@@ -2363,22 +2364,6 @@ msgstr ""
 #: src/screens/match_screen/penalties_bar/penalties_bar.tscn
 #: src/screens/match_screen/statistics/match_stats.tscn
 msgid "Penalties"
-msgstr ""
-
-#: src/screens/match_screen/statistics/match_stats.gd
-msgid "100 %"
-msgstr ""
-
-#: src/screens/match_screen/statistics/match_stats.tscn
-msgid "0"
-msgstr ""
-
-#: src/screens/match_screen/statistics/match_stats.tscn
-msgid "50 %"
-msgstr ""
-
-#: src/screens/match_screen/statistics/match_stats.tscn
-msgid "0 (0)"
 msgstr ""
 
 #: src/screens/match_screen/statistics/match_stats.tscn

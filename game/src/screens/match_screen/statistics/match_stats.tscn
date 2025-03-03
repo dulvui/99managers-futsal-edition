@@ -16,6 +16,7 @@ script = ExtResource("1_14np8")
 
 [node name="GoalsHome" type="Label" parent="."]
 unique_name_in_owner = true
+auto_translate_mode = 2
 layout_mode = 2
 text = "0"
 
@@ -28,12 +29,14 @@ horizontal_alignment = 1
 
 [node name="GoalsAway" type="Label" parent="."]
 unique_name_in_owner = true
+auto_translate_mode = 2
 layout_mode = 2
 text = "0"
 horizontal_alignment = 2
 
 [node name="PossessionHome" type="Label" parent="."]
 unique_name_in_owner = true
+auto_translate_mode = 2
 layout_mode = 2
 text = "50 %"
 
@@ -46,12 +49,14 @@ horizontal_alignment = 1
 
 [node name="PossessionAway" type="Label" parent="."]
 unique_name_in_owner = true
+auto_translate_mode = 2
 layout_mode = 2
 text = "50 %"
 horizontal_alignment = 2
 
 [node name="ShotsHome" type="Label" parent="."]
 unique_name_in_owner = true
+auto_translate_mode = 2
 layout_mode = 2
 text = "0 (0)"
 
@@ -64,12 +69,14 @@ horizontal_alignment = 1
 
 [node name="ShotsAway" type="Label" parent="."]
 unique_name_in_owner = true
+auto_translate_mode = 2
 layout_mode = 2
 text = "0 (0)"
 horizontal_alignment = 2
 
 [node name="ShotsHitPostHome" type="Label" parent="."]
 unique_name_in_owner = true
+auto_translate_mode = 2
 layout_mode = 2
 text = "0"
 
@@ -82,12 +89,14 @@ horizontal_alignment = 1
 
 [node name="ShotsHitPostAway" type="Label" parent="."]
 unique_name_in_owner = true
+auto_translate_mode = 2
 layout_mode = 2
 text = "0"
 horizontal_alignment = 2
 
 [node name="PassesHome" type="Label" parent="."]
 unique_name_in_owner = true
+auto_translate_mode = 2
 layout_mode = 2
 text = "0 (0)"
 
@@ -100,12 +109,14 @@ horizontal_alignment = 1
 
 [node name="PassesAway" type="Label" parent="."]
 unique_name_in_owner = true
+auto_translate_mode = 2
 layout_mode = 2
 text = "0 (0)"
 horizontal_alignment = 2
 
 [node name="PassesAccuracyHome" type="Label" parent="."]
 unique_name_in_owner = true
+auto_translate_mode = 2
 layout_mode = 2
 text = "0 (0)"
 
@@ -118,12 +129,14 @@ horizontal_alignment = 1
 
 [node name="PassesAccuracyAway" type="Label" parent="."]
 unique_name_in_owner = true
+auto_translate_mode = 2
 layout_mode = 2
 text = "0 (0)"
 horizontal_alignment = 2
 
 [node name="KickInsHome" type="Label" parent="."]
 unique_name_in_owner = true
+auto_translate_mode = 2
 layout_mode = 2
 text = "0"
 
@@ -136,12 +149,14 @@ horizontal_alignment = 1
 
 [node name="KickInsAway" type="Label" parent="."]
 unique_name_in_owner = true
+auto_translate_mode = 2
 layout_mode = 2
 text = "0"
 horizontal_alignment = 2
 
 [node name="FreeKicksHome" type="Label" parent="."]
 unique_name_in_owner = true
+auto_translate_mode = 2
 layout_mode = 2
 text = "0"
 
@@ -154,12 +169,14 @@ horizontal_alignment = 1
 
 [node name="FreeKicksAway" type="Label" parent="."]
 unique_name_in_owner = true
+auto_translate_mode = 2
 layout_mode = 2
 text = "0"
 horizontal_alignment = 2
 
 [node name="PenaltiesHome" type="Label" parent="."]
 unique_name_in_owner = true
+auto_translate_mode = 2
 layout_mode = 2
 text = "0"
 
@@ -172,12 +189,14 @@ horizontal_alignment = 1
 
 [node name="PenaltiesAway" type="Label" parent="."]
 unique_name_in_owner = true
+auto_translate_mode = 2
 layout_mode = 2
 text = "0"
 horizontal_alignment = 2
 
 [node name="Penalties10mHome" type="Label" parent="."]
 unique_name_in_owner = true
+auto_translate_mode = 2
 layout_mode = 2
 text = "0"
 
@@ -190,12 +209,14 @@ horizontal_alignment = 1
 
 [node name="Penalties10mAway" type="Label" parent="."]
 unique_name_in_owner = true
+auto_translate_mode = 2
 layout_mode = 2
 text = "0"
 horizontal_alignment = 2
 
 [node name="FoulsHome" type="Label" parent="."]
 unique_name_in_owner = true
+auto_translate_mode = 2
 layout_mode = 2
 text = "0"
 
@@ -208,12 +229,14 @@ horizontal_alignment = 1
 
 [node name="FoulsAway" type="Label" parent="."]
 unique_name_in_owner = true
+auto_translate_mode = 2
 layout_mode = 2
 text = "0"
 horizontal_alignment = 2
 
 [node name="TacklesHome" type="Label" parent="."]
 unique_name_in_owner = true
+auto_translate_mode = 2
 layout_mode = 2
 text = "0 (0)"
 
@@ -226,12 +249,14 @@ horizontal_alignment = 1
 
 [node name="TacklesAway" type="Label" parent="."]
 unique_name_in_owner = true
+auto_translate_mode = 2
 layout_mode = 2
 text = "0 (0)"
 horizontal_alignment = 2
 
 [node name="CornersHome" type="Label" parent="."]
 unique_name_in_owner = true
+auto_translate_mode = 2
 layout_mode = 2
 text = "0"
 
@@ -244,12 +269,14 @@ horizontal_alignment = 1
 
 [node name="CornersAway" type="Label" parent="."]
 unique_name_in_owner = true
+auto_translate_mode = 2
 layout_mode = 2
 text = "0"
 horizontal_alignment = 2
 
 [node name="YellowCardsHome" type="Label" parent="."]
 unique_name_in_owner = true
+auto_translate_mode = 2
 layout_mode = 2
 text = "0"
 
@@ -262,12 +289,14 @@ horizontal_alignment = 1
 
 [node name="YellowCardsAway" type="Label" parent="."]
 unique_name_in_owner = true
+auto_translate_mode = 2
 layout_mode = 2
 text = "0"
 horizontal_alignment = 2
 
 [node name="RedCardsHome" type="Label" parent="."]
 unique_name_in_owner = true
+auto_translate_mode = 2
 layout_mode = 2
 text = "0"
 
@@ -280,6 +309,7 @@ horizontal_alignment = 1
 
 [node name="RedCardsAway" type="Label" parent="."]
 unique_name_in_owner = true
+auto_translate_mode = 2
 layout_mode = 2
 text = "0"
 horizontal_alignment = 2

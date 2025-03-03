@@ -119,7 +119,7 @@ func get_change_strategy_text() -> String:
 		ChangeStrategy.AUTO:
 			return tr("Auto")
 		ChangeStrategy.MANUAL:
-			return tr("MANUAL")
+			return tr("Manual")
 		_:
 			return tr("Auto")
 
