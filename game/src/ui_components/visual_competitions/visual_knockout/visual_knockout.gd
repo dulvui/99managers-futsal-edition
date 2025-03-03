@@ -20,20 +20,20 @@ func _ready() -> void:
 
 func setup(knockout: Knockout) -> void:
 	# group a
-	for rounds: Array in knockout.matches_by_round_a:
+	for roundz: KnockoutRound in knockout.rounds_a:
 		var box: VBoxContainer = VBoxContainer.new()
 		box.alignment = ALIGNMENT_CENTER
 		group_a.add_child(box)
-		for matchz: Match in rounds:
+		for matchz: Match in roundz.matches:
 			var match_row: MatchInfo = MatchInfoScene.instantiate()
 			box.add_child(match_row)
 			match_row.setup(matchz)
 	# group b
-	for rounds: Array in knockout.matches_by_round_b:
+	for roundz: KnockoutRound in knockout.rounds_b:
 		var box: VBoxContainer = VBoxContainer.new()
 		box.alignment = ALIGNMENT_CENTER
 		group_b.add_child(box)
-		for matchz: Match in rounds:
+		for matchz: Match in roundz.matches:
 			var match_row: MatchInfo = MatchInfoScene.instantiate()
 			box.add_child(match_row)
 			match_row.setup(matchz)

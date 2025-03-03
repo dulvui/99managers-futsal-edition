@@ -20,8 +20,8 @@ enum Legs {
 @export var legs_final: Legs
 # saves all matches in every round, for easier visualization
 @export var rounds: int
-@export var matches_by_round_a: Array[Array]
-@export var matches_by_round_b: Array[Array]
+@export var rounds_a: Array[KnockoutRound]
+@export var rounds_b: Array[KnockoutRound]
 @export var final: Match
 
 
@@ -31,8 +31,8 @@ func _init(
 	p_legs_semi_finals: Legs = Legs.DOUBLE,
 	p_legs_final: Legs = Legs.SINGLE,
 	p_rounds: int = 1,
-	p_matches_by_round_a: Array[Array] = [],
-	p_matches_by_round_b: Array[Array] = [],
+	p_rounds_a: Array[KnockoutRound] = [],
+	p_rounds_b: Array[KnockoutRound] = [],
 	p_final: Match = null,
 ) -> void:
 	teams_a = p_teams_a
@@ -40,8 +40,8 @@ func _init(
 	legs_semi_finals = p_legs_semi_finals
 	legs_final = p_legs_final
 	rounds = p_rounds
-	matches_by_round_a = p_matches_by_round_a
-	matches_by_round_b = p_matches_by_round_b
+	rounds_a = p_rounds_a
+	rounds_b = p_rounds_b
 	final = p_final
 
 
@@ -91,10 +91,9 @@ func get_matches(cup: Cup) -> Array[Array]:
 	# semifinals
 	if teams_a.size() > 1:
 		var match_day: Array[Match] = []
-		# second leg
-		var match_day_2: Array[Match] = []
-		matches_by_round_a.append([])
-		matches_by_round_b.append([])
+		var round_a: KnockoutRound = KnockoutRound.new()
+		var round_b: KnockoutRound = KnockoutRound.new()
+		
 		# group a
 		for i: int in teams_a.size() / 2:
 			# assign first vs last, first + 1 vs last - 1 etc...
@@ -102,7 +101,9 @@ func get_matches(cup: Cup) -> Array[Array]:
 			matchz.setup(teams_a[i], teams_a[-(i + 1)], cup.id, cup.name)
 			match_day.append(matchz)
 			# save also in matches by round
-			matches_by_round_a[-1].append(matchz)
+			round_a.matches.append(matchz)
+		rounds_a.append(round_a)
+
 		# group b
 		for i: int in teams_b.size() / 2:
 			# assign first vs last, first + 1 vs last - 1 etc...
@@ -110,30 +111,36 @@ func get_matches(cup: Cup) -> Array[Array]:
 			matchz.setup(teams_b[i], teams_b[-(i + 1)], cup.id, cup.name)
 			match_day.append(matchz)
 			# save also in matches by round
-			matches_by_round_b[-1].append(matchz)
+			round_b.matches.append(matchz)
+		rounds_b.append(round_b)
 
 		matches.append(match_day)
 
 		# second leg
 		if legs_semi_finals == Knockout.Legs.DOUBLE:
-			# iterate over all matches of match day 1 and invert home/away
-			var matches_by_second_round_a: Array[Match] = []
-			for matchz_1: Match in matches_by_round_a[-1]:
-				var matchz: Match = matchz_1.inverted(true)
-				matchz.no_draw = true
-				match_day_2.append(matchz)
-				# save also in matches by round
-				matches_by_second_round_a.append(matchz)
-			matches_by_round_a[-1].append_array(matches_by_second_round_a)
+			# second leg
+			var match_day_2: Array[Match] = []
+			var round_a_2: KnockoutRound = KnockoutRound.new()
+			var round_b_2: KnockoutRound = KnockoutRound.new()
 
-			var matches_by_second_round_b: Array[Match] = []
-			for matchz_1: Match in matches_by_round_b[-1]:
+			# iterate over all matches of match day 1 and invert home/away
+			# group a
+			for matchz_1: Match in rounds_a[-1].matches:
 				var matchz: Match = matchz_1.inverted(true)
 				matchz.no_draw = true
 				match_day_2.append(matchz)
 				# save also in matches by round
-				matches_by_second_round_b.append(matchz)
-			matches_by_round_b[-1].append_array(matches_by_second_round_b)
+				round_a_2.matches.append(matchz)
+			rounds_a.append(round_a_2)
+
+			# group b
+			for matchz_1: Match in rounds_b[-1].matches:
+				var matchz: Match = matchz_1.inverted(true)
+				matchz.no_draw = true
+				match_day_2.append(matchz)
+				# save also in matches by round
+				round_b_2.matches.append(matchz)
+			rounds_b.append(round_b_2)
 
 			matches.append(match_day_2)
 
@@ -154,12 +161,12 @@ func get_matches(cup: Cup) -> Array[Array]:
 
 
 func prepare_next_round() -> bool:
-	if matches_by_round_a.size() * matches_by_round_b.size() == 0:
+	if rounds_a.size() * rounds_b.size() == 0:
 		print("error during preparing next round of knockout, no matches found")
 		return false
 
-	var a_ready: bool = _prepare_next_round(matches_by_round_a[-1], teams_a)
-	var b_ready: bool = _prepare_next_round(matches_by_round_b[-1], teams_b)
+	var a_ready: bool = _prepare_next_round(rounds_a[-1], teams_a)
+	var b_ready: bool = _prepare_next_round(rounds_b[-1], teams_b)
 
 	if a_ready != b_ready:
 		print("error during preparing next round of knockout, group a and b are both ready")
@@ -168,13 +175,13 @@ func prepare_next_round() -> bool:
 	return a_ready and b_ready
 
 
-func _prepare_next_round(matches: Array, teams: Array[TeamBasic]) -> bool:
-	for matchz: Match in matches:
+func _prepare_next_round(p_round: KnockoutRound, teams: Array[TeamBasic]) -> bool:
+	for matchz: Match in p_round.matches:
 		if not matchz.over:
 			return false
 
 	# eliminate teams
-	for matchz: Match in matches:
+	for matchz: Match in p_round.matches:
 		if legs_semi_finals == Legs.SINGLE:
 			if matchz.home_goals > matchz.away_goals:
 				teams.erase(matchz.away)
