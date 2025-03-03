@@ -1,7 +1,8 @@
-[gd_scene load_steps=4 format=3 uid="uid://i4nnwgwck615"]
+[gd_scene load_steps=5 format=3 uid="uid://i4nnwgwck615"]
 
 [ext_resource type="Script" path="res://src/ui_components/visual_formation/visual_formation.gd" id="1"]
 [ext_resource type="Theme" uid="uid://pt1hrfiuwfpg" path="res://theme_base/theme.tres" id="2"]
+[ext_resource type="PackedScene" uid="uid://bkfkjsv3f5y8p" path="res://src/screens/match_screen/match_simulator/visual_match/visual_actors/visual_field/visual_field.tscn" id="4_4hfjo"]
 [ext_resource type="PackedScene" uid="uid://b2mwv4cl5sm6t" path="res://src/ui_components/base/swtich_option_button/switch_option_button.tscn" id="4_bi7d8"]
 
 [node name="VisualFormation" type="HBoxContainer"]
@@ -16,7 +17,7 @@ theme = ExtResource("2")
 script = ExtResource("1")
 
 [node name="Tactics" type="GridContainer" parent="."]
-custom_minimum_size = Vector2(500, 0)
+custom_minimum_size = Vector2(400, 0)
 layout_mode = 2
 theme_override_constants/h_separation = 20
 theme_override_constants/v_separation = 20
@@ -26,6 +27,7 @@ columns = 2
 layout_mode = 2
 size_flags_horizontal = 3
 text = "Formation"
+text_overrun_behavior = 1
 
 [node name="FormationSelect" parent="Tactics" instance=ExtResource("4_bi7d8")]
 unique_name_in_owner = true
@@ -35,92 +37,120 @@ layout_mode = 2
 layout_mode = 2
 size_flags_horizontal = 3
 text = "Change strategy"
+text_overrun_behavior = 1
 
 [node name="ChangeStrategySelect" parent="Tactics" instance=ExtResource("4_bi7d8")]
 unique_name_in_owner = true
 layout_mode = 2
-tooltip text = "Coming soon"
 disabled = true
-
-[node name="HSeparator3" type="HSeparator" parent="Tactics"]
-layout_mode = 2
-
-[node name="HSeparator5" type="HSeparator" parent="Tactics"]
-layout_mode = 2
 
 [node name="TacticOffenseLabel" type="Label" parent="Tactics"]
 layout_mode = 2
 size_flags_horizontal = 3
 text = "Tactic offense"
+text_overrun_behavior = 1
 
 [node name="TacticSelectOffense" parent="Tactics" instance=ExtResource("4_bi7d8")]
 unique_name_in_owner = true
 layout_mode = 2
-tooltip text = "Coming soon"
 disabled = true
 
 [node name="TacticOffenseIntensityLabel" type="Label" parent="Tactics"]
 layout_mode = 2
 size_flags_horizontal = 3
 text = "Intensity"
+text_overrun_behavior = 1
 
 [node name="TacticOffenseIntensity" type="HSlider" parent="Tactics"]
 unique_name_in_owner = true
 layout_mode = 2
 step = 10.0
 
-[node name="HSeparator2" type="HSeparator" parent="Tactics"]
-layout_mode = 2
-
-[node name="HSeparator4" type="HSeparator" parent="Tactics"]
-layout_mode = 2
-
 [node name="TacticMarkingLabel" type="Label" parent="Tactics"]
 layout_mode = 2
 size_flags_horizontal = 3
 text = "Marking"
+text_overrun_behavior = 1
 
 [node name="TacticSelectMarking" parent="Tactics" instance=ExtResource("4_bi7d8")]
 unique_name_in_owner = true
 layout_mode = 2
-tooltip text = "Coming soon"
 disabled = true
 
 [node name="TacticPressingLabel" type="Label" parent="Tactics"]
 layout_mode = 2
 text = "Pressing"
+text_overrun_behavior = 1
 
 [node name="TacticSelectPressing" parent="Tactics" instance=ExtResource("4_bi7d8")]
 unique_name_in_owner = true
 layout_mode = 2
-tooltip text = "Coming soon"
 disabled = true
 
-[node name="LineUp" type="VBoxContainer" parent="."]
-unique_name_in_owner = true
+[node name="Field" type="Control" parent="."]
 layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="SubViewportContainer" type="SubViewportContainer" parent="Field"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 3
+stretch = true
+
+[node name="SubViewport" type="SubViewport" parent="Field/SubViewportContainer"]
+unique_name_in_owner = true
+disable_3d = true
+handle_input_locally = false
+size = Vector2i(1312, 1080)
+size_2d_override_stretch = true
+render_target_update_mode = 4
+
+[node name="Camera2D" type="Camera2D" parent="Field/SubViewportContainer/SubViewport"]
+unique_name_in_owner = true
+position = Vector2(400, 405)
+rotation = 1.5708
+ignore_rotation = false
+zoom = Vector2(1.5, 1.5)
+position_smoothing_enabled = true
+position_smoothing_speed = 15.0
+
+[node name="VisualField" parent="Field/SubViewportContainer/SubViewport" instance=ExtResource("4_4hfjo")]
+unique_name_in_owner = true
+
+[node name="LineUp" type="VBoxContainer" parent="Field"]
+unique_name_in_owner = true
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
 size_flags_horizontal = 3
 alignment = 1
 
-[node name="Attack" type="HBoxContainer" parent="LineUp"]
+[node name="Attack" type="HBoxContainer" parent="Field/LineUp"]
 unique_name_in_owner = true
 layout_mode = 2
 size_flags_vertical = 3
 alignment = 1
 
-[node name="Center" type="HBoxContainer" parent="LineUp"]
+[node name="Center" type="HBoxContainer" parent="Field/LineUp"]
 unique_name_in_owner = true
 layout_mode = 2
 size_flags_vertical = 3
 alignment = 1
 
-[node name="Defense" type="HBoxContainer" parent="LineUp"]
+[node name="Defense" type="HBoxContainer" parent="Field/LineUp"]
 unique_name_in_owner = true
 layout_mode = 2
 size_flags_vertical = 3
 alignment = 1
 
-[node name="Goalkeeper" type="HBoxContainer" parent="LineUp"]
+[node name="Goalkeeper" type="HBoxContainer" parent="Field/LineUp"]
 unique_name_in_owner = true
 layout_mode = 2
 size_flags_vertical = 3

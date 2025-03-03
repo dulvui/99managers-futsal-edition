@@ -22,11 +22,15 @@ var only_lineup: bool
 @onready var tactic_select_pressing: SwitchOptionButton = %TacticSelectPressing
 @onready var tactic_select_marking: SwitchOptionButton = %TacticSelectMarking
 
+@onready var field: VisualField = %VisualField
+@onready var camera: Camera2D = %Camera2D
+
+@onready var lineup: VBoxContainer = %LineUp
 @onready var goalkeeper: HBoxContainer = %Goalkeeper
 @onready var defense: HBoxContainer = %Defense
 @onready var center: HBoxContainer = %Center
 @onready var attack: HBoxContainer = %Attack
-@onready var lineup: VBoxContainer = %LineUp
+
 @onready var subs: VBoxContainer = %SubsList
 
 
@@ -36,6 +40,10 @@ func _ready() -> void:
 		setup(false, Tests.create_mock_team())
 
 	change_players = []
+	camera.zoom = Vector2(1.0 / Global.config.theme_scale, 1.0 / Global.config.theme_scale)
+
+	field.setup(SimField.new(RandomNumberGenerator.new()))
+	
 
 
 func setup(p_only_lineup: bool, p_team: Team = Global.team) -> void:
