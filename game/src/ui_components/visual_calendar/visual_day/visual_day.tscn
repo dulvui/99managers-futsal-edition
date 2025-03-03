@@ -5,12 +5,12 @@
 [ext_resource type="Script" path="res://src/ui_components/base/defaults/default_button.gd" id="3_8v23p"]
 
 [node name="VisualDay" type="MarginContainer" groups=["visual-day"]]
-custom_minimum_size = Vector2(100, 100)
+custom_minimum_size = Vector2(90, 90)
 anchors_preset = -1
-anchor_right = 0.109
-anchor_bottom = 0.12
-offset_right = 0.719986
-offset_bottom = 0.399994
+anchor_right = 0.047
+anchor_bottom = 0.083
+offset_right = -0.240005
+offset_bottom = 0.359993
 grow_horizontal = 2
 grow_vertical = 2
 size_flags_horizontal = 3
@@ -88,11 +88,12 @@ auto_translate_mode = 2
 layout_mode = 2
 size_flags_vertical = 6
 text = "ROMA"
-autowrap_mode = 2
+text_overrun_behavior = 3
 
 [node name="CompetitionName" type="Label" parent="MarginContainer/Button/MarginContainer/VBoxContainer/Competition"]
 unique_name_in_owner = true
 auto_translate_mode = 2
+visible = false
 layout_mode = 2
 size_flags_horizontal = 3
 text = "SERIE A"

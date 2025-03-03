@@ -25,11 +25,15 @@ func setup(p_date: Day = Day.new(), matchz: Match = null) -> void:
 	if matchz != null:
 		if Global.team.id == matchz.home.id:
 			competition_name.text = matchz.competition_name
+			competition_name.tooltip_text = matchz.competition_name
 			team_name_label.text = "%s - %s" % [matchz.away.name, tr("Home")]
+			team_name_label.tooltip_text = "%s - %s" % [matchz.away.name, tr("Home")]
 			competition.show()
 		elif Global.team.id == matchz.away.id:
 			competition_name.text = matchz.competition_name
+			competition_name.tooltip_text = matchz.competition_name
 			team_name_label.text = "%s - %s" % [matchz.home.name, tr("Away")]
+			team_name_label.tooltip_text = "%s - %s" % [matchz.home.name, tr("Away")]
 			competition.show()
 	else:
 		competition.hide()
@@ -40,6 +44,7 @@ func setup(p_date: Day = Day.new(), matchz: Match = null) -> void:
 	# check if market is active
 	if date.market:
 		market_label.text = tr("Transfermarket")
+		market_label.tooltip_text = tr("Transfermarket")
 
 
 func unselect() -> void:
