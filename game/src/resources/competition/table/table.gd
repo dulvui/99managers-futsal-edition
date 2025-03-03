@@ -33,9 +33,9 @@ func add_result(
 	var away: TableValues = _find_by_id(away_id)
 
 	home.goals_made += home_goals
-	home.goals_against += away_goals
+	home.goals_conceded += away_goals
 	away.goals_made += away_goals
-	away.goals_against += home_goals
+	away.goals_conceded += home_goals
 
 	var home_goals_sum: int = home_goals + home_penalties_goals
 	var away_goals_sum: int = away_goals + away_penalties_goals
@@ -78,7 +78,7 @@ func _point_sorter(a: TableValues, b: TableValues) -> bool:
 		return a.team_name < b.team_name
 	if a.points > b.points:
 		return true
-	if a.points == b.points and a.goals_made - a.goals_against > b.goals_made - b.goals_against:
+	if a.points == b.points and a.goals_made - a.goals_conceded > b.goals_made - b.goals_conceded:
 		return true
 	return false
 

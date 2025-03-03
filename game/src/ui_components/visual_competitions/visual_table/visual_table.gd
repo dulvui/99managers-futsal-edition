@@ -25,7 +25,6 @@ func setup(table: Table) -> void:
 	var pos: int = 1
 	for team: TableValues in table_array:
 		var pos_label: Label = Label.new()
-		_style_label(pos_label)
 		pos_label.horizontal_alignment = HORIZONTAL_ALIGNMENT_LEFT
 		pos_label.text = str(pos)
 		dynamic_labels.append(pos_label)
@@ -33,7 +32,6 @@ func setup(table: Table) -> void:
 
 		var name_label: Label = Label.new()
 		name_label.text_overrun_behavior = TextServer.OVERRUN_TRIM_ELLIPSIS
-		name_label.custom_minimum_size = Vector2(310, 0)
 		name_label.text = team.team_name
 		dynamic_labels.append(name_label)
 
@@ -59,13 +57,8 @@ func setup(table: Table) -> void:
 
 		var goals_made_label: Label = Label.new()
 		_style_label(goals_made_label)
-		goals_made_label.text = str(team.goals_made)
+		goals_made_label.text = "%d:%d" % [team.goals_made, team.goals_conceded]
 		dynamic_labels.append(goals_made_label)
-
-		var goals_against_label: Label = Label.new()
-		_style_label(goals_against_label)
-		goals_against_label.text = str(team.goals_against)
-		dynamic_labels.append(goals_against_label)
 
 		var points_label: Label = Label.new()
 		_style_label(points_label)
@@ -80,7 +73,6 @@ func setup(table: Table) -> void:
 			ThemeUtil.bold(draws_label)
 			ThemeUtil.bold(lost_label)
 			ThemeUtil.bold(goals_made_label)
-			ThemeUtil.bold(goals_against_label)
 			ThemeUtil.bold(points_label)
 
 	for label: Label in dynamic_labels:
@@ -90,3 +82,5 @@ func setup(table: Table) -> void:
 func _style_label(label: Label) -> void:
 	label.horizontal_alignment = HORIZONTAL_ALIGNMENT_RIGHT
 	label.custom_minimum_size = Vector2(60, 0)
+
+

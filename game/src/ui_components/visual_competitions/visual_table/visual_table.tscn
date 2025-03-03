@@ -16,55 +16,67 @@ script = ExtResource("1_kvugy")
 
 [node name="Pos" type="Label" parent="."]
 auto_translate_mode = 2
-custom_minimum_size = Vector2(60, 0)
+custom_minimum_size = Vector2(20, 0)
 layout_mode = 2
 text = "#"
 label_settings = ExtResource("2_ia1mi")
 
 [node name="Team" type="Label" parent="."]
-custom_minimum_size = Vector2(330, 0)
+custom_minimum_size = Vector2(140, 0)
 layout_mode = 2
 text = "Team"
 label_settings = ExtResource("2_ia1mi")
 
 [node name="Played" type="Label" parent="."]
-custom_minimum_size = Vector2(60, 0)
+custom_minimum_size = Vector2(20, 0)
 layout_mode = 2
-text = "Played"
+tooltip_text = "Played"
+mouse_filter = 1
+text = "P"
 label_settings = ExtResource("2_ia1mi")
+horizontal_alignment = 1
 
 [node name="Win" type="Label" parent="."]
-custom_minimum_size = Vector2(60, 0)
+custom_minimum_size = Vector2(20, 0)
 layout_mode = 2
-text = "Win"
+tooltip_text = "Win"
+mouse_filter = 1
+text = "W"
 label_settings = ExtResource("2_ia1mi")
+horizontal_alignment = 1
 
 [node name="Draw" type="Label" parent="."]
-custom_minimum_size = Vector2(60, 0)
+custom_minimum_size = Vector2(20, 0)
 layout_mode = 2
-text = "Draw"
+tooltip_text = "Draw"
+mouse_filter = 1
+text = "D"
 label_settings = ExtResource("2_ia1mi")
+horizontal_alignment = 1
 
 [node name="Loose" type="Label" parent="."]
-custom_minimum_size = Vector2(60, 0)
+custom_minimum_size = Vector2(20, 0)
 layout_mode = 2
-text = "Lost"
+tooltip_text = "Lost"
+mouse_filter = 1
+text = "L"
 label_settings = ExtResource("2_ia1mi")
+horizontal_alignment = 1
 
 [node name="Goals" type="Label" parent="."]
-custom_minimum_size = Vector2(60, 0)
+custom_minimum_size = Vector2(20, 0)
 layout_mode = 2
-text = "Goals"
+tooltip_text = "Goals"
+mouse_filter = 1
+text = "G"
 label_settings = ExtResource("2_ia1mi")
-
-[node name="GoalsAgainst" type="Label" parent="."]
-custom_minimum_size = Vector2(60, 0)
-layout_mode = 2
-text = "Goals conceded"
-label_settings = ExtResource("2_ia1mi")
+horizontal_alignment = 1
 
 [node name="Points" type="Label" parent="."]
-custom_minimum_size = Vector2(60, 0)
+custom_minimum_size = Vector2(20, 0)
 layout_mode = 2
-text = "Points"
+tooltip_text = "Points"
+mouse_filter = 1
+text = "P"
 label_settings = ExtResource("2_ia1mi")
+horizontal_alignment = 1
