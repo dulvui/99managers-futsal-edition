@@ -15,6 +15,8 @@ func _init() -> void:
 
 
 func enter() -> void:
+	owner.field.kickoff = true
+
 	ticks = 0
 
 	# move players to center bottom, and slightly shifted

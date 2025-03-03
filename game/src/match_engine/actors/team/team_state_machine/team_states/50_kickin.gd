@@ -5,13 +5,14 @@
 class_name TeamStateKickin
 extends TeamStateMachineState
 
+var kicking_player: SimPlayer
+
 
 func _init() -> void:
 	super("TeamStateKickin")
 
 
 func enter() -> void:
-	owner.field.clock_running = false
 	owner.field.kickin = true
 
 	if owner.team.has_ball:
@@ -20,8 +21,8 @@ func enter() -> void:
 			if not player.is_goalkeeper:
 				player.move_offense_pos()
 
-		owner.team.player_control(owner.team.player_nearest_to_ball([owner.team.players[0]]))
-		owner.team.player_control().set_destination(owner.field.ball.pos)
+		kicking_player = owner.team.player_nearest_to_ball([owner.team.players[0]])
+		kicking_player.set_destination(owner.field.ball.pos)
 	else:
 		for player: SimPlayer in owner.team.players:
 			player.set_state(PlayerStateIdle.new())
@@ -31,27 +32,23 @@ func enter() -> void:
 
 func execute() -> void:
 	if owner.team.has_ball:
-		if owner.team.player_control().destination_reached():
+		if kicking_player.destination_reached():
 			pass_ball()
 			set_state(TeamStateAttack.new())
-			return
-	elif not owner.field.clock_running:
-		set_state(TeamStateDefend.new())
+			owner.team.team_opponents.set_state(TeamStateDefend.new())
 
 
 func exit() -> void:
 	owner.field.kickin = false
-	owner.field.clock_running = true
 
 
 func pass_ball() -> void:
 	# find best pass
 	var best_player: SimPlayer
-	var player_control: SimPlayer = owner.team.player_control()
 	var delta: float = 1.79769e308  # max float
 	for player: SimPlayer in owner.team.players:
-		if player != player_control:
-			var distance: float = player.pos.distance_squared_to(player_control.pos)
+		if player != kicking_player:
+			var distance: float = player.pos.distance_squared_to(kicking_player.pos)
 			if distance < delta:
 				delta = distance
 				best_player = player

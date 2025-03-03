@@ -11,6 +11,7 @@ func _init() -> void:
 
 
 func enter() -> void:
+	owner.field.kickoff = true
 	owner.team.ready_for_kickoff = false
 
 	# move player for kick off to center
@@ -41,14 +42,13 @@ func execute() -> void:
 		kickoff_pass()
 		set_state(TeamStateAttack.new())
 		return
-	# when time started, defend
-	elif owner.field.clock_running:
+	else:
 		set_state(TeamStateDefend.new())
 		return
 
 
 func exit() -> void:
-	owner.field.clock_running = true
+	owner.field.kickoff = false
 
 
 func kickoff_pass() -> void:

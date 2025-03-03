@@ -12,6 +12,8 @@ func _init() -> void:
 
 
 func enter() -> void:
+	owner.field.free_kick = true
+
 	if owner.team.has_ball:
 		shooting_player = owner.team.players[-1]
 		# find best freekick taker currently on field
@@ -58,7 +60,6 @@ func enter() -> void:
 				players_in_wall -= 1
 				player.set_destination(wall_position)
 				continue
-
 			player.move_defense_pos()
 
 
@@ -72,3 +73,5 @@ func execute() -> void:
 			owner.team.team_opponents.set_state(TeamStateDefend.new())
 
 
+func exit() -> void:
+	owner.field.free_kick = false

@@ -11,7 +11,7 @@ func _init() -> void:
 
 
 func enter() -> void:
-	owner.field.clock_running = false
+	owner.field.corner = true
 
 	if owner.team.has_ball:
 		owner.team.player_control(owner.team.players[-1])
@@ -21,8 +21,15 @@ func enter() -> void:
 
 
 func execute() -> void:
-	if owner.field.clock_running:
-		if owner.team.has_ball:
-			set_state(TeamStateAttack.new())
-		else:
-			set_state(TeamStateDefend.new())
+	# wait for corner to be kicked
+	if owner.field.corner:
+		return
+
+	if owner.team.has_ball:
+		set_state(TeamStateAttack.new())
+	else:
+		set_state(TeamStateDefend.new())
+
+
+func exit() -> void:
+	owner.field.corner = false

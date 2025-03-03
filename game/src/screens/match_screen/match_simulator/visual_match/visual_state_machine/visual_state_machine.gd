@@ -22,6 +22,14 @@ func _process(_delta: float) -> void:
 	home_team_state.text = home_team.state_machine.state.name
 	away_team_state.text = away_team.state_machine.state.name
 
+	if home_team.state_machine.buffer.size() > 3:
+		home_team_state.text += "\n" + home_team.state_machine.buffer[-2].name
+		home_team_state.text += "\n" + home_team.state_machine.buffer[-3].name
+
+	if away_team.state_machine.buffer.size() > 3:
+		away_team_state.text += "\n" + away_team.state_machine.buffer[-2].name
+		away_team_state.text += "\n" + away_team.state_machine.buffer[-3].name
+
 	for i: int in 5:
 		var home_player: SimPlayer = home_team.players[i]
 		var home_label: Label = home_player_states[i]

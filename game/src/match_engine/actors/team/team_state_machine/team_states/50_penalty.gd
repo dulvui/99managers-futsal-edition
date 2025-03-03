@@ -14,6 +14,8 @@ func _init() -> void:
 
 
 func enter() -> void:
+	owner.field.penalty = true
+
 	# assume ball has already been set to penalty spot
 	# this works for penalties and penatlies 10m
 	var penalty_spot: Vector2 = owner.field.ball.pos
@@ -54,4 +56,8 @@ func execute() -> void:
 				return
 			owner.team.set_state(TeamStateAttack.new())
 			owner.team.team_opponents.set_state(TeamStateDefend.new())
+
+
+func exit() -> void:
+	owner.field.penalty = false
 

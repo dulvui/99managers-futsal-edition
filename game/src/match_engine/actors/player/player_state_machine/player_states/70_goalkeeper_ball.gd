@@ -41,9 +41,8 @@ func execute() -> void:
 	owner.field.ball.short_pass(owner.team.player_receive_ball().pos, 40)
 	owner.team.stats.passes += 1
 
-	set_state(PlayerStateGoalkeeperFollowBall.new())
+	set_state(PlayerStateIdle.new())
 
 
 func exit() -> void:
-	owner.field.clock_running = true
 	owner.field.goalkeeper_ball = false

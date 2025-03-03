@@ -43,17 +43,17 @@ func enter() -> void:
 
 
 func execute() -> void:
+	# if no longer corner, wait for team state machine to update state
+	if not owner.field.corner:
+		return
+
 	if owner.team.has_ball:
 		if owner.team.player_control() == owner.player:
 			if owner.player.destination_reached():
 				wait_counter += 1
 				if wait_counter >= wait:
 					corner_kick()
-					owner.player.set_state(PlayerStateAttack.new())
-
-
-func exit() -> void:
-	owner.field.clock_running = true
+					owner.team.set_state(TeamStateAttack.new())
 
 
 func corner_kick() -> void:

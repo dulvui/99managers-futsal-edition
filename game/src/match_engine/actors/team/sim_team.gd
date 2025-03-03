@@ -222,8 +222,6 @@ func player_nearest_to_ball(exclude: Array[SimPlayer] = []) -> SimPlayer:
 
 func player_control(p_player: SimPlayer = null) -> SimPlayer:
 	if p_player != null:
-		if _player_control != null:
-			_player_control.set_state(PlayerStateAttack.new())
 		_player_control = p_player
 		_player_control.set_state(PlayerStateControl.new())
 	return _player_control
@@ -231,8 +229,6 @@ func player_control(p_player: SimPlayer = null) -> SimPlayer:
 
 func player_receive_ball(p_player: SimPlayer = null) -> SimPlayer:
 	if p_player != null:
-		if _player_receive_ball != null:
-			_player_receive_ball.set_state(PlayerStateAttack.new())
 		_player_receive_ball = p_player
 		_player_receive_ball.set_state(PlayerStateReceive.new())
 	return _player_receive_ball
@@ -240,8 +236,6 @@ func player_receive_ball(p_player: SimPlayer = null) -> SimPlayer:
 
 func player_support(p_player: SimPlayer = null) -> SimPlayer:
 	if p_player != null:
-		if _player_support != null:
-			_player_support.set_state(PlayerStateAttack.new())
 		_player_support = p_player
 		_player_support.set_state(PlayerStateSupport.new())
 	return _player_support
@@ -249,8 +243,6 @@ func player_support(p_player: SimPlayer = null) -> SimPlayer:
 
 func player_chase(p_player: SimPlayer = null) -> SimPlayer:
 	if p_player != null:
-		if _player_chase != null:
-			_player_chase.set_state(PlayerStateDefend.new())
 		_player_chase = p_player
 		_player_chase.set_state(PlayerStateChaseBall.new())
 	return _player_chase
