@@ -42,6 +42,7 @@ func enter() -> void:
 				shooting_player = player
 		shooting_player.set_state(PlayerStatePenaltyShoot.new())
 	else:
+		goalkeeper = owner.team.players[0]
 		goalkeeper.set_state(PlayerStateGoalkeeperPenalty.new())
 
 
