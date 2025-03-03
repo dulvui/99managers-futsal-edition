@@ -10,10 +10,11 @@
 [node name="General" type="VBoxContainer"]
 anchors_preset = -1
 anchor_right = 0.178
-anchor_bottom = 0.441
+anchor_bottom = 0.473
 offset_right = -341.76
-offset_bottom = -476.28
+offset_bottom = -510.84
 size_flags_horizontal = 3
+theme_override_constants/separation = 15
 script = ExtResource("1_gl78q")
 
 [node name="LanguageLabel" type="Label" parent="."]
