@@ -369,6 +369,18 @@ msgid "Goalkeeper"
 msgstr "Goleiro"
 
 #: src/ui_components/player_list/player_list.gd
+msgid "All Teams"
+msgstr ""
+
+#: src/ui_components/player_list/player_list.gd
+msgid "All positions"
+msgstr "Todas as posições"
+
+#: src/ui_components/player_list/player_list.gd
+msgid "All Leagues"
+msgstr ""
+
+#: src/ui_components/player_list/player_list.gd
 #: src/ui_components/player_profile/info_view/info_view.tscn
 msgid "Position"
 msgstr "Posição"
@@ -645,18 +657,6 @@ msgstr "Drible"
 #: src/ui_components/player_profile/attributes_view/attributes_view.tscn
 msgid "Blocking"
 msgstr "Bloqueio"
-
-#: src/ui_components/player_list/player_list.gd
-msgid "All Teams"
-msgstr ""
-
-#: src/ui_components/player_list/player_list.gd
-msgid "All positions"
-msgstr "Todas as posições"
-
-#: src/ui_components/player_list/player_list.gd
-msgid "All Leagues"
-msgstr ""
 
 #: src/ui_components/player_list/player_list_column/player_list_column.tscn
 #: src/ui_components/player_profile/info_view/info_view.tscn
@@ -1076,10 +1076,12 @@ msgstr "Automático"
 msgid "Manual"
 msgstr "Manual"
 
+#. TRANSLATORS: {team_name} gets dynamically filled
 #: src/utils/logic/email_util.gd
 msgid "Next match: {team_name}"
 msgstr ""
 
+#. TRANSLATORS: {team_name} gets dynamically filled
 #: src/utils/logic/email_util.gd
 msgid "The next match is against {team_name}."
 msgstr ""
@@ -1088,34 +1090,41 @@ msgstr ""
 msgid "Welcome {manager_name}"
 msgstr ""
 
+#. TRANSLATORS: {team_name} gets dynamically filled
 #: src/utils/logic/email_util.gd
 msgid "{team_name} welcomes you to a new journey."
 msgstr ""
 
+#. TRANSLATORS: {player_name} gets dynamically filled
 #: src/utils/logic/email_util.gd
 msgid "Offer for {player_name}"
 msgstr ""
 
+#. TRANSLATORS: {cost}, {player_name}, {team_name} get dynamically filled
 #: src/utils/logic/email_util.gd
 msgid ""
 "You made an offer for {player_name} from {team_name} at {cost}.\n"
 "{team_name} will consider the offer and respond within a few days."
 msgstr ""
 
+#. TRANSLATORS: {player_name} gets dynamically filled
 #: src/utils/logic/email_util.gd
 msgid "Offer for {player_name} declined"
 msgstr ""
 
+#. TRANSLATORS: {player_name}, {team_name} get dynamically filled
 #: src/utils/logic/email_util.gd
 msgid ""
 "Your offer for {player_name} from {team_name} at {cost} has been declined.\n"
 "Increasing the transfer value could make them reconsider."
 msgstr ""
 
+#. TRANSLATORS: {player_name} gets dynamically filled
 #: src/utils/logic/email_util.gd
 msgid "Offer for {player_name} accepted"
 msgstr ""
 
+#. TRANSLATORS: {player_name}, {team_name} get dynamically filled
 #: src/utils/logic/email_util.gd
 msgid ""
 "Your offer for {player_name} from {team_name} at {cost} has been accepted.\n"
@@ -2404,42 +2413,54 @@ msgstr "Controle"
 msgid "Touchscreen"
 msgstr "Touchscreen"
 
+#. TRANSLATORS: Preferred foot
 #: src/enum.gd
 msgid "Left"
 msgstr "Esquerdo"
 
+#. TRANSLATORS: Preferred foot
 #: src/enum.gd
 msgid "Right"
 msgstr "Direito"
 
+#. TRANSLATORS: Preferred foot
 #: src/enum.gd
 msgid "Left and right"
 msgstr "Esquerdo e direito"
 
+#. TRANSLATORS: Player morality
 #: src/enum.gd
 msgid "Worst"
 msgstr "Pior"
 
+#. TRANSLATORS: Player morality
 #: src/enum.gd
 msgid "Bad"
 msgstr "Ruim"
 
+#. TRANSLATORS: Player morality
 #: src/enum.gd
 msgid "Neutral"
 msgstr "Neutro"
 
+#. TRANSLATORS: Player morality
+#. Player physical form
 #: src/enum.gd
 msgid "Good"
 msgstr "Bom"
 
+#. TRANSLATORS: Player morality
+#. Player physical form
 #: src/enum.gd
 msgid "Best"
 msgstr "Melhor"
 
+#. TRANSLATORS: Player physical form
 #: src/enum.gd
 msgid "Injured"
 msgstr "Lesionado"
 
+#. TRANSLATORS: Player physical form
 #: src/enum.gd
 msgid "Recover"
 msgstr "Recuperar"

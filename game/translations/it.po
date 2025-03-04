@@ -370,6 +370,18 @@ msgid "Goalkeeper"
 msgstr "Portiere"
 
 #: src/ui_components/player_list/player_list.gd
+msgid "All Teams"
+msgstr "Tutte le squadre"
+
+#: src/ui_components/player_list/player_list.gd
+msgid "All positions"
+msgstr "Tutte posizioni"
+
+#: src/ui_components/player_list/player_list.gd
+msgid "All Leagues"
+msgstr "Tutti campionati"
+
+#: src/ui_components/player_list/player_list.gd
 #: src/ui_components/player_profile/info_view/info_view.tscn
 msgid "Position"
 msgstr "Posizione"
@@ -632,18 +644,6 @@ msgstr "Dribbling"
 #: src/ui_components/player_profile/attributes_view/attributes_view.tscn
 msgid "Blocking"
 msgstr "Bloccare"
-
-#: src/ui_components/player_list/player_list.gd
-msgid "All Teams"
-msgstr "Tutte le squadre"
-
-#: src/ui_components/player_list/player_list.gd
-msgid "All positions"
-msgstr "Tutte posizioni"
-
-#: src/ui_components/player_list/player_list.gd
-msgid "All Leagues"
-msgstr "Tutti campionati"
 
 #: src/ui_components/player_list/player_list_column/player_list_column.tscn
 #: src/ui_components/player_profile/info_view/info_view.tscn
@@ -1045,10 +1045,12 @@ msgstr "Automatico"
 msgid "Manual"
 msgstr "Manuale"
 
+#. TRANSLATORS: {team_name} gets dynamically filled
 #: src/utils/logic/email_util.gd
 msgid "Next match: {team_name}"
 msgstr "Prossima partita: {team_name}"
 
+#. TRANSLATORS: {team_name} gets dynamically filled
 #: src/utils/logic/email_util.gd
 msgid "The next match is against {team_name}."
 msgstr "La prossima partita è contro {team_name}"
@@ -1057,14 +1059,17 @@ msgstr "La prossima partita è contro {team_name}"
 msgid "Welcome {manager_name}"
 msgstr "Benvenuto {manager_name}"
 
+#. TRANSLATORS: {team_name} gets dynamically filled
 #: src/utils/logic/email_util.gd
 msgid "{team_name} welcomes you to a new journey."
 msgstr "{team_name} ti da il benvenuto ad una nuova avventura."
 
+#. TRANSLATORS: {player_name} gets dynamically filled
 #: src/utils/logic/email_util.gd
 msgid "Offer for {player_name}"
 msgstr "Offerta per {player_name}"
 
+#. TRANSLATORS: {cost}, {player_name}, {team_name} get dynamically filled
 #: src/utils/logic/email_util.gd
 msgid ""
 "You made an offer for {player_name} from {team_name} at {cost}.\n"
@@ -1073,10 +1078,12 @@ msgstr ""
 "Hai fatto un offerta per {player_name} della squadra {team_name} a {cost}.\n"
 "{team_name} sta valutando la tua offerta e risponderà in pochi giorni."
 
+#. TRANSLATORS: {player_name} gets dynamically filled
 #: src/utils/logic/email_util.gd
 msgid "Offer for {player_name} declined"
 msgstr "Offerta per {player_name} è stata rifiutata"
 
+#. TRANSLATORS: {player_name}, {team_name} get dynamically filled
 #: src/utils/logic/email_util.gd
 msgid ""
 "Your offer for {player_name} from {team_name} at {cost} has been declined.\n"
@@ -1086,10 +1093,12 @@ msgstr ""
 "{cost} è stata respinta.\n"
 "Alzando la tua offerta potrebbe cambiare la loro decisione."
 
+#. TRANSLATORS: {player_name} gets dynamically filled
 #: src/utils/logic/email_util.gd
 msgid "Offer for {player_name} accepted"
 msgstr "Offerta per {player_name} accettata"
 
+#. TRANSLATORS: {player_name}, {team_name} get dynamically filled
 #: src/utils/logic/email_util.gd
 msgid ""
 "Your offer for {player_name} from {team_name} at {cost} has been accepted.\n"
@@ -2389,42 +2398,54 @@ msgstr "Joypad"
 msgid "Touchscreen"
 msgstr "Schermo touch"
 
+#. TRANSLATORS: Preferred foot
 #: src/enum.gd
 msgid "Left"
 msgstr "Sinistro"
 
+#. TRANSLATORS: Preferred foot
 #: src/enum.gd
 msgid "Right"
 msgstr "Destro"
 
+#. TRANSLATORS: Preferred foot
 #: src/enum.gd
 msgid "Left and right"
 msgstr "Ambidestro"
 
+#. TRANSLATORS: Player morality
 #: src/enum.gd
 msgid "Worst"
 msgstr "Peggiore"
 
+#. TRANSLATORS: Player morality
 #: src/enum.gd
 msgid "Bad"
 msgstr "Male"
 
+#. TRANSLATORS: Player morality
 #: src/enum.gd
 msgid "Neutral"
 msgstr "Neutrale"
 
+#. TRANSLATORS: Player morality
+#. Player physical form
 #: src/enum.gd
 msgid "Good"
 msgstr "Buono"
 
+#. TRANSLATORS: Player morality
+#. Player physical form
 #: src/enum.gd
 msgid "Best"
 msgstr "Migliore"
 
+#. TRANSLATORS: Player physical form
 #: src/enum.gd
 msgid "Injured"
 msgstr "Infortunato"
 
+#. TRANSLATORS: Player physical form
 #: src/enum.gd
 msgid "Recover"
 msgstr "Recupero"
