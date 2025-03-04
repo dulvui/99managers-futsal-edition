@@ -33,6 +33,42 @@ Check out my blog post for frequently asked questions about the game.
 # Roadmap
 Features/issues lists are visible in the [Roadmap](ROADMAP.md) 
 
+# Development
+This game is developed using the [Godot Engine](https://godotengine.org/) version 4.x.
+The exact version used can be found in the [project.godot](game/project.godot) under `config/features`.
+```c
+config/features=PackedStringArray("4.4")
+```
+Download the exact version used from the [Godot Engine website](https://godotengine.org/) and open the project.
+
+# Build
+This project has a [build script](scripts/build/build.sh) that automatically creates exports for Linux, Windows and MacOS.
+The final output will be a single zip archive for every platform and a directory with the executables.  
+Note: This script is targeted to work on **Linux**, but it might work also on other operating systems, with minor changes.
+
+To be able to export, be sure that the [export templates](https://docs.godotengine.org/en/latest/tutorials/export/exporting_projects.html#export-templates)
+are installed.
+
+The script uses environment variables for paths, passwords.  
+1) Copy the example file.
+```bash
+cp scripts/build/.env.example scripts/build/.env
+```
+2) Fill it with your configuration.
+```bash
+# path to your godot executable
+GODOT_PATH=
+# name of the game
+GAME_NAME=
+# path to the directory containing the project.godot file
+GAME_PATH=
+```
+3) Run the script
+```bash
+cd scripts/build/
+bash build.sh
+```
+
 # Licenses and copyrights
 All source code is licensed under [AGPLv3](LICENSES/AGPL-3.0-or-later.txt)  
 All assets made by me, are licensed under [CC BY-SA 4.0](LICENSES/CC-BY-SA-4.0.txt)
