@@ -1,10 +1,9 @@
 [gd_resource type="Resource" script_class="ThemeConfiguration" load_steps=2 format=3 uid="uid://dmceccgxi1op8"]
 
-[ext_resource type="Script" path="res://src/resources/theme/theme_configuration.gd" id="1_k8qnd"]
+[ext_resource type="Script" uid="uid://dhh37r4ufmshl" path="res://src/resources/theme/theme_configuration.gd" id="1_k8qnd"]
 
 [resource]
 script = ExtResource("1_k8qnd")
-id = 0
 name = "LIGHT"
 font_color = Color(0.168803, 0.95098, 0.225592, 1)
 style_color = Color(0.225612, 0.248081, 0.232749, 1)

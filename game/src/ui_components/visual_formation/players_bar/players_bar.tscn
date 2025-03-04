@@ -1,7 +1,7 @@
 [gd_scene load_steps=3 format=3 uid="uid://bj7f2r54xkpt1"]
 
-[ext_resource type="Script" path="res://src/ui_components/visual_formation/players_bar/players_bar.gd" id="1_ehtta"]
-[ext_resource type="Script" path="res://src/ui_components/base/defaults/default_button.gd" id="2_cjbpv"]
+[ext_resource type="Script" uid="uid://b5pvq51i14y4i" path="res://src/ui_components/visual_formation/players_bar/players_bar.gd" id="1_ehtta"]
+[ext_resource type="Script" uid="uid://cnyyowwlb04kl" path="res://src/ui_components/base/defaults/default_button.gd" id="2_cjbpv"]
 
 [node name="PlayersBar" type="HBoxContainer"]
 anchors_preset = -1

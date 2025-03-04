@@ -1,6 +1,6 @@
 [gd_scene load_steps=4 format=3 uid="uid://cdrmqgiuv6wf3"]
 
-[ext_resource type="Script" path="res://src/ui_components/team_profile/team_profile.gd" id="1_2kt4b"]
+[ext_resource type="Script" uid="uid://blc348hncqk3b" path="res://src/ui_components/team_profile/team_profile.gd" id="1_2kt4b"]
 [ext_resource type="LabelSettings" uid="uid://cc2vi4onhgmnw" path="res://theme_base/label/label_settings_bold.tres" id="2_e0wm0"]
 [ext_resource type="PackedScene" uid="uid://mvca6wjq0pv6" path="res://src/ui_components/player_list/player_list.tscn" id="3_mnl3l"]
 

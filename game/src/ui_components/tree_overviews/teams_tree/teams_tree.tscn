@@ -1,6 +1,6 @@
 [gd_scene load_steps=3 format=3 uid="uid://bi1p42wfploqa"]
 
-[ext_resource type="Script" path="res://src/ui_components/tree_overviews/teams_tree/teams_tree.gd" id="1_4tl58"]
+[ext_resource type="Script" uid="uid://bqt2sk8uitkxx" path="res://src/ui_components/tree_overviews/teams_tree/teams_tree.gd" id="1_4tl58"]
 [ext_resource type="PackedScene" uid="uid://dqkcly2ad5fqy" path="res://src/ui_components/base/search_line_edit/search_line_edit.tscn" id="2_rwutq"]
 
 [node name="TeamsTree" type="VBoxContainer"]

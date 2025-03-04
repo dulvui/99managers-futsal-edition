@@ -1,8 +1,8 @@
 [gd_scene load_steps=4 format=3 uid="uid://b1dale6j23rs1"]
 
 [ext_resource type="Theme" uid="uid://pt1hrfiuwfpg" path="res://theme_base/theme.tres" id="1_njb33"]
-[ext_resource type="Script" path="res://src/ui_components/visual_calendar/visual_day/visual_day.gd" id="2_ub0fh"]
-[ext_resource type="Script" path="res://src/ui_components/base/defaults/default_button.gd" id="3_8v23p"]
+[ext_resource type="Script" uid="uid://cuyq1rty57qdj" path="res://src/ui_components/visual_calendar/visual_day/visual_day.gd" id="2_ub0fh"]
+[ext_resource type="Script" uid="uid://cnyyowwlb04kl" path="res://src/ui_components/base/defaults/default_button.gd" id="3_8v23p"]
 
 [node name="VisualDay" type="MarginContainer" groups=["visual-day"]]
 custom_minimum_size = Vector2(90, 90)

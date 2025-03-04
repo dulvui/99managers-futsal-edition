@@ -1,6 +1,6 @@
 [gd_scene load_steps=2 format=3 uid="uid://bkfkjsv3f5y8p"]
 
-[ext_resource type="Script" path="res://src/screens/match_screen/match_simulator/visual_match/visual_actors/visual_field/visual_field.gd" id="1_3jyh0"]
+[ext_resource type="Script" uid="uid://bxxlp7xmhk45v" path="res://src/screens/match_screen/match_simulator/visual_match/visual_actors/visual_field/visual_field.gd" id="1_3jyh0"]
 
 [node name="VisualField" type="Node2D"]
 script = ExtResource("1_3jyh0")

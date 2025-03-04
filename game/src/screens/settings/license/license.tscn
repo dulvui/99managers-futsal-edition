@@ -1,8 +1,8 @@
 [gd_scene load_steps=5 format=3 uid="uid://jtpxotjx2o68"]
 
 [ext_resource type="LabelSettings" uid="uid://cc2vi4onhgmnw" path="res://theme_base/label/label_settings_bold.tres" id="1_ktsq5"]
-[ext_resource type="Script" path="res://src/screens/settings/license/license.gd" id="1_xa1d2"]
-[ext_resource type="Script" path="res://src/ui_components/base/defaults/default_button.gd" id="2_8rsxp"]
+[ext_resource type="Script" uid="uid://ohibrylcqlyd" path="res://src/screens/settings/license/license.gd" id="1_xa1d2"]
+[ext_resource type="Script" uid="uid://cnyyowwlb04kl" path="res://src/ui_components/base/defaults/default_button.gd" id="2_8rsxp"]
 [ext_resource type="PackedScene" uid="uid://bpvg2vhxml3a1" path="res://src/ui_components/base/confirm_dialog/default_confirm_dialog.tscn" id="4_x52u3"]
 
 [node name="Licenses" type="Control"]

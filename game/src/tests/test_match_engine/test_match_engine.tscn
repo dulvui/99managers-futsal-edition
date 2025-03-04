@@ -1,6 +1,6 @@
 [gd_scene load_steps=2 format=3 uid="uid://cx53uix2kysys"]
 
-[ext_resource type="Script" path="res://src/tests/test_match_engine/test_match_engine.gd" id="1_c27up"]
+[ext_resource type="Script" uid="uid://wuvho7k4e5eh" path="res://src/tests/test_match_engine/test_match_engine.gd" id="1_c27up"]
 
 [node name="TestMatchEngine" type="Node"]
 script = ExtResource("1_c27up")

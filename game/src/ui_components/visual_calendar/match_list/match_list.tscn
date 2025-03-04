@@ -1,6 +1,6 @@
 [gd_scene load_steps=2 format=3 uid="uid://dv6e6h4lw1bqy"]
 
-[ext_resource type="Script" path="res://src/ui_components/visual_calendar/match_list/match_list.gd" id="1_xo3bj"]
+[ext_resource type="Script" uid="uid://cc8c8q57boiy" path="res://src/ui_components/visual_calendar/match_list/match_list.gd" id="1_xo3bj"]
 
 [node name="MatchList" type="Control"]
 layout_mode = 3

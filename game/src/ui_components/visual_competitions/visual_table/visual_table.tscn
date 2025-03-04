@@ -1,6 +1,6 @@
 [gd_scene load_steps=3 format=3 uid="uid://cp4q64pv8cjq6"]
 
-[ext_resource type="Script" path="res://src/ui_components/visual_competitions/visual_table/visual_table.gd" id="1_kvugy"]
+[ext_resource type="Script" uid="uid://dod83slwdd2hq" path="res://src/ui_components/visual_competitions/visual_table/visual_table.gd" id="1_kvugy"]
 [ext_resource type="LabelSettings" uid="uid://cc2vi4onhgmnw" path="res://theme_base/label/label_settings_bold.tres" id="2_ia1mi"]
 
 [node name="VisualTable" type="GridContainer"]

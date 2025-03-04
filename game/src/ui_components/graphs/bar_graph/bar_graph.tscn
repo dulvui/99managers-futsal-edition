@@ -1,6 +1,6 @@
 [gd_scene load_steps=2 format=3 uid="uid://dafnpelempya"]
 
-[ext_resource type="Script" path="res://src/ui_components/graphs/bar_graph/bar_graph.gd" id="1_gi2hq"]
+[ext_resource type="Script" uid="uid://d4cnppdsfv3cf" path="res://src/ui_components/graphs/bar_graph/bar_graph.gd" id="1_gi2hq"]
 
 [node name="BarGraph" type="VBoxContainer"]
 anchors_preset = 15

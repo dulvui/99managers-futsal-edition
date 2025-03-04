@@ -1,6 +1,6 @@
 [gd_scene load_steps=2 format=3 uid="uid://dvwdmsha3ewmw"]
 
-[ext_resource type="Script" path="res://src/ui_components/graphs/line_graph/line_graph.gd" id="1_r7xfx"]
+[ext_resource type="Script" uid="uid://cr48gy6tgd42a" path="res://src/ui_components/graphs/line_graph/line_graph.gd" id="1_r7xfx"]
 
 [node name="LineGraph" type="SubViewportContainer"]
 anchors_preset = 15

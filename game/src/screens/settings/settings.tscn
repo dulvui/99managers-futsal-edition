@@ -1,12 +1,12 @@
 [gd_scene load_steps=10 format=3 uid="uid://4aoa7li1cfbc"]
 
-[ext_resource type="Script" path="res://src/screens/settings/settings.gd" id="1_m7cla"]
-[ext_resource type="Script" path="res://src/ui_components/base/defaults/default_tab_container.gd" id="2_pcf3o"]
+[ext_resource type="Script" uid="uid://be7krtp1w1jf7" path="res://src/screens/settings/settings.gd" id="1_m7cla"]
+[ext_resource type="Script" uid="uid://bkg838a5hys8o" path="res://src/ui_components/base/defaults/default_tab_container.gd" id="2_pcf3o"]
 [ext_resource type="PackedScene" uid="uid://cywaob6jab2pj" path="res://src/screens/settings/general/general_settings.tscn" id="2_rfuel"]
 [ext_resource type="PackedScene" uid="uid://bw4rsu0jiwjj0" path="res://src/screens/settings/input/input_settings.tscn" id="3_i3rqu"]
 [ext_resource type="PackedScene" uid="uid://jtpxotjx2o68" path="res://src/screens/settings/license/license.tscn" id="5_2r602"]
 [ext_resource type="PackedScene" uid="uid://bpvg2vhxml3a1" path="res://src/ui_components/base/confirm_dialog/default_confirm_dialog.tscn" id="5_mq35h"]
-[ext_resource type="Script" path="res://src/ui_components/base/defaults/default_button.gd" id="5_mtybe"]
+[ext_resource type="Script" uid="uid://cnyyowwlb04kl" path="res://src/ui_components/base/defaults/default_button.gd" id="5_mtybe"]
 [ext_resource type="PackedScene" uid="uid://bntmwn4twomph" path="res://src/screens/settings/contributors/contributors.tscn" id="6_sxb32"]
 
 [sub_resource type="InputEventJoypadButton" id="InputEventJoypadButton_nppw4"]

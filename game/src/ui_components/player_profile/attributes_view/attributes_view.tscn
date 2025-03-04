@@ -1,6 +1,6 @@
 [gd_scene load_steps=4 format=3 uid="uid://c1ybc8k2e473c"]
 
-[ext_resource type="Script" path="res://src/ui_components/player_profile/attributes_view/attributes_view.gd" id="1_5b24s"]
+[ext_resource type="Script" uid="uid://tvo51mtsocwg" path="res://src/ui_components/player_profile/attributes_view/attributes_view.gd" id="1_5b24s"]
 [ext_resource type="LabelSettings" uid="uid://cc2vi4onhgmnw" path="res://theme_base/label/label_settings_bold.tres" id="2_lgwcu"]
 [ext_resource type="PackedScene" uid="uid://b3y6tq2i5pg3b" path="res://src/ui_components/base/color_label/color_label.tscn" id="3_7lr25"]
 

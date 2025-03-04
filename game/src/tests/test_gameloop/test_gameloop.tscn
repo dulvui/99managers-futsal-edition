@@ -1,6 +1,6 @@
 [gd_scene load_steps=2 format=3 uid="uid://bwt4px40ci3tm"]
 
-[ext_resource type="Script" path="res://src/tests/test_gameloop/test_gameloop.gd" id="1_4wa5y"]
+[ext_resource type="Script" uid="uid://ccxktcunl5jb8" path="res://src/tests/test_gameloop/test_gameloop.gd" id="1_4wa5y"]
 
 [node name="TestGameloop" type="Node"]
 script = ExtResource("1_4wa5y")

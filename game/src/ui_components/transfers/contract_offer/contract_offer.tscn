@@ -1,8 +1,8 @@
 [gd_scene load_steps=4 format=3 uid="uid://ccipqeqmthtfr"]
 
-[ext_resource type="Script" path="res://src/ui_components/transfers/contract_offer/contract_offer.gd" id="1"]
+[ext_resource type="Script" uid="uid://cnn2g27pt0ubw" path="res://src/ui_components/transfers/contract_offer/contract_offer.gd" id="1"]
 [ext_resource type="Theme" uid="uid://pt1hrfiuwfpg" path="res://theme_base/theme.tres" id="2"]
-[ext_resource type="Script" path="res://src/ui_components/base/defaults/default_button.gd" id="3_ycdro"]
+[ext_resource type="Script" uid="uid://cnyyowwlb04kl" path="res://src/ui_components/base/defaults/default_button.gd" id="3_ycdro"]
 
 [node name="ContractOffer" type="PanelContainer"]
 anchors_preset = 15

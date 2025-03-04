@@ -1,6 +1,6 @@
 [gd_scene load_steps=3 format=3 uid="uid://bc6kfu3avld0"]
 
-[ext_resource type="Script" path="res://src/screens/match_screen/statistics/match_stats.gd" id="1_14np8"]
+[ext_resource type="Script" uid="uid://cej0cm5l4holy" path="res://src/screens/match_screen/statistics/match_stats.gd" id="1_14np8"]
 [ext_resource type="LabelSettings" uid="uid://cc2vi4onhgmnw" path="res://theme_base/label/label_settings_bold.tres" id="2_nwjly"]
 
 [node name="Stats" type="GridContainer"]

@@ -1,6 +1,6 @@
 [gd_scene load_steps=3 format=3 uid="uid://csak3fxlpa67q"]
 
-[ext_resource type="Script" path="res://src/ui_components/visual_competitions/visual_knockout/visual_knockout.gd" id="1_webha"]
+[ext_resource type="Script" uid="uid://b5am0hpfqg1uf" path="res://src/ui_components/visual_competitions/visual_knockout/visual_knockout.gd" id="1_webha"]
 [ext_resource type="LabelSettings" uid="uid://cc2vi4onhgmnw" path="res://theme_base/label/label_settings_bold.tres" id="2_0fvbo"]
 
 [node name="VisualKnockout" type="VBoxContainer"]

@@ -1,10 +1,9 @@
 [gd_resource type="Resource" script_class="ThemeConfiguration" load_steps=2 format=3 uid="uid://cyylr2jqd7c8n"]
 
-[ext_resource type="Script" path="res://src/resources/theme/theme_configuration.gd" id="1_h0fmv"]
+[ext_resource type="Script" uid="uid://dhh37r4ufmshl" path="res://src/resources/theme/theme_configuration.gd" id="1_h0fmv"]
 
 [resource]
 script = ExtResource("1_h0fmv")
-id = 0
 name = "SOLARIZED_LIGHT"
 font_color = Color(0.345098, 0.431373, 0.458824, 1)
 style_color = Color(0.933333, 0.909804, 0.835294, 1)

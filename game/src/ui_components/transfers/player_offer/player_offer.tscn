@@ -1,8 +1,8 @@
 [gd_scene load_steps=4 format=3 uid="uid://cbijtmv151qg7"]
 
 [ext_resource type="Theme" uid="uid://pt1hrfiuwfpg" path="res://theme_base/theme.tres" id="1"]
-[ext_resource type="Script" path="res://src/ui_components/transfers/player_offer/player_offer.gd" id="2"]
-[ext_resource type="Script" path="res://src/ui_components/base/defaults/default_button.gd" id="3_s2lfu"]
+[ext_resource type="Script" uid="uid://b2n3ovynlg2e1" path="res://src/ui_components/transfers/player_offer/player_offer.gd" id="2"]
+[ext_resource type="Script" uid="uid://cnyyowwlb04kl" path="res://src/ui_components/base/defaults/default_button.gd" id="3_s2lfu"]
 
 [node name="PlayerOffer" type="PanelContainer"]
 anchors_preset = 15

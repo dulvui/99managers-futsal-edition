@@ -1,6 +1,6 @@
 [gd_scene load_steps=3 format=3 uid="uid://brmxp0ulenogn"]
 
-[ext_resource type="Script" path="res://src/screens/match_screen/match_simulator/visual_match/visual_actors/visual_ball/visual_ball.gd" id="1_dxacx"]
+[ext_resource type="Script" uid="uid://dy2cq0a4qm2p5" path="res://src/screens/match_screen/match_simulator/visual_match/visual_actors/visual_ball/visual_ball.gd" id="1_dxacx"]
 [ext_resource type="Texture2D" uid="uid://b4igo2k8ytmf7" path="res://assets/ball.svg" id="2_ktxve"]
 
 [node name="VisualBall" type="Sprite2D"]

@@ -1,6 +1,6 @@
 [gd_scene load_steps=3 format=3 uid="uid://blsnafnkw14i7"]
 
-[ext_resource type="Script" path="res://src/screens/match_screen/match_simulator/visual_match/visual_actors/visual_team/visual_team.gd" id="1_e5wh8"]
+[ext_resource type="Script" uid="uid://dun76sbqwrpds" path="res://src/screens/match_screen/match_simulator/visual_match/visual_actors/visual_team/visual_team.gd" id="1_e5wh8"]
 [ext_resource type="PackedScene" uid="uid://doptire10wp2v" path="res://src/screens/match_screen/match_simulator/visual_match/visual_actors/visual_player/visual_player.tscn" id="3_ycu0j"]
 
 [node name="VisualTeam" type="Node2D"]

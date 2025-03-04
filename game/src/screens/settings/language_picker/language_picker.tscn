@@ -1,6 +1,6 @@
 [gd_scene load_steps=2 format=3 uid="uid://djrvl8pvkr7aa"]
 
-[ext_resource type="Script" path="res://src/screens/settings/language_picker/language_picker.gd" id="1_1ma02"]
+[ext_resource type="Script" uid="uid://b4suojg612om" path="res://src/screens/settings/language_picker/language_picker.gd" id="1_1ma02"]
 
 [node name="LanguagePicker" type="HFlowContainer"]
 anchors_preset = 8

@@ -1,9 +1,9 @@
 [gd_scene load_steps=7 format=3 uid="uid://cywaob6jab2pj"]
 
 [ext_resource type="LabelSettings" uid="uid://cc2vi4onhgmnw" path="res://theme_base/label/label_settings_bold.tres" id="1_6o6h0"]
-[ext_resource type="Script" path="res://src/screens/settings/general/general_settings.gd" id="1_gl78q"]
+[ext_resource type="Script" uid="uid://ciy03xjqjdkwp" path="res://src/screens/settings/general/general_settings.gd" id="1_gl78q"]
 [ext_resource type="PackedScene" uid="uid://djrvl8pvkr7aa" path="res://src/screens/settings/language_picker/language_picker.tscn" id="2_p1exx"]
-[ext_resource type="Script" path="res://src/ui_components/base/defaults/default_button.gd" id="3_n2piq"]
+[ext_resource type="Script" uid="uid://cnyyowwlb04kl" path="res://src/ui_components/base/defaults/default_button.gd" id="3_n2piq"]
 [ext_resource type="LabelSettings" uid="uid://c5yfa40ut1pyv" path="res://theme_base/label/label_settings.tres" id="4_jbix3"]
 [ext_resource type="PackedScene" uid="uid://can4wvc3g3b84" path="res://src/screens/settings/theme_picker/theme_picker.tscn" id="6_ryj47"]
 

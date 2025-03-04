@@ -1,8 +1,8 @@
 [gd_scene load_steps=5 format=3 uid="uid://cmwiocyu2rdxq"]
 
 [ext_resource type="Theme" uid="uid://pt1hrfiuwfpg" path="res://theme_base/theme.tres" id="1_cn0l1"]
-[ext_resource type="Script" path="res://src/ui_components/visual_formation/player/formation_player.gd" id="2_315wa"]
-[ext_resource type="Script" path="res://src/ui_components/base/defaults/default_button.gd" id="3_jqqop"]
+[ext_resource type="Script" uid="uid://e7ger2qqrsmi" path="res://src/ui_components/visual_formation/player/formation_player.gd" id="2_315wa"]
+[ext_resource type="Script" uid="uid://cnyyowwlb04kl" path="res://src/ui_components/base/defaults/default_button.gd" id="3_jqqop"]
 [ext_resource type="LabelSettings" uid="uid://b4gu78rjvdfx4" path="res://theme_base/label/label_settings_title.tres" id="4_nv2a6"]
 
 [node name="FormationPlayer" type="MarginContainer"]

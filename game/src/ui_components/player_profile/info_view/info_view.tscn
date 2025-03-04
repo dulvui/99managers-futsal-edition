@@ -1,6 +1,6 @@
 [gd_scene load_steps=2 format=3 uid="uid://o6iglxooy6g3"]
 
-[ext_resource type="Script" path="res://src/ui_components/player_profile/info_view/info_view.gd" id="1_kh13b"]
+[ext_resource type="Script" uid="uid://dmiik3kimq5md" path="res://src/ui_components/player_profile/info_view/info_view.gd" id="1_kh13b"]
 
 [node name="Info" type="GridContainer"]
 columns = 2

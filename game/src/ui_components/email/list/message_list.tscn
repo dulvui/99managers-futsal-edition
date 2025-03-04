@@ -1,6 +1,6 @@
 [gd_scene load_steps=2 format=3 uid="uid://dfs434t5wtt6x"]
 
-[ext_resource type="Script" path="res://src/ui_components/email/list/message_list.gd" id="1_01j56"]
+[ext_resource type="Script" uid="uid://qrbe8e68efwn" path="res://src/ui_components/email/list/message_list.gd" id="1_01j56"]
 
 [node name="MessageList" type="VBoxContainer"]
 custom_minimum_size = Vector2(600, 0)

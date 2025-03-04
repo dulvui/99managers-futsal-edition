@@ -1,9 +1,9 @@
 [gd_scene load_steps=12 format=3 uid="uid://0u70bm8qumdr"]
 
 [ext_resource type="Theme" uid="uid://pt1hrfiuwfpg" path="res://theme_base/theme.tres" id="1_kso5g"]
-[ext_resource type="Script" path="res://src/screens/match_screen/match_screen.gd" id="2_m8spm"]
+[ext_resource type="Script" uid="uid://c5jjgbvpum1at" path="res://src/screens/match_screen/match_screen.gd" id="2_m8spm"]
 [ext_resource type="PackedScene" uid="uid://bubq3rsb3hm6e" path="res://src/screens/match_screen/match_simulator/match_simulator.tscn" id="3_b3l68"]
-[ext_resource type="Script" path="res://src/ui_components/base/defaults/default_button.gd" id="4_fwmog"]
+[ext_resource type="Script" uid="uid://cnyyowwlb04kl" path="res://src/ui_components/base/defaults/default_button.gd" id="4_fwmog"]
 [ext_resource type="LabelSettings" uid="uid://cc2vi4onhgmnw" path="res://theme_base/label/label_settings_bold.tres" id="5_2mnrh"]
 [ext_resource type="PackedScene" uid="uid://dvuxwugywbeut" path="res://src/screens/match_screen/penalties_bar/penalties_bar.tscn" id="6_8rfx8"]
 [ext_resource type="PackedScene" uid="uid://bc6kfu3avld0" path="res://src/screens/match_screen/statistics/match_stats.tscn" id="7_qx6fv"]

@@ -1,6 +1,6 @@
 [gd_scene load_steps=2 format=3 uid="uid://5agy8ull675s"]
 
-[ext_resource type="Script" path="res://src/screens/match_screen/events/match_events.gd" id="1"]
+[ext_resource type="Script" uid="uid://c6qoebiyr4gow" path="res://src/screens/match_screen/events/match_events.gd" id="1"]
 
 [node name="MatchEvents" type="MarginContainer"]
 anchors_preset = 15

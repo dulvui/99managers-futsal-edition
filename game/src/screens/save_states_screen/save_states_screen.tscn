@@ -1,9 +1,9 @@
 [gd_scene load_steps=5 format=3 uid="uid://b8ns73g7247l3"]
 
-[ext_resource type="Script" path="res://src/screens/save_states_screen/save_state_screen.gd" id="1_er0yh"]
+[ext_resource type="Script" uid="uid://cnoskvttndrlh" path="res://src/screens/save_states_screen/save_state_screen.gd" id="1_er0yh"]
 [ext_resource type="LabelSettings" uid="uid://b4gu78rjvdfx4" path="res://theme_base/label/label_settings_title.tres" id="2_nys0j"]
 [ext_resource type="PackedScene" uid="uid://dj3ts0dee4m6" path="res://src/screens/save_states_screen/save_state_entry/save_state_entry.tscn" id="2_ydw8l"]
-[ext_resource type="Script" path="res://src/ui_components/base/defaults/default_button.gd" id="3_bn4hs"]
+[ext_resource type="Script" uid="uid://cnyyowwlb04kl" path="res://src/ui_components/base/defaults/default_button.gd" id="3_bn4hs"]
 
 [node name="SaveStates" type="Control"]
 layout_mode = 3

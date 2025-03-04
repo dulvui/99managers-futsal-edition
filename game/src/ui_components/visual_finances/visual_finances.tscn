@@ -1,6 +1,6 @@
 [gd_scene load_steps=5 format=3 uid="uid://dwyn5mtdb3qra"]
 
-[ext_resource type="Script" path="res://src/ui_components/visual_finances/visual_finances.gd" id="1_1umup"]
+[ext_resource type="Script" uid="uid://dvuqht1a3geeo" path="res://src/ui_components/visual_finances/visual_finances.gd" id="1_1umup"]
 [ext_resource type="LabelSettings" uid="uid://cc2vi4onhgmnw" path="res://theme_base/label/label_settings_bold.tres" id="2_c73cx"]
 [ext_resource type="PackedScene" uid="uid://dvwdmsha3ewmw" path="res://src/ui_components/graphs/line_graph/line_graph.tscn" id="3_42277"]
 [ext_resource type="PackedScene" uid="uid://dafnpelempya" path="res://src/ui_components/graphs/bar_graph/bar_graph.tscn" id="4_qqulw"]

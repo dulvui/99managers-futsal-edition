@@ -1,7 +1,7 @@
 [gd_scene load_steps=7 format=3 uid="uid://bpvg2vhxml3a1"]
 
-[ext_resource type="Script" path="res://src/ui_components/base/confirm_dialog/default_confirm_dialog.gd" id="1_alslp"]
-[ext_resource type="Script" path="res://src/ui_components/base/defaults/default_button.gd" id="2_2aytl"]
+[ext_resource type="Script" uid="uid://evtisryy6qsm" path="res://src/ui_components/base/confirm_dialog/default_confirm_dialog.gd" id="1_alslp"]
+[ext_resource type="Script" uid="uid://cnyyowwlb04kl" path="res://src/ui_components/base/defaults/default_button.gd" id="2_2aytl"]
 [ext_resource type="LabelSettings" uid="uid://cc2vi4onhgmnw" path="res://theme_base/label/label_settings_bold.tres" id="2_7lbao"]
 
 [sub_resource type="InputEventJoypadButton" id="InputEventJoypadButton_dt0pg"]

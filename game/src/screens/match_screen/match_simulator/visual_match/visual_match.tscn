@@ -1,6 +1,6 @@
 [gd_scene load_steps=6 format=3 uid="uid://b3xqapw5jfje0"]
 
-[ext_resource type="Script" path="res://src/screens/match_screen/match_simulator/visual_match/visual_match.gd" id="1_moskm"]
+[ext_resource type="Script" uid="uid://er0ds5c78cmk" path="res://src/screens/match_screen/match_simulator/visual_match/visual_match.gd" id="1_moskm"]
 [ext_resource type="PackedScene" uid="uid://blsnafnkw14i7" path="res://src/screens/match_screen/match_simulator/visual_match/visual_actors/visual_team/visual_team.tscn" id="3_cl68t"]
 [ext_resource type="PackedScene" uid="uid://bkfkjsv3f5y8p" path="res://src/screens/match_screen/match_simulator/visual_match/visual_actors/visual_field/visual_field.tscn" id="4_jqh82"]
 [ext_resource type="PackedScene" uid="uid://brmxp0ulenogn" path="res://src/screens/match_screen/match_simulator/visual_match/visual_actors/visual_ball/visual_ball.tscn" id="5_g1vg2"]

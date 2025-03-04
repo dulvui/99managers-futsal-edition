@@ -1,7 +1,7 @@
 [gd_scene load_steps=3 format=3 uid="uid://dual4o5whtk85"]
 
-[ext_resource type="Script" path="res://src/ui_components/info/info.gd" id="1_c8o2q"]
-[ext_resource type="Script" path="res://src/ui_components/base/defaults/default_button.gd" id="2_a2jd2"]
+[ext_resource type="Script" uid="uid://cffign332bwjv" path="res://src/ui_components/info/info.gd" id="1_c8o2q"]
+[ext_resource type="Script" uid="uid://cnyyowwlb04kl" path="res://src/ui_components/base/defaults/default_button.gd" id="2_a2jd2"]
 
 [node name="Info" type="VBoxContainer"]
 anchors_preset = 15
