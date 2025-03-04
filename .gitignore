@@ -33,3 +33,5 @@ game/.vscode/
 # gettext binary files
 game/translations/*.mo
 
+# nvim server file
+*server.pipe

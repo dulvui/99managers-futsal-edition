@@ -3,13 +3,14 @@
 # SPDX-License-Identifier: CC0-1.0
 
 version = 1
-SPDX-PackageName = "Futsal Manager"
+SPDX-PackageName = "99 Managers Futsal Edition"
 SPDX-PackageSupplier = "Simon Dalvai <info@simondalvai.org>"
-SPDX-PackageDownloadLocation = "https://github.com/dulvui/futsal-manager"
+SPDX-PackageDownloadLocation = "https://codeberg.org/dulvui/99managers-futsal-edition"
 
 [[annotations]]
 path = [
     "game/**.tscn",
+    "game/**.uid",
     "game/**.tres",
     "game/project.godot",
     "**.import",
