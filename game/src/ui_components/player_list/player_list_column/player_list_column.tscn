@@ -28,7 +28,4 @@ alignment = 0
 text_overrun_behavior = 1
 script = ExtResource("2_oyrjs")
 
-[node name="HSeparator" type="HSeparator" parent="."]
-layout_mode = 2
-
 [connection signal="pressed" from="SortButton" to="." method="_on_sort_button_pressed"]

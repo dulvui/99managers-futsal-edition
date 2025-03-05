@@ -67,17 +67,17 @@ func _ready() -> void:
 	columns = []
 
 	# filter and view buttons
-	team_select.add_item("All Teams")
+	team_select.add_item(tr("All Teams"))
 	for league: League in Global.world.get_all_leagues():
 		for team: Team in league.teams:
 			if team == null or Global.team == null or team.name != Global.team.name:
 				team_select.add_item(team.name)
 
-	pos_select.add_item("All positions")
+	pos_select.add_item(tr("All positions"))
 	for pos: String in Position.Type.keys():
 		pos_select.add_item(pos)
 
-	league_select.add_item("All Leagues")
+	league_select.add_item(tr("All Leagues"))
 	for league: League in Global.world.get_all_leagues():
 		league_select.add_item(league.name)
 
@@ -151,9 +151,6 @@ func _show_active_column() -> void:
 	for i: int in visible_players.size():
 		name_column.buttons[i].pressed.connect(func() -> void: select_player.emit(visible_players[i]))
 
-	# separator
-	columns_container.add_child(VSeparator.new())
-	
 	match active_view:
 		Views.MENTAL:
 			_show_mental()

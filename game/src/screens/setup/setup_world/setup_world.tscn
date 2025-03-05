@@ -37,6 +37,7 @@ offset_right = 490.5
 offset_bottom = 401.5
 grow_horizontal = 2
 grow_vertical = 2
+theme_override_constants/separation = 15
 alignment = 1
 
 [node name="Manager" type="VBoxContainer" parent="VBoxContainer"]
@@ -51,9 +52,6 @@ theme_override_constants/separation = 5
 layout_mode = 2
 text = "Manager"
 label_settings = ExtResource("3_mfpia")
-
-[node name="HSeparator2" type="HSeparator" parent="VBoxContainer/Manager/Manager"]
-layout_mode = 2
 
 [node name="Container" type="GridContainer" parent="VBoxContainer/Manager/Manager"]
 layout_mode = 2
@@ -96,9 +94,6 @@ unique_name_in_owner = true
 layout_mode = 2
 script = ExtResource("4_3e6xm")
 
-[node name="HSeparator3" type="HSeparator" parent="VBoxContainer"]
-layout_mode = 2
-
 [node name="Settings" type="VBoxContainer" parent="VBoxContainer"]
 layout_mode = 2
 
@@ -107,16 +102,13 @@ layout_mode = 2
 text = "Game settings"
 label_settings = ExtResource("3_mfpia")
 
-[node name="HSeparator3" type="HSeparator" parent="VBoxContainer/Settings"]
-layout_mode = 2
-
 [node name="Container" type="GridContainer" parent="VBoxContainer/Settings"]
 layout_mode = 2
 theme_override_constants/h_separation = 30
 columns = 2
 
 [node name="PlayerNamesLabel" type="Label" parent="VBoxContainer/Settings/Container"]
-custom_minimum_size = Vector2(200, 0)
+custom_minimum_size = Vector2(240, 0)
 layout_mode = 2
 text = "Player names"
 
@@ -126,7 +118,7 @@ custom_minimum_size = Vector2(200, 0)
 layout_mode = 2
 
 [node name="StartYearLabel" type="Label" parent="VBoxContainer/Settings/Container"]
-custom_minimum_size = Vector2(200, 0)
+custom_minimum_size = Vector2(240, 0)
 layout_mode = 2
 text = "Start year"
 
@@ -138,15 +130,13 @@ min_value = 2000.0
 max_value = 3000.0
 value = 2000.0
 
-[node name="HSeparator" type="HSeparator" parent="VBoxContainer"]
-layout_mode = 2
-
 [node name="Seed" type="VBoxContainer" parent="VBoxContainer"]
 layout_mode = 2
 
 [node name="GenerationSeedLabel" type="Label" parent="VBoxContainer/Seed"]
 layout_mode = 2
 text = "Generation seed"
+label_settings = ExtResource("3_mfpia")
 
 [node name="GenerationSeedDescription" type="Label" parent="VBoxContainer/Seed"]
 layout_mode = 2
@@ -178,9 +168,6 @@ size_flags_horizontal = 4
 size_flags_vertical = 3
 text = "Default"
 script = ExtResource("3_g76wv")
-
-[node name="HSeparator2" type="HSeparator" parent="VBoxContainer"]
-layout_mode = 2
 
 [node name="Buttons" type="HBoxContainer" parent="VBoxContainer"]
 layout_mode = 2

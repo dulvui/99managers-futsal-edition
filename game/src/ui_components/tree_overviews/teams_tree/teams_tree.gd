@@ -39,7 +39,7 @@ func _initialize_tree(search_string: String = "") -> void:
 	items = []
 
 	# world competitons
-	var continents_item: TreeItem = _create_item("CONTINENTS")
+	var continents_item: TreeItem = _create_item(tr("Continents"))
 	# continents
 	for continent: Continent in Global.world.continents:
 		if continent.is_competitive():
@@ -70,7 +70,7 @@ func _initialize_tree(search_string: String = "") -> void:
 				tree_item.free()
 
 		if items.is_empty():
-			_create_item("NO_TEAM_FOUND")
+			_create_item(tr("No team found"))
 
 
 func _create_item(

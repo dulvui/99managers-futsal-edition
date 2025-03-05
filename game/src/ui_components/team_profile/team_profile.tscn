@@ -30,9 +30,6 @@ layout_mode = 2
 [node name="Presitge" type="Label" parent="Info"]
 layout_mode = 2
 
-[node name="HSeparator" type="HSeparator" parent="Info"]
-layout_mode = 2
-
 [node name="BudgetTitle" type="Label" parent="Info"]
 layout_mode = 2
 text = "Budget"
@@ -42,9 +39,6 @@ label_settings = ExtResource("2_e0wm0")
 layout_mode = 2
 
 [node name="SalaryBudget" type="Label" parent="Info"]
-layout_mode = 2
-
-[node name="HSeparator2" type="HSeparator" parent="Info"]
 layout_mode = 2
 
 [node name="StadiumTitle" type="Label" parent="Info"]
