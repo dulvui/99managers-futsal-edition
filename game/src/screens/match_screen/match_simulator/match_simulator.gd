@@ -60,7 +60,8 @@ func _physics_process(delta: float) -> void:
 	else:
 		visual_match.hide_actors()
 		# update stats
-		stats_entry = stats_buffer.buffer[-1]
+		if stats_buffer.buffer.size() > 0:
+			stats_entry = stats_buffer.buffer[-1]
 		_update_engine(Const.TICKS / 2)
 
 
