@@ -1,4 +1,4 @@
-[gd_scene load_steps=21 format=3 uid="uid://c8mhb22bae1my"]
+[gd_scene load_steps=22 format=3 uid="uid://c8mhb22bae1my"]
 
 [ext_resource type="Theme" uid="uid://pt1hrfiuwfpg" path="res://theme_base/theme.tres" id="1"]
 [ext_resource type="Script" uid="uid://isdkorclbxno" path="res://src/screens/dashboard/dashboard.gd" id="2"]
@@ -6,6 +6,7 @@
 [ext_resource type="StyleBox" uid="uid://p2i8146lydw5" path="res://theme_base/styles/box/box_background_secondary.tres" id="3_718t5"]
 [ext_resource type="Script" uid="uid://cnyyowwlb04kl" path="res://src/ui_components/base/defaults/default_button.gd" id="3_kbasy"]
 [ext_resource type="PackedScene" uid="uid://i4nnwgwck615" path="res://src/ui_components/visual_formation/visual_formation.tscn" id="5"]
+[ext_resource type="LabelSettings" uid="uid://cc2vi4onhgmnw" path="res://theme_base/label/label_settings_bold.tres" id="5_jjvpr"]
 [ext_resource type="PackedScene" uid="uid://dcv0qm4k1wi4q" path="res://src/ui_components/email/email.tscn" id="6"]
 [ext_resource type="PackedScene" uid="uid://c7bh7ukttbkvu" path="res://src/ui_components/visual_competitions/visual_competitions.tscn" id="7"]
 [ext_resource type="PackedScene" uid="uid://cbijtmv151qg7" path="res://src/ui_components/transfers/player_offer/player_offer.tscn" id="8"]
@@ -311,12 +312,14 @@ unique_name_in_owner = true
 auto_translate_mode = 2
 layout_mode = 2
 text = "Simon Dalvai"
+label_settings = ExtResource("5_jjvpr")
 
 [node name="TeamName" type="Label" parent="HBoxContainer/MainContainer/PanelContainer/Top/TopBar"]
 unique_name_in_owner = true
 auto_translate_mode = 2
 layout_mode = 2
 text = "Bolzano Futsal"
+label_settings = ExtResource("5_jjvpr")
 
 [node name="VSeparator" type="VSeparator" parent="HBoxContainer/MainContainer/PanelContainer/Top/TopBar"]
 self_modulate = Color(1, 1, 1, 0)
@@ -328,6 +331,7 @@ unique_name_in_owner = true
 auto_translate_mode = 2
 layout_mode = 2
 text = "24/08/2002"
+label_settings = ExtResource("5_jjvpr")
 
 [node name="NextMatchButton" type="Button" parent="HBoxContainer/MainContainer/PanelContainer/Top/TopBar"]
 unique_name_in_owner = true
