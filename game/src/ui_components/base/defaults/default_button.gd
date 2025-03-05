@@ -52,7 +52,12 @@ func _set_shortcut_glyph() -> void:
 		if joypad_motion_event.axis == JOY_AXIS_TRIGGER_RIGHT:
 			JoypadAxisUtil.r2.connect(func() -> void: pressed.emit())
 	elif InputUtil.type == Enum.InputType.MOUSE_AND_KEYBOARD and key_event:
-		# text = tooltip_text + " " + key_event.as_text()
+		# workaround for /
+		if key_event.as_text() == "Slash":
+			text = "/"
+		else:
+			text = key_event.as_text()
+
 		icon = null
 	else:
 		icon = null

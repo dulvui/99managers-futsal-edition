@@ -9,7 +9,7 @@ signal email_action(message: EmailMessage)
 
 @onready var message_list: VisualEmailMessageList = $HSplitContainer/MessageList
 @onready var message_container: VisualEmailMessage = $HSplitContainer/MessageView/Message
-@onready var search_line_edit: LineEdit = %SearchLineEdit
+@onready var search_line_edit: SearchLineEdit = %SearchLineEdit
 
 
 func _ready() -> void:
