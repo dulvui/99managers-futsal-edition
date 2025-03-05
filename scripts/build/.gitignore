@@ -1,3 +1,5 @@
 .env
 builds/
 *.zip
+# Godot executable
+Godot*

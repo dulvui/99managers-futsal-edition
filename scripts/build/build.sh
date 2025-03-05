@@ -14,16 +14,39 @@ fi
 echo "Checking if .env exists done."
 
 
-echo "Update version to current date..."
+echo "Checking if export templates exist..."
+if [ -d "$HOME/.local/share/godot/export_templates/$GODOT_VERSION.stable" ]; then
+    echo "Export templates are installed."
+else
+    echo "Downloading export templates..."
+    wget "https://github.com/godotengine/godot-builds/releases/download/$GODOT_VERSION-stable/Godot_v$GODOT_VERSION-stable_export_templates.tpz"
+    unzip "Godot_v$GODOT_VERSION-stable_export_templates.tpz"
+    mkdir -p "$HOME/.local/share/godot/export_templates/$GODOT_VERSION.stable"
+    mv templates/* "$HOME/.local/share/godot/export_templates/$GODOT_VERSION.stable"
+    rm -f "Godot_v$GODOT_VERSION-stable_export_templates.tpz"
+    echo "Downloading export templates done."
+fi
+echo "Checking if export templates exist done."
 
-# create backup of project.godot file
-cp $GAME_PATH/project.godot $GAME_PATH/project.godot.backup
 
-DATE=$(date +%Y%m%d%H%M)
-echo $DATE
-sed -i 's;config/version="development";config/version="'$DATE'";' $GAME_PATH/project.godot
+echo "Checking Godot executable exists..."
+if [ ! -z "$GODOT_PATH" ]; then
+    echo "GODOT_PATH is set, using that for the build."
+elif [ -f "./Godot_v$GODOT_VERSION-stable_linux.x86_64" ]; then
+    echo "Found godot executable here, using that for the build."
+    GODOT_PATH="./Godot_v$GODOT_VERSION-stable_linux.x86_64"
+else
+    echo "GODOT_PATH is empty and no godot executable found..."
+    echo "Downloading Godot $GODOT_VERSION executable..."
+    wget "https://github.com/godotengine/godot-builds/releases/download/$GODOT_VERSION-stable/Godot_v$GODOT_VERSION-stable_linux.x86_64.zip"
+    unzip "Godot_v$GODOT_VERSION-stable_linux.x86_64.zip"
+    rm -f "Godot_v$GODOT_VERSION-stable_linux.x86_64.zip"
+    mv "./Godot_v$GODOT_VERSION-stable_linux.x86_64"
+    GODOT_PATH="./Godot_v$GODOT_VERSION-stable_linux.x86_64"
+    echo "Downloading Godot executable done."
+fi
+echo "Checking Godot executable exists done."
 
-echo "Update version to current date done."
 
 echo "Building..."
 
@@ -35,6 +58,7 @@ mkdir builds/macos
 
 echo "Building Linux..."
 cp $GAME_PATH/export_presets.linux.example $GAME_PATH/export_presets.cfg
+echo "$GODOT_PATH"
 $GODOT_PATH --headless --path $GAME_PATH --export-release "Linux/X11" "$PWD/builds/linux/$GAME_NAME-linux.x86_64"
 echo "Building Linux done."
 
@@ -65,12 +89,6 @@ pushd builds/macos/
 zip -r ../../99managers-futsal-edition-macos.zip .
 popd
 echo "Creating MacOS archive done."
-
-echo "Cleaning up..."
-rm $GAME_PATH/export_presets.cfg
-# restore backup
-mv $GAME_PATH/project.godot.backup $GAME_PATH/project.godot
-echo "Cleaning up done."
 
 echo "Building done."
 

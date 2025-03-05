@@ -31,7 +31,7 @@ Check out my blog post for frequently asked questions about the game.
 [simondalvai.org/blog/futsal-manager-faq/](https://simondalvai.org/blog/99managers-futsal-faq/)
 
 # Roadmap
-Features/issues lists are visible in the [Roadmap](ROADMAP.md) 
+Features/issues lists are visible in the [roadmap](ROADMAP.md).
 
 # Development
 This game is developed using the [Godot Engine](https://godotengine.org/) version 4.x.
@@ -39,24 +39,50 @@ The exact version used can be found in the [project.godot](game/project.godot) u
 ```c
 config/features=PackedStringArray("4.4")
 ```
-Download the exact version used from the [Godot Engine website](https://godotengine.org/) and open the project.
+Download the exact version used from the [Godot Engine website](https://godotengine.org/) and open the project.  
+Please follow Godot's official [GDScript style guide](https://docs.godotengine.org/en/latest/tutorials/scripting/gdscript/gdscript_styleguide.html)
+and [best practices](https://docs.godotengine.org/en/stable/tutorials/best_practices/index.html),
+if contributing to this codebase.
 
 # Build
-This project has a [build script](scripts/build/build.sh) that automatically creates exports for Linux, Windows and MacOS.
-The final output will be a single zip archive for every platform and a directory with the executables.  
+The game can be built following the official Godot export
+[documentation](https://docs.godotengine.org/en/stable/tutorials/export/exporting_projects.html).  
+For automated builds, there is a [build script](scripts/build/build.sh) that creates executables for Linux, Windows and MacOS.
+The final output will be located in the `builds` directory as a single zip archive for every platform and a directory with the executables.  
 Note: This script is targeted to work on **Linux**, but it might work also on other operating systems, with minor changes.
 
-To be able to export, be sure that the [export templates](https://docs.godotengine.org/en/latest/tutorials/export/exporting_projects.html#export-templates)
-are installed.
+## export_preset.cfg
+To export a project to a given platform, a
+[configuration file](https://docs.godotengine.org/en/latest/tutorials/export/exporting_projects.html#configuration-files)
+named `export_presets.cfg` is needed.
+Follow the official Godot export [documentation](https://docs.godotengine.org/en/stable/tutorials/export/exporting_projects.html)
+if you want to build using the editor on your machine.
 
+For automated script, like described in the next section, the pre-defined files located in the game directory are used.
+You can take a look at them and adapt the configuration to your needs.  
+As an example here you can find the [Linux configuration](game/export_presets.linux.example).
+The configuration for other platforms are named `export_presets.[platform_name].example`.
+
+## Automated script
 The script uses environment variables for paths, passwords.  
+It will download the Godot executable, if `GODOT_PATH` is not set and no executable was found.
+The same happens for the [export templates](https://docs.godotengine.org/en/latest/tutorials/export/exporting_projects.html#export-templates),
+if the templates for the used version are not found in `~/.local/godot/share/export_templates/`.  
+Note: This makes the script ready to be used on automated CI servers.
+Just make sure to **cache** the Godot executable and export templates (more than 1GB) to **save bandwidth, time and energy**.
+
+The following steps are needed to run the script.
+This steps can be replaced by another script, if used on CI servers.
 1) Copy the example file.
 ```bash
 cp scripts/build/.env.example scripts/build/.env
 ```
 2) Fill it with your configuration.
 ```bash
+# version of godot used
+GODOT_VERSION=
 # path to your godot executable
+# the script will download the executable, if left empty
 GODOT_PATH=
 # name of the game
 GAME_NAME=
