@@ -1,11 +1,10 @@
-[gd_scene load_steps=22 format=3 uid="uid://c8mhb22bae1my"]
+[gd_scene load_steps=21 format=3 uid="uid://c8mhb22bae1my"]
 
 [ext_resource type="Theme" uid="uid://pt1hrfiuwfpg" path="res://theme_base/theme.tres" id="1"]
 [ext_resource type="Script" uid="uid://isdkorclbxno" path="res://src/screens/dashboard/dashboard.gd" id="2"]
 [ext_resource type="PackedScene" uid="uid://c51vyn54bk7q4" path="res://src/ui_components/visual_calendar/visual_calendar.tscn" id="3"]
 [ext_resource type="StyleBox" uid="uid://p2i8146lydw5" path="res://theme_base/styles/box/box_background_secondary.tres" id="3_718t5"]
 [ext_resource type="Script" uid="uid://cnyyowwlb04kl" path="res://src/ui_components/base/defaults/default_button.gd" id="3_kbasy"]
-[ext_resource type="LabelSettings" uid="uid://b4gu78rjvdfx4" path="res://theme_base/label/label_settings_title.tres" id="4_bc3th"]
 [ext_resource type="PackedScene" uid="uid://i4nnwgwck615" path="res://src/ui_components/visual_formation/visual_formation.tscn" id="5"]
 [ext_resource type="PackedScene" uid="uid://dcv0qm4k1wi4q" path="res://src/ui_components/email/email.tscn" id="6"]
 [ext_resource type="PackedScene" uid="uid://c7bh7ukttbkvu" path="res://src/ui_components/visual_competitions/visual_competitions.tscn" id="7"]
@@ -270,7 +269,7 @@ script = ExtResource("3_kbasy")
 [node name="MainContainer" type="VBoxContainer" parent="HBoxContainer"]
 layout_mode = 2
 size_flags_horizontal = 3
-theme_override_constants/separation = 10
+theme_override_constants/separation = 0
 
 [node name="PanelContainer" type="PanelContainer" parent="HBoxContainer/MainContainer"]
 layout_mode = 2
@@ -279,9 +278,9 @@ theme_override_styles/panel = ExtResource("3_718t5")
 [node name="Top" type="MarginContainer" parent="HBoxContainer/MainContainer/PanelContainer"]
 layout_mode = 2
 theme_override_constants/margin_left = 15
-theme_override_constants/margin_top = 10
+theme_override_constants/margin_top = 15
 theme_override_constants/margin_right = 15
-theme_override_constants/margin_bottom = 10
+theme_override_constants/margin_bottom = 15
 
 [node name="TopBar" type="HBoxContainer" parent="HBoxContainer/MainContainer/PanelContainer/Top"]
 layout_mode = 2
@@ -292,8 +291,7 @@ unique_name_in_owner = true
 auto_translate_mode = 2
 custom_minimum_size = Vector2(50, 0)
 layout_mode = 2
-size_flags_horizontal = 4
-size_flags_vertical = 4
+size_flags_vertical = 0
 text = "<"
 script = ExtResource("3_kbasy")
 joypad_button_event = SubResource("InputEventJoypadButton_3gkim")
@@ -303,8 +301,7 @@ unique_name_in_owner = true
 auto_translate_mode = 2
 custom_minimum_size = Vector2(50, 0)
 layout_mode = 2
-size_flags_horizontal = 4
-size_flags_vertical = 4
+size_flags_vertical = 0
 text = ">"
 script = ExtResource("3_kbasy")
 joypad_button_event = SubResource("InputEventJoypadButton_btuom")
@@ -314,14 +311,12 @@ unique_name_in_owner = true
 auto_translate_mode = 2
 layout_mode = 2
 text = "Simon Dalvai"
-label_settings = ExtResource("4_bc3th")
 
 [node name="TeamName" type="Label" parent="HBoxContainer/MainContainer/PanelContainer/Top/TopBar"]
 unique_name_in_owner = true
 auto_translate_mode = 2
 layout_mode = 2
 text = "Bolzano Futsal"
-label_settings = ExtResource("4_bc3th")
 
 [node name="VSeparator" type="VSeparator" parent="HBoxContainer/MainContainer/PanelContainer/Top/TopBar"]
 self_modulate = Color(1, 1, 1, 0)
@@ -333,7 +328,6 @@ unique_name_in_owner = true
 auto_translate_mode = 2
 layout_mode = 2
 text = "24/08/2002"
-label_settings = ExtResource("4_bc3th")
 
 [node name="NextMatchButton" type="Button" parent="HBoxContainer/MainContainer/PanelContainer/Top/TopBar"]
 unique_name_in_owner = true
@@ -450,7 +444,6 @@ custom_text = "Save the game before exiting?"
 [connection signal="pressed" from="HBoxContainer/MainContainer/PanelContainer/Top/TopBar/NextViewButton" to="." method="_on_next_view_button_pressed"]
 [connection signal="pressed" from="HBoxContainer/MainContainer/PanelContainer/Top/TopBar/NextMatchButton" to="." method="_on_next_match_button_pressed"]
 [connection signal="pressed" from="HBoxContainer/MainContainer/PanelContainer/Top/TopBar/ContinueButton" to="." method="_on_continue_button_pressed"]
-[connection signal="email_action" from="HBoxContainer/MainContainer/Main/Content/Email" to="." method="_on_email_email_action"]
 [connection signal="select_player" from="HBoxContainer/MainContainer/Main/Content/AllPlayerList" to="." method="_on_all_player_list_select_player"]
 [connection signal="select_player" from="HBoxContainer/MainContainer/Main/Content/PlayerList" to="." method="_on_player_list_select_player"]
 [connection signal="offer" from="HBoxContainer/MainContainer/Main/Content/PlayerProfile" to="." method="_on_player_profile_offer"]
