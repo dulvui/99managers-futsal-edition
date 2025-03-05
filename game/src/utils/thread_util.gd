@@ -11,13 +11,6 @@ func _ready() -> void:
 	thread = Thread.new()
 
 
-func initialize_game() -> void:
-	if thread and thread.is_started():
-		print("thread is already running")
-		return
-	thread.start(_initialize_game, Thread.Priority.PRIORITY_HIGH)
-
-
 func save_all_data() -> void:
 	if thread and thread.is_started():
 		print("thread is already running")
@@ -32,11 +25,11 @@ func load_data() -> void:
 	thread.start(_load_data)
 
 
-func generate_players() -> void:
+func generate_world() -> void:
 	if thread and thread.is_started():
 		print("thread is already running")
 		return
-	thread.start(_generate_players, Thread.Priority.PRIORITY_HIGH)
+	thread.start(_generate_world, Thread.Priority.PRIORITY_HIGH)
 
 
 func random_results() -> void:
@@ -44,13 +37,6 @@ func random_results() -> void:
 		print("thread is already running")
 		return
 	thread.start(_random_results, Thread.Priority.PRIORITY_HIGH)
-
-
-func _initialize_game() -> void:
-	print("initializing game in thread...")
-	Global.initialize_game()
-	# Global.save_all_data()
-	call_deferred("_loading_done")
 
 
 func _save_all_data() -> void:
@@ -65,11 +51,19 @@ func _load_data() -> void:
 	call_deferred("_loading_done")
 
 
-func _generate_players() -> void:
+func _generate_world() -> void:
 	print("generating world in thread...")
+	# create world, teams and players
 	var generator: Generator = Generator.new()
-	Global.world = generator.generate_world()
-	generator.generate_players()
+	var world: World = generator.generate_world()
+	generator.generate_players(world)
+
+	# create matches
+	var match_util: MatchUtil = MatchUtil.new(world)
+	match_util.initialize_matches()
+
+	# assign world
+	Global.world = world
 	call_deferred("_loading_done")
 
 

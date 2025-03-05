@@ -33,9 +33,8 @@ func _on_teams_tree_team_selected(team: Team) -> void:
 func _on_select_team_pressed() -> void:
 	active_team.staff.manager = Global.manager
 	Global.select_team(active_team)
-	LoadingUtil.start(tr("Initialize game"), LoadingUtil.Type.INITIALIZE_GAME, true)
-	ThreadUtil.initialize_game()
-	Main.show_loading_screen(Const.SCREEN_DASHBOARD)
+	Global.initialize_game()
+	Main.change_scene(Const.SCREEN_DASHBOARD)
 
 
 func _on_back_pressed() -> void:

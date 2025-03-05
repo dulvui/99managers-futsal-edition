@@ -2,7 +2,7 @@
 
 # SPDX-License-Identifier: AGPL-3.0-or-later
 
-class_name TestMatchCombination
+class_name TestMatchUtil
 extends Test
 
 const TEAMS: int = 10
@@ -18,7 +18,8 @@ func test() -> void:
 
 func test_combinations(league: League) -> void:
 	print("test: combinations...")
-	var match_days: Array[Array] = MatchCombinationUtil.create_combinations(league, league.teams)
+	var match_util: MatchUtil = MatchUtil.new(null)
+	var match_days: Array[Array] =  match_util.create_combinations(league, league.teams)
 
 	# match amount
 	var reference_match_count: int = (TEAMS - 1) * 2 * (TEAMS / 2)
@@ -64,7 +65,8 @@ func test_add_to_calendar(league: League) -> void:
 	Global.world = World.new()
 	Global.world.calendar.initialize()
 
-	var match_days: Array[Array] = MatchCombinationUtil.create_combinations(league, league.teams)
-	MatchCombinationUtil.add_matches_to_calendar(league, match_days)
+	var match_util: MatchUtil = MatchUtil.new(Global.world)
+	var match_days: Array[Array] = match_util.create_combinations(league, league.teams)
+	match_util.add_matches_to_calendar(league, match_days)
 
 	print("test: add to calendar...")

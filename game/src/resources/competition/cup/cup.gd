@@ -88,6 +88,8 @@ func add_result(
 
 
 func next_stage() -> void:
+	var match_util: MatchUtil = MatchUtil.new(Global.world)
+
 	if stage == Stage.GROUP:
 		# check if group stage is over
 		var over_counter: int = 0
@@ -97,10 +99,10 @@ func next_stage() -> void:
 		if over_counter == groups.size():
 			# group stage is over
 			setup_knockout()
-			MatchCombinationUtil.add_matches_to_calendar(self, get_matches())
+			match_util.add_matches_to_calendar(self, get_matches())
 	elif knockout.prepare_next_round():
 		# add next round matches calendar
-		MatchCombinationUtil.add_matches_to_calendar(self, get_matches())
+		match_util.add_matches_to_calendar(self, get_matches())
 
 
 func get_matches() -> Array[Array]:
@@ -124,8 +126,10 @@ func is_active() -> bool:
 func _get_group_matches() -> Array[Array]:
 	var matches: Array[Array] = []
 
+	var match_util: MatchUtil = MatchUtil.new(Global.world)
+
 	for group: Group in groups:
-		matches.append_array(MatchCombinationUtil.create_combinations(self, group.teams))
+		matches.append_array(match_util.create_combinations(self, group.teams))
 
 	return matches
 

@@ -60,10 +60,8 @@ func initialize_game(testing: bool = false) -> void:
 	transfers = world.transfers
 	inbox = world.inbox
 
-	print("calendars created")
-	MatchCombinationUtil.initialize_matches()
 	print("matches initialized")
-	EmailUtil.call_deferred("welcome_manager")
+	EmailUtil.welcome_manager()
 
 
 func next_day() -> void:
@@ -100,8 +98,10 @@ func next_season() -> void:
 	world.promote_and_delegate_teams()
 
 	world.calendar.initialize(true)
+	
 
-	MatchCombinationUtil.initialize_matches()
+	var match_util: MatchUtil = MatchUtil.new(world)
+	match_util.initialize_matches()
 	save_all_data()
 
 

@@ -2,10 +2,17 @@
 
 # SPDX-License-Identifier: AGPL-3.0-or-later
 
-extends Node
+class_name MatchUtil
+extends Object
+
+var world: World
 
 
-func initialize_matches(world: World = Global.world) -> void:
+func _init(p_world: World) -> void:
+	world = p_world
+
+
+func initialize_matches() -> void:
 	for continent: Continent in world.continents:
 		for nation: Nation in continent.nations:
 			if nation.is_competitive():
@@ -22,7 +29,7 @@ func initialize_matches(world: World = Global.world) -> void:
 			_initialize_nations_continental_cup(continent)
 
 	# last, initialize world cup
-	_initialize_world_cup(world)
+	_initialize_world_cup()
 
 
 func create_combinations(competition: Competition, p_teams: Array[Team]) -> Array[Array]:
@@ -89,7 +96,7 @@ func create_combinations(competition: Competition, p_teams: Array[Team]) -> Arra
 func add_matches_to_calendar(
 	competition: Competition,
 	match_days: Array[Array],
-	date: Dictionary = Global.world.calendar.date,
+	date: Dictionary = world.calendar.date,
 ) -> void:
 	var month: int = date.month
 	var day: int = date.day
@@ -106,23 +113,23 @@ func add_matches_to_calendar(
 
 	# start with given weekday of next week
 	for i: int in range(8, 1, -1):
-		if Global.world.calendar.day(month, i).weekday == weekday:
+		if world.calendar.day(month, i).weekday == weekday:
 			day = i
 			break
 
 	for matches: Array[Match] in match_days:
 		# check if next month
-		if day >= Global.world.calendar.month(month).days.size():
+		if day >= world.calendar.month(month).days.size():
 			month += 1
 			day = 0
 			# start also new month with saturday
 			for i: int in 7:
-				if Global.world.calendar.day(month, i).weekday == weekday:
+				if world.calendar.day(month, i).weekday == weekday:
 					day = i
 					break
 
 		# assign matches
-		Global.world.calendar.day(month, day).add_matches(matches)
+		world.calendar.day(month, day).add_matches(matches)
 		# restart from same weekday
 		day += 7
 
@@ -184,7 +191,7 @@ func _initialize_nations_continental_cup(p_continent: Continent) -> void:
 	add_matches_to_calendar(p_continent.cup_nations, matches)
 
 
-func _initialize_world_cup(world: World) -> void:
+func _initialize_world_cup() -> void:
 	# setup cup
 	world.world_cup.set_id()
 	world.world_cup.name = tr("World cup")

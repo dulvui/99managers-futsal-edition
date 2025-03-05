@@ -87,9 +87,9 @@ func _on_continue_pressed() -> void:
 
 	RngUtil.reset_seed(generation_seed, player_names_option.selected)
 
-	LoadingUtil.start(tr("Generating players"), LoadingUtil.Type.GENERATION, true)
+	LoadingUtil.start(tr("Generating teams and players"), LoadingUtil.Type.GENERATION, true)
 	Main.show_loading_screen(Const.SCREEN_SETUP_TEAM)
-	ThreadUtil.generate_players()
+	ThreadUtil.generate_world()
 
 
 func _on_name_text_changed(_new_text: String) -> void:

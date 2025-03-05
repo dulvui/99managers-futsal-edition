@@ -87,7 +87,7 @@ func generate_world(use_test_file: bool = false) -> World:
 	return world
 
 
-func generate_players(world: World = Global.world) -> void:
+func generate_players(world: World) -> void:
 	# create date ranges
 	# starts from current year and subtracts min/max years
 	# youngest player can be 15 and oldest 45
@@ -641,13 +641,15 @@ func _generate_club_history(world: World) -> void:
 	# TODO world cup history (once national teams exist)
 	# TODO continental national teams cup
 
+	var match_util: MatchUtil = MatchUtil.new(world)
+
 	# calculate random results for x years
 	for year: int in HISTORY_YEARS + 1:
 		for contient: Continent in world.continents:
 			for nation: Nation in contient.nations:
 				for league: League in nation.leagues:
 					# create match combinations
-					var match_days: Array[Array] = MatchCombinationUtil.create_combinations(
+					var match_days: Array[Array] = match_util.create_combinations(
 						league, league.teams
 					)
 
