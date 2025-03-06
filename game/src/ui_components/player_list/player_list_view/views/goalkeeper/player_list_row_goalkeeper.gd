@@ -13,8 +13,8 @@ extends PlayerListRow
 @onready var diving: ColorLabel = %Diving
 
 
-func setup(player: Player) -> void:
-	super(player)
+func setup(player: Player, index: int) -> void:
+	super(player, index)
 	reflexes.setup("Reflexes")
 	reflexes.set_value(player.attributes.goalkeeper.reflexes)
 	positioning.setup("Positioning")

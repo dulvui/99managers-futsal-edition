@@ -191,7 +191,7 @@ func _show_view(view_scene: PackedScene, row_scene: PackedScene) -> void:
 		# Views.TECHNICAL:
 		# 	_show_technical()
 		Views.GOALKEEPER:
-			view.sort.connect(_sort_players_by_goalkeeper)
+			view.sort.connect(_sort_players_by_attributes.bind("goalkeeper"))
 		# Views.CONTRACT:
 		# 	_show_contract()
 		# Views.STATS:
@@ -207,61 +207,44 @@ func _update_active_view() -> void:
 #
 # sorting
 #
-
-# 	if "date" in value.to_lower():
-# 		# dates
-# 		all_players.sort_custom(
-# 			func(a: Player, b: Player) -> bool:
-# 				var a_unix: int = Time.get_unix_time_from_datetime_dict(map_function.call(a))
-# 				var b_unix: int = Time.get_unix_time_from_datetime_dict(map_function.call(b))
-# 				if sorting[sort_key]:
-# 					return a_unix > b_unix
-# 				else:
-# 					return a_unix < b_unix
-# 		)
-
-
-func _sort_players(value: String) -> void:
-	_set_sorting(value)
+func _sort_players(sort_key: String) -> void:
+	_set_sorting(sort_key)
 	_filter()
-	players.sort_custom(
-		func(a: Player, b: Player) -> bool:
-			if sorting[value]:
-				return a.get(value) > b.get(value)
-			else:
-				return a.get(value) < b.get(value)
-	)
-	_update_active_view()
-	_update_page_indicator()
-
-
-func _sort_players_by_mental(value: String) -> void:
-	_set_sorting(value)
-	_filter()
-	players.sort_custom(
-		func(a: Player, b: Player) -> bool:
-			if sorting[value]:
-				return a.attributes.mental.get(value) > b.attributes.mental.get(value)
-			else:
-				return a.attributes.mental.get(value) < b.attributes.mental.get(value)
-	)
-	_update_active_view()
-	_update_page_indicator()
-
-
-func _sort_players_by_goalkeeper(value: String) -> void:
-	_set_sorting(value)
-	if value == "surname" or value == "value":
-		_sort_players(value)
-	else:
-		all_players.sort_custom(
+	if "date" in sort_key.to_lower():
+		players.sort_custom(
 			func(a: Player, b: Player) -> bool:
-				if sorting[value]:
-					return a.attributes.goalkeeper.get(value) > b.attributes.goalkeeper.get(value)
+				var a_unix: int = Time.get_unix_time_from_datetime_dict(a.get(sort_key))
+				var b_unix: int = Time.get_unix_time_from_datetime_dict(b.get(sort_key))
+				if sorting[sort_key]:
+					return a_unix > b_unix
 				else:
-					return a.attributes.goalkeeper.get(value) < b.attributes.goalkeeper.get(value)
+					return a_unix < b_unix
 		)
+	else:
+		players.sort_custom(
+			func(a: Player, b: Player) -> bool:
+				if sorting[sort_key]:
+					return a.get(sort_key) > b.get(sort_key)
+				else:
+					return a.get(sort_key) < b.get(sort_key)
+		)
+	_update_active_view()
+	_update_page_indicator()
+
+
+func _sort_players_by_attributes(sort_key: String, key: String) -> void:
+	_set_sorting(sort_key)
 	_filter()
+	if sort_key == "surname" or sort_key == "value":
+		_sort_players(sort_key)
+	else:
+		players.sort_custom(
+			func(a: Player, b: Player) -> bool:
+				if sorting[sort_key]:
+					return (a.attributes.get(key) as Resource).get(sort_key) > (b.attributes.get(key) as Resource).get(sort_key)
+				else:
+					return (a.attributes.get(key) as Resource).get(sort_key) < (b.attributes.get(key) as Resource).get(sort_key)
+		)
 	_update_active_view()
 	_update_page_indicator()
 

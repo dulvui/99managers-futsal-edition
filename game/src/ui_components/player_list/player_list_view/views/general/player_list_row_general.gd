@@ -12,8 +12,8 @@ extends PlayerListRow
 @onready var birth_date: Label = %BirthDate
 
 
-func setup(player: Player) -> void:
-	super(player)
+func setup(player: Player, index: int) -> void:
+	super(player, index)
 	positionz.text = player.position.get_type_text()
 	prestige.text = player.get_prestige_stars()
 	nation.text = tr(player.nation)

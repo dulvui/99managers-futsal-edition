@@ -13,8 +13,11 @@ signal selected
 
 # TODO change button color in base of index
 
-func setup(player: Player) -> void:
+func setup(player: Player, index: int) -> void:
 	player_name.text = player.surname
 	player_value.text = FormatUtil.currency(player.value)
 
 	button.pressed.connect(func() -> void: selected.emit())
+
+	if index % 2 == 0:
+		button.modulate = button.modulate.darkened(0.4)

@@ -26,14 +26,16 @@ func setup(players: Array[Player], row_scene: PackedScene) -> void:
 		return
 
 	# TODO update instead of destroying
-	# for child: Node in rows.get_children():
-	# 	child.queue_free()
+	for child: Node in rows.get_children():
+		child.queue_free()
 
+	var index: int = 0
 	for player: Player in players:
 		var row: PlayerListRow = row_scene.instantiate()
 		row.selected.connect(func() -> void: selected.emit(player))
 		rows.add_child(row)
-		row.setup(player)
+		row.setup(player, index)
+		index += 1
 
 
 func _on_player_list_header_sort(index: int) -> void:
