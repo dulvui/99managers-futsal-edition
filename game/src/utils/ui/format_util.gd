@@ -17,11 +17,11 @@ func format_date(p_date: Dictionary) -> String:
 	return (
 		tr(Enum.get_weekday_text(p_date.weekday))
 		+ " "
-		+ tr(str(p_date.day))
+		+ tr(str(int(p_date.day)))
 		+ " "
 		+ tr(Enum.get_month_text(p_date.month - 1))
 		+ " "
-		+ str(p_date.year)
+		+ str(int(p_date.year))
 	)
 
 

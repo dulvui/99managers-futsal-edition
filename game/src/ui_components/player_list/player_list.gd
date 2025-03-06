@@ -18,7 +18,9 @@ enum Views {
 }
 
 const ViewSceneGeneral: PackedScene = preload(Const.SCENE_PLAYER_LIST_VIEW_GENERAL)
+const RowSceneGeneral: PackedScene = preload("res://src/ui_components/player_list/player_list_view/views/general/player_list_row_general.tscn")
 const ViewSceneGoalkeeper: PackedScene = preload(Const.SCENE_PLAYER_LIST_VIEW_GOALKEEPER)
+const RowSceneGoalkeeper: PackedScene = preload("res://src/ui_components/player_list/player_list_view/views/goalkeeper/player_list_row_goalkeeper.tscn")
 
 # depending on scale
 const PAGE_SIZE_1: int = 36
@@ -162,15 +164,14 @@ func _show_active_view() -> void:
 		# 	_show_physical()
 		# Views.TECHNICAL:
 		# 	_show_technical()
-		# Views.GOALKEEPER:
-		# 	_show_goalkeeper()
+		Views.GOALKEEPER:
+			_show_view(ViewSceneGoalkeeper, RowSceneGoalkeeper)
 		# Views.CONTRACT:
 		# 	_show_contract()
 		# Views.STATS:
 		# 	_show_statistics()
 		_:
-			const Row: PackedScene = preload("res://src/ui_components/player_list/player_list_view/views/goalkeeper/player_list_row_goalkeeper.tscn")
-			_show_view(ViewSceneGoalkeeper, Row)
+			_show_view(ViewSceneGeneral, RowSceneGeneral)
 
 
 func _show_view(view_scene: PackedScene, row_scene: PackedScene) -> void:
@@ -181,7 +182,22 @@ func _show_view(view_scene: PackedScene, row_scene: PackedScene) -> void:
 	var view: PlayerListView = view_scene.instantiate()
 	players_view.add_child(view)
 	view.setup(visible_players, row_scene)
-	view.sort.connect(_sort_players_by_goalkeeper)
+
+	match active_view:
+		# Views.MENTAL:
+		# 	_show_mental()
+		# Views.PHYSICAL:
+		# 	_show_physical()
+		# Views.TECHNICAL:
+		# 	_show_technical()
+		Views.GOALKEEPER:
+			view.sort.connect(_sort_players_by_goalkeeper)
+		# Views.CONTRACT:
+		# 	_show_contract()
+		# Views.STATS:
+		# 	_show_statistics()
+		_:
+			view.sort.connect(_sort_players)
 
 
 func _update_active_view() -> void:
@@ -207,28 +223,28 @@ func _update_active_view() -> void:
 
 func _sort_players(value: String) -> void:
 	_set_sorting(value)
-	all_players.sort_custom(
+	_filter()
+	players.sort_custom(
 		func(a: Player, b: Player) -> bool:
 			if sorting[value]:
 				return a.get(value) > b.get(value)
 			else:
 				return a.get(value) < b.get(value)
 	)
-	_filter()
 	_update_active_view()
 	_update_page_indicator()
 
 
 func _sort_players_by_mental(value: String) -> void:
 	_set_sorting(value)
-	all_players.sort_custom(
+	_filter()
+	players.sort_custom(
 		func(a: Player, b: Player) -> bool:
 			if sorting[value]:
 				return a.attributes.mental.get(value) > b.attributes.mental.get(value)
 			else:
 				return a.attributes.mental.get(value) < b.attributes.mental.get(value)
 	)
-	_filter()
 	_update_active_view()
 	_update_page_indicator()
 
