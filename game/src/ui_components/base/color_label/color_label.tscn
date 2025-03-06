@@ -4,18 +4,20 @@
 [ext_resource type="Script" uid="uid://b14v8m1vxrso7" path="res://src/ui_components/base/color_label/color_label.gd" id="2_mr605"]
 
 [node name="ColorLabel" type="Label"]
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -50.5
-offset_top = -53.0
-offset_right = 50.5
-offset_bottom = 53.0
+auto_translate_mode = 2
+custom_minimum_size = Vector2(64, 0)
+anchors_preset = -1
+anchor_left = 0.474
+anchor_top = 0.451
+anchor_right = 0.507
+anchor_bottom = 0.495
+offset_left = -1.08002
+offset_top = -0.0800171
+offset_right = -0.440063
+offset_bottom = 0.399963
 grow_horizontal = 2
 grow_vertical = 2
-size_flags_horizontal = 3
-size_flags_vertical = 3
+size_flags_vertical = 1
 label_settings = ExtResource("1_n64no")
+horizontal_alignment = 1
 script = ExtResource("2_mr605")

@@ -1,0 +1,27 @@
+[gd_scene load_steps=3 format=3 uid="uid://bmrsky7wy6obx"]
+
+[ext_resource type="Script" uid="uid://dgjotri1yfnno" path="res://src/ui_components/player_list/player_list_view/player_list_view.gd" id="1_7a4kk"]
+[ext_resource type="PackedScene" uid="uid://c8n43qlpa0hkm" path="res://src/ui_components/player_list/player_list_view/player_list_header/player_list_header.tscn" id="2_dopeo"]
+
+[node name="PlayerListView" type="VBoxContainer"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+script = ExtResource("1_7a4kk")
+
+[node name="Header" parent="." instance=ExtResource("2_dopeo")]
+unique_name_in_owner = true
+layout_mode = 2
+
+[node name="Name" parent="Header/Buttons" index="0"]
+alignment = 0
+
+[node name="Rows" type="VBoxContainer" parent="."]
+unique_name_in_owner = true
+layout_mode = 2
+
+[editable path="Header"]

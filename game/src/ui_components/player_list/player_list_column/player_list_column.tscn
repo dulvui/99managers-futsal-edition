@@ -4,6 +4,7 @@
 [ext_resource type="Script" uid="uid://cnyyowwlb04kl" path="res://src/ui_components/base/defaults/default_button.gd" id="2_oyrjs"]
 
 [node name="PlayerListColumn" type="VBoxContainer"]
+custom_minimum_size = Vector2(100, 0)
 anchors_preset = -1
 anchor_left = 0.5
 anchor_top = 0.482
@@ -15,16 +16,16 @@ offset_right = 37.0
 offset_bottom = 138.44
 grow_horizontal = 2
 grow_vertical = 2
-size_flags_horizontal = 3
+size_flags_horizontal = 4
 size_flags_vertical = 2
+theme_override_constants/separation = 5
 script = ExtResource("1_mrrrx")
 
 [node name="SortButton" type="Button" parent="."]
-custom_minimum_size = Vector2(60, 0)
+custom_minimum_size = Vector2(20, 0)
 layout_mode = 2
 mouse_default_cursor_shape = 2
 text = "Name"
-alignment = 0
 text_overrun_behavior = 1
 script = ExtResource("2_oyrjs")
 

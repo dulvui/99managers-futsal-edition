@@ -1,0 +1,44 @@
+[gd_scene load_steps=3 format=3 uid="uid://c8n43qlpa0hkm"]
+
+[ext_resource type="Script" uid="uid://bbehr2uysnbf" path="res://src/ui_components/player_list/player_list_view/player_list_header/player_list_header.gd" id="1_6lerl"]
+[ext_resource type="Script" uid="uid://cha13r617yhur" path="res://src/ui_components/player_list/player_list_view/player_list_header/player_list_sort_button.gd" id="2_pf4bm"]
+
+[node name="PlayerListHeader" type="MarginContainer"]
+anchors_preset = -1
+anchor_right = 1.0
+anchor_bottom = 0.0212963
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 3
+size_flags_vertical = 0
+theme_override_constants/margin_left = 0
+theme_override_constants/margin_top = 0
+theme_override_constants/margin_right = 0
+theme_override_constants/margin_bottom = 0
+script = ExtResource("1_6lerl")
+metadata/_edit_use_anchors_ = true
+
+[node name="Buttons" type="HBoxContainer" parent="."]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_constants/separation = 0
+
+[node name="Name" type="Button" parent="Buttons"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+text = "Name"
+text_overrun_behavior = 1
+script = ExtResource("2_pf4bm")
+sort_key = "surname"
+metadata/_custom_type_script = "uid://cha13r617yhur"
+
+[node name="Value" type="Button" parent="Buttons"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(200, 0)
+layout_mode = 2
+text = "Value"
+text_overrun_behavior = 1
+script = ExtResource("2_pf4bm")
+sort_key = "value"
+metadata/_custom_type_script = "uid://cha13r617yhur"

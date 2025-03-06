@@ -52,10 +52,12 @@ unique_name_in_owner = true
 layout_mode = 2
 script = ExtResource("5_mvocu")
 
-[node name="Columns" type="HBoxContainer" parent="."]
+[node name="PlayersView" type="MarginContainer" parent="."]
 unique_name_in_owner = true
 layout_mode = 2
 size_flags_vertical = 3
+theme_override_constants/margin_left = 0
+theme_override_constants/margin_right = 0
 
 [node name="Footer" type="HBoxContainer" parent="."]
 unique_name_in_owner = true

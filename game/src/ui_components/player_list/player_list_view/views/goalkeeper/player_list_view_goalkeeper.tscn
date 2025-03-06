@@ -1,0 +1,59 @@
+[gd_scene load_steps=5 format=3 uid="uid://cmxt788ua8h8s"]
+
+[ext_resource type="PackedScene" uid="uid://bmrsky7wy6obx" path="res://src/ui_components/player_list/player_list_view/player_list_view.tscn" id="1_a1j4j"]
+[ext_resource type="Script" uid="uid://dwbpclf3x1lwh" path="res://src/ui_components/player_list/player_list_view/views/goalkeeper/player_list_view_goalkeeper.gd" id="2_oq3hk"]
+[ext_resource type="PackedScene" uid="uid://cxliwtoefywcm" path="res://src/ui_components/player_list/player_list_view/views/goalkeeper/player_list_row_goalkeeper.tscn" id="3_a1j4j"]
+[ext_resource type="Script" uid="uid://cha13r617yhur" path="res://src/ui_components/player_list/player_list_view/player_list_header/player_list_sort_button.gd" id="3_oq3hk"]
+
+[node name="PlayerListViewGoalkeeper" instance=ExtResource("1_a1j4j")]
+script = ExtResource("2_oq3hk")
+
+[node name="Reflexes" type="Button" parent="Header/Buttons" index="1"]
+custom_minimum_size = Vector2(64, 0)
+layout_mode = 2
+text = "Reflexes"
+text_overrun_behavior = 1
+script = ExtResource("3_oq3hk")
+sort_key = "reflexes"
+metadata/_custom_type_script = "uid://cha13r617yhur"
+
+[node name="SaveFeet" type="Button" parent="Header/Buttons" index="2"]
+custom_minimum_size = Vector2(64, 0)
+layout_mode = 2
+text = "Feet"
+text_overrun_behavior = 1
+script = ExtResource("3_oq3hk")
+sort_key = "save_feet"
+metadata/_custom_type_script = "uid://cha13r617yhur"
+
+[node name="SaveHands" type="Button" parent="Header/Buttons" index="3"]
+custom_minimum_size = Vector2(64, 0)
+layout_mode = 2
+text = "Hands"
+text_overrun_behavior = 1
+script = ExtResource("3_oq3hk")
+sort_key = "save_hands"
+metadata/_custom_type_script = "uid://cha13r617yhur"
+
+[node name="Positioning" type="Button" parent="Header/Buttons" index="4"]
+custom_minimum_size = Vector2(64, 0)
+layout_mode = 2
+text = "Positioning"
+text_overrun_behavior = 1
+script = ExtResource("3_oq3hk")
+sort_key = "positioning"
+metadata/_custom_type_script = "uid://cha13r617yhur"
+
+[node name="Diving" type="Button" parent="Header/Buttons" index="5"]
+custom_minimum_size = Vector2(64, 0)
+layout_mode = 2
+text = "Diving"
+text_overrun_behavior = 1
+script = ExtResource("3_oq3hk")
+sort_key = "diving"
+metadata/_custom_type_script = "uid://cha13r617yhur"
+
+[node name="PlayerListRowGoalkeeper" parent="Rows" index="0" instance=ExtResource("3_a1j4j")]
+layout_mode = 2
+
+[editable path="Header"]

@@ -1,0 +1,33 @@
+[gd_scene load_steps=4 format=3 uid="uid://cxliwtoefywcm"]
+
+[ext_resource type="PackedScene" uid="uid://866atwbjrgoa" path="res://src/ui_components/player_list/player_list_view/player_list_row/player_list_row.tscn" id="1_176ow"]
+[ext_resource type="Script" uid="uid://d36jy3vhuoilu" path="res://src/ui_components/player_list/player_list_view/views/goalkeeper/player_list_row_goalkeeper.gd" id="2_74qdc"]
+[ext_resource type="PackedScene" uid="uid://b3y6tq2i5pg3b" path="res://src/ui_components/base/color_label/color_label.tscn" id="2_ok0uv"]
+
+[node name="PlayerListRowGoalkeeper" instance=ExtResource("1_176ow")]
+script = ExtResource("2_74qdc")
+
+[node name="Reflexes" parent="Items" index="1" instance=ExtResource("2_ok0uv")]
+unique_name_in_owner = true
+layout_mode = 2
+text = "20"
+
+[node name="SaveFeet" parent="Items" index="2" instance=ExtResource("2_ok0uv")]
+unique_name_in_owner = true
+layout_mode = 2
+text = "20"
+
+[node name="SaveHands" parent="Items" index="3" instance=ExtResource("2_ok0uv")]
+unique_name_in_owner = true
+layout_mode = 2
+text = "20"
+
+[node name="Positioning" parent="Items" index="4" instance=ExtResource("2_ok0uv")]
+unique_name_in_owner = true
+layout_mode = 2
+text = "20"
+
+[node name="Diving" parent="Items" index="5" instance=ExtResource("2_ok0uv")]
+unique_name_in_owner = true
+layout_mode = 2
+text = "20"

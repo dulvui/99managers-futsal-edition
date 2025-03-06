@@ -1,0 +1,9 @@
+[gd_scene load_steps=3 format=3 uid="uid://dym3xdufmc8eb"]
+
+[ext_resource type="PackedScene" uid="uid://bmrsky7wy6obx" path="res://src/ui_components/player_list/player_list_view/player_list_view.tscn" id="1_n3mom"]
+[ext_resource type="Script" uid="uid://tj2ulpdnir0d" path="res://src/ui_components/player_list/player_list_view/views/general/player_list_view_general.gd" id="2_eddew"]
+
+[node name="PlayerListViewGeneral" instance=ExtResource("1_n3mom")]
+script = ExtResource("2_eddew")
+
+[editable path="Header"]

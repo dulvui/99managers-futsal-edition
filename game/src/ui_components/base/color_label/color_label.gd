@@ -25,6 +25,6 @@ func set_value(value: Variant) -> void:
 		else:
 			label_settings = ThemeUtil.label_settings_high
 
-	# check if not number, treadet as string
-	elif is_instance_of(value, TYPE_STRING) and not (value as String).is_valid_int():
-		horizontal_alignment = HORIZONTAL_ALIGNMENT_LEFT
+	# # check if not number, treadet as string
+	# elif is_instance_of(value, TYPE_STRING) and not (value as String).is_valid_int():
+	# 	horizontal_alignment = HORIZONTAL_ALIGNMENT_LEFT
