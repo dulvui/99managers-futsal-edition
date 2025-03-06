@@ -9,7 +9,7 @@
 script = ExtResource("2_oq3hk")
 
 [node name="Reflexes" type="Button" parent="Header/Buttons" index="1"]
-custom_minimum_size = Vector2(64, 0)
+custom_minimum_size = Vector2(94, 0)
 layout_mode = 2
 text = "Reflexes"
 text_overrun_behavior = 1
@@ -18,7 +18,7 @@ sort_key = "reflexes"
 metadata/_custom_type_script = "uid://cha13r617yhur"
 
 [node name="SaveFeet" type="Button" parent="Header/Buttons" index="2"]
-custom_minimum_size = Vector2(64, 0)
+custom_minimum_size = Vector2(94, 0)
 layout_mode = 2
 text = "Feet"
 text_overrun_behavior = 1
@@ -27,7 +27,7 @@ sort_key = "save_feet"
 metadata/_custom_type_script = "uid://cha13r617yhur"
 
 [node name="SaveHands" type="Button" parent="Header/Buttons" index="3"]
-custom_minimum_size = Vector2(64, 0)
+custom_minimum_size = Vector2(94, 0)
 layout_mode = 2
 text = "Hands"
 text_overrun_behavior = 1
@@ -36,7 +36,7 @@ sort_key = "save_hands"
 metadata/_custom_type_script = "uid://cha13r617yhur"
 
 [node name="Positioning" type="Button" parent="Header/Buttons" index="4"]
-custom_minimum_size = Vector2(64, 0)
+custom_minimum_size = Vector2(94, 0)
 layout_mode = 2
 text = "Positioning"
 text_overrun_behavior = 1
@@ -45,7 +45,7 @@ sort_key = "positioning"
 metadata/_custom_type_script = "uid://cha13r617yhur"
 
 [node name="Diving" type="Button" parent="Header/Buttons" index="5"]
-custom_minimum_size = Vector2(64, 0)
+custom_minimum_size = Vector2(94, 0)
 layout_mode = 2
 text = "Diving"
 text_overrun_behavior = 1

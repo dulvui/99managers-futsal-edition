@@ -9,25 +9,30 @@ script = ExtResource("2_74qdc")
 
 [node name="Reflexes" parent="Items" index="1" instance=ExtResource("2_ok0uv")]
 unique_name_in_owner = true
+custom_minimum_size = Vector2(94, 0)
 layout_mode = 2
 text = "20"
 
 [node name="SaveFeet" parent="Items" index="2" instance=ExtResource("2_ok0uv")]
 unique_name_in_owner = true
+custom_minimum_size = Vector2(94, 0)
 layout_mode = 2
 text = "20"
 
 [node name="SaveHands" parent="Items" index="3" instance=ExtResource("2_ok0uv")]
 unique_name_in_owner = true
+custom_minimum_size = Vector2(94, 0)
 layout_mode = 2
 text = "20"
 
 [node name="Positioning" parent="Items" index="4" instance=ExtResource("2_ok0uv")]
 unique_name_in_owner = true
+custom_minimum_size = Vector2(94, 0)
 layout_mode = 2
 text = "20"
 
 [node name="Diving" parent="Items" index="5" instance=ExtResource("2_ok0uv")]
 unique_name_in_owner = true
+custom_minimum_size = Vector2(94, 0)
 layout_mode = 2
 text = "20"

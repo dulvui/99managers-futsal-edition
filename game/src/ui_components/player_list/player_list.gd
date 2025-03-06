@@ -17,10 +17,12 @@ enum Views {
 	STATS,
 }
 
+# views
 const ViewSceneGeneral: PackedScene = preload(Const.SCENE_PLAYER_LIST_VIEW_GENERAL)
-const RowSceneGeneral: PackedScene = preload("res://src/ui_components/player_list/player_list_view/views/general/player_list_row_general.tscn")
 const ViewSceneGoalkeeper: PackedScene = preload(Const.SCENE_PLAYER_LIST_VIEW_GOALKEEPER)
-const RowSceneGoalkeeper: PackedScene = preload("res://src/ui_components/player_list/player_list_view/views/goalkeeper/player_list_row_goalkeeper.tscn")
+# rows
+const RowSceneGeneral: PackedScene = preload(Const.SCENE_PLAYER_LIST_ROW_GENERAL)
+const RowSceneGoalkeeper: PackedScene = preload(Const.SCENE_PLAYER_LIST_ROW_GOALKEEPER)
 
 # depending on scale
 const PAGE_SIZE_1: int = 36
