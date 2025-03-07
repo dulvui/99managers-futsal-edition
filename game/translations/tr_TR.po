@@ -319,8 +319,8 @@ msgid "Players"
 msgstr "Oyuncular"
 
 #: src/ui_components/team_profile/team_profile.gd
-#: src/ui_components/player_list/player_list.gd
 #: src/ui_components/player_profile/info_view/info_view.tscn
+#: src/ui_components/player_list/player_list_view/views/general/player_list_view_general.tscn
 msgid "Prestige"
 msgstr "Prestij"
 
@@ -346,13 +346,9 @@ msgid "General"
 msgstr "Genel"
 
 #: src/ui_components/player_list/player_list.gd
-#: src/ui_components/transfers/contract_offer/contract_offer.tscn
-msgid "Contract"
-msgstr "Kontrat"
-
-#: src/ui_components/player_list/player_list.gd
-msgid "Stats"
-msgstr "İstatistik"
+#: src/ui_components/player_profile/attributes_view/attributes_view.tscn
+msgid "Goalkeeper"
+msgstr "Kaleci"
 
 #: src/ui_components/player_list/player_list.gd
 #: src/ui_components/player_profile/attributes_view/attributes_view.tscn
@@ -369,9 +365,13 @@ msgid "Mental"
 msgstr "Zihinsel"
 
 #: src/ui_components/player_list/player_list.gd
-#: src/ui_components/player_profile/attributes_view/attributes_view.tscn
-msgid "Goalkeeper"
-msgstr "Kaleci"
+#: src/ui_components/transfers/contract_offer/contract_offer.tscn
+msgid "Contract"
+msgstr "Kontrat"
+
+#: src/ui_components/player_list/player_list.gd
+msgid "Stats"
+msgstr "İstatistik"
 
 #: src/ui_components/player_list/player_list.gd
 msgid "All Teams"
@@ -385,276 +385,6 @@ msgstr "Bütün pozisyonlar"
 msgid "All Leagues"
 msgstr "Bütün Ligler"
 
-#: src/ui_components/player_list/player_list.gd
-#: src/ui_components/player_profile/info_view/info_view.tscn
-msgid "Position"
-msgstr "Pozisyon"
-
-#: src/ui_components/player_list/player_list.gd
-#: src/ui_components/player_profile/info_view/info_view.tscn
-msgid "Value"
-msgstr "Değer"
-
-#: src/ui_components/player_list/player_list.gd
-msgid "Morality"
-msgstr "Ahlak"
-
-#: src/ui_components/player_list/player_list.gd
-msgid "Birth date"
-msgstr "Doğum tarihi"
-
-#: src/ui_components/player_list/player_list.gd
-msgid "Nation"
-msgstr "Ülke"
-
-#: src/ui_components/player_list/player_list.gd
-#: src/ui_components/visual_competitions/visual_table/visual_table.tscn
-#: src/ui_components/player_profile/info_view/info_view.tscn
-#: src/ui_components/player_profile/statistics_view/statistics_view.tscn
-#: src/screens/save_states_screen/save_state_entry/save_state_entry.tscn
-msgid "Team"
-msgstr "Takım"
-
-#: src/ui_components/player_list/player_list.gd
-#: src/ui_components/player_profile/contract_view/contract_view.tscn
-msgid "Salary"
-msgstr "Maaş"
-
-#: src/ui_components/player_list/player_list.gd
-#: src/ui_components/info/info.tscn
-#: src/ui_components/player_profile/contract_view/contract_view.tscn
-msgid "Start date"
-msgstr "Başlangıç tarihi"
-
-#: src/ui_components/player_list/player_list.gd
-#: src/ui_components/player_profile/contract_view/contract_view.tscn
-msgid "End date"
-msgstr "Bitiş tarihi"
-
-#: src/ui_components/player_list/player_list.gd
-#: src/ui_components/transfers/contract_offer/contract_offer.tscn
-#: src/ui_components/player_profile/contract_view/contract_view.tscn
-msgid "Buy clause"
-msgstr "Satın alın"
-
-#: src/ui_components/player_list/player_list.gd
-msgid "Bonus goal"
-msgstr "Bonus goller"
-
-#: src/ui_components/player_list/player_list.gd
-msgid "Bonus assist"
-msgstr "Bonus asistler"
-
-#: src/ui_components/player_list/player_list.gd
-msgid "Bonus clean sheet"
-msgstr "Bonus temiz sayfa"
-
-#: src/ui_components/player_list/player_list.gd
-msgid "Bonus league"
-msgstr "Bonus lig"
-
-#: src/ui_components/player_list/player_list.gd
-msgid "Bonus national cup"
-msgstr "Bonus ulusal kupa"
-
-#: src/ui_components/player_list/player_list.gd
-msgid "Bonus continental cup"
-msgstr "Bonus kıtasal kupa"
-
-#: src/ui_components/player_list/player_list.gd
-msgid "Games played"
-msgstr "Oynanan maç sayısı"
-
-#: src/ui_components/player_list/player_list.gd
-#: src/ui_components/visual_competitions/visual_table/visual_table.tscn
-#: src/ui_components/player_profile/statistics_view/statistics_view.tscn
-#: src/screens/match_screen/statistics/match_stats.tscn
-msgid "Goals"
-msgstr "Goller"
-
-#: src/ui_components/player_list/player_list.gd
-#: src/ui_components/player_profile/statistics_view/statistics_view.tscn
-msgid "Assists"
-msgstr "Asistler"
-
-#: src/ui_components/player_list/player_list.gd
-#: src/ui_components/player_profile/statistics_view/statistics_view.tscn
-#: src/screens/match_screen/statistics/match_stats.tscn
-msgid "Yellow cards"
-msgstr "Sarı kartlar"
-
-#: src/ui_components/player_list/player_list.gd
-#: src/ui_components/player_profile/statistics_view/statistics_view.tscn
-#: src/screens/match_screen/statistics/match_stats.tscn
-msgid "Red cards"
-msgstr "Kırmızı kartlar"
-
-#: src/ui_components/player_list/player_list.gd
-#: src/ui_components/player_profile/statistics_view/statistics_view.tscn
-msgid "Average vote"
-msgstr "Ortalama oy"
-
-#: src/ui_components/player_list/player_list.gd
-msgid "Agression"
-msgstr "Pres"
-
-#: src/ui_components/player_list/player_list.gd
-#: src/ui_components/player_profile/attributes_view/attributes_view.tscn
-msgid "Anticipation"
-msgstr "Öngörü"
-
-#: src/ui_components/player_list/player_list.gd
-#: src/ui_components/player_profile/attributes_view/attributes_view.tscn
-msgid "Decisions"
-msgstr "Kararlar"
-
-#: src/ui_components/player_list/player_list.gd
-#: src/ui_components/player_profile/attributes_view/attributes_view.tscn
-msgid "Concentration"
-msgstr "Konsantrasyon"
-
-#: src/ui_components/player_list/player_list.gd
-#: src/ui_components/player_profile/attributes_view/attributes_view.tscn
-msgid "Vision"
-msgstr "Vizyon"
-
-#: src/ui_components/player_list/player_list.gd
-#: src/ui_components/player_profile/attributes_view/attributes_view.tscn
-msgid "Workrate"
-msgstr "Çalışma hızı"
-
-#: src/ui_components/player_list/player_list.gd
-#: src/ui_components/visual_formation/visual_formation.tscn
-#: src/ui_components/player_profile/attributes_view/attributes_view.tscn
-msgid "Marking"
-msgstr "İşaretleme"
-
-#: src/ui_components/player_list/player_list.gd
-#: src/ui_components/player_profile/attributes_view/attributes_view.tscn
-msgid "Reflexes"
-msgstr "Refleksler"
-
-#: src/ui_components/player_list/player_list.gd
-#: src/ui_components/player_profile/attributes_view/attributes_view.tscn
-msgid "Positioning"
-msgstr "Konumlanma"
-
-#: src/ui_components/player_list/player_list.gd
-#: src/ui_components/player_profile/attributes_view/attributes_view.tscn
-msgid "Save feet"
-msgstr "Ayakla kurtarma"
-
-#: src/ui_components/player_list/player_list.gd
-#: src/ui_components/player_profile/attributes_view/attributes_view.tscn
-msgid "Save hands"
-msgstr "Elle kurtarma"
-
-#: src/ui_components/player_list/player_list.gd
-#: src/ui_components/player_profile/attributes_view/attributes_view.tscn
-msgid "Diving"
-msgstr "Dalma"
-
-#: src/ui_components/player_list/player_list.gd
-#: src/ui_components/player_profile/attributes_view/attributes_view.tscn
-msgid "Pace"
-msgstr "Tempo"
-
-#: src/ui_components/player_list/player_list.gd
-#: src/ui_components/player_profile/attributes_view/attributes_view.tscn
-msgid "Acceleration"
-msgstr "Hızlanma"
-
-#: src/ui_components/player_list/player_list.gd
-#: src/ui_components/player_profile/attributes_view/attributes_view.tscn
-msgid "Stamina"
-msgstr "Dayanıklılık"
-
-#: src/ui_components/player_list/player_list.gd
-#: src/ui_components/player_profile/attributes_view/attributes_view.tscn
-msgid "Strength"
-msgstr "Fiziki güç"
-
-#: src/ui_components/player_list/player_list.gd
-#: src/ui_components/player_profile/attributes_view/attributes_view.tscn
-msgid "Agility"
-msgstr "Çeviklik"
-
-#: src/ui_components/player_list/player_list.gd
-#: src/ui_components/player_profile/attributes_view/attributes_view.tscn
-msgid "Jump"
-msgstr "Zıplama"
-
-#: src/ui_components/player_list/player_list.gd
-#: src/ui_components/player_profile/attributes_view/attributes_view.tscn
-msgid "Crossing"
-msgstr "Kesme"
-
-#: src/ui_components/player_list/player_list.gd
-#: src/ui_components/player_profile/attributes_view/attributes_view.tscn
-msgid "Passing"
-msgstr "Pas"
-
-#: src/ui_components/player_list/player_list.gd
-#: src/ui_components/player_profile/attributes_view/attributes_view.tscn
-msgid "Long passing"
-msgstr "Uzun pas"
-
-#: src/ui_components/player_list/player_list.gd
-#: src/ui_components/player_profile/attributes_view/attributes_view.tscn
-msgid "Tackling"
-msgstr "Çalım"
-
-#: src/ui_components/player_list/player_list.gd
-#: src/ui_components/player_profile/attributes_view/attributes_view.tscn
-msgid "Heading"
-msgstr "Başa baş mücadele"
-
-#: src/ui_components/player_list/player_list.gd
-#: src/ui_components/player_profile/attributes_view/attributes_view.tscn
-msgid "Interception"
-msgstr "Topu ele geçirme"
-
-#: src/ui_components/player_list/player_list.gd
-#: src/ui_components/player_profile/attributes_view/attributes_view.tscn
-msgid "Shooting"
-msgstr "Şut"
-
-#: src/ui_components/player_list/player_list.gd
-#: src/ui_components/player_profile/attributes_view/attributes_view.tscn
-msgid "Long shooting"
-msgstr "Uzun şut"
-
-#: src/ui_components/player_list/player_list.gd
-#: src/ui_components/player_profile/attributes_view/attributes_view.tscn
-msgid "Free kick"
-msgstr "Serbest vuruş"
-
-#: src/ui_components/player_list/player_list.gd
-#: src/ui_components/player_profile/attributes_view/attributes_view.tscn
-msgid "Penalty"
-msgstr "Penaltı"
-
-#: src/ui_components/player_list/player_list.gd
-#: src/ui_components/player_profile/attributes_view/attributes_view.tscn
-msgid "Finishing"
-msgstr "Bitirme"
-
-#: src/ui_components/player_list/player_list.gd
-#: src/ui_components/player_profile/attributes_view/attributes_view.tscn
-msgid "Dribbling"
-msgstr "Top sürme"
-
-#: src/ui_components/player_list/player_list.gd
-#: src/ui_components/player_profile/attributes_view/attributes_view.tscn
-msgid "Blocking"
-msgstr "Engelleme"
-
-#: src/ui_components/player_list/player_list_column/player_list_column.tscn
-#: src/ui_components/player_profile/info_view/info_view.tscn
-#: src/screens/setup/setup_world/setup_world.tscn
-msgid "Name"
-msgstr "İsim"
-
 #: src/ui_components/info/info.tscn
 #: src/screens/setup/setup_world/setup_world.tscn
 msgid "Generation seed"
@@ -663,6 +393,12 @@ msgstr "Karakter oluştur"
 #: src/ui_components/info/info.tscn
 msgid "Copy"
 msgstr "Kopyala"
+
+#: src/ui_components/info/info.tscn
+#: src/ui_components/player_profile/contract_view/contract_view.tscn
+#: src/ui_components/player_list/player_list_view/views/contract/player_list_view_contract.tscn
+msgid "Start date"
+msgstr "Başlangıç tarihi"
 
 #: src/ui_components/base/confirm_dialog/default_confirm_dialog.gd
 msgid "Ok"
@@ -701,8 +437,17 @@ msgstr "Kalan maaş bütçesi"
 
 #: src/ui_components/visual_finances/visual_finances.tscn
 #: src/ui_components/transfers/contract_offer/contract_offer.tscn
+#: src/ui_components/player_list/player_list_view/views/contract/player_list_view_contract.tscn
 msgid "Income"
 msgstr "Gelir"
+
+#: src/ui_components/visual_competitions/visual_table/visual_table.tscn
+#: src/ui_components/player_profile/info_view/info_view.tscn
+#: src/ui_components/player_profile/statistics_view/statistics_view.tscn
+#: src/screens/save_states_screen/save_state_entry/save_state_entry.tscn
+#: src/ui_components/player_list/player_list_view/views/general/player_list_view_general.tscn
+msgid "Team"
+msgstr "Takım"
 
 #: src/ui_components/visual_competitions/visual_table/visual_table.tscn
 msgid "Played"
@@ -719,6 +464,13 @@ msgstr "Berabere"
 #: src/ui_components/visual_competitions/visual_table/visual_table.tscn
 msgid "Lost"
 msgstr "Mağlubiyet"
+
+#: src/ui_components/visual_competitions/visual_table/visual_table.tscn
+#: src/ui_components/player_profile/statistics_view/statistics_view.tscn
+#: src/screens/match_screen/statistics/match_stats.tscn
+#: src/ui_components/player_list/player_list_view/views/statistics/player_list_view_statistics.tscn
+msgid "Goals"
+msgstr "Goller"
 
 #: src/ui_components/visual_competitions/visual_table/visual_table.tscn
 msgid "Points"
@@ -783,6 +535,12 @@ msgstr "Transfer et"
 msgid "Loan"
 msgstr "Kredi"
 
+#: src/ui_components/transfers/contract_offer/contract_offer.tscn
+#: src/ui_components/player_profile/contract_view/contract_view.tscn
+#: src/ui_components/player_list/player_list_view/views/contract/player_list_view_contract.tscn
+msgid "Buy clause"
+msgstr "Satın alın"
+
 #: src/ui_components/visual_formation/visual_formation.gd
 msgid "Subs"
 msgstr "Abonelik ücreti"
@@ -816,6 +574,12 @@ msgstr "Taktik hücum"
 #: src/ui_components/visual_formation/visual_formation.tscn
 msgid "Intensity"
 msgstr "Yoğunluk"
+
+#: src/ui_components/visual_formation/visual_formation.tscn
+#: src/ui_components/player_profile/attributes_view/attributes_view.tscn
+#: src/ui_components/player_list/player_list_view/views/mental/player_list_view_mental.tscn
+msgid "Marking"
+msgstr "İşaretleme"
 
 #: src/ui_components/visual_formation/visual_formation.tscn
 msgid "Pressing"
@@ -864,16 +628,160 @@ msgid "Offer contract"
 msgstr "Sözleşme öner"
 
 #: src/ui_components/player_profile/attributes_view/attributes_view.tscn
+#: src/ui_components/player_list/player_list_view/views/mental/player_list_view_mental.tscn
 msgid "Aggression"
 msgstr "Agresyon"
 
 #: src/ui_components/player_profile/attributes_view/attributes_view.tscn
+msgid "Anticipation"
+msgstr "Öngörü"
+
+#: src/ui_components/player_profile/attributes_view/attributes_view.tscn
+#: src/ui_components/player_list/player_list_view/views/mental/player_list_view_mental.tscn
+msgid "Decisions"
+msgstr "Kararlar"
+
+#: src/ui_components/player_profile/attributes_view/attributes_view.tscn
+#: src/ui_components/player_list/player_list_view/views/mental/player_list_view_mental.tscn
+msgid "Concentration"
+msgstr "Konsantrasyon"
+
+#: src/ui_components/player_profile/attributes_view/attributes_view.tscn
+#: src/ui_components/player_list/player_list_view/views/mental/player_list_view_mental.tscn
+msgid "Vision"
+msgstr "Vizyon"
+
+#: src/ui_components/player_profile/attributes_view/attributes_view.tscn
+#: src/ui_components/player_list/player_list_view/views/mental/player_list_view_mental.tscn
+msgid "Workrate"
+msgstr "Çalışma hızı"
+
+#: src/ui_components/player_profile/attributes_view/attributes_view.tscn
+#: src/ui_components/player_list/player_list_view/views/mental/player_list_view_mental.tscn
 msgid "Offensive movement"
 msgstr "Ofansif hareket"
 
 #: src/ui_components/player_profile/attributes_view/attributes_view.tscn
+#: src/ui_components/player_list/player_list_view/views/goalkeeper/player_list_view_goalkeeper.tscn
+msgid "Reflexes"
+msgstr "Refleksler"
+
+#: src/ui_components/player_profile/attributes_view/attributes_view.tscn
+#: src/ui_components/player_list/player_list_view/views/goalkeeper/player_list_view_goalkeeper.tscn
+msgid "Positioning"
+msgstr "Konumlanma"
+
+#: src/ui_components/player_profile/attributes_view/attributes_view.tscn
+msgid "Save feet"
+msgstr "Ayakla kurtarma"
+
+#: src/ui_components/player_profile/attributes_view/attributes_view.tscn
+msgid "Save hands"
+msgstr "Elle kurtarma"
+
+#: src/ui_components/player_profile/attributes_view/attributes_view.tscn
+#: src/ui_components/player_list/player_list_view/views/goalkeeper/player_list_view_goalkeeper.tscn
+msgid "Diving"
+msgstr "Dalma"
+
+#: src/ui_components/player_profile/attributes_view/attributes_view.tscn
+#: src/ui_components/player_list/player_list_view/views/physical/player_list_view_physical.tscn
+msgid "Pace"
+msgstr "Tempo"
+
+#: src/ui_components/player_profile/attributes_view/attributes_view.tscn
+#: src/ui_components/player_list/player_list_view/views/physical/player_list_view_physical.tscn
+msgid "Acceleration"
+msgstr "Hızlanma"
+
+#: src/ui_components/player_profile/attributes_view/attributes_view.tscn
+#: src/ui_components/player_list/player_list_view/views/physical/player_list_view_physical.tscn
+msgid "Stamina"
+msgstr "Dayanıklılık"
+
+#: src/ui_components/player_profile/attributes_view/attributes_view.tscn
+#: src/ui_components/player_list/player_list_view/views/physical/player_list_view_physical.tscn
+msgid "Strength"
+msgstr "Fiziki güç"
+
+#: src/ui_components/player_profile/attributes_view/attributes_view.tscn
+#: src/ui_components/player_list/player_list_view/views/physical/player_list_view_physical.tscn
+msgid "Agility"
+msgstr "Çeviklik"
+
+#: src/ui_components/player_profile/attributes_view/attributes_view.tscn
+#: src/ui_components/player_list/player_list_view/views/physical/player_list_view_physical.tscn
+msgid "Jump"
+msgstr "Zıplama"
+
+#: src/ui_components/player_profile/attributes_view/attributes_view.tscn
 msgid "Techical"
 msgstr "Teknik"
+
+#: src/ui_components/player_profile/attributes_view/attributes_view.tscn
+#: src/ui_components/player_list/player_list_view/views/technical/player_list_view_technical.tscn
+msgid "Crossing"
+msgstr "Kesme"
+
+#: src/ui_components/player_profile/attributes_view/attributes_view.tscn
+#: src/ui_components/player_list/player_list_view/views/technical/player_list_view_technical.tscn
+msgid "Passing"
+msgstr "Pas"
+
+#: src/ui_components/player_profile/attributes_view/attributes_view.tscn
+#: src/ui_components/player_list/player_list_view/views/technical/player_list_view_technical.tscn
+msgid "Long passing"
+msgstr "Uzun pas"
+
+#: src/ui_components/player_profile/attributes_view/attributes_view.tscn
+#: src/ui_components/player_list/player_list_view/views/technical/player_list_view_technical.tscn
+msgid "Tackling"
+msgstr "Çalım"
+
+#: src/ui_components/player_profile/attributes_view/attributes_view.tscn
+#: src/ui_components/player_list/player_list_view/views/technical/player_list_view_technical.tscn
+msgid "Heading"
+msgstr "Başa baş mücadele"
+
+#: src/ui_components/player_profile/attributes_view/attributes_view.tscn
+#: src/ui_components/player_list/player_list_view/views/technical/player_list_view_technical.tscn
+msgid "Interception"
+msgstr "Topu ele geçirme"
+
+#: src/ui_components/player_profile/attributes_view/attributes_view.tscn
+#: src/ui_components/player_list/player_list_view/views/technical/player_list_view_technical.tscn
+msgid "Shooting"
+msgstr "Şut"
+
+#: src/ui_components/player_profile/attributes_view/attributes_view.tscn
+#: src/ui_components/player_list/player_list_view/views/technical/player_list_view_technical.tscn
+msgid "Long shooting"
+msgstr "Uzun şut"
+
+#: src/ui_components/player_profile/attributes_view/attributes_view.tscn
+#: src/ui_components/player_list/player_list_view/views/technical/player_list_view_technical.tscn
+msgid "Free kick"
+msgstr "Serbest vuruş"
+
+#: src/ui_components/player_profile/attributes_view/attributes_view.tscn
+#: src/ui_components/player_list/player_list_view/views/technical/player_list_view_technical.tscn
+msgid "Penalty"
+msgstr "Penaltı"
+
+#: src/ui_components/player_profile/attributes_view/attributes_view.tscn
+#: src/ui_components/player_list/player_list_view/views/technical/player_list_view_technical.tscn
+msgid "Finishing"
+msgstr "Bitirme"
+
+#: src/ui_components/player_profile/attributes_view/attributes_view.tscn
+#: src/ui_components/player_list/player_list_view/views/technical/player_list_view_technical.tscn
+msgid "Dribbling"
+msgstr "Top sürme"
+
+#: src/ui_components/player_profile/attributes_view/attributes_view.tscn
+#: src/ui_components/player_list/player_list_view/views/technical/player_list_view_technical.tscn
+msgid "Blocking"
+msgstr "Engelleme"
 
 #: src/ui_components/player_profile/player_profile.tscn
 msgid "Attributes"
@@ -886,6 +794,16 @@ msgstr "İstatistikler\n"
 #: src/ui_components/player_profile/player_profile.tscn
 msgid "Contract\n"
 msgstr "Kontrat\n"
+
+#: src/ui_components/player_profile/info_view/info_view.tscn
+#: src/screens/setup/setup_world/setup_world.tscn
+msgid "Name"
+msgstr "İsim"
+
+#: src/ui_components/player_profile/info_view/info_view.tscn
+#: src/ui_components/player_list/player_list_view/views/general/player_list_view_general.tscn
+msgid "Position"
+msgstr "Pozisyon"
 
 #: src/ui_components/player_profile/info_view/info_view.tscn
 msgid "Alternative position"
@@ -911,6 +829,19 @@ msgstr "Sayı"
 #: src/ui_components/player_profile/info_view/info_view.tscn
 msgid "Average attributes"
 msgstr "Ortalama özellik"
+
+#: src/ui_components/player_profile/info_view/info_view.tscn
+msgid "Value"
+msgstr "Değer"
+
+#: src/ui_components/player_profile/contract_view/contract_view.tscn
+msgid "Salary"
+msgstr "Maaş"
+
+#: src/ui_components/player_profile/contract_view/contract_view.tscn
+#: src/ui_components/player_list/player_list_view/views/contract/player_list_view_contract.tscn
+msgid "End date"
+msgstr "Bitiş tarihi"
 
 #: src/ui_components/player_profile/contract_view/contract_view.tscn
 msgid "Bonus"
@@ -943,6 +874,27 @@ msgstr "Teklif yap"
 #: src/ui_components/player_profile/statistics_view/statistics_view.tscn
 msgid "Matches"
 msgstr "Maçlar"
+
+#: src/ui_components/player_profile/statistics_view/statistics_view.tscn
+#: src/ui_components/player_list/player_list_view/views/statistics/player_list_view_statistics.tscn
+msgid "Assists"
+msgstr "Asistler"
+
+#: src/ui_components/player_profile/statistics_view/statistics_view.tscn
+#: src/screens/match_screen/statistics/match_stats.tscn
+#: src/ui_components/player_list/player_list_view/views/statistics/player_list_view_statistics.tscn
+msgid "Yellow cards"
+msgstr "Sarı kartlar"
+
+#: src/ui_components/player_profile/statistics_view/statistics_view.tscn
+#: src/screens/match_screen/statistics/match_stats.tscn
+msgid "Red cards"
+msgstr "Kırmızı kartlar"
+
+#: src/ui_components/player_profile/statistics_view/statistics_view.tscn
+#: src/ui_components/player_list/player_list_view/views/statistics/player_list_view_statistics.tscn
+msgid "Average vote"
+msgstr "Ortalama oy"
 
 #: src/ui_components/visual_calendar/visual_day/visual_day.gd
 #: src/ui_components/visual_calendar/match_list/match_info/match_info.tscn
@@ -1000,6 +952,18 @@ msgstr "Cumartesi"
 #: src/ui_components/visual_calendar/visual_calendar.tscn src/enum.gd
 msgid "Sunday"
 msgstr "Pazar"
+
+#: src/ui_components/tree_overviews/teams_tree/teams_tree.gd
+#, fuzzy
+#| msgid "Continue"
+msgid "Continents"
+msgstr "Devam et"
+
+#: src/ui_components/tree_overviews/teams_tree/teams_tree.gd
+#, fuzzy
+#| msgid "No message found"
+msgid "No team found"
+msgstr "Hiç mesaj bulunamadı"
 
 #: src/resources/formation/position/position.gd
 msgid "G"
@@ -1109,18 +1073,6 @@ msgid ""
 msgstr ""
 "{player_name} için {team_name} takımına {cost} teklifin kabul edildi\n"
 "{player_name} ile ön sözleşme yapabilirsin."
-
-#: src/utils/logic/match_combination_util.gd
-msgid "Cup"
-msgstr "Kupa"
-
-#: src/utils/logic/match_combination_util.gd
-msgid "Nations cup"
-msgstr "Ulusal kupa"
-
-#: src/utils/logic/match_combination_util.gd
-msgid "World cup"
-msgstr "Dünya kupası"
 
 #: src/utils/input/joypad_util.gd
 #: src/screens/settings/input/input_settings.tscn
@@ -1463,7 +1415,9 @@ msgid "Random"
 msgstr "Rastgele"
 
 #: src/screens/setup/setup_world/setup_world.gd
-msgid "Generating players"
+#, fuzzy
+#| msgid "Generating players"
+msgid "Generating teams and players"
 msgstr "Oyuncular oluşturuluyor"
 
 #: src/screens/setup/setup_team/setup_team.tscn
@@ -1473,10 +1427,6 @@ msgstr "Takım seç"
 #: src/screens/setup/setup_team/setup_team.tscn
 msgid "Select"
 msgstr "Seç"
-
-#: src/screens/setup/setup_team/setup_team.gd
-msgid "Initialize game"
-msgstr "Oyunu başlat"
 
 #: src/resources/world/continent_names.gd
 msgid "Africa"
@@ -2543,6 +2493,88 @@ msgstr "Buton rengi"
 #: src/screens/settings/theme_picker/theme_picker.tscn
 msgid "Background color"
 msgstr "Arka plan rengi"
+
+#: src/ui_components/player_list/player_list_view/views/statistics/player_list_view_statistics.tscn
+msgid "Games played"
+msgstr "Oynanan maç sayısı"
+
+#: src/ui_components/player_list/player_list_view/views/statistics/player_list_view_statistics.tscn
+#, fuzzy
+#| msgid "Red cards"
+msgid "Red Cards"
+msgstr "Kırmızı kartlar"
+
+#: src/ui_components/player_list/player_list_view/views/mental/player_list_view_mental.tscn
+#, fuzzy
+#| msgid "Anticipation"
+msgid "Antcipation"
+msgstr "Öngörü"
+
+#: src/ui_components/player_list/player_list_view/views/goalkeeper/player_list_view_goalkeeper.tscn
+msgid "Feet"
+msgstr ""
+
+#: src/ui_components/player_list/player_list_view/views/goalkeeper/player_list_view_goalkeeper.tscn
+msgid "Hands"
+msgstr ""
+
+#: src/ui_components/player_list/player_list_view/views/general/player_list_view_general.tscn
+msgid "Nation"
+msgstr "Ülke"
+
+#: src/ui_components/player_list/player_list_view/views/general/player_list_view_general.tscn
+msgid "Birth date"
+msgstr "Doğum tarihi"
+
+#: src/ui_components/player_list/player_list_view/views/contract/player_list_view_contract.tscn
+#, fuzzy
+#| msgid "Bonus goal"
+msgid "Bonus goals"
+msgstr "Bonus goller"
+
+#: src/ui_components/player_list/player_list_view/views/contract/player_list_view_contract.tscn
+msgid "Bonus clean sheet"
+msgstr "Bonus temiz sayfa"
+
+#: src/ui_components/player_list/player_list_view/views/contract/player_list_view_contract.tscn
+#, fuzzy
+#| msgid "Bonus assist"
+msgid "Bonus assists"
+msgstr "Bonus asistler"
+
+#: src/ui_components/player_list/player_list_view/views/contract/player_list_view_contract.tscn
+msgid "Bonus league"
+msgstr "Bonus lig"
+
+#: src/ui_components/player_list/player_list_view/views/contract/player_list_view_contract.tscn
+msgid "Is on loan"
+msgstr ""
+
+#: src/ui_components/player_list/player_list_view/views/contract/player_list_view_contract.tscn
+msgid "Bonus continental cup"
+msgstr "Bonus kıtasal kupa"
+
+#: src/ui_components/player_list/player_list_view/views/contract/player_list_view_contract.tscn
+msgid "Bonus national cup"
+msgstr "Bonus ulusal kupa"
+
+#~ msgid "Morality"
+#~ msgstr "Ahlak"
+
+#~ msgid "Agression"
+#~ msgstr "Pres"
+
+#~ msgid "Cup"
+#~ msgstr "Kupa"
+
+#~ msgid "Nations cup"
+#~ msgstr "Ulusal kupa"
+
+#~ msgid "World cup"
+#~ msgstr "Dünya kupası"
+
+#~ msgid "Initialize game"
+#~ msgstr "Oyunu başlat"
 
 #~ msgid "Seed"
 #~ msgstr "Sıralama"

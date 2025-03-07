@@ -316,8 +316,8 @@ msgid "Players"
 msgstr "Гравці"
 
 #: src/ui_components/team_profile/team_profile.gd
-#: src/ui_components/player_list/player_list.gd
 #: src/ui_components/player_profile/info_view/info_view.tscn
+#: src/ui_components/player_list/player_list_view/views/general/player_list_view_general.tscn
 msgid "Prestige"
 msgstr "Престиж"
 
@@ -343,13 +343,9 @@ msgid "General"
 msgstr "Загальні"
 
 #: src/ui_components/player_list/player_list.gd
-#: src/ui_components/transfers/contract_offer/contract_offer.tscn
-msgid "Contract"
-msgstr "Контракт"
-
-#: src/ui_components/player_list/player_list.gd
-msgid "Stats"
-msgstr "Статус"
+#: src/ui_components/player_profile/attributes_view/attributes_view.tscn
+msgid "Goalkeeper"
+msgstr "Воротар"
 
 #: src/ui_components/player_list/player_list.gd
 #: src/ui_components/player_profile/attributes_view/attributes_view.tscn
@@ -366,9 +362,13 @@ msgid "Mental"
 msgstr "Психічне"
 
 #: src/ui_components/player_list/player_list.gd
-#: src/ui_components/player_profile/attributes_view/attributes_view.tscn
-msgid "Goalkeeper"
-msgstr "Воротар"
+#: src/ui_components/transfers/contract_offer/contract_offer.tscn
+msgid "Contract"
+msgstr "Контракт"
+
+#: src/ui_components/player_list/player_list.gd
+msgid "Stats"
+msgstr "Статус"
 
 #: src/ui_components/player_list/player_list.gd
 msgid "All Teams"
@@ -382,276 +382,6 @@ msgstr "Усі позиції"
 msgid "All Leagues"
 msgstr "Усі Ліги"
 
-#: src/ui_components/player_list/player_list.gd
-#: src/ui_components/player_profile/info_view/info_view.tscn
-msgid "Position"
-msgstr "Позиція"
-
-#: src/ui_components/player_list/player_list.gd
-#: src/ui_components/player_profile/info_view/info_view.tscn
-msgid "Value"
-msgstr "Значення"
-
-#: src/ui_components/player_list/player_list.gd
-msgid "Morality"
-msgstr "Моральність"
-
-#: src/ui_components/player_list/player_list.gd
-msgid "Birth date"
-msgstr "Дата народження"
-
-#: src/ui_components/player_list/player_list.gd
-msgid "Nation"
-msgstr "Нація"
-
-#: src/ui_components/player_list/player_list.gd
-#: src/ui_components/visual_competitions/visual_table/visual_table.tscn
-#: src/ui_components/player_profile/info_view/info_view.tscn
-#: src/ui_components/player_profile/statistics_view/statistics_view.tscn
-#: src/screens/save_states_screen/save_state_entry/save_state_entry.tscn
-msgid "Team"
-msgstr "Команда"
-
-#: src/ui_components/player_list/player_list.gd
-#: src/ui_components/player_profile/contract_view/contract_view.tscn
-msgid "Salary"
-msgstr "Зарплата"
-
-#: src/ui_components/player_list/player_list.gd
-#: src/ui_components/info/info.tscn
-#: src/ui_components/player_profile/contract_view/contract_view.tscn
-msgid "Start date"
-msgstr "Дата початку"
-
-#: src/ui_components/player_list/player_list.gd
-#: src/ui_components/player_profile/contract_view/contract_view.tscn
-msgid "End date"
-msgstr "Кінцева дата"
-
-#: src/ui_components/player_list/player_list.gd
-#: src/ui_components/transfers/contract_offer/contract_offer.tscn
-#: src/ui_components/player_profile/contract_view/contract_view.tscn
-msgid "Buy clause"
-msgstr "Положення про купівлю"
-
-#: src/ui_components/player_list/player_list.gd
-msgid "Bonus goal"
-msgstr "Бонусний гол"
-
-#: src/ui_components/player_list/player_list.gd
-msgid "Bonus assist"
-msgstr "Бонусна допомога"
-
-#: src/ui_components/player_list/player_list.gd
-msgid "Bonus clean sheet"
-msgstr "Бонус чистий лист"
-
-#: src/ui_components/player_list/player_list.gd
-msgid "Bonus league"
-msgstr "Бонусна ліга"
-
-#: src/ui_components/player_list/player_list.gd
-msgid "Bonus national cup"
-msgstr "Бонусний національний кубок"
-
-#: src/ui_components/player_list/player_list.gd
-msgid "Bonus continental cup"
-msgstr "Бонусний континентальний кубок"
-
-#: src/ui_components/player_list/player_list.gd
-msgid "Games played"
-msgstr "Зіграні ігри"
-
-#: src/ui_components/player_list/player_list.gd
-#: src/ui_components/visual_competitions/visual_table/visual_table.tscn
-#: src/ui_components/player_profile/statistics_view/statistics_view.tscn
-#: src/screens/match_screen/statistics/match_stats.tscn
-msgid "Goals"
-msgstr "Цілі"
-
-#: src/ui_components/player_list/player_list.gd
-#: src/ui_components/player_profile/statistics_view/statistics_view.tscn
-msgid "Assists"
-msgstr "Ассисти"
-
-#: src/ui_components/player_list/player_list.gd
-#: src/ui_components/player_profile/statistics_view/statistics_view.tscn
-#: src/screens/match_screen/statistics/match_stats.tscn
-msgid "Yellow cards"
-msgstr "Жовті картки"
-
-#: src/ui_components/player_list/player_list.gd
-#: src/ui_components/player_profile/statistics_view/statistics_view.tscn
-#: src/screens/match_screen/statistics/match_stats.tscn
-msgid "Red cards"
-msgstr "Червоні картки"
-
-#: src/ui_components/player_list/player_list.gd
-#: src/ui_components/player_profile/statistics_view/statistics_view.tscn
-msgid "Average vote"
-msgstr "Середній голос"
-
-#: src/ui_components/player_list/player_list.gd
-msgid "Agression"
-msgstr "Напад"
-
-#: src/ui_components/player_list/player_list.gd
-#: src/ui_components/player_profile/attributes_view/attributes_view.tscn
-msgid "Anticipation"
-msgstr "Передчуття"
-
-#: src/ui_components/player_list/player_list.gd
-#: src/ui_components/player_profile/attributes_view/attributes_view.tscn
-msgid "Decisions"
-msgstr "Рішення"
-
-#: src/ui_components/player_list/player_list.gd
-#: src/ui_components/player_profile/attributes_view/attributes_view.tscn
-msgid "Concentration"
-msgstr "Концентрація"
-
-#: src/ui_components/player_list/player_list.gd
-#: src/ui_components/player_profile/attributes_view/attributes_view.tscn
-msgid "Vision"
-msgstr "Бачення"
-
-#: src/ui_components/player_list/player_list.gd
-#: src/ui_components/player_profile/attributes_view/attributes_view.tscn
-msgid "Workrate"
-msgstr "Норма роботи"
-
-#: src/ui_components/player_list/player_list.gd
-#: src/ui_components/visual_formation/visual_formation.tscn
-#: src/ui_components/player_profile/attributes_view/attributes_view.tscn
-msgid "Marking"
-msgstr "Позначення"
-
-#: src/ui_components/player_list/player_list.gd
-#: src/ui_components/player_profile/attributes_view/attributes_view.tscn
-msgid "Reflexes"
-msgstr "Рефлекси"
-
-#: src/ui_components/player_list/player_list.gd
-#: src/ui_components/player_profile/attributes_view/attributes_view.tscn
-msgid "Positioning"
-msgstr "Позиціонування"
-
-#: src/ui_components/player_list/player_list.gd
-#: src/ui_components/player_profile/attributes_view/attributes_view.tscn
-msgid "Save feet"
-msgstr "Збережіть ноги"
-
-#: src/ui_components/player_list/player_list.gd
-#: src/ui_components/player_profile/attributes_view/attributes_view.tscn
-msgid "Save hands"
-msgstr "Бережіть руки"
-
-#: src/ui_components/player_list/player_list.gd
-#: src/ui_components/player_profile/attributes_view/attributes_view.tscn
-msgid "Diving"
-msgstr "Дайвінг"
-
-#: src/ui_components/player_list/player_list.gd
-#: src/ui_components/player_profile/attributes_view/attributes_view.tscn
-msgid "Pace"
-msgstr "Темп"
-
-#: src/ui_components/player_list/player_list.gd
-#: src/ui_components/player_profile/attributes_view/attributes_view.tscn
-msgid "Acceleration"
-msgstr "Прискорення"
-
-#: src/ui_components/player_list/player_list.gd
-#: src/ui_components/player_profile/attributes_view/attributes_view.tscn
-msgid "Stamina"
-msgstr "Витривалість"
-
-#: src/ui_components/player_list/player_list.gd
-#: src/ui_components/player_profile/attributes_view/attributes_view.tscn
-msgid "Strength"
-msgstr "Сила"
-
-#: src/ui_components/player_list/player_list.gd
-#: src/ui_components/player_profile/attributes_view/attributes_view.tscn
-msgid "Agility"
-msgstr "Спритність"
-
-#: src/ui_components/player_list/player_list.gd
-#: src/ui_components/player_profile/attributes_view/attributes_view.tscn
-msgid "Jump"
-msgstr "Стрибок"
-
-#: src/ui_components/player_list/player_list.gd
-#: src/ui_components/player_profile/attributes_view/attributes_view.tscn
-msgid "Crossing"
-msgstr "Перетин"
-
-#: src/ui_components/player_list/player_list.gd
-#: src/ui_components/player_profile/attributes_view/attributes_view.tscn
-msgid "Passing"
-msgstr "Проходження"
-
-#: src/ui_components/player_list/player_list.gd
-#: src/ui_components/player_profile/attributes_view/attributes_view.tscn
-msgid "Long passing"
-msgstr "Довге проходження"
-
-#: src/ui_components/player_list/player_list.gd
-#: src/ui_components/player_profile/attributes_view/attributes_view.tscn
-msgid "Tackling"
-msgstr "Відбір"
-
-#: src/ui_components/player_list/player_list.gd
-#: src/ui_components/player_profile/attributes_view/attributes_view.tscn
-msgid "Heading"
-msgstr "Заголовок"
-
-#: src/ui_components/player_list/player_list.gd
-#: src/ui_components/player_profile/attributes_view/attributes_view.tscn
-msgid "Interception"
-msgstr "Перехоплення"
-
-#: src/ui_components/player_list/player_list.gd
-#: src/ui_components/player_profile/attributes_view/attributes_view.tscn
-msgid "Shooting"
-msgstr "Стрільба"
-
-#: src/ui_components/player_list/player_list.gd
-#: src/ui_components/player_profile/attributes_view/attributes_view.tscn
-msgid "Long shooting"
-msgstr "Тривала зйомка"
-
-#: src/ui_components/player_list/player_list.gd
-#: src/ui_components/player_profile/attributes_view/attributes_view.tscn
-msgid "Free kick"
-msgstr "Штрафний удар"
-
-#: src/ui_components/player_list/player_list.gd
-#: src/ui_components/player_profile/attributes_view/attributes_view.tscn
-msgid "Penalty"
-msgstr "Пенальті"
-
-#: src/ui_components/player_list/player_list.gd
-#: src/ui_components/player_profile/attributes_view/attributes_view.tscn
-msgid "Finishing"
-msgstr "Оздоблення"
-
-#: src/ui_components/player_list/player_list.gd
-#: src/ui_components/player_profile/attributes_view/attributes_view.tscn
-msgid "Dribbling"
-msgstr "Дриблінг"
-
-#: src/ui_components/player_list/player_list.gd
-#: src/ui_components/player_profile/attributes_view/attributes_view.tscn
-msgid "Blocking"
-msgstr "Блокування"
-
-#: src/ui_components/player_list/player_list_column/player_list_column.tscn
-#: src/ui_components/player_profile/info_view/info_view.tscn
-#: src/screens/setup/setup_world/setup_world.tscn
-msgid "Name"
-msgstr "Назва"
-
 #: src/ui_components/info/info.tscn
 #: src/screens/setup/setup_world/setup_world.tscn
 msgid "Generation seed"
@@ -660,6 +390,12 @@ msgstr "Код покоління"
 #: src/ui_components/info/info.tscn
 msgid "Copy"
 msgstr "Cкопіювати"
+
+#: src/ui_components/info/info.tscn
+#: src/ui_components/player_profile/contract_view/contract_view.tscn
+#: src/ui_components/player_list/player_list_view/views/contract/player_list_view_contract.tscn
+msgid "Start date"
+msgstr "Дата початку"
 
 #: src/ui_components/base/confirm_dialog/default_confirm_dialog.gd
 msgid "Ok"
@@ -698,8 +434,17 @@ msgstr "Залишок бюджету зарплати"
 
 #: src/ui_components/visual_finances/visual_finances.tscn
 #: src/ui_components/transfers/contract_offer/contract_offer.tscn
+#: src/ui_components/player_list/player_list_view/views/contract/player_list_view_contract.tscn
 msgid "Income"
 msgstr "Дохід"
+
+#: src/ui_components/visual_competitions/visual_table/visual_table.tscn
+#: src/ui_components/player_profile/info_view/info_view.tscn
+#: src/ui_components/player_profile/statistics_view/statistics_view.tscn
+#: src/screens/save_states_screen/save_state_entry/save_state_entry.tscn
+#: src/ui_components/player_list/player_list_view/views/general/player_list_view_general.tscn
+msgid "Team"
+msgstr "Команда"
 
 #: src/ui_components/visual_competitions/visual_table/visual_table.tscn
 msgid "Played"
@@ -716,6 +461,13 @@ msgstr "Нічия"
 #: src/ui_components/visual_competitions/visual_table/visual_table.tscn
 msgid "Lost"
 msgstr "Програл"
+
+#: src/ui_components/visual_competitions/visual_table/visual_table.tscn
+#: src/ui_components/player_profile/statistics_view/statistics_view.tscn
+#: src/screens/match_screen/statistics/match_stats.tscn
+#: src/ui_components/player_list/player_list_view/views/statistics/player_list_view_statistics.tscn
+msgid "Goals"
+msgstr "Цілі"
 
 #: src/ui_components/visual_competitions/visual_table/visual_table.tscn
 msgid "Points"
@@ -780,6 +532,12 @@ msgstr "Трансфер"
 msgid "Loan"
 msgstr "Позика"
 
+#: src/ui_components/transfers/contract_offer/contract_offer.tscn
+#: src/ui_components/player_profile/contract_view/contract_view.tscn
+#: src/ui_components/player_list/player_list_view/views/contract/player_list_view_contract.tscn
+msgid "Buy clause"
+msgstr "Положення про купівлю"
+
 #: src/ui_components/visual_formation/visual_formation.gd
 msgid "Subs"
 msgstr "Заміна"
@@ -813,6 +571,12 @@ msgstr "Тактика нападу"
 #: src/ui_components/visual_formation/visual_formation.tscn
 msgid "Intensity"
 msgstr "Інтенсивність"
+
+#: src/ui_components/visual_formation/visual_formation.tscn
+#: src/ui_components/player_profile/attributes_view/attributes_view.tscn
+#: src/ui_components/player_list/player_list_view/views/mental/player_list_view_mental.tscn
+msgid "Marking"
+msgstr "Позначення"
 
 #: src/ui_components/visual_formation/visual_formation.tscn
 msgid "Pressing"
@@ -861,16 +625,160 @@ msgid "Offer contract"
 msgstr "Договір пропозиції"
 
 #: src/ui_components/player_profile/attributes_view/attributes_view.tscn
+#: src/ui_components/player_list/player_list_view/views/mental/player_list_view_mental.tscn
 msgid "Aggression"
 msgstr "Агресія"
 
 #: src/ui_components/player_profile/attributes_view/attributes_view.tscn
+msgid "Anticipation"
+msgstr "Передчуття"
+
+#: src/ui_components/player_profile/attributes_view/attributes_view.tscn
+#: src/ui_components/player_list/player_list_view/views/mental/player_list_view_mental.tscn
+msgid "Decisions"
+msgstr "Рішення"
+
+#: src/ui_components/player_profile/attributes_view/attributes_view.tscn
+#: src/ui_components/player_list/player_list_view/views/mental/player_list_view_mental.tscn
+msgid "Concentration"
+msgstr "Концентрація"
+
+#: src/ui_components/player_profile/attributes_view/attributes_view.tscn
+#: src/ui_components/player_list/player_list_view/views/mental/player_list_view_mental.tscn
+msgid "Vision"
+msgstr "Бачення"
+
+#: src/ui_components/player_profile/attributes_view/attributes_view.tscn
+#: src/ui_components/player_list/player_list_view/views/mental/player_list_view_mental.tscn
+msgid "Workrate"
+msgstr "Норма роботи"
+
+#: src/ui_components/player_profile/attributes_view/attributes_view.tscn
+#: src/ui_components/player_list/player_list_view/views/mental/player_list_view_mental.tscn
 msgid "Offensive movement"
 msgstr "Наступальний рух"
 
 #: src/ui_components/player_profile/attributes_view/attributes_view.tscn
+#: src/ui_components/player_list/player_list_view/views/goalkeeper/player_list_view_goalkeeper.tscn
+msgid "Reflexes"
+msgstr "Рефлекси"
+
+#: src/ui_components/player_profile/attributes_view/attributes_view.tscn
+#: src/ui_components/player_list/player_list_view/views/goalkeeper/player_list_view_goalkeeper.tscn
+msgid "Positioning"
+msgstr "Позиціонування"
+
+#: src/ui_components/player_profile/attributes_view/attributes_view.tscn
+msgid "Save feet"
+msgstr "Збережіть ноги"
+
+#: src/ui_components/player_profile/attributes_view/attributes_view.tscn
+msgid "Save hands"
+msgstr "Бережіть руки"
+
+#: src/ui_components/player_profile/attributes_view/attributes_view.tscn
+#: src/ui_components/player_list/player_list_view/views/goalkeeper/player_list_view_goalkeeper.tscn
+msgid "Diving"
+msgstr "Дайвінг"
+
+#: src/ui_components/player_profile/attributes_view/attributes_view.tscn
+#: src/ui_components/player_list/player_list_view/views/physical/player_list_view_physical.tscn
+msgid "Pace"
+msgstr "Темп"
+
+#: src/ui_components/player_profile/attributes_view/attributes_view.tscn
+#: src/ui_components/player_list/player_list_view/views/physical/player_list_view_physical.tscn
+msgid "Acceleration"
+msgstr "Прискорення"
+
+#: src/ui_components/player_profile/attributes_view/attributes_view.tscn
+#: src/ui_components/player_list/player_list_view/views/physical/player_list_view_physical.tscn
+msgid "Stamina"
+msgstr "Витривалість"
+
+#: src/ui_components/player_profile/attributes_view/attributes_view.tscn
+#: src/ui_components/player_list/player_list_view/views/physical/player_list_view_physical.tscn
+msgid "Strength"
+msgstr "Сила"
+
+#: src/ui_components/player_profile/attributes_view/attributes_view.tscn
+#: src/ui_components/player_list/player_list_view/views/physical/player_list_view_physical.tscn
+msgid "Agility"
+msgstr "Спритність"
+
+#: src/ui_components/player_profile/attributes_view/attributes_view.tscn
+#: src/ui_components/player_list/player_list_view/views/physical/player_list_view_physical.tscn
+msgid "Jump"
+msgstr "Стрибок"
+
+#: src/ui_components/player_profile/attributes_view/attributes_view.tscn
 msgid "Techical"
 msgstr "Технічні"
+
+#: src/ui_components/player_profile/attributes_view/attributes_view.tscn
+#: src/ui_components/player_list/player_list_view/views/technical/player_list_view_technical.tscn
+msgid "Crossing"
+msgstr "Перетин"
+
+#: src/ui_components/player_profile/attributes_view/attributes_view.tscn
+#: src/ui_components/player_list/player_list_view/views/technical/player_list_view_technical.tscn
+msgid "Passing"
+msgstr "Проходження"
+
+#: src/ui_components/player_profile/attributes_view/attributes_view.tscn
+#: src/ui_components/player_list/player_list_view/views/technical/player_list_view_technical.tscn
+msgid "Long passing"
+msgstr "Довге проходження"
+
+#: src/ui_components/player_profile/attributes_view/attributes_view.tscn
+#: src/ui_components/player_list/player_list_view/views/technical/player_list_view_technical.tscn
+msgid "Tackling"
+msgstr "Відбір"
+
+#: src/ui_components/player_profile/attributes_view/attributes_view.tscn
+#: src/ui_components/player_list/player_list_view/views/technical/player_list_view_technical.tscn
+msgid "Heading"
+msgstr "Заголовок"
+
+#: src/ui_components/player_profile/attributes_view/attributes_view.tscn
+#: src/ui_components/player_list/player_list_view/views/technical/player_list_view_technical.tscn
+msgid "Interception"
+msgstr "Перехоплення"
+
+#: src/ui_components/player_profile/attributes_view/attributes_view.tscn
+#: src/ui_components/player_list/player_list_view/views/technical/player_list_view_technical.tscn
+msgid "Shooting"
+msgstr "Стрільба"
+
+#: src/ui_components/player_profile/attributes_view/attributes_view.tscn
+#: src/ui_components/player_list/player_list_view/views/technical/player_list_view_technical.tscn
+msgid "Long shooting"
+msgstr "Тривала зйомка"
+
+#: src/ui_components/player_profile/attributes_view/attributes_view.tscn
+#: src/ui_components/player_list/player_list_view/views/technical/player_list_view_technical.tscn
+msgid "Free kick"
+msgstr "Штрафний удар"
+
+#: src/ui_components/player_profile/attributes_view/attributes_view.tscn
+#: src/ui_components/player_list/player_list_view/views/technical/player_list_view_technical.tscn
+msgid "Penalty"
+msgstr "Пенальті"
+
+#: src/ui_components/player_profile/attributes_view/attributes_view.tscn
+#: src/ui_components/player_list/player_list_view/views/technical/player_list_view_technical.tscn
+msgid "Finishing"
+msgstr "Оздоблення"
+
+#: src/ui_components/player_profile/attributes_view/attributes_view.tscn
+#: src/ui_components/player_list/player_list_view/views/technical/player_list_view_technical.tscn
+msgid "Dribbling"
+msgstr "Дриблінг"
+
+#: src/ui_components/player_profile/attributes_view/attributes_view.tscn
+#: src/ui_components/player_list/player_list_view/views/technical/player_list_view_technical.tscn
+msgid "Blocking"
+msgstr "Блокування"
 
 #: src/ui_components/player_profile/player_profile.tscn
 msgid "Attributes"
@@ -883,6 +791,16 @@ msgstr "Статистика\n"
 #: src/ui_components/player_profile/player_profile.tscn
 msgid "Contract\n"
 msgstr "Договір\n"
+
+#: src/ui_components/player_profile/info_view/info_view.tscn
+#: src/screens/setup/setup_world/setup_world.tscn
+msgid "Name"
+msgstr "Назва"
+
+#: src/ui_components/player_profile/info_view/info_view.tscn
+#: src/ui_components/player_list/player_list_view/views/general/player_list_view_general.tscn
+msgid "Position"
+msgstr "Позиція"
 
 #: src/ui_components/player_profile/info_view/info_view.tscn
 msgid "Alternative position"
@@ -908,6 +826,19 @@ msgstr "Номер"
 #: src/ui_components/player_profile/info_view/info_view.tscn
 msgid "Average attributes"
 msgstr "Середні атрибути"
+
+#: src/ui_components/player_profile/info_view/info_view.tscn
+msgid "Value"
+msgstr "Значення"
+
+#: src/ui_components/player_profile/contract_view/contract_view.tscn
+msgid "Salary"
+msgstr "Зарплата"
+
+#: src/ui_components/player_profile/contract_view/contract_view.tscn
+#: src/ui_components/player_list/player_list_view/views/contract/player_list_view_contract.tscn
+msgid "End date"
+msgstr "Кінцева дата"
 
 #: src/ui_components/player_profile/contract_view/contract_view.tscn
 msgid "Bonus"
@@ -940,6 +871,27 @@ msgstr "Зробити пропозицію"
 #: src/ui_components/player_profile/statistics_view/statistics_view.tscn
 msgid "Matches"
 msgstr "Сірники"
+
+#: src/ui_components/player_profile/statistics_view/statistics_view.tscn
+#: src/ui_components/player_list/player_list_view/views/statistics/player_list_view_statistics.tscn
+msgid "Assists"
+msgstr "Ассисти"
+
+#: src/ui_components/player_profile/statistics_view/statistics_view.tscn
+#: src/screens/match_screen/statistics/match_stats.tscn
+#: src/ui_components/player_list/player_list_view/views/statistics/player_list_view_statistics.tscn
+msgid "Yellow cards"
+msgstr "Жовті картки"
+
+#: src/ui_components/player_profile/statistics_view/statistics_view.tscn
+#: src/screens/match_screen/statistics/match_stats.tscn
+msgid "Red cards"
+msgstr "Червоні картки"
+
+#: src/ui_components/player_profile/statistics_view/statistics_view.tscn
+#: src/ui_components/player_list/player_list_view/views/statistics/player_list_view_statistics.tscn
+msgid "Average vote"
+msgstr "Середній голос"
 
 #: src/ui_components/visual_calendar/visual_day/visual_day.gd
 #: src/ui_components/visual_calendar/match_list/match_info/match_info.tscn
@@ -997,6 +949,18 @@ msgstr "Субота"
 #: src/ui_components/visual_calendar/visual_calendar.tscn src/enum.gd
 msgid "Sunday"
 msgstr "Неділя"
+
+#: src/ui_components/tree_overviews/teams_tree/teams_tree.gd
+#, fuzzy
+#| msgid "Continue"
+msgid "Continents"
+msgstr "Продовжити"
+
+#: src/ui_components/tree_overviews/teams_tree/teams_tree.gd
+#, fuzzy
+#| msgid "No message found"
+msgid "No team found"
+msgstr "Повідомлення не знайдено"
 
 #: src/resources/formation/position/position.gd
 msgid "G"
@@ -1106,18 +1070,6 @@ msgid ""
 msgstr ""
 "Вашу пропозицію {player_name} від {team_name} за {cost} прийнято.\n"
 "Тепер ви можете знайти договірну угоду з {player_name}."
-
-#: src/utils/logic/match_combination_util.gd
-msgid "Cup"
-msgstr "Кубок"
-
-#: src/utils/logic/match_combination_util.gd
-msgid "Nations cup"
-msgstr "Кубок націй"
-
-#: src/utils/logic/match_combination_util.gd
-msgid "World cup"
-msgstr "Кубок світу"
 
 #: src/utils/input/joypad_util.gd
 #: src/screens/settings/input/input_settings.tscn
@@ -1460,7 +1412,9 @@ msgid "Random"
 msgstr "Випадковий"
 
 #: src/screens/setup/setup_world/setup_world.gd
-msgid "Generating players"
+#, fuzzy
+#| msgid "Generating players"
+msgid "Generating teams and players"
 msgstr "Генерація гравців"
 
 #: src/screens/setup/setup_team/setup_team.tscn
@@ -1470,10 +1424,6 @@ msgstr "Виберіть команду"
 #: src/screens/setup/setup_team/setup_team.tscn
 msgid "Select"
 msgstr "Обрати"
-
-#: src/screens/setup/setup_team/setup_team.gd
-msgid "Initialize game"
-msgstr "Початок гри"
 
 #: src/resources/world/continent_names.gd
 msgid "Africa"
@@ -2540,6 +2490,88 @@ msgstr "Колір кнопок"
 #: src/screens/settings/theme_picker/theme_picker.tscn
 msgid "Background color"
 msgstr "Колір тла"
+
+#: src/ui_components/player_list/player_list_view/views/statistics/player_list_view_statistics.tscn
+msgid "Games played"
+msgstr "Зіграні ігри"
+
+#: src/ui_components/player_list/player_list_view/views/statistics/player_list_view_statistics.tscn
+#, fuzzy
+#| msgid "Red cards"
+msgid "Red Cards"
+msgstr "Червоні картки"
+
+#: src/ui_components/player_list/player_list_view/views/mental/player_list_view_mental.tscn
+#, fuzzy
+#| msgid "Anticipation"
+msgid "Antcipation"
+msgstr "Передчуття"
+
+#: src/ui_components/player_list/player_list_view/views/goalkeeper/player_list_view_goalkeeper.tscn
+msgid "Feet"
+msgstr ""
+
+#: src/ui_components/player_list/player_list_view/views/goalkeeper/player_list_view_goalkeeper.tscn
+msgid "Hands"
+msgstr ""
+
+#: src/ui_components/player_list/player_list_view/views/general/player_list_view_general.tscn
+msgid "Nation"
+msgstr "Нація"
+
+#: src/ui_components/player_list/player_list_view/views/general/player_list_view_general.tscn
+msgid "Birth date"
+msgstr "Дата народження"
+
+#: src/ui_components/player_list/player_list_view/views/contract/player_list_view_contract.tscn
+#, fuzzy
+#| msgid "Bonus goal"
+msgid "Bonus goals"
+msgstr "Бонусний гол"
+
+#: src/ui_components/player_list/player_list_view/views/contract/player_list_view_contract.tscn
+msgid "Bonus clean sheet"
+msgstr "Бонус чистий лист"
+
+#: src/ui_components/player_list/player_list_view/views/contract/player_list_view_contract.tscn
+#, fuzzy
+#| msgid "Bonus assist"
+msgid "Bonus assists"
+msgstr "Бонусна допомога"
+
+#: src/ui_components/player_list/player_list_view/views/contract/player_list_view_contract.tscn
+msgid "Bonus league"
+msgstr "Бонусна ліга"
+
+#: src/ui_components/player_list/player_list_view/views/contract/player_list_view_contract.tscn
+msgid "Is on loan"
+msgstr ""
+
+#: src/ui_components/player_list/player_list_view/views/contract/player_list_view_contract.tscn
+msgid "Bonus continental cup"
+msgstr "Бонусний континентальний кубок"
+
+#: src/ui_components/player_list/player_list_view/views/contract/player_list_view_contract.tscn
+msgid "Bonus national cup"
+msgstr "Бонусний національний кубок"
+
+#~ msgid "Morality"
+#~ msgstr "Моральність"
+
+#~ msgid "Agression"
+#~ msgstr "Напад"
+
+#~ msgid "Cup"
+#~ msgstr "Кубок"
+
+#~ msgid "Nations cup"
+#~ msgstr "Кубок націй"
+
+#~ msgid "World cup"
+#~ msgstr "Кубок світу"
+
+#~ msgid "Initialize game"
+#~ msgstr "Початок гри"
 
 #~ msgid "Seed"
 #~ msgstr "Насіння"
