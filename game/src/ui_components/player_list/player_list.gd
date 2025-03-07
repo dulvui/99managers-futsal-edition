@@ -217,6 +217,7 @@ func _show_view(view_scene: PackedScene, row_scene: PackedScene) -> void:
 	players_view.add_child(view)
 	view.setup(visible_players, row_scene)
 	view.sort.connect(_show_active_view)
+	view.selected.connect(func(p: Player) -> void: select_player.emit(p))
 
 
 #
