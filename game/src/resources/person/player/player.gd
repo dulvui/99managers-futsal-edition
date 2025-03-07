@@ -89,18 +89,6 @@ func get_overall() -> float:
 	return attributes.field_player_average()
 
 
-func get_res_value(keys: Array[String], p_res: Resource = null) -> Variant:
-	# iterate recursivly over properties and attributes
-	# to get dynamically nested resource values
-	if keys.size() == 1:
-		if p_res == null:
-			return get(keys[0])
-		return p_res.get(keys[0])
-	if p_res == null:
-		return get_res_value(keys.slice(1, keys.size()), get(keys[0]))
-	return get_res_value(keys.slice(1, keys.size()), p_res.get(keys[0]))
-
-
 func get_prestige_stars() -> String:
 	var relation: float = Const.MAX_PRESTIGE / 4.0
 	var star_factor: float = Const.MAX_PRESTIGE / relation
@@ -131,3 +119,100 @@ func position_match_factor(p_position: Position) -> float:
 		var alt_factor: float = alt_position.match_factor(p_position)
 		factor = max(factor, alt_factor)
 	return factor
+
+
+# @export var form: Enum.Form
+# @export var morality: Enum.Morality
+# @export var statistics: Statistics
+# @export var foot: Enum.Foot
+
+# @export var position: Position
+# @export var alt_positions: Array[Position]
+
+# @export var attributes: Attributes
+# @export var contract: Contract
+
+func sort(key: String) -> Variant:
+	match key:
+		"position":
+			return position.type
+		"birth_date":
+			return Time.get_unix_time_from_datetime_dict(birth_date)
+
+		# goalkeeper
+		"reflexes":
+			return attributes.goalkeeper.reflexes
+		"positioning":
+			return attributes.goalkeeper.positioning
+		"save_feet":
+			return attributes.goalkeeper.save_feet
+		"save_hands":
+			return attributes.goalkeeper.save_hands
+		"diving":
+			return attributes.goalkeeper.diving
+
+		# mental
+		"aggression":
+			return attributes.mental.aggression
+		"anticipation":
+			return attributes.mental.anticipation
+		"decisions":
+			return attributes.mental.decisions
+		"concentration":
+			return attributes.mental.concentration
+		"vision":
+			return attributes.mental.vision
+		"workrate":
+			return attributes.mental.workrate
+		"offensive_movement":
+			return attributes.mental.offensive_movement
+		"marking":
+			return attributes.mental.marking
+
+		# physical
+		"pace":
+			return attributes.physical.pace
+		"acceleration":
+			return attributes.physical.acceleration
+		"stamina":
+			return attributes.physical.stamina
+		"strength":
+			return attributes.physical.strength
+		"agility":
+			return attributes.physical.agility
+		"jump":
+			return attributes.physical.jump
+
+		# technical
+		"crossing":
+			return attributes.technical.crossing
+		"passing":
+			return attributes.technical.passing
+		"long_passing":
+			return attributes.technical.long_passing
+		"tackling":
+			return attributes.technical.tackling
+		"heading":
+			return attributes.technical.heading
+		"interception":
+			return attributes.technical.interception
+		"shooting":
+			return attributes.technical.shooting
+		"long_shooting":
+			return attributes.technical.long_shooting
+		"free_kick":
+			return attributes.technical.free_kick
+		"penalty":
+			return attributes.technical.penalty
+		"finishing":
+			return attributes.technical.finishing
+		"dribbling":
+			return attributes.technical.dribbling
+		"blocking":
+			return attributes.technical.blocking
+		_:
+			var property: Variant = get(key)
+			if property == null or property is Object:
+				print("error while sorting player, key %s not found" % key)
+				return -1
+			return property

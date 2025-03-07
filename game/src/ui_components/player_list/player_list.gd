@@ -111,15 +111,13 @@ func setup(p_active_team_id: int = -1) -> void:
 		league_select.hide()
 
 	_setup_players()
-	_update_page_indicator()
 	_show_active_view()
 
 
 func update_team(p_active_team_id: int) -> void:
 	active_team_id = p_active_team_id
 	_setup_players()
-	_update_page_indicator()
-	_update_active_view()
+	_show_active_view()
 
 
 func _setup_players(p_reset_options: bool = true) -> void:
@@ -157,7 +155,9 @@ func _on_active_view_item_selected(index: int) -> void:
 
 
 func _show_active_view() -> void:
+	_filter()
 	visible_players = players.slice(page * page_size, (page + 1) * page_size)
+	print(page)
 
 	match active_view:
 		# Views.MENTAL:
@@ -175,6 +175,12 @@ func _show_active_view() -> void:
 		_:
 			_show_view(ViewSceneGeneral, RowSceneGeneral)
 
+	# update page indicator
+	page_max = players.size() / page_size
+	page_indicator.text = "%d / %d" % [page + 1, page_max + 1]
+	last.text = str(page_max + 1)
+
+
 
 func _show_view(view_scene: PackedScene, row_scene: PackedScene) -> void:
 	# TODO update instead of destroying
@@ -184,71 +190,24 @@ func _show_view(view_scene: PackedScene, row_scene: PackedScene) -> void:
 	var view: PlayerListView = view_scene.instantiate()
 	players_view.add_child(view)
 	view.setup(visible_players, row_scene)
-
-	match active_view:
-		# Views.MENTAL:
-		# 	_show_mental()
-		# Views.PHYSICAL:
-		# 	_show_physical()
-		# Views.TECHNICAL:
-		# 	_show_technical()
-		Views.GOALKEEPER:
-			view.sort.connect(_sort_players_by_attributes.bind("goalkeeper"))
-		# Views.CONTRACT:
-		# 	_show_contract()
-		# Views.STATS:
-		# 	_show_statistics()
-		_:
-			view.sort.connect(_sort_players)
-
-
-func _update_active_view() -> void:
-	_show_active_view()
+	view.sort.connect(_sort_players)
 
 
 #
 # sorting
 #
 func _sort_players(sort_key: String) -> void:
-	_set_sorting(sort_key)
 	_filter()
-	if "date" in sort_key.to_lower():
-		players.sort_custom(
-			func(a: Player, b: Player) -> bool:
-				var a_unix: int = Time.get_unix_time_from_datetime_dict(a.get(sort_key))
-				var b_unix: int = Time.get_unix_time_from_datetime_dict(b.get(sort_key))
-				if sorting[sort_key]:
-					return a_unix > b_unix
-				else:
-					return a_unix < b_unix
-		)
-	else:
-		players.sort_custom(
-			func(a: Player, b: Player) -> bool:
-				if sorting[sort_key]:
-					return a.get(sort_key) > b.get(sort_key)
-				else:
-					return a.get(sort_key) < b.get(sort_key)
-		)
-	_update_active_view()
-	_update_page_indicator()
-
-
-func _sort_players_by_attributes(sort_key: String, key: String) -> void:
 	_set_sorting(sort_key)
-	_filter()
-	if sort_key == "surname" or sort_key == "value":
-		_sort_players(sort_key)
-	else:
-		players.sort_custom(
-			func(a: Player, b: Player) -> bool:
-				if sorting[sort_key]:
-					return (a.attributes.get(key) as Resource).get(sort_key) > (b.attributes.get(key) as Resource).get(sort_key)
-				else:
-					return (a.attributes.get(key) as Resource).get(sort_key) < (b.attributes.get(key) as Resource).get(sort_key)
-		)
-	_update_active_view()
-	_update_page_indicator()
+	players.sort_custom(
+		func(a: Player, b: Player) -> bool:
+			if sorting[sort_key]:
+				return a.sort(sort_key) > b.sort(sort_key)
+			else:
+				return a.sort(sort_key) < b.sort(sort_key)
+	)
+	_show_active_view()
+
 
 
 func _set_sorting(sort_key: String) -> void:
@@ -261,8 +220,6 @@ func _set_sorting(sort_key: String) -> void:
 # filters
 #
 func _filter() -> void:
-	page = 0
-
 	if filters.size() > 0:
 		var filtered_players: Array[Player] = []
 		var filter_counter: int = 0
@@ -299,7 +256,7 @@ func _on_name_search_text_changed(new_text: String) -> void:
 			filters[Const.SURNAME] = new_text
 	else:
 		filters.erase(Const.SURNAME)
-	_filter()
+	_show_active_view()
 
 
 func _on_position_select_item_selected(index: int) -> void:
@@ -307,7 +264,8 @@ func _on_position_select_item_selected(index: int) -> void:
 		filters[Const.POSITION] = Position.Type.values()[index - 1]
 	else:
 		filters.erase(Const.POSITION)
-	_filter()
+	
+	_show_active_view()
 
 
 func _on_league_select_item_selected(index: int) -> void:
@@ -328,7 +286,7 @@ func _on_league_select_item_selected(index: int) -> void:
 				if team == null or team.name != Global.team.name:
 					team_select.add_item(team.name)
 	
-	_filter()
+	_show_active_view()
 
 
 func _on_team_select_item_selected(index: int) -> void:
@@ -336,7 +294,8 @@ func _on_team_select_item_selected(index: int) -> void:
 		filters["team"] = team_select.get_item_text(index)
 	else:
 		filters.erase("team")
-	_filter()
+
+	_show_active_view()
 
 
 #
@@ -346,49 +305,35 @@ func _on_next_2_pressed() -> void:
 	page += 5
 	if page > page_max:
 		page = page_max
-	_update_page_indicator()
-	_update_active_view()
+	_show_active_view()
 
 
 func _on_next_pressed() -> void:
 	page += 1
 	if page > page_max:
 		page = 0
-	_update_page_indicator()
-	_update_active_view()
+	_show_active_view()
 
 
 func _on_prev_pressed() -> void:
 	page -= 1
 	if page < 0:
 		page = page_max
-	_update_page_indicator()
-	_update_active_view()
+	_show_active_view()
 
 
 func _on_prev_2_pressed() -> void:
 	page -= 5
 	if page < 0:
 		page = 0
-	_update_page_indicator()
-	_update_active_view()
+	_show_active_view()
 
 
 func _on_last_pressed() -> void:
 	page = page_max
-	_update_page_indicator()
-	_update_active_view()
+	_show_active_view()
 
 
 func _on_first_pressed() -> void:
 	page = 0
-	_update_page_indicator()
-	_update_active_view()
-
-
-func _update_page_indicator() -> void:
-	page_max = players.size() / page_size
-	page_indicator.text = "%d / %d" % [page + 1, page_max + 1]
-	last.text = str(page_max + 1)
-
-
+	_show_active_view()
