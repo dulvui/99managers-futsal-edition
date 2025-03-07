@@ -69,8 +69,8 @@ var active_view: Views
 
 var active_team_id: int
 
-var sorting: Dictionary = {}
-var filters: Dictionary = {}
+var sorting: Dictionary[String, bool] = {}
+var filters: Dictionary[String, String]= {}
 
 var all_players: Array[Player] = []
 var players: Array[Player] = []
