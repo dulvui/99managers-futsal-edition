@@ -1,0 +1,110 @@
+[gd_scene load_steps=4 format=3 uid="uid://dgd1mkbetcexq"]
+
+[ext_resource type="PackedScene" uid="uid://bmrsky7wy6obx" path="res://src/ui_components/player_list/player_list_view/player_list_view.tscn" id="1_p8fk4"]
+[ext_resource type="Script" uid="uid://cha13r617yhur" path="res://src/ui_components/player_list/player_list_view/player_list_header/player_list_sort_button.gd" id="2_a08g2"]
+[ext_resource type="PackedScene" uid="uid://bacdcen36mjue" path="res://src/ui_components/player_list/player_list_view/views/contract/player_list_row_contract.tscn" id="3_xh37x"]
+
+[node name="PlayerListViewContract" instance=ExtResource("1_p8fk4")]
+
+[node name="Income" type="Button" parent="Header/Buttons" index="1"]
+custom_minimum_size = Vector2(94, 0)
+layout_mode = 2
+text = "Income"
+text_overrun_behavior = 1
+script = ExtResource("2_a08g2")
+sort_key = "income"
+metadata/_custom_type_script = "uid://cha13r617yhur"
+
+[node name="BonusGoals" type="Button" parent="Header/Buttons" index="2"]
+custom_minimum_size = Vector2(94, 0)
+layout_mode = 2
+text = "Bonus goals"
+text_overrun_behavior = 1
+script = ExtResource("2_a08g2")
+sort_key = "bonus_goals"
+metadata/_custom_type_script = "uid://cha13r617yhur"
+
+[node name="BonusCleanSheet" type="Button" parent="Header/Buttons" index="3"]
+custom_minimum_size = Vector2(94, 0)
+layout_mode = 2
+text = "Bonus clean sheet"
+text_overrun_behavior = 1
+script = ExtResource("2_a08g2")
+sort_key = "bonus_clean_sheet"
+metadata/_custom_type_script = "uid://cha13r617yhur"
+
+[node name="BonusAssist" type="Button" parent="Header/Buttons" index="4"]
+custom_minimum_size = Vector2(94, 0)
+layout_mode = 2
+text = "Bonus assists"
+text_overrun_behavior = 1
+script = ExtResource("2_a08g2")
+sort_key = "bonus_assist"
+metadata/_custom_type_script = "uid://cha13r617yhur"
+
+[node name="BonusLeague" type="Button" parent="Header/Buttons" index="5"]
+custom_minimum_size = Vector2(94, 0)
+layout_mode = 2
+text = "Bonus league"
+text_overrun_behavior = 1
+script = ExtResource("2_a08g2")
+sort_key = "bonus_league"
+metadata/_custom_type_script = "uid://cha13r617yhur"
+
+[node name="IsOnLoan" type="Button" parent="Header/Buttons" index="6"]
+custom_minimum_size = Vector2(94, 0)
+layout_mode = 2
+text = "Is on loan"
+text_overrun_behavior = 1
+script = ExtResource("2_a08g2")
+sort_key = "is_on_loan"
+metadata/_custom_type_script = "uid://cha13r617yhur"
+
+[node name="EndDate" type="Button" parent="Header/Buttons" index="7"]
+custom_minimum_size = Vector2(94, 0)
+layout_mode = 2
+text = "End date"
+text_overrun_behavior = 1
+script = ExtResource("2_a08g2")
+sort_key = "end_date"
+metadata/_custom_type_script = "uid://cha13r617yhur"
+
+[node name="StartDate" type="Button" parent="Header/Buttons" index="8"]
+custom_minimum_size = Vector2(94, 0)
+layout_mode = 2
+text = "Start date"
+text_overrun_behavior = 1
+script = ExtResource("2_a08g2")
+sort_key = "start_date"
+metadata/_custom_type_script = "uid://cha13r617yhur"
+
+[node name="BuyClause" type="Button" parent="Header/Buttons" index="9"]
+custom_minimum_size = Vector2(94, 0)
+layout_mode = 2
+text = "Buy clause"
+text_overrun_behavior = 1
+script = ExtResource("2_a08g2")
+sort_key = "buy_clause"
+metadata/_custom_type_script = "uid://cha13r617yhur"
+
+[node name="BonusContinentalCup" type="Button" parent="Header/Buttons" index="10"]
+custom_minimum_size = Vector2(94, 0)
+layout_mode = 2
+text = "Bonus continental cup"
+text_overrun_behavior = 1
+script = ExtResource("2_a08g2")
+sort_key = "bonus_continental_cup"
+metadata/_custom_type_script = "uid://cha13r617yhur"
+
+[node name="BonusNationalCup" type="Button" parent="Header/Buttons" index="11"]
+custom_minimum_size = Vector2(94, 0)
+layout_mode = 2
+text = "Bonus national cup"
+text_overrun_behavior = 1
+script = ExtResource("2_a08g2")
+sort_key = "bonus_national_cup"
+
+[node name="PlayerListRowContract" parent="Rows" index="0" instance=ExtResource("3_xh37x")]
+layout_mode = 2
+
+[editable path="Header"]
