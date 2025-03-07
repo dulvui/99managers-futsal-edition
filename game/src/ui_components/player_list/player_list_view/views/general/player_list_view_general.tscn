@@ -6,7 +6,16 @@
 
 [node name="PlayerListViewGeneral" instance=ExtResource("1_n3mom")]
 
-[node name="Position" type="Button" parent="Header/Buttons" index="1"]
+[node name="Team" type="Button" parent="Header/Buttons" index="1"]
+custom_minimum_size = Vector2(240, 0)
+layout_mode = 2
+text = "Team"
+text_overrun_behavior = 1
+script = ExtResource("3_n3mom")
+sort_key = "team"
+metadata/_custom_type_script = "uid://cha13r617yhur"
+
+[node name="Position" type="Button" parent="Header/Buttons" index="2"]
 custom_minimum_size = Vector2(240, 0)
 layout_mode = 2
 text = "Position"
@@ -15,7 +24,7 @@ script = ExtResource("3_n3mom")
 sort_key = "position"
 metadata/_custom_type_script = "uid://cha13r617yhur"
 
-[node name="Prestige" type="Button" parent="Header/Buttons" index="2"]
+[node name="Prestige" type="Button" parent="Header/Buttons" index="3"]
 custom_minimum_size = Vector2(240, 0)
 layout_mode = 2
 text = "Prestige"
@@ -24,7 +33,7 @@ script = ExtResource("3_n3mom")
 sort_key = "prestige"
 metadata/_custom_type_script = "uid://cha13r617yhur"
 
-[node name="Nation" type="Button" parent="Header/Buttons" index="3"]
+[node name="Nation" type="Button" parent="Header/Buttons" index="4"]
 custom_minimum_size = Vector2(240, 0)
 layout_mode = 2
 text = "Nation"
@@ -33,7 +42,7 @@ script = ExtResource("3_n3mom")
 sort_key = "nation"
 metadata/_custom_type_script = "uid://cha13r617yhur"
 
-[node name="BirthDate" type="Button" parent="Header/Buttons" index="4"]
+[node name="BirthDate" type="Button" parent="Header/Buttons" index="5"]
 custom_minimum_size = Vector2(240, 0)
 layout_mode = 2
 text = "Birth date"
