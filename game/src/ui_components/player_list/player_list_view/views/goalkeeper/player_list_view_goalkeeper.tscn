@@ -1,12 +1,10 @@
-[gd_scene load_steps=5 format=3 uid="uid://cmxt788ua8h8s"]
+[gd_scene load_steps=4 format=3 uid="uid://cmxt788ua8h8s"]
 
 [ext_resource type="PackedScene" uid="uid://bmrsky7wy6obx" path="res://src/ui_components/player_list/player_list_view/player_list_view.tscn" id="1_a1j4j"]
-[ext_resource type="Script" uid="uid://d25wnokafguse" path="res://src/ui_components/player_list/player_list_view/views/goalkeeper/player_list_view_goalkeeper.gd" id="2_oq3hk"]
 [ext_resource type="PackedScene" uid="uid://cxliwtoefywcm" path="res://src/ui_components/player_list/player_list_view/views/goalkeeper/player_list_row_goalkeeper.tscn" id="3_a1j4j"]
 [ext_resource type="Script" uid="uid://cha13r617yhur" path="res://src/ui_components/player_list/player_list_view/player_list_header/player_list_sort_button.gd" id="3_oq3hk"]
 
 [node name="PlayerListViewGoalkeeper" instance=ExtResource("1_a1j4j")]
-script = ExtResource("2_oq3hk")
 
 [node name="Reflexes" type="Button" parent="Header/Buttons" index="1"]
 custom_minimum_size = Vector2(94, 0)

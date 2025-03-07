@@ -29,18 +29,22 @@ const SCENE_PLAYER_LIST_VIEW_PHYSICAL: String = SCENE_PLAYER_LIST_VIEWS + "physi
 const SCENE_PLAYER_LIST_ROW_PHYSICAL: String = SCENE_PLAYER_LIST_VIEWS + "physical/player_list_row_physical.tscn"
 const SCENE_PLAYER_LIST_VIEW_TECHNICAL: String = SCENE_PLAYER_LIST_VIEWS + "technical/player_list_view_technical.tscn"
 const SCENE_PLAYER_LIST_ROW_TECHNICAL: String = SCENE_PLAYER_LIST_VIEWS + "technical/player_list_row_technical.tscn"
+const SCENE_PLAYER_LIST_VIEW_STATISTICS: String = SCENE_PLAYER_LIST_VIEWS + "statistics/player_list_view_statistics.tscn"
+const SCENE_PLAYER_LIST_ROW_STATISTICS: String = SCENE_PLAYER_LIST_VIEWS + "statistics/player_list_row_statistics.tscn"
 
 const ViewSceneGeneral: PackedScene = preload(SCENE_PLAYER_LIST_VIEW_GENERAL)
 const ViewSceneGoalkeeper: PackedScene = preload(SCENE_PLAYER_LIST_VIEW_GOALKEEPER)
 const ViewSceneMental: PackedScene = preload(SCENE_PLAYER_LIST_VIEW_MENTAL)
 const ViewScenePhysical: PackedScene = preload(SCENE_PLAYER_LIST_VIEW_PHYSICAL)
 const ViewSceneTechnical: PackedScene = preload(SCENE_PLAYER_LIST_VIEW_TECHNICAL)
+const ViewSceneStatistics: PackedScene = preload(SCENE_PLAYER_LIST_VIEW_STATISTICS)
 # rows
 const RowSceneGeneral: PackedScene = preload(SCENE_PLAYER_LIST_ROW_GENERAL)
 const RowSceneGoalkeeper: PackedScene = preload(SCENE_PLAYER_LIST_ROW_GOALKEEPER)
 const RowSceneMental: PackedScene = preload(SCENE_PLAYER_LIST_ROW_MENTAL)
 const RowScenePhysical: PackedScene = preload(SCENE_PLAYER_LIST_ROW_PHYSICAL)
 const RowSceneTechnical: PackedScene = preload(SCENE_PLAYER_LIST_ROW_TECHNICAL)
+const RowSceneStatistics: PackedScene = preload(SCENE_PLAYER_LIST_ROW_STATISTICS)
 
 # depending on scale
 const PAGE_SIZE_1: int = 36
@@ -189,8 +193,8 @@ func _show_active_view(sort_key: String = "") -> void:
 			_show_view(ViewSceneGoalkeeper, RowSceneGoalkeeper)
 		# Views.CONTRACT:
 		# 	_show_contract()
-		# Views.STATS:
-		# 	_show_statistics()
+		Views.STATS:
+			_show_view(ViewSceneStatistics, RowSceneStatistics)
 		_:
 			_show_view(ViewSceneGeneral, RowSceneGeneral)
 
@@ -254,8 +258,14 @@ func _sort_players(sort_key: String) -> void:
 			)
 		# Views.CONTRACT:
 		# 	_show_contract()
-		# Views.STATS:
-		# 	_show_statistics()
+		Views.STATS:
+			players.sort_custom(
+				func(a: Player, b: Player) -> bool:
+					if sorting[sort_key]:
+						return a.statistics.get(sort_key) > b.statistics.get(sort_key)
+					else:
+						return a.statistics.get(sort_key) < b.statistics.get(sort_key)
+			)
 		_:
 			players.sort_custom(
 				func(a: Player, b: Player) -> bool:

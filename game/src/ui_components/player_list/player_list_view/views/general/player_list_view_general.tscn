@@ -1,12 +1,10 @@
-[gd_scene load_steps=5 format=3 uid="uid://dym3xdufmc8eb"]
+[gd_scene load_steps=4 format=3 uid="uid://dym3xdufmc8eb"]
 
 [ext_resource type="PackedScene" uid="uid://bmrsky7wy6obx" path="res://src/ui_components/player_list/player_list_view/player_list_view.tscn" id="1_n3mom"]
-[ext_resource type="Script" uid="uid://bi0o414gerxix" path="res://src/ui_components/player_list/player_list_view/views/general/player_list_view_general.gd" id="2_eddew"]
 [ext_resource type="PackedScene" uid="uid://t3ubdc4x0wfj" path="res://src/ui_components/player_list/player_list_view/views/general/player_list_row_general.tscn" id="3_eddew"]
 [ext_resource type="Script" uid="uid://cha13r617yhur" path="res://src/ui_components/player_list/player_list_view/player_list_header/player_list_sort_button.gd" id="3_n3mom"]
 
 [node name="PlayerListViewGeneral" instance=ExtResource("1_n3mom")]
-script = ExtResource("2_eddew")
 
 [node name="Position" type="Button" parent="Header/Buttons" index="1"]
 custom_minimum_size = Vector2(240, 0)

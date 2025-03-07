@@ -1,12 +1,10 @@
-[gd_scene load_steps=5 format=3 uid="uid://bwkcjxmh8ge80"]
+[gd_scene load_steps=4 format=3 uid="uid://bwkcjxmh8ge80"]
 
 [ext_resource type="PackedScene" uid="uid://bmrsky7wy6obx" path="res://src/ui_components/player_list/player_list_view/player_list_view.tscn" id="1_k1dp7"]
-[ext_resource type="Script" path="res://src/ui_components/player_list/player_list_view/views/technical/player_list_view_technical.gd" id="2_5hnpb"]
 [ext_resource type="Script" uid="uid://cha13r617yhur" path="res://src/ui_components/player_list/player_list_view/player_list_header/player_list_sort_button.gd" id="3_jo2p8"]
 [ext_resource type="PackedScene" uid="uid://btgng5gr4eg4y" path="res://src/ui_components/player_list/player_list_view/views/technical/player_list_row_technical.tscn" id="4_5hnpb"]
 
 [node name="PlayerListViewTechnical" instance=ExtResource("1_k1dp7")]
-script = ExtResource("2_5hnpb")
 
 [node name="Crossing" type="Button" parent="Header/Buttons" index="1"]
 custom_minimum_size = Vector2(94, 0)

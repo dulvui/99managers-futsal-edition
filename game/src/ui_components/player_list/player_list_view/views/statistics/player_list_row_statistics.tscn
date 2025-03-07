@@ -1,0 +1,44 @@
+[gd_scene load_steps=4 format=3 uid="uid://b02c5at2hn7ks"]
+
+[ext_resource type="PackedScene" uid="uid://866atwbjrgoa" path="res://src/ui_components/player_list/player_list_view/player_list_row/player_list_row.tscn" id="1_5ss26"]
+[ext_resource type="Script" uid="uid://s1ngsrcdqcdc" path="res://src/ui_components/player_list/player_list_view/views/statistics/player_list_row_statistics.gd" id="2_umhab"]
+[ext_resource type="PackedScene" uid="uid://b3y6tq2i5pg3b" path="res://src/ui_components/base/color_label/color_label.tscn" id="3_txihg"]
+
+[node name="PlayerListRowStatistics" instance=ExtResource("1_5ss26")]
+script = ExtResource("2_umhab")
+
+[node name="GamesPlayed" parent="Items" index="1" instance=ExtResource("3_txihg")]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(94, 0)
+layout_mode = 2
+text = "20"
+
+[node name="Goals" parent="Items" index="2" instance=ExtResource("3_txihg")]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(94, 0)
+layout_mode = 2
+text = "20"
+
+[node name="Assists" parent="Items" index="3" instance=ExtResource("3_txihg")]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(94, 0)
+layout_mode = 2
+text = "20"
+
+[node name="YellowCards" parent="Items" index="4" instance=ExtResource("3_txihg")]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(94, 0)
+layout_mode = 2
+text = "20"
+
+[node name="RedCards" parent="Items" index="5" instance=ExtResource("3_txihg")]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(94, 0)
+layout_mode = 2
+text = "20"
+
+[node name="AverageVote" parent="Items" index="6" instance=ExtResource("3_txihg")]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(94, 0)
+layout_mode = 2
+text = "20"

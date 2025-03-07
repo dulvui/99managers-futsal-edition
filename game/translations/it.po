@@ -282,7 +282,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: 99 Managers Futsal Edition\n"
 "POT-Creation-Date: \n"
-"PO-Revision-Date: 2025-03-03 14:54+0100\n"
+"PO-Revision-Date: 2025-03-07 13:32+0100\n"
 "Last-Translator: Simon Dalvai <info@simondalvai.org>\n"
 "Language-Team: Italian <https://hosted.weblate.org/projects/99-managers-"
 "futsal-edition/game/it/>\n"
@@ -466,7 +466,7 @@ msgstr "Data del gioco"
 #: src/ui_components/player_profile/statistics_view/statistics_view.tscn
 #: src/screens/match_screen/statistics/match_stats.tscn
 msgid "Goals"
-msgstr "Obiettivi"
+msgstr "Gol"
 
 #: src/ui_components/player_list/player_list.gd
 #: src/ui_components/player_profile/statistics_view/statistics_view.tscn
