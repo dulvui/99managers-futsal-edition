@@ -154,10 +154,11 @@ func _on_active_view_item_selected(index: int) -> void:
 	_show_active_view()
 
 
-func _show_active_view() -> void:
+func _show_active_view(sort_key: String = "") -> void:
 	_filter()
+	_sort_players(sort_key)
+
 	visible_players = players.slice(page * page_size, (page + 1) * page_size)
-	print(page)
 
 	match active_view:
 		# Views.MENTAL:
@@ -190,14 +191,16 @@ func _show_view(view_scene: PackedScene, row_scene: PackedScene) -> void:
 	var view: PlayerListView = view_scene.instantiate()
 	players_view.add_child(view)
 	view.setup(visible_players, row_scene)
-	view.sort.connect(_sort_players)
+	view.sort.connect(_show_active_view)
 
 
 #
 # sorting
 #
 func _sort_players(sort_key: String) -> void:
-	_filter()
+	if sort_key.is_empty():
+		return
+
 	_set_sorting(sort_key)
 	players.sort_custom(
 		func(a: Player, b: Player) -> bool:
@@ -206,8 +209,6 @@ func _sort_players(sort_key: String) -> void:
 			else:
 				return a.sort(sort_key) < b.sort(sort_key)
 	)
-	_show_active_view()
-
 
 
 func _set_sorting(sort_key: String) -> void:
@@ -220,30 +221,31 @@ func _set_sorting(sort_key: String) -> void:
 # filters
 #
 func _filter() -> void:
-	if filters.size() > 0:
-		var filtered_players: Array[Player] = []
-		var filter_counter: int = 0
-		var value: String
-		var key: String
-
-		for player: Player in all_players:
-			filter_counter = 0
-			for i: int in filters.keys().size():
-				key = filters.keys()[i]
-				filter_counter += 1
-				value = str(filters[key])
-
-				if key == Const.POSITION:
-					if not str(player.position.type) == value:
-						filter_counter += 1
-				elif not str(player[key.to_lower()]).to_lower().contains(value.to_lower()):
-					filter_counter += 1
-
-			if filter_counter == filters.size():
-				filtered_players.append(player)
-		players = filtered_players
-	else:
+	if filters.size() == 0:
 		players = all_players
+		return
+
+	var filtered_players: Array[Player] = []
+	var filter_counter: int = 0
+	var value: String
+	var key: String
+
+	for player: Player in all_players:
+		filter_counter = 0
+		for i: int in filters.keys().size():
+			key = filters.keys()[i]
+			filter_counter += 1
+			value = str(filters[key])
+
+			if key == Const.POSITION:
+				if not str(player.position.type) == value:
+					filter_counter += 1
+			elif not str(player[key.to_lower()]).to_lower().contains(value.to_lower()):
+				filter_counter += 1
+
+		if filter_counter == filters.size():
+			filtered_players.append(player)
+	players = filtered_players
 
 
 func _on_name_search_text_changed(new_text: String) -> void:
