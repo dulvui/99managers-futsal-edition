@@ -219,13 +219,65 @@ func _sort_players(sort_key: String) -> void:
 		return
 
 	_set_sorting(sort_key)
-	players.sort_custom(
-		func(a: Player, b: Player) -> bool:
-			if sorting[sort_key]:
-				return a.sort(sort_key) > b.sort(sort_key)
-			else:
-				return a.sort(sort_key) < b.sort(sort_key)
-	)
+	match active_view:
+		Views.MENTAL:
+			players.sort_custom(
+				func(a: Player, b: Player) -> bool:
+					if sorting[sort_key]:
+						return a.attributes.mental.get(sort_key) > b.attributes.mental.get(sort_key)
+					else:
+						return a.attributes.mental.get(sort_key) < b.attributes.mental.get(sort_key)
+			)
+		Views.PHYSICAL:
+			players.sort_custom(
+				func(a: Player, b: Player) -> bool:
+					if sorting[sort_key]:
+						return a.attributes.physical.get(sort_key) > b.attributes.physical.get(sort_key)
+					else:
+						return a.attributes.physical.get(sort_key) < b.attributes.physical.get(sort_key)
+			)
+		Views.TECHNICAL:
+			players.sort_custom(
+				func(a: Player, b: Player) -> bool:
+					if sorting[sort_key]:
+						return a.attributes.technical.get(sort_key) > b.attributes.technical.get(sort_key)
+					else:
+						return a.attributes.technical.get(sort_key) < b.attributes.technical.get(sort_key)
+			)
+		Views.GOALKEEPER:
+			players.sort_custom(
+				func(a: Player, b: Player) -> bool:
+					if sorting[sort_key]:
+						return a.attributes.goalkeeper.get(sort_key) > b.attributes.goalkeeper.get(sort_key)
+					else:
+						return a.attributes.goalkeeper.get(sort_key) < b.attributes.goalkeeper.get(sort_key)
+			)
+		# Views.CONTRACT:
+		# 	_show_contract()
+		# Views.STATS:
+		# 	_show_statistics()
+		_:
+			players.sort_custom(
+				func(a: Player, b: Player) -> bool:
+					if sorting[sort_key]:
+						return _sort_player(a, sort_key) > _sort_player(b, sort_key)
+					else:
+						return _sort_player(a, sort_key) < _sort_player(b, sort_key)
+			)
+
+
+func _sort_player(player: Player, key: String) -> Variant:
+	match key:
+		"position":
+			return player.position.type
+		"birth_date":
+			return Time.get_unix_time_from_datetime_dict(player.birth_date)
+		_:
+			var property: Variant = player.get(key)
+			if property == null or property is Object:
+				print("error while sorting player, key %s not found" % key)
+				return -1
+			return property
 
 
 func _set_sorting(sort_key: String) -> void:

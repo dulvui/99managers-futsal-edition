@@ -29,7 +29,7 @@ metadata/_custom_type_script = "uid://cha13r617yhur"
 [node name="LongPassing" type="Button" parent="Header/Buttons" index="3"]
 custom_minimum_size = Vector2(94, 0)
 layout_mode = 2
-text = "Long shooting"
+text = "Long passing"
 text_overrun_behavior = 1
 script = ExtResource("3_jo2p8")
 sort_key = "long_passing"
