@@ -3,7 +3,7 @@
 # SPDX-License-Identifier: AGPL-3.0-or-later
 
 class_name VisualEmailMessage
-extends Control
+extends VBoxContainer
 
 signal email_action(message: EmailMessage)
 

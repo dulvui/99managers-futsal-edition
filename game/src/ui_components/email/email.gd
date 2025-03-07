@@ -3,12 +3,12 @@
 # SPDX-License-Identifier: AGPL-3.0-or-later
 
 class_name VisualEmail
-extends VBoxContainer
+extends HBoxContainer
 
 signal email_action(message: EmailMessage)
 
-@onready var message_list: VisualEmailMessageList = $HSplitContainer/MessageList
-@onready var message_container: VisualEmailMessage = $HSplitContainer/MessageView/Message
+@onready var message_list: VisualEmailMessageList = %MessageList
+@onready var message_container: VisualEmailMessage = %Message
 @onready var search_line_edit: SearchLineEdit = %SearchLineEdit
 
 

@@ -1,6 +1,7 @@
-[gd_scene load_steps=2 format=3 uid="uid://dfs434t5wtt6x"]
+[gd_scene load_steps=3 format=3 uid="uid://dfs434t5wtt6x"]
 
 [ext_resource type="Script" uid="uid://qrbe8e68efwn" path="res://src/ui_components/email/list/message_list.gd" id="1_01j56"]
+[ext_resource type="LabelSettings" uid="uid://cc2vi4onhgmnw" path="res://theme_base/label/label_settings_bold.tres" id="2_ek5ou"]
 
 [node name="MessageList" type="VBoxContainer"]
 custom_minimum_size = Vector2(600, 0)
@@ -20,23 +21,24 @@ layout_mode = 2
 layout_mode = 2
 size_flags_horizontal = 3
 text = "Subject"
-horizontal_alignment = 1
+label_settings = ExtResource("2_ek5ou")
 
 [node name="From" type="Label" parent="HBoxContainer"]
 layout_mode = 2
 size_flags_horizontal = 3
 text = "From"
-horizontal_alignment = 1
+label_settings = ExtResource("2_ek5ou")
 
 [node name="Date" type="Label" parent="HBoxContainer"]
 layout_mode = 2
 size_flags_horizontal = 3
 text = "Date"
-horizontal_alignment = 1
+label_settings = ExtResource("2_ek5ou")
 
 [node name="Star" type="Label" parent="HBoxContainer"]
 layout_mode = 2
 text = "Star"
+label_settings = ExtResource("2_ek5ou")
 horizontal_alignment = 1
 
 [node name="ScrollContainer" type="ScrollContainer" parent="."]

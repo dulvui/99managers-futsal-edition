@@ -5,11 +5,9 @@
 
 [node name="MessageRow" type="MarginContainer"]
 anchors_preset = -1
-anchor_top = -0.0115741
 anchor_right = 1.0
-anchor_bottom = 0.026
-offset_top = 6.5
-offset_bottom = -0.0799999
+anchor_bottom = 0.031
+offset_bottom = 0.520023
 grow_horizontal = 2
 grow_vertical = 2
 size_flags_horizontal = 3
@@ -29,10 +27,6 @@ script = ExtResource("2_7pg3l")
 layout_mode = 2
 mouse_filter = 2
 
-[node name="VSeparator3" type="VSeparator" parent="HBoxContainer"]
-modulate = Color(1, 1, 1, 0)
-layout_mode = 2
-
 [node name="Subject" type="Label" parent="HBoxContainer"]
 unique_name_in_owner = true
 layout_mode = 2
@@ -40,10 +34,6 @@ size_flags_horizontal = 3
 size_flags_vertical = 1
 vertical_alignment = 1
 text_overrun_behavior = 3
-
-[node name="VSeparator" type="VSeparator" parent="HBoxContainer"]
-layout_mode = 2
-mouse_filter = 2
 
 [node name="Sender" type="Label" parent="HBoxContainer"]
 unique_name_in_owner = true
@@ -53,10 +43,6 @@ size_flags_horizontal = 3
 size_flags_vertical = 1
 vertical_alignment = 1
 text_overrun_behavior = 3
-
-[node name="VSeparator2" type="VSeparator" parent="HBoxContainer"]
-layout_mode = 2
-mouse_filter = 2
 
 [node name="Date" type="Label" parent="HBoxContainer"]
 unique_name_in_owner = true
