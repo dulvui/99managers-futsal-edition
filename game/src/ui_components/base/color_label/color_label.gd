@@ -9,8 +9,8 @@ extends Label
 
 
 func setup(p_value_name: String) -> void:
-	value_name = p_value_name
-	tooltip_text = value_name
+	value_name = tr(p_value_name)
+	tooltip_text = tr(value_name)
 
 
 func set_value(value: Variant) -> void:
@@ -24,7 +24,3 @@ func set_value(value: Variant) -> void:
 			label_settings = ThemeUtil.label_settings_mid
 		else:
 			label_settings = ThemeUtil.label_settings_high
-
-	# # check if not number, treadet as string
-	# elif is_instance_of(value, TYPE_STRING) and not (value as String).is_valid_int():
-	# 	horizontal_alignment = HORIZONTAL_ALIGNMENT_LEFT

@@ -13,12 +13,13 @@ signal sort(sort_key: String)
 
 
 func _ready() -> void:
+	print("ready")
+	print(size)
 	var children: Array[Node] = header.buttons.get_children()
 	for i: int in children.size():
 		if children[i] is PlayerListSortButton:
 			var button: PlayerListSortButton = children[i] as PlayerListSortButton
 			button.pressed.connect(func() -> void: sort.emit(button.sort_key))
-
 
 
 func setup(players: Array[Player], row_scene: PackedScene) -> void:
@@ -36,7 +37,15 @@ func setup(players: Array[Player], row_scene: PackedScene) -> void:
 		rows.add_child(row)
 		row.setup(player, index)
 		index += 1
+	print("setup")
+	print(size)
 
 
 func _on_player_list_header_sort(index: int) -> void:
 	sort.emit(index)
+
+
+func _on_resized() -> void:
+	print("resixet")
+	print(size)
+

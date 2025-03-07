@@ -78,6 +78,8 @@ const SCENE_PLAYER_LIST_VIEW_GENERAL: String = SCENE_PLAYER_LIST_VIEWS + "genera
 const SCENE_PLAYER_LIST_ROW_GENERAL: String = SCENE_PLAYER_LIST_VIEWS + "general/player_list_row_general.tscn"
 const SCENE_PLAYER_LIST_VIEW_GOALKEEPER: String = SCENE_PLAYER_LIST_VIEWS + "goalkeeper/player_list_view_goalkeeper.tscn"
 const SCENE_PLAYER_LIST_ROW_GOALKEEPER: String = SCENE_PLAYER_LIST_VIEWS + "goalkeeper/player_list_row_goalkeeper.tscn"
+const SCENE_PLAYER_LIST_VIEW_MENTAL: String = SCENE_PLAYER_LIST_VIEWS + "mental/player_list_view_mental.tscn"
+const SCENE_PLAYER_LIST_ROW_MENTAL: String = SCENE_PLAYER_LIST_VIEWS + "mental/player_list_row_mental.tscn"
 
 #
 # Property access

@@ -24,7 +24,6 @@ layout_mode = 2
 theme_override_constants/separation = 0
 
 [node name="Name" type="Button" parent="Buttons"]
-unique_name_in_owner = true
 layout_mode = 2
 size_flags_horizontal = 3
 text = "Name"
@@ -34,7 +33,6 @@ sort_key = "surname"
 metadata/_custom_type_script = "uid://cha13r617yhur"
 
 [node name="Value" type="Button" parent="Buttons"]
-unique_name_in_owner = true
 custom_minimum_size = Vector2(200, 0)
 layout_mode = 2
 text = "Value"

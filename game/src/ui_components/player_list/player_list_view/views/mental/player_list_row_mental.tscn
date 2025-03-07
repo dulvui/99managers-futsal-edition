@@ -1,0 +1,56 @@
+[gd_scene load_steps=4 format=3 uid="uid://b6k2acnqtw37g"]
+
+[ext_resource type="PackedScene" uid="uid://866atwbjrgoa" path="res://src/ui_components/player_list/player_list_view/player_list_row/player_list_row.tscn" id="1_e2vey"]
+[ext_resource type="Script" uid="uid://ck04vyfnotitu" path="res://src/ui_components/player_list/player_list_view/views/mental/player_list_row_mental.gd" id="2_nest1"]
+[ext_resource type="PackedScene" uid="uid://b3y6tq2i5pg3b" path="res://src/ui_components/base/color_label/color_label.tscn" id="3_ftfkl"]
+
+[node name="PlayerListRowMental" instance=ExtResource("1_e2vey")]
+script = ExtResource("2_nest1")
+
+[node name="Aggression" parent="Items" index="1" instance=ExtResource("3_ftfkl")]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(94, 0)
+layout_mode = 2
+text = "20"
+
+[node name="Anticipation" parent="Items" index="2" instance=ExtResource("3_ftfkl")]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(94, 0)
+layout_mode = 2
+text = "20"
+
+[node name="Decisions" parent="Items" index="3" instance=ExtResource("3_ftfkl")]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(94, 0)
+layout_mode = 2
+text = "20"
+
+[node name="Concentration" parent="Items" index="4" instance=ExtResource("3_ftfkl")]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(94, 0)
+layout_mode = 2
+text = "20"
+
+[node name="Vision" parent="Items" index="5" instance=ExtResource("3_ftfkl")]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(94, 0)
+layout_mode = 2
+text = "20"
+
+[node name="Workrate" parent="Items" index="5" instance=ExtResource("3_ftfkl")]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(94, 0)
+layout_mode = 2
+text = "20"
+
+[node name="OffensiveMovement" parent="Items" index="5" instance=ExtResource("3_ftfkl")]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(94, 0)
+layout_mode = 2
+text = "20"
+
+[node name="Marking" parent="Items" index="5" instance=ExtResource("3_ftfkl")]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(94, 0)
+layout_mode = 2
+text = "20"

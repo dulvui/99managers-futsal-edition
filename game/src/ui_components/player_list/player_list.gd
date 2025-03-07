@@ -20,9 +20,11 @@ enum Views {
 # views
 const ViewSceneGeneral: PackedScene = preload(Const.SCENE_PLAYER_LIST_VIEW_GENERAL)
 const ViewSceneGoalkeeper: PackedScene = preload(Const.SCENE_PLAYER_LIST_VIEW_GOALKEEPER)
+const ViewSceneMental: PackedScene = preload(Const.SCENE_PLAYER_LIST_VIEW_MENTAL)
 # rows
 const RowSceneGeneral: PackedScene = preload(Const.SCENE_PLAYER_LIST_ROW_GENERAL)
 const RowSceneGoalkeeper: PackedScene = preload(Const.SCENE_PLAYER_LIST_ROW_GOALKEEPER)
+const RowSceneMental: PackedScene = preload(Const.SCENE_PLAYER_LIST_ROW_MENTAL)
 
 # depending on scale
 const PAGE_SIZE_1: int = 36
@@ -161,8 +163,8 @@ func _show_active_view(sort_key: String = "") -> void:
 	visible_players = players.slice(page * page_size, (page + 1) * page_size)
 
 	match active_view:
-		# Views.MENTAL:
-		# 	_show_mental()
+		Views.MENTAL:
+			_show_view(ViewSceneMental, RowSceneMental)
 		# Views.PHYSICAL:
 		# 	_show_physical()
 		# Views.TECHNICAL:
