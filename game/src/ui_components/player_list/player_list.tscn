@@ -20,14 +20,14 @@ theme = ExtResource("1_pb4bf")
 alignment = 1
 script = ExtResource("2_ajejk")
 
-[node name="NameSearch" parent="." instance=ExtResource("3_ha4c3")]
-unique_name_in_owner = true
-layout_mode = 2
-size_flags_horizontal = 3
-
 [node name="Filters" type="HBoxContainer" parent="."]
 layout_mode = 2
 theme_override_constants/separation = 10
+
+[node name="NameSearch" parent="Filters" instance=ExtResource("3_ha4c3")]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
 
 [node name="ActiveView" parent="Filters" instance=ExtResource("3_x6w1m")]
 unique_name_in_owner = true
@@ -57,7 +57,9 @@ unique_name_in_owner = true
 layout_mode = 2
 size_flags_vertical = 3
 theme_override_constants/margin_left = 0
+theme_override_constants/margin_top = 15
 theme_override_constants/margin_right = 0
+theme_override_constants/margin_bottom = 15
 
 [node name="Footer" type="HBoxContainer" parent="."]
 unique_name_in_owner = true
@@ -109,7 +111,7 @@ layout_mode = 2
 text = "299"
 script = ExtResource("4_k60vt")
 
-[connection signal="text_changed" from="NameSearch" to="." method="_on_name_search_text_changed"]
+[connection signal="text_changed" from="Filters/NameSearch" to="." method="_on_name_search_text_changed"]
 [connection signal="item_selected" from="Filters/ActiveView" to="." method="_on_active_view_item_selected"]
 [connection signal="item_selected" from="Filters/PositionSelect" to="." method="_on_position_select_item_selected"]
 [connection signal="item_selected" from="Filters/LeagueSelect" to="." method="_on_league_select_item_selected"]

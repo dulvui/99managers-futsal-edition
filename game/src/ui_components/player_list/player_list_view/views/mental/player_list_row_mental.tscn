@@ -31,25 +31,25 @@ custom_minimum_size = Vector2(94, 0)
 layout_mode = 2
 text = "20"
 
-[node name="Vision" parent="Items" index="5" instance=ExtResource("3_ftfkl")]
-unique_name_in_owner = true
-custom_minimum_size = Vector2(94, 0)
-layout_mode = 2
-text = "20"
-
-[node name="Workrate" parent="Items" index="5" instance=ExtResource("3_ftfkl")]
-unique_name_in_owner = true
-custom_minimum_size = Vector2(94, 0)
-layout_mode = 2
-text = "20"
-
-[node name="OffensiveMovement" parent="Items" index="5" instance=ExtResource("3_ftfkl")]
-unique_name_in_owner = true
-custom_minimum_size = Vector2(94, 0)
-layout_mode = 2
-text = "20"
-
 [node name="Marking" parent="Items" index="5" instance=ExtResource("3_ftfkl")]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(94, 0)
+layout_mode = 2
+text = "20"
+
+[node name="OffensiveMovement" parent="Items" index="6" instance=ExtResource("3_ftfkl")]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(94, 0)
+layout_mode = 2
+text = "20"
+
+[node name="Workrate" parent="Items" index="7" instance=ExtResource("3_ftfkl")]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(94, 0)
+layout_mode = 2
+text = "20"
+
+[node name="Vision" parent="Items" index="8" instance=ExtResource("3_ftfkl")]
 unique_name_in_owner = true
 custom_minimum_size = Vector2(94, 0)
 layout_mode = 2
