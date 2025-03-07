@@ -19,5 +19,5 @@ func setup(player: Player, index: int) -> void:
 
 	button.pressed.connect(func() -> void: selected.emit())
 
-	if index % 2 == 0:
+	if index % 2 == 1:
 		button.modulate = button.modulate.darkened(0.2)

@@ -35,6 +35,7 @@ func setup(players: Array[Player], row_scene: PackedScene) -> void:
 		rows.add_child(row)
 		row.setup(player, index)
 		index += 1
+	
 
 
 func _on_player_list_header_sort(index: int) -> void:

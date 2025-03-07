@@ -52,7 +52,7 @@ const RowSceneContract: PackedScene = preload(SCENE_PLAYER_LIST_ROW_CONTRACT)
 
 # depending on scale
 const PAGE_SIZE_1: int = 36
-const PAGE_SIZE_2: int = 22
+const PAGE_SIZE_2: int = 26
 const PAGE_SIZE_3: int = 12
 
 var views_text: Array[String] = [
