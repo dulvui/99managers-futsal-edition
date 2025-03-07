@@ -23,11 +23,18 @@ unique_name_in_owner = true
 layout_mode = 2
 script = ExtResource("2_7pg3l")
 
-[node name="HBoxContainer" type="HBoxContainer" parent="."]
+[node name="MarginContainer" type="MarginContainer" parent="."]
+layout_mode = 2
+theme_override_constants/margin_left = 10
+theme_override_constants/margin_top = 0
+theme_override_constants/margin_right = 10
+theme_override_constants/margin_bottom = 0
+
+[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer"]
 layout_mode = 2
 mouse_filter = 2
 
-[node name="Subject" type="Label" parent="HBoxContainer"]
+[node name="Subject" type="Label" parent="MarginContainer/HBoxContainer"]
 unique_name_in_owner = true
 layout_mode = 2
 size_flags_horizontal = 3
@@ -35,16 +42,7 @@ size_flags_vertical = 1
 vertical_alignment = 1
 text_overrun_behavior = 3
 
-[node name="Sender" type="Label" parent="HBoxContainer"]
-unique_name_in_owner = true
-custom_minimum_size = Vector2(62, 34)
-layout_mode = 2
-size_flags_horizontal = 3
-size_flags_vertical = 1
-vertical_alignment = 1
-text_overrun_behavior = 3
-
-[node name="Date" type="Label" parent="HBoxContainer"]
+[node name="Sender" type="Label" parent="MarginContainer/HBoxContainer"]
 unique_name_in_owner = true
 custom_minimum_size = Vector2(62, 34)
 layout_mode = 2
@@ -53,9 +51,18 @@ size_flags_vertical = 1
 vertical_alignment = 1
 text_overrun_behavior = 3
 
-[node name="Star" type="CheckBox" parent="HBoxContainer"]
+[node name="Date" type="Label" parent="MarginContainer/HBoxContainer"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(62, 34)
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 1
+vertical_alignment = 1
+text_overrun_behavior = 3
+
+[node name="Star" type="CheckBox" parent="MarginContainer/HBoxContainer"]
 unique_name_in_owner = true
 layout_mode = 2
 
 [connection signal="pressed" from="ReadButton" to="." method="_on_read_button_pressed"]
-[connection signal="toggled" from="HBoxContainer/Star" to="." method="_on_star_toggled"]
+[connection signal="toggled" from="MarginContainer/HBoxContainer/Star" to="." method="_on_star_toggled"]

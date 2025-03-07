@@ -73,34 +73,38 @@ auto_translate_mode = 2
 layout_mode = 2
 text = "29.12.2022"
 
-[node name="PanelContainer" type="PanelContainer" parent="."]
+[node name="Message" type="PanelContainer" parent="."]
 layout_mode = 2
 size_flags_vertical = 3
 theme_override_styles/panel = ExtResource("3_judmv")
 
-[node name="MarginContainer" type="MarginContainer" parent="PanelContainer"]
+[node name="VBoxContainer" type="VBoxContainer" parent="Message"]
 layout_mode = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="Message/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
 theme_override_constants/margin_left = 15
 theme_override_constants/margin_top = 15
 theme_override_constants/margin_right = 15
 theme_override_constants/margin_bottom = 15
 
-[node name="ScrollContainer" type="ScrollContainer" parent="PanelContainer/MarginContainer"]
+[node name="ScrollContainer" type="ScrollContainer" parent="Message/VBoxContainer/MarginContainer"]
 layout_mode = 2
 size_flags_vertical = 3
 
-[node name="Message" type="RichTextLabel" parent="PanelContainer/MarginContainer/ScrollContainer"]
+[node name="Message" type="RichTextLabel" parent="Message/VBoxContainer/MarginContainer/ScrollContainer"]
 unique_name_in_owner = true
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
 bbcode_enabled = true
 
-[node name="BottomBar" type="HBoxContainer" parent="."]
+[node name="BottomBar" type="HBoxContainer" parent="Message/VBoxContainer"]
 layout_mode = 2
 alignment = 2
 
-[node name="Action" type="Button" parent="BottomBar"]
+[node name="Action" type="Button" parent="Message/VBoxContainer/BottomBar"]
 unique_name_in_owner = true
 visible = false
 layout_mode = 2
@@ -108,5 +112,5 @@ theme_type_variation = &"ImportantButton"
 text = "Action"
 script = ExtResource("3_6mero")
 
-[connection signal="meta_clicked" from="PanelContainer/MarginContainer/ScrollContainer/Message" to="." method="_on_message_meta_clicked"]
-[connection signal="pressed" from="BottomBar/Action" to="." method="_on_action_pressed"]
+[connection signal="meta_clicked" from="Message/VBoxContainer/MarginContainer/ScrollContainer/Message" to="." method="_on_message_meta_clicked"]
+[connection signal="pressed" from="Message/VBoxContainer/BottomBar/Action" to="." method="_on_action_pressed"]

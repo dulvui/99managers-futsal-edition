@@ -15,11 +15,12 @@ grow_vertical = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
 theme = ExtResource("2")
-theme_override_constants/separation = 0
+theme_override_constants/separation = 15
 script = ExtResource("1")
 
 [node name="List" type="VBoxContainer" parent="."]
 layout_mode = 2
+theme_override_constants/separation = 15
 
 [node name="Filters" type="HBoxContainer" parent="List"]
 layout_mode = 2
@@ -31,7 +32,7 @@ layout_mode = 2
 
 [node name="VSeparator" type="VSeparator" parent="List/Filters"]
 modulate = Color(1, 1, 1, 0)
-custom_minimum_size = Vector2(30, 0)
+custom_minimum_size = Vector2(15, 0)
 layout_mode = 2
 
 [node name="OnlyUnread" type="CheckButton" parent="List/Filters"]

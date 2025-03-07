@@ -14,28 +14,35 @@ size_flags_horizontal = 3
 size_flags_vertical = 3
 script = ExtResource("1_01j56")
 
-[node name="HBoxContainer" type="HBoxContainer" parent="."]
+[node name="MarginContainer" type="MarginContainer" parent="."]
+layout_mode = 2
+theme_override_constants/margin_left = 10
+theme_override_constants/margin_top = 0
+theme_override_constants/margin_right = 10
+theme_override_constants/margin_bottom = 0
+
+[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer"]
 layout_mode = 2
 
-[node name="Subject" type="Label" parent="HBoxContainer"]
+[node name="Subject" type="Label" parent="MarginContainer/HBoxContainer"]
 layout_mode = 2
 size_flags_horizontal = 3
 text = "Subject"
 label_settings = ExtResource("2_ek5ou")
 
-[node name="From" type="Label" parent="HBoxContainer"]
+[node name="From" type="Label" parent="MarginContainer/HBoxContainer"]
 layout_mode = 2
 size_flags_horizontal = 3
 text = "From"
 label_settings = ExtResource("2_ek5ou")
 
-[node name="Date" type="Label" parent="HBoxContainer"]
+[node name="Date" type="Label" parent="MarginContainer/HBoxContainer"]
 layout_mode = 2
 size_flags_horizontal = 3
 text = "Date"
 label_settings = ExtResource("2_ek5ou")
 
-[node name="Star" type="Label" parent="HBoxContainer"]
+[node name="Star" type="Label" parent="MarginContainer/HBoxContainer"]
 layout_mode = 2
 text = "Star"
 label_settings = ExtResource("2_ek5ou")
@@ -47,6 +54,7 @@ size_flags_vertical = 3
 follow_focus = true
 
 [node name="List" type="VBoxContainer" parent="ScrollContainer"]
+unique_name_in_owner = true
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3

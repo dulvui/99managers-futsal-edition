@@ -14,10 +14,13 @@ var message: EmailMessage
 @onready var read_button: Button = %ReadButton
 
 
-func setup(p_message: EmailMessage) -> void:
+func setup(p_message: EmailMessage, index: int) -> void:
 	message = p_message
 
 	read_button.tooltip_text = tr("Click to read message")
+
+	if index % 2 == 1:
+		read_button.modulate = read_button.modulate.darkened(0.2)
 
 	subject_label.set_text(message.subject)
 	sender_label.set_text(message.sender)

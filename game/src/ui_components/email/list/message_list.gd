@@ -15,7 +15,7 @@ var search_text: String
 var only_starred: bool
 var only_unread: bool
 
-@onready var list: VBoxContainer = $ScrollContainer/List
+@onready var list: VBoxContainer = %List
 
 
 func _ready() -> void:
@@ -54,7 +54,7 @@ func update() -> void:
 			var row: MessageRow = MessageRowScene.instantiate()
 			list.add_child(row)
 			row.read_button.pressed.connect(_on_row_pressed.bind(message))
-			row.setup(message)
+			row.setup(message, i)
 
 
 func starred(p_only_starred: bool) -> void:
