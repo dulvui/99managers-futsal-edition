@@ -7,8 +7,6 @@
 # res://src/ui_components/team_profile/team_profile.gd
 # res://src/ui_components/player_list/player_list.gd
 # res://src/ui_components/player_list/player_list.tscn
-# res://src/ui_components/player_list/player_list_column/player_list_column.gd
-# res://src/ui_components/player_list/player_list_column/player_list_column.tscn
 # res://src/ui_components/info/info.gd
 # res://src/ui_components/info/info.tscn
 # res://src/ui_components/base/confirm_dialog/default_confirm_dialog.gd
@@ -132,7 +130,6 @@
 # res://src/utils/logic/rng_util.gd
 # res://src/utils/logic/transfer_util.gd
 # res://src/utils/logic/email_util.gd
-# res://src/utils/logic/match_combination_util.gd
 # res://src/utils/logic/player_delevopment_util.gd
 # res://src/utils/input/input_util.gd
 # res://src/utils/input/joypad_axis_util.gd
@@ -143,23 +140,6 @@
 # res://src/utils/ui/sound_util.gd
 # res://src/utils/ui/theme_util.gd
 # res://src/utils/ui/format_util.gd
-# res://src/tests/tests.tscn
-# res://src/tests/tests.gd
-# res://src/tests/test_gameloop/test_gameloop.tscn
-# res://src/tests/test_gameloop/test_gameloop.gd
-# res://src/tests/test_format_util/test_format_util.gd
-# res://src/tests/test_format_util/test_format_util.tscn
-# res://src/tests/test_match_engine/test_match_engine.tscn
-# res://src/tests/test_match_engine/test_match_engine.gd
-# res://src/tests/test_generator/test_generator.gd
-# res://src/tests/test_generator/test_generator.tscn
-# res://src/tests/test.gd
-# res://src/tests/test_match_combination/test_match_combination.gd
-# res://src/tests/test_match_combination/test_match_combination.tscn
-# res://src/tests/test_calendar/test_calendar.gd
-# res://src/tests/test_calendar/test_calendar.tscn
-# res://src/tests/test_res_util/test_res_util.gd
-# res://src/tests/test_res_util/test_res_util.tscn
 # res://src/screens/main.gd
 # res://src/screens/settings/settings.gd
 # res://src/screens/settings/settings.tscn
@@ -208,6 +188,15 @@
 # res://src/screens/match_screen/match_simulator/match_simulator.tscn
 # res://src/screens/settings/theme_picker/theme_picker.gd
 # res://src/screens/settings/theme_picker/theme_picker.tscn
+# res://src/ui_components/player_list/player_list_view/player_list_view.gd
+# res://src/ui_components/player_list/player_list_view/player_list_view.tscn
+# res://src/ui_components/player_list/player_list_view/views/technical/player_list_view_technical.tscn
+# res://src/ui_components/player_list/player_list_view/views/statistics/player_list_view_statistics.tscn
+# res://src/ui_components/player_list/player_list_view/views/physical/player_list_view_physical.tscn
+# res://src/ui_components/player_list/player_list_view/views/mental/player_list_view_mental.tscn
+# res://src/ui_components/player_list/player_list_view/views/goalkeeper/player_list_view_goalkeeper.tscn
+# res://src/ui_components/player_list/player_list_view/views/general/player_list_view_general.tscn
+# res://src/ui_components/player_list/player_list_view/views/contract/player_list_view_contract.tscn
 #
 # FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
 #
@@ -241,8 +230,8 @@ msgid "Players"
 msgstr ""
 
 #: src/ui_components/team_profile/team_profile.gd
-#: src/ui_components/player_list/player_list.gd
 #: src/ui_components/player_profile/info_view/info_view.tscn
+#: src/ui_components/player_list/player_list_view/views/general/player_list_view_general.tscn
 msgid "Prestige"
 msgstr ""
 
@@ -268,12 +257,8 @@ msgid "General"
 msgstr ""
 
 #: src/ui_components/player_list/player_list.gd
-#: src/ui_components/transfers/contract_offer/contract_offer.tscn
-msgid "Contract"
-msgstr ""
-
-#: src/ui_components/player_list/player_list.gd
-msgid "Stats"
+#: src/ui_components/player_profile/attributes_view/attributes_view.tscn
+msgid "Goalkeeper"
 msgstr ""
 
 #: src/ui_components/player_list/player_list.gd
@@ -291,8 +276,12 @@ msgid "Mental"
 msgstr ""
 
 #: src/ui_components/player_list/player_list.gd
-#: src/ui_components/player_profile/attributes_view/attributes_view.tscn
-msgid "Goalkeeper"
+#: src/ui_components/transfers/contract_offer/contract_offer.tscn
+msgid "Contract"
+msgstr ""
+
+#: src/ui_components/player_list/player_list.gd
+msgid "Stats"
 msgstr ""
 
 #: src/ui_components/player_list/player_list.gd
@@ -307,276 +296,6 @@ msgstr ""
 msgid "All Leagues"
 msgstr ""
 
-#: src/ui_components/player_list/player_list.gd
-#: src/ui_components/player_profile/info_view/info_view.tscn
-msgid "Position"
-msgstr ""
-
-#: src/ui_components/player_list/player_list.gd
-#: src/ui_components/player_profile/info_view/info_view.tscn
-msgid "Value"
-msgstr ""
-
-#: src/ui_components/player_list/player_list.gd
-msgid "Morality"
-msgstr ""
-
-#: src/ui_components/player_list/player_list.gd
-msgid "Birth date"
-msgstr ""
-
-#: src/ui_components/player_list/player_list.gd
-msgid "Nation"
-msgstr ""
-
-#: src/ui_components/player_list/player_list.gd
-#: src/ui_components/visual_competitions/visual_table/visual_table.tscn
-#: src/ui_components/player_profile/info_view/info_view.tscn
-#: src/ui_components/player_profile/statistics_view/statistics_view.tscn
-#: src/screens/save_states_screen/save_state_entry/save_state_entry.tscn
-msgid "Team"
-msgstr ""
-
-#: src/ui_components/player_list/player_list.gd
-#: src/ui_components/player_profile/contract_view/contract_view.tscn
-msgid "Salary"
-msgstr ""
-
-#: src/ui_components/player_list/player_list.gd
-#: src/ui_components/info/info.tscn
-#: src/ui_components/player_profile/contract_view/contract_view.tscn
-msgid "Start date"
-msgstr ""
-
-#: src/ui_components/player_list/player_list.gd
-#: src/ui_components/player_profile/contract_view/contract_view.tscn
-msgid "End date"
-msgstr ""
-
-#: src/ui_components/player_list/player_list.gd
-#: src/ui_components/transfers/contract_offer/contract_offer.tscn
-#: src/ui_components/player_profile/contract_view/contract_view.tscn
-msgid "Buy clause"
-msgstr ""
-
-#: src/ui_components/player_list/player_list.gd
-msgid "Bonus goal"
-msgstr ""
-
-#: src/ui_components/player_list/player_list.gd
-msgid "Bonus assist"
-msgstr ""
-
-#: src/ui_components/player_list/player_list.gd
-msgid "Bonus clean sheet"
-msgstr ""
-
-#: src/ui_components/player_list/player_list.gd
-msgid "Bonus league"
-msgstr ""
-
-#: src/ui_components/player_list/player_list.gd
-msgid "Bonus national cup"
-msgstr ""
-
-#: src/ui_components/player_list/player_list.gd
-msgid "Bonus continental cup"
-msgstr ""
-
-#: src/ui_components/player_list/player_list.gd
-msgid "Games played"
-msgstr ""
-
-#: src/ui_components/player_list/player_list.gd
-#: src/ui_components/visual_competitions/visual_table/visual_table.tscn
-#: src/ui_components/player_profile/statistics_view/statistics_view.tscn
-#: src/screens/match_screen/statistics/match_stats.tscn
-msgid "Goals"
-msgstr ""
-
-#: src/ui_components/player_list/player_list.gd
-#: src/ui_components/player_profile/statistics_view/statistics_view.tscn
-msgid "Assists"
-msgstr ""
-
-#: src/ui_components/player_list/player_list.gd
-#: src/ui_components/player_profile/statistics_view/statistics_view.tscn
-#: src/screens/match_screen/statistics/match_stats.tscn
-msgid "Yellow cards"
-msgstr ""
-
-#: src/ui_components/player_list/player_list.gd
-#: src/ui_components/player_profile/statistics_view/statistics_view.tscn
-#: src/screens/match_screen/statistics/match_stats.tscn
-msgid "Red cards"
-msgstr ""
-
-#: src/ui_components/player_list/player_list.gd
-#: src/ui_components/player_profile/statistics_view/statistics_view.tscn
-msgid "Average vote"
-msgstr ""
-
-#: src/ui_components/player_list/player_list.gd
-msgid "Agression"
-msgstr ""
-
-#: src/ui_components/player_list/player_list.gd
-#: src/ui_components/player_profile/attributes_view/attributes_view.tscn
-msgid "Anticipation"
-msgstr ""
-
-#: src/ui_components/player_list/player_list.gd
-#: src/ui_components/player_profile/attributes_view/attributes_view.tscn
-msgid "Decisions"
-msgstr ""
-
-#: src/ui_components/player_list/player_list.gd
-#: src/ui_components/player_profile/attributes_view/attributes_view.tscn
-msgid "Concentration"
-msgstr ""
-
-#: src/ui_components/player_list/player_list.gd
-#: src/ui_components/player_profile/attributes_view/attributes_view.tscn
-msgid "Vision"
-msgstr ""
-
-#: src/ui_components/player_list/player_list.gd
-#: src/ui_components/player_profile/attributes_view/attributes_view.tscn
-msgid "Workrate"
-msgstr ""
-
-#: src/ui_components/player_list/player_list.gd
-#: src/ui_components/visual_formation/visual_formation.tscn
-#: src/ui_components/player_profile/attributes_view/attributes_view.tscn
-msgid "Marking"
-msgstr ""
-
-#: src/ui_components/player_list/player_list.gd
-#: src/ui_components/player_profile/attributes_view/attributes_view.tscn
-msgid "Reflexes"
-msgstr ""
-
-#: src/ui_components/player_list/player_list.gd
-#: src/ui_components/player_profile/attributes_view/attributes_view.tscn
-msgid "Positioning"
-msgstr ""
-
-#: src/ui_components/player_list/player_list.gd
-#: src/ui_components/player_profile/attributes_view/attributes_view.tscn
-msgid "Save feet"
-msgstr ""
-
-#: src/ui_components/player_list/player_list.gd
-#: src/ui_components/player_profile/attributes_view/attributes_view.tscn
-msgid "Save hands"
-msgstr ""
-
-#: src/ui_components/player_list/player_list.gd
-#: src/ui_components/player_profile/attributes_view/attributes_view.tscn
-msgid "Diving"
-msgstr ""
-
-#: src/ui_components/player_list/player_list.gd
-#: src/ui_components/player_profile/attributes_view/attributes_view.tscn
-msgid "Pace"
-msgstr ""
-
-#: src/ui_components/player_list/player_list.gd
-#: src/ui_components/player_profile/attributes_view/attributes_view.tscn
-msgid "Acceleration"
-msgstr ""
-
-#: src/ui_components/player_list/player_list.gd
-#: src/ui_components/player_profile/attributes_view/attributes_view.tscn
-msgid "Stamina"
-msgstr ""
-
-#: src/ui_components/player_list/player_list.gd
-#: src/ui_components/player_profile/attributes_view/attributes_view.tscn
-msgid "Strength"
-msgstr ""
-
-#: src/ui_components/player_list/player_list.gd
-#: src/ui_components/player_profile/attributes_view/attributes_view.tscn
-msgid "Agility"
-msgstr ""
-
-#: src/ui_components/player_list/player_list.gd
-#: src/ui_components/player_profile/attributes_view/attributes_view.tscn
-msgid "Jump"
-msgstr ""
-
-#: src/ui_components/player_list/player_list.gd
-#: src/ui_components/player_profile/attributes_view/attributes_view.tscn
-msgid "Crossing"
-msgstr ""
-
-#: src/ui_components/player_list/player_list.gd
-#: src/ui_components/player_profile/attributes_view/attributes_view.tscn
-msgid "Passing"
-msgstr ""
-
-#: src/ui_components/player_list/player_list.gd
-#: src/ui_components/player_profile/attributes_view/attributes_view.tscn
-msgid "Long passing"
-msgstr ""
-
-#: src/ui_components/player_list/player_list.gd
-#: src/ui_components/player_profile/attributes_view/attributes_view.tscn
-msgid "Tackling"
-msgstr ""
-
-#: src/ui_components/player_list/player_list.gd
-#: src/ui_components/player_profile/attributes_view/attributes_view.tscn
-msgid "Heading"
-msgstr ""
-
-#: src/ui_components/player_list/player_list.gd
-#: src/ui_components/player_profile/attributes_view/attributes_view.tscn
-msgid "Interception"
-msgstr ""
-
-#: src/ui_components/player_list/player_list.gd
-#: src/ui_components/player_profile/attributes_view/attributes_view.tscn
-msgid "Shooting"
-msgstr ""
-
-#: src/ui_components/player_list/player_list.gd
-#: src/ui_components/player_profile/attributes_view/attributes_view.tscn
-msgid "Long shooting"
-msgstr ""
-
-#: src/ui_components/player_list/player_list.gd
-#: src/ui_components/player_profile/attributes_view/attributes_view.tscn
-msgid "Free kick"
-msgstr ""
-
-#: src/ui_components/player_list/player_list.gd
-#: src/ui_components/player_profile/attributes_view/attributes_view.tscn
-msgid "Penalty"
-msgstr ""
-
-#: src/ui_components/player_list/player_list.gd
-#: src/ui_components/player_profile/attributes_view/attributes_view.tscn
-msgid "Finishing"
-msgstr ""
-
-#: src/ui_components/player_list/player_list.gd
-#: src/ui_components/player_profile/attributes_view/attributes_view.tscn
-msgid "Dribbling"
-msgstr ""
-
-#: src/ui_components/player_list/player_list.gd
-#: src/ui_components/player_profile/attributes_view/attributes_view.tscn
-msgid "Blocking"
-msgstr ""
-
-#: src/ui_components/player_list/player_list_column/player_list_column.tscn
-#: src/ui_components/player_profile/info_view/info_view.tscn
-#: src/screens/setup/setup_world/setup_world.tscn
-msgid "Name"
-msgstr ""
-
 #: src/ui_components/info/info.tscn
 #: src/screens/setup/setup_world/setup_world.tscn
 msgid "Generation seed"
@@ -584,6 +303,12 @@ msgstr ""
 
 #: src/ui_components/info/info.tscn
 msgid "Copy"
+msgstr ""
+
+#: src/ui_components/info/info.tscn
+#: src/ui_components/player_profile/contract_view/contract_view.tscn
+#: src/ui_components/player_list/player_list_view/views/contract/player_list_view_contract.tscn
+msgid "Start date"
 msgstr ""
 
 #: src/ui_components/base/confirm_dialog/default_confirm_dialog.gd
@@ -623,7 +348,16 @@ msgstr ""
 
 #: src/ui_components/visual_finances/visual_finances.tscn
 #: src/ui_components/transfers/contract_offer/contract_offer.tscn
+#: src/ui_components/player_list/player_list_view/views/contract/player_list_view_contract.tscn
 msgid "Income"
+msgstr ""
+
+#: src/ui_components/visual_competitions/visual_table/visual_table.tscn
+#: src/ui_components/player_profile/info_view/info_view.tscn
+#: src/ui_components/player_profile/statistics_view/statistics_view.tscn
+#: src/screens/save_states_screen/save_state_entry/save_state_entry.tscn
+#: src/ui_components/player_list/player_list_view/views/general/player_list_view_general.tscn
+msgid "Team"
 msgstr ""
 
 #: src/ui_components/visual_competitions/visual_table/visual_table.tscn
@@ -640,6 +374,13 @@ msgstr ""
 
 #: src/ui_components/visual_competitions/visual_table/visual_table.tscn
 msgid "Lost"
+msgstr ""
+
+#: src/ui_components/visual_competitions/visual_table/visual_table.tscn
+#: src/ui_components/player_profile/statistics_view/statistics_view.tscn
+#: src/screens/match_screen/statistics/match_stats.tscn
+#: src/ui_components/player_list/player_list_view/views/statistics/player_list_view_statistics.tscn
+msgid "Goals"
 msgstr ""
 
 #: src/ui_components/visual_competitions/visual_table/visual_table.tscn
@@ -705,6 +446,12 @@ msgstr ""
 msgid "Loan"
 msgstr ""
 
+#: src/ui_components/transfers/contract_offer/contract_offer.tscn
+#: src/ui_components/player_profile/contract_view/contract_view.tscn
+#: src/ui_components/player_list/player_list_view/views/contract/player_list_view_contract.tscn
+msgid "Buy clause"
+msgstr ""
+
 #: src/ui_components/visual_formation/visual_formation.gd
 msgid "Subs"
 msgstr ""
@@ -737,6 +484,12 @@ msgstr ""
 
 #: src/ui_components/visual_formation/visual_formation.tscn
 msgid "Intensity"
+msgstr ""
+
+#: src/ui_components/visual_formation/visual_formation.tscn
+#: src/ui_components/player_profile/attributes_view/attributes_view.tscn
+#: src/ui_components/player_list/player_list_view/views/mental/player_list_view_mental.tscn
+msgid "Marking"
 msgstr ""
 
 #: src/ui_components/visual_formation/visual_formation.tscn
@@ -786,15 +539,159 @@ msgid "Offer contract"
 msgstr ""
 
 #: src/ui_components/player_profile/attributes_view/attributes_view.tscn
+#: src/ui_components/player_list/player_list_view/views/mental/player_list_view_mental.tscn
 msgid "Aggression"
 msgstr ""
 
 #: src/ui_components/player_profile/attributes_view/attributes_view.tscn
+msgid "Anticipation"
+msgstr ""
+
+#: src/ui_components/player_profile/attributes_view/attributes_view.tscn
+#: src/ui_components/player_list/player_list_view/views/mental/player_list_view_mental.tscn
+msgid "Decisions"
+msgstr ""
+
+#: src/ui_components/player_profile/attributes_view/attributes_view.tscn
+#: src/ui_components/player_list/player_list_view/views/mental/player_list_view_mental.tscn
+msgid "Concentration"
+msgstr ""
+
+#: src/ui_components/player_profile/attributes_view/attributes_view.tscn
+#: src/ui_components/player_list/player_list_view/views/mental/player_list_view_mental.tscn
+msgid "Vision"
+msgstr ""
+
+#: src/ui_components/player_profile/attributes_view/attributes_view.tscn
+#: src/ui_components/player_list/player_list_view/views/mental/player_list_view_mental.tscn
+msgid "Workrate"
+msgstr ""
+
+#: src/ui_components/player_profile/attributes_view/attributes_view.tscn
+#: src/ui_components/player_list/player_list_view/views/mental/player_list_view_mental.tscn
 msgid "Offensive movement"
 msgstr ""
 
 #: src/ui_components/player_profile/attributes_view/attributes_view.tscn
+#: src/ui_components/player_list/player_list_view/views/goalkeeper/player_list_view_goalkeeper.tscn
+msgid "Reflexes"
+msgstr ""
+
+#: src/ui_components/player_profile/attributes_view/attributes_view.tscn
+#: src/ui_components/player_list/player_list_view/views/goalkeeper/player_list_view_goalkeeper.tscn
+msgid "Positioning"
+msgstr ""
+
+#: src/ui_components/player_profile/attributes_view/attributes_view.tscn
+msgid "Save feet"
+msgstr ""
+
+#: src/ui_components/player_profile/attributes_view/attributes_view.tscn
+msgid "Save hands"
+msgstr ""
+
+#: src/ui_components/player_profile/attributes_view/attributes_view.tscn
+#: src/ui_components/player_list/player_list_view/views/goalkeeper/player_list_view_goalkeeper.tscn
+msgid "Diving"
+msgstr ""
+
+#: src/ui_components/player_profile/attributes_view/attributes_view.tscn
+#: src/ui_components/player_list/player_list_view/views/physical/player_list_view_physical.tscn
+msgid "Pace"
+msgstr ""
+
+#: src/ui_components/player_profile/attributes_view/attributes_view.tscn
+#: src/ui_components/player_list/player_list_view/views/physical/player_list_view_physical.tscn
+msgid "Acceleration"
+msgstr ""
+
+#: src/ui_components/player_profile/attributes_view/attributes_view.tscn
+#: src/ui_components/player_list/player_list_view/views/physical/player_list_view_physical.tscn
+msgid "Stamina"
+msgstr ""
+
+#: src/ui_components/player_profile/attributes_view/attributes_view.tscn
+#: src/ui_components/player_list/player_list_view/views/physical/player_list_view_physical.tscn
+msgid "Strength"
+msgstr ""
+
+#: src/ui_components/player_profile/attributes_view/attributes_view.tscn
+#: src/ui_components/player_list/player_list_view/views/physical/player_list_view_physical.tscn
+msgid "Agility"
+msgstr ""
+
+#: src/ui_components/player_profile/attributes_view/attributes_view.tscn
+#: src/ui_components/player_list/player_list_view/views/physical/player_list_view_physical.tscn
+msgid "Jump"
+msgstr ""
+
+#: src/ui_components/player_profile/attributes_view/attributes_view.tscn
 msgid "Techical"
+msgstr ""
+
+#: src/ui_components/player_profile/attributes_view/attributes_view.tscn
+#: src/ui_components/player_list/player_list_view/views/technical/player_list_view_technical.tscn
+msgid "Crossing"
+msgstr ""
+
+#: src/ui_components/player_profile/attributes_view/attributes_view.tscn
+#: src/ui_components/player_list/player_list_view/views/technical/player_list_view_technical.tscn
+msgid "Passing"
+msgstr ""
+
+#: src/ui_components/player_profile/attributes_view/attributes_view.tscn
+#: src/ui_components/player_list/player_list_view/views/technical/player_list_view_technical.tscn
+msgid "Long passing"
+msgstr ""
+
+#: src/ui_components/player_profile/attributes_view/attributes_view.tscn
+#: src/ui_components/player_list/player_list_view/views/technical/player_list_view_technical.tscn
+msgid "Tackling"
+msgstr ""
+
+#: src/ui_components/player_profile/attributes_view/attributes_view.tscn
+#: src/ui_components/player_list/player_list_view/views/technical/player_list_view_technical.tscn
+msgid "Heading"
+msgstr ""
+
+#: src/ui_components/player_profile/attributes_view/attributes_view.tscn
+#: src/ui_components/player_list/player_list_view/views/technical/player_list_view_technical.tscn
+msgid "Interception"
+msgstr ""
+
+#: src/ui_components/player_profile/attributes_view/attributes_view.tscn
+#: src/ui_components/player_list/player_list_view/views/technical/player_list_view_technical.tscn
+msgid "Shooting"
+msgstr ""
+
+#: src/ui_components/player_profile/attributes_view/attributes_view.tscn
+#: src/ui_components/player_list/player_list_view/views/technical/player_list_view_technical.tscn
+msgid "Long shooting"
+msgstr ""
+
+#: src/ui_components/player_profile/attributes_view/attributes_view.tscn
+#: src/ui_components/player_list/player_list_view/views/technical/player_list_view_technical.tscn
+msgid "Free kick"
+msgstr ""
+
+#: src/ui_components/player_profile/attributes_view/attributes_view.tscn
+#: src/ui_components/player_list/player_list_view/views/technical/player_list_view_technical.tscn
+msgid "Penalty"
+msgstr ""
+
+#: src/ui_components/player_profile/attributes_view/attributes_view.tscn
+#: src/ui_components/player_list/player_list_view/views/technical/player_list_view_technical.tscn
+msgid "Finishing"
+msgstr ""
+
+#: src/ui_components/player_profile/attributes_view/attributes_view.tscn
+#: src/ui_components/player_list/player_list_view/views/technical/player_list_view_technical.tscn
+msgid "Dribbling"
+msgstr ""
+
+#: src/ui_components/player_profile/attributes_view/attributes_view.tscn
+#: src/ui_components/player_list/player_list_view/views/technical/player_list_view_technical.tscn
+msgid "Blocking"
 msgstr ""
 
 #: src/ui_components/player_profile/player_profile.tscn
@@ -807,6 +704,16 @@ msgstr ""
 
 #: src/ui_components/player_profile/player_profile.tscn
 msgid "Contract\n"
+msgstr ""
+
+#: src/ui_components/player_profile/info_view/info_view.tscn
+#: src/screens/setup/setup_world/setup_world.tscn
+msgid "Name"
+msgstr ""
+
+#: src/ui_components/player_profile/info_view/info_view.tscn
+#: src/ui_components/player_list/player_list_view/views/general/player_list_view_general.tscn
+msgid "Position"
 msgstr ""
 
 #: src/ui_components/player_profile/info_view/info_view.tscn
@@ -832,6 +739,19 @@ msgstr ""
 
 #: src/ui_components/player_profile/info_view/info_view.tscn
 msgid "Average attributes"
+msgstr ""
+
+#: src/ui_components/player_profile/info_view/info_view.tscn
+msgid "Value"
+msgstr ""
+
+#: src/ui_components/player_profile/contract_view/contract_view.tscn
+msgid "Salary"
+msgstr ""
+
+#: src/ui_components/player_profile/contract_view/contract_view.tscn
+#: src/ui_components/player_list/player_list_view/views/contract/player_list_view_contract.tscn
+msgid "End date"
 msgstr ""
 
 #: src/ui_components/player_profile/contract_view/contract_view.tscn
@@ -864,6 +784,27 @@ msgstr ""
 
 #: src/ui_components/player_profile/statistics_view/statistics_view.tscn
 msgid "Matches"
+msgstr ""
+
+#: src/ui_components/player_profile/statistics_view/statistics_view.tscn
+#: src/ui_components/player_list/player_list_view/views/statistics/player_list_view_statistics.tscn
+msgid "Assists"
+msgstr ""
+
+#: src/ui_components/player_profile/statistics_view/statistics_view.tscn
+#: src/screens/match_screen/statistics/match_stats.tscn
+#: src/ui_components/player_list/player_list_view/views/statistics/player_list_view_statistics.tscn
+msgid "Yellow cards"
+msgstr ""
+
+#: src/ui_components/player_profile/statistics_view/statistics_view.tscn
+#: src/screens/match_screen/statistics/match_stats.tscn
+msgid "Red cards"
+msgstr ""
+
+#: src/ui_components/player_profile/statistics_view/statistics_view.tscn
+#: src/ui_components/player_list/player_list_view/views/statistics/player_list_view_statistics.tscn
+msgid "Average vote"
 msgstr ""
 
 #: src/ui_components/visual_calendar/visual_day/visual_day.gd
@@ -928,6 +869,14 @@ msgstr ""
 #: src/ui_components/visual_calendar/visual_calendar.tscn
 #: src/enum.gd
 msgid "Sunday"
+msgstr ""
+
+#: src/ui_components/tree_overviews/teams_tree/teams_tree.gd
+msgid "Continents"
+msgstr ""
+
+#: src/ui_components/tree_overviews/teams_tree/teams_tree.gd
+msgid "No team found"
 msgstr ""
 
 #: src/resources/formation/position/position.gd
@@ -1032,18 +981,6 @@ msgstr ""
 msgid ""
 "Your offer for {player_name} from {team_name} at {cost} has been accepted.\n"
 "You can now find a contractual aggreement with {player_name}."
-msgstr ""
-
-#: src/utils/logic/match_combination_util.gd
-msgid "Cup"
-msgstr ""
-
-#: src/utils/logic/match_combination_util.gd
-msgid "Nations cup"
-msgstr ""
-
-#: src/utils/logic/match_combination_util.gd
-msgid "World cup"
 msgstr ""
 
 #: src/utils/input/joypad_util.gd
@@ -1372,7 +1309,7 @@ msgid "Random"
 msgstr ""
 
 #: src/screens/setup/setup_world/setup_world.gd
-msgid "Generating players"
+msgid "Generating teams and players"
 msgstr ""
 
 #: src/screens/setup/setup_team/setup_team.tscn
@@ -1381,10 +1318,6 @@ msgstr ""
 
 #: src/screens/setup/setup_team/setup_team.tscn
 msgid "Select"
-msgstr ""
-
-#: src/screens/setup/setup_team/setup_team.gd
-msgid "Initialize game"
 msgstr ""
 
 #: src/resources/world/continent_names.gd
@@ -2445,4 +2378,60 @@ msgstr ""
 
 #: src/screens/settings/theme_picker/theme_picker.tscn
 msgid "Background color"
+msgstr ""
+
+#: src/ui_components/player_list/player_list_view/views/statistics/player_list_view_statistics.tscn
+msgid "Games played"
+msgstr ""
+
+#: src/ui_components/player_list/player_list_view/views/statistics/player_list_view_statistics.tscn
+msgid "Red Cards"
+msgstr ""
+
+#: src/ui_components/player_list/player_list_view/views/mental/player_list_view_mental.tscn
+msgid "Antcipation"
+msgstr ""
+
+#: src/ui_components/player_list/player_list_view/views/goalkeeper/player_list_view_goalkeeper.tscn
+msgid "Feet"
+msgstr ""
+
+#: src/ui_components/player_list/player_list_view/views/goalkeeper/player_list_view_goalkeeper.tscn
+msgid "Hands"
+msgstr ""
+
+#: src/ui_components/player_list/player_list_view/views/general/player_list_view_general.tscn
+msgid "Nation"
+msgstr ""
+
+#: src/ui_components/player_list/player_list_view/views/general/player_list_view_general.tscn
+msgid "Birth date"
+msgstr ""
+
+#: src/ui_components/player_list/player_list_view/views/contract/player_list_view_contract.tscn
+msgid "Bonus goals"
+msgstr ""
+
+#: src/ui_components/player_list/player_list_view/views/contract/player_list_view_contract.tscn
+msgid "Bonus clean sheet"
+msgstr ""
+
+#: src/ui_components/player_list/player_list_view/views/contract/player_list_view_contract.tscn
+msgid "Bonus assists"
+msgstr ""
+
+#: src/ui_components/player_list/player_list_view/views/contract/player_list_view_contract.tscn
+msgid "Bonus league"
+msgstr ""
+
+#: src/ui_components/player_list/player_list_view/views/contract/player_list_view_contract.tscn
+msgid "Is on loan"
+msgstr ""
+
+#: src/ui_components/player_list/player_list_view/views/contract/player_list_view_contract.tscn
+msgid "Bonus continental cup"
+msgstr ""
+
+#: src/ui_components/player_list/player_list_view/views/contract/player_list_view_contract.tscn
+msgid "Bonus national cup"
 msgstr ""

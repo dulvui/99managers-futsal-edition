@@ -54,7 +54,7 @@ func _set_shortcut_glyph() -> void:
 	elif InputUtil.type == Enum.InputType.MOUSE_AND_KEYBOARD and key_event:
 		# workaround for /
 		if key_event.as_text() == "Slash":
-			text = "/"
+			text = "/" # NO_TRANSLATE
 		else:
 			text = key_event.as_text()
 
