@@ -72,14 +72,6 @@ const SCENE_SAVE_STATE_ENTRY: String = "res://src/screens/save_states_screen/sav
 const SCENE_COLOR_LABEL: String = "res://src/ui_components/base/color_label/color_label.tscn"
 const SCENE_FORMATION_PLAYER: String = "res://src/ui_components/visual_formation/player/formation_player.tscn"
 const SCENE_MATCH_INFO: String = "res://src/ui_components/visual_calendar/match_list/match_info/match_info.tscn"
-# player list
-const SCENE_PLAYER_LIST_VIEWS: String = "res://src/ui_components/player_list/player_list_view/views/"
-const SCENE_PLAYER_LIST_VIEW_GENERAL: String = SCENE_PLAYER_LIST_VIEWS + "general/player_list_view_general.tscn"
-const SCENE_PLAYER_LIST_ROW_GENERAL: String = SCENE_PLAYER_LIST_VIEWS + "general/player_list_row_general.tscn"
-const SCENE_PLAYER_LIST_VIEW_GOALKEEPER: String = SCENE_PLAYER_LIST_VIEWS + "goalkeeper/player_list_view_goalkeeper.tscn"
-const SCENE_PLAYER_LIST_ROW_GOALKEEPER: String = SCENE_PLAYER_LIST_VIEWS + "goalkeeper/player_list_row_goalkeeper.tscn"
-const SCENE_PLAYER_LIST_VIEW_MENTAL: String = SCENE_PLAYER_LIST_VIEWS + "mental/player_list_view_mental.tscn"
-const SCENE_PLAYER_LIST_ROW_MENTAL: String = SCENE_PLAYER_LIST_VIEWS + "mental/player_list_row_mental.tscn"
 
 #
 # Property access

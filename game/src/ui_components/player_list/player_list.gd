@@ -18,13 +18,29 @@ enum Views {
 }
 
 # views
-const ViewSceneGeneral: PackedScene = preload(Const.SCENE_PLAYER_LIST_VIEW_GENERAL)
-const ViewSceneGoalkeeper: PackedScene = preload(Const.SCENE_PLAYER_LIST_VIEW_GOALKEEPER)
-const ViewSceneMental: PackedScene = preload(Const.SCENE_PLAYER_LIST_VIEW_MENTAL)
+const SCENE_PLAYER_LIST_VIEWS: String = "res://src/ui_components/player_list/player_list_view/views/"
+const SCENE_PLAYER_LIST_VIEW_GENERAL: String = SCENE_PLAYER_LIST_VIEWS + "general/player_list_view_general.tscn"
+const SCENE_PLAYER_LIST_ROW_GENERAL: String = SCENE_PLAYER_LIST_VIEWS + "general/player_list_row_general.tscn"
+const SCENE_PLAYER_LIST_VIEW_GOALKEEPER: String = SCENE_PLAYER_LIST_VIEWS + "goalkeeper/player_list_view_goalkeeper.tscn"
+const SCENE_PLAYER_LIST_ROW_GOALKEEPER: String = SCENE_PLAYER_LIST_VIEWS + "goalkeeper/player_list_row_goalkeeper.tscn"
+const SCENE_PLAYER_LIST_VIEW_MENTAL: String = SCENE_PLAYER_LIST_VIEWS + "mental/player_list_view_mental.tscn"
+const SCENE_PLAYER_LIST_ROW_MENTAL: String = SCENE_PLAYER_LIST_VIEWS + "mental/player_list_row_mental.tscn"
+const SCENE_PLAYER_LIST_VIEW_PHYSICAL: String = SCENE_PLAYER_LIST_VIEWS + "physical/player_list_view_physical.tscn"
+const SCENE_PLAYER_LIST_ROW_PHYSICAL: String = SCENE_PLAYER_LIST_VIEWS + "physical/player_list_row_physical.tscn"
+const SCENE_PLAYER_LIST_VIEW_TECHNICAL: String = SCENE_PLAYER_LIST_VIEWS + "technical/player_list_view_technical.tscn"
+const SCENE_PLAYER_LIST_ROW_TECHNICAL: String = SCENE_PLAYER_LIST_VIEWS + "technical/player_list_row_technical.tscn"
+
+const ViewSceneGeneral: PackedScene = preload(SCENE_PLAYER_LIST_VIEW_GENERAL)
+const ViewSceneGoalkeeper: PackedScene = preload(SCENE_PLAYER_LIST_VIEW_GOALKEEPER)
+const ViewSceneMental: PackedScene = preload(SCENE_PLAYER_LIST_VIEW_MENTAL)
+const ViewScenePhysical: PackedScene = preload(SCENE_PLAYER_LIST_VIEW_PHYSICAL)
+const ViewSceneTechnical: PackedScene = preload(SCENE_PLAYER_LIST_VIEW_TECHNICAL)
 # rows
-const RowSceneGeneral: PackedScene = preload(Const.SCENE_PLAYER_LIST_ROW_GENERAL)
-const RowSceneGoalkeeper: PackedScene = preload(Const.SCENE_PLAYER_LIST_ROW_GOALKEEPER)
-const RowSceneMental: PackedScene = preload(Const.SCENE_PLAYER_LIST_ROW_MENTAL)
+const RowSceneGeneral: PackedScene = preload(SCENE_PLAYER_LIST_ROW_GENERAL)
+const RowSceneGoalkeeper: PackedScene = preload(SCENE_PLAYER_LIST_ROW_GOALKEEPER)
+const RowSceneMental: PackedScene = preload(SCENE_PLAYER_LIST_ROW_MENTAL)
+const RowScenePhysical: PackedScene = preload(SCENE_PLAYER_LIST_ROW_PHYSICAL)
+const RowSceneTechnical: PackedScene = preload(SCENE_PLAYER_LIST_ROW_TECHNICAL)
 
 # depending on scale
 const PAGE_SIZE_1: int = 36
@@ -165,10 +181,10 @@ func _show_active_view(sort_key: String = "") -> void:
 	match active_view:
 		Views.MENTAL:
 			_show_view(ViewSceneMental, RowSceneMental)
-		# Views.PHYSICAL:
-		# 	_show_physical()
-		# Views.TECHNICAL:
-		# 	_show_technical()
+		Views.PHYSICAL:
+			_show_view(ViewScenePhysical, RowScenePhysical)
+		Views.TECHNICAL:
+			_show_view(ViewSceneTechnical, RowSceneTechnical)
 		Views.GOALKEEPER:
 			_show_view(ViewSceneGoalkeeper, RowSceneGoalkeeper)
 		# Views.CONTRACT:
@@ -186,7 +202,6 @@ func _show_active_view(sort_key: String = "") -> void:
 
 
 func _show_view(view_scene: PackedScene, row_scene: PackedScene) -> void:
-	# TODO update instead of destroying
 	for child: Node in players_view.get_children():
 		child.queue_free()
 

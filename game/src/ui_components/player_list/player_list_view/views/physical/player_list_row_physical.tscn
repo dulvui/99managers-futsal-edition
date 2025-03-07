@@ -1,0 +1,44 @@
+[gd_scene load_steps=4 format=3 uid="uid://vr1ujkux0cpg"]
+
+[ext_resource type="PackedScene" uid="uid://866atwbjrgoa" path="res://src/ui_components/player_list/player_list_view/player_list_row/player_list_row.tscn" id="1_hi6sr"]
+[ext_resource type="Script" uid="uid://d4fhrepp17xjy" path="res://src/ui_components/player_list/player_list_view/views/physical/player_list_row_physical.gd" id="2_iec3f"]
+[ext_resource type="PackedScene" uid="uid://b3y6tq2i5pg3b" path="res://src/ui_components/base/color_label/color_label.tscn" id="3_hqvow"]
+
+[node name="PlayerListRowPhysical" instance=ExtResource("1_hi6sr")]
+script = ExtResource("2_iec3f")
+
+[node name="Pace" parent="Items" index="1" instance=ExtResource("3_hqvow")]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(94, 0)
+layout_mode = 2
+text = "20"
+
+[node name="Acceleration" parent="Items" index="2" instance=ExtResource("3_hqvow")]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(94, 0)
+layout_mode = 2
+text = "20"
+
+[node name="Stamina" parent="Items" index="3" instance=ExtResource("3_hqvow")]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(94, 0)
+layout_mode = 2
+text = "20"
+
+[node name="Strength" parent="Items" index="4" instance=ExtResource("3_hqvow")]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(94, 0)
+layout_mode = 2
+text = "20"
+
+[node name="Agility" parent="Items" index="5" instance=ExtResource("3_hqvow")]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(94, 0)
+layout_mode = 2
+text = "20"
+
+[node name="Jump" parent="Items" index="6" instance=ExtResource("3_hqvow")]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(94, 0)
+layout_mode = 2
+text = "20"

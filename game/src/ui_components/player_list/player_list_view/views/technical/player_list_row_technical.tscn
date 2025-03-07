@@ -1,0 +1,86 @@
+[gd_scene load_steps=4 format=3 uid="uid://btgng5gr4eg4y"]
+
+[ext_resource type="PackedScene" uid="uid://866atwbjrgoa" path="res://src/ui_components/player_list/player_list_view/player_list_row/player_list_row.tscn" id="1_j6sa3"]
+[ext_resource type="Script" uid="uid://bov7oixupqd05" path="res://src/ui_components/player_list/player_list_view/views/technical/player_list_row_technical.gd" id="2_xouix"]
+[ext_resource type="PackedScene" uid="uid://b3y6tq2i5pg3b" path="res://src/ui_components/base/color_label/color_label.tscn" id="3_ysu7v"]
+
+[node name="PlayerListRowTechnical" instance=ExtResource("1_j6sa3")]
+script = ExtResource("2_xouix")
+
+[node name="Crossing" parent="Items" index="1" instance=ExtResource("3_ysu7v")]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(94, 0)
+layout_mode = 2
+text = "20"
+
+[node name="Passing" parent="Items" index="2" instance=ExtResource("3_ysu7v")]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(94, 0)
+layout_mode = 2
+text = "20"
+
+[node name="LongPassing" parent="Items" index="3" instance=ExtResource("3_ysu7v")]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(94, 0)
+layout_mode = 2
+text = "20"
+
+[node name="Tackling" parent="Items" index="4" instance=ExtResource("3_ysu7v")]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(94, 0)
+layout_mode = 2
+text = "20"
+
+[node name="Heading" parent="Items" index="5" instance=ExtResource("3_ysu7v")]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(94, 0)
+layout_mode = 2
+text = "20"
+
+[node name="Interception" parent="Items" index="6" instance=ExtResource("3_ysu7v")]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(94, 0)
+layout_mode = 2
+text = "20"
+
+[node name="Shooting" parent="Items" index="7" instance=ExtResource("3_ysu7v")]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(94, 0)
+layout_mode = 2
+text = "20"
+
+[node name="LongShooting" parent="Items" index="8" instance=ExtResource("3_ysu7v")]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(94, 0)
+layout_mode = 2
+text = "20"
+
+[node name="Blocking" parent="Items" index="9" instance=ExtResource("3_ysu7v")]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(94, 0)
+layout_mode = 2
+text = "20"
+
+[node name="Dribbling" parent="Items" index="10" instance=ExtResource("3_ysu7v")]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(94, 0)
+layout_mode = 2
+text = "20"
+
+[node name="Finishing" parent="Items" index="11" instance=ExtResource("3_ysu7v")]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(94, 0)
+layout_mode = 2
+text = "20"
+
+[node name="Penalty" parent="Items" index="12" instance=ExtResource("3_ysu7v")]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(94, 0)
+layout_mode = 2
+text = "20"
+
+[node name="FreeKick" parent="Items" index="13" instance=ExtResource("3_ysu7v")]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(94, 0)
+layout_mode = 2
+text = "20"

@@ -1,12 +1,12 @@
 [gd_scene load_steps=5 format=3 uid="uid://35ymeakgcxi1"]
 
 [ext_resource type="PackedScene" uid="uid://bmrsky7wy6obx" path="res://src/ui_components/player_list/player_list_view/player_list_view.tscn" id="1_u6whc"]
-[ext_resource type="Script" uid="uid://d25wnokafguse" path="res://src/ui_components/player_list/player_list_view/views/goalkeeper/player_list_view_goalkeeper.gd" id="2_r6hyc"]
+[ext_resource type="Script" uid="uid://bpkglhx172upu" path="res://src/ui_components/player_list/player_list_view/views/mental/player_list_view_mental.gd" id="2_nf1kj"]
 [ext_resource type="Script" uid="uid://cha13r617yhur" path="res://src/ui_components/player_list/player_list_view/player_list_header/player_list_sort_button.gd" id="3_nm3pu"]
 [ext_resource type="PackedScene" uid="uid://b6k2acnqtw37g" path="res://src/ui_components/player_list/player_list_view/views/mental/player_list_row_mental.tscn" id="4_nf1kj"]
 
 [node name="PlayerListViewMental" instance=ExtResource("1_u6whc")]
-script = ExtResource("2_r6hyc")
+script = ExtResource("2_nf1kj")
 
 [node name="Aggression" type="Button" parent="Header/Buttons" index="1"]
 custom_minimum_size = Vector2(94, 0)
