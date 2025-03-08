@@ -282,10 +282,10 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: 99 Managers Futsal Edition\n"
-"PO-Revision-Date: 2025-03-04 08:11+0000\n"
+"PO-Revision-Date: 2025-03-08 15:44+0000\n"
 "Last-Translator: Максим Горпиніч <maksimgorpinic2005a@gmail.com>\n"
-"Language-Team: Ukrainian <https://hosted.weblate.org/projects/99-managers-"
-"futsal-edition/game/uk/>\n"
+"Language-Team: Ukrainian <https://hosted.weblate.org/projects/"
+"99-managers-futsal-edition/game/uk/>\n"
 "Language: uk\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -951,16 +951,12 @@ msgid "Sunday"
 msgstr "Неділя"
 
 #: src/ui_components/tree_overviews/teams_tree/teams_tree.gd
-#, fuzzy
-#| msgid "Continue"
 msgid "Continents"
-msgstr "Продовжити"
+msgstr "Континенти"
 
 #: src/ui_components/tree_overviews/teams_tree/teams_tree.gd
-#, fuzzy
-#| msgid "No message found"
 msgid "No team found"
-msgstr "Повідомлення не знайдено"
+msgstr "Команда не знайдена"
 
 #: src/resources/formation/position/position.gd
 msgid "G"
@@ -1412,10 +1408,8 @@ msgid "Random"
 msgstr "Випадковий"
 
 #: src/screens/setup/setup_world/setup_world.gd
-#, fuzzy
-#| msgid "Generating players"
 msgid "Generating teams and players"
-msgstr "Генерація гравців"
+msgstr "Формування команд і гравців"
 
 #: src/screens/setup/setup_team/setup_team.tscn
 msgid "Choose team"
@@ -2496,24 +2490,20 @@ msgid "Games played"
 msgstr "Зіграні ігри"
 
 #: src/ui_components/player_list/player_list_view/views/statistics/player_list_view_statistics.tscn
-#, fuzzy
-#| msgid "Red cards"
 msgid "Red Cards"
 msgstr "Червоні картки"
 
 #: src/ui_components/player_list/player_list_view/views/mental/player_list_view_mental.tscn
-#, fuzzy
-#| msgid "Anticipation"
 msgid "Antcipation"
 msgstr "Передчуття"
 
 #: src/ui_components/player_list/player_list_view/views/goalkeeper/player_list_view_goalkeeper.tscn
 msgid "Feet"
-msgstr ""
+msgstr "Ноги"
 
 #: src/ui_components/player_list/player_list_view/views/goalkeeper/player_list_view_goalkeeper.tscn
 msgid "Hands"
-msgstr ""
+msgstr "Руки"
 
 #: src/ui_components/player_list/player_list_view/views/general/player_list_view_general.tscn
 msgid "Nation"
@@ -2524,20 +2514,16 @@ msgid "Birth date"
 msgstr "Дата народження"
 
 #: src/ui_components/player_list/player_list_view/views/contract/player_list_view_contract.tscn
-#, fuzzy
-#| msgid "Bonus goal"
 msgid "Bonus goals"
-msgstr "Бонусний гол"
+msgstr "Бонусні цілі"
 
 #: src/ui_components/player_list/player_list_view/views/contract/player_list_view_contract.tscn
 msgid "Bonus clean sheet"
 msgstr "Бонус чистий лист"
 
 #: src/ui_components/player_list/player_list_view/views/contract/player_list_view_contract.tscn
-#, fuzzy
-#| msgid "Bonus assist"
 msgid "Bonus assists"
-msgstr "Бонусна допомога"
+msgstr "Бонусні передачі"
 
 #: src/ui_components/player_list/player_list_view/views/contract/player_list_view_contract.tscn
 msgid "Bonus league"
@@ -2545,7 +2531,7 @@ msgstr "Бонусна ліга"
 
 #: src/ui_components/player_list/player_list_view/views/contract/player_list_view_contract.tscn
 msgid "Is on loan"
-msgstr ""
+msgstr "Здається в кредит"
 
 #: src/ui_components/player_list/player_list_view/views/contract/player_list_view_contract.tscn
 msgid "Bonus continental cup"
