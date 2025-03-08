@@ -282,10 +282,10 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: 99 Managers Futsal Edition\n"
-"PO-Revision-Date: 2025-03-08 15:44+0000\n"
+"PO-Revision-Date: 2025-03-09 11:23+0000\n"
 "Last-Translator: Максим Горпиніч <maksimgorpinic2005a@gmail.com>\n"
-"Language-Team: Ukrainian <https://hosted.weblate.org/projects/99-managers-"
-"futsal-edition/game/uk/>\n"
+"Language-Team: Ukrainian <https://hosted.weblate.org/projects/"
+"99-managers-futsal-edition/game/uk/>\n"
 "Language: uk\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -541,11 +541,11 @@ msgstr "Положення про купівлю"
 
 #: src/ui_components/visual_formation/visual_formation.gd
 msgid "Substitutes"
-msgstr ""
+msgstr "Замінники"
 
 #: src/ui_components/visual_formation/visual_formation.gd
 msgid "Out of lineup"
-msgstr ""
+msgstr "Поза складом"
 
 #: src/ui_components/visual_formation/players_bar/players_bar.tscn
 #: src/ui_components/visual_formation/visual_formation.tscn
