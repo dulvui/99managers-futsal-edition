@@ -352,6 +352,7 @@ msgid "Physical"
 msgstr "Físico"
 
 #: src/ui_components/player_list/player_list.gd
+#: src/ui_components/player_profile/attributes_view/attributes_view.tscn
 msgid "Technical"
 msgstr "Técnico"
 
@@ -538,12 +539,12 @@ msgid "Buy clause"
 msgstr ""
 
 #: src/ui_components/visual_formation/visual_formation.gd
-msgid "Subs"
-msgstr "Cambios"
+msgid "Substitutes"
+msgstr ""
 
 #: src/ui_components/visual_formation/visual_formation.gd
-msgid "Rest"
-msgstr "Resto"
+msgid "Out of lineup"
+msgstr ""
 
 #: src/ui_components/visual_formation/players_bar/players_bar.tscn
 #: src/ui_components/visual_formation/visual_formation.tscn
@@ -717,12 +718,6 @@ msgstr "Agilidad"
 #: src/ui_components/player_list/player_list_view/views/physical/player_list_view_physical.tscn
 msgid "Jump"
 msgstr "Saltar"
-
-#: src/ui_components/player_profile/attributes_view/attributes_view.tscn
-#, fuzzy
-#| msgid "Technical"
-msgid "Techical"
-msgstr "Técnico"
 
 #: src/ui_components/player_profile/attributes_view/attributes_view.tscn
 #: src/ui_components/player_list/player_list_view/views/technical/player_list_view_technical.tscn
@@ -2560,6 +2555,17 @@ msgstr ""
 #: src/ui_components/player_list/player_list_view/views/contract/player_list_view_contract.tscn
 msgid "Bonus national cup"
 msgstr ""
+
+#~ msgid "Subs"
+#~ msgstr "Cambios"
+
+#~ msgid "Rest"
+#~ msgstr "Resto"
+
+#, fuzzy
+#~| msgid "Technical"
+#~ msgid "Techical"
+#~ msgstr "Técnico"
 
 #~ msgid "Morality"
 #~ msgstr "Moralidad"

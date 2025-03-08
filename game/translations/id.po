@@ -353,6 +353,7 @@ msgid "Physical"
 msgstr "Jasmani"
 
 #: src/ui_components/player_list/player_list.gd
+#: src/ui_components/player_profile/attributes_view/attributes_view.tscn
 msgid "Technical"
 msgstr "Tekhnik"
 
@@ -539,12 +540,12 @@ msgid "Buy clause"
 msgstr "Klausul pembelian"
 
 #: src/ui_components/visual_formation/visual_formation.gd
-msgid "Subs"
-msgstr "SUBS"
+msgid "Substitutes"
+msgstr ""
 
 #: src/ui_components/visual_formation/visual_formation.gd
-msgid "Rest"
-msgstr "Istirahat"
+msgid "Out of lineup"
+msgstr ""
 
 #: src/ui_components/visual_formation/players_bar/players_bar.tscn
 #: src/ui_components/visual_formation/visual_formation.tscn
@@ -723,10 +724,6 @@ msgstr ""
 #: src/ui_components/player_profile/attributes_view/attributes_view.tscn
 #: src/ui_components/player_list/player_list_view/views/physical/player_list_view_physical.tscn
 msgid "Jump"
-msgstr ""
-
-#: src/ui_components/player_profile/attributes_view/attributes_view.tscn
-msgid "Techical"
 msgstr ""
 
 #: src/ui_components/player_profile/attributes_view/attributes_view.tscn
@@ -2551,6 +2548,12 @@ msgstr ""
 #: src/ui_components/player_list/player_list_view/views/contract/player_list_view_contract.tscn
 msgid "Bonus national cup"
 msgstr ""
+
+#~ msgid "Subs"
+#~ msgstr "SUBS"
+
+#~ msgid "Rest"
+#~ msgstr "Istirahat"
 
 #~ msgid "Morality"
 #~ msgstr "Moralitas"

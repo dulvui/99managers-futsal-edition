@@ -356,6 +356,7 @@ msgid "Physical"
 msgstr "Fiziksel"
 
 #: src/ui_components/player_list/player_list.gd
+#: src/ui_components/player_profile/attributes_view/attributes_view.tscn
 msgid "Technical"
 msgstr "Teknik"
 
@@ -542,12 +543,12 @@ msgid "Buy clause"
 msgstr "Satın alın"
 
 #: src/ui_components/visual_formation/visual_formation.gd
-msgid "Subs"
-msgstr "Abonelik ücreti"
+msgid "Substitutes"
+msgstr ""
 
 #: src/ui_components/visual_formation/visual_formation.gd
-msgid "Rest"
-msgstr "Dinlen"
+msgid "Out of lineup"
+msgstr ""
 
 #: src/ui_components/visual_formation/players_bar/players_bar.tscn
 #: src/ui_components/visual_formation/visual_formation.tscn
@@ -713,10 +714,6 @@ msgstr "Çeviklik"
 #: src/ui_components/player_list/player_list_view/views/physical/player_list_view_physical.tscn
 msgid "Jump"
 msgstr "Zıplama"
-
-#: src/ui_components/player_profile/attributes_view/attributes_view.tscn
-msgid "Techical"
-msgstr "Teknik"
 
 #: src/ui_components/player_profile/attributes_view/attributes_view.tscn
 #: src/ui_components/player_list/player_list_view/views/technical/player_list_view_technical.tscn
@@ -2557,6 +2554,15 @@ msgstr "Bonus kıtasal kupa"
 #: src/ui_components/player_list/player_list_view/views/contract/player_list_view_contract.tscn
 msgid "Bonus national cup"
 msgstr "Bonus ulusal kupa"
+
+#~ msgid "Subs"
+#~ msgstr "Abonelik ücreti"
+
+#~ msgid "Rest"
+#~ msgstr "Dinlen"
+
+#~ msgid "Techical"
+#~ msgstr "Teknik"
 
 #~ msgid "Morality"
 #~ msgstr "Ahlak"
