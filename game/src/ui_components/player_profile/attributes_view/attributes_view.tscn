@@ -1,8 +1,9 @@
-[gd_scene load_steps=4 format=3 uid="uid://c1ybc8k2e473c"]
+[gd_scene load_steps=5 format=3 uid="uid://c1ybc8k2e473c"]
 
 [ext_resource type="Script" uid="uid://tvo51mtsocwg" path="res://src/ui_components/player_profile/attributes_view/attributes_view.gd" id="1_5b24s"]
 [ext_resource type="LabelSettings" uid="uid://cc2vi4onhgmnw" path="res://theme_base/label/label_settings_bold.tres" id="2_lgwcu"]
 [ext_resource type="PackedScene" uid="uid://b3y6tq2i5pg3b" path="res://src/ui_components/base/color_label/color_label.tscn" id="3_7lr25"]
+[ext_resource type="LabelSettings" uid="uid://c5yfa40ut1pyv" path="res://theme_base/label/label_settings.tres" id="4_n34en"]
 
 [node name="Attributes" type="HBoxContainer"]
 anchors_preset = 15
@@ -27,7 +28,7 @@ layout_mode = 2
 text = "Mental"
 label_settings = ExtResource("2_lgwcu")
 
-[node name="TitlePlaceholdes" type="Label" parent="Mental"]
+[node name="TitlePlaceholder" type="Label" parent="Mental"]
 layout_mode = 2
 
 [node name="AggressionLabel" type="Label" parent="Mental"]
@@ -108,7 +109,7 @@ layout_mode = 2
 text = "Goalkeeper"
 label_settings = ExtResource("2_lgwcu")
 
-[node name="TitlePlaceholdes" type="Label" parent="VBoxContainer/Goalkeeper"]
+[node name="TitlePlaceholder" type="Label" parent="VBoxContainer/Goalkeeper"]
 layout_mode = 2
 
 [node name="ReflexesLabel" type="Label" parent="VBoxContainer/Goalkeeper"]
@@ -162,8 +163,13 @@ layout_mode = 2
 text = "Physical"
 label_settings = ExtResource("2_lgwcu")
 
-[node name="TitlePlaceholdes" parent="VBoxContainer/Physical" instance=ExtResource("3_7lr25")]
+[node name="TitlePlaceholder" type="Label" parent="VBoxContainer/Physical"]
+auto_translate_mode = 2
+custom_minimum_size = Vector2(64, 0)
 layout_mode = 2
+size_flags_vertical = 1
+label_settings = ExtResource("4_n34en")
+horizontal_alignment = 1
 
 [node name="PaceLabel" type="Label" parent="VBoxContainer/Physical"]
 layout_mode = 2
@@ -221,10 +227,10 @@ columns = 2
 
 [node name="Title" type="Label" parent="Technical"]
 layout_mode = 2
-text = "Techical"
+text = "Technical"
 label_settings = ExtResource("2_lgwcu")
 
-[node name="TitlePlaceholdes" type="Label" parent="Technical"]
+[node name="TitlePlaceholder" type="Label" parent="Technical"]
 layout_mode = 2
 
 [node name="CrossingLabel" type="Label" parent="Technical"]
