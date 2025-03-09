@@ -634,6 +634,7 @@ msgid "Aggression"
 msgstr "Agresyon"
 
 #: src/ui_components/player_profile/attributes_view/attributes_view.tscn
+#: src/ui_components/player_list/player_list_view/views/mental/player_list_view_mental.tscn
 msgid "Anticipation"
 msgstr "Öngörü"
 
@@ -2501,12 +2502,6 @@ msgstr "Oynanan maç sayısı"
 msgid "Red Cards"
 msgstr "Kırmızı kartlar"
 
-#: src/ui_components/player_list/player_list_view/views/mental/player_list_view_mental.tscn
-#, fuzzy
-#| msgid "Anticipation"
-msgid "Antcipation"
-msgstr "Öngörü"
-
 #: src/ui_components/player_list/player_list_view/views/goalkeeper/player_list_view_goalkeeper.tscn
 msgid "Feet"
 msgstr ""
@@ -2554,6 +2549,11 @@ msgstr "Bonus kıtasal kupa"
 #: src/ui_components/player_list/player_list_view/views/contract/player_list_view_contract.tscn
 msgid "Bonus national cup"
 msgstr "Bonus ulusal kupa"
+
+#, fuzzy
+#~| msgid "Anticipation"
+#~ msgid "Antcipation"
+#~ msgstr "Öngörü"
 
 #~ msgid "Subs"
 #~ msgstr "Abonelik ücreti"

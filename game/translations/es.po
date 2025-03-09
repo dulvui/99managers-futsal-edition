@@ -632,6 +632,7 @@ msgid "Aggression"
 msgstr "Presión"
 
 #: src/ui_components/player_profile/attributes_view/attributes_view.tscn
+#: src/ui_components/player_list/player_list_view/views/mental/player_list_view_mental.tscn
 msgid "Anticipation"
 msgstr "Anticipación"
 
@@ -2504,12 +2505,6 @@ msgstr ""
 msgid "Red Cards"
 msgstr "Tarjetas rojas"
 
-#: src/ui_components/player_list/player_list_view/views/mental/player_list_view_mental.tscn
-#, fuzzy
-#| msgid "Anticipation"
-msgid "Antcipation"
-msgstr "Anticipación"
-
 #: src/ui_components/player_list/player_list_view/views/goalkeeper/player_list_view_goalkeeper.tscn
 msgid "Feet"
 msgstr ""
@@ -2555,6 +2550,11 @@ msgstr ""
 #: src/ui_components/player_list/player_list_view/views/contract/player_list_view_contract.tscn
 msgid "Bonus national cup"
 msgstr ""
+
+#, fuzzy
+#~| msgid "Anticipation"
+#~ msgid "Antcipation"
+#~ msgstr "Anticipación"
 
 #~ msgid "Subs"
 #~ msgstr "Cambios"

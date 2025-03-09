@@ -630,6 +630,7 @@ msgid "Aggression"
 msgstr "Aggressione"
 
 #: src/ui_components/player_profile/attributes_view/attributes_view.tscn
+#: src/ui_components/player_list/player_list_view/views/mental/player_list_view_mental.tscn
 msgid "Anticipation"
 msgstr "Anticipazione"
 
@@ -2490,10 +2491,6 @@ msgstr "Partite giocate"
 msgid "Red Cards"
 msgstr "Cartellini rossi"
 
-#: src/ui_components/player_list/player_list_view/views/mental/player_list_view_mental.tscn
-msgid "Antcipation"
-msgstr "Anticipazione"
-
 #: src/ui_components/player_list/player_list_view/views/goalkeeper/player_list_view_goalkeeper.tscn
 msgid "Feet"
 msgstr "Piede"
@@ -2537,6 +2534,9 @@ msgstr "Bonus coppa continentale"
 #: src/ui_components/player_list/player_list_view/views/contract/player_list_view_contract.tscn
 msgid "Bonus national cup"
 msgstr "Bonus coppa delle nazioni"
+
+#~ msgid "Antcipation"
+#~ msgstr "Anticipazione"
 
 #~ msgid "Subs"
 #~ msgstr "Cambi"
