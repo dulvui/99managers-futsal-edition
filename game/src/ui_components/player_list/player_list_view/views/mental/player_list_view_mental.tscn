@@ -15,13 +15,13 @@ script = ExtResource("3_nm3pu")
 sort_key = "aggression"
 metadata/_custom_type_script = "uid://cha13r617yhur"
 
-[node name="Antcipation" type="Button" parent="Header/Buttons" index="2"]
+[node name="Anticipation" type="Button" parent="Header/Buttons" index="2"]
 custom_minimum_size = Vector2(94, 0)
 layout_mode = 2
-text = "Antcipation"
+text = "Anticipation"
 text_overrun_behavior = 1
 script = ExtResource("3_nm3pu")
-sort_key = "antcipation"
+sort_key = "anticipation"
 metadata/_custom_type_script = "uid://cha13r617yhur"
 
 [node name="Decisions" type="Button" parent="Header/Buttons" index="3"]
