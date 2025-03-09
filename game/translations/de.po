@@ -282,10 +282,10 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: 99 Managers Futsal Edition\n"
-"PO-Revision-Date: 2025-03-07 20:55+0000\n"
+"PO-Revision-Date: 2025-03-09 11:23+0000\n"
 "Last-Translator: Ettore Atalan <atalanttore@googlemail.com>\n"
-"Language-Team: German <https://hosted.weblate.org/projects/99-managers-"
-"futsal-edition/game/de/>\n"
+"Language-Team: German <https://hosted.weblate.org/projects/"
+"99-managers-futsal-edition/game/de/>\n"
 "Language: de\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -540,11 +540,11 @@ msgstr "Ablöseklausel"
 
 #: src/ui_components/visual_formation/visual_formation.gd
 msgid "Substitutes"
-msgstr ""
+msgstr "Ersatzleute"
 
 #: src/ui_components/visual_formation/visual_formation.gd
 msgid "Out of lineup"
-msgstr ""
+msgstr "Nicht in der Aufstellung"
 
 #: src/ui_components/visual_formation/players_bar/players_bar.tscn
 #: src/ui_components/visual_formation/visual_formation.tscn
@@ -651,7 +651,7 @@ msgstr "Vision"
 #: src/ui_components/player_profile/attributes_view/attributes_view.tscn
 #: src/ui_components/player_list/player_list_view/views/mental/player_list_view_mental.tscn
 msgid "Workrate"
-msgstr ""
+msgstr "Arbeitsrate"
 
 #: src/ui_components/player_profile/attributes_view/attributes_view.tscn
 #: src/ui_components/player_list/player_list_view/views/mental/player_list_view_mental.tscn
@@ -669,21 +669,17 @@ msgid "Positioning"
 msgstr "Aufstellung"
 
 #: src/ui_components/player_profile/attributes_view/attributes_view.tscn
-#, fuzzy
-#| msgid "Save states"
 msgid "Save feet"
-msgstr "Spielstände"
+msgstr "Füße schonen"
 
 #: src/ui_components/player_profile/attributes_view/attributes_view.tscn
-#, fuzzy
-#| msgid "Save states"
 msgid "Save hands"
-msgstr "Spielstände"
+msgstr "Hände schonen"
 
 #: src/ui_components/player_profile/attributes_view/attributes_view.tscn
 #: src/ui_components/player_list/player_list_view/views/goalkeeper/player_list_view_goalkeeper.tscn
 msgid "Diving"
-msgstr ""
+msgstr "Schwalbe"
 
 #: src/ui_components/player_profile/attributes_view/attributes_view.tscn
 #: src/ui_components/player_list/player_list_view/views/physical/player_list_view_physical.tscn
@@ -850,11 +846,11 @@ msgstr "Tor"
 
 #: src/ui_components/player_profile/contract_view/contract_view.tscn
 msgid "Assist"
-msgstr ""
+msgstr "Vorlage"
 
 #: src/ui_components/player_profile/contract_view/contract_view.tscn
 msgid "Clean sheet"
-msgstr ""
+msgstr "Ohne Gegentor"
 
 #: src/ui_components/player_profile/contract_view/contract_view.tscn
 msgid "National cup"
@@ -875,7 +871,7 @@ msgstr "Wettkämpfe"
 #: src/ui_components/player_profile/statistics_view/statistics_view.tscn
 #: src/ui_components/player_list/player_list_view/views/statistics/player_list_view_statistics.tscn
 msgid "Assists"
-msgstr ""
+msgstr "Vorlage gegeben"
 
 #: src/ui_components/player_profile/statistics_view/statistics_view.tscn
 #: src/screens/match_screen/statistics/match_stats.tscn
@@ -890,10 +886,8 @@ msgstr "Rote Karten"
 
 #: src/ui_components/player_profile/statistics_view/statistics_view.tscn
 #: src/ui_components/player_list/player_list_view/views/statistics/player_list_view_statistics.tscn
-#, fuzzy
-#| msgid "Average attributes"
 msgid "Average vote"
-msgstr "Durchschnittliche Eigenschaften"
+msgstr "Durchschnittliche Bewertung"
 
 #: src/ui_components/visual_calendar/visual_day/visual_day.gd
 #: src/ui_components/visual_calendar/match_list/match_info/match_info.tscn
@@ -953,16 +947,12 @@ msgid "Sunday"
 msgstr "Sonntag"
 
 #: src/ui_components/tree_overviews/teams_tree/teams_tree.gd
-#, fuzzy
-#| msgid "Continue"
 msgid "Continents"
-msgstr "Weiter"
+msgstr "Kontinente"
 
 #: src/ui_components/tree_overviews/teams_tree/teams_tree.gd
-#, fuzzy
-#| msgid "No message found"
 msgid "No team found"
-msgstr "Keine Nachricht gefunden"
+msgstr "Keine Mannschaft gefunden"
 
 #: src/resources/formation/position/position.gd
 msgid "G"
@@ -1042,6 +1032,9 @@ msgid ""
 "You made an offer for {player_name} from {team_name} at {cost}.\n"
 "{team_name} will consider the offer and respond within a few days."
 msgstr ""
+"Du hast ein Angebot für {player_name} von {team_name} zu {cost} unterbreitet."
+"\n"
+"{team_name} wird das Angebot prüfen und innerhalb weniger Tage antworten."
 
 #. TRANSLATORS: {player_name} gets dynamically filled
 #: src/utils/logic/email_util.gd
@@ -1054,6 +1047,9 @@ msgid ""
 "Your offer for {player_name} from {team_name} at {cost} has been declined.\n"
 "Increasing the transfer value could make them reconsider."
 msgstr ""
+"Dein Angebot für {player_name} von {team_name} zu {cost} wurde abgelehnt.\n"
+"Eine Erhöhung des Transferwertes könnte sie dazu bringen, das Angebot zu "
+"überdenken."
 
 #. TRANSLATORS: {player_name} gets dynamically filled
 #: src/utils/logic/email_util.gd
@@ -1066,6 +1062,9 @@ msgid ""
 "Your offer for {player_name} from {team_name} at {cost} has been accepted.\n"
 "You can now find a contractual aggreement with {player_name}."
 msgstr ""
+"Dein Angebot für {player_name} von {team_name} zu {cost} ist angenommen "
+"worden.\n"
+"Du kannst jetzt eine vertragliche Vereinbarung mit {player_name} abschließen."
 
 #: src/utils/input/joypad_util.gd
 #: src/screens/settings/input/input_settings.tscn
@@ -1102,7 +1101,7 @@ msgstr "Hacker"
 
 #: src/utils/ui/theme_util.gd
 msgid "Custom theme"
-msgstr ""
+msgstr "Benutzerdefiniertes Thema"
 
 #: src/screens/settings/settings.tscn
 msgid "Input"
@@ -1204,6 +1203,9 @@ msgid ""
 "Note: Deleted save states might still exist in your trash, if supported and "
 "not disabled by your operating system."
 msgstr ""
+"Hinweis: Gelöschte Speicherstände können noch in deinem Papierkorb vorhanden "
+"sein, wenn sie von deinem Betriebssystem unterstützt und nicht deaktiviert "
+"werden."
 
 #: src/screens/save_states_screen/save_states_screen.tscn
 #: src/screens/dashboard/dashboard.tscn
@@ -1254,6 +1256,9 @@ msgid ""
 "Deleting a save state is permanent and can't be undone.\n"
 "Are you sure you want delete this save state?"
 msgstr ""
+"Das Löschen eines Speicherstandes ist endgültig und kann nicht rückgängig "
+"gemacht werden.\n"
+"Bist du sicher, dass du diesen Speicherstand löschen willst?"
 
 #: src/screens/save_states_screen/save_state_entry/save_state_entry.tscn
 msgid ""
@@ -1261,6 +1266,9 @@ msgid ""
 "in the following directory for further diagnostics.\n"
 "{path}"
 msgstr ""
+"Dieser Speicherstand und seine Sicherung sind beschädigt. Du findest diesen "
+"Speicherstand im folgenden Verzeichnis für weitere Diagnosen.\n"
+"{path}"
 
 #: src/screens/dashboard/dashboard.gd
 msgid "Start match"
@@ -1401,9 +1409,8 @@ msgid "Random"
 msgstr "Zufällig"
 
 #: src/screens/setup/setup_world/setup_world.gd
-#, fuzzy
 msgid "Generating teams and players"
-msgstr "Spieler generieren"
+msgstr "Mannschaften und Spieler generieren"
 
 #: src/screens/setup/setup_team/setup_team.tscn
 msgid "Choose team"
@@ -2414,7 +2421,7 @@ msgstr "Ballbesitz"
 
 #: src/screens/match_screen/match_screen.tscn
 msgid "Do you want to simulate the whole match?"
-msgstr ""
+msgstr "Möchtest du das gesamte Spiel simulieren?"
 
 #: src/screens/match_screen/penalties_bar/penalties_bar.tscn
 #: src/screens/match_screen/statistics/match_stats.tscn
@@ -2439,7 +2446,7 @@ msgstr "Passgenauigkeit"
 
 #: src/screens/match_screen/statistics/match_stats.tscn
 msgid "Kick-ins"
-msgstr ""
+msgstr "Einkicks"
 
 #: src/screens/match_screen/statistics/match_stats.tscn
 msgid "Free kicks"
@@ -2486,8 +2493,6 @@ msgid "Games played"
 msgstr "Gespielte Partien"
 
 #: src/ui_components/player_list/player_list_view/views/statistics/player_list_view_statistics.tscn
-#, fuzzy
-#| msgid "Red cards"
 msgid "Red Cards"
 msgstr "Rote Karten"
 
@@ -2499,11 +2504,11 @@ msgstr "Antizipation"
 
 #: src/ui_components/player_list/player_list_view/views/goalkeeper/player_list_view_goalkeeper.tscn
 msgid "Feet"
-msgstr ""
+msgstr "Füße"
 
 #: src/ui_components/player_list/player_list_view/views/goalkeeper/player_list_view_goalkeeper.tscn
 msgid "Hands"
-msgstr ""
+msgstr "Hände"
 
 #: src/ui_components/player_list/player_list_view/views/general/player_list_view_general.tscn
 msgid "Nation"
@@ -2514,36 +2519,32 @@ msgid "Birth date"
 msgstr "Geburtstag"
 
 #: src/ui_components/player_list/player_list_view/views/contract/player_list_view_contract.tscn
-#, fuzzy
-#| msgid "Bonus goal"
 msgid "Bonus goals"
-msgstr "Bonustor"
+msgstr "Bonustore"
 
 #: src/ui_components/player_list/player_list_view/views/contract/player_list_view_contract.tscn
 msgid "Bonus clean sheet"
-msgstr ""
+msgstr "Ohne Bonusgegentor"
 
 #: src/ui_components/player_list/player_list_view/views/contract/player_list_view_contract.tscn
-#, fuzzy
-#| msgid "Bonus goal"
 msgid "Bonus assists"
-msgstr "Bonustor"
+msgstr "Bonusvorlagen"
 
 #: src/ui_components/player_list/player_list_view/views/contract/player_list_view_contract.tscn
 msgid "Bonus league"
-msgstr ""
+msgstr "Bonusliga"
 
 #: src/ui_components/player_list/player_list_view/views/contract/player_list_view_contract.tscn
 msgid "Is on loan"
-msgstr ""
+msgstr "Ist ausgeliehen"
 
 #: src/ui_components/player_list/player_list_view/views/contract/player_list_view_contract.tscn
 msgid "Bonus continental cup"
-msgstr ""
+msgstr "Kontinentaler Bonuspokal"
 
 #: src/ui_components/player_list/player_list_view/views/contract/player_list_view_contract.tscn
 msgid "Bonus national cup"
-msgstr ""
+msgstr "Nationaler Bonuspokal"
 
 #~ msgid "Subs"
 #~ msgstr "Auswechel"
