@@ -13,7 +13,7 @@ const FONT_SIZE_MAX: int = 26
 
 const SCALE_1: float = 0.75
 const SCALE_2: float = 1.0
-const SCALE_3: float = 1.50
+const SCALE_3: float = 1.25
 
 #
 # Match Engine

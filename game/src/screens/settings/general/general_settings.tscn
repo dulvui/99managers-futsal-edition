@@ -1,4 +1,4 @@
-[gd_scene load_steps=7 format=3 uid="uid://cywaob6jab2pj"]
+[gd_scene load_steps=8 format=3 uid="uid://cywaob6jab2pj"]
 
 [ext_resource type="LabelSettings" uid="uid://cc2vi4onhgmnw" path="res://theme_base/label/label_settings_bold.tres" id="1_6o6h0"]
 [ext_resource type="Script" uid="uid://ciy03xjqjdkwp" path="res://src/screens/settings/general/general_settings.gd" id="1_gl78q"]
@@ -6,6 +6,8 @@
 [ext_resource type="Script" uid="uid://cnyyowwlb04kl" path="res://src/ui_components/base/defaults/default_button.gd" id="3_n2piq"]
 [ext_resource type="LabelSettings" uid="uid://c5yfa40ut1pyv" path="res://theme_base/label/label_settings.tres" id="4_jbix3"]
 [ext_resource type="PackedScene" uid="uid://can4wvc3g3b84" path="res://src/screens/settings/theme_picker/theme_picker.tscn" id="6_ryj47"]
+
+[sub_resource type="ButtonGroup" id="ButtonGroup_1qk6n"]
 
 [node name="General" type="VBoxContainer"]
 anchors_preset = -1
@@ -109,30 +111,39 @@ size_flags_horizontal = 3
 text = "Scale"
 
 [node name="Scale1" type="Button" parent="Interface/Scale"]
+unique_name_in_owner = true
 auto_translate_mode = 2
 custom_minimum_size = Vector2(70, 0)
 layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 4
+toggle_mode = true
+button_group = SubResource("ButtonGroup_1qk6n")
 text = "75%"
 script = ExtResource("3_n2piq")
 
 [node name="Scale2" type="Button" parent="Interface/Scale"]
+unique_name_in_owner = true
 auto_translate_mode = 2
 custom_minimum_size = Vector2(70, 0)
 layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 4
+toggle_mode = true
+button_group = SubResource("ButtonGroup_1qk6n")
 text = "100%"
 script = ExtResource("3_n2piq")
 
 [node name="Scale3" type="Button" parent="Interface/Scale"]
+unique_name_in_owner = true
 auto_translate_mode = 2
 custom_minimum_size = Vector2(70, 0)
 layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 4
-text = "150%"
+toggle_mode = true
+button_group = SubResource("ButtonGroup_1qk6n")
+text = "125%"
 script = ExtResource("3_n2piq")
 
 [node name="ScreenFade" type="HBoxContainer" parent="Interface"]

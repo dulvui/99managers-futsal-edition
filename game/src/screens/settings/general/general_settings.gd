@@ -10,6 +10,9 @@ extends VBoxContainer
 @onready var font_size_spinbox: SpinBox = %FontSizeSpinBox
 @onready var screen_fade_button: CheckButton = %ScreenFadeButton
 @onready var theme_picker: ThemePicker = %ThemePicker
+@onready var scale_button_1: DefaultButton = %Scale1
+@onready var scale_button_2: DefaultButton = %Scale2
+@onready var scale_button_3: DefaultButton = %Scale3
 
 
 func _ready() -> void:
@@ -21,6 +24,10 @@ func _ready() -> void:
 
 	ui_sfx_volume.value = SoundUtil.get_bus_volume(SoundUtil.AudioBus.UI_SFX)
 	screen_fade_button.button_pressed = Global.config.scene_fade
+
+	scale_button_1.button_pressed = Global.config.theme_scale == Const.SCALE_1
+	scale_button_2.button_pressed = Global.config.theme_scale == Const.SCALE_2
+	scale_button_3.button_pressed = Global.config.theme_scale == Const.SCALE_3
 
 
 func restore_defaults() -> void:
