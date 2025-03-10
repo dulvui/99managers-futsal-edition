@@ -119,7 +119,7 @@ func _ready() -> void:
 	label_settings_title = ResourceLoader.load(LABEL_SETTINGS_TITLE_FILE, "LabelSettings")
 	label_settings_outline = ResourceLoader.load(LABEL_SETTINGS_OUTLINE_FILE, "LabelSettings")
 
-	# label settings for ColorLabel
+	# label settings for colored labels
 	label_settings_low = label_settings_outline.duplicate(true)
 	label_settings_low.outline_color = Color.RED
 	label_settings_mid = label_settings_outline.duplicate(true)
@@ -213,6 +213,18 @@ func remove_title(label: Label) -> void:
 func bold(label: Label, condition: bool = true) -> void:
 	if condition:
 		label.label_settings = label_settings_bold
+
+
+func color_number(label: Label, value: Variant, tooltip_text: String) -> void:
+	label.text = str(value)
+	label.tooltip_text = tooltip_text
+
+	if value < 11:
+		label_settings = label_settings_low
+	elif value < 16:
+		label_settings = label_settings_mid
+	else:
+		label_settings = label_settings_high
 
 
 func remove_bold(label: Label) -> void:
@@ -343,6 +355,7 @@ func _apply_configuration(p_configuration: ThemeConfiguration) -> void:
 	theme.set_color("font_selected_color", "Tree", configuration.font_color_variation.focus)
 	theme.set_color("font_outline_color", "Tree", configuration.font_color_variation.hover)
 	theme.set_color("font_disabled_color", "Tree", configuration.font_color_variation.disabled)
+	theme.set_color("font_hovered_color", "Tree", configuration.font_color_variation.hover)
 
 	# tab container
 	theme.set_color("font_selected_color", "TabContainer", configuration.font_color)
