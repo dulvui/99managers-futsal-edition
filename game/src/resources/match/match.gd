@@ -113,6 +113,13 @@ func get_result() -> String:
 	return "%d(%d) : (%d)%d" % [home_goals, home_penalties_goals, away_penalties_goals, away_goals]
 
 
+# checks if match is played by active team
+func has_active_team() -> bool:
+	if Global.team == null:
+		return false
+	return Global.team.id == home.id or Global.team.id == away.id
+
+
 func inverted(is_second_leg: bool = false) -> Match:
 	var inverted_match: Match = Match.new()
 	inverted_match.setup(away, home, competition_id, competition_name)

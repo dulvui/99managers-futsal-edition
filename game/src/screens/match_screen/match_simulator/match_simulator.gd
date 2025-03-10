@@ -73,7 +73,7 @@ func setup(matchz: Match, p_home_team: Team = null, p_away_team: Team = null) ->
 	engine.setup(matchz, p_home_team, p_away_team)
 	engine.goal.connect(_on_engine_key_action.bind(true))
 	engine.key_action.connect(_on_engine_key_action.bind(false))
-	engine.match_finish.connect(_on_engine_match_finish.bind(false))
+	engine.match_finish.connect(_on_engine_match_finish)
 
 	# setup visual match
 	visual_match.setup(self)
