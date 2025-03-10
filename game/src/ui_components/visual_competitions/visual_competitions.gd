@@ -17,13 +17,14 @@ var competition: Competition
 var season_index: int
 var season_amount: int
 
-@onready var active_button: Button = %ActiveButton
+@onready var active_league_button: Button = %ActiveLeagueButton
 @onready var seasons_button: SwitchOptionButton = %SeasonsButton
 @onready var competition_name: Label = %CompetitionName
 
 @onready var overview: VBoxContainer = %Overview
+@onready var overview_scroll: ScrollContainer = %OverviewScroll
 @onready var match_list: VBoxContainer = %MatchList
-@onready var match_scroll_list: ScrollContainer = %MatchScrollList
+@onready var match_scroll: ScrollContainer = %MatchListScroll
 @onready var competitions_tree: CompetitionsTree = %CompetitionsTree
 
 
@@ -34,7 +35,7 @@ func _ready() -> void:
 	season_index = Global.league.tables.size() - 1
 	season_amount = Global.league.tables.size()
 
-	active_button.text = Global.league.name
+	active_league_button.text = Global.league.name
 
 	_setup_seasons()
 	competition = Global.league
@@ -49,6 +50,12 @@ func _setup() -> void:
 	# clean match list
 	for child: Node in match_list.get_children():
 		child.queue_free()
+	
+	# reset scroll position
+	match_scroll.scroll_horizontal = 0
+	match_scroll.scroll_vertical = 0
+	overview_scroll.scroll_horizontal = 0
+	overview_scroll.scroll_vertical = 0
 	
 	# overview
 	competition_name.text = competition.name

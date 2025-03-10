@@ -21,7 +21,7 @@ func setup(day: Day, competition: Competition = Global.league) -> void:
 
 	all_matches = []
 
-	# reset scroll posiiton
+	# reset scroll position
 	scroll_container.scroll_horizontal = 0
 	scroll_container.scroll_vertical = 0
 

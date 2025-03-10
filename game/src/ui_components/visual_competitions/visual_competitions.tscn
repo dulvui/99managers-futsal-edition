@@ -22,59 +22,88 @@ script = ExtResource("2_5cr6f")
 [node name="Main" type="VBoxContainer" parent="."]
 layout_mode = 2
 size_flags_horizontal = 3
-theme_override_constants/separation = 35
+theme_override_constants/separation = 15
 
-[node name="CompetitionName" type="Label" parent="Main"]
+[node name="Top Bar" type="HBoxContainer" parent="Main"]
+layout_mode = 2
+theme_override_constants/separation = 15
+
+[node name="CompetitionName" type="Label" parent="Main/Top Bar"]
 unique_name_in_owner = true
 auto_translate_mode = 2
+custom_minimum_size = Vector2(240, 0)
 layout_mode = 2
 text = "Competition"
 label_settings = ExtResource("3_mir7s")
-horizontal_alignment = 1
 
-[node name="Overview" type="VBoxContainer" parent="Main"]
+[node name="SeasonsButton" parent="Main/Top Bar" instance=ExtResource("3_88ilj")]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(240, 0)
+layout_mode = 2
+
+[node name="ActiveLeagueButton" type="Button" parent="Main/Top Bar"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(240, 0)
+layout_mode = 2
+text = "League"
+script = ExtResource("3_6km1j")
+
+[node name="ActiveNationalCup" type="Button" parent="Main/Top Bar"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(240, 0)
+layout_mode = 2
+text = "Natioinal cup"
+script = ExtResource("3_6km1j")
+
+[node name="ActiveContinentalCup" type="Button" parent="Main/Top Bar"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(240, 0)
+layout_mode = 2
+text = "Continental cup"
+script = ExtResource("3_6km1j")
+
+[node name="OverviewScroll" type="ScrollContainer" parent="Main"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(0, 350)
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="Overview" type="VBoxContainer" parent="Main/OverviewScroll"]
 unique_name_in_owner = true
 layout_mode = 2
 size_flags_horizontal = 3
+size_flags_vertical = 3
 
 [node name="Matches" type="Label" parent="Main"]
 layout_mode = 2
 text = "Matches"
 label_settings = ExtResource("3_mir7s")
-horizontal_alignment = 1
 
-[node name="MatchScrollList" type="ScrollContainer" parent="Main"]
+[node name="MatchListScroll" type="ScrollContainer" parent="Main"]
 unique_name_in_owner = true
 layout_mode = 2
 size_flags_vertical = 3
 
-[node name="MatchList" type="VBoxContainer" parent="Main/MatchScrollList"]
+[node name="MatchList" type="VBoxContainer" parent="Main/MatchListScroll"]
 unique_name_in_owner = true
 layout_mode = 2
 size_flags_horizontal = 6
-size_flags_vertical = 3
-theme_override_constants/separation = 15
 alignment = 1
 
 [node name="Competitions" type="VBoxContainer" parent="."]
 layout_mode = 2
 
-[node name="SeasonsButton" parent="Competitions" instance=ExtResource("3_88ilj")]
-unique_name_in_owner = true
-custom_minimum_size = Vector2(0, 0)
+[node name="Title" type="Label" parent="Competitions"]
 layout_mode = 2
-size_flags_horizontal = 3
-
-[node name="ActiveButton" type="Button" parent="Competitions"]
-unique_name_in_owner = true
-layout_mode = 2
-text = "League"
-script = ExtResource("3_6km1j")
+text = "Competitions"
+label_settings = ExtResource("3_mir7s")
 
 [node name="CompetitionsTree" parent="Competitions" instance=ExtResource("4_113m2")]
 unique_name_in_owner = true
+custom_minimum_size = Vector2(400, 0)
 layout_mode = 2
+size_flags_horizontal = 1
 
-[connection signal="item_selected" from="Competitions/SeasonsButton" to="." method="_on_seasons_button_item_selected"]
-[connection signal="pressed" from="Competitions/ActiveButton" to="." method="_on_active_button_pressed"]
+[connection signal="item_selected" from="Main/Top Bar/SeasonsButton" to="." method="_on_seasons_button_item_selected"]
+[connection signal="pressed" from="Main/Top Bar/ActiveLeagueButton" to="." method="_on_active_button_pressed"]
 [connection signal="competition_selected" from="Competitions/CompetitionsTree" to="." method="_on_competitions_tree_competition_selected"]

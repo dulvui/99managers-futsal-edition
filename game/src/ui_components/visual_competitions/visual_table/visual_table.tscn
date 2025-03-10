@@ -24,6 +24,7 @@ label_settings = ExtResource("2_ia1mi")
 [node name="Team" type="Label" parent="."]
 custom_minimum_size = Vector2(240, 0)
 layout_mode = 2
+size_flags_horizontal = 3
 text = "Team"
 label_settings = ExtResource("2_ia1mi")
 
