@@ -173,6 +173,7 @@ layout_mode = 2
 unique_name_in_owner = true
 auto_translate_mode = 2
 layout_mode = 2
+tooltip_text = "Fouls commited"
 text = "(0)"
 
 [node name="HomeNameLabel" type="Label" parent="Main/Content/TopBar/TimeBar/Info"]
@@ -204,6 +205,7 @@ horizontal_alignment = 2
 unique_name_in_owner = true
 auto_translate_mode = 2
 layout_mode = 2
+tooltip_text = "Fouls commited"
 text = "(0)"
 
 [node name="AwayColor" type="ColorRect" parent="Main/Content/TopBar/TimeBar/Info"]
