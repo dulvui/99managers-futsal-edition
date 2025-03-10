@@ -13,6 +13,7 @@ func test() -> void:
 	var generator: Generator = Generator.new()
 	# generate world
 	var world: World = generator.generate_world()
+
 	assert(world.continents.size() > 0)
 
 	# generate players

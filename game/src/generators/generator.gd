@@ -52,15 +52,14 @@ var max_timestamp: int
 var min_timestamp: int
 
 
-func generate_world(use_test_file: bool = false) -> World:
+func generate_world(world_file_path: String = WORLD_CSV_PATH) -> World:
+	var file: FileAccess = FileAccess.open(world_file_path, FileAccess.READ)
+	if file == null:
+		print("error while opening world file at %s" % world_file_path)
+		return null
+
 	var world: World = World.new()
 	world.calendar.initialize()
-
-	var world_csv: String = WORLD_CSV_PATH
-	if use_test_file:
-		world_csv = TEST_WORLD_CSV_PATH
-
-	var file: FileAccess = FileAccess.open(world_csv, FileAccess.READ)
 
 	# get header row
 	# CONTINENT, NATION, CITY, POPULATION

@@ -7,6 +7,7 @@ extends Control
 const DEFAULT_SEED: String = "289636-522140-666834"
 
 var generation_seed: String = DEFAULT_SEED
+var custom_file_path: String = ""
 
 # manager
 @onready var nations: OptionButton = %Nationality
@@ -16,6 +17,7 @@ var generation_seed: String = DEFAULT_SEED
 @onready var player_names_option: OptionButton = %PlayerNames
 @onready var start_year_spinbox: SpinBox = %StartYear
 @onready var generation_seed_edit: LineEdit = %GeneratedSeedLineEdit
+@onready var file_dialog: FileDialog = %FileDialog
 
 @onready var continue_button: Button = %Continue
 
@@ -89,7 +91,8 @@ func _on_continue_pressed() -> void:
 
 	LoadingUtil.start(tr("Generating teams and players"), LoadingUtil.Type.GENERATION, true)
 	Main.show_loading_screen(Const.SCREEN_SETUP_TEAM)
-	ThreadUtil.generate_world()
+
+	ThreadUtil.generate_world(custom_file_path)
 
 
 func _on_name_text_changed(_new_text: String) -> void:
@@ -100,5 +103,18 @@ func _on_surame_text_changed(_new_text: String) -> void:
 	continue_button.disabled = manager_name.text.length() * manager_surname.text.length() == 0
 
 
+func _on_custom_file_buttom_pressed() -> void:
+	file_dialog.popup_centered()
+
+
+func _on_file_dialog_file_selected(path: String) -> void:
+	custom_file_path = path
+	print("custom_file_path")
+	print(custom_file_path)
+
+
 func _on_back_pressed() -> void:
 	Main.change_scene(Const.SCREEN_MENU)
+
+
+

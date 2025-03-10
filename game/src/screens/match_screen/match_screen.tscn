@@ -88,43 +88,52 @@ layout_mode = 2
 [node name="HomeFouls" type="Label" parent="Main/Content/TopBar/PanelContainer/Info"]
 unique_name_in_owner = true
 auto_translate_mode = 2
+custom_minimum_size = Vector2(38, 0)
 layout_mode = 2
 tooltip_text = "Fouls commited"
 mouse_filter = 0
 text = "(0)"
+horizontal_alignment = 1
 
 [node name="HomeNameLabel" type="Label" parent="Main/Content/TopBar/PanelContainer/Info"]
 unique_name_in_owner = true
-custom_minimum_size = Vector2(100, 0)
+custom_minimum_size = Vector2(82, 0)
 layout_mode = 2
 text = "Home"
 label_settings = ExtResource("5_2mnrh")
 text_overrun_behavior = 3
+ellipsis_char = ""
+uppercase = true
 
 [node name="Result" type="Label" parent="Main/Content/TopBar/PanelContainer/Info"]
 unique_name_in_owner = true
 auto_translate_mode = 2
-custom_minimum_size = Vector2(75, 0)
+custom_minimum_size = Vector2(60, 0)
 layout_mode = 2
-text = "0:0"
+text = "99:99"
 label_settings = ExtResource("5_2mnrh")
 horizontal_alignment = 1
+uppercase = true
 
 [node name="AwayNameLabel" type="Label" parent="Main/Content/TopBar/PanelContainer/Info"]
 unique_name_in_owner = true
-custom_minimum_size = Vector2(100, 0)
+custom_minimum_size = Vector2(82, 0)
 layout_mode = 2
 text = "Away"
 label_settings = ExtResource("5_2mnrh")
 horizontal_alignment = 2
+ellipsis_char = ""
+uppercase = true
 
 [node name="AwayFouls" type="Label" parent="Main/Content/TopBar/PanelContainer/Info"]
 unique_name_in_owner = true
 auto_translate_mode = 2
+custom_minimum_size = Vector2(38, 0)
 layout_mode = 2
 tooltip_text = "Fouls commited"
 mouse_filter = 0
 text = "(0)"
+horizontal_alignment = 1
 
 [node name="AwayColor" type="ColorRect" parent="Main/Content/TopBar/PanelContainer/Info"]
 unique_name_in_owner = true

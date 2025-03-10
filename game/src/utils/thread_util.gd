@@ -25,11 +25,11 @@ func load_data() -> void:
 	thread.start(_load_data)
 
 
-func generate_world() -> void:
+func generate_world(world_file_path: String = "") -> void:
 	if thread and thread.is_started():
 		print("thread is already running")
 		return
-	thread.start(_generate_world, Thread.Priority.PRIORITY_HIGH)
+	thread.start(_generate_world.bind(world_file_path), Thread.Priority.PRIORITY_HIGH)
 
 
 func random_results() -> void:
@@ -51,11 +51,11 @@ func _load_data() -> void:
 	call_deferred("_loading_done")
 
 
-func _generate_world() -> void:
+func _generate_world(world_file_path: String) -> void:
 	print("generating world in thread...")
 	# create world, teams and players
 	var generator: Generator = Generator.new()
-	var world: World = generator.generate_world()
+	var world: World = generator.generate_world(world_file_path)
 	generator.generate_players(world)
 
 	# create matches

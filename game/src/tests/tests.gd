@@ -80,7 +80,7 @@ static func find_next_matchday() -> void:
 static func create_mock_world(use_test_file: bool) -> World:
 	if use_test_file:
 		var generator: Generator = Generator.new()
-		return generator.generate_world(true)
+		return generator.generate_world(Generator.TEST_WORLD_CSV_PATH)
 
 	var world: World = World.new()
 	world.calendar.initialize()

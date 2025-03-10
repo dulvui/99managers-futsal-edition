@@ -130,6 +130,14 @@ min_value = 2000.0
 max_value = 3000.0
 value = 2000.0
 
+[node name="CustomFileLabel" type="Label" parent="VBoxContainer/Settings/Container"]
+layout_mode = 2
+text = "Custom world file"
+
+[node name="CustomFileButtom" type="Button" parent="VBoxContainer/Settings/Container"]
+layout_mode = 2
+text = "Load"
+
 [node name="Seed" type="VBoxContainer" parent="VBoxContainer"]
 layout_mode = 2
 
@@ -192,10 +200,24 @@ text = "Continue"
 script = ExtResource("3_g76wv")
 metadata/_edit_use_anchors_ = true
 
+[node name="FileDialog" type="FileDialog" parent="."]
+unique_name_in_owner = true
+title = "Open a File"
+size = Vector2i(1200, 600)
+ok_button_text = "Open"
+file_mode = 0
+access = 2
+filters = PackedStringArray("*.csv")
+use_native_dialog = true
+
 [connection signal="text_changed" from="VBoxContainer/Manager/Manager/Container/Name" to="." method="_on_name_text_changed"]
 [connection signal="text_changed" from="VBoxContainer/Manager/Manager/Container/Surname" to="." method="_on_surame_text_changed"]
+[connection signal="pressed" from="VBoxContainer/Settings/Container/CustomFileButtom" to="." method="_on_custom_file_buttom_pressed"]
 [connection signal="pressed" from="VBoxContainer/Seed/GridContainer/GenearateSeedButton" to="." method="_on_genearate_seed_button_pressed"]
 [connection signal="text_changed" from="VBoxContainer/Seed/GridContainer/GeneratedSeedLineEdit" to="." method="_on_generated_seed_line_edit_text_changed"]
 [connection signal="pressed" from="VBoxContainer/Seed/GridContainer/DefaultSeedButton" to="." method="_on_default_seed_button_pressed"]
 [connection signal="pressed" from="VBoxContainer/Buttons/Back" to="." method="_on_back_pressed"]
 [connection signal="pressed" from="VBoxContainer/Buttons/Continue" to="." method="_on_continue_pressed"]
+[connection signal="canceled" from="FileDialog" to="." method="_on_file_dialog_canceled"]
+[connection signal="confirmed" from="FileDialog" to="." method="_on_file_dialog_confirmed"]
+[connection signal="file_selected" from="FileDialog" to="." method="_on_file_dialog_file_selected"]
