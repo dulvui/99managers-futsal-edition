@@ -41,6 +41,11 @@ func _setup() -> void:
 	# clean scroll container
 	for child: Node in main.get_children():
 		child.queue_free()
+	
+	var name_label: Label = Label.new()
+	name_label.text = competition.name
+	ThemeUtil.title(name_label)
+	main.add_child(name_label)
 
 	if competition is League:
 		var league: League = competition as League

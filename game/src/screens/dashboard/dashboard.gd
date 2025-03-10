@@ -111,6 +111,8 @@ func _on_search_action() -> void:
 			player_list.search_line_edit.grab_focus()
 		ContentViews.ALL_PLAYERS:
 			all_players_list.search_line_edit.grab_focus()
+		ContentViews.COMPETITIONS:
+			competitions.competitions_tree.search_line_edit.grab_focus()
 		_:
 			return
 
