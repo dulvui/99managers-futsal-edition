@@ -62,7 +62,7 @@ func setup(table: Table) -> void:
 		if difference >= 0:
 			goals_difference.text = "+%d" % difference
 		else:
-			goals_difference.text = "-%d" % difference
+			goals_difference.text = "%d" % difference
 		dynamic_content.append(goals_difference)
 
 		var goals_made_label: Label = Label.new()
@@ -98,21 +98,22 @@ func _form_row(team_id: int, forms: Array[TableValues.Form]) -> HBoxContainer:
 		var form: TableValues.Form = forms[i]
 		var label: Label = Label.new()
 		label.horizontal_alignment = HORIZONTAL_ALIGNMENT_CENTER
+		label.mouse_filter = Control.MOUSE_FILTER_PASS
 
 		if team_id == Global.team.id:
 			ThemeUtil.bold(label)
 
 		if form == TableValues.Form.WIN:
-			label.text = tr("Win").substr(0, 1)
-			label.tooltip_text = tr("Win")
+			label.text = tr("Victory").substr(0, 1)
+			label.tooltip_text = tr("Victory")
 			label.label_settings = ThemeUtil.label_settings_high
 		elif form == TableValues.Form.DRAW:
 			label.text = tr("Draw").substr(0, 1)
 			label.tooltip_text = tr("Draw")
 			label.label_settings = ThemeUtil.label_settings_mid
 		else:
-			label.text = tr("Lost").substr(0, 1)
-			label.tooltip_text = tr("Lost")
+			label.text = tr("Defeat").substr(0, 1)
+			label.tooltip_text = tr("Defeat")
 			label.label_settings = ThemeUtil.label_settings_low
 
 		box.add_child(label)
@@ -124,8 +125,9 @@ func _form_row(team_id: int, forms: Array[TableValues.Form]) -> HBoxContainer:
 			if team_id == Global.team.id:
 				ThemeUtil.bold(label)
 			label.horizontal_alignment = HORIZONTAL_ALIGNMENT_CENTER
-			label.text = tr("Not played yet").substr(0, 1)
-			label.tooltip_text = tr("Not played yet")
+			label.mouse_filter = Control.MOUSE_FILTER_PASS
+			label.text = "?" # NO_TRANSLATE
+			label.tooltip_text = tr("To be played")
 			box.add_child(label)
 	
 	return box

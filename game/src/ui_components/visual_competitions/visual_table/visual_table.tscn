@@ -77,7 +77,7 @@ visible_ratio = 0.75
 [node name="GoalDifference" type="Label" parent="."]
 custom_minimum_size = Vector2(40, 0)
 layout_mode = 2
-tooltip_text = "Goals"
+tooltip_text = "Goal difference"
 mouse_filter = 1
 text = "Difference"
 label_settings = ExtResource("2_ia1mi")
@@ -87,7 +87,7 @@ visible_characters = 3
 visible_ratio = 0.3
 
 [node name="Goals" type="Label" parent="."]
-custom_minimum_size = Vector2(40, 0)
+custom_minimum_size = Vector2(80, 0)
 layout_mode = 2
 tooltip_text = "Goals"
 mouse_filter = 1
@@ -95,12 +95,14 @@ text = "Goals"
 label_settings = ExtResource("2_ia1mi")
 horizontal_alignment = 1
 text_overrun_behavior = 1
-visible_characters = 3
-visible_ratio = 0.6
+visible_characters = 6
+visible_ratio = 1.2
 
 [node name="Form" type="Label" parent="."]
 custom_minimum_size = Vector2(100, 0)
 layout_mode = 2
+tooltip_text = "Form"
+mouse_filter = 1
 text = "Form"
 label_settings = ExtResource("2_ia1mi")
 
