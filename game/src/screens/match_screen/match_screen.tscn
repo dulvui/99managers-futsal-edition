@@ -44,20 +44,100 @@ theme_override_constants/margin_bottom = 40
 layout_mode = 2
 theme_override_constants/separation = 40
 
-[node name="TopBar" type="VBoxContainer" parent="Main/Content"]
+[node name="TopBar" type="HBoxContainer" parent="Main/Content"]
 layout_mode = 2
 theme_override_constants/separation = 15
 
-[node name="Buttons" type="HBoxContainer" parent="Main/Content/TopBar"]
+[node name="PanelContainer" type="PanelContainer" parent="Main/Content/TopBar"]
 layout_mode = 2
+
+[node name="Info" type="HBoxContainer" parent="Main/Content/TopBar/PanelContainer"]
+layout_mode = 2
+theme_override_constants/separation = 15
 alignment = 1
 
-[node name="Left" type="HBoxContainer" parent="Main/Content/TopBar/Buttons"]
+[node name="TimeBar" type="ProgressBar" parent="Main/Content/TopBar/PanelContainer/Info"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(140, 32)
+layout_mode = 2
+max_value = 2400.0
+step = 1.0
+show_percentage = false
+
+[node name="Time" type="Label" parent="Main/Content/TopBar/PanelContainer/Info/TimeBar"]
+unique_name_in_owner = true
+auto_translate_mode = 2
+custom_minimum_size = Vector2(100, 0)
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 10
+text = "00:00"
+label_settings = ExtResource("5_2mnrh")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="HomeColor" type="ColorRect" parent="Main/Content/TopBar/PanelContainer/Info"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(30, 30)
+layout_mode = 2
+
+[node name="HomeFouls" type="Label" parent="Main/Content/TopBar/PanelContainer/Info"]
+unique_name_in_owner = true
+auto_translate_mode = 2
+layout_mode = 2
+tooltip_text = "Fouls commited"
+mouse_filter = 0
+text = "(0)"
+
+[node name="HomeNameLabel" type="Label" parent="Main/Content/TopBar/PanelContainer/Info"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(100, 0)
+layout_mode = 2
+text = "Home"
+label_settings = ExtResource("5_2mnrh")
+text_overrun_behavior = 3
+
+[node name="Result" type="Label" parent="Main/Content/TopBar/PanelContainer/Info"]
+unique_name_in_owner = true
+auto_translate_mode = 2
+custom_minimum_size = Vector2(75, 0)
+layout_mode = 2
+text = "0:0"
+label_settings = ExtResource("5_2mnrh")
+horizontal_alignment = 1
+
+[node name="AwayNameLabel" type="Label" parent="Main/Content/TopBar/PanelContainer/Info"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(100, 0)
+layout_mode = 2
+text = "Away"
+label_settings = ExtResource("5_2mnrh")
+horizontal_alignment = 2
+
+[node name="AwayFouls" type="Label" parent="Main/Content/TopBar/PanelContainer/Info"]
+unique_name_in_owner = true
+auto_translate_mode = 2
+layout_mode = 2
+tooltip_text = "Fouls commited"
+mouse_filter = 0
+text = "(0)"
+
+[node name="AwayColor" type="ColorRect" parent="Main/Content/TopBar/PanelContainer/Info"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(30, 30)
+layout_mode = 2
+
+[node name="Center" type="HBoxContainer" parent="Main/Content/TopBar"]
 layout_mode = 2
 size_flags_horizontal = 3
 theme_override_constants/separation = 5
+alignment = 1
 
-[node name="OverviewButton" type="Button" parent="Main/Content/TopBar/Buttons/Left"]
+[node name="OverviewButton" type="Button" parent="Main/Content/TopBar/Center"]
 unique_name_in_owner = true
 custom_minimum_size = Vector2(180, 0)
 layout_mode = 2
@@ -66,18 +146,31 @@ size_flags_vertical = 4
 text = "Overview"
 script = ExtResource("4_fwmog")
 
-[node name="Center" type="HBoxContainer" parent="Main/Content/TopBar/Buttons"]
+[node name="PauseButton" type="Button" parent="Main/Content/TopBar/Center"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(180, 0)
 layout_mode = 2
-size_flags_horizontal = 3
-theme_override_constants/separation = 5
-alignment = 1
+size_flags_horizontal = 4
+size_flags_vertical = 4
+text = "Pause"
+script = ExtResource("4_fwmog")
 
-[node name="Speed" type="HBoxContainer" parent="Main/Content/TopBar/Buttons/Center"]
+[node name="Right" type="HBoxContainer" parent="Main/Content/TopBar"]
+layout_mode = 2
+theme_override_constants/separation = 5
+alignment = 2
+
+[node name="PanelContainer" type="PanelContainer" parent="Main/Content/TopBar/Right"]
+custom_minimum_size = Vector2(240, 0)
+layout_mode = 2
+size_flags_vertical = 4
+
+[node name="Speed" type="HBoxContainer" parent="Main/Content/TopBar/Right/PanelContainer"]
 layout_mode = 2
 theme_override_constants/separation = 20
 alignment = 1
 
-[node name="SlowerButton" type="Button" parent="Main/Content/TopBar/Buttons/Center/Speed"]
+[node name="SlowerButton" type="Button" parent="Main/Content/TopBar/Right/PanelContainer/Speed"]
 unique_name_in_owner = true
 auto_translate_mode = 2
 custom_minimum_size = Vector2(50, 0)
@@ -87,12 +180,13 @@ size_flags_vertical = 4
 text = "<"
 script = ExtResource("4_fwmog")
 
-[node name="SpeedFactor" type="Label" parent="Main/Content/TopBar/Buttons/Center/Speed"]
+[node name="SpeedFactor" type="Label" parent="Main/Content/TopBar/Right/PanelContainer/Speed"]
 unique_name_in_owner = true
 layout_mode = 2
+size_flags_horizontal = 3
 text = "Full game"
 
-[node name="FasterButton" type="Button" parent="Main/Content/TopBar/Buttons/Center/Speed"]
+[node name="FasterButton" type="Button" parent="Main/Content/TopBar/Right/PanelContainer/Speed"]
 unique_name_in_owner = true
 auto_translate_mode = 2
 custom_minimum_size = Vector2(50, 0)
@@ -102,21 +196,7 @@ size_flags_vertical = 4
 text = ">"
 script = ExtResource("4_fwmog")
 
-[node name="PauseButton" type="Button" parent="Main/Content/TopBar/Buttons/Center"]
-unique_name_in_owner = true
-custom_minimum_size = Vector2(180, 0)
-layout_mode = 2
-size_flags_horizontal = 4
-size_flags_vertical = 4
-text = "Pause"
-script = ExtResource("4_fwmog")
-
-[node name="Right" type="HBoxContainer" parent="Main/Content/TopBar/Buttons"]
-layout_mode = 2
-theme_override_constants/separation = 5
-alignment = 2
-
-[node name="SimulateButton" type="Button" parent="Main/Content/TopBar/Buttons/Right"]
+[node name="SimulateButton" type="Button" parent="Main/Content/TopBar/Right"]
 unique_name_in_owner = true
 custom_minimum_size = Vector2(180, 0)
 layout_mode = 2
@@ -125,7 +205,7 @@ size_flags_vertical = 4
 text = "Simulate"
 script = ExtResource("4_fwmog")
 
-[node name="DashboardButton" type="Button" parent="Main/Content/TopBar/Buttons/Right"]
+[node name="DashboardButton" type="Button" parent="Main/Content/TopBar/Right"]
 unique_name_in_owner = true
 visible = false
 custom_minimum_size = Vector2(180, 0)
@@ -134,89 +214,6 @@ size_flags_horizontal = 4
 size_flags_vertical = 4
 text = "Dashboard"
 script = ExtResource("4_fwmog")
-
-[node name="TimeBar" type="ProgressBar" parent="Main/Content/TopBar"]
-unique_name_in_owner = true
-custom_minimum_size = Vector2(0, 32)
-layout_mode = 2
-size_flags_horizontal = 3
-max_value = 2400.0
-step = 1.0
-show_percentage = false
-
-[node name="Info" type="HBoxContainer" parent="Main/Content/TopBar/TimeBar"]
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-theme_override_constants/separation = 15
-alignment = 1
-
-[node name="Time" type="Label" parent="Main/Content/TopBar/TimeBar/Info"]
-unique_name_in_owner = true
-auto_translate_mode = 2
-custom_minimum_size = Vector2(100, 0)
-layout_mode = 2
-size_flags_horizontal = 10
-text = "00:00"
-label_settings = ExtResource("5_2mnrh")
-vertical_alignment = 1
-
-[node name="HomeColor" type="ColorRect" parent="Main/Content/TopBar/TimeBar/Info"]
-unique_name_in_owner = true
-custom_minimum_size = Vector2(30, 30)
-layout_mode = 2
-
-[node name="HomeFouls" type="Label" parent="Main/Content/TopBar/TimeBar/Info"]
-unique_name_in_owner = true
-auto_translate_mode = 2
-layout_mode = 2
-tooltip_text = "Fouls commited"
-text = "(0)"
-
-[node name="HomeNameLabel" type="Label" parent="Main/Content/TopBar/TimeBar/Info"]
-unique_name_in_owner = true
-custom_minimum_size = Vector2(200, 0)
-layout_mode = 2
-text = "Home"
-label_settings = ExtResource("5_2mnrh")
-text_overrun_behavior = 3
-
-[node name="Result" type="Label" parent="Main/Content/TopBar/TimeBar/Info"]
-unique_name_in_owner = true
-auto_translate_mode = 2
-custom_minimum_size = Vector2(80, 0)
-layout_mode = 2
-text = "0 - 0"
-label_settings = ExtResource("5_2mnrh")
-horizontal_alignment = 1
-
-[node name="AwayNameLabel" type="Label" parent="Main/Content/TopBar/TimeBar/Info"]
-unique_name_in_owner = true
-custom_minimum_size = Vector2(200, 0)
-layout_mode = 2
-text = "Away"
-label_settings = ExtResource("5_2mnrh")
-horizontal_alignment = 2
-
-[node name="AwayFouls" type="Label" parent="Main/Content/TopBar/TimeBar/Info"]
-unique_name_in_owner = true
-auto_translate_mode = 2
-layout_mode = 2
-tooltip_text = "Fouls commited"
-text = "(0)"
-
-[node name="AwayColor" type="ColorRect" parent="Main/Content/TopBar/TimeBar/Info"]
-unique_name_in_owner = true
-custom_minimum_size = Vector2(30, 30)
-layout_mode = 2
-
-[node name="VSeparator" type="VSeparator" parent="Main/Content/TopBar/TimeBar/Info"]
-modulate = Color(1, 1, 1, 0)
-layout_mode = 2
-size_flags_horizontal = 3
 
 [node name="PenaltiesBar" parent="Main/Content" instance=ExtResource("6_8rfx8")]
 unique_name_in_owner = true
@@ -328,12 +325,12 @@ custom_text = "Do you want to simulate the whole match?"
 type = 0
 
 [connection signal="action_message" from="MatchSimulator" to="." method="_on_match_simulator_action_message"]
-[connection signal="pressed" from="Main/Content/TopBar/Buttons/Left/OverviewButton" to="." method="_on_overview_button_pressed"]
-[connection signal="pressed" from="Main/Content/TopBar/Buttons/Center/Speed/SlowerButton" to="." method="_on_slower_button_pressed"]
-[connection signal="pressed" from="Main/Content/TopBar/Buttons/Center/Speed/FasterButton" to="." method="_on_faster_button_pressed"]
-[connection signal="pressed" from="Main/Content/TopBar/Buttons/Center/PauseButton" to="." method="_on_pause_button_pressed"]
-[connection signal="pressed" from="Main/Content/TopBar/Buttons/Right/SimulateButton" to="." method="_on_simulate_button_pressed"]
-[connection signal="pressed" from="Main/Content/TopBar/Buttons/Right/DashboardButton" to="." method="_on_dashboard_button_pressed"]
+[connection signal="pressed" from="Main/Content/TopBar/Center/OverviewButton" to="." method="_on_overview_button_pressed"]
+[connection signal="pressed" from="Main/Content/TopBar/Center/PauseButton" to="." method="_on_pause_button_pressed"]
+[connection signal="pressed" from="Main/Content/TopBar/Right/PanelContainer/Speed/SlowerButton" to="." method="_on_slower_button_pressed"]
+[connection signal="pressed" from="Main/Content/TopBar/Right/PanelContainer/Speed/FasterButton" to="." method="_on_faster_button_pressed"]
+[connection signal="pressed" from="Main/Content/TopBar/Right/SimulateButton" to="." method="_on_simulate_button_pressed"]
+[connection signal="pressed" from="Main/Content/TopBar/Right/DashboardButton" to="." method="_on_dashboard_button_pressed"]
 [connection signal="change_request" from="Main/Content/MainView/Views/MarginContainer/Formation" to="." method="_on_formation_change_request"]
 [connection signal="change_request" from="Main/Content/BottomBar/PlayersBar" to="." method="_on_players_bar_change_request"]
 [connection signal="show_formation" from="Main/Content/BottomBar/PlayersBar" to="." method="_on_players_bar_show_formation"]

@@ -158,7 +158,7 @@ func _physics_process(_delta: float) -> void:
 		# update labels
 		home_possession.text = str(stats_entry.home_stats.possession) + " %"
 		away_possession.text = str(stats_entry.away_stats.possession) + " %"
-		result_label.text = "%d - %d" % [stats_entry.home_stats.goals, stats_entry.away_stats.goals]
+		result_label.text = "%d:%d" % [stats_entry.home_stats.goals, stats_entry.away_stats.goals]
 		home_fouls.text = "(%d)" % stats_entry.home_stats.fouls_count
 		away_fouls.text = "(%d)" % stats_entry.away_stats.fouls_count
 
