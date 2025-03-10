@@ -5,6 +5,7 @@
 class_name VisualCompetitions
 extends HBoxContainer
 
+const MatchInfoScene: PackedScene = preload(Const.SCENE_MATCH_INFO)
 const VisualTableScene: PackedScene = preload(
 	"res://src/ui_components/visual_competitions/visual_table/visual_table.tscn"
 )
@@ -16,9 +17,13 @@ var competition: Competition
 var season_index: int
 var season_amount: int
 
-@onready var main: VBoxContainer = %Main
 @onready var active_button: Button = %ActiveButton
 @onready var seasons_button: SwitchOptionButton = %SeasonsButton
+@onready var competition_name: Label = %CompetitionName
+
+@onready var overview: VBoxContainer = %Overview
+@onready var match_list: VBoxContainer = %MatchList
+@onready var match_scroll_list: ScrollContainer = %MatchScrollList
 @onready var competitions_tree: CompetitionsTree = %CompetitionsTree
 
 
@@ -38,19 +43,19 @@ func _ready() -> void:
 
 
 func _setup() -> void:
-	# clean scroll container
-	for child: Node in main.get_children():
+	# clean overview
+	for child: Node in overview.get_children():
+		child.queue_free()
+	# clean match list
+	for child: Node in match_list.get_children():
 		child.queue_free()
 	
-	var name_label: Label = Label.new()
-	name_label.text = competition.name
-	ThemeUtil.title(name_label)
-	main.add_child(name_label)
-
+	# overview
+	competition_name.text = competition.name
 	if competition is League:
 		var league: League = competition as League
 		var table: VisualTable = VisualTableScene.instantiate()
-		main.add_child(table)
+		overview.add_child(table)
 		table.setup(league.tables[season_index])
 	else:
 		var cup: Cup = competition as Cup
@@ -62,17 +67,29 @@ func _setup() -> void:
 			var index: int = cup.groups.find(group) + 1
 			group_label.text = tr("Group") + " " + str(index)
 			ThemeUtil.bold(group_label)
-			main.add_child(group_label)
+			overview.add_child(group_label)
 			# table
 			var table: VisualTable = VisualTableScene.instantiate()
-			main.add_child(table)
+			overview.add_child(table)
 			table.setup(group.table)
-			main.add_child(HSeparator.new())
+			overview.add_child(HSeparator.new())
 
 		# knockout
 		var knockout: VisualKnockout = VisualKnockoutScene.instantiate()
-		main.add_child(knockout)
+		overview.add_child(knockout)
 		knockout.setup(cup.knockout)
+
+	# matches
+	for day: Day in Global.world.calendar.get_all_matchdays_by_competition(competition.id):
+		var day_label: Label = Label.new()
+		day_label.text = day.to_format_string()
+		ThemeUtil.bold(day_label)
+		match_list.add_child(day_label)
+
+		for matchz: Match in day.get_matches(competition.id):
+			var match_info: MatchInfo = MatchInfoScene.instantiate()
+			match_list.add_child(match_info)
+			match_info.setup(matchz)
 
 
 func _setup_seasons() -> void:

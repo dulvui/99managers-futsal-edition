@@ -1,9 +1,10 @@
-[gd_scene load_steps=6 format=3 uid="uid://c7bh7ukttbkvu"]
+[gd_scene load_steps=7 format=3 uid="uid://c7bh7ukttbkvu"]
 
 [ext_resource type="Theme" uid="uid://pt1hrfiuwfpg" path="res://theme_base/theme.tres" id="1_k4jv8"]
 [ext_resource type="Script" uid="uid://b0wlktxltvwm3" path="res://src/ui_components/visual_competitions/visual_competitions.gd" id="2_5cr6f"]
 [ext_resource type="Script" uid="uid://cnyyowwlb04kl" path="res://src/ui_components/base/defaults/default_button.gd" id="3_6km1j"]
 [ext_resource type="PackedScene" uid="uid://b2mwv4cl5sm6t" path="res://src/ui_components/base/swtich_option_button/switch_option_button.tscn" id="3_88ilj"]
+[ext_resource type="LabelSettings" uid="uid://b4gu78rjvdfx4" path="res://theme_base/label/label_settings_title.tres" id="3_mir7s"]
 [ext_resource type="PackedScene" uid="uid://cw32i6hnqrgbi" path="res://src/ui_components/tree_overviews/competition_tree/competitions_tree.tscn" id="4_113m2"]
 
 [node name="VisualCompetitions" type="HBoxContainer"]
@@ -18,15 +19,42 @@ theme = ExtResource("1_k4jv8")
 theme_override_constants/separation = 15
 script = ExtResource("2_5cr6f")
 
-[node name="ScrollContainer" type="ScrollContainer" parent="."]
+[node name="Main" type="VBoxContainer" parent="."]
 layout_mode = 2
 size_flags_horizontal = 3
+theme_override_constants/separation = 35
 
-[node name="Main" type="VBoxContainer" parent="ScrollContainer"]
+[node name="CompetitionName" type="Label" parent="Main"]
+unique_name_in_owner = true
+auto_translate_mode = 2
+layout_mode = 2
+text = "Competition"
+label_settings = ExtResource("3_mir7s")
+horizontal_alignment = 1
+
+[node name="Overview" type="VBoxContainer" parent="Main"]
 unique_name_in_owner = true
 layout_mode = 2
 size_flags_horizontal = 3
+
+[node name="Matches" type="Label" parent="Main"]
+layout_mode = 2
+text = "Matches"
+label_settings = ExtResource("3_mir7s")
+horizontal_alignment = 1
+
+[node name="MatchScrollList" type="ScrollContainer" parent="Main"]
+unique_name_in_owner = true
+layout_mode = 2
 size_flags_vertical = 3
+
+[node name="MatchList" type="VBoxContainer" parent="Main/MatchScrollList"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 6
+size_flags_vertical = 3
+theme_override_constants/separation = 15
+alignment = 1
 
 [node name="Competitions" type="VBoxContainer" parent="."]
 layout_mode = 2

@@ -134,6 +134,18 @@ func get_next_match() -> Match:
 	return null
 
 
+func get_all_matchdays_by_competition(competition_id: int) -> Array[Day]:
+	var days: Array[Day] = []
+
+	for monthz: Month in months:
+		for dayz: Day in monthz.days:
+			var matches: Array[Match] = dayz.get_matches(competition_id)
+			if matches.size() > 0:
+				days.append(dayz)
+	
+	return days
+
+
 func _add_year(year: int) -> void:
 	# start date in fomrat YYYY-MM-DDTHH:MM:SS
 	var first_january: String = str(year) + "-01-01T00:00:00"
