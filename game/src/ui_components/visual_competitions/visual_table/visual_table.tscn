@@ -11,7 +11,7 @@ grow_horizontal = 2
 grow_vertical = 2
 size_flags_horizontal = 4
 size_flags_vertical = 3
-columns = 8
+columns = 10
 script = ExtResource("1_kvugy")
 
 [node name="Pos" type="Label" parent="."]
@@ -22,7 +22,7 @@ text = "#"
 label_settings = ExtResource("2_ia1mi")
 
 [node name="Team" type="Label" parent="."]
-custom_minimum_size = Vector2(140, 0)
+custom_minimum_size = Vector2(240, 0)
 layout_mode = 2
 text = "Team"
 label_settings = ExtResource("2_ia1mi")
@@ -74,6 +74,18 @@ text_overrun_behavior = 1
 visible_characters = 3
 visible_ratio = 0.75
 
+[node name="GoalDifference" type="Label" parent="."]
+custom_minimum_size = Vector2(40, 0)
+layout_mode = 2
+tooltip_text = "Goals"
+mouse_filter = 1
+text = "Difference"
+label_settings = ExtResource("2_ia1mi")
+horizontal_alignment = 1
+text_overrun_behavior = 1
+visible_characters = 3
+visible_ratio = 0.3
+
 [node name="Goals" type="Label" parent="."]
 custom_minimum_size = Vector2(40, 0)
 layout_mode = 2
@@ -85,6 +97,12 @@ horizontal_alignment = 1
 text_overrun_behavior = 1
 visible_characters = 3
 visible_ratio = 0.6
+
+[node name="Form" type="Label" parent="."]
+custom_minimum_size = Vector2(100, 0)
+layout_mode = 2
+text = "Form"
+label_settings = ExtResource("2_ia1mi")
 
 [node name="Points" type="Label" parent="."]
 custom_minimum_size = Vector2(40, 0)

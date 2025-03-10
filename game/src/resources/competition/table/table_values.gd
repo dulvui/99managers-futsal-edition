@@ -5,6 +5,12 @@
 class_name TableValues
 extends JSONResource
 
+enum Form {
+	LOST,
+	DRAW,
+	WIN,
+}
+
 @export var team_id: int
 @export var team_name: String
 @export var points: int
@@ -14,6 +20,7 @@ extends JSONResource
 @export var wins: int
 @export var draws: int
 @export var lost: int
+@export var form: Array[Form]
 
 
 func _init(
@@ -26,6 +33,7 @@ func _init(
 	p_wins: int = 0,
 	p_draws: int = 0,
 	p_lost: int = 0,
+	p_form: Array[Form] = [],
 ) -> void:
 	team_id = p_team_id
 	team_name = p_team_name
@@ -36,13 +44,31 @@ func _init(
 	wins = p_wins
 	draws = p_draws
 	lost = p_lost
+	form = p_form
 
 
-func reset_values() -> void:
-	points = 0
-	games_played = 0
-	goals_made = 0
-	goals_conceded = 0
-	wins = 0
-	draws = 0
-	lost = 0
+func setup(
+	goals: int,
+	opponent_goals: int,
+	penalties_goals: int = 0,
+	opponent_penalties_goals: int = 0,
+	) -> void:
+
+	games_played += 1
+	goals_made += goals
+	goals_conceded += opponent_goals
+
+	var goals_sum: int = goals + penalties_goals
+	var opponent_goals_sum: int = opponent_goals + opponent_penalties_goals
+
+	if goals_sum > opponent_goals_sum:
+		wins += 1
+		points += 3
+		form.append(Form.WIN)
+	elif goals_sum == opponent_goals_sum:
+		draws += 1
+		points += 1
+		form.append(Form.DRAW)
+	else:
+		lost += 1
+		form.append(Form.LOST)
