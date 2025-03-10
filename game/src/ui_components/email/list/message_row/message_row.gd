@@ -20,7 +20,8 @@ func setup(p_message: EmailMessage, index: int) -> void:
 	read_button.tooltip_text = tr("Click to read message")
 
 	if index % 2 == 1:
-		read_button.modulate = read_button.modulate.darkened(0.2)
+		read_button.modulate = read_button.modulate.darkened(0.1)
+		star.modulate = read_button.modulate.darkened(0.1)
 
 	subject_label.set_text(message.subject)
 	sender_label.set_text(message.sender)

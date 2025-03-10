@@ -16,13 +16,23 @@ theme_override_constants/margin_right = 0
 theme_override_constants/margin_bottom = 0
 metadata/_edit_use_anchors_ = true
 
+[node name="Button" type="Button" parent="."]
+unique_name_in_owner = true
+modulate = Color(1, 1, 1, 0.392157)
+layout_mode = 2
+script = ExtResource("1_ep0lr")
+metadata/_custom_type_script = "uid://cnyyowwlb04kl"
+
 [node name="Items" type="HBoxContainer" parent="."]
 layout_mode = 2
+mouse_filter = 2
+mouse_default_cursor_shape = 2
 theme_override_constants/separation = 0
 
 [node name="MarginContainer" type="MarginContainer" parent="Items"]
 layout_mode = 2
 size_flags_horizontal = 3
+mouse_filter = 2
 theme_override_constants/margin_left = 10
 theme_override_constants/margin_top = 0
 theme_override_constants/margin_right = 10
@@ -43,10 +53,3 @@ custom_minimum_size = Vector2(200, 0)
 layout_mode = 2
 text = "20000"
 horizontal_alignment = 1
-
-[node name="Button" type="Button" parent="."]
-unique_name_in_owner = true
-modulate = Color(1, 1, 1, 0.392157)
-layout_mode = 2
-script = ExtResource("1_ep0lr")
-metadata/_custom_type_script = "uid://cnyyowwlb04kl"

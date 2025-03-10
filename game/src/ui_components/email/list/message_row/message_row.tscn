@@ -20,11 +20,20 @@ metadata/_edit_use_anchors_ = true
 
 [node name="ReadButton" type="Button" parent="."]
 unique_name_in_owner = true
+modulate = Color(1, 1, 1, 0.392157)
 layout_mode = 2
 script = ExtResource("2_7pg3l")
 
+[node name="Star" type="CheckBox" parent="."]
+unique_name_in_owner = true
+modulate = Color(1, 1, 1, 0.392157)
+layout_mode = 2
+size_flags_horizontal = 8
+mouse_default_cursor_shape = 2
+
 [node name="MarginContainer" type="MarginContainer" parent="."]
 layout_mode = 2
+mouse_filter = 2
 theme_override_constants/margin_left = 10
 theme_override_constants/margin_top = 0
 theme_override_constants/margin_right = 10
@@ -60,9 +69,5 @@ size_flags_vertical = 1
 vertical_alignment = 1
 text_overrun_behavior = 3
 
-[node name="Star" type="CheckBox" parent="MarginContainer/HBoxContainer"]
-unique_name_in_owner = true
-layout_mode = 2
-
 [connection signal="pressed" from="ReadButton" to="." method="_on_read_button_pressed"]
-[connection signal="toggled" from="MarginContainer/HBoxContainer/Star" to="." method="_on_star_toggled"]
+[connection signal="toggled" from="Star" to="." method="_on_star_toggled"]

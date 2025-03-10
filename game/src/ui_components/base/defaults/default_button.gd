@@ -22,6 +22,8 @@ func _ready() -> void:
 	_set_shortcut_glyph()
 	_set_alignment()
 
+	mouse_default_cursor_shape = Control.CURSOR_POINTING_HAND
+
 	InputUtil.type_changed.connect(_on_input_type_changed)
 
 
