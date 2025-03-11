@@ -17,7 +17,14 @@ var competition: Competition
 var season_index: int
 var season_amount: int
 
+var active_league: League
+var active_national_cup: Cup
+var active_continental_cup: Cup
+
 @onready var active_league_button: Button = %ActiveLeagueButton
+@onready var active_national_cup_button: Button = %ActiveNationalCupButton
+@onready var active_continental_cup_button: Button = %ActiveContinentalCupButton
+
 @onready var seasons_button: SwitchOptionButton = %SeasonsButton
 @onready var competition_name: Label = %CompetitionName
 
@@ -30,15 +37,21 @@ var season_amount: int
 
 func _ready() -> void:
 	Tests.setup_mock_world(true)
+	
+	active_league = Global.league
+	active_national_cup = Global.world.get_active_nation().cup
+	active_continental_cup = Global.world.get_active_continent().cup_clubs
 
 	# start from last entry
-	season_index = Global.league.tables.size() - 1
-	season_amount = Global.league.tables.size()
-
-	active_league_button.text = Global.league.name
+	season_index = active_league.tables.size() - 1
+	season_amount = active_league.tables.size()
+	
+	active_league_button.text = active_league.name
+	active_national_cup_button.text = active_national_cup.name
+	active_continental_cup_button.text = active_continental_cup.name
 
 	_setup_seasons()
-	competition = Global.league
+	competition = active_league
 	competitions_tree.setup(competition.name)
 	_setup()
 
@@ -123,22 +136,21 @@ func _on_competitions_tree_competition_selected(p_competition: Competition) -> v
 
 
 func _on_active_button_pressed() -> void:
-	competition = Global.league
-	competitions_tree.select(competition.name)
-	season_index = season_amount - 1
-	seasons_button.option_button.selected = 0
-	_setup()
+	competition = active_league
+	_show_competition()
 
 
-func _on_active_continental_cup_pressed() -> void:
-	competition = Global.world.get_active_continent().cup_clubs
-	competitions_tree.select(competition.name)
-	season_index = season_amount - 1
-	seasons_button.option_button.selected = 0
-	_setup()
+func _on_active_national_cup_button_pressed() -> void:
+	competition = active_national_cup
+	_show_competition()
 
-func _on_active_national_cup_pressed() -> void:
-	competition = Global.world.get_active_nation().cup
+
+func _on_active_continental_cup_button_pressed() -> void:
+	competition = active_continental_cup
+	_show_competition()
+
+
+func _show_competition() -> void:
 	competitions_tree.select(competition.name)
 	season_index = season_amount - 1
 	seasons_button.option_button.selected = 0

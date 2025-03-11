@@ -43,20 +43,23 @@ layout_mode = 2
 
 [node name="ActiveLeagueButton" type="Button" parent="Main/Top Bar"]
 unique_name_in_owner = true
+auto_translate_mode = 2
 custom_minimum_size = Vector2(240, 0)
 layout_mode = 2
 text = "League"
 script = ExtResource("3_6km1j")
 
-[node name="ActiveNationalCup" type="Button" parent="Main/Top Bar"]
+[node name="ActiveNationalCupButton" type="Button" parent="Main/Top Bar"]
 unique_name_in_owner = true
+auto_translate_mode = 2
 custom_minimum_size = Vector2(240, 0)
 layout_mode = 2
 text = "Natioinal cup"
 script = ExtResource("3_6km1j")
 
-[node name="ActiveContinentalCup" type="Button" parent="Main/Top Bar"]
+[node name="ActiveContinentalCupButton" type="Button" parent="Main/Top Bar"]
 unique_name_in_owner = true
+auto_translate_mode = 2
 custom_minimum_size = Vector2(240, 0)
 layout_mode = 2
 text = "Continental cup"
@@ -106,6 +109,6 @@ size_flags_horizontal = 1
 
 [connection signal="item_selected" from="Main/Top Bar/SeasonsButton" to="." method="_on_seasons_button_item_selected"]
 [connection signal="pressed" from="Main/Top Bar/ActiveLeagueButton" to="." method="_on_active_button_pressed"]
-[connection signal="pressed" from="Main/Top Bar/ActiveNationalCup" to="." method="_on_active_national_cup_pressed"]
-[connection signal="pressed" from="Main/Top Bar/ActiveContinentalCup" to="." method="_on_active_continental_cup_pressed"]
+[connection signal="pressed" from="Main/Top Bar/ActiveNationalCupButton" to="." method="_on_active_national_cup_button_pressed"]
+[connection signal="pressed" from="Main/Top Bar/ActiveContinentalCupButton" to="." method="_on_active_continental_cup_button_pressed"]
 [connection signal="competition_selected" from="Competitions/CompetitionsTree" to="." method="_on_competitions_tree_competition_selected"]
