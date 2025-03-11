@@ -15,47 +15,68 @@ size_flags_vertical = 3
 current_tab = 0
 script = ExtResource("1_2kt4b")
 
-[node name="Info" type="VBoxContainer" parent="."]
-custom_minimum_size = Vector2(300, 0)
+[node name="Info" type="MarginContainer" parent="."]
 layout_mode = 2
+theme_override_constants/margin_left = 0
+theme_override_constants/margin_right = 0
 metadata/_tab_index = 0
 
-[node name="Name" type="Label" parent="Info"]
+[node name="Info" type="VBoxContainer" parent="Info"]
+custom_minimum_size = Vector2(300, 0)
+layout_mode = 2
+
+[node name="Name" type="Label" parent="Info/Info"]
+unique_name_in_owner = true
 layout_mode = 2
 label_settings = ExtResource("2_e0wm0")
 
-[node name="PresitgeStars" type="Label" parent="Info"]
+[node name="PresitgeStars" type="Label" parent="Info/Info"]
+unique_name_in_owner = true
 layout_mode = 2
 
-[node name="Presitge" type="Label" parent="Info"]
+[node name="Presitge" type="Label" parent="Info/Info"]
+unique_name_in_owner = true
 layout_mode = 2
 
-[node name="BudgetTitle" type="Label" parent="Info"]
+[node name="BudgetTitle" type="Label" parent="Info/Info"]
+unique_name_in_owner = true
 layout_mode = 2
 text = "Budget"
 label_settings = ExtResource("2_e0wm0")
 
-[node name="Budget" type="Label" parent="Info"]
+[node name="Budget" type="Label" parent="Info/Info"]
+unique_name_in_owner = true
 layout_mode = 2
 
-[node name="SalaryBudget" type="Label" parent="Info"]
+[node name="SalaryBudget" type="Label" parent="Info/Info"]
+unique_name_in_owner = true
 layout_mode = 2
 
-[node name="StadiumTitle" type="Label" parent="Info"]
+[node name="StadiumTitle" type="Label" parent="Info/Info"]
+unique_name_in_owner = true
 layout_mode = 2
 text = "Stadium"
 label_settings = ExtResource("2_e0wm0")
 
-[node name="StadiumName" type="Label" parent="Info"]
+[node name="StadiumName" type="Label" parent="Info/Info"]
+unique_name_in_owner = true
 layout_mode = 2
 
-[node name="StadiumCapacity" type="Label" parent="Info"]
+[node name="StadiumCapacity" type="Label" parent="Info/Info"]
+unique_name_in_owner = true
 layout_mode = 2
 
-[node name="StadiumYearBuilt" type="Label" parent="Info"]
+[node name="StadiumYearBuilt" type="Label" parent="Info/Info"]
+unique_name_in_owner = true
 layout_mode = 2
 
-[node name="Players" parent="." instance=ExtResource("3_mnl3l")]
+[node name="Players" type="MarginContainer" parent="."]
 visible = false
 layout_mode = 2
+theme_override_constants/margin_left = 0
+theme_override_constants/margin_right = 0
 metadata/_tab_index = 1
+
+[node name="Players" parent="Players" instance=ExtResource("3_mnl3l")]
+unique_name_in_owner = true
+layout_mode = 2

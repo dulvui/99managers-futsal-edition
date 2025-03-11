@@ -19,6 +19,7 @@ text = "A big thank you to all contributors that also believe that the world nee
 
 All the best,
 Simon"
+autowrap_mode = 2
 
 [node name="Translations" type="Label" parent="."]
 layout_mode = 2

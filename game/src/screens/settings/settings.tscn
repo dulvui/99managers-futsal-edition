@@ -50,26 +50,46 @@ size_flags_vertical = 3
 current_tab = 0
 script = ExtResource("2_pcf3o")
 
-[node name="General" parent="MarginContainer/Main/TabContainer" instance=ExtResource("2_rfuel")]
-unique_name_in_owner = true
+[node name="General" type="MarginContainer" parent="MarginContainer/Main/TabContainer"]
 layout_mode = 2
+theme_override_constants/margin_left = 0
+theme_override_constants/margin_right = 0
 metadata/_tab_index = 0
 
-[node name="Input" parent="MarginContainer/Main/TabContainer" instance=ExtResource("3_i3rqu")]
+[node name="General" parent="MarginContainer/Main/TabContainer/General" instance=ExtResource("2_rfuel")]
 unique_name_in_owner = true
+layout_mode = 2
+
+[node name="Input" type="MarginContainer" parent="MarginContainer/Main/TabContainer"]
 visible = false
 layout_mode = 2
+theme_override_constants/margin_left = 0
+theme_override_constants/margin_right = 0
 metadata/_tab_index = 1
 
-[node name="Contributors" parent="MarginContainer/Main/TabContainer" instance=ExtResource("6_sxb32")]
+[node name="Input" parent="MarginContainer/Main/TabContainer/Input" instance=ExtResource("3_i3rqu")]
+unique_name_in_owner = true
+layout_mode = 2
+
+[node name="Contributors" type="MarginContainer" parent="MarginContainer/Main/TabContainer"]
 visible = false
 layout_mode = 2
+theme_override_constants/margin_left = 0
+theme_override_constants/margin_right = 0
 metadata/_tab_index = 2
 
-[node name="Licenses" parent="MarginContainer/Main/TabContainer" instance=ExtResource("5_2r602")]
+[node name="Contributors" parent="MarginContainer/Main/TabContainer/Contributors" instance=ExtResource("6_sxb32")]
+layout_mode = 2
+
+[node name="Licenses" type="MarginContainer" parent="MarginContainer/Main/TabContainer"]
 visible = false
 layout_mode = 2
+theme_override_constants/margin_left = 0
+theme_override_constants/margin_right = 0
 metadata/_tab_index = 3
+
+[node name="Licenses" parent="MarginContainer/Main/TabContainer/Licenses" instance=ExtResource("5_2r602")]
+layout_mode = 2
 
 [node name="Buttons" type="HBoxContainer" parent="MarginContainer/Main"]
 layout_mode = 2

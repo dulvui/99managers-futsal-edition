@@ -5,15 +5,16 @@
 class_name TeamProfile
 extends DefaultTabContainer
 
-@onready var player_list: PlayerList = $Players
-@onready var name_label: Label = $Info/Name
-@onready var prestige_stars_label: Label = $Info/PresitgeStars
-@onready var prestige_label: Label = $Info/Presitge
-@onready var budget_label: Label = $Info/Budget
-@onready var salary_budget_label: Label = $Info/SalaryBudget
-@onready var stadium_name_label: Label = $Info/StadiumName
-@onready var stadium_capacity_label: Label = $Info/StadiumCapacity
-@onready var stadium_year_label: Label = $Info/StadiumYearBuilt
+@onready var player_list: PlayerList = %Players
+
+@onready var name_label: Label = %Name
+@onready var prestige_stars_label: Label = %PresitgeStars
+@onready var prestige_label: Label = %Presitge
+@onready var budget_label: Label = %Budget
+@onready var salary_budget_label: Label = %SalaryBudget
+@onready var stadium_name_label: Label = %StadiumName
+@onready var stadium_capacity_label: Label = %StadiumCapacity
+@onready var stadium_year_label: Label = %StadiumYearBuilt
 
 
 func setup(team: Team) -> void:
