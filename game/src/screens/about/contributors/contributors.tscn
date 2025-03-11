@@ -1,0 +1,41 @@
+[gd_scene load_steps=3 format=3 uid="uid://fmet2eyy20sg"]
+
+[ext_resource type="Script" uid="uid://dy3wybrrp7vds" path="res://src/screens/about/contributors/contributors.gd" id="1_pvpcn"]
+[ext_resource type="LabelSettings" uid="uid://b4gu78rjvdfx4" path="res://theme_base/label/label_settings_title.tres" id="2_grt4o"]
+
+[node name="Contributors" type="MarginContainer"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 0
+theme_override_constants/margin_right = 0
+script = ExtResource("1_pvpcn")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+layout_mode = 2
+
+[node name="ThankYouLabel" type="Label" parent="VBoxContainer"]
+auto_translate_mode = 2
+layout_mode = 2
+text = "A big thank you to all contributors that also believe that the world needs more Open Source games!
+
+All the best,
+Simon"
+autowrap_mode = 2
+
+[node name="Translations" type="Label" parent="VBoxContainer"]
+layout_mode = 2
+text = "Translations"
+label_settings = ExtResource("2_grt4o")
+
+[node name="ScrollContainer" type="ScrollContainer" parent="VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="TranslatorsList" type="VBoxContainer" parent="VBoxContainer/ScrollContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3

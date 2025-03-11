@@ -2,7 +2,7 @@
 
 # SPDX-License-Identifier: AGPL-3.0-or-later
 
-extends Control
+extends MarginContainer
 
 @onready var license_dialog: DefaultConfirmDialog = %LicenseDialog
 @onready var third_party_license_dialog: DefaultConfirmDialog = %ThirdPartyLicenseDialog

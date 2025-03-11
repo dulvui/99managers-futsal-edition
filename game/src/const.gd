@@ -59,6 +59,7 @@ const POSITION: StringName = "Postition"
 # screens
 const SCREEN_MENU: String = "res://src/screens/menu/menu.tscn"
 const SCREEN_SETTINGS: String = "res://src/screens/settings/settings.tscn"
+const SCREEN_ABOUT: String = "res://src/screens/about/about.tscn"
 const SCREEN_DASHBOARD: String = "res://src/screens/dashboard/dashboard.tscn"
 const SCREEN_SETUP_TEAM: String = "res://src/screens/setup/setup_team/setup_team.tscn"
 const SCREEN_SETUP_WORLD: String = "res://src/screens/setup/setup_world/setup_world.tscn"

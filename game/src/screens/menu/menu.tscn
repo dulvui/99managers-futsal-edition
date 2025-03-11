@@ -103,6 +103,15 @@ size_flags_vertical = 4
 text = "Settings"
 script = ExtResource("4_nkxl6")
 
+[node name="About" type="Button" parent="Buttons"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(180, 0)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+text = "About"
+script = ExtResource("4_nkxl6")
+
 [node name="Exit" type="Button" parent="Buttons"]
 unique_name_in_owner = true
 custom_minimum_size = Vector2(180, 0)
@@ -208,5 +217,6 @@ horizontal_alignment = 1
 [connection signal="pressed" from="Buttons/NewGame" to="." method="_on_new_game_pressed"]
 [connection signal="pressed" from="Buttons/LoadGame" to="." method="_on_load_game_pressed"]
 [connection signal="pressed" from="Buttons/Settings" to="." method="_on_settings_pressed"]
+[connection signal="pressed" from="Buttons/About" to="." method="_on_about_pressed"]
 [connection signal="pressed" from="Buttons/Exit" to="." method="_on_exit_pressed"]
 [connection signal="confirmed" from="ExitConfirmDialog" to="." method="_on_default_confirm_dialog_confirmed"]

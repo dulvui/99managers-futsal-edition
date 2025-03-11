@@ -1,20 +1,18 @@
-[gd_scene load_steps=10 format=3 uid="uid://4aoa7li1cfbc"]
+[gd_scene load_steps=9 format=3 uid="uid://4aoa7li1cfbc"]
 
 [ext_resource type="Script" uid="uid://be7krtp1w1jf7" path="res://src/screens/settings/settings.gd" id="1_m7cla"]
+[ext_resource type="LabelSettings" uid="uid://b4gu78rjvdfx4" path="res://theme_base/label/label_settings_title.tres" id="2_maj8y"]
 [ext_resource type="Script" uid="uid://bkg838a5hys8o" path="res://src/ui_components/base/defaults/default_tab_container.gd" id="2_pcf3o"]
 [ext_resource type="PackedScene" uid="uid://cywaob6jab2pj" path="res://src/screens/settings/general/general_settings.tscn" id="2_rfuel"]
 [ext_resource type="PackedScene" uid="uid://bw4rsu0jiwjj0" path="res://src/screens/settings/input/input_settings.tscn" id="3_i3rqu"]
-[ext_resource type="PackedScene" uid="uid://jtpxotjx2o68" path="res://src/screens/settings/license/license.tscn" id="5_2r602"]
 [ext_resource type="PackedScene" uid="uid://bpvg2vhxml3a1" path="res://src/ui_components/base/confirm_dialog/default_confirm_dialog.tscn" id="5_mq35h"]
 [ext_resource type="Script" uid="uid://cnyyowwlb04kl" path="res://src/ui_components/base/defaults/default_button.gd" id="5_mtybe"]
-[ext_resource type="PackedScene" uid="uid://bntmwn4twomph" path="res://src/screens/settings/contributors/contributors.tscn" id="6_sxb32"]
 
 [sub_resource type="InputEventJoypadButton" id="InputEventJoypadButton_nppw4"]
 button_index = 1
 pressed = true
 
-[node name="Settings" type="Control"]
-layout_mode = 3
+[node name="Settings" type="PanelContainer"]
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
@@ -22,25 +20,40 @@ grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_m7cla")
 
-[node name="Panel" type="Panel" parent="."]
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-
 [node name="MarginContainer" type="MarginContainer" parent="."]
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
+layout_mode = 2
 
 [node name="Main" type="VBoxContainer" parent="MarginContainer"]
 layout_mode = 2
 alignment = 1
+
+[node name="TopBar" type="HBoxContainer" parent="MarginContainer/Main"]
+layout_mode = 2
+theme_override_constants/separation = 15
+
+[node name="Title" type="Label" parent="MarginContainer/Main/TopBar"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "Settings"
+label_settings = ExtResource("2_maj8y")
+
+[node name="Defaults" type="Button" parent="MarginContainer/Main/TopBar"]
+custom_minimum_size = Vector2(180, 0)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+text = "Default settings"
+script = ExtResource("5_mtybe")
+
+[node name="Back" type="Button" parent="MarginContainer/Main/TopBar"]
+custom_minimum_size = Vector2(180, 0)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+theme_type_variation = &"ImportantButton"
+text = "Back"
+script = ExtResource("5_mtybe")
+joypad_button_event = SubResource("InputEventJoypadButton_nppw4")
 
 [node name="TabContainer" type="TabContainer" parent="MarginContainer/Main"]
 custom_minimum_size = Vector2(800, 0)
@@ -71,52 +84,13 @@ metadata/_tab_index = 1
 unique_name_in_owner = true
 layout_mode = 2
 
-[node name="Contributors" type="MarginContainer" parent="MarginContainer/Main/TabContainer"]
-visible = false
-layout_mode = 2
-theme_override_constants/margin_left = 0
-theme_override_constants/margin_right = 0
-metadata/_tab_index = 2
-
-[node name="Contributors" parent="MarginContainer/Main/TabContainer/Contributors" instance=ExtResource("6_sxb32")]
-layout_mode = 2
-
-[node name="Licenses" type="MarginContainer" parent="MarginContainer/Main/TabContainer"]
-visible = false
-layout_mode = 2
-theme_override_constants/margin_left = 0
-theme_override_constants/margin_right = 0
-metadata/_tab_index = 3
-
-[node name="Licenses" parent="MarginContainer/Main/TabContainer/Licenses" instance=ExtResource("5_2r602")]
-layout_mode = 2
-
-[node name="Buttons" type="HBoxContainer" parent="MarginContainer/Main"]
-layout_mode = 2
-theme_override_constants/separation = 15
-alignment = 1
-
-[node name="Defaults" type="Button" parent="MarginContainer/Main/Buttons"]
-custom_minimum_size = Vector2(180, 0)
-layout_mode = 2
-size_flags_horizontal = 4
-size_flags_vertical = 4
-text = "Default settings"
-script = ExtResource("5_mtybe")
-
-[node name="Back" type="Button" parent="MarginContainer/Main/Buttons"]
-custom_minimum_size = Vector2(180, 0)
-layout_mode = 2
-size_flags_horizontal = 4
-size_flags_vertical = 4
-text = "Back"
-script = ExtResource("5_mtybe")
-joypad_button_event = SubResource("InputEventJoypadButton_nppw4")
-
 [node name="DefaultDialog" parent="." instance=ExtResource("5_mq35h")]
 unique_name_in_owner = true
-custom_text = "You can fix errors or add new languages easily on Weblate, just click on the link below."
+size = Vector2i(530, 200)
+custom_title = "Restore default settings"
+custom_text = "All changed settings will be restored to the default value.
+Are you sure?"
 
-[connection signal="pressed" from="MarginContainer/Main/Buttons/Defaults" to="." method="_on_defaults_pressed"]
-[connection signal="pressed" from="MarginContainer/Main/Buttons/Back" to="." method="_on_back_pressed"]
+[connection signal="pressed" from="MarginContainer/Main/TopBar/Defaults" to="." method="_on_defaults_pressed"]
+[connection signal="pressed" from="MarginContainer/Main/TopBar/Back" to="." method="_on_back_pressed"]
 [connection signal="confirmed" from="DefaultDialog" to="." method="_on_default_dialog_confirmed"]

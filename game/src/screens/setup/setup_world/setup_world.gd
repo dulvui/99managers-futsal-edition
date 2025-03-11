@@ -4,7 +4,8 @@
 
 extends PanelContainer
 
-const DEFAULT_SEED: String = "289636-522140-666834"
+const DEFAULT_SEED: StringName = "289636-522140-666834"
+const CONTINUE_DISABLED_TOOLTIP: StringName = "Name and surname missing"
 
 var generation_seed: String = DEFAULT_SEED
 var custom_file_path: String = ""
@@ -110,10 +111,18 @@ func _on_continue_pressed() -> void:
 
 func _on_name_text_changed(_new_text: String) -> void:
 	continue_button.disabled = manager_name.text.length() * manager_surname.text.length() == 0
+	if continue_button.disabled:
+		continue_button.tooltip_text = tr(CONTINUE_DISABLED_TOOLTIP)
+	else:
+		continue_button.tooltip_text = ""
 
 
 func _on_surame_text_changed(_new_text: String) -> void:
 	continue_button.disabled = manager_name.text.length() * manager_surname.text.length() == 0
+	if continue_button.disabled:
+		continue_button.tooltip_text = tr(CONTINUE_DISABLED_TOOLTIP)
+	else:
+		continue_button.tooltip_text = ""
 
 
 func _on_template_button_pressed() -> void:

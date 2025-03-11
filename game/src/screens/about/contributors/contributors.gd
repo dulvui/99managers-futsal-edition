@@ -2,7 +2,7 @@
 
 # SPDX-License-Identifier: AGPL-3.0-or-later
 
-extends VBoxContainer
+extends MarginContainer
 
 const WEBLATE_URL: StringName = "https://hosted.weblate.org/user/"
 const CONTRIBUTORS: Array[StringName] = [

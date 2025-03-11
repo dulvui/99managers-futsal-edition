@@ -47,6 +47,10 @@ func _on_settings_pressed() -> void:
 	Main.change_scene(Const.SCREEN_SETTINGS)
 
 
+func _on_about_pressed() -> void:
+	Main.change_scene(Const.SCREEN_ABOUT)
+
+
 func _on_load_game_pressed() -> void:
 	Main.change_scene(Const.SCREEN_SAVE_STATES)
 
