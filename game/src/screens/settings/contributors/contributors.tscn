@@ -1,5 +1,6 @@
-[gd_scene load_steps=2 format=3 uid="uid://bntmwn4twomph"]
+[gd_scene load_steps=3 format=3 uid="uid://bntmwn4twomph"]
 
+[ext_resource type="Script" uid="uid://cy5xbvamdcmgg" path="res://src/screens/settings/contributors/contributors.gd" id="1_p02mk"]
 [ext_resource type="LabelSettings" uid="uid://b4gu78rjvdfx4" path="res://theme_base/label/label_settings_title.tres" id="1_utg1r"]
 
 [node name="Contributors" type="VBoxContainer"]
@@ -9,6 +10,7 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 theme_override_constants/separation = 15
+script = ExtResource("1_p02mk")
 
 [node name="ThankYouLabel" type="Label" parent="."]
 auto_translate_mode = 2
@@ -17,24 +19,18 @@ text = "A big thank you to all contributors that also believe that the world nee
 
 All the best,
 Simon"
-autowrap_mode = 2
 
 [node name="Translations" type="Label" parent="."]
 layout_mode = 2
 text = "Translations"
 label_settings = ExtResource("1_utg1r")
 
-[node name="TranslationList" type="RichTextLabel" parent="."]
-auto_translate_mode = 2
+[node name="ScrollContainer" type="ScrollContainer" parent="."]
 layout_mode = 2
 size_flags_vertical = 3
-bbcode_enabled = true
-text = "VictorGavilanes
-gusjfo
-Maksim2005UA
-vgavilanes
-Kefir2105
-Atalanttore
-cyphra
-nothingonedlike
-Ekselius"
+
+[node name="TranslatorsList" type="VBoxContainer" parent="ScrollContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
