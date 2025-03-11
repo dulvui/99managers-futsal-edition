@@ -53,6 +53,10 @@ func _ready() -> void:
 
 	file_path_line_edit.text = tr("Default file")
 
+	# set filters here to prevent adding "*.csv" to game.pot file
+	file_dialog.filters[0] = "*.csv"
+	template_dialog.filters[0] = "*.csv"
+
 
 func _on_generated_seed_line_edit_text_changed(new_text: String) -> void:
 	if new_text.length() > 0:

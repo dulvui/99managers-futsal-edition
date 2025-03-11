@@ -137,7 +137,7 @@ func set_players() -> void:
 	if not only_lineup:
 		var non_lineup_label: Label = Label.new()
 		non_lineup_label.horizontal_alignment = HORIZONTAL_ALIGNMENT_CENTER
-		non_lineup_label.text = tr("Out of lineup")
+		non_lineup_label.text = tr("Other")
 		ThemeUtil.bold(non_lineup_label)
 		subs.add_child(non_lineup_label)
 
