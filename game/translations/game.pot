@@ -1411,10 +1411,6 @@ msgstr ""
 msgid "Generating teams and players"
 msgstr ""
 
-#: src/screens/setup/setup_world/setup_world.gd
-msgid ""
-msgstr ""
-
 #: src/screens/setup/setup_team/setup_team.tscn
 msgid "Choose team"
 msgstr ""

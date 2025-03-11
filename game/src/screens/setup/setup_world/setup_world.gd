@@ -8,7 +8,7 @@ const DEFAULT_SEED: StringName = "289636-522140-666834"
 const CONTINUE_DISABLED_TOOLTIP: StringName = "Name and surname missing"
 
 var generation_seed: String = DEFAULT_SEED
-var custom_file_path: String = ""
+var custom_file_path: String
 
 # manager
 @onready var nations: OptionButton = %Nationality
@@ -118,7 +118,7 @@ func _on_name_text_changed(_new_text: String) -> void:
 	if continue_button.disabled:
 		continue_button.tooltip_text = tr(CONTINUE_DISABLED_TOOLTIP)
 	else:
-		continue_button.tooltip_text = ""
+		continue_button.tooltip_text = "" # NO_TRANSLATE
 
 
 func _on_surame_text_changed(_new_text: String) -> void:
@@ -126,7 +126,7 @@ func _on_surame_text_changed(_new_text: String) -> void:
 	if continue_button.disabled:
 		continue_button.tooltip_text = tr(CONTINUE_DISABLED_TOOLTIP)
 	else:
-		continue_button.tooltip_text = ""
+		continue_button.tooltip_text = "" # NO_TRANSLATE
 
 
 func _on_template_button_pressed() -> void:
