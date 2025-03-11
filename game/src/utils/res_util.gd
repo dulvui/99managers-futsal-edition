@@ -162,7 +162,7 @@ func _save_resource(path: String, resource: JSONResource) -> void:
 		)
 
 	# check for file errors
-	var err: int = FileAccess.get_open_error()
+	var err: int = file.get_error()
 	if err != OK:
 		print("opening file error with code %d" % err)
 		print(err)
@@ -171,6 +171,13 @@ func _save_resource(path: String, resource: JSONResource) -> void:
 	# save to file
 	file.store_string(JSON.stringify(json))
 	file.close()
+
+	# check again for file errors
+	err = file.get_error()
+	if err != OK:
+		print("again opening file error with code %d" % err)
+		print(err)
+		return
 
 	# create backup
 	_create_backup(path)
