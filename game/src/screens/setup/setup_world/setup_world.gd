@@ -98,6 +98,7 @@ func _on_continue_pressed() -> void:
 	LoadingUtil.start(tr("Generating teams and players"), LoadingUtil.Type.GENERATION, true)
 	Main.show_loading_screen(Const.SCREEN_SETUP_TEAM)
 
+	Global.world_load_error = 0
 	if default_file_button.button_pressed or custom_file_path.is_empty():
 		ThreadUtil.generate_world()
 	else:
@@ -124,6 +125,7 @@ func _on_file_button_pressed() -> void:
 func _on_file_dialog_file_selected(path: String) -> void:
 	custom_file_path = path
 	default_file_button.button_pressed = false
+	file_path_line_edit.text = custom_file_path
 
 
 func _on_template_dialog_file_selected(path: String) -> void:

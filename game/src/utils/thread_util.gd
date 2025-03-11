@@ -53,9 +53,19 @@ func _load_data() -> void:
 
 func _generate_world(world_file_path: String) -> void:
 	print("generating world in thread...")
+	Global.world = null
+
 	# create world, teams and players
 	var generator: Generator = Generator.new()
 	var world: World = generator.generate_world(world_file_path)
+	
+	# go back if world is not valid
+	if world == null:
+		print("error while reading world file")
+		Global.world_load_error = 1
+		call_deferred("_loading_done")
+		return
+
 	generator.generate_players(world)
 
 	# create matches

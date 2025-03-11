@@ -24,7 +24,7 @@ func reset_seed(p_generation_seed: String, p_generation_player_names: int) -> vo
 
 # shuffle array using global RuandomNumberGenerator
 func shuffle(array: Array[Variant]) -> void:
-	for i in array.size():
+	for i: int in array.size():
 		var index: int = rng.randi_range(0, array.size() - 1)
 		if index != i:
 			var temp: Variant = array[index]
@@ -34,6 +34,8 @@ func shuffle(array: Array[Variant]) -> void:
 
 # shuffle array using global RuandomNumberGenerator
 func pick_random(array: Array[Variant]) -> Variant:
+	if array.is_empty():
+		return null
 	return array[rng.randi() % array.size() - 1]
 
 

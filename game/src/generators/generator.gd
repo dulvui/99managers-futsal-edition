@@ -71,15 +71,32 @@ func generate_world(world_file_path: String = WORLD_CSV_PATH) -> World:
 	# transform tot array and make lower case
 	for header: String in header_line:
 		headers.append(header.to_lower())
+	
+	var text_server: TextServer = TextServerManager.get_primary_interface()
 
 	while not file.eof_reached():
 		var line: PackedStringArray = file.get_csv_line()
-		if line.size() > 1:
+		if line.size() > 3:
+			for value: String in line:
+				if not _is_valid_csv_line(value, text_server):
+					return null
+
 			var continent: String = line[0]
 			var nation: String = line[1]
 			var league: String = line[2]
 			var city: String = line[3]
 			_initialize_city(world, continent, nation, league, city)
+	
+	# validate world
+	if world.continents.size() == 0:
+		print("world has no continents")
+		return null
+
+	for continent: Continent in world.continents:
+		if continent.is_competitive():
+			break
+		print("world has no competitive continent")
+		return null
 
 	# sort continents, nations alphabetically
 	world.continents.sort_custom(func(a: Continent, b: Continent) -> bool: return a.name < b.name)
@@ -133,6 +150,36 @@ func generate_players(world: World) -> void:
 	_generate_club_history(world)
 	# then generate player histroy with trasnfers and statistics
 	_generate_player_history(world)
+
+
+func _is_valid_csv_line(string: String, text_server: TextServer) -> bool:
+	if string.is_empty():
+		return true
+	if string.is_valid_float():
+		return true
+
+	# check if valid unicode
+	for i: int in string.length():
+		var unicode_char: int = string.unicode_at(i)
+		# space
+		if unicode_char == 32:
+			return true
+		# comma
+		if unicode_char == 44:
+			return true
+		# hyphen
+		if unicode_char == 45:
+			return true
+
+		var valid_letter: bool = text_server.is_valid_letter(unicode_char)
+		var valid_number: bool = string[i].is_valid_float()
+
+		if not valid_letter and not valid_number:
+			print("csv line not vaild: %s" % string)
+			print("not vaild unicode letter: %d" % unicode_char)
+			return false
+
+	return true
 
 
 func _initialize_team(
