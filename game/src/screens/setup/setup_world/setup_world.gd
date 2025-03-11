@@ -19,6 +19,7 @@ var custom_file_path: String = ""
 @onready var generation_seed_edit: LineEdit = %GeneratedSeedLineEdit
 
 @onready var file_dialog: FileDialog = %FileDialog
+@onready var file_error_dialog: DefaultConfirmDialog = %FileErrorDialog
 @onready var template_dialog: FileDialog = %TemplateDialog
 @onready var file_path_line_edit: LineEdit = %FilePathLineEdit
 @onready var default_file_button: CheckButton = %DefaultFileButton
@@ -49,6 +50,11 @@ func _ready() -> void:
 	continue_button.disabled = manager_name.text.length() * manager_surname.text.length() == 0
 
 	file_path_line_edit.text = tr("Default file")
+
+	# show error message if loading went wrong
+	if Global.world_load_error != 0:
+		Global.world_load_error = 0
+		file_error_dialog.popup_centered()
 
 
 func _on_generated_seed_line_edit_text_changed(new_text: String) -> void:

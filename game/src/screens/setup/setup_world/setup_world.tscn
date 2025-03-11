@@ -1,4 +1,4 @@
-[gd_scene load_steps=7 format=3 uid="uid://cqcsyes1j6vwi"]
+[gd_scene load_steps=8 format=3 uid="uid://cqcsyes1j6vwi"]
 
 [ext_resource type="Theme" uid="uid://pt1hrfiuwfpg" path="res://theme_base/theme.tres" id="1_lar05"]
 [ext_resource type="Script" uid="uid://j8ooryeon21g" path="res://src/screens/setup/setup_world/setup_world.gd" id="2_s01se"]
@@ -6,6 +6,7 @@
 [ext_resource type="LabelSettings" uid="uid://b4gu78rjvdfx4" path="res://theme_base/label/label_settings_title.tres" id="3_mfpia"]
 [ext_resource type="Script" uid="uid://b7gkxesmo6fix" path="res://src/ui_components/base/defaults/default_option_button.gd" id="4_3e6xm"]
 [ext_resource type="LabelSettings" uid="uid://cc2vi4onhgmnw" path="res://theme_base/label/label_settings_bold.tres" id="5_imyfn"]
+[ext_resource type="PackedScene" uid="uid://bpvg2vhxml3a1" path="res://src/ui_components/base/confirm_dialog/default_confirm_dialog.tscn" id="7_ntf8b"]
 
 [node name="SetupWorld" type="PanelContainer"]
 anchors_preset = 15
@@ -259,6 +260,14 @@ size = Vector2i(1200, 600)
 access = 2
 filters = PackedStringArray("*.csv")
 use_native_dialog = true
+
+[node name="FileErrorDialog" parent="." instance=ExtResource("7_ntf8b")]
+unique_name_in_owner = true
+visible = false
+custom_title = "Error while loading file"
+custom_text = "There was an error while loading the file.
+Please make sure the file is a .csv file and has the correct format as defined in the template."
+type = 2
 
 [connection signal="pressed" from="MarginContainer/VBoxContainer/TopBar/Back" to="." method="_on_back_pressed"]
 [connection signal="pressed" from="MarginContainer/VBoxContainer/TopBar/Continue" to="." method="_on_continue_pressed"]
