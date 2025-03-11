@@ -455,12 +455,21 @@ msgid "Win"
 msgstr "Gewonnen"
 
 #: src/ui_components/visual_competitions/visual_table/visual_table.tscn
+#: src/ui_components/visual_competitions/visual_table/visual_table.gd
 msgid "Draw"
 msgstr "Ausgleich"
 
 #: src/ui_components/visual_competitions/visual_table/visual_table.tscn
 msgid "Lost"
 msgstr "Verloren"
+
+#: src/ui_components/visual_competitions/visual_table/visual_table.tscn
+msgid "Goal difference"
+msgstr ""
+
+#: src/ui_components/visual_competitions/visual_table/visual_table.tscn
+msgid "Difference"
+msgstr ""
 
 #: src/ui_components/visual_competitions/visual_table/visual_table.tscn
 #: src/ui_components/player_profile/statistics_view/statistics_view.tscn
@@ -470,8 +479,28 @@ msgid "Goals"
 msgstr "Tore"
 
 #: src/ui_components/visual_competitions/visual_table/visual_table.tscn
+#, fuzzy
+#| msgid "Formation"
+msgid "Form"
+msgstr "Aufstellung"
+
+#: src/ui_components/visual_competitions/visual_table/visual_table.tscn
 msgid "Points"
 msgstr "Punkte"
+
+#: src/ui_components/visual_competitions/visual_table/visual_table.gd
+msgid "Victory"
+msgstr ""
+
+#: src/ui_components/visual_competitions/visual_table/visual_table.gd
+msgid "Defeat"
+msgstr ""
+
+#: src/ui_components/visual_competitions/visual_table/visual_table.gd
+#, fuzzy
+#| msgid "Games played"
+msgid "To be played"
+msgstr "Gespielte Partien"
 
 #: src/ui_components/visual_competitions/visual_knockout/visual_knockout.tscn
 msgid "Knockout"
@@ -494,9 +523,14 @@ msgid "Winner A vs Winner B"
 msgstr "Sieger A gegen Sieger B"
 
 #: src/ui_components/visual_competitions/visual_competitions.tscn
-#: src/ui_components/player_profile/contract_view/contract_view.tscn
-msgid "League"
-msgstr "Liga"
+#: src/ui_components/player_profile/statistics_view/statistics_view.tscn
+msgid "Matches"
+msgstr "Wettkämpfe"
+
+#: src/ui_components/visual_competitions/visual_competitions.tscn
+#: src/screens/dashboard/dashboard.tscn
+msgid "Competitions"
+msgstr "Wettbewerbe"
 
 #: src/ui_components/visual_competitions/visual_competitions.gd
 msgid "Group"
@@ -543,8 +577,8 @@ msgid "Substitutes"
 msgstr "Ersatzleute"
 
 #: src/ui_components/visual_formation/visual_formation.gd
-msgid "Out of lineup"
-msgstr "Nicht in der Aufstellung"
+msgid "Other"
+msgstr ""
 
 #: src/ui_components/visual_formation/players_bar/players_bar.tscn
 #: src/ui_components/visual_formation/visual_formation.tscn
@@ -854,6 +888,10 @@ msgid "Clean sheet"
 msgstr "Ohne Gegentor"
 
 #: src/ui_components/player_profile/contract_view/contract_view.tscn
+msgid "League"
+msgstr "Liga"
+
+#: src/ui_components/player_profile/contract_view/contract_view.tscn
 msgid "National cup"
 msgstr "Nationaler Pokal"
 
@@ -864,10 +902,6 @@ msgstr "Kontinentaler Pokal"
 #: src/ui_components/player_profile/contract_view/contract_view.tscn
 msgid "Make offer"
 msgstr "Kaufanfrage"
-
-#: src/ui_components/player_profile/statistics_view/statistics_view.tscn
-msgid "Matches"
-msgstr "Wettkämpfe"
 
 #: src/ui_components/player_profile/statistics_view/statistics_view.tscn
 #: src/ui_components/player_list/player_list_view/views/statistics/player_list_view_statistics.tscn
@@ -1104,28 +1138,34 @@ msgstr "Hacker"
 msgid "Custom theme"
 msgstr "Benutzerdefiniertes Thema"
 
-#: src/screens/settings/settings.tscn
-msgid "Input"
-msgstr "Eingabe"
-
-#: src/screens/settings/settings.tscn
-msgid "Contributors"
-msgstr "Mitwirkende"
-
-#: src/screens/settings/settings.tscn
-msgid "Licenses"
-msgstr "Lizenzen"
+#: src/screens/settings/settings.tscn src/screens/dashboard/dashboard.tscn
+#: src/screens/menu/menu.tscn
+msgid "Settings"
+msgstr "Einstellungen"
 
 #: src/screens/settings/settings.tscn
 msgid "Default settings"
 msgstr "Standardeinstellung"
 
 #: src/screens/settings/settings.tscn
-#: src/screens/setup/setup_team/setup_team.tscn
+#: src/screens/setup/setup_team/setup_team.tscn src/screens/about/about.tscn
 msgid "Back"
 msgstr "Zurück"
 
 #: src/screens/settings/settings.tscn
+msgid "Input"
+msgstr "Eingabe"
+
+#: src/screens/settings/settings.tscn
+msgid ""
+"All changed settings will be restored to the default value.\n"
+"Are you sure?"
+msgstr ""
+
+#: src/screens/settings/general/general_settings.tscn
+msgid "Language"
+msgstr "Sprache"
+
 #: src/screens/settings/general/general_settings.tscn
 msgid ""
 "You can fix errors or add new languages easily on Weblate, just click on the "
@@ -1133,10 +1173,6 @@ msgid ""
 msgstr ""
 "Du kannst auf Weblate ganz einfach Fehler beheben oder neue Sprachen "
 "hinzufügen, indem du auf den unten stehenden Link klickst."
-
-#: src/screens/settings/general/general_settings.tscn
-msgid "Language"
-msgstr "Sprache"
 
 #: src/screens/settings/general/general_settings.tscn
 msgid "Audio"
@@ -1192,6 +1228,11 @@ msgid "Save states"
 msgstr "Spielstände"
 
 #: src/screens/save_states_screen/save_states_screen.tscn
+#: src/screens/dashboard/dashboard.tscn
+msgid "Menu"
+msgstr "Menü"
+
+#: src/screens/save_states_screen/save_states_screen.tscn
 msgid "All save states are located in the following directory"
 msgstr "Alle Speicherstände befinden sich in folgendem Verzeichnis"
 
@@ -1207,11 +1248,6 @@ msgstr ""
 "Hinweis: Gelöschte Speicherstände können noch in deinem Papierkorb vorhanden "
 "sein, wenn sie von deinem Betriebssystem unterstützt und nicht deaktiviert "
 "werden."
-
-#: src/screens/save_states_screen/save_states_screen.tscn
-#: src/screens/dashboard/dashboard.tscn
-msgid "Menu"
-msgstr "Menü"
 
 #: src/screens/save_states_screen/save_state_entry/save_state_entry.gd
 #: src/screens/menu/menu.gd
@@ -1300,10 +1336,6 @@ msgid "Calendar"
 msgstr "Kalender"
 
 #: src/screens/dashboard/dashboard.tscn
-msgid "Competitions"
-msgstr "Wettbewerbe"
-
-#: src/screens/dashboard/dashboard.tscn
 msgid "Finances"
 msgstr "Finanzen"
 
@@ -1339,10 +1371,6 @@ msgstr "Hall of fame"
 msgid "Notes"
 msgstr "Notizen"
 
-#: src/screens/dashboard/dashboard.tscn src/screens/menu/menu.tscn
-msgid "Settings"
-msgstr "Einstellungen"
-
 #: src/screens/dashboard/dashboard.tscn
 msgid "Next match"
 msgstr "Nächstes Spiel"
@@ -1365,6 +1393,12 @@ msgstr "Wird geladen"
 msgid "New game"
 msgstr "Neues Spiel"
 
+#: src/screens/menu/menu.tscn src/screens/about/about.tscn
+#, fuzzy
+#| msgid "Djibouti"
+msgid "About"
+msgstr "Dschibuti"
+
 #: src/screens/menu/menu.tscn
 msgid "Exit"
 msgstr "Beenden"
@@ -1372,6 +1406,17 @@ msgstr "Beenden"
 #: src/screens/menu/menu.tscn
 msgid "Exit game"
 msgstr "Spiel beenden"
+
+#: src/screens/setup/setup_world/setup_world.tscn
+#, fuzzy
+#| msgid "Start date"
+msgid "Start a new game"
+msgstr "Startdatum"
+
+#: src/screens/setup/setup_world/setup_world.tscn
+#: src/screens/setup/setup_world/setup_world.gd
+msgid "Name and surname missing"
+msgstr ""
 
 #: src/screens/setup/setup_world/setup_world.tscn
 msgid "Your name"
@@ -1398,9 +1443,52 @@ msgid "Start year"
 msgstr "Jahresbeginn"
 
 #: src/screens/setup/setup_world/setup_world.tscn
+#, fuzzy
+#| msgid "Game settings"
+msgid "File settings"
+msgstr "Spieleinstellungen"
+
+#: src/screens/setup/setup_world/setup_world.tscn
 msgid ""
-"This generation seed defines player names and attributes. When reused, it "
-"will generate exatly the same result."
+"All countries, leagues and team names are defined in a .csv file that can be "
+"modified."
+msgstr ""
+
+#: src/screens/setup/setup_world/setup_world.tscn
+msgid "Show instructions"
+msgstr ""
+
+#: src/screens/setup/setup_world/setup_world.tscn
+msgid "The following file will be used:"
+msgstr ""
+
+#: src/screens/setup/setup_world/setup_world.tscn
+#, fuzzy
+#| msgid "Default"
+msgid "Use default"
+msgstr "Standard"
+
+#: src/screens/setup/setup_world/setup_world.tscn
+#, fuzzy
+#| msgid "Save states"
+msgid "Save template"
+msgstr "Spielstände"
+
+#: src/screens/setup/setup_world/setup_world.tscn
+#, fuzzy
+#| msgid "Load game"
+msgid "Load file"
+msgstr "Spiel laden"
+
+#: src/screens/setup/setup_world/setup_world.tscn
+#, fuzzy
+#| msgid ""
+#| "This generation seed defines player names and attributes. When reused, it "
+#| "will generate exatly the same result."
+msgid ""
+"This generation seed defines all random starting values of the game like "
+"player names, attributes and team wealth. When reused, it will generate "
+"exatly the same result."
 msgstr ""
 "Dieser Generierungs-Seed definiert Spielernamen und Attribute. Wenn er "
 "wiederverwendet wird, wird er genau das gleiche Ergebnis erzeugen."
@@ -1408,6 +1496,41 @@ msgstr ""
 #: src/screens/setup/setup_world/setup_world.tscn
 msgid "Random"
 msgstr "Zufällig"
+
+#: src/screens/setup/setup_world/setup_world.tscn
+msgid "Open file"
+msgstr ""
+
+#: src/screens/setup/setup_world/setup_world.tscn
+msgid "Open"
+msgstr ""
+
+#: src/screens/setup/setup_world/setup_world.tscn
+msgid ""
+"There was an error while loading the file.\n"
+"Please make sure the file is a .csv file and has the correct format as "
+"defined in the template."
+msgstr ""
+
+#: src/screens/setup/setup_world/setup_world.tscn
+msgid ""
+"1) Click \"Save template\" button to save csv template on your machine\n"
+"2) Open with a spreadsheet editor (like LibreOffice Calc or similar)\n"
+"3) Modify data by keeping structure defined in template\n"
+"4) Save file as \"world.csv\" (.ods or .xlsx files are not supported)\n"
+"5) Click \"Load file\" to import modified data\n"
+"\n"
+"And done! This file can be reused and shared with friends.\n"
+"\n"
+"Note: The template might change before final release. The loading will fail, "
+"if the file has not the correct format."
+msgstr ""
+
+#: src/screens/setup/setup_world/setup_world.gd
+#, fuzzy
+#| msgid "Default"
+msgid "Default file"
+msgstr "Standard"
 
 #: src/screens/setup/setup_world/setup_world.gd
 msgid "Generating teams and players"
@@ -2217,47 +2340,6 @@ msgstr "Vietnam"
 msgid "Yemen"
 msgstr "Jemen"
 
-#: src/screens/settings/contributors/contributors.tscn
-msgid "Translations"
-msgstr "Übersetzungen"
-
-#: src/screens/settings/license/license.tscn
-msgid "Game license"
-msgstr "Spiellizenz"
-
-#: src/screens/settings/license/license.tscn
-msgid ""
-"This game is Open Source and released under the AGPL v3 or later license."
-msgstr ""
-"Dieses Spiel ist quelloffen und wird unter der AGPL v3 oder einer neueren "
-"Lizenz veröffentlicht."
-
-#: src/screens/settings/license/license.tscn
-msgid "Read full license"
-msgstr "Vollständige Lizenz lesen"
-
-#: src/screens/settings/license/license.tscn
-msgid "Source code"
-msgstr "Quellcode"
-
-#: src/screens/settings/license/license.tscn
-msgid "The full source code of the game is available on the websites below."
-msgstr ""
-"Der vollständige Quellcode des Spiels ist auf den nachstehenden Websites "
-"verfügbar."
-
-#: src/screens/settings/license/license.tscn
-msgid "Third party licenses"
-msgstr "Drittanbieter-Lizenzen"
-
-#: src/screens/settings/license/license.tscn
-msgid ""
-"This game was built using the Godot Engine, that is released under the MIT "
-"license."
-msgstr ""
-"Dieses Spiel wurde mit der Godot Engine entwickelt, die unter der MIT-Lizenz "
-"veröffentlicht wurde."
-
 #: src/enum.gd src/screens/match_screen/match_screen.tscn
 msgid "Full game"
 msgstr "Ganzes Spiel"
@@ -2540,6 +2622,58 @@ msgstr "Kontinentaler Bonuspokal"
 #: src/ui_components/player_list/player_list_view/views/contract/player_list_view_contract.tscn
 msgid "Bonus national cup"
 msgstr "Nationaler Bonuspokal"
+
+#: src/screens/about/about.tscn
+msgid "Contributors"
+msgstr "Mitwirkende"
+
+#: src/screens/about/about.tscn
+msgid "Licenses"
+msgstr "Lizenzen"
+
+#: src/screens/about/license/license.tscn
+msgid "Game license"
+msgstr "Spiellizenz"
+
+#: src/screens/about/license/license.tscn
+msgid ""
+"This game is Open Source and released under the AGPL v3 or later license."
+msgstr ""
+"Dieses Spiel ist quelloffen und wird unter der AGPL v3 oder einer neueren "
+"Lizenz veröffentlicht."
+
+#: src/screens/about/license/license.tscn
+msgid "Read full license"
+msgstr "Vollständige Lizenz lesen"
+
+#: src/screens/about/license/license.tscn
+msgid "Source code"
+msgstr "Quellcode"
+
+#: src/screens/about/license/license.tscn
+msgid "The full source code of the game is available on the websites below."
+msgstr ""
+"Der vollständige Quellcode des Spiels ist auf den nachstehenden Websites "
+"verfügbar."
+
+#: src/screens/about/license/license.tscn
+msgid "Third party licenses"
+msgstr "Drittanbieter-Lizenzen"
+
+#: src/screens/about/license/license.tscn
+msgid ""
+"This game was built using the Godot Engine, that is released under the MIT "
+"license."
+msgstr ""
+"Dieses Spiel wurde mit der Godot Engine entwickelt, die unter der MIT-Lizenz "
+"veröffentlicht wurde."
+
+#: src/screens/about/contributors/contributors.tscn
+msgid "Translations"
+msgstr "Übersetzungen"
+
+#~ msgid "Out of lineup"
+#~ msgstr "Nicht in der Aufstellung"
 
 #, fuzzy
 #~| msgid "Anticipation"

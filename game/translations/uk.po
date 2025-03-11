@@ -456,12 +456,21 @@ msgid "Win"
 msgstr "Виграти"
 
 #: src/ui_components/visual_competitions/visual_table/visual_table.tscn
+#: src/ui_components/visual_competitions/visual_table/visual_table.gd
 msgid "Draw"
 msgstr "Нічия"
 
 #: src/ui_components/visual_competitions/visual_table/visual_table.tscn
 msgid "Lost"
 msgstr "Програл"
+
+#: src/ui_components/visual_competitions/visual_table/visual_table.tscn
+msgid "Goal difference"
+msgstr ""
+
+#: src/ui_components/visual_competitions/visual_table/visual_table.tscn
+msgid "Difference"
+msgstr ""
 
 #: src/ui_components/visual_competitions/visual_table/visual_table.tscn
 #: src/ui_components/player_profile/statistics_view/statistics_view.tscn
@@ -471,8 +480,28 @@ msgid "Goals"
 msgstr "Цілі"
 
 #: src/ui_components/visual_competitions/visual_table/visual_table.tscn
+#, fuzzy
+#| msgid "Formation"
+msgid "Form"
+msgstr "Формування"
+
+#: src/ui_components/visual_competitions/visual_table/visual_table.tscn
 msgid "Points"
 msgstr "Очки"
+
+#: src/ui_components/visual_competitions/visual_table/visual_table.gd
+msgid "Victory"
+msgstr ""
+
+#: src/ui_components/visual_competitions/visual_table/visual_table.gd
+msgid "Defeat"
+msgstr ""
+
+#: src/ui_components/visual_competitions/visual_table/visual_table.gd
+#, fuzzy
+#| msgid "Games played"
+msgid "To be played"
+msgstr "Зіграні ігри"
 
 #: src/ui_components/visual_competitions/visual_knockout/visual_knockout.tscn
 msgid "Knockout"
@@ -495,9 +524,14 @@ msgid "Winner A vs Winner B"
 msgstr "Переможець A проти переможця B"
 
 #: src/ui_components/visual_competitions/visual_competitions.tscn
-#: src/ui_components/player_profile/contract_view/contract_view.tscn
-msgid "League"
-msgstr "Ліга"
+#: src/ui_components/player_profile/statistics_view/statistics_view.tscn
+msgid "Matches"
+msgstr "Сірники"
+
+#: src/ui_components/visual_competitions/visual_competitions.tscn
+#: src/screens/dashboard/dashboard.tscn
+msgid "Competitions"
+msgstr "Змагання"
 
 #: src/ui_components/visual_competitions/visual_competitions.gd
 msgid "Group"
@@ -544,8 +578,8 @@ msgid "Substitutes"
 msgstr "Замінники"
 
 #: src/ui_components/visual_formation/visual_formation.gd
-msgid "Out of lineup"
-msgstr "Поза складом"
+msgid "Other"
+msgstr ""
 
 #: src/ui_components/visual_formation/players_bar/players_bar.tscn
 #: src/ui_components/visual_formation/visual_formation.tscn
@@ -855,6 +889,10 @@ msgid "Clean sheet"
 msgstr "Чисте простирадло"
 
 #: src/ui_components/player_profile/contract_view/contract_view.tscn
+msgid "League"
+msgstr "Ліга"
+
+#: src/ui_components/player_profile/contract_view/contract_view.tscn
 msgid "National cup"
 msgstr "Кубок країни"
 
@@ -865,10 +903,6 @@ msgstr "Континентальний кубок"
 #: src/ui_components/player_profile/contract_view/contract_view.tscn
 msgid "Make offer"
 msgstr "Зробити пропозицію"
-
-#: src/ui_components/player_profile/statistics_view/statistics_view.tscn
-msgid "Matches"
-msgstr "Сірники"
 
 #: src/ui_components/player_profile/statistics_view/statistics_view.tscn
 #: src/ui_components/player_list/player_list_view/views/statistics/player_list_view_statistics.tscn
@@ -1102,28 +1136,34 @@ msgstr "Хакер"
 msgid "Custom theme"
 msgstr "Спеціальна тема"
 
-#: src/screens/settings/settings.tscn
-msgid "Input"
-msgstr "Пристрій введення"
-
-#: src/screens/settings/settings.tscn
-msgid "Contributors"
-msgstr "Учасники"
-
-#: src/screens/settings/settings.tscn
-msgid "Licenses"
-msgstr "Ліцензії"
+#: src/screens/settings/settings.tscn src/screens/dashboard/dashboard.tscn
+#: src/screens/menu/menu.tscn
+msgid "Settings"
+msgstr "Налаштування"
 
 #: src/screens/settings/settings.tscn
 msgid "Default settings"
 msgstr "Типові налаштування"
 
 #: src/screens/settings/settings.tscn
-#: src/screens/setup/setup_team/setup_team.tscn
+#: src/screens/setup/setup_team/setup_team.tscn src/screens/about/about.tscn
 msgid "Back"
 msgstr "Назад"
 
 #: src/screens/settings/settings.tscn
+msgid "Input"
+msgstr "Пристрій введення"
+
+#: src/screens/settings/settings.tscn
+msgid ""
+"All changed settings will be restored to the default value.\n"
+"Are you sure?"
+msgstr ""
+
+#: src/screens/settings/general/general_settings.tscn
+msgid "Language"
+msgstr "Мова"
+
 #: src/screens/settings/general/general_settings.tscn
 msgid ""
 "You can fix errors or add new languages easily on Weblate, just click on the "
@@ -1131,10 +1171,6 @@ msgid ""
 msgstr ""
 "Ви можете легко виправити помилки або додати нові мови на Weblate, просто "
 "клацнувши посилання нижче."
-
-#: src/screens/settings/general/general_settings.tscn
-msgid "Language"
-msgstr "Мова"
 
 #: src/screens/settings/general/general_settings.tscn
 msgid "Audio"
@@ -1190,6 +1226,11 @@ msgid "Save states"
 msgstr "Зберегти країни"
 
 #: src/screens/save_states_screen/save_states_screen.tscn
+#: src/screens/dashboard/dashboard.tscn
+msgid "Menu"
+msgstr "Меню"
+
+#: src/screens/save_states_screen/save_states_screen.tscn
 msgid "All save states are located in the following directory"
 msgstr "Усі стани збереження знаходяться в наступному каталозі"
 
@@ -1204,11 +1245,6 @@ msgid ""
 msgstr ""
 "Примітка. Видалені стани збереження можуть усе ще існувати у вашому кошику, "
 "якщо вони підтримуються та не вимкнені вашою операційною системою."
-
-#: src/screens/save_states_screen/save_states_screen.tscn
-#: src/screens/dashboard/dashboard.tscn
-msgid "Menu"
-msgstr "Меню"
 
 #: src/screens/save_states_screen/save_state_entry/save_state_entry.gd
 #: src/screens/menu/menu.gd
@@ -1296,10 +1332,6 @@ msgid "Calendar"
 msgstr "Календар"
 
 #: src/screens/dashboard/dashboard.tscn
-msgid "Competitions"
-msgstr "Змагання"
-
-#: src/screens/dashboard/dashboard.tscn
 msgid "Finances"
 msgstr "Фінанси"
 
@@ -1335,10 +1367,6 @@ msgstr "Зал слави"
 msgid "Notes"
 msgstr "Ноти"
 
-#: src/screens/dashboard/dashboard.tscn src/screens/menu/menu.tscn
-msgid "Settings"
-msgstr "Налаштування"
-
 #: src/screens/dashboard/dashboard.tscn
 msgid "Next match"
 msgstr "Наступний матч"
@@ -1361,6 +1389,12 @@ msgstr "Завантаження"
 msgid "New game"
 msgstr "Нова гра"
 
+#: src/screens/menu/menu.tscn src/screens/about/about.tscn
+#, fuzzy
+#| msgid "Djibouti"
+msgid "About"
+msgstr "Джибуті"
+
 #: src/screens/menu/menu.tscn
 msgid "Exit"
 msgstr "Вихід"
@@ -1368,6 +1402,17 @@ msgstr "Вихід"
 #: src/screens/menu/menu.tscn
 msgid "Exit game"
 msgstr "Вийти з гри"
+
+#: src/screens/setup/setup_world/setup_world.tscn
+#, fuzzy
+#| msgid "Start date"
+msgid "Start a new game"
+msgstr "Дата початку"
+
+#: src/screens/setup/setup_world/setup_world.tscn
+#: src/screens/setup/setup_world/setup_world.gd
+msgid "Name and surname missing"
+msgstr ""
 
 #: src/screens/setup/setup_world/setup_world.tscn
 msgid "Your name"
@@ -1394,9 +1439,52 @@ msgid "Start year"
 msgstr "Початковий рік"
 
 #: src/screens/setup/setup_world/setup_world.tscn
+#, fuzzy
+#| msgid "Game settings"
+msgid "File settings"
+msgstr "Налаштування гри"
+
+#: src/screens/setup/setup_world/setup_world.tscn
 msgid ""
-"This generation seed defines player names and attributes. When reused, it "
-"will generate exatly the same result."
+"All countries, leagues and team names are defined in a .csv file that can be "
+"modified."
+msgstr ""
+
+#: src/screens/setup/setup_world/setup_world.tscn
+msgid "Show instructions"
+msgstr ""
+
+#: src/screens/setup/setup_world/setup_world.tscn
+msgid "The following file will be used:"
+msgstr ""
+
+#: src/screens/setup/setup_world/setup_world.tscn
+#, fuzzy
+#| msgid "Default"
+msgid "Use default"
+msgstr "За замовчанням"
+
+#: src/screens/setup/setup_world/setup_world.tscn
+#, fuzzy
+#| msgid "Save states"
+msgid "Save template"
+msgstr "Зберегти країни"
+
+#: src/screens/setup/setup_world/setup_world.tscn
+#, fuzzy
+#| msgid "Load game"
+msgid "Load file"
+msgstr "Завантажити гру"
+
+#: src/screens/setup/setup_world/setup_world.tscn
+#, fuzzy
+#| msgid ""
+#| "This generation seed defines player names and attributes. When reused, it "
+#| "will generate exatly the same result."
+msgid ""
+"This generation seed defines all random starting values of the game like "
+"player names, attributes and team wealth. When reused, it will generate "
+"exatly the same result."
 msgstr ""
 "Це початкове покоління визначає імена та атрибути гравців. При повторному "
 "використанні він генерує точно той самий результат."
@@ -1404,6 +1492,41 @@ msgstr ""
 #: src/screens/setup/setup_world/setup_world.tscn
 msgid "Random"
 msgstr "Випадковий"
+
+#: src/screens/setup/setup_world/setup_world.tscn
+msgid "Open file"
+msgstr ""
+
+#: src/screens/setup/setup_world/setup_world.tscn
+msgid "Open"
+msgstr ""
+
+#: src/screens/setup/setup_world/setup_world.tscn
+msgid ""
+"There was an error while loading the file.\n"
+"Please make sure the file is a .csv file and has the correct format as "
+"defined in the template."
+msgstr ""
+
+#: src/screens/setup/setup_world/setup_world.tscn
+msgid ""
+"1) Click \"Save template\" button to save csv template on your machine\n"
+"2) Open with a spreadsheet editor (like LibreOffice Calc or similar)\n"
+"3) Modify data by keeping structure defined in template\n"
+"4) Save file as \"world.csv\" (.ods or .xlsx files are not supported)\n"
+"5) Click \"Load file\" to import modified data\n"
+"\n"
+"And done! This file can be reused and shared with friends.\n"
+"\n"
+"Note: The template might change before final release. The loading will fail, "
+"if the file has not the correct format."
+msgstr ""
+
+#: src/screens/setup/setup_world/setup_world.gd
+#, fuzzy
+#| msgid "Default"
+msgid "Default file"
+msgstr "За замовчанням"
 
 #: src/screens/setup/setup_world/setup_world.gd
 msgid "Generating teams and players"
@@ -2213,45 +2336,6 @@ msgstr "В'єтнам"
 msgid "Yemen"
 msgstr "Ємен"
 
-#: src/screens/settings/contributors/contributors.tscn
-msgid "Translations"
-msgstr "Переклади"
-
-#: src/screens/settings/license/license.tscn
-msgid "Game license"
-msgstr "Ігрова ліцензія"
-
-#: src/screens/settings/license/license.tscn
-msgid ""
-"This game is Open Source and released under the AGPL v3 or later license."
-msgstr ""
-"Ця гра має відкритий вихідний код і випущена за ліцензією AGPL v3 або "
-"новішої."
-
-#: src/screens/settings/license/license.tscn
-msgid "Read full license"
-msgstr "Читати повну ліцензію"
-
-#: src/screens/settings/license/license.tscn
-msgid "Source code"
-msgstr "Вихідний код"
-
-#: src/screens/settings/license/license.tscn
-msgid "The full source code of the game is available on the websites below."
-msgstr "Повний вихідний код гри доступний на веб-сайтах нижче."
-
-#: src/screens/settings/license/license.tscn
-msgid "Third party licenses"
-msgstr "Сторонні ліцензії"
-
-#: src/screens/settings/license/license.tscn
-msgid ""
-"This game was built using the Godot Engine, that is released under the MIT "
-"license."
-msgstr ""
-"Цю гру створено з використанням движка Godot Engine, який випущено за "
-"ліцензією MIT."
-
 #: src/enum.gd src/screens/match_screen/match_screen.tscn
 msgid "Full game"
 msgstr "Повна гра"
@@ -2534,6 +2618,56 @@ msgstr "Бонусний континентальний кубок"
 #: src/ui_components/player_list/player_list_view/views/contract/player_list_view_contract.tscn
 msgid "Bonus national cup"
 msgstr "Бонусний національний кубок"
+
+#: src/screens/about/about.tscn
+msgid "Contributors"
+msgstr "Учасники"
+
+#: src/screens/about/about.tscn
+msgid "Licenses"
+msgstr "Ліцензії"
+
+#: src/screens/about/license/license.tscn
+msgid "Game license"
+msgstr "Ігрова ліцензія"
+
+#: src/screens/about/license/license.tscn
+msgid ""
+"This game is Open Source and released under the AGPL v3 or later license."
+msgstr ""
+"Ця гра має відкритий вихідний код і випущена за ліцензією AGPL v3 або "
+"новішої."
+
+#: src/screens/about/license/license.tscn
+msgid "Read full license"
+msgstr "Читати повну ліцензію"
+
+#: src/screens/about/license/license.tscn
+msgid "Source code"
+msgstr "Вихідний код"
+
+#: src/screens/about/license/license.tscn
+msgid "The full source code of the game is available on the websites below."
+msgstr "Повний вихідний код гри доступний на веб-сайтах нижче."
+
+#: src/screens/about/license/license.tscn
+msgid "Third party licenses"
+msgstr "Сторонні ліцензії"
+
+#: src/screens/about/license/license.tscn
+msgid ""
+"This game was built using the Godot Engine, that is released under the MIT "
+"license."
+msgstr ""
+"Цю гру створено з використанням движка Godot Engine, який випущено за "
+"ліцензією MIT."
+
+#: src/screens/about/contributors/contributors.tscn
+msgid "Translations"
+msgstr "Переклади"
+
+#~ msgid "Out of lineup"
+#~ msgstr "Поза складом"
 
 #~ msgid "Antcipation"
 #~ msgstr "Передчуття"

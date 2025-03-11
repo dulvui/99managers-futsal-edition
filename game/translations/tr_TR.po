@@ -459,12 +459,21 @@ msgid "Win"
 msgstr "Galibiyet"
 
 #: src/ui_components/visual_competitions/visual_table/visual_table.tscn
+#: src/ui_components/visual_competitions/visual_table/visual_table.gd
 msgid "Draw"
 msgstr "Berabere"
 
 #: src/ui_components/visual_competitions/visual_table/visual_table.tscn
 msgid "Lost"
 msgstr "Mağlubiyet"
+
+#: src/ui_components/visual_competitions/visual_table/visual_table.tscn
+msgid "Goal difference"
+msgstr ""
+
+#: src/ui_components/visual_competitions/visual_table/visual_table.tscn
+msgid "Difference"
+msgstr ""
 
 #: src/ui_components/visual_competitions/visual_table/visual_table.tscn
 #: src/ui_components/player_profile/statistics_view/statistics_view.tscn
@@ -474,8 +483,28 @@ msgid "Goals"
 msgstr "Goller"
 
 #: src/ui_components/visual_competitions/visual_table/visual_table.tscn
+#, fuzzy
+#| msgid "Formation"
+msgid "Form"
+msgstr "Formasyon"
+
+#: src/ui_components/visual_competitions/visual_table/visual_table.tscn
 msgid "Points"
 msgstr "Puan"
+
+#: src/ui_components/visual_competitions/visual_table/visual_table.gd
+msgid "Victory"
+msgstr ""
+
+#: src/ui_components/visual_competitions/visual_table/visual_table.gd
+msgid "Defeat"
+msgstr ""
+
+#: src/ui_components/visual_competitions/visual_table/visual_table.gd
+#, fuzzy
+#| msgid "Games played"
+msgid "To be played"
+msgstr "Oynanan maç sayısı"
 
 #: src/ui_components/visual_competitions/visual_knockout/visual_knockout.tscn
 msgid "Knockout"
@@ -498,9 +527,14 @@ msgid "Winner A vs Winner B"
 msgstr "Galip A vs Galip B"
 
 #: src/ui_components/visual_competitions/visual_competitions.tscn
-#: src/ui_components/player_profile/contract_view/contract_view.tscn
-msgid "League"
-msgstr "Lig"
+#: src/ui_components/player_profile/statistics_view/statistics_view.tscn
+msgid "Matches"
+msgstr "Maçlar"
+
+#: src/ui_components/visual_competitions/visual_competitions.tscn
+#: src/screens/dashboard/dashboard.tscn
+msgid "Competitions"
+msgstr "Yarışmalar"
 
 #: src/ui_components/visual_competitions/visual_competitions.gd
 msgid "Group"
@@ -547,7 +581,7 @@ msgid "Substitutes"
 msgstr ""
 
 #: src/ui_components/visual_formation/visual_formation.gd
-msgid "Out of lineup"
+msgid "Other"
 msgstr ""
 
 #: src/ui_components/visual_formation/players_bar/players_bar.tscn
@@ -858,6 +892,10 @@ msgid "Clean sheet"
 msgstr "Temiz sayfa"
 
 #: src/ui_components/player_profile/contract_view/contract_view.tscn
+msgid "League"
+msgstr "Lig"
+
+#: src/ui_components/player_profile/contract_view/contract_view.tscn
 msgid "National cup"
 msgstr "Ulusal kupa"
 
@@ -868,10 +906,6 @@ msgstr "Kıtasal kupa"
 #: src/ui_components/player_profile/contract_view/contract_view.tscn
 msgid "Make offer"
 msgstr "Teklif yap"
-
-#: src/ui_components/player_profile/statistics_view/statistics_view.tscn
-msgid "Matches"
-msgstr "Maçlar"
 
 #: src/ui_components/player_profile/statistics_view/statistics_view.tscn
 #: src/ui_components/player_list/player_list_view/views/statistics/player_list_view_statistics.tscn
@@ -1109,28 +1143,34 @@ msgstr "Hacker"
 msgid "Custom theme"
 msgstr "Özel tema"
 
-#: src/screens/settings/settings.tscn
-msgid "Input"
-msgstr "Girdi"
-
-#: src/screens/settings/settings.tscn
-msgid "Contributors"
-msgstr "Katkıda bulunanlar"
-
-#: src/screens/settings/settings.tscn
-msgid "Licenses"
-msgstr "Lisanslar"
+#: src/screens/settings/settings.tscn src/screens/dashboard/dashboard.tscn
+#: src/screens/menu/menu.tscn
+msgid "Settings"
+msgstr "Ayarlar"
 
 #: src/screens/settings/settings.tscn
 msgid "Default settings"
 msgstr "Varsayılan ayarlar"
 
 #: src/screens/settings/settings.tscn
-#: src/screens/setup/setup_team/setup_team.tscn
+#: src/screens/setup/setup_team/setup_team.tscn src/screens/about/about.tscn
 msgid "Back"
 msgstr "Geri"
 
 #: src/screens/settings/settings.tscn
+msgid "Input"
+msgstr "Girdi"
+
+#: src/screens/settings/settings.tscn
+msgid ""
+"All changed settings will be restored to the default value.\n"
+"Are you sure?"
+msgstr ""
+
+#: src/screens/settings/general/general_settings.tscn
+msgid "Language"
+msgstr "Dil"
+
 #: src/screens/settings/general/general_settings.tscn
 msgid ""
 "You can fix errors or add new languages easily on Weblate, just click on the "
@@ -1138,10 +1178,6 @@ msgid ""
 msgstr ""
 "Aşağıdaki linke tıklayarak weblate üzerinden hataları düzenleyebilir veya "
 "yeni diller ekleyebilrsin."
-
-#: src/screens/settings/general/general_settings.tscn
-msgid "Language"
-msgstr "Dil"
 
 #: src/screens/settings/general/general_settings.tscn
 msgid "Audio"
@@ -1197,6 +1233,11 @@ msgid "Save states"
 msgstr "Kayıt durumu"
 
 #: src/screens/save_states_screen/save_states_screen.tscn
+#: src/screens/dashboard/dashboard.tscn
+msgid "Menu"
+msgstr "Menü"
+
+#: src/screens/save_states_screen/save_states_screen.tscn
 msgid "All save states are located in the following directory"
 msgstr "Bütün oyun kayıtları şu konumda yer almaktadır"
 
@@ -1211,11 +1252,6 @@ msgid ""
 msgstr ""
 "Not: Silinen kayıt dosyaları eğer işletim sisteminizce veya destekleniyorsa "
 "halen Geri Dönüşüm Kutusunda yer alabilir."
-
-#: src/screens/save_states_screen/save_states_screen.tscn
-#: src/screens/dashboard/dashboard.tscn
-msgid "Menu"
-msgstr "Menü"
 
 #: src/screens/save_states_screen/save_state_entry/save_state_entry.gd
 #: src/screens/menu/menu.gd
@@ -1303,10 +1339,6 @@ msgid "Calendar"
 msgstr "Takvim"
 
 #: src/screens/dashboard/dashboard.tscn
-msgid "Competitions"
-msgstr "Yarışmalar"
-
-#: src/screens/dashboard/dashboard.tscn
 msgid "Finances"
 msgstr "Finans durumu"
 
@@ -1342,10 +1374,6 @@ msgstr "Onur listesi"
 msgid "Notes"
 msgstr "Notlar"
 
-#: src/screens/dashboard/dashboard.tscn src/screens/menu/menu.tscn
-msgid "Settings"
-msgstr "Ayarlar"
-
 #: src/screens/dashboard/dashboard.tscn
 msgid "Next match"
 msgstr "Sıradaki maç"
@@ -1368,6 +1396,12 @@ msgstr "Yükleniyor"
 msgid "New game"
 msgstr "Yeni oyun"
 
+#: src/screens/menu/menu.tscn src/screens/about/about.tscn
+#, fuzzy
+#| msgid "Djibouti"
+msgid "About"
+msgstr "Cibuti"
+
 #: src/screens/menu/menu.tscn
 msgid "Exit"
 msgstr "Çık"
@@ -1375,6 +1409,17 @@ msgstr "Çık"
 #: src/screens/menu/menu.tscn
 msgid "Exit game"
 msgstr "Oyundan çık"
+
+#: src/screens/setup/setup_world/setup_world.tscn
+#, fuzzy
+#| msgid "Start date"
+msgid "Start a new game"
+msgstr "Başlangıç tarihi"
+
+#: src/screens/setup/setup_world/setup_world.tscn
+#: src/screens/setup/setup_world/setup_world.gd
+msgid "Name and surname missing"
+msgstr ""
 
 #: src/screens/setup/setup_world/setup_world.tscn
 msgid "Your name"
@@ -1401,9 +1446,52 @@ msgid "Start year"
 msgstr "Başlangıç yılı"
 
 #: src/screens/setup/setup_world/setup_world.tscn
+#, fuzzy
+#| msgid "Game settings"
+msgid "File settings"
+msgstr "Oyun ayarları"
+
+#: src/screens/setup/setup_world/setup_world.tscn
 msgid ""
-"This generation seed defines player names and attributes. When reused, it "
-"will generate exatly the same result."
+"All countries, leagues and team names are defined in a .csv file that can be "
+"modified."
+msgstr ""
+
+#: src/screens/setup/setup_world/setup_world.tscn
+msgid "Show instructions"
+msgstr ""
+
+#: src/screens/setup/setup_world/setup_world.tscn
+msgid "The following file will be used:"
+msgstr ""
+
+#: src/screens/setup/setup_world/setup_world.tscn
+#, fuzzy
+#| msgid "Default"
+msgid "Use default"
+msgstr "Varsayılan"
+
+#: src/screens/setup/setup_world/setup_world.tscn
+#, fuzzy
+#| msgid "Save states"
+msgid "Save template"
+msgstr "Kayıt durumu"
+
+#: src/screens/setup/setup_world/setup_world.tscn
+#, fuzzy
+#| msgid "Load game"
+msgid "Load file"
+msgstr "Oyun yükle"
+
+#: src/screens/setup/setup_world/setup_world.tscn
+#, fuzzy
+#| msgid ""
+#| "This generation seed defines player names and attributes. When reused, it "
+#| "will generate exatly the same result."
+msgid ""
+"This generation seed defines all random starting values of the game like "
+"player names, attributes and team wealth. When reused, it will generate "
+"exatly the same result."
 msgstr ""
 "Karakter oluşturma oyuncuların isimlerini ve özelliklerini belirler. Tekrar "
 "kullanıldığında yine aynı sonucu verir."
@@ -1411,6 +1499,41 @@ msgstr ""
 #: src/screens/setup/setup_world/setup_world.tscn
 msgid "Random"
 msgstr "Rastgele"
+
+#: src/screens/setup/setup_world/setup_world.tscn
+msgid "Open file"
+msgstr ""
+
+#: src/screens/setup/setup_world/setup_world.tscn
+msgid "Open"
+msgstr ""
+
+#: src/screens/setup/setup_world/setup_world.tscn
+msgid ""
+"There was an error while loading the file.\n"
+"Please make sure the file is a .csv file and has the correct format as "
+"defined in the template."
+msgstr ""
+
+#: src/screens/setup/setup_world/setup_world.tscn
+msgid ""
+"1) Click \"Save template\" button to save csv template on your machine\n"
+"2) Open with a spreadsheet editor (like LibreOffice Calc or similar)\n"
+"3) Modify data by keeping structure defined in template\n"
+"4) Save file as \"world.csv\" (.ods or .xlsx files are not supported)\n"
+"5) Click \"Load file\" to import modified data\n"
+"\n"
+"And done! This file can be reused and shared with friends.\n"
+"\n"
+"Note: The template might change before final release. The loading will fail, "
+"if the file has not the correct format."
+msgstr ""
+
+#: src/screens/setup/setup_world/setup_world.gd
+#, fuzzy
+#| msgid "Default"
+msgid "Default file"
+msgstr "Varsayılan"
 
 #: src/screens/setup/setup_world/setup_world.gd
 #, fuzzy
@@ -2222,45 +2345,6 @@ msgstr "Vietnam"
 msgid "Yemen"
 msgstr "Yemen"
 
-#: src/screens/settings/contributors/contributors.tscn
-msgid "Translations"
-msgstr "Çeviriler"
-
-#: src/screens/settings/license/license.tscn
-msgid "Game license"
-msgstr "Oyun lisansı"
-
-#: src/screens/settings/license/license.tscn
-msgid ""
-"This game is Open Source and released under the AGPL v3 or later license."
-msgstr ""
-"Bu oyun Açık Kaynaktır ve AGPL v3 veya sonraki lisansı altında "
-"yayınlanmıştır."
-
-#: src/screens/settings/license/license.tscn
-msgid "Read full license"
-msgstr "Lisansın tamamını oku"
-
-#: src/screens/settings/license/license.tscn
-msgid "Source code"
-msgstr "Kaynak kodu"
-
-#: src/screens/settings/license/license.tscn
-msgid "The full source code of the game is available on the websites below."
-msgstr "Oyunun tam kaynak kodu aşağıdaki internet sayfalarında mevcuttur."
-
-#: src/screens/settings/license/license.tscn
-msgid "Third party licenses"
-msgstr "Üçüncü taraf lisansları"
-
-#: src/screens/settings/license/license.tscn
-msgid ""
-"This game was built using the Godot Engine, that is released under the MIT "
-"license."
-msgstr ""
-"Bu oyun MIT lisansı altında yayımlanan Godot Motoru kullanılarak "
-"geliştirildi."
-
 #: src/enum.gd src/screens/match_screen/match_screen.tscn
 msgid "Full game"
 msgstr "Tam oyun"
@@ -2549,6 +2633,53 @@ msgstr "Bonus kıtasal kupa"
 #: src/ui_components/player_list/player_list_view/views/contract/player_list_view_contract.tscn
 msgid "Bonus national cup"
 msgstr "Bonus ulusal kupa"
+
+#: src/screens/about/about.tscn
+msgid "Contributors"
+msgstr "Katkıda bulunanlar"
+
+#: src/screens/about/about.tscn
+msgid "Licenses"
+msgstr "Lisanslar"
+
+#: src/screens/about/license/license.tscn
+msgid "Game license"
+msgstr "Oyun lisansı"
+
+#: src/screens/about/license/license.tscn
+msgid ""
+"This game is Open Source and released under the AGPL v3 or later license."
+msgstr ""
+"Bu oyun Açık Kaynaktır ve AGPL v3 veya sonraki lisansı altında "
+"yayınlanmıştır."
+
+#: src/screens/about/license/license.tscn
+msgid "Read full license"
+msgstr "Lisansın tamamını oku"
+
+#: src/screens/about/license/license.tscn
+msgid "Source code"
+msgstr "Kaynak kodu"
+
+#: src/screens/about/license/license.tscn
+msgid "The full source code of the game is available on the websites below."
+msgstr "Oyunun tam kaynak kodu aşağıdaki internet sayfalarında mevcuttur."
+
+#: src/screens/about/license/license.tscn
+msgid "Third party licenses"
+msgstr "Üçüncü taraf lisansları"
+
+#: src/screens/about/license/license.tscn
+msgid ""
+"This game was built using the Godot Engine, that is released under the MIT "
+"license."
+msgstr ""
+"Bu oyun MIT lisansı altında yayımlanan Godot Motoru kullanılarak "
+"geliştirildi."
+
+#: src/screens/about/contributors/contributors.tscn
+msgid "Translations"
+msgstr "Çeviriler"
 
 #, fuzzy
 #~| msgid "Anticipation"
