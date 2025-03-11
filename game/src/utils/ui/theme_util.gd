@@ -344,7 +344,7 @@ func _apply_configuration(p_configuration: ThemeConfiguration) -> void:
 	theme.set_color("font_color", "LineEdit", configuration.font_color)
 	theme.set_color("font_selected_color", "LineEdit", configuration.font_color)
 	theme.set_color("font_placeholder_color", "LineEdit", configuration.font_color_variation.hover)
-	theme.set_color("font_uneditable_color", "LineEdit", configuration.font_color_variation.hover)
+	theme.set_color("font_uneditable_color", "LineEdit", configuration.font_color)
 
 	# popup menu
 	theme.set_color("font_color", "PopupMenu", configuration.font_color)

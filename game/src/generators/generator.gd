@@ -53,6 +53,9 @@ var min_timestamp: int
 
 
 func generate_world(world_file_path: String = WORLD_CSV_PATH) -> World:
+	if world_file_path.is_empty():
+		world_file_path = WORLD_CSV_PATH
+	
 	var file: FileAccess = FileAccess.open(world_file_path, FileAccess.READ)
 	if file == null:
 		print("error while opening world file at %s" % world_file_path)

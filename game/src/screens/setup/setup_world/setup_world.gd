@@ -2,7 +2,7 @@
 
 # SPDX-License-Identifier: AGPL-3.0-or-later
 
-extends Control
+extends PanelContainer
 
 const DEFAULT_SEED: String = "289636-522140-666834"
 
@@ -17,7 +17,11 @@ var custom_file_path: String = ""
 @onready var player_names_option: OptionButton = %PlayerNames
 @onready var start_year_spinbox: SpinBox = %StartYear
 @onready var generation_seed_edit: LineEdit = %GeneratedSeedLineEdit
+
 @onready var file_dialog: FileDialog = %FileDialog
+@onready var template_dialog: FileDialog = %TemplateDialog
+@onready var file_path_line_edit: LineEdit = %FilePathLineEdit
+@onready var default_file_button: CheckButton = %DefaultFileButton
 
 @onready var continue_button: Button = %Continue
 
@@ -43,6 +47,8 @@ func _ready() -> void:
 		nations.add_item(nation)
 
 	continue_button.disabled = manager_name.text.length() * manager_surname.text.length() == 0
+
+	file_path_line_edit.text = tr("Default file")
 
 
 func _on_generated_seed_line_edit_text_changed(new_text: String) -> void:
@@ -92,7 +98,10 @@ func _on_continue_pressed() -> void:
 	LoadingUtil.start(tr("Generating teams and players"), LoadingUtil.Type.GENERATION, true)
 	Main.show_loading_screen(Const.SCREEN_SETUP_TEAM)
 
-	ThreadUtil.generate_world(custom_file_path)
+	if default_file_button.button_pressed or custom_file_path.is_empty():
+		ThreadUtil.generate_world()
+	else:
+		ThreadUtil.generate_world(custom_file_path)
 
 
 func _on_name_text_changed(_new_text: String) -> void:
@@ -103,18 +112,38 @@ func _on_surame_text_changed(_new_text: String) -> void:
 	continue_button.disabled = manager_name.text.length() * manager_surname.text.length() == 0
 
 
-func _on_custom_file_buttom_pressed() -> void:
+func _on_template_button_pressed() -> void:
+	template_dialog.current_file = Generator.WORLD_CSV_PATH
+	template_dialog.popup_centered()
+
+
+func _on_file_button_pressed() -> void:
 	file_dialog.popup_centered()
 
 
 func _on_file_dialog_file_selected(path: String) -> void:
 	custom_file_path = path
-	print("custom_file_path")
-	print(custom_file_path)
+	default_file_button.button_pressed = false
+
+
+func _on_template_dialog_file_selected(path: String) -> void:
+	var dir_access: DirAccess = DirAccess.open(path.get_base_dir())
+	if dir_access:
+		dir_access.copy(Generator.WORLD_CSV_PATH, path)
+		print("creating backup for %s done." % path)
+	else:
+		print("creating backup for %s gone wrong." % path)
+
+
+func _on_default_file_button_toggled(toggled_on: bool) -> void:
+	SoundUtil.play_button_sfx()
+
+	if toggled_on or custom_file_path.is_empty():
+		file_path_line_edit.text = tr("Default file")
+	else:
+		file_path_line_edit.text = custom_file_path
 
 
 func _on_back_pressed() -> void:
 	Main.change_scene(Const.SCREEN_MENU)
-
-
 

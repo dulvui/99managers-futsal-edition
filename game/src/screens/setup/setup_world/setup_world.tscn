@@ -1,13 +1,13 @@
-[gd_scene load_steps=6 format=3 uid="uid://cqcsyes1j6vwi"]
+[gd_scene load_steps=7 format=3 uid="uid://cqcsyes1j6vwi"]
 
 [ext_resource type="Theme" uid="uid://pt1hrfiuwfpg" path="res://theme_base/theme.tres" id="1_lar05"]
 [ext_resource type="Script" uid="uid://j8ooryeon21g" path="res://src/screens/setup/setup_world/setup_world.gd" id="2_s01se"]
 [ext_resource type="Script" uid="uid://cnyyowwlb04kl" path="res://src/ui_components/base/defaults/default_button.gd" id="3_g76wv"]
 [ext_resource type="LabelSettings" uid="uid://b4gu78rjvdfx4" path="res://theme_base/label/label_settings_title.tres" id="3_mfpia"]
 [ext_resource type="Script" uid="uid://b7gkxesmo6fix" path="res://src/ui_components/base/defaults/default_option_button.gd" id="4_3e6xm"]
+[ext_resource type="LabelSettings" uid="uid://cc2vi4onhgmnw" path="res://theme_base/label/label_settings_bold.tres" id="5_imyfn"]
 
-[node name="SetupWorld" type="Control"]
-layout_mode = 3
+[node name="SetupWorld" type="PanelContainer"]
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
@@ -16,173 +16,24 @@ grow_vertical = 2
 theme = ExtResource("1_lar05")
 script = ExtResource("2_s01se")
 
-[node name="Panel" type="Panel" parent="."]
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-
-[node name="VBoxContainer" type="VBoxContainer" parent="."]
-layout_mode = 1
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -490.5
-offset_top = -401.5
-offset_right = 490.5
-offset_bottom = 401.5
-grow_horizontal = 2
-grow_vertical = 2
-theme_override_constants/separation = 15
-alignment = 1
-
-[node name="Manager" type="VBoxContainer" parent="VBoxContainer"]
-layout_mode = 2
-alignment = 1
-
-[node name="Manager" type="VBoxContainer" parent="VBoxContainer/Manager"]
-layout_mode = 2
-theme_override_constants/separation = 5
-
-[node name="ManagerLabel" type="Label" parent="VBoxContainer/Manager/Manager"]
-layout_mode = 2
-text = "Manager"
-label_settings = ExtResource("3_mfpia")
-
-[node name="Container" type="GridContainer" parent="VBoxContainer/Manager/Manager"]
-layout_mode = 2
-theme_override_constants/h_separation = 30
-columns = 2
-
-[node name="NameLabel" type="Label" parent="VBoxContainer/Manager/Manager/Container"]
-custom_minimum_size = Vector2(240, 0)
-layout_mode = 2
-text = "Name"
-
-[node name="Name" type="LineEdit" parent="VBoxContainer/Manager/Manager/Container"]
-unique_name_in_owner = true
-custom_minimum_size = Vector2(400, 0)
-layout_mode = 2
-size_flags_horizontal = 3
-size_flags_vertical = 3
-placeholder_text = "Your name"
-
-[node name="SurnameLabel" type="Label" parent="VBoxContainer/Manager/Manager/Container"]
-custom_minimum_size = Vector2(240, 0)
-layout_mode = 2
-text = "Surname"
-
-[node name="Surname" type="LineEdit" parent="VBoxContainer/Manager/Manager/Container"]
-unique_name_in_owner = true
-custom_minimum_size = Vector2(400, 0)
-layout_mode = 2
-size_flags_horizontal = 3
-size_flags_vertical = 3
-placeholder_text = "Your surname"
-
-[node name="NationaltyLabel" type="Label" parent="VBoxContainer/Manager/Manager/Container"]
-custom_minimum_size = Vector2(240, 0)
-layout_mode = 2
-text = "Nationality"
-
-[node name="Nationality" type="OptionButton" parent="VBoxContainer/Manager/Manager/Container"]
-unique_name_in_owner = true
-layout_mode = 2
-script = ExtResource("4_3e6xm")
-
-[node name="Settings" type="VBoxContainer" parent="VBoxContainer"]
+[node name="MarginContainer" type="MarginContainer" parent="."]
 layout_mode = 2
 
-[node name="SettingsLabel" type="Label" parent="VBoxContainer/Settings"]
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer"]
 layout_mode = 2
-text = "Game settings"
-label_settings = ExtResource("3_mfpia")
+theme_override_constants/separation = 25
 
-[node name="Container" type="GridContainer" parent="VBoxContainer/Settings"]
-layout_mode = 2
-theme_override_constants/h_separation = 30
-columns = 2
-
-[node name="PlayerNamesLabel" type="Label" parent="VBoxContainer/Settings/Container"]
-custom_minimum_size = Vector2(240, 0)
-layout_mode = 2
-text = "Player names"
-
-[node name="PlayerNames" type="OptionButton" parent="VBoxContainer/Settings/Container"]
-unique_name_in_owner = true
-custom_minimum_size = Vector2(200, 0)
-layout_mode = 2
-
-[node name="StartYearLabel" type="Label" parent="VBoxContainer/Settings/Container"]
-custom_minimum_size = Vector2(240, 0)
-layout_mode = 2
-text = "Start year"
-
-[node name="StartYear" type="SpinBox" parent="VBoxContainer/Settings/Container"]
-unique_name_in_owner = true
-custom_minimum_size = Vector2(200, 0)
-layout_mode = 2
-min_value = 2000.0
-max_value = 3000.0
-value = 2000.0
-
-[node name="CustomFileLabel" type="Label" parent="VBoxContainer/Settings/Container"]
-layout_mode = 2
-text = "Custom world file"
-
-[node name="CustomFileButtom" type="Button" parent="VBoxContainer/Settings/Container"]
-layout_mode = 2
-text = "Load"
-
-[node name="Seed" type="VBoxContainer" parent="VBoxContainer"]
-layout_mode = 2
-
-[node name="GenerationSeedLabel" type="Label" parent="VBoxContainer/Seed"]
-layout_mode = 2
-text = "Generation seed"
-label_settings = ExtResource("3_mfpia")
-
-[node name="GenerationSeedDescription" type="Label" parent="VBoxContainer/Seed"]
-layout_mode = 2
-text = "This generation seed defines player names and attributes. When reused, it will generate exatly the same result."
-autowrap_mode = 2
-
-[node name="GridContainer" type="HBoxContainer" parent="VBoxContainer/Seed"]
+[node name="TopBar" type="HBoxContainer" parent="MarginContainer/VBoxContainer"]
 layout_mode = 2
 theme_override_constants/separation = 15
 
-[node name="GenearateSeedButton" type="Button" parent="VBoxContainer/Seed/GridContainer"]
-custom_minimum_size = Vector2(200, 0)
-layout_mode = 2
-size_flags_horizontal = 4
-size_flags_vertical = 3
-text = "Random"
-script = ExtResource("3_g76wv")
-
-[node name="GeneratedSeedLineEdit" type="LineEdit" parent="VBoxContainer/Seed/GridContainer"]
-unique_name_in_owner = true
+[node name="Title" type="Label" parent="MarginContainer/VBoxContainer/TopBar"]
 layout_mode = 2
 size_flags_horizontal = 3
-context_menu_enabled = false
+text = "Start a new game"
+label_settings = ExtResource("3_mfpia")
 
-[node name="DefaultSeedButton" type="Button" parent="VBoxContainer/Seed/GridContainer"]
-custom_minimum_size = Vector2(200, 0)
-layout_mode = 2
-size_flags_horizontal = 4
-size_flags_vertical = 3
-text = "Default"
-script = ExtResource("3_g76wv")
-
-[node name="Buttons" type="HBoxContainer" parent="VBoxContainer"]
-layout_mode = 2
-theme_override_constants/separation = 15
-alignment = 1
-
-[node name="Back" type="Button" parent="VBoxContainer/Buttons"]
+[node name="Back" type="Button" parent="MarginContainer/VBoxContainer/TopBar"]
 custom_minimum_size = Vector2(200, 0)
 layout_mode = 2
 size_flags_horizontal = 4
@@ -190,7 +41,7 @@ text = "Cancel"
 script = ExtResource("3_g76wv")
 metadata/_edit_use_anchors_ = true
 
-[node name="Continue" type="Button" parent="VBoxContainer/Buttons"]
+[node name="Continue" type="Button" parent="MarginContainer/VBoxContainer/TopBar"]
 unique_name_in_owner = true
 custom_minimum_size = Vector2(200, 0)
 layout_mode = 2
@@ -199,6 +50,197 @@ theme_type_variation = &"ImportantButton"
 text = "Continue"
 script = ExtResource("3_g76wv")
 metadata/_edit_use_anchors_ = true
+
+[node name="Manager" type="VBoxContainer" parent="MarginContainer/VBoxContainer"]
+custom_minimum_size = Vector2(990, 0)
+layout_mode = 2
+size_flags_horizontal = 4
+alignment = 1
+
+[node name="Manager" type="VBoxContainer" parent="MarginContainer/VBoxContainer/Manager"]
+layout_mode = 2
+theme_override_constants/separation = 5
+
+[node name="ManagerLabel" type="Label" parent="MarginContainer/VBoxContainer/Manager/Manager"]
+layout_mode = 2
+text = "Manager"
+label_settings = ExtResource("3_mfpia")
+
+[node name="Container" type="GridContainer" parent="MarginContainer/VBoxContainer/Manager/Manager"]
+layout_mode = 2
+columns = 2
+
+[node name="NameLabel" type="Label" parent="MarginContainer/VBoxContainer/Manager/Manager/Container"]
+custom_minimum_size = Vector2(240, 0)
+layout_mode = 2
+text = "Name"
+
+[node name="Name" type="LineEdit" parent="MarginContainer/VBoxContainer/Manager/Manager/Container"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(340, 0)
+layout_mode = 2
+placeholder_text = "Your name"
+
+[node name="SurnameLabel" type="Label" parent="MarginContainer/VBoxContainer/Manager/Manager/Container"]
+custom_minimum_size = Vector2(240, 0)
+layout_mode = 2
+text = "Surname"
+
+[node name="Surname" type="LineEdit" parent="MarginContainer/VBoxContainer/Manager/Manager/Container"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(340, 0)
+layout_mode = 2
+placeholder_text = "Your surname"
+
+[node name="NationaltyLabel" type="Label" parent="MarginContainer/VBoxContainer/Manager/Manager/Container"]
+custom_minimum_size = Vector2(240, 0)
+layout_mode = 2
+text = "Nationality"
+
+[node name="Nationality" type="OptionButton" parent="MarginContainer/VBoxContainer/Manager/Manager/Container"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(340, 0)
+layout_mode = 2
+script = ExtResource("4_3e6xm")
+
+[node name="Settings" type="VBoxContainer" parent="MarginContainer/VBoxContainer"]
+custom_minimum_size = Vector2(990, 0)
+layout_mode = 2
+size_flags_horizontal = 4
+
+[node name="SettingsLabel" type="Label" parent="MarginContainer/VBoxContainer/Settings"]
+layout_mode = 2
+text = "Game settings"
+label_settings = ExtResource("3_mfpia")
+
+[node name="Container" type="GridContainer" parent="MarginContainer/VBoxContainer/Settings"]
+layout_mode = 2
+columns = 2
+
+[node name="PlayerNamesLabel" type="Label" parent="MarginContainer/VBoxContainer/Settings/Container"]
+custom_minimum_size = Vector2(240, 0)
+layout_mode = 2
+text = "Player names"
+
+[node name="PlayerNames" type="OptionButton" parent="MarginContainer/VBoxContainer/Settings/Container"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(340, 0)
+layout_mode = 2
+
+[node name="StartYearLabel" type="Label" parent="MarginContainer/VBoxContainer/Settings/Container"]
+custom_minimum_size = Vector2(240, 0)
+layout_mode = 2
+text = "Start year"
+
+[node name="StartYear" type="SpinBox" parent="MarginContainer/VBoxContainer/Settings/Container"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(340, 0)
+layout_mode = 2
+min_value = 2000.0
+max_value = 3000.0
+value = 2000.0
+
+[node name="Files" type="VBoxContainer" parent="MarginContainer/VBoxContainer"]
+custom_minimum_size = Vector2(990, 0)
+layout_mode = 2
+size_flags_horizontal = 4
+
+[node name="FilesLabel" type="Label" parent="MarginContainer/VBoxContainer/Files"]
+layout_mode = 2
+text = "File settings"
+label_settings = ExtResource("3_mfpia")
+
+[node name="FilesDescription" type="Label" parent="MarginContainer/VBoxContainer/Files"]
+custom_minimum_size = Vector2(980, 0)
+layout_mode = 2
+text = "All countries, leagues and team names are defined in a .csv file.
+This file can be used as a template and be saved on your device using the \"Save template button\". Then it can be modified using a spredsheet editor (like LibreOffice Calc or Excel) and loaded again into the game using the \"Load file\" button. Click \"Use default\" button to use the default file.
+Note: the file must be a .csv file and no other format. Use \"Save as...\" and use .csv as file ending. Any other file formats like .xlsx or .ods are not supported."
+autowrap_mode = 2
+
+[node name="FilePath" type="HBoxContainer" parent="MarginContainer/VBoxContainer/Files"]
+layout_mode = 2
+
+[node name="FilePathLabel" type="Label" parent="MarginContainer/VBoxContainer/Files/FilePath"]
+unique_name_in_owner = true
+layout_mode = 2
+text = "The following file will be used:"
+label_settings = ExtResource("5_imyfn")
+
+[node name="FilePathLineEdit" type="LineEdit" parent="MarginContainer/VBoxContainer/Files/FilePath"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+editable = false
+context_menu_enabled = false
+emoji_menu_enabled = false
+virtual_keyboard_enabled = false
+flat = true
+
+[node name="FileButtons" type="HBoxContainer" parent="MarginContainer/VBoxContainer/Files"]
+layout_mode = 2
+
+[node name="DefaultFileButton" type="CheckButton" parent="MarginContainer/VBoxContainer/Files/FileButtons"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(200, 0)
+layout_mode = 2
+button_pressed = true
+text = "Use default"
+
+[node name="TemplateButton" type="Button" parent="MarginContainer/VBoxContainer/Files/FileButtons"]
+custom_minimum_size = Vector2(200, 0)
+layout_mode = 2
+text = "Save template"
+script = ExtResource("3_g76wv")
+metadata/_custom_type_script = "uid://cnyyowwlb04kl"
+
+[node name="FileButton" type="Button" parent="MarginContainer/VBoxContainer/Files/FileButtons"]
+custom_minimum_size = Vector2(200, 0)
+layout_mode = 2
+text = "Load file"
+script = ExtResource("3_g76wv")
+metadata/_custom_type_script = "uid://cnyyowwlb04kl"
+
+[node name="Seed" type="VBoxContainer" parent="MarginContainer/VBoxContainer"]
+custom_minimum_size = Vector2(990, 0)
+layout_mode = 2
+size_flags_horizontal = 4
+
+[node name="GenerationSeedLabel" type="Label" parent="MarginContainer/VBoxContainer/Seed"]
+layout_mode = 2
+text = "Generation seed"
+label_settings = ExtResource("3_mfpia")
+
+[node name="GenerationSeedDescription" type="Label" parent="MarginContainer/VBoxContainer/Seed"]
+custom_minimum_size = Vector2(980, 0)
+layout_mode = 2
+text = "This generation seed defines all random starting values of the game like player names, attributes and team wealth. When reused, it will generate exatly the same result."
+autowrap_mode = 2
+
+[node name="GridContainer" type="HBoxContainer" parent="MarginContainer/VBoxContainer/Seed"]
+layout_mode = 2
+
+[node name="GenearateSeedButton" type="Button" parent="MarginContainer/VBoxContainer/Seed/GridContainer"]
+custom_minimum_size = Vector2(200, 0)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 3
+text = "Random"
+script = ExtResource("3_g76wv")
+
+[node name="DefaultSeedButton" type="Button" parent="MarginContainer/VBoxContainer/Seed/GridContainer"]
+custom_minimum_size = Vector2(200, 0)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 3
+text = "Default"
+script = ExtResource("3_g76wv")
+
+[node name="GeneratedSeedLineEdit" type="LineEdit" parent="MarginContainer/VBoxContainer/Seed/GridContainer"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(240, 0)
+layout_mode = 2
+context_menu_enabled = false
 
 [node name="FileDialog" type="FileDialog" parent="."]
 unique_name_in_owner = true
@@ -210,14 +252,23 @@ access = 2
 filters = PackedStringArray("*.csv")
 use_native_dialog = true
 
-[connection signal="text_changed" from="VBoxContainer/Manager/Manager/Container/Name" to="." method="_on_name_text_changed"]
-[connection signal="text_changed" from="VBoxContainer/Manager/Manager/Container/Surname" to="." method="_on_surame_text_changed"]
-[connection signal="pressed" from="VBoxContainer/Settings/Container/CustomFileButtom" to="." method="_on_custom_file_buttom_pressed"]
-[connection signal="pressed" from="VBoxContainer/Seed/GridContainer/GenearateSeedButton" to="." method="_on_genearate_seed_button_pressed"]
-[connection signal="text_changed" from="VBoxContainer/Seed/GridContainer/GeneratedSeedLineEdit" to="." method="_on_generated_seed_line_edit_text_changed"]
-[connection signal="pressed" from="VBoxContainer/Seed/GridContainer/DefaultSeedButton" to="." method="_on_default_seed_button_pressed"]
-[connection signal="pressed" from="VBoxContainer/Buttons/Back" to="." method="_on_back_pressed"]
-[connection signal="pressed" from="VBoxContainer/Buttons/Continue" to="." method="_on_continue_pressed"]
-[connection signal="canceled" from="FileDialog" to="." method="_on_file_dialog_canceled"]
-[connection signal="confirmed" from="FileDialog" to="." method="_on_file_dialog_confirmed"]
+[node name="TemplateDialog" type="FileDialog" parent="."]
+unique_name_in_owner = true
+auto_translate_mode = 1
+size = Vector2i(1200, 600)
+access = 2
+filters = PackedStringArray("*.csv")
+use_native_dialog = true
+
+[connection signal="pressed" from="MarginContainer/VBoxContainer/TopBar/Back" to="." method="_on_back_pressed"]
+[connection signal="pressed" from="MarginContainer/VBoxContainer/TopBar/Continue" to="." method="_on_continue_pressed"]
+[connection signal="text_changed" from="MarginContainer/VBoxContainer/Manager/Manager/Container/Name" to="." method="_on_name_text_changed"]
+[connection signal="text_changed" from="MarginContainer/VBoxContainer/Manager/Manager/Container/Surname" to="." method="_on_surame_text_changed"]
+[connection signal="toggled" from="MarginContainer/VBoxContainer/Files/FileButtons/DefaultFileButton" to="." method="_on_default_file_button_toggled"]
+[connection signal="pressed" from="MarginContainer/VBoxContainer/Files/FileButtons/TemplateButton" to="." method="_on_template_button_pressed"]
+[connection signal="pressed" from="MarginContainer/VBoxContainer/Files/FileButtons/FileButton" to="." method="_on_file_button_pressed"]
+[connection signal="pressed" from="MarginContainer/VBoxContainer/Seed/GridContainer/GenearateSeedButton" to="." method="_on_genearate_seed_button_pressed"]
+[connection signal="pressed" from="MarginContainer/VBoxContainer/Seed/GridContainer/DefaultSeedButton" to="." method="_on_default_seed_button_pressed"]
+[connection signal="text_changed" from="MarginContainer/VBoxContainer/Seed/GridContainer/GeneratedSeedLineEdit" to="." method="_on_generated_seed_line_edit_text_changed"]
 [connection signal="file_selected" from="FileDialog" to="." method="_on_file_dialog_file_selected"]
+[connection signal="file_selected" from="TemplateDialog" to="." method="_on_template_dialog_file_selected"]
