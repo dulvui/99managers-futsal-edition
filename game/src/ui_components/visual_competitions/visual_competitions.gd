@@ -128,3 +128,18 @@ func _on_active_button_pressed() -> void:
 	season_index = season_amount - 1
 	seasons_button.option_button.selected = 0
 	_setup()
+
+
+func _on_active_continental_cup_pressed() -> void:
+	competition = Global.world.get_active_continent().cup_clubs
+	competitions_tree.select(competition.name)
+	season_index = season_amount - 1
+	seasons_button.option_button.selected = 0
+	_setup()
+
+func _on_active_national_cup_pressed() -> void:
+	competition = Global.world.get_active_nation().cup
+	competitions_tree.select(competition.name)
+	season_index = season_amount - 1
+	seasons_button.option_button.selected = 0
+	_setup()

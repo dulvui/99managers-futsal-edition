@@ -106,4 +106,6 @@ size_flags_horizontal = 1
 
 [connection signal="item_selected" from="Main/Top Bar/SeasonsButton" to="." method="_on_seasons_button_item_selected"]
 [connection signal="pressed" from="Main/Top Bar/ActiveLeagueButton" to="." method="_on_active_button_pressed"]
+[connection signal="pressed" from="Main/Top Bar/ActiveNationalCup" to="." method="_on_active_national_cup_pressed"]
+[connection signal="pressed" from="Main/Top Bar/ActiveContinentalCup" to="." method="_on_active_continental_cup_pressed"]
 [connection signal="competition_selected" from="Competitions/CompetitionsTree" to="." method="_on_competitions_tree_competition_selected"]
