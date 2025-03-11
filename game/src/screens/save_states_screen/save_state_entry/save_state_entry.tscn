@@ -142,6 +142,7 @@ script = ExtResource("3_ppk54")
 
 [node name="DeleteDialog" parent="." instance=ExtResource("4_pnma1")]
 unique_name_in_owner = true
+visible = false
 custom_title = "Delete?"
 custom_text = "Deleting a save state is permanent and can't be undone.
 Are you sure you want delete this save state?"
@@ -150,6 +151,7 @@ Are you sure you want delete this save state?"
 unique_name_in_owner = true
 auto_translate_mode = 1
 size = Vector2i(530, 360)
+visible = false
 custom_title = "Corrupted"
 custom_text = "This save state and it's backup is corrupted. You can find this save state in the following directory for further diagnostics.
 {path}"

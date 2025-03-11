@@ -1,7 +1,8 @@
-[gd_scene load_steps=8 format=3 uid="uid://b4woicggddkls"]
+[gd_scene load_steps=9 format=3 uid="uid://b4woicggddkls"]
 
 [ext_resource type="Theme" uid="uid://pt1hrfiuwfpg" path="res://theme_base/theme.tres" id="1"]
 [ext_resource type="Script" uid="uid://03btjgdjwy1" path="res://src/screens/menu/menu.gd" id="2"]
+[ext_resource type="LabelSettings" uid="uid://b4gu78rjvdfx4" path="res://theme_base/label/label_settings_title.tres" id="3_itbqv"]
 [ext_resource type="PackedScene" uid="uid://dj3ts0dee4m6" path="res://src/screens/save_states_screen/save_state_entry/save_state_entry.tscn" id="4_5irse"]
 [ext_resource type="Script" uid="uid://cnyyowwlb04kl" path="res://src/ui_components/base/defaults/default_button.gd" id="4_nkxl6"]
 [ext_resource type="PackedScene" uid="uid://bpvg2vhxml3a1" path="res://src/ui_components/base/confirm_dialog/default_confirm_dialog.tscn" id="6_1a2kt"]
@@ -32,6 +33,22 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 
+[node name="Label" type="Label" parent="."]
+auto_translate_mode = 2
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.496
+anchor_top = 0.117
+anchor_right = 0.496
+anchor_bottom = 0.117
+offset_left = -532.32
+offset_top = -0.360008
+offset_right = 537.68
+offset_bottom = 29.64
+text = "THIS IS A BETA VERSION SO EXPECT MISSING FEATURES, BUGS AND BREAKING CHANGES!"
+label_settings = ExtResource("3_itbqv")
+horizontal_alignment = 1
+
 [node name="SaveState" parent="." instance=ExtResource("4_5irse")]
 unique_name_in_owner = true
 layout_mode = 1
@@ -48,6 +65,7 @@ size_flags_vertical = 0
 hide_buttons = true
 
 [node name="Buttons" type="VBoxContainer" parent="."]
+custom_minimum_size = Vector2(240, 0)
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -67,9 +85,8 @@ metadata/_edit_use_anchors_ = true
 
 [node name="ContinueGame" type="Button" parent="Buttons"]
 unique_name_in_owner = true
-custom_minimum_size = Vector2(180, 0)
 layout_mode = 2
-size_flags_horizontal = 4
+size_flags_horizontal = 5
 size_flags_vertical = 4
 theme_type_variation = &"ImportantButton"
 text = "Continue"
@@ -78,45 +95,40 @@ joypad_motion_event = SubResource("InputEventJoypadMotion_eu77x")
 
 [node name="NewGame" type="Button" parent="Buttons"]
 unique_name_in_owner = true
-custom_minimum_size = Vector2(180, 0)
 layout_mode = 2
-size_flags_horizontal = 4
+size_flags_horizontal = 5
 size_flags_vertical = 4
 text = "New game"
 script = ExtResource("4_nkxl6")
 
 [node name="LoadGame" type="Button" parent="Buttons"]
 unique_name_in_owner = true
-custom_minimum_size = Vector2(180, 0)
 layout_mode = 2
-size_flags_horizontal = 4
+size_flags_horizontal = 5
 size_flags_vertical = 4
 text = "Load game"
 script = ExtResource("4_nkxl6")
 
 [node name="Settings" type="Button" parent="Buttons"]
 unique_name_in_owner = true
-custom_minimum_size = Vector2(180, 0)
 layout_mode = 2
-size_flags_horizontal = 4
+size_flags_horizontal = 5
 size_flags_vertical = 4
 text = "Settings"
 script = ExtResource("4_nkxl6")
 
 [node name="About" type="Button" parent="Buttons"]
 unique_name_in_owner = true
-custom_minimum_size = Vector2(180, 0)
 layout_mode = 2
-size_flags_horizontal = 4
+size_flags_horizontal = 5
 size_flags_vertical = 4
 text = "About"
 script = ExtResource("4_nkxl6")
 
 [node name="Exit" type="Button" parent="Buttons"]
 unique_name_in_owner = true
-custom_minimum_size = Vector2(180, 0)
 layout_mode = 2
-size_flags_horizontal = 4
+size_flags_horizontal = 5
 size_flags_vertical = 4
 text = "Exit"
 script = ExtResource("4_nkxl6")
@@ -197,21 +209,6 @@ uri = "https://store.steampowered.com/app/3334770"
 [node name="ExitConfirmDialog" parent="." instance=ExtResource("6_1a2kt")]
 unique_name_in_owner = true
 custom_text = "Exit game"
-
-[node name="Label" type="Label" parent="."]
-auto_translate_mode = 2
-layout_mode = 1
-anchors_preset = -1
-anchor_left = 0.496
-anchor_top = 0.117
-anchor_right = 0.496
-anchor_bottom = 0.117
-offset_left = -470.32
-offset_top = -0.360008
-offset_right = 469.68
-offset_bottom = 22.64
-text = "THIS IS A BETA VERSION SO EXPECT MISSING FEATURES, BUGS AND BREAKING CHANGES!"
-horizontal_alignment = 1
 
 [connection signal="pressed" from="Buttons/ContinueGame" to="." method="_on_continue_game_pressed"]
 [connection signal="pressed" from="Buttons/NewGame" to="." method="_on_new_game_pressed"]
