@@ -5,7 +5,7 @@
 class_name LoadingScreen
 extends Control
 
-signal loaded(type: LoadingUtil.Type)
+signal loaded
 
 @onready var loading_progress_bar: ProgressBar = $VBoxContainer/LoadingProgressBar
 @onready var message_label: Label = $VBoxContainer/Message
@@ -23,9 +23,9 @@ func _process(_delta: float) -> void:
 		loading_progress_bar.value = LoadingUtil.progress
 
 
-func _loaded(type: LoadingUtil.Type) -> void:
+func _loaded() -> void:
 	hide()
-	loaded.emit(type)
+	loaded.emit()
 
 
 func _on_visibility_changed() -> void:

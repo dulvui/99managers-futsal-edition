@@ -51,11 +51,6 @@ func _ready() -> void:
 
 	file_path_line_edit.text = tr("Default file")
 
-	# show error message if loading went wrong
-	if Global.world_load_error != 0:
-		Global.world_load_error = 0
-		file_error_dialog.popup_centered()
-
 
 func _on_generated_seed_line_edit_text_changed(new_text: String) -> void:
 	if new_text.length() > 0:
@@ -102,9 +97,10 @@ func _on_continue_pressed() -> void:
 	RngUtil.reset_seed(generation_seed, player_names_option.selected)
 
 	LoadingUtil.start(tr("Generating teams and players"), LoadingUtil.Type.GENERATION, true)
-	Main.show_loading_screen(Const.SCREEN_SETUP_TEAM)
+	Main.show_loading_screen()
+	LoadingUtil.loaded.connect(_on_world_generated)
 
-	Global.world_load_error = 0
+	Global.error_load_world = 0
 	if default_file_button.button_pressed or custom_file_path.is_empty():
 		ThreadUtil.generate_world()
 	else:
@@ -150,6 +146,14 @@ func _on_default_file_button_toggled(toggled_on: bool) -> void:
 		file_path_line_edit.text = tr("Default file")
 	else:
 		file_path_line_edit.text = custom_file_path
+
+
+func _on_world_generated() -> void:
+	# check world loading error
+	if Global.error_load_world == 0:
+		Main.change_scene(Const.SCREEN_SETUP_TEAM)
+	else:
+		file_error_dialog.popup_centered()
 
 
 func _on_back_pressed() -> void:

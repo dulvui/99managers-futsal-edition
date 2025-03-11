@@ -62,7 +62,7 @@ func _generate_world(world_file_path: String) -> void:
 	# go back if world is not valid
 	if world == null:
 		print("error while reading world file")
-		Global.world_load_error = 1
+		Global.error_load_world = 1
 		call_deferred("_loading_done")
 		return
 

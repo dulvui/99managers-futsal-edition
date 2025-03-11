@@ -36,7 +36,7 @@ var manager: Manager
 var save_states: SaveStates
 
 # errors
-var world_load_error: int
+var error_load_world: int
 
 
 func _ready() -> void:
@@ -48,7 +48,7 @@ func _ready() -> void:
 	save_states = ResUtil.load_save_states()
 	RngUtil.setup_rngs()
 
-	world_load_error = 0
+	error_load_world = 0
 
 
 func select_team(p_team: Team) -> void:

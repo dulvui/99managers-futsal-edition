@@ -4,7 +4,7 @@
 
 extends Node
 
-signal loaded(type: Type)
+signal loaded
 
 enum Type {
 	INITIALIZE_GAME,
@@ -33,4 +33,4 @@ func update(p_progress: float) -> void:
 
 
 func done() -> void:
-	loaded.emit(type)
+	loaded.emit()
