@@ -71,8 +71,11 @@ func _append_scene_to_buffer(scene_path: String) -> void:
 func _on_loading_screen_loaded(_type: int) -> void:
 	if not scene_name_on_load.is_empty():
 		# check world loading error
-		if previous_scenes.size() > 0 and previous_scenes[-1] == Const.SCREEN_SETUP_WORLD:
-			if Global.world_load_error != 0:
+		if (
+				previous_scenes.size() > 0 and
+				previous_scenes[-1] == Const.SCREEN_SETUP_WORLD and
+				Global.world_load_error != 0
+			):
 				change_scene(Const.SCREEN_SETUP_WORLD)
 		else:
 			change_scene(scene_name_on_load)

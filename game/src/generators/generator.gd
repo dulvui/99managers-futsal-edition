@@ -76,6 +76,17 @@ func generate_world(world_file_path: String = WORLD_CSV_PATH) -> World:
 
 	while not file.eof_reached():
 		var line: PackedStringArray = file.get_csv_line()
+
+		# check for errors
+		var err: Error = file.get_error()
+		if err == Error.ERR_FILE_EOF:
+			Global.world_load_error = 2
+			break
+
+		if err != Error.OK:
+			print("error while reading lines from csv with code %d" % err)
+			return null
+	
 		if line.size() > 3:
 			for value: String in line:
 				if not _is_valid_csv_line(value, text_server):
