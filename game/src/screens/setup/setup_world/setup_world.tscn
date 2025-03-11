@@ -154,10 +154,16 @@ label_settings = ExtResource("3_mfpia")
 [node name="FilesDescription" type="Label" parent="MarginContainer/VBoxContainer/Files"]
 custom_minimum_size = Vector2(980, 0)
 layout_mode = 2
-text = "All countries, leagues and team names are defined in a .csv file.
-This file can be used as a template and be saved on your device using the \"Save template button\". Then it can be modified using a spredsheet editor (like LibreOffice Calc or Excel) and loaded again into the game using the \"Load file\" button. Click \"Use default\" button to use the default file.
-Note: the file must be a .csv file and no other format. Use \"Save as...\" and use .csv as file ending. Any other file formats like .xlsx or .ods are not supported."
+text = "All countries, leagues and team names are defined in a .csv file that can be modified."
 autowrap_mode = 2
+
+[node name="FilesMoreInfo" type="Button" parent="MarginContainer/VBoxContainer/Files"]
+custom_minimum_size = Vector2(200, 0)
+layout_mode = 2
+size_flags_horizontal = 0
+text = "Show instructions"
+script = ExtResource("3_g76wv")
+metadata/_custom_type_script = "uid://cnyyowwlb04kl"
 
 [node name="FilePath" type="HBoxContainer" parent="MarginContainer/VBoxContainer/Files"]
 layout_mode = 2
@@ -263,16 +269,34 @@ use_native_dialog = true
 
 [node name="FileErrorDialog" parent="." instance=ExtResource("7_ntf8b")]
 unique_name_in_owner = true
+size = Vector2i(600, 400)
 visible = false
 custom_title = "Error while loading file"
 custom_text = "There was an error while loading the file.
 Please make sure the file is a .csv file and has the correct format as defined in the template."
 type = 2
 
+[node name="FileInfoDialog" parent="." instance=ExtResource("7_ntf8b")]
+unique_name_in_owner = true
+size = Vector2i(600, 400)
+visible = false
+custom_title = "File settings info"
+custom_text = "1) Click \"Save template\" button to save csv template on your machine
+2) Open with a spreadsheet editor (like LibreOffice Calc or similar)
+3) Modify data by keeping structure defined in template
+4) Save file as \"world.csv\" (.ods or .xlsx files are not supported)
+5) Click \"Load file\" to import modified data
+
+And done! This file can be reused and shared with friends.
+
+Note: The template might change before final release. The loading will fail, if the file has not the correct format."
+type = 2
+
 [connection signal="pressed" from="MarginContainer/VBoxContainer/TopBar/Back" to="." method="_on_back_pressed"]
 [connection signal="pressed" from="MarginContainer/VBoxContainer/TopBar/Continue" to="." method="_on_continue_pressed"]
 [connection signal="text_changed" from="MarginContainer/VBoxContainer/Manager/Manager/Container/Name" to="." method="_on_name_text_changed"]
 [connection signal="text_changed" from="MarginContainer/VBoxContainer/Manager/Manager/Container/Surname" to="." method="_on_surame_text_changed"]
+[connection signal="pressed" from="MarginContainer/VBoxContainer/Files/FilesMoreInfo" to="." method="_on_files_more_info_pressed"]
 [connection signal="toggled" from="MarginContainer/VBoxContainer/Files/FileButtons/DefaultFileButton" to="." method="_on_default_file_button_toggled"]
 [connection signal="pressed" from="MarginContainer/VBoxContainer/Files/FileButtons/TemplateButton" to="." method="_on_template_button_pressed"]
 [connection signal="pressed" from="MarginContainer/VBoxContainer/Files/FileButtons/FileButton" to="." method="_on_file_button_pressed"]

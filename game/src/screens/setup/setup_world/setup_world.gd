@@ -19,6 +19,7 @@ var custom_file_path: String = ""
 @onready var generation_seed_edit: LineEdit = %GeneratedSeedLineEdit
 
 @onready var file_dialog: FileDialog = %FileDialog
+@onready var file_info_dialog: DefaultConfirmDialog = %FileInfoDialog
 @onready var file_error_dialog: DefaultConfirmDialog = %FileErrorDialog
 @onready var template_dialog: FileDialog = %TemplateDialog
 @onready var file_path_line_edit: LineEdit = %FilePathLineEdit
@@ -148,6 +149,10 @@ func _on_default_file_button_toggled(toggled_on: bool) -> void:
 		file_path_line_edit.text = custom_file_path
 
 
+func _on_files_more_info_pressed() -> void:
+	file_info_dialog.popup_centered()
+
+
 func _on_world_generated() -> void:
 	# check world loading error
 	if Global.error_load_world == 0:
@@ -158,4 +163,3 @@ func _on_world_generated() -> void:
 
 func _on_back_pressed() -> void:
 	Main.change_scene(Const.SCREEN_MENU)
-
