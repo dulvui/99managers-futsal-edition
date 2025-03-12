@@ -40,6 +40,7 @@ layout_mode = 2
 text = "Unread"
 
 [node name="Starred" type="CheckButton" parent="List/Filters"]
+custom_minimum_size = Vector2(84, 0)
 layout_mode = 2
 text = "Starred"
 

@@ -1,7 +1,8 @@
-[gd_scene load_steps=3 format=3 uid="uid://br52lmgs03oix"]
+[gd_scene load_steps=4 format=3 uid="uid://br52lmgs03oix"]
 
 [ext_resource type="Script" uid="uid://d1h5ldkgg4sck" path="res://src/ui_components/email/list/message_row/message_row.gd" id="1_qccam"]
 [ext_resource type="Script" uid="uid://cnyyowwlb04kl" path="res://src/ui_components/base/defaults/default_button.gd" id="2_7pg3l"]
+[ext_resource type="Texture2D" uid="uid://c1p2hlrvy3rlf" path="res://assets/round-star.png" id="3_oivpk"]
 
 [node name="MessageRow" type="MarginContainer"]
 anchors_preset = -1
@@ -24,13 +25,6 @@ modulate = Color(1, 1, 1, 0.392157)
 layout_mode = 2
 script = ExtResource("2_7pg3l")
 
-[node name="Star" type="CheckBox" parent="."]
-unique_name_in_owner = true
-modulate = Color(1, 1, 1, 0.392157)
-layout_mode = 2
-size_flags_horizontal = 8
-mouse_default_cursor_shape = 2
-
 [node name="MarginContainer" type="MarginContainer" parent="."]
 layout_mode = 2
 mouse_filter = 2
@@ -42,6 +36,7 @@ theme_override_constants/margin_bottom = 0
 [node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer"]
 layout_mode = 2
 mouse_filter = 2
+theme_override_constants/separation = 0
 
 [node name="Subject" type="Label" parent="MarginContainer/HBoxContainer"]
 unique_name_in_owner = true
@@ -69,5 +64,16 @@ size_flags_vertical = 1
 vertical_alignment = 1
 text_overrun_behavior = 3
 
+[node name="Star" type="TextureButton" parent="MarginContainer/HBoxContainer"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(64, 0)
+layout_mode = 2
+size_flags_horizontal = 4
+mouse_default_cursor_shape = 2
+toggle_mode = true
+texture_normal = ExtResource("3_oivpk")
+ignore_texture_size = true
+stretch_mode = 5
+
 [connection signal="pressed" from="ReadButton" to="." method="_on_read_button_pressed"]
-[connection signal="toggled" from="Star" to="." method="_on_star_toggled"]
+[connection signal="toggled" from="MarginContainer/HBoxContainer/Star" to="." method="_on_star_toggled"]

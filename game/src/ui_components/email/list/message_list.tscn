@@ -23,6 +23,7 @@ theme_override_constants/margin_bottom = 0
 
 [node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer"]
 layout_mode = 2
+theme_override_constants/separation = 0
 
 [node name="Subject" type="Label" parent="MarginContainer/HBoxContainer"]
 layout_mode = 2
@@ -43,6 +44,7 @@ text = "Date"
 label_settings = ExtResource("2_ek5ou")
 
 [node name="Star" type="Label" parent="MarginContainer/HBoxContainer"]
+custom_minimum_size = Vector2(68, 0)
 layout_mode = 2
 text = "Star"
 label_settings = ExtResource("2_ek5ou")

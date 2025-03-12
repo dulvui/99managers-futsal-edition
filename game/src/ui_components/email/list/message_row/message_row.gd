@@ -10,7 +10,7 @@ var message: EmailMessage
 @onready var subject_label: Label = %Subject
 @onready var sender_label: Label = %Sender
 @onready var date_label: Label = %Date
-@onready var star: CheckBox = %Star
+@onready var star: TextureButton = %Star
 @onready var read_button: Button = %ReadButton
 
 
@@ -26,7 +26,10 @@ func setup(p_message: EmailMessage, index: int) -> void:
 	subject_label.set_text(message.subject)
 	sender_label.set_text(message.sender)
 	date_label.set_text(message.date)
+	
 	star.button_pressed = message.starred
+	if star.button_pressed:
+		star.modulate = ThemeUtil.configuration.style_important_color
 
 	if not message.read:
 		# make bold
@@ -37,6 +40,10 @@ func setup(p_message: EmailMessage, index: int) -> void:
 
 func _on_star_toggled(toggled_on: bool) -> void:
 	message.starred = toggled_on
+	if star.button_pressed:
+		star.modulate = ThemeUtil.configuration.style_important_color
+	else:
+		star.modulate = Color.WHITE
 
 
 func _on_read_button_pressed() -> void:
