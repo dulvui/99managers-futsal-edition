@@ -282,10 +282,10 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: 99 Managers Futsal Edition\n"
-"PO-Revision-Date: 2025-03-09 11:23+0000\n"
+"PO-Revision-Date: 2025-03-13 07:02+0000\n"
 "Last-Translator: Максим Горпиніч <maksimgorpinic2005a@gmail.com>\n"
-"Language-Team: Ukrainian <https://hosted.weblate.org/projects/99-managers-"
-"futsal-edition/game/uk/>\n"
+"Language-Team: Ukrainian <https://hosted.weblate.org/projects/"
+"99-managers-futsal-edition/game/uk/>\n"
 "Language: uk\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -466,11 +466,11 @@ msgstr "Програл"
 
 #: src/ui_components/visual_competitions/visual_table/visual_table.tscn
 msgid "Goal difference"
-msgstr ""
+msgstr "Різниця м'ячів"
 
 #: src/ui_components/visual_competitions/visual_table/visual_table.tscn
 msgid "Difference"
-msgstr ""
+msgstr "Різниця"
 
 #: src/ui_components/visual_competitions/visual_table/visual_table.tscn
 #: src/ui_components/player_profile/statistics_view/statistics_view.tscn
@@ -480,10 +480,8 @@ msgid "Goals"
 msgstr "Цілі"
 
 #: src/ui_components/visual_competitions/visual_table/visual_table.tscn
-#, fuzzy
-#| msgid "Formation"
 msgid "Form"
-msgstr "Формування"
+msgstr "Форма"
 
 #: src/ui_components/visual_competitions/visual_table/visual_table.tscn
 msgid "Points"
@@ -491,17 +489,15 @@ msgstr "Очки"
 
 #: src/ui_components/visual_competitions/visual_table/visual_table.gd
 msgid "Victory"
-msgstr ""
+msgstr "Перемога"
 
 #: src/ui_components/visual_competitions/visual_table/visual_table.gd
 msgid "Defeat"
-msgstr ""
+msgstr "Поразка"
 
 #: src/ui_components/visual_competitions/visual_table/visual_table.gd
-#, fuzzy
-#| msgid "Games played"
 msgid "To be played"
-msgstr "Зіграні ігри"
+msgstr "Щоб грати"
 
 #: src/ui_components/visual_competitions/visual_knockout/visual_knockout.tscn
 msgid "Knockout"
@@ -579,7 +575,7 @@ msgstr "Замінники"
 
 #: src/ui_components/visual_formation/visual_formation.gd
 msgid "Other"
-msgstr ""
+msgstr "Інше"
 
 #: src/ui_components/visual_formation/players_bar/players_bar.tscn
 #: src/ui_components/visual_formation/visual_formation.tscn
@@ -1159,6 +1155,8 @@ msgid ""
 "All changed settings will be restored to the default value.\n"
 "Are you sure?"
 msgstr ""
+"Усі змінені налаштування буде відновлено до значень за замовчуванням.\n"
+"Ви впевнені?"
 
 #: src/screens/settings/general/general_settings.tscn
 msgid "Language"
@@ -1390,10 +1388,8 @@ msgid "New game"
 msgstr "Нова гра"
 
 #: src/screens/menu/menu.tscn src/screens/about/about.tscn
-#, fuzzy
-#| msgid "Djibouti"
 msgid "About"
-msgstr "Джибуті"
+msgstr "Про"
 
 #: src/screens/menu/menu.tscn
 msgid "Exit"
@@ -1404,15 +1400,13 @@ msgid "Exit game"
 msgstr "Вийти з гри"
 
 #: src/screens/setup/setup_world/setup_world.tscn
-#, fuzzy
-#| msgid "Start date"
 msgid "Start a new game"
-msgstr "Дата початку"
+msgstr "Почніть нову гру"
 
 #: src/screens/setup/setup_world/setup_world.tscn
 #: src/screens/setup/setup_world/setup_world.gd
 msgid "Name and surname missing"
-msgstr ""
+msgstr "Ім'я та прізвище відсутні"
 
 #: src/screens/setup/setup_world/setup_world.tscn
 msgid "Your name"
@@ -1439,55 +1433,46 @@ msgid "Start year"
 msgstr "Початковий рік"
 
 #: src/screens/setup/setup_world/setup_world.tscn
-#, fuzzy
-#| msgid "Game settings"
 msgid "File settings"
-msgstr "Налаштування гри"
+msgstr "Параметри файлу"
 
 #: src/screens/setup/setup_world/setup_world.tscn
 msgid ""
 "All countries, leagues and team names are defined in a .csv file that can be "
 "modified."
 msgstr ""
+"Усі країни, ліги та назви команд визначено у файлі .csv, який можна "
+"змінювати."
 
 #: src/screens/setup/setup_world/setup_world.tscn
 msgid "Show instructions"
-msgstr ""
+msgstr "Показати інструкції"
 
 #: src/screens/setup/setup_world/setup_world.tscn
 msgid "The following file will be used:"
-msgstr ""
+msgstr "Буде використано наступний файл:"
 
 #: src/screens/setup/setup_world/setup_world.tscn
-#, fuzzy
-#| msgid "Default"
 msgid "Use default"
-msgstr "За замовчанням"
+msgstr "Використовувати за замовчуванням"
 
 #: src/screens/setup/setup_world/setup_world.tscn
-#, fuzzy
-#| msgid "Save states"
 msgid "Save template"
-msgstr "Зберегти країни"
+msgstr "Зберегти шаблон"
 
 #: src/screens/setup/setup_world/setup_world.tscn
-#, fuzzy
-#| msgid "Load game"
 msgid "Load file"
-msgstr "Завантажити гру"
+msgstr "Завантажити файл"
 
 #: src/screens/setup/setup_world/setup_world.tscn
-#, fuzzy
-#| msgid ""
-#| "This generation seed defines player names and attributes. When reused, it "
-#| "will generate exatly the same result."
 msgid ""
 "This generation seed defines all random starting values of the game like "
 "player names, attributes and team wealth. When reused, it will generate "
 "exatly the same result."
 msgstr ""
-"Це початкове покоління визначає імена та атрибути гравців. При повторному "
-"використанні він генерує точно той самий результат."
+"Це початкове покоління визначає всі випадкові початкові значення гри, як-от "
+"імена гравців, атрибути та багатство команди. При повторному використанні "
+"він генерує точно той самий результат."
 
 #: src/screens/setup/setup_world/setup_world.tscn
 msgid "Random"
@@ -1495,11 +1480,11 @@ msgstr "Випадковий"
 
 #: src/screens/setup/setup_world/setup_world.tscn
 msgid "Open file"
-msgstr ""
+msgstr "Відкрити файл"
 
 #: src/screens/setup/setup_world/setup_world.tscn
 msgid "Open"
-msgstr ""
+msgstr "Відкритий"
 
 #: src/screens/setup/setup_world/setup_world.tscn
 msgid ""
@@ -1507,6 +1492,9 @@ msgid ""
 "Please make sure the file is a .csv file and has the correct format as "
 "defined in the template."
 msgstr ""
+"Під час завантаження файлу сталася помилка.\n"
+"Переконайтеся, що файл є файлом .csv і має правильний формат, як визначено в "
+"шаблоні."
 
 #: src/screens/setup/setup_world/setup_world.tscn
 msgid ""
@@ -1521,12 +1509,22 @@ msgid ""
 "Note: The template might change before final release. The loading will fail, "
 "if the file has not the correct format."
 msgstr ""
+"1) Натисніть кнопку «Зберегти шаблон», щоб зберегти шаблон CSV на вашій "
+"машині\n"
+" 2) Відкрийте за допомогою редактора електронних таблиць (наприклад, "
+"LibreOffice Calc або подібного)\n"
+" 3) Змінюйте дані, зберігаючи структуру, визначену в шаблоні\n"
+" 4) Збережіть файл як \"world.csv\" (файли .ods або .xlsx не підтримуються)\n"
+" 5) Натисніть «Завантажити файл», щоб імпортувати змінені дані\n"
+"\n"
+" І готово! Цей файл можна повторно використовувати та ділитися з друзями.\n"
+"\n"
+" Примітка. Шаблон може змінитися до остаточного випуску. Завантаження не "
+"вдасться, якщо файл має неправильний формат."
 
 #: src/screens/setup/setup_world/setup_world.gd
-#, fuzzy
-#| msgid "Default"
 msgid "Default file"
-msgstr "За замовчанням"
+msgstr "Файл за замовчуванням"
 
 #: src/screens/setup/setup_world/setup_world.gd
 msgid "Generating teams and players"
