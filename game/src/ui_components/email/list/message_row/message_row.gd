@@ -28,8 +28,7 @@ func setup(p_message: EmailMessage, index: int) -> void:
 	date_label.set_text(message.date)
 	
 	star.button_pressed = message.starred
-	if star.button_pressed:
-		star.modulate = ThemeUtil.configuration.style_important_color
+	_star_color()
 
 	if not message.read:
 		# make bold
@@ -40,13 +39,17 @@ func setup(p_message: EmailMessage, index: int) -> void:
 
 func _on_star_toggled(toggled_on: bool) -> void:
 	message.starred = toggled_on
-	if star.button_pressed:
-		star.modulate = ThemeUtil.configuration.style_important_color
-	else:
-		star.modulate = Color.WHITE
+	_star_color()
 
 
 func _on_read_button_pressed() -> void:
 	ThemeUtil.remove_bold(subject_label)
 	ThemeUtil.remove_bold(sender_label)
 	ThemeUtil.remove_bold(date_label)
+
+
+func _star_color() -> void:
+	if star.button_pressed:
+		star.modulate = ThemeUtil.configuration.style_important_color
+	else:
+		star.modulate = ThemeUtil.configuration.style_important_color.lightened(0.5)

@@ -1,0 +1,59 @@
+[gd_scene load_steps=5 format=3 uid="uid://btngec2y1weql"]
+
+[ext_resource type="Theme" uid="uid://pt1hrfiuwfpg" path="res://theme_base/theme.tres" id="1_ta1a8"]
+[ext_resource type="Script" uid="uid://bfh2q3trewvon" path="res://src/screens/loading_screen/loading_screen.gd" id="2_sfhks"]
+[ext_resource type="LabelSettings" uid="uid://b4gu78rjvdfx4" path="res://theme_base/label/label_settings_title.tres" id="4_jlxu5"]
+[ext_resource type="PackedScene" uid="uid://ck1i6uxkqg3pi" path="res://src/ui_components/player_silhouette/player_silhouette.tscn" id="4_vsrlt"]
+
+[node name="LoadingScreen" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("1_ta1a8")
+script = ExtResource("2_sfhks")
+
+[node name="Panel" type="Panel" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="PlayerSilhouette" parent="." instance=ExtResource("4_vsrlt")]
+layout_mode = 1
+offset_left = -400.0
+offset_right = 400.0
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+custom_minimum_size = Vector2(800, 600)
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -400.0
+offset_top = -300.0
+offset_right = 400.0
+offset_bottom = 300.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 25
+alignment = 1
+
+[node name="Message" type="Label" parent="VBoxContainer"]
+layout_mode = 2
+text = "Loading"
+label_settings = ExtResource("4_jlxu5")
+horizontal_alignment = 1
+
+[node name="LoadingProgressBar" type="ProgressBar" parent="VBoxContainer"]
+layout_mode = 2
+max_value = 1.0
+metadata/_edit_use_anchors_ = true
+
+[connection signal="visibility_changed" from="." to="." method="_on_visibility_changed"]

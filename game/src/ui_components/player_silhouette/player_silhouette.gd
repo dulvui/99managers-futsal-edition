@@ -24,14 +24,19 @@ const SILHOUETTE_PATHS: Array[StringName] = [
 	"res://assets/player_silhouettes/silhouette-football-32.svg",
 ]
 
+var rng: RandomNumberGenerator
+
 
 func _ready() -> void:
+	rng = RandomNumberGenerator.new()
+	rng.randomize()
+
 	load_image()
 	set_color()
 
 
 func load_image() -> void:
-	var random_index: int = RngUtil.rng.randi_range(0, SILHOUETTE_PATHS.size())
+	var random_index: int = rng.randi_range(0, SILHOUETTE_PATHS.size() - 1)
 	var random_path: String = SILHOUETTE_PATHS[random_index]
 	if random_path == Global.player_silhouette_last_path:
 		random_index -= 1
