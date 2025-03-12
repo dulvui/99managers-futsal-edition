@@ -1,7 +1,8 @@
-[gd_scene load_steps=7 format=3 uid="uid://dgegex34p1k36"]
+[gd_scene load_steps=8 format=3 uid="uid://dgegex34p1k36"]
 
 [ext_resource type="Theme" uid="uid://pt1hrfiuwfpg" path="res://theme_base/theme.tres" id="1"]
 [ext_resource type="Script" uid="uid://o6gpy52i68lx" path="res://src/screens/setup/setup_team/setup_team.gd" id="2"]
+[ext_resource type="PackedScene" uid="uid://ck1i6uxkqg3pi" path="res://src/ui_components/player_silhouette/player_silhouette.tscn" id="3_336q2"]
 [ext_resource type="LabelSettings" uid="uid://b4gu78rjvdfx4" path="res://theme_base/label/label_settings_title.tres" id="3_fm5r7"]
 [ext_resource type="PackedScene" uid="uid://bi1p42wfploqa" path="res://src/ui_components/tree_overviews/teams_tree/teams_tree.tscn" id="3_omqyr"]
 [ext_resource type="PackedScene" uid="uid://cdrmqgiuv6wf3" path="res://src/ui_components/team_profile/team_profile.tscn" id="3_sndt3"]
@@ -24,6 +25,16 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+
+[node name="PlayerSilhouette" parent="." instance=ExtResource("3_336q2")]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.773958
+anchor_top = 0.658333
+anchor_right = 0.982292
+anchor_bottom = 0.658333
+grow_horizontal = 1
+grow_vertical = 1
 
 [node name="MarginContainer" type="MarginContainer" parent="."]
 layout_mode = 1

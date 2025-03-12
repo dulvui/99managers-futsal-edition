@@ -20,3 +20,4 @@ texture = ExtResource("1_wclep")
 expand_mode = 2
 stretch_mode = 5
 script = ExtResource("1_2oikp")
+metadata/_edit_use_anchors_ = true

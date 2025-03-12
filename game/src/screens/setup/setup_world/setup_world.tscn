@@ -35,7 +35,6 @@ anchor_right = 0.255208
 anchor_bottom = 0.675926
 grow_horizontal = 1
 grow_vertical = 1
-metadata/_edit_use_anchors_ = true
 
 [node name="MarginContainer" type="MarginContainer" parent="."]
 layout_mode = 1
