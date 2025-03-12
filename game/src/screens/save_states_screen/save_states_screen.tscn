@@ -1,11 +1,10 @@
-[gd_scene load_steps=7 format=3 uid="uid://b8ns73g7247l3"]
+[gd_scene load_steps=6 format=3 uid="uid://b8ns73g7247l3"]
 
 [ext_resource type="Script" uid="uid://cnoskvttndrlh" path="res://src/screens/save_states_screen/save_state_screen.gd" id="1_er0yh"]
 [ext_resource type="PackedScene" uid="uid://ck1i6uxkqg3pi" path="res://src/ui_components/player_silhouette/player_silhouette.tscn" id="2_gpgo5"]
 [ext_resource type="LabelSettings" uid="uid://b4gu78rjvdfx4" path="res://theme_base/label/label_settings_title.tres" id="2_nys0j"]
 [ext_resource type="PackedScene" uid="uid://dj3ts0dee4m6" path="res://src/screens/save_states_screen/save_state_entry/save_state_entry.tscn" id="2_ydw8l"]
 [ext_resource type="Script" uid="uid://cnyyowwlb04kl" path="res://src/ui_components/base/defaults/default_button.gd" id="3_bn4hs"]
-[ext_resource type="Texture2D" uid="uid://dwhilaly6r1j7" path="res://assets/player_silhouettes/silhouette-football-32.svg" id="3_ijorj"]
 
 [node name="SaveStates" type="Control"]
 layout_mode = 3
@@ -36,7 +35,6 @@ offset_left = -178.2
 offset_top = -225.56
 offset_right = 322.8
 offset_bottom = 457.44
-texture = ExtResource("3_ijorj")
 expand_mode = 4
 
 [node name="MarginContainer" type="MarginContainer" parent="."]

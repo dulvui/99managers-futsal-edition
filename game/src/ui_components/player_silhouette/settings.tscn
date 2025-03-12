@@ -1,8 +1,7 @@
-[gd_scene load_steps=11 format=3 uid="uid://bs5caiyxateu"]
+[gd_scene load_steps=10 format=3 uid="uid://bs5caiyxateu"]
 
 [ext_resource type="Script" uid="uid://be7krtp1w1jf7" path="res://src/screens/settings/settings.gd" id="1_sjk38"]
 [ext_resource type="PackedScene" uid="uid://ck1i6uxkqg3pi" path="res://src/ui_components/player_silhouette/player_silhouette.tscn" id="2_a4sot"]
-[ext_resource type="Texture2D" uid="uid://caw0c6g1td5mr" path="res://assets/player_silhouettes/silhouette-football-04.svg" id="3_1goqu"]
 [ext_resource type="LabelSettings" uid="uid://b4gu78rjvdfx4" path="res://theme_base/label/label_settings_title.tres" id="4_bv6c3"]
 [ext_resource type="Script" uid="uid://cnyyowwlb04kl" path="res://src/ui_components/base/defaults/default_button.gd" id="5_8fx33"]
 [ext_resource type="Script" uid="uid://bkg838a5hys8o" path="res://src/ui_components/base/defaults/default_tab_container.gd" id="6_tetks"]
@@ -42,7 +41,6 @@ offset_left = -273.04
 offset_top = -272.6
 offset_right = 272.96
 offset_bottom = 273.4
-texture = ExtResource("3_1goqu")
 
 [node name="MarginContainer" type="MarginContainer" parent="."]
 layout_mode = 2

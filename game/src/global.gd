@@ -38,6 +38,9 @@ var save_states: SaveStates
 # errors
 var error_load_world: int
 
+# save last player silhouette path to prevent showing the same multiple times
+var player_silhouette_last_path: String
+
 
 func _ready() -> void:
 	print("version " + Global.version)

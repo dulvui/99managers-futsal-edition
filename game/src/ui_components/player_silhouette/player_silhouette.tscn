@@ -1,6 +1,7 @@
-[gd_scene load_steps=2 format=3 uid="uid://ck1i6uxkqg3pi"]
+[gd_scene load_steps=3 format=3 uid="uid://ck1i6uxkqg3pi"]
 
 [ext_resource type="Script" uid="uid://fiem6abrxaif" path="res://src/ui_components/player_silhouette/player_silhouette.gd" id="1_2oikp"]
+[ext_resource type="Texture2D" uid="uid://caw0c6g1td5mr" path="res://assets/player_silhouettes/silhouette-football-04.svg" id="1_wclep"]
 
 [node name="PlayerSilhouette" type="TextureRect"]
 custom_minimum_size = Vector2(200, 600)
@@ -15,6 +16,7 @@ offset_right = 100.0
 offset_bottom = 300.0
 grow_horizontal = 2
 grow_vertical = 2
+texture = ExtResource("1_wclep")
 expand_mode = 2
 stretch_mode = 5
 script = ExtResource("1_2oikp")

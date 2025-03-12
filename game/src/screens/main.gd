@@ -15,6 +15,7 @@ var scene_name_on_load: String
 
 func _ready() -> void:
 	theme = ThemeUtil.get_active_theme()
+	loading_screen.hide()
 
 	previous_scenes = []
 	scene_name_on_load = ""

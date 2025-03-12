@@ -2,7 +2,7 @@
 
 # SPDX-License-Identifier: AGPL-3.0-or-later
 
-extends PanelContainer
+extends Control
 
 const DEFAULT_SEED: StringName = "289636-522140-666834"
 const CONTINUE_DISABLED_TOOLTIP: StringName = "Name and surname missing"

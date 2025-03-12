@@ -1,4 +1,4 @@
-[gd_resource type="Theme" load_steps=20 format=3 uid="uid://pt1hrfiuwfpg"]
+[gd_resource type="Theme" load_steps=23 format=3 uid="uid://pt1hrfiuwfpg"]
 
 [ext_resource type="StyleBox" uid="uid://dyng6f1l62yql" path="res://theme_base/styles/box/box_disabled.tres" id="1_e26vn"]
 [ext_resource type="StyleBox" uid="uid://bb782pesemrwx" path="res://theme_base/styles/box/box_focus.tres" id="2_sokwu"]
@@ -19,6 +19,12 @@
 [ext_resource type="StyleBox" uid="uid://b2r2brhh36eea" path="res://theme_base/styles/lines/line_v_thin.tres" id="16_88jne"]
 [ext_resource type="StyleBox" uid="uid://4kr88nosj3w8" path="res://theme_base/styles/lines/line_v_normal.tres" id="17_mp45d"]
 [ext_resource type="FontVariation" uid="uid://j3o56lsudgvn" path="res://theme_base/label/font.tres" id="19_bsuoa"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_t3oya"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_37ir0"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_x4qio"]
 
 [resource]
 default_font = ExtResource("19_bsuoa")
@@ -85,13 +91,13 @@ TabContainer/colors/font_outline_color = Color(0, 0, 0, 1)
 TabContainer/colors/font_selected_color = Color(0.95, 0.95, 0.95, 1)
 TabContainer/colors/font_unselected_color = Color(0.7, 0.7, 0.7, 1)
 TabContainer/constants/side_margin = 0
-TabContainer/styles/panel = ExtResource("14_ia1gv")
+TabContainer/styles/panel = SubResource("StyleBoxEmpty_t3oya")
 TabContainer/styles/tab_disabled = ExtResource("1_e26vn")
 TabContainer/styles/tab_focus = ExtResource("2_sokwu")
 TabContainer/styles/tab_hovered = ExtResource("3_sm8va")
 TabContainer/styles/tab_selected = ExtResource("2_sokwu")
 TabContainer/styles/tab_unselected = ExtResource("4_pcab3")
-TabContainer/styles/tabbar_background = ExtResource("14_ia1gv")
+TabContainer/styles/tabbar_background = SubResource("StyleBoxEmpty_37ir0")
 TooltipLabel/styles/normal = null
 TooltipPanel/styles/panel = ExtResource("2_sokwu")
 Tree/colors/font_color = Color(0.7, 0.7, 0.7, 1)
@@ -99,7 +105,7 @@ Tree/colors/font_disabled_color = Color(0.875, 0.875, 0.875, 0.5)
 Tree/colors/font_hovered_color = Color(0.95, 0.95, 0.95, 1)
 Tree/colors/font_outline_color = Color(0, 0, 0, 1)
 Tree/colors/font_selected_color = Color(1, 1, 1, 1)
-Tree/styles/panel = ExtResource("14_ia1gv")
+Tree/styles/panel = SubResource("StyleBoxEmpty_x4qio")
 Tree/styles/selected = ExtResource("5_5kcn0")
 Tree/styles/selected_focus = ExtResource("5_5kcn0")
 VBoxContainer/constants/separation = 8

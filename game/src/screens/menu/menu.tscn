@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=3 uid="uid://b4woicggddkls"]
+[gd_scene load_steps=10 format=3 uid="uid://b4woicggddkls"]
 
 [ext_resource type="Theme" uid="uid://pt1hrfiuwfpg" path="res://theme_base/theme.tres" id="1"]
 [ext_resource type="Script" uid="uid://03btjgdjwy1" path="res://src/screens/menu/menu.gd" id="2"]
@@ -7,7 +7,6 @@
 [ext_resource type="Script" uid="uid://cnyyowwlb04kl" path="res://src/ui_components/base/defaults/default_button.gd" id="4_nkxl6"]
 [ext_resource type="PackedScene" uid="uid://bpvg2vhxml3a1" path="res://src/ui_components/base/confirm_dialog/default_confirm_dialog.tscn" id="6_1a2kt"]
 [ext_resource type="PackedScene" uid="uid://ck1i6uxkqg3pi" path="res://src/ui_components/player_silhouette/player_silhouette.tscn" id="6_06x5w"]
-[ext_resource type="Texture2D" uid="uid://d0n70c1j781qo" path="res://assets/player_silhouettes/silhouette-football-26.svg" id="7_3grf7"]
 
 [sub_resource type="InputEventJoypadMotion" id="InputEventJoypadMotion_eu77x"]
 axis = 5
@@ -46,9 +45,6 @@ offset_left = -219.74
 offset_top = -220.08
 offset_right = 220.26
 offset_bottom = 219.92
-grow_horizontal = 2
-grow_vertical = 2
-texture = ExtResource("7_3grf7")
 
 [node name="Label" type="Label" parent="."]
 auto_translate_mode = 2
