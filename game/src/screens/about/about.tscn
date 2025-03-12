@@ -1,10 +1,11 @@
-[gd_scene load_steps=8 format=3 uid="uid://dq3208epo8n6i"]
+[gd_scene load_steps=9 format=3 uid="uid://dq3208epo8n6i"]
 
 [ext_resource type="Script" uid="uid://bmwx3rv1163gq" path="res://src/screens/about/about.gd" id="1_lonny"]
 [ext_resource type="LabelSettings" uid="uid://b4gu78rjvdfx4" path="res://theme_base/label/label_settings_title.tres" id="2_hkanx"]
 [ext_resource type="Script" uid="uid://cnyyowwlb04kl" path="res://src/ui_components/base/defaults/default_button.gd" id="3_btmek"]
 [ext_resource type="Script" uid="uid://bkg838a5hys8o" path="res://src/ui_components/base/defaults/default_tab_container.gd" id="4_grmxe"]
 [ext_resource type="PackedScene" uid="uid://fmet2eyy20sg" path="res://src/screens/about/contributors/contributors.tscn" id="5_81vyk"]
+[ext_resource type="PackedScene" uid="uid://chd8dbtexyv5j" path="res://src/screens/about/changelog/changelog.tscn" id="5_o2iga"]
 [ext_resource type="PackedScene" uid="uid://c0w5certvlb33" path="res://src/screens/about/license/license.tscn" id="6_o2iga"]
 
 [sub_resource type="InputEventJoypadButton" id="InputEventJoypadButton_nppw4"]
@@ -54,13 +55,18 @@ size_flags_vertical = 3
 current_tab = 0
 script = ExtResource("4_grmxe")
 
-[node name="Contributors" parent="MarginContainer/Main/TabContainer" instance=ExtResource("5_81vyk")]
+[node name="Changelog" parent="MarginContainer/Main/TabContainer" instance=ExtResource("5_o2iga")]
 layout_mode = 2
 metadata/_tab_index = 0
+
+[node name="Contributors" parent="MarginContainer/Main/TabContainer" instance=ExtResource("5_81vyk")]
+visible = false
+layout_mode = 2
+metadata/_tab_index = 1
 
 [node name="Licenses" parent="MarginContainer/Main/TabContainer" instance=ExtResource("6_o2iga")]
 visible = false
 layout_mode = 2
-metadata/_tab_index = 1
+metadata/_tab_index = 2
 
 [connection signal="pressed" from="MarginContainer/Main/TopBar/Back" to="." method="_on_back_pressed"]
