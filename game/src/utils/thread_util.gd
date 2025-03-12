@@ -84,8 +84,8 @@ func _random_results() -> void:
 
 
 func _loading_done() -> void:
-	LoadingUtil.done()
 	thread.wait_to_finish()
+	LoadingUtil.done()
 	print("thread done.")
 
 

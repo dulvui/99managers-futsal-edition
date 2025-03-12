@@ -5,7 +5,7 @@
 extends Control
 
 @onready var version: Label = %Version
-@onready var content: PanelContainer = %Content
+@onready var content: Control = %Content
 @onready var scene_fade: SceneFade = %SceneFade
 @onready var loading_screen: LoadingScreen = $LoadingScreen
 
@@ -47,8 +47,8 @@ func previous_scene() -> void:
 
 func show_loading_screen(p_scene_name_on_load: String = "") -> void:
 	scene_name_on_load = p_scene_name_on_load
+	scene_fade.fade_in()
 	loading_screen.show()
-	scene_fade.fade_out()
 
 
 func hide_loading_screen() -> void:
@@ -74,5 +74,5 @@ func _on_loading_screen_loaded() -> void:
 		change_scene(scene_name_on_load)
 		scene_name_on_load = ""
 	else:
-		scene_fade.fade_in()
+		scene_fade.fade_out()
 	loading_screen.hide()

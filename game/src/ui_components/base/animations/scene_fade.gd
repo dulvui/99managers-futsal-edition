@@ -10,6 +10,7 @@ const DURATION: float = 0.15
 
 func fade_in(duration: float = DURATION) -> void:
 	if not Global.config.scene_fade:
+		hide()
 		return
 
 	show()
@@ -21,6 +22,7 @@ func fade_in(duration: float = DURATION) -> void:
 
 func fade_out(duration: float = DURATION) -> void:
 	if not Global.config.scene_fade:
+		hide()
 		return
 
 	show()
