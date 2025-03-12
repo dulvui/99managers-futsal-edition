@@ -3,7 +3,7 @@
 # SPDX-License-Identifier: AGPL-3.0-or-later
 
 class_name Settings
-extends PanelContainer
+extends Control
 
 @onready var default_dialog: DefaultConfirmDialog = %DefaultDialog
 @onready var general: GeneralSettings = %General

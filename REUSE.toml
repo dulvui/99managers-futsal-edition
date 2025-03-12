@@ -77,6 +77,31 @@ precedence = "aggregate"
 SPDX-FileCopyrightText = "Copyright (c) 2012 Daniele Faraglia"
 SPDX-License-Identifier = "MIT"
 
+# https://publicdomainvectors.org/
+# modified color to white
+[[annotations]]
+path = [
+    "game/assets/player_silhouettes/silhouette-football-04.svg",
+    "game/assets/player_silhouettes/silhouette-football-08.svg",
+    "game/assets/player_silhouettes/silhouette-football-10.svg",
+    "game/assets/player_silhouettes/silhouette-football-11.svg",
+    "game/assets/player_silhouettes/silhouette-football-12.svg",
+    "game/assets/player_silhouettes/silhouette-football-15.svg",
+    "game/assets/player_silhouettes/silhouette-football-16.svg",
+    "game/assets/player_silhouettes/silhouette-football-18.svg",
+    "game/assets/player_silhouettes/silhouette-football-19.svg",
+    "game/assets/player_silhouettes/silhouette-football-20.svg",
+    "game/assets/player_silhouettes/silhouette-football-22.svg",
+    "game/assets/player_silhouettes/silhouette-football-24.svg",
+    "game/assets/player_silhouettes/silhouette-football-25.svg",
+    "game/assets/player_silhouettes/silhouette-football-26.svg",
+    "game/assets/player_silhouettes/silhouette-football-28.svg",
+    "game/assets/player_silhouettes/silhouette-football-32.svg",
+]
+precedence = "aggregate"
+SPDX-FileCopyrightText = "NONE"
+SPDX-License-Identifier = "CC0-1.0"
+
 # https://openclipart.org/detail/167872/soccerball-noshadow
 [[annotations]]
 path = [
