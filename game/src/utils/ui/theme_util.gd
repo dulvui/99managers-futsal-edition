@@ -4,6 +4,8 @@
 
 extends Node
 
+signal theme_changed
+
 # theme variations
 const BUTTON_NORMAL: StringName = "Button"
 const BUTTON_IMPORTANT: StringName = "ImportantButton"
@@ -248,6 +250,8 @@ func apply_theme(theme_index: int) -> void:
 		configuration = ResourceLoader.load(THEMES_PATH + theme_file)
 		configuration.setup()
 		_apply_configuration(configuration)
+	
+	theme_changed.emit()
 
 
 func _apply_configuration(p_configuration: ThemeConfiguration) -> void:

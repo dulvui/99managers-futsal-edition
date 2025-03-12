@@ -31,11 +31,7 @@ func _ready() -> void:
 	rng = RandomNumberGenerator.new()
 	rng.randomize()
 
-	load_image()
-	set_color()
-
-
-func load_image() -> void:
+	# load image
 	var random_index: int = rng.randi_range(0, SILHOUETTE_PATHS.size() - 1)
 	var random_path: String = SILHOUETTE_PATHS[random_index]
 	if random_path == Global.player_silhouette_last_path:
@@ -44,6 +40,11 @@ func load_image() -> void:
 	texture = load(random_path)
 	Global.player_silhouette_last_path = random_path
 
+	_set_color()
 
-func set_color() -> void:
-	modulate = ThemeUtil.configuration.style_important_color
+	# update color if theme is changed
+	ThemeUtil.theme_changed.connect(_set_color)
+
+
+func _set_color() -> void:
+	modulate = ThemeUtil.configuration.background_secondary_color
