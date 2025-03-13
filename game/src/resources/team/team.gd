@@ -122,7 +122,7 @@ func get_basic() -> TeamBasic:
 
 
 func duplicate_real_deep() -> Team:
-	var copy: Team = duplicate()
+	var copy: Team = duplicate(true)
 	# objects in arrays and dictionaries never get duplicated
 	# https://docs.godotengine.org/en/stable/classes/class_resource.html#class-resource-method-duplicate
 	copy.players = []

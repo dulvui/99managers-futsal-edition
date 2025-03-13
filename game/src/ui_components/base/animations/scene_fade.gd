@@ -5,7 +5,7 @@
 class_name SceneFade
 extends Panel
 
-const DURATION: float = 0.15
+const DURATION: float = 0.2
 
 
 func fade_in(duration: float = DURATION) -> void:
@@ -13,10 +13,14 @@ func fade_in(duration: float = DURATION) -> void:
 		hide()
 		return
 
+	# already visible
+	if visible:
+		return
+
 	show()
 	var tween: Tween
 	tween = create_tween()
-	tween.tween_property(self, "modulate", Color.TRANSPARENT, duration)
+	tween.tween_property(self, "modulate", Color.WHITE, duration)
 	await tween.finished
 
 
@@ -25,8 +29,12 @@ func fade_out(duration: float = DURATION) -> void:
 		hide()
 		return
 
-	show()
+	# already hidden
+	if not visible:
+		return
+
 	var tween: Tween
 	tween = create_tween()
-	tween.tween_property(self, "modulate", Color.WHITE, duration)
+	tween.tween_property(self, "modulate", Color.TRANSPARENT, duration)
 	await tween.finished
+	hide()

@@ -25,7 +25,7 @@ func _ready() -> void:
 
 
 func change_scene(scene_path: String) -> void:
-	await scene_fade.fade_out()
+	await scene_fade.fade_in()
 
 	for child: Node in content.get_children():
 		content.remove_child(child)
@@ -35,7 +35,7 @@ func change_scene(scene_path: String) -> void:
 
 	var scene: PackedScene = load(scene_path)
 	content.add_child(scene.instantiate())
-	scene_fade.fade_in()
+	scene_fade.fade_out()
 
 
 func previous_scene() -> void:
@@ -47,12 +47,13 @@ func previous_scene() -> void:
 
 func show_loading_screen(p_scene_name_on_load: String = "") -> void:
 	scene_name_on_load = p_scene_name_on_load
-	scene_fade.fade_in()
+	await scene_fade.fade_in()
 	loading_screen.show()
+	await scene_fade.fade_out()
 
 
 func hide_loading_screen() -> void:
-	scene_fade.fade_in()
+	scene_fade.fade_out()
 	loading_screen.hide()
 
 

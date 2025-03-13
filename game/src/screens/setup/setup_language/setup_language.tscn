@@ -1,6 +1,8 @@
-[gd_scene load_steps=3 format=3 uid="uid://5oxrekj30gb1"]
+[gd_scene load_steps=5 format=3 uid="uid://ch6gf8p07gkdl"]
 
 [ext_resource type="PackedScene" uid="uid://djrvl8pvkr7aa" path="res://src/screens/settings/language_picker/language_picker.tscn" id="2_pkp0m"]
+[ext_resource type="PackedScene" uid="uid://ck1i6uxkqg3pi" path="res://src/ui_components/player_silhouette/player_silhouette.tscn" id="2_xinaf"]
+[ext_resource type="LabelSettings" uid="uid://b4gu78rjvdfx4" path="res://theme_base/label/label_settings_title.tres" id="3_6i6im"]
 [ext_resource type="Script" uid="uid://cx228wbagobp3" path="res://src/screens/setup/setup_language/setup_language.gd" id="6"]
 
 [node name="SetupLanguage" type="Control"]
@@ -20,11 +22,39 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="LanguagePicker" parent="." instance=ExtResource("2_pkp0m")]
+[node name="PlayerSilhouette" parent="." instance=ExtResource("2_xinaf")]
 layout_mode = 1
-offset_left = -353.0
-offset_top = 0.0
-offset_right = 353.0
-offset_bottom = 0.0
+anchors_preset = -1
+anchor_left = 0.867708
+anchor_top = 0.691667
+anchor_right = 0.867708
+anchor_bottom = 0.691667
+offset_left = -300.0
+offset_right = 300.0
+grow_horizontal = 1
+grow_vertical = 1
 
-[connection signal="language_change" from="LanguagePicker" to="." method="_on_language_picker_language_change"]
+[node name="MarginContainer" type="MarginContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer"]
+layout_mode = 2
+
+[node name="Title" type="Label" parent="MarginContainer/VBoxContainer"]
+auto_translate_mode = 2
+layout_mode = 2
+text = "99 Managers Futsal Edition"
+label_settings = ExtResource("3_6i6im")
+
+[node name="LanguagePicker" parent="MarginContainer/VBoxContainer" instance=ExtResource("2_pkp0m")]
+custom_minimum_size = Vector2(800, 0)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 6
+
+[connection signal="language_change" from="MarginContainer/VBoxContainer/LanguagePicker" to="." method="_on_language_picker_language_change"]

@@ -164,6 +164,7 @@ layout_mode = 2
 [node name="ThemePicker" parent="." instance=ExtResource("6_ryj47")]
 unique_name_in_owner = true
 layout_mode = 2
+show_custom = false
 
 [node name="Version" type="HBoxContainer" parent="."]
 layout_mode = 2
