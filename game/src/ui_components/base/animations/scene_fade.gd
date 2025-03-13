@@ -8,6 +8,11 @@ extends Panel
 const DURATION: float = 0.2
 
 
+func _ready() -> void:
+	modulate = Color.TRANSPARENT
+	hide()
+
+
 func fade_in(duration: float = DURATION) -> void:
 	if not Global.config.scene_fade:
 		hide()
