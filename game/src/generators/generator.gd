@@ -614,7 +614,6 @@ func random_positions(player: Player, p_position_type: Position.Type) -> void:
 	# assign main positions
 	var position: Position = Position.new()
 	position.type = p_position_type
-	position.random_variations()
 	player.position = position
 
 	# TODO should goalkeeper have alt positions?
@@ -627,7 +626,6 @@ func random_positions(player: Player, p_position_type: Position.Type) -> void:
 	for i: int in RngUtil.rng.randi_range(0, alt_positions_keys.size()):
 		var alt_position: Position = Position.new()
 		alt_position.type = alt_positions_keys[i]
-		alt_position.random_variations()
 		alt_positions.append(alt_position)
 
 	player.alt_positions = alt_positions
