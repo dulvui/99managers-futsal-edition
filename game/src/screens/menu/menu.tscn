@@ -46,57 +46,47 @@ offset_top = -220.08
 offset_right = 220.26
 offset_bottom = 219.92
 
-[node name="Label" type="Label" parent="."]
-auto_translate_mode = 2
+[node name="MarginContainer" type="MarginContainer" parent="."]
 layout_mode = 1
-anchors_preset = -1
-anchor_left = 0.496
-anchor_top = 0.117
-anchor_right = 0.496
-anchor_bottom = 0.117
-offset_left = -532.32
-offset_top = -0.360008
-offset_right = 537.68
-offset_bottom = 29.64
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer"]
+layout_mode = 2
+theme_override_constants/separation = 85
+
+[node name="Title" type="Label" parent="MarginContainer/VBoxContainer"]
+auto_translate_mode = 2
+layout_mode = 2
+text = "99 Managers Futsal Edition"
+label_settings = ExtResource("3_itbqv")
+
+[node name="BetaWarningLabel" type="Label" parent="MarginContainer/VBoxContainer"]
+auto_translate_mode = 2
+layout_mode = 2
 text = "THIS IS A BETA VERSION SO EXPECT MISSING FEATURES, BUGS AND BREAKING CHANGES!"
 label_settings = ExtResource("3_itbqv")
 horizontal_alignment = 1
 
-[node name="SaveState" parent="." instance=ExtResource("4_5irse")]
+[node name="SaveState" parent="MarginContainer/VBoxContainer" instance=ExtResource("4_5irse")]
 unique_name_in_owner = true
-layout_mode = 1
-anchor_left = 0.435677
-anchor_top = 0.22963
-anchor_right = 0.57474
-anchor_bottom = 0.22963
-offset_left = -261.5
-offset_right = 268.5
-offset_bottom = 132.0
-grow_horizontal = 2
+layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 0
 hide_buttons = true
 
-[node name="Buttons" type="VBoxContainer" parent="."]
+[node name="Buttons" type="VBoxContainer" parent="MarginContainer/VBoxContainer"]
 custom_minimum_size = Vector2(240, 0)
-layout_mode = 1
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -90.0
-offset_top = -73.5
-offset_right = 90.0
-offset_bottom = 73.5
-grow_horizontal = 2
-grow_vertical = 2
+layout_mode = 2
 size_flags_horizontal = 4
-size_flags_vertical = 6
+size_flags_vertical = 2
 alignment = 1
 metadata/_edit_use_anchors_ = true
 
-[node name="ContinueGame" type="Button" parent="Buttons"]
+[node name="ContinueGame" type="Button" parent="MarginContainer/VBoxContainer/Buttons"]
 unique_name_in_owner = true
 layout_mode = 2
 size_flags_horizontal = 5
@@ -106,7 +96,7 @@ text = "Continue"
 script = ExtResource("4_nkxl6")
 joypad_motion_event = SubResource("InputEventJoypadMotion_eu77x")
 
-[node name="NewGame" type="Button" parent="Buttons"]
+[node name="NewGame" type="Button" parent="MarginContainer/VBoxContainer/Buttons"]
 unique_name_in_owner = true
 layout_mode = 2
 size_flags_horizontal = 5
@@ -114,7 +104,7 @@ size_flags_vertical = 4
 text = "New game"
 script = ExtResource("4_nkxl6")
 
-[node name="LoadGame" type="Button" parent="Buttons"]
+[node name="LoadGame" type="Button" parent="MarginContainer/VBoxContainer/Buttons"]
 unique_name_in_owner = true
 layout_mode = 2
 size_flags_horizontal = 5
@@ -122,7 +112,7 @@ size_flags_vertical = 4
 text = "Load game"
 script = ExtResource("4_nkxl6")
 
-[node name="Settings" type="Button" parent="Buttons"]
+[node name="Settings" type="Button" parent="MarginContainer/VBoxContainer/Buttons"]
 unique_name_in_owner = true
 layout_mode = 2
 size_flags_horizontal = 5
@@ -130,7 +120,7 @@ size_flags_vertical = 4
 text = "Settings"
 script = ExtResource("4_nkxl6")
 
-[node name="About" type="Button" parent="Buttons"]
+[node name="About" type="Button" parent="MarginContainer/VBoxContainer/Buttons"]
 unique_name_in_owner = true
 layout_mode = 2
 size_flags_horizontal = 5
@@ -138,7 +128,7 @@ size_flags_vertical = 4
 text = "About"
 script = ExtResource("4_nkxl6")
 
-[node name="Exit" type="Button" parent="Buttons"]
+[node name="Exit" type="Button" parent="MarginContainer/VBoxContainer/Buttons"]
 unique_name_in_owner = true
 layout_mode = 2
 size_flags_horizontal = 5
@@ -147,62 +137,52 @@ text = "Exit"
 script = ExtResource("4_nkxl6")
 joypad_button_event = SubResource("InputEventJoypadButton_x3xqw")
 
-[node name="Links" type="HBoxContainer" parent="."]
+[node name="Links" type="HBoxContainer" parent="MarginContainer/VBoxContainer"]
 auto_translate_mode = 2
-layout_mode = 1
-anchors_preset = -1
-anchor_left = 0.012
-anchor_top = 0.978
-anchor_right = 0.012
-anchor_bottom = 0.978
-offset_left = 0.959999
-offset_top = -30.24
-offset_right = 1658.96
-offset_bottom = -0.23999
-grow_vertical = 0
+layout_mode = 2
 size_flags_vertical = 8
 theme_override_constants/separation = 15
 metadata/_edit_use_anchors_ = true
 
-[node name="Mastodon" type="LinkButton" parent="Links"]
+[node name="Mastodon" type="LinkButton" parent="MarginContainer/VBoxContainer/Links"]
 visible = false
 layout_mode = 2
 text = "Mastodon"
 uri = "https://mastodon.social/@dulvui"
 
-[node name="Bsky" type="LinkButton" parent="Links"]
+[node name="Bsky" type="LinkButton" parent="MarginContainer/VBoxContainer/Links"]
 visible = false
 layout_mode = 2
 text = "Bluesky"
 uri = "https://bsky.app/profile/s9i.org"
 
-[node name="Matrix" type="LinkButton" parent="Links"]
+[node name="Matrix" type="LinkButton" parent="MarginContainer/VBoxContainer/Links"]
 visible = false
 layout_mode = 2
 text = "Matrix"
 uri = "https://matrix.to/#/%23s9i.org:matrix.org"
 
-[node name="Codeberg" type="LinkButton" parent="Links"]
+[node name="Codeberg" type="LinkButton" parent="MarginContainer/VBoxContainer/Links"]
 layout_mode = 2
 text = "Codeberg"
 uri = "https://codeberg.org/dulvui/99managers-futsal-edition"
 
-[node name="Github" type="LinkButton" parent="Links"]
+[node name="Github" type="LinkButton" parent="MarginContainer/VBoxContainer/Links"]
 layout_mode = 2
 text = "Github [Mirror]"
 uri = "https://github.com/dulvui/99managers-futsal-edition"
 
-[node name="Discord" type="LinkButton" parent="Links"]
+[node name="Discord" type="LinkButton" parent="MarginContainer/VBoxContainer/Links"]
 layout_mode = 2
 text = "Discord"
 uri = "https://discord.gg/a5DSHZKkA8"
 
-[node name="Reddit" type="LinkButton" parent="Links"]
+[node name="Reddit" type="LinkButton" parent="MarginContainer/VBoxContainer/Links"]
 layout_mode = 2
 text = "Reddit"
 uri = "https://www.reddit.com/r/99Managers/"
 
-[node name="Website" type="LinkButton" parent="Links"]
+[node name="Website" type="LinkButton" parent="MarginContainer/VBoxContainer/Links"]
 auto_translate_mode = 2
 visible = false
 layout_mode = 2
@@ -212,7 +192,7 @@ focus_mode = 2
 text = "simondalvai.org"
 uri = "https://simondalvai.org"
 
-[node name="WishlistSteam" type="LinkButton" parent="Links"]
+[node name="WishlistSteam" type="LinkButton" parent="MarginContainer/VBoxContainer/Links"]
 auto_translate_mode = 2
 layout_mode = 2
 focus_mode = 2
@@ -223,10 +203,10 @@ uri = "https://store.steampowered.com/app/3334770"
 unique_name_in_owner = true
 custom_text = "Exit game"
 
-[connection signal="pressed" from="Buttons/ContinueGame" to="." method="_on_continue_game_pressed"]
-[connection signal="pressed" from="Buttons/NewGame" to="." method="_on_new_game_pressed"]
-[connection signal="pressed" from="Buttons/LoadGame" to="." method="_on_load_game_pressed"]
-[connection signal="pressed" from="Buttons/Settings" to="." method="_on_settings_pressed"]
-[connection signal="pressed" from="Buttons/About" to="." method="_on_about_pressed"]
-[connection signal="pressed" from="Buttons/Exit" to="." method="_on_exit_pressed"]
+[connection signal="pressed" from="MarginContainer/VBoxContainer/Buttons/ContinueGame" to="." method="_on_continue_game_pressed"]
+[connection signal="pressed" from="MarginContainer/VBoxContainer/Buttons/NewGame" to="." method="_on_new_game_pressed"]
+[connection signal="pressed" from="MarginContainer/VBoxContainer/Buttons/LoadGame" to="." method="_on_load_game_pressed"]
+[connection signal="pressed" from="MarginContainer/VBoxContainer/Buttons/Settings" to="." method="_on_settings_pressed"]
+[connection signal="pressed" from="MarginContainer/VBoxContainer/Buttons/About" to="." method="_on_about_pressed"]
+[connection signal="pressed" from="MarginContainer/VBoxContainer/Buttons/Exit" to="." method="_on_exit_pressed"]
 [connection signal="confirmed" from="ExitConfirmDialog" to="." method="_on_default_confirm_dialog_confirmed"]
