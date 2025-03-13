@@ -278,20 +278,21 @@
 # res://src/generators/generator.gd
 #
 # Simon Dalvai <info@simondalvai.org>, 2025.
+# mahmoud nabil <mahmoudnabil200024@gmail.com>, 2025.
 msgid ""
 msgstr ""
 "Project-Id-Version: 99 Managers Futsal Edition\n"
 "POT-Creation-Date: \n"
-"PO-Revision-Date: 2025-02-26 10:01+0000\n"
-"Last-Translator: Simon Dalvai <info@simondalvai.org>\n"
-"Language-Team: Arabic (Levantine) <https://hosted.weblate.org/projects/99-"
-"managers-futsal-edition/game/apc/>\n"
+"PO-Revision-Date: 2025-03-13 07:01+0000\n"
+"Last-Translator: mahmoud nabil <mahmoudnabil200024@gmail.com>\n"
+"Language-Team: Arabic (Levantine) <https://hosted.weblate.org/projects/"
+"99-managers-futsal-edition/game/apc/>\n"
 "Language: apc\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 5.10.2-dev\n"
+"X-Generator: Weblate 5.10.3-dev\n"
 
 #: src/ui_components/team_profile/team_profile.tscn
 #: src/screens/dashboard/dashboard.tscn
@@ -312,7 +313,7 @@ msgstr "ملعب"
 #: src/ui_components/transfers/player_offer/player_offer.tscn
 #: src/screens/dashboard/dashboard.tscn
 msgid "Players"
-msgstr "اللاعيبة"
+msgstr "اللاعيبه"
 
 #: src/ui_components/team_profile/team_profile.gd
 #: src/ui_components/player_profile/info_view/info_view.tscn
@@ -479,10 +480,8 @@ msgid "Goals"
 msgstr "گولات"
 
 #: src/ui_components/visual_competitions/visual_table/visual_table.tscn
-#, fuzzy
-#| msgid "Formation"
 msgid "Form"
-msgstr "پوزيسيونات"
+msgstr "المصدر"
 
 #: src/ui_components/visual_competitions/visual_table/visual_table.tscn
 msgid "Points"
@@ -522,10 +521,8 @@ msgstr ""
 
 #: src/ui_components/visual_competitions/visual_competitions.tscn
 #: src/ui_components/player_profile/statistics_view/statistics_view.tscn
-#, fuzzy
-#| msgid "Watchlist"
 msgid "Matches"
-msgstr "ليستة المراقبة"
+msgstr "المراقبة"
 
 #: src/ui_components/visual_competitions/visual_competitions.tscn
 #: src/screens/dashboard/dashboard.tscn
@@ -717,27 +714,30 @@ msgstr "سيّڤ الستات"
 #, fuzzy
 #| msgid "Save states"
 msgid "Save hands"
-msgstr "سيّڤ الستات"
+msgstr "Save hands"
 
 #: src/ui_components/player_profile/attributes_view/attributes_view.tscn
 #: src/ui_components/player_list/player_list_view/views/goalkeeper/player_list_view_goalkeeper.tscn
+#, fuzzy
 msgid "Diving"
-msgstr ""
+msgstr "Diving"
 
 #: src/ui_components/player_profile/attributes_view/attributes_view.tscn
 #: src/ui_components/player_list/player_list_view/views/physical/player_list_view_physical.tscn
+#, fuzzy
 msgid "Pace"
-msgstr "سرعة"
+msgstr "Pace"
 
 #: src/ui_components/player_profile/attributes_view/attributes_view.tscn
 #: src/ui_components/player_list/player_list_view/views/physical/player_list_view_physical.tscn
+#, fuzzy
 msgid "Acceleration"
-msgstr "تسارع"
+msgstr "Acceleration"
 
 #: src/ui_components/player_profile/attributes_view/attributes_view.tscn
 #: src/ui_components/player_list/player_list_view/views/physical/player_list_view_physical.tscn
 msgid "Stamina"
-msgstr "ستامينا"
+msgstr "قوة تحمل"
 
 #: src/ui_components/player_profile/attributes_view/attributes_view.tscn
 #: src/ui_components/player_list/player_list_view/views/physical/player_list_view_physical.tscn
@@ -761,8 +761,9 @@ msgstr "عرضية"
 
 #: src/ui_components/player_profile/attributes_view/attributes_view.tscn
 #: src/ui_components/player_list/player_list_view/views/technical/player_list_view_technical.tscn
+#, fuzzy
 msgid "Passing"
-msgstr "پاس"
+msgstr "Passing"
 
 #: src/ui_components/player_profile/attributes_view/attributes_view.tscn
 #: src/ui_components/player_list/player_list_view/views/technical/player_list_view_technical.tscn
@@ -771,8 +772,9 @@ msgstr "پاسات طويلة"
 
 #: src/ui_components/player_profile/attributes_view/attributes_view.tscn
 #: src/ui_components/player_list/player_list_view/views/technical/player_list_view_technical.tscn
+#, fuzzy
 msgid "Tackling"
-msgstr "تاكل"
+msgstr "Tackling"
 
 #: src/ui_components/player_profile/attributes_view/attributes_view.tscn
 #: src/ui_components/player_list/player_list_view/views/technical/player_list_view_technical.tscn
@@ -796,13 +798,15 @@ msgstr "شوتة طويلة"
 
 #: src/ui_components/player_profile/attributes_view/attributes_view.tscn
 #: src/ui_components/player_list/player_list_view/views/technical/player_list_view_technical.tscn
+#, fuzzy
 msgid "Free kick"
-msgstr ""
+msgstr "Free kick"
 
 #: src/ui_components/player_profile/attributes_view/attributes_view.tscn
 #: src/ui_components/player_list/player_list_view/views/technical/player_list_view_technical.tscn
+#, fuzzy
 msgid "Penalty"
-msgstr "پينالتي"
+msgstr "Penalty"
 
 #: src/ui_components/player_profile/attributes_view/attributes_view.tscn
 #: src/ui_components/player_list/player_list_view/views/technical/player_list_view_technical.tscn
