@@ -44,9 +44,9 @@ func change_scene(scene_path: String) -> void:
 	content.add_child(scene.instantiate())
 
 	if loading_screen.visible:
-		hide_loading_screen()
+		await hide_loading_screen()
 	else:
-		scene_fade.fade_out()
+		await scene_fade.fade_out()
 
 
 func previous_scene() -> void:
@@ -81,18 +81,16 @@ func hide_loading_screen() -> void:
 
 
 func loading_done() -> void:
+	loaded.emit()
 
 	if not scene_name_on_load.is_empty():
 		change_scene(scene_name_on_load)
-	
-	if not manual_hide:
+	elif not manual_hide:
 		hide_loading_screen()
 
 	# reset values
 	manual_hide = false
 	scene_name_on_load = ""
-
-	loaded.emit()
 
 
 func check_layout_direction() -> void:
