@@ -20,6 +20,7 @@ custom_minimum_size = Vector2(20, 0)
 layout_mode = 2
 text = "#"
 label_settings = ExtResource("2_ia1mi")
+horizontal_alignment = 1
 
 [node name="Team" type="Label" parent="."]
 custom_minimum_size = Vector2(240, 0)

@@ -25,6 +25,7 @@ func setup(table: Table) -> void:
 	var pos: int = 1
 	for team: TableValues in table_array:
 		var pos_label: Label = Label.new()
+		_style_label(team.team_id, pos_label)
 		pos_label.text = str(pos)
 		dynamic_content.append(pos_label)
 		pos += 1
