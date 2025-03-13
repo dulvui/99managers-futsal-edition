@@ -1,6 +1,5 @@
-[gd_scene load_steps=23 format=3 uid="uid://c8mhb22bae1my"]
+[gd_scene load_steps=22 format=3 uid="uid://c8mhb22bae1my"]
 
-[ext_resource type="Theme" uid="uid://pt1hrfiuwfpg" path="res://theme_base/theme.tres" id="1"]
 [ext_resource type="Script" uid="uid://isdkorclbxno" path="res://src/screens/dashboard/dashboard.gd" id="2"]
 [ext_resource type="PackedScene" uid="uid://c51vyn54bk7q4" path="res://src/ui_components/visual_calendar/visual_calendar.tscn" id="3"]
 [ext_resource type="StyleBox" uid="uid://p2i8146lydw5" path="res://theme_base/styles/box/box_background_secondary.tres" id="3_718t5"]
@@ -43,7 +42,6 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-theme = ExtResource("1")
 script = ExtResource("2")
 
 [node name="Panel" type="Panel" parent="."]
