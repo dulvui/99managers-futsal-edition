@@ -7,20 +7,28 @@ extends Control
 
 signal loaded
 
-@onready var loading_progress_bar: ProgressBar = $VBoxContainer/LoadingProgressBar
-@onready var message_label: Label = $VBoxContainer/Message
+var progress: float
+var message: String
+var indeterminate: bool
+
+@onready var loading_progress_bar: ProgressBar = %LoadingProgressBar
+@onready var message_label: Label = %Message
 
 
-func _ready() -> void:
-	loading_progress_bar.indeterminate = LoadingUtil.indeterminate
-	# connect loaded signal also here
-	LoadingUtil.loaded.connect(_loaded)
+func start(p_message: String, p_indeterminate: bool = false) -> void:
+	message = p_message
+	indeterminate = p_indeterminate
+	progress = 0
 
 
-func _process(_delta: float) -> void:
-	if not LoadingUtil.indeterminate:
-		message_label.text = LoadingUtil.message
-		loading_progress_bar.value = LoadingUtil.progress
+func update(p_progress: float) -> void:
+	progress = p_progress
+	loading_progress_bar.value = progress
+
+
+func update_message(p_message: String) -> void:
+	message = p_message
+	message_label.text = message
 
 
 func _loaded() -> void:
@@ -31,6 +39,6 @@ func _loaded() -> void:
 func _on_visibility_changed() -> void:
 	if is_node_ready() and visible:
 		loading_progress_bar.value = 0
-		loading_progress_bar.indeterminate = LoadingUtil.indeterminate
-		message_label.text = LoadingUtil.message
-		loading_progress_bar.value = LoadingUtil.progress
+		loading_progress_bar.indeterminate = indeterminate
+		message_label.text = message
+		loading_progress_bar.value = progress

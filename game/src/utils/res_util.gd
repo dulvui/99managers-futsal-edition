@@ -108,7 +108,7 @@ func _load_resource(path: String, resource: JSONResource, after_backup: bool = f
 		print("opening file %s error with code %d" % [full_path, err])
 		if not after_backup:
 			_restore_backup(full_path)
-			LoadingUtil.message = tr("Restoring from backup")
+			# Main.loading_screen.update_message(tr("Restoring from backup"))
 			_load_resource(path, resource, true)
 		return
 

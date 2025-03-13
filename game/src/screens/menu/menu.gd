@@ -38,9 +38,8 @@ func _on_new_game_pressed() -> void:
 
 
 func _on_continue_game_pressed() -> void:
-	LoadingUtil.start(tr("Loading game"), LoadingUtil.Type.LOAD_GAME, true)
-	Main.show_loading_screen(Const.SCREEN_DASHBOARD)
-	Global.load_save_state()
+	if Global.load_save_state():
+		Main.show_loading_screen(tr("Loading game"), Const.SCREEN_DASHBOARD)
 
 
 func _on_settings_pressed() -> void:

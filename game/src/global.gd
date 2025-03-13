@@ -120,7 +120,7 @@ func save_all_data() -> void:
 	ResUtil.save_save_state_data()
 
 
-func load_save_state() -> void:
+func load_save_state() -> bool:
 	var save_sate: SaveState = save_states.get_active()
 	if save_sate:
 		start_date = save_sate.start_date
@@ -132,5 +132,6 @@ func load_save_state() -> void:
 		generation_player_names = save_sate.generation_player_names
 		# ResUtil.load_save_state_data()
 		ThreadUtil.load_data()
-	else:
-		LoadingUtil.done()
+		return true
+
+	return false

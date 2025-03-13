@@ -4,6 +4,8 @@
 
 extends Node
 
+signal loading_done
+
 var thread: Thread
 
 
@@ -85,7 +87,7 @@ func _random_results() -> void:
 
 func _loading_done() -> void:
 	thread.wait_to_finish()
-	LoadingUtil.done()
+	loading_done.emit()
 	print("thread done.")
 
 

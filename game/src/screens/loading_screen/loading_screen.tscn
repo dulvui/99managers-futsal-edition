@@ -53,12 +53,14 @@ theme_override_constants/separation = 25
 alignment = 1
 
 [node name="Message" type="Label" parent="VBoxContainer"]
+unique_name_in_owner = true
 layout_mode = 2
 text = "Loading"
 label_settings = ExtResource("4_jlxu5")
 horizontal_alignment = 1
 
 [node name="LoadingProgressBar" type="ProgressBar" parent="VBoxContainer"]
+unique_name_in_owner = true
 layout_mode = 2
 max_value = 1.0
 metadata/_edit_use_anchors_ = true

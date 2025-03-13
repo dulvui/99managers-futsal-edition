@@ -102,9 +102,8 @@ func _on_continue_pressed() -> void:
 
 	RngUtil.reset_seed(generation_seed, player_names_option.selected)
 
-	LoadingUtil.start(tr("Generating teams and players"), LoadingUtil.Type.GENERATION, true)
-	Main.show_loading_screen()
-	LoadingUtil.loaded.connect(_on_world_generated)
+	Main.show_loading_screen(tr("Generating teams and players"))
+	Main.loaded.connect(_on_world_generated)
 
 	Global.error_load_world = 0
 	if default_file_button.button_pressed or custom_file_path.is_empty():
@@ -171,6 +170,7 @@ func _on_world_generated() -> void:
 	if Global.error_load_world == 0:
 		Main.change_scene(Const.SCREEN_SETUP_TEAM)
 	else:
+		Main.hide_loading_screen()
 		file_error_dialog.popup_centered()
 
 

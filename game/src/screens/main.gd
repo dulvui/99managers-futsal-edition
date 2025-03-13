@@ -4,6 +4,8 @@
 
 extends Control
 
+signal loaded
+
 @onready var version: Label = %Version
 @onready var content: Control = %Content
 @onready var scene_fade: SceneFade = %SceneFade
@@ -22,6 +24,8 @@ func _ready() -> void:
 	version.text = "v" + Global.version
 
 	scene_fade.fade_in()
+
+	ThreadUtil.loading_done.connect(loading_done)
 
 
 func change_scene(scene_path: String) -> void:
@@ -45,15 +49,29 @@ func previous_scene() -> void:
 		print("not valid previous scene found")
 
 
-func show_loading_screen(p_scene_name_on_load: String = "") -> void:
+func show_loading_screen(p_message: String, p_scene_name_on_load: String = "", p_indeterminate: bool = true) -> void:
+	loading_screen.start(p_message, p_indeterminate)
 	scene_name_on_load = p_scene_name_on_load
+
 	await scene_fade.fade_in()
 	loading_screen.show()
 	await scene_fade.fade_out()
 
 
 func hide_loading_screen() -> void:
-	scene_fade.fade_out()
+	await scene_fade.fade_in()
+	loading_screen.hide()
+	await scene_fade.fade_out()
+
+
+func loading_done() -> void:
+	loaded.emit()
+
+	if not scene_name_on_load.is_empty():
+		change_scene(scene_name_on_load)
+		scene_name_on_load = ""
+	else:
+		scene_fade.fade_out()
 	loading_screen.hide()
 
 
@@ -68,12 +86,3 @@ func _append_scene_to_buffer(scene_path: String) -> void:
 	previous_scenes.append(scene_path)
 	if previous_scenes.size() > 5:
 		previous_scenes.remove_at(0)
-
-
-func _on_loading_screen_loaded() -> void:
-	if not scene_name_on_load.is_empty():
-		change_scene(scene_name_on_load)
-		scene_name_on_load = ""
-	else:
-		scene_fade.fade_out()
-	loading_screen.hide()
