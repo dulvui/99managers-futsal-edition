@@ -34,6 +34,7 @@ text = "Team"
 [node name="Team" type="Label" parent="Info/Details"]
 unique_name_in_owner = true
 auto_translate_mode = 2
+custom_minimum_size = Vector2(180, 0)
 layout_mode = 2
 size_flags_horizontal = 3
 text = "Bolzano"
@@ -47,6 +48,7 @@ text = "Manager"
 [node name="Manager" type="Label" parent="Info/Details"]
 unique_name_in_owner = true
 auto_translate_mode = 2
+custom_minimum_size = Vector2(180, 0)
 layout_mode = 2
 size_flags_horizontal = 3
 text = "Simon Dalvai"
@@ -60,6 +62,7 @@ text = "Table placement"
 [node name="Placement" type="Label" parent="Info/Details"]
 unique_name_in_owner = true
 auto_translate_mode = 2
+custom_minimum_size = Vector2(180, 0)
 layout_mode = 2
 size_flags_horizontal = 3
 text = "Serie A - 3."
@@ -80,6 +83,7 @@ text = "Game date"
 [node name="GameDate" type="Label" parent="Info/Dates"]
 unique_name_in_owner = true
 auto_translate_mode = 2
+custom_minimum_size = Vector2(180, 0)
 layout_mode = 2
 size_flags_horizontal = 3
 text = "12.08.2025"
@@ -92,6 +96,7 @@ text = "Last save"
 [node name="LastSaveDate" type="Label" parent="Info/Dates"]
 unique_name_in_owner = true
 auto_translate_mode = 2
+custom_minimum_size = Vector2(180, 0)
 layout_mode = 2
 size_flags_horizontal = 3
 text = "03.04.2024"
@@ -104,6 +109,7 @@ text = "Created"
 [node name="CreateDate" type="Label" parent="Info/Dates"]
 unique_name_in_owner = true
 auto_translate_mode = 2
+custom_minimum_size = Vector2(180, 0)
 layout_mode = 2
 size_flags_horizontal = 3
 text = "01.01.2024"
