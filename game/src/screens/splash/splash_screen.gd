@@ -5,8 +5,8 @@
 class_name SplashScreen
 extends Control
 
-const FADE_DURATION: float = 0.8
-const ICON_DURATION: float = 1.2
+const FADE_DURATION: float = 0.4
+const ICON_DURATION: float = 1
 
 @onready var fade: ColorRect = %Fade
 
@@ -16,8 +16,8 @@ func _ready() -> void:
 	fade.color = Color.BLACK
 
 	await fade_out()
-	# set to white, so it can be faded to themes background later
-	fade.color = Color.WHITE
+	# set to themes background color
+	fade.color = ThemeUtil.configuration.background_color
 	# show icon
 	await get_tree().create_timer(ICON_DURATION).timeout
 	await fade_in()
@@ -34,7 +34,7 @@ func fade_in() -> void:
 	var tween: Tween
 	tween = create_tween()
 	# fade to current themes background color
-	tween.tween_property(fade, "modulate", ThemeUtil.configuration.background_color, FADE_DURATION)
+	tween.tween_property(fade, "modulate", Color.WHITE, FADE_DURATION)
 	await tween.finished
 
 

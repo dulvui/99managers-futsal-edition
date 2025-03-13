@@ -1,6 +1,6 @@
 [gd_scene load_steps=4 format=3 uid="uid://c7pubsjpgg6q8"]
 
-[ext_resource type="Theme" uid="uid://pt1hrfiuwfpg" path="res://theme_base/theme.tres" id="1"]
+[ext_resource type="Theme" uid="uid://bgw641dg06rcb" path="res://theme_base/theme.res" id="1_ahqiu"]
 [ext_resource type="Script" uid="uid://6jslrn2ck37" path="res://src/screens/splash/splash_screen.gd" id="2"]
 [ext_resource type="Texture2D" uid="uid://cvrrfbsy8unhx" path="res://icon.png" id="3_ahqiu"]
 
@@ -11,7 +11,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-theme = ExtResource("1")
+theme = ExtResource("1_ahqiu")
 script = ExtResource("2")
 
 [node name="Background" type="ColorRect" parent="."]
