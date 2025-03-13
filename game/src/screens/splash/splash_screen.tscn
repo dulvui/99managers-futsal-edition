@@ -37,6 +37,5 @@ stretch_mode = 5
 
 [node name="SceneFade" parent="." instance=ExtResource("4_vm2yh")]
 unique_name_in_owner = true
-visible = true
 modulate = Color(1, 1, 1, 0)
 layout_mode = 1
