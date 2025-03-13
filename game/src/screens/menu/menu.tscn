@@ -1,6 +1,5 @@
-[gd_scene load_steps=10 format=3 uid="uid://b4woicggddkls"]
+[gd_scene load_steps=9 format=3 uid="uid://b4woicggddkls"]
 
-[ext_resource type="Theme" uid="uid://pt1hrfiuwfpg" path="res://theme_base/theme.tres" id="1"]
 [ext_resource type="Script" uid="uid://03btjgdjwy1" path="res://src/screens/menu/menu.gd" id="2"]
 [ext_resource type="LabelSettings" uid="uid://b4gu78rjvdfx4" path="res://theme_base/label/label_settings_title.tres" id="3_itbqv"]
 [ext_resource type="PackedScene" uid="uid://dj3ts0dee4m6" path="res://src/screens/save_states_screen/save_state_entry/save_state_entry.tscn" id="4_5irse"]
@@ -23,7 +22,6 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-theme = ExtResource("1")
 script = ExtResource("2")
 
 [node name="Panel" type="Panel" parent="."]
@@ -82,8 +80,7 @@ hide_buttons = true
 custom_minimum_size = Vector2(240, 0)
 layout_mode = 2
 size_flags_horizontal = 4
-size_flags_vertical = 2
-alignment = 1
+size_flags_vertical = 6
 metadata/_edit_use_anchors_ = true
 
 [node name="ContinueGame" type="Button" parent="MarginContainer/VBoxContainer/Buttons"]
@@ -140,7 +137,7 @@ joypad_button_event = SubResource("InputEventJoypadButton_x3xqw")
 [node name="Links" type="HBoxContainer" parent="MarginContainer/VBoxContainer"]
 auto_translate_mode = 2
 layout_mode = 2
-size_flags_vertical = 8
+size_flags_vertical = 10
 theme_override_constants/separation = 15
 metadata/_edit_use_anchors_ = true
 
