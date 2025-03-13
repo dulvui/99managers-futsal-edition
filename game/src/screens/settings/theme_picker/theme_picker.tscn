@@ -83,6 +83,7 @@ text = "Change"
 script = ExtResource("2_2ccni")
 
 [node name="ColorPopupPanel" type="PopupPanel" parent="."]
+unique_name_in_owner = true
 auto_translate_mode = 1
 size = Vector2i(400, 526)
 
@@ -97,6 +98,7 @@ theme_override_constants/margin_right = 10
 theme_override_constants/margin_bottom = 10
 
 [node name="ColorPicker" type="ColorPicker" parent="ColorPopupPanel/MarginContainer"]
+unique_name_in_owner = true
 layout_mode = 2
 deferred_mode = true
 can_add_swatches = false

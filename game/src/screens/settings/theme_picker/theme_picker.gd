@@ -17,8 +17,8 @@ var active_color_type: ColorType
 
 @onready var options: SwitchOptionButton = %OptionButton
 @onready var custom: VBoxContainer = %Custom
-@onready var color_picker_popup: PopupPanel = $ColorPopupPanel
-@onready var color_picker: ColorPicker = $ColorPopupPanel/MarginContainer/ColorPicker
+@onready var color_picker_popup: PopupPanel = %ColorPopupPanel
+@onready var color_picker: ColorPicker = %ColorPicker
 
 
 func _ready() -> void:
@@ -28,7 +28,7 @@ func _ready() -> void:
 
 
 func _on_option_button_item_selected(index: int) -> void:
-	ThemeUtil.apply_theme(index)
+	Main.apply_theme(index)
 	Global.config.theme_index = index
 	ResUtil.save_config()
 

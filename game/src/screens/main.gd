@@ -100,6 +100,21 @@ func check_layout_direction() -> void:
 		layout_direction = LAYOUT_DIRECTION_INHERITED
 
 
+func apply_theme(index: int) -> void:
+	# remove all scenes, because changing theme is much faster with low amound of Nodes
+	for child: Node in content.get_children():
+		content.remove_child(child)
+		child.queue_free()
+
+	ThemeUtil.apply_theme(index)
+
+	# short delay before reloading previous scene after theme change, brings big speed increase
+	await get_tree().create_timer(0.05).timeout
+
+	var scene: PackedScene = load(previous_scenes[-1])
+	content.add_child(scene.instantiate())
+
+
 func _append_scene_to_buffer(scene_path: String) -> void:
 	previous_scenes.append(scene_path)
 	if previous_scenes.size() > 5:

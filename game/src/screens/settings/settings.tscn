@@ -114,6 +114,7 @@ layout_mode = 2
 [node name="DefaultDialog" parent="." instance=ExtResource("9_udugt")]
 unique_name_in_owner = true
 size = Vector2i(530, 200)
+visible = false
 custom_title = "Restore default settings"
 custom_text = "All changed settings will be restored to the default value.
 Are you sure?"

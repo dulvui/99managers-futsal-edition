@@ -7,9 +7,9 @@
 
 [node name="SaveState" type="BoxContainer"]
 anchors_preset = -1
-anchor_right = 0.352
+anchor_right = 0.426
 anchor_bottom = 0.082
-offset_right = -0.840027
+offset_right = -142.92
 offset_bottom = 0.439995
 size_flags_horizontal = 3
 theme_override_constants/separation = 20
