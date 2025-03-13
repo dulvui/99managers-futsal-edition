@@ -54,7 +54,8 @@ func _on_load_pressed() -> void:
 	print("load save state with id ", save_state.id)
 	Global.save_states.active_id = save_state.id
 	if Global.load_save_state():
-		Main.show_loading_screen(tr("Loading game"), Const.SCREEN_DASHBOARD)
+		Main.set_scene_on_load(Const.SCREEN_DASHBOARD)
+		Main.show_loading_screen(tr("Loading game"))
 
 
 func _on_delete_pressed() -> void:

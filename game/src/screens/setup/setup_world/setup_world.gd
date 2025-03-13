@@ -102,7 +102,9 @@ func _on_continue_pressed() -> void:
 
 	RngUtil.reset_seed(generation_seed, player_names_option.selected)
 
-	Main.show_loading_screen(tr("Generating teams and players"))
+	Main.manual_hide_loading_screen()
+	# await and make sure loading screen is visible, befor it can be hidden on error
+	await Main.show_loading_screen(tr("Generating teams and players"))
 	Main.loaded.connect(_on_world_generated)
 
 	Global.error_load_world = 0
@@ -170,7 +172,8 @@ func _on_world_generated() -> void:
 	if Global.error_load_world == 0:
 		Main.change_scene(Const.SCREEN_SETUP_TEAM)
 	else:
-		Main.hide_loading_screen()
+		# wait loading screen is hidden
+		await Main.hide_loading_screen()
 		file_error_dialog.popup_centered()
 
 

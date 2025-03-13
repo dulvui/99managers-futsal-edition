@@ -361,7 +361,8 @@ func _on_menu_button_pressed() -> void:
 
 
 func _on_save_confirm_dialog_confirmed() -> void:
-	Main.show_loading_screen(tr("Saving game"), Const.SCREEN_MENU)
+	Main.set_scene_on_load(Const.SCREEN_MENU)
+	Main.show_loading_screen(tr("Saving game"))
 	ThreadUtil.save_all_data()
 
 
