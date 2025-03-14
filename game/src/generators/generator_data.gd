@@ -8,9 +8,9 @@ const WORLD_JSON_PATH: String = "res://data/world/world.json"
 
 
 # [country_code][]
-var male_names: Dictionary[String, Array] = {}
-var female_names: Dictionary[String, Array] = {}
-var surnames: Dictionary[String, Array] = {}
+# var male_names: Dictionary[String, Array] = {}
+# var female_names: Dictionary[String, Array] = {}
+# var surnames: Dictionary[String, Array] = {}
 
 var names: Dictionary = {}
 
@@ -18,8 +18,61 @@ var names: Dictionary = {}
 func load_data() -> World:
 	var world: World = _load_world()
 	_load_person_names(world)
-	breakpoint
 	return world
+
+
+func get_random_name(nation: Nation) -> String:
+	# TODO pick weighted random locale
+	# firt much more probable than second
+	var locale: Locale = nation.locales[0]
+	var code: String = locale.code + "_" + nation.code.to_upper()
+
+	# check if names exist for nation, if not, pick random
+	# TODO search in borders
+	if not names.has(code):
+		code = RngUtil.pick_random(names.keys())
+
+	# male
+	if Global.generation_player_names == Enum.PlayerNames.MALE:
+		var size: int = (names[code]["first_names_male"] as Array).size()
+		return names[code]["first_names_male"][RngUtil.rng.randi() % size]
+	# female
+	elif Global.generation_player_names == Enum.PlayerNames.FEMALE:
+		var size: int = (names[code]["first_names_female"] as Array).size()
+		return names[code]["first_names_female"][RngUtil.rng.randi() % size]
+
+	# mixed
+	var size_female: int = (names[code]["first_names_female"] as Array).size()
+	var size_male: int = (names[code]["first_names_male"] as Array).size()
+	var female_names: Array = names[code]["first_names_female"]
+	var male_names: Array = names[code]["first_names_male"]
+
+	var mixed_names: Array = []
+	mixed_names.append_array(female_names)
+	mixed_names.append_array(male_names)
+
+	return mixed_names[RngUtil.rng.randi() % (size_female + size_male)]
+
+
+func get_random_surnname(nation: Nation) -> String:
+	# TODO pick weighted random locale
+	# firt much more probable than second
+	var locale: Locale = nation.locales[0]
+	var code: String = locale.code + "_" + nation.code.to_upper()
+
+	# TODO bigger proability for border nations (needs data)
+	# 10% change of having random nation's surname
+	var different_nation_factor: int = RngUtil.rng.randi() % 100
+	if different_nation_factor > 90:
+		code = RngUtil.pick_random(names.keys())
+
+	# check if names exist for nation, if not, pick random
+	if not names.has(code):
+		code = RngUtil.pick_random(names.keys())
+
+	var size: int = (names[code]["last_names"] as Array).size()
+	return names[code]["last_names"][RngUtil.rng.randi() % size]
+
 
 
 func _load_world() -> World:
@@ -44,7 +97,7 @@ func _load_world() -> World:
 		var nation: Nation = Nation.new()
 		nation.name = nation_dict.name
 		nation.code = nation_dict.code
-
+		
 		# locales
 		for locale_dict: Dictionary in nation_dict.languages:
 			var locale: Locale = Locale.new()
@@ -70,11 +123,4 @@ func _load_person_names(world: World) -> void:
 			)
 			# check first if file exists
 			if names_file:
-				# print("names file found: " + code)
-				names[code] = {}
-				var names2: Dictionary = JSON.parse_string(names_file.get_as_text())
-				names[code] = names2
-			# else:
-				# print("names file not found: " + code)
-
-
+				names[code] = JSON.parse_string(names_file.get_as_text())

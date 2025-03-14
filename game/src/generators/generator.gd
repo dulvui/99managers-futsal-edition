@@ -6,13 +6,9 @@ extends Node
 
 const TEST_WORLD_CSV_PATH: String = "res://data/world/test_world.csv"
 const WORLD_CSV_PATH: String = "res://data/world/world.csv"
-const NAMES_DIR: String = "res://data/player_names/"
 
 # defines noise added to attribute factors
 const NOISE: int = 3
-
-# defines year, when history starts
-const HISTORY_YEARS: int = 10
 
 # person colors
 const SKINTONE: Array[String] = [
@@ -44,15 +40,30 @@ const EYE_COLORS: Array[String] = [
 ]
 
 var leagues_data: Dictionary = {}
-var names: Dictionary = {}
 
 # for birthdays range
 var date: Dictionary
 var max_timestamp: int
 var min_timestamp: int
 
+var data: GeneratorData = GeneratorData.new()
+
 
 func generate_world(world_file_path: String = WORLD_CSV_PATH) -> World:
+	data = GeneratorData.new()
+	# create date ranges
+	# starts from current year and subtracts min/max years
+	# youngest player can be 15 and oldest 45
+	date = Global.start_date
+	var max_date: Dictionary = date.duplicate()
+	max_date.month = 1
+	max_date.day = 1
+	max_date.year -= 15
+	max_timestamp = Time.get_unix_time_from_datetime_dict(max_date)
+	max_date.year -= 30
+	min_timestamp = Time.get_unix_time_from_datetime_dict(max_date)
+	
+	# read world csv file
 	if world_file_path.is_empty():
 		world_file_path = WORLD_CSV_PATH
 	
@@ -61,13 +72,12 @@ func generate_world(world_file_path: String = WORLD_CSV_PATH) -> World:
 		print("error while opening world file at %s" % world_file_path)
 		return null
 
-	var data: GeneratorData = GeneratorData.new()
-
+	# load world data
 	var world: World = data.load_data()
 	world.calendar.initialize()
 
-	# get header row
-	# CONTINENT, NATION, CITY, POPULATION
+	# read from csv
+	# get header row CONTINENT, NATION, CITY, TEAM
 	var header_line: PackedStringArray = file.get_csv_line()
 	var headers: Array[String] = []
 	# transform tot array and make lower case
@@ -97,17 +107,34 @@ func generate_world(world_file_path: String = WORLD_CSV_PATH) -> World:
 			var continent: String = line[0]
 			var nation: String = line[1]
 			var league: String = line[2]
-			var city: String = line[3]
-			_initialize_city(world, continent, nation, league, city)
+			var team_name: String = line[3]
+			_initialize_team(world, continent, nation, league, team_name)
+	
+	# national teams
+	for continent: Continent in world.continents:
+		for nation: Nation in continent.nations:
+			# national team
+			nation.team.set_id()
+			nation.team.name = nation.name
+
+			# add nations best players
+			nation.team.players = world.get_best_players_by_nationality(nation)
+			nation.team.staff = _create_staff(world, nation.team.get_prestige(), nation, 1)
+			nation.team.formation = nation.team.staff.manager.formation
+			# TODO replace with actual national colors
+			_set_random_shirt_colors(nation.team)
+
 	
 	# validate world
 	if world.continents.size() == 0:
 		print("world has no continents")
 		return null
-
+	var competitive_continent_found: bool = false
 	for continent: Continent in world.continents:
 		if continent.is_competitive():
+			competitive_continent_found = true
 			break
+	if not competitive_continent_found:
 		print("world has no competitive continent")
 		return null
 
@@ -117,52 +144,6 @@ func generate_world(world_file_path: String = WORLD_CSV_PATH) -> World:
 		continent.nations.sort_custom(func(a: Nation, b: Nation) -> bool: return a.name < b.name)
 
 	return world
-
-
-func generate_players(world: World) -> void:
-	# create date ranges
-	# starts from current year and subtracts min/max years
-	# youngest player can be 15 and oldest 45
-	date = Global.start_date
-	var max_date: Dictionary = date.duplicate()
-	max_date.month = 1
-	max_date.day = 1
-	max_date.year -= 15
-	max_timestamp = Time.get_unix_time_from_datetime_dict(max_date)
-	max_date.year -= 30
-	min_timestamp = Time.get_unix_time_from_datetime_dict(max_date)
-
-	# generate players
-	_load_person_names(world)
-	for continent: Continent in world.continents:
-		for nation: Nation in continent.nations:
-			# backup teams
-			var backup_league: League = League.new()
-			backup_league.set_id()
-			backup_league.name = "BACKUP"
-			backup_league.pyramid_level = nation.leagues.size() + 1
-			for team: Team in nation.backup_teams:
-				_initialize_team(world, nation, backup_league, team)
-
-			# league teams
-			for league: League in nation.leagues:
-				for team: Team in league.teams:
-					_initialize_team(world, nation, league, team)
-
-			# national team
-			nation.team.set_id()
-			nation.team.name = nation.name
-			# add nations best players
-			nation.team.players = world.get_best_players_by_nationality(nation)
-			nation.team.staff = _create_staff(world, nation.team.get_prestige(), nation, 1)
-			nation.team.formation = nation.team.staff.manager.formation
-			# TODO replace with actual national colors
-			_set_random_shirt_colors(nation.team)
-
-	# first generate clubs history with promotions, delegations, cup wins
-	_generate_club_history(world)
-	# then generate player histroy with trasnfers and statistics
-	_generate_player_history(world)
 
 
 func _is_valid_csv_line(string: String, text_server: TextServer) -> bool:
@@ -193,43 +174,6 @@ func _is_valid_csv_line(string: String, text_server: TextServer) -> bool:
 			return false
 
 	return true
-
-
-func _initialize_team(
-	world: World,
-	nation: Nation,
-	league: League,
-	team: Team,
-) -> void:
-	var temp_team_prestige: int = _get_team_prestige(league.pyramid_level)
-
-	# create team
-	_set_random_shirt_colors(team)
-
-	team.stadium = Stadium.new()
-	team.stadium.name = team.name + " Stadium"
-	team.stadium.capacity = RngUtil.rng.randi_range(
-		temp_team_prestige * 1000, temp_team_prestige * 10000
-	)
-	team.stadium.year_built = RngUtil.rng.randi_range(date.year - 70, date.year - 1)
-
-	team.staff = _create_staff(world, team.get_prestige(), nation, league.pyramid_level)
-
-	# assign manager preffered formation to team
-	team.formation = team.staff.manager.formation
-
-	# assign players after formation has been choosen, to assign correct players positions
-	_assign_players_to_team(world, league, team, nation, temp_team_prestige)
-
-	# calc budget, after players/stuff have been created
-	# so budget will alwyas be bigger as minimum needed
-	team.finances.expenses[-1] = _get_salary_budget(team.players, team.staff)
-	# calulate balance
-	team.finances.balance[-1] = team.finances.expenses[-1]
-	# add random bonus depending on team prestige
-	team.finances.balance[-1] += RngUtil.rng.randi_range(
-		temp_team_prestige * 1_000, temp_team_prestige * 100_000
-	)
 
 
 func _assign_players_to_team(
@@ -656,34 +600,6 @@ func _get_random_nationality(
 	return nation
 
 
-func _noise(factor: int = NOISE) -> int:
-	return RngUtil.rng.randi_range(-factor, factor)
-
-
-func _abs_noise(factor: int = NOISE) -> int:
-	return RngUtil.rng.randi_range(0, factor)
-
-
-func _in_bounds_random(value: int, max_bound: int = Const.MAX_PRESTIGE) -> int:
-	var random_value: int = value + _noise()
-	return _in_bounds(random_value, max_bound)
-
-
-# returns value between 1 and 20
-func _in_bounds(value: int, max_bound: int = Const.MAX_PRESTIGE) -> int:
-	return maxi(mini(value, max_bound), 1)
-
-
-func _load_person_names(world: World) -> void:
-	for nation: Nation in world.get_all_nations():
-		var names_file: FileAccess = FileAccess.open(
-			NAMES_DIR + nation.name.to_lower() + ".json", FileAccess.READ
-		)
-		# check first if file exists
-		if names_file:
-			names[nation.name.to_lower()] = JSON.parse_string(names_file.get_as_text())
-
-
 func _get_salary_budget(players: Array[Player], staff: Staff) -> int:
 	var salary_budget: int = 0
 
@@ -697,99 +613,93 @@ func _get_salary_budget(players: Array[Player], staff: Staff) -> int:
 	return salary_budget
 
 
-func _generate_club_history(world: World) -> void:
-	# TODO world cup history (once national teams exist)
-	# TODO continental national teams cup
-
-	var match_util: MatchUtil = MatchUtil.new(world)
-
-	# calculate random results for x years
-	for year: int in HISTORY_YEARS + 1:
-		for contient: Continent in world.continents:
-			for nation: Nation in contient.nations:
-				for league: League in nation.leagues:
-					# create match combinations
-					var match_days: Array[Array] = match_util.create_combinations(
-						league, league.teams
-					)
-
-					# generate random results for every match
-					for match_day: Array in match_days:
-						for matchz: Match in match_day:
-							var home_goals: int = RngUtil.rng.randi_range(0, 10)
-							var away_goals: int = RngUtil.rng.randi_range(0, 10)
-							matchz.set_result(home_goals, away_goals, 0, 0, world)
-
-		world.promote_and_delegate_teams()
-
-
-func _generate_player_history(_world: World) -> void:
-	pass
-
-
-func _initialize_city(
+func _initialize_team(
 	world: World,
 	continent_name: String,
 	nation_name: String,
 	league_name: String,
 	team_name: String
 ) -> void:
-	# setup continent, if not done yet
-	var continent: Continent
+
+	# search continent
 	var continent_filter: Array[Continent] = world.continents.filter(
 		func(c: Continent) -> bool: return c.name == continent_name
 	)
 	if continent_filter.size() == 0:
-		continent = Continent.new()
-		continent.name = continent_name
-		world.continents.append(continent)
-		# TODO create competition history here
-	else:
-		continent = continent_filter[0]
+		print("continent not found " + continent_name)
+		return
+	var continent: Continent = continent_filter[0]
 
-	# setup nation, if not done yet
-	var nation: Nation
+	# search nation
 	var nation_filter: Array[Nation] = continent.nations.filter(
 		func(n: Nation) -> bool: return n.name == nation_name
 	)
 	if nation_filter.size() == 0:
-		nation = Nation.new()
-		nation.name = nation_name
-		continent.nations.append(nation)
+		print("nation not found: continent %s nation %s" % [continent_name, nation_name])
+		return
+	var nation: Nation = nation_filter[0]
+
+	# search league
+	if league_name.length() == 0:
+		return
+
+	var league: League
+	var league_filter: Array[League] = nation.leagues.filter(
+		func(l: League) -> bool: return l.name == league_name
+	)
+	if league_filter.size() == 0:
+		league = League.new()
+		league.set_id()
+		league.name = league_name
+		league.nation_name = nation.name
+		# could be added direclty to csv
+		# with this code, leagues/teams need to be in pyramid level order
+		league.pyramid_level = nation.leagues.size() + 1
+		nation.leagues.append(league)
 	else:
-		nation = nation_filter[0]
+		league = league_filter[0]
 
 	# create team
 	var team: Team = Team.new()
 	team.set_id()
 	team.name = team_name
 
-	# check if team is backup team
-	if league_name.to_lower().strip_edges() == "backup":
-		nation.backup_teams.append(team)
-	elif league_name.length() > 0:
-		# setup league, if not done yet or last league is full
-		var league: League
-		var league_filter: Array[League] = nation.leagues.filter(
-			func(l: League) -> bool: return l.name == league_name
-		)
-		if league_filter.size() == 0:
-			league = League.new()
-			league.set_id()
-			league.name = league_name
-			league.nation_name = nation.name
-			# could bea added direclty to csv
-			# with this code, leagues/teams need to be in pyramid level order
-			league.pyramid_level = nation.leagues.size() + 1
-			nation.leagues.append(league)
-		else:
-			league = league_filter[0]
+	team.league_id = league.id
+	league.add_team(team)
 
-		team.league_id = league.id
-		league.add_team(team)
+	var temp_team_prestige: int = _get_team_prestige(league.pyramid_level)
+	_set_random_shirt_colors(team)
+
+	team.stadium = Stadium.new()
+	team.stadium.name = team.name + " Stadium"
+	team.stadium.capacity = RngUtil.rng.randi_range(
+		temp_team_prestige * 1000, temp_team_prestige * 10000
+	)
+	team.stadium.year_built = RngUtil.rng.randi_range(date.year - 70, date.year - 1)
+
+	team.staff = _create_staff(world, team.get_prestige(), nation, league.pyramid_level)
+
+	# assign manager preffered formation to team
+	team.formation = team.staff.manager.formation
+
+	# calc budget, after players/stuff have been created
+	# so budget will alwyas be bigger as minimum needed
+	team.finances.expenses[-1] = _get_salary_budget(team.players, team.staff)
+	# calulate balance
+	team.finances.balance[-1] = team.finances.expenses[-1]
+	# add random bonus depending on team prestige
+	team.finances.balance[-1] += RngUtil.rng.randi_range(
+		temp_team_prestige * 10_000, temp_team_prestige * 100_000
+	)
+
+	# assign players after formation has been choosen, to assign correct players positions
+	_assign_players_to_team(world, league, team, nation, temp_team_prestige)
 
 
 func _set_random_person_values(person: Person, nation: Nation) -> void:
+	person.name = data.get_random_name(nation)
+	person.surname = data.get_random_surnname(nation)
+
 	# RngUtil.rng.random date from 1970 to 2007
 	person.birth_date = Time.get_date_dict_from_unix_time(RngUtil.rng.randi_range(0, max_timestamp))
 
@@ -815,44 +725,6 @@ func _set_random_person_values(person: Person, nation: Nation) -> void:
 	contract.is_on_loan = false
 	person.contract = contract
 
-	# name
-	var nation_string: String = nation.name.to_lower()
-	# check if names exist for nation, if not, pick random
-	if not names.has(nation_string):
-		nation_string = RngUtil.pick_random(names.keys())
-
-	if Global.generation_player_names == Enum.PlayerNames.MALE:
-		var size: int = (names[nation_string]["first_names_male"] as Array).size()
-		person.name = names[nation_string]["first_names_male"][RngUtil.rng.randi() % size]
-	elif Global.generation_player_names == Enum.PlayerNames.FEMALE:
-		var size: int = (names[nation_string]["first_names_female"] as Array).size()
-		person.name = names[nation_string]["first_names_female"][RngUtil.rng.randi() % size]
-	else:
-		var size_female: int = (names[nation_string]["first_names_female"] as Array).size()
-		var size_male: int = (names[nation_string]["first_names_male"] as Array).size()
-		var female_names: Array = names[nation_string]["first_names_female"]
-		var male_names: Array = names[nation_string]["first_names_male"]
-
-		var mixed_names: Array = []
-		mixed_names.append_array(female_names)
-		mixed_names.append_array(male_names)
-
-		person.name = mixed_names[RngUtil.rng.randi() % (size_female + size_male)]
-
-	# surname
-	# TODO bigger proability for neighbour nations (needs data)
-	# 10% change of having random nation's surname
-	var different_nation_factor: int = RngUtil.rng.randi() % 100
-	if different_nation_factor > 90:
-		nation_string = RngUtil.pick_random(names.keys())
-
-	# check if names exist for nation, if not, pick random
-	if not names.has(nation_string):
-		nation_string = RngUtil.pick_random(names.keys())
-
-	var size: int = (names[nation_string]["last_names"] as Array).size()
-	person.surname = names[nation_string]["last_names"][RngUtil.rng.randi() % size]
-
 
 func _set_random_shirt_colors(team: Team) -> void:
 	team.colors = []
@@ -871,3 +743,24 @@ func _set_random_shirt_colors(team: Team) -> void:
 			. to_html(true)
 		)
 	)
+
+
+#
+# helper methods
+#
+func _noise(factor: int = NOISE) -> int:
+	return RngUtil.rng.randi_range(-factor, factor)
+
+
+func _abs_noise(factor: int = NOISE) -> int:
+	return RngUtil.rng.randi_range(0, factor)
+
+
+func _in_bounds_random(value: int, max_bound: int = Const.MAX_PRESTIGE) -> int:
+	var random_value: int = value + _noise()
+	return _in_bounds(random_value, max_bound)
+
+
+# returns value between 1 and 20
+func _in_bounds(value: int, max_bound: int = Const.MAX_PRESTIGE) -> int:
+	return maxi(mini(value, max_bound), 1)

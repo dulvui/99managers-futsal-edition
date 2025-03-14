@@ -8,6 +8,14 @@ extends Test
 
 func test() -> void:
 	print("test: generator...")
+	test_required_properties()
+	# test_determenistic_generation()
+	test_history()
+	print("test: generator done.")
+
+
+func test_required_properties() -> void:
+	Global.start_date = Time.get_date_dict_from_system()
 	RngUtil.reset_seed("TestSeed", 0)
 
 	var generator: Generator = Generator.new()
@@ -16,20 +24,30 @@ func test() -> void:
 
 	assert(world.continents.size() > 0)
 
-	# generate players
-	generator.generate_players(world)
-
 	print("test: required properties...")
 
 	for continent: Continent in world.continents:
 		for nation: Nation in continent.nations:
+			var pyramid_level_check: int = 1
 			for league: League in nation.leagues:
+				assert(league.pyramid_level == pyramid_level_check)
+				pyramid_level_check += 1
 				for team: Team in league.teams:
 					assert(team.players.size() > Const.LINEUP_PLAYERS_AMOUNT)
 					assert(team.get_goalkeeper() != null)
 	print("test: required properties done.")
 
-	print("test: deterministic...")
+
+func test_determenistic_generation() -> void:
+	print("test: deterministic generation...")
+
+	Global.start_date = Time.get_date_dict_from_system()
+	RngUtil.reset_seed("TestSeed", 0)
+
+	var generator: Generator = Generator.new()
+	# generate world
+	var world: World = generator.generate_world()
+
 	# test deterministic generations x time
 	for i: int in range(2):
 		print("test: deterministic run " + str(i + 1))
@@ -37,8 +55,6 @@ func test() -> void:
 		RngUtil.reset_seed("TestSeed", 0)
 
 		var test_world: World = generator.generate_world()
-		# generate players
-		generator.generate_players(test_world)
 
 		# continents
 		assert(test_world.continents.size() == world.continents.size())
@@ -92,7 +108,39 @@ func test() -> void:
 							var test_player_name: String = test_player.get_full_name()
 
 							assert(player_name == test_player_name)
+	print("test: deterministic generation done.")
 
-	print("test: deterministic done.")
 
-	print("test: generator done.")
+func test_history() -> void:
+	print("test: history...")
+
+	Global.start_date = Time.get_date_dict_from_system()
+	RngUtil.reset_seed("TestSeed", 0)
+
+	var generator: Generator = Generator.new()
+	# generate world
+	var world: World = generator.generate_world()
+
+	# make sure leagues have still same size after history generation
+	var league_sizes: Dictionary[String, int] = {}
+	for continent: Continent in world.continents:
+		for nation: Nation in continent.nations:
+			for league: League in nation.leagues:
+				league_sizes[league.name] = league.teams.size()
+
+	# history
+	var history: GeneratorHistory = GeneratorHistory.new()
+	# first generate clubs history with promotions, delegations, cup wins
+	history.generate_club_history(world)
+
+	# check league team sizes
+	for continent: Continent in world.continents:
+		for nation: Nation in continent.nations:
+			for league: League in nation.leagues:
+				assert(league_sizes[league.name] == league.teams.size())
+	
+	# TODO test player history
+	# history.generate_player_history(world)
+
+	print("test: history done.")
+
