@@ -6,6 +6,10 @@ class_name Nation
 extends JSONResource
 
 @export var name: String
+@export var code: String
+@export var locales: Array[Locale]
+@export var borders: Array[String]
+
 @export var leagues: Array[League]
 @export var cup: Cup
 @export var team: Team
@@ -17,12 +21,18 @@ extends JSONResource
 
 func _init(
 	p_name: String = "",
+	p_code: String = "",
+	p_locales: Array[Locale] = [],
+	p_borders: Array[String] = [],
 	p_leagues: Array[League] = [],
 	p_cup: Cup = Cup.new(),
 	p_team: Team = Team.new(),
 	p_backup_teams: Array[Team] = [],
 ) -> void:
 	name = p_name
+	code = p_code
+	locales = p_locales
+	borders = p_borders
 	leagues = p_leagues
 	cup = p_cup
 	team = p_team

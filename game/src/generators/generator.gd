@@ -61,7 +61,9 @@ func generate_world(world_file_path: String = WORLD_CSV_PATH) -> World:
 		print("error while opening world file at %s" % world_file_path)
 		return null
 
-	var world: World = World.new()
+	var data: GeneratorData = GeneratorData.new()
+
+	var world: World = data.load_data()
 	world.calendar.initialize()
 
 	# get header row
