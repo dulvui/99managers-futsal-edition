@@ -1,8 +1,10 @@
-[gd_resource type="FontVariation" load_steps=2 format=3 uid="uid://f7o270axt21i"]
+[gd_resource type="FontVariation" load_steps=3 format=3 uid="uid://f7o270axt21i"]
 
 [ext_resource type="FontFile" uid="uid://dgdewi1l0jt3n" path="res://assets/fonts/inter/Inter-VariableFont.ttf" id="1_jkmko"]
+[ext_resource type="FontFile" uid="uid://d03h4wt5s6aj3" path="res://assets/fonts/promptfont.ttf" id="2_1q6pl"]
 
 [resource]
+fallbacks = Array[Font]([ExtResource("2_1q6pl")])
 base_font = ExtResource("1_jkmko")
 variation_opentype = {
 1869640570: 14,

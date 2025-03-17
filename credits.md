@@ -12,10 +12,6 @@ https://publicdomainvectors.org/en/free-clipart/Football-player-color-silhouette
 https://openclipart.org/download/167872/soccerballnoshadow.svg
 
 # player names
-https://github.com/joke2k/faker
-
-# interface sounds
-https://kenney.nl/assets/interface-sounds
 
 # city names
 Portugal
@@ -30,11 +26,3 @@ Brazil
 https://en.wikipedia.org/wiki/List_of_cities_in_Brazil_by_population
 Argentina
 https://en.wikipedia.org/wiki/List_of_cities_in_Argentina_by_population
-
-# fonts
-Joypad glyph font
-https://shinmera.com/promptfont
-
-# mouse cursor
-mouse-cursor.svg
-https://openclipart.org/detail/222076/white-mouse-cursor-arrow

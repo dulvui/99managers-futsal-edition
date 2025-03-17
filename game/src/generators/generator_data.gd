@@ -1,16 +1,15 @@
 # SPDX-FileCopyrightText: 2023 Simon Dalvai <info@simondalvai.org>
 
 # SPDX-License-Identifier: AGPL-3.0-or-later
+
 class_name GeneratorData
 
-const NAMES_DIR: String = "res://data/player_names/"
-const WORLD_JSON_PATH: String = "res://data/world/world.json"
+const NAMES_DIR: StringName = "res://data/player_names/"
+const WORLD_JSON_PATH: StringName = "res://data/world/world.json"
 
-
-# [country_code][]
-# var male_names: Dictionary[String, Array] = {}
-# var female_names: Dictionary[String, Array] = {}
-# var surnames: Dictionary[String, Array] = {}
+const FEMALE_NAMES: StringName = "female_names"
+const MALE_NAMES: StringName = "male_names"
+const SURNAMES: StringName = "surnames"
 
 var names: Dictionary = {}
 
@@ -25,27 +24,27 @@ func get_random_name(nation: Nation) -> String:
 	# TODO pick weighted random locale
 	# firt much more probable than second
 	var locale: Locale = nation.locales[0]
-	var code: String = locale.code + "_" + nation.code.to_upper()
+	var code: String = locale.code
 
 	# check if names exist for nation, if not, pick random
-	# TODO search in borders
+	# TODO search in border nations
 	if not names.has(code):
 		code = RngUtil.pick_random(names.keys())
 
 	# male
 	if Global.generation_player_names == Enum.PlayerNames.MALE:
-		var size: int = (names[code]["first_names_male"] as Array).size()
-		return names[code]["first_names_male"][RngUtil.rng.randi() % size]
+		var size: int = (names[code][MALE_NAMES] as Array).size()
+		return names[code][MALE_NAMES][RngUtil.rng.randi() % size]
 	# female
 	elif Global.generation_player_names == Enum.PlayerNames.FEMALE:
-		var size: int = (names[code]["first_names_female"] as Array).size()
-		return names[code]["first_names_female"][RngUtil.rng.randi() % size]
+		var size: int = (names[code][FEMALE_NAMES] as Array).size()
+		return names[code][FEMALE_NAMES][RngUtil.rng.randi() % size]
 
 	# mixed
-	var size_female: int = (names[code]["first_names_female"] as Array).size()
-	var size_male: int = (names[code]["first_names_male"] as Array).size()
-	var female_names: Array = names[code]["first_names_female"]
-	var male_names: Array = names[code]["first_names_male"]
+	var size_female: int = (names[code][FEMALE_NAMES] as Array).size()
+	var size_male: int = (names[code][MALE_NAMES] as Array).size()
+	var female_names: Array = names[code][FEMALE_NAMES]
+	var male_names: Array = names[code][MALE_NAMES]
 
 	var mixed_names: Array = []
 	mixed_names.append_array(female_names)
@@ -58,7 +57,7 @@ func get_random_surnname(nation: Nation) -> String:
 	# TODO pick weighted random locale
 	# firt much more probable than second
 	var locale: Locale = nation.locales[0]
-	var code: String = locale.code + "_" + nation.code.to_upper()
+	var code: String = locale.code
 
 	# TODO bigger proability for border nations (needs data)
 	# 10% change of having random nation's surname
@@ -70,8 +69,8 @@ func get_random_surnname(nation: Nation) -> String:
 	if not names.has(code):
 		code = RngUtil.pick_random(names.keys())
 
-	var size: int = (names[code]["last_names"] as Array).size()
-	return names[code]["last_names"][RngUtil.rng.randi() % size]
+	var size: int = (names[code][SURNAMES] as Array).size()
+	return names[code][SURNAMES][RngUtil.rng.randi() % size]
 
 
 
@@ -102,7 +101,7 @@ func _load_world() -> World:
 		for locale_dict: Dictionary in nation_dict.languages:
 			var locale: Locale = Locale.new()
 			locale.name = locale_dict.name
-			locale.code = locale_dict.iso_639_1
+			locale.code = locale_dict.code
 			nation.locales.append(locale)
 
 		# borders
@@ -117,10 +116,54 @@ func _load_world() -> World:
 func _load_person_names(world: World) -> void:
 	for nation: Nation in world.get_all_nations():
 		for locale: Locale in nation.locales:
-			var code: String = locale.code + "_" + nation.code.to_upper()
-			var names_file: FileAccess = FileAccess.open(
-				NAMES_DIR + code + ".json", FileAccess.READ
-			)
-			# check first if file exists
-			if names_file:
-				names[code] = JSON.parse_string(names_file.get_as_text())
+			var female_names_file: String = locale.code + FEMALE_NAMES + ".csv"
+			var male_names_file: String = locale.code + MALE_NAMES + ".csv"
+			var surname_file: String = locale.code + SURNAMES + ".csv"
+
+			var female_names: Array[StringName] = _read_name_csv_file(female_names_file)
+			if female_names.size() > 0:
+				names[locale][FEMALE_NAMES] = female_names
+
+			var male_names: Array[StringName] = _read_name_csv_file(male_names_file)
+			if male_names.size() > 0:
+				names[locale][MALE_NAMES] = male_names
+
+			var surnames: Array[StringName] = _read_name_csv_file(surname_file)
+			if surnames.size() > 0:
+				names[locale][SURNAMES] = surnames
+
+
+func _read_name_csv_file(path: StringName) -> Array[StringName]:
+	var names_in_csv: Array[StringName] = []
+	if not FileAccess.file_exists(path):
+		return []
+
+	var file: FileAccess = FileAccess.open(path, FileAccess.READ)
+	var error: Error = file.get_error()
+	if error != OK:
+		print("error while opening name csv file " + path)
+		return []
+	
+	while not file.eof_reached():
+		# get_csv_line not needed for now, since every name has it's own line
+		var line: String = file.get_line()
+
+		error = file.get_error()
+		if error == Error.ERR_FILE_EOF:
+			break
+
+		# check for reading errors
+		if error != OK:
+			Global.error_load_world = 2
+			print("error while reading lines from name csv file %s with code %d" % [path, error])
+			# returning what found so far
+			return names_in_csv
+		
+		# skip lines starting with #, they are comments like source url's
+		if "#" in line:
+			continue
+
+		names_in_csv.append(line)
+	
+	return names_in_csv
+

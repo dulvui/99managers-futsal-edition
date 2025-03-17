@@ -54,11 +54,19 @@ precedence = "aggregate"
 SPDX-FileCopyrightText = "2022 Simon Dalvai <info@simondalvai.org>"
 SPDX-License-Identifier = "CC0-1.0"
 
-######################
-# THIRD PARTY ASSETS AND DATA
-#####################
+[[annotations]]
+path = [
+    "game/data/world/world.json",
+]
+precedence = "aggregate"
+SPDX-FileCopyrightText = "2025 Simon Dalvai <info@simondalvai.org>"
+SPDX-License-Identifier = "CC0-1.0"
 
-# city names taken from Wikipedia
+######################
+# THIRD PARTY DATA
+######################
+
+# city names taken from https://en.wikipedia.org/wiki/Lists_of_cities_by_country
 [[annotations]]
 path = [
     "game/data/world/world.csv",
@@ -68,14 +76,32 @@ precedence = "aggregate"
 SPDX-FileCopyrightText = "Wikipedia"
 SPDX-License-Identifier = "CC-BY-SA-4.0"
 
-# city names taken from Wikipedia
+# person names from https://en.wiktionary.org
+# female names https://en.wiktionary.org/wiki/Category:Female_given_names_by_language
+# male names https://en.wiktionary.org/wiki/Category:Male_given_names_by_language
+# surnames by https://en.wiktionary.org/wiki/Category:Surnames_by_language
+# exact source url of every file can be found in first line of files
 [[annotations]]
 path = [
-    "game/data/player_names/**.json",
+    "game/data/player_names/*.csv",
 ]
 precedence = "aggregate"
-SPDX-FileCopyrightText = "Copyright (c) 2012 Daniele Faraglia"
-SPDX-License-Identifier = "MIT"
+SPDX-FileCopyrightText = "NONE"
+SPDX-License-Identifier = "CC0-1.0"
+
+# top 100 names by country from https://census.name/
+[[annotations]]
+path = [
+    "game/data/player_names/top100/surname-database.csv",
+    "game/data/player_names/top100/first-name-database.csv",
+]
+precedence = "aggregate"
+SPDX-FileCopyrightText = "2025 Ninble BV <info@ninble.com>"
+SPDX-License-Identifier = "GPL-v3"
+
+######################
+# THIRD PARTY GRAPHICAL ASSETS
+######################
 
 # https://publicdomainvectors.org/
 # modified color to white
@@ -120,6 +146,19 @@ precedence = "aggregate"
 SPDX-FileCopyrightText = "Copyright (c) Delapouite"
 SPDX-License-Identifier = "CC-BY-3.0"
 
+# https://openclipart.org/detail/222076/white-mouse-cursor-arrow
+[[annotations]]
+path = [
+    "game/assets/mouse-cursor.svg",
+]
+precedence = "aggregate"
+SPDX-FileCopyrightText = "Copyright (c) qubodupt"
+SPDX-License-Identifier = "CC0-1.0"
+
+######################
+# THIRD PARTY AUDIO ASSETS
+######################
+
 [[annotations]]
 path = [
     "game/assets/audio/switch_001.ogg",
@@ -127,6 +166,10 @@ path = [
 precedence = "aggregate"
 SPDX-FileCopyrightText = "Copyright (c) 2020 Kenney (kenney.nl)"
 SPDX-License-Identifier = "CC0-1.0"
+
+######################
+# THIRD PARTY FONTS
+######################
 
 # joypad button glyphs font https://shinmera.com/promptfont
 [[annotations]]
@@ -146,12 +189,3 @@ path = [
 precedence = "aggregate"
 SPDX-FileCopyrightText = "Copyright 2020 The Inter Project Authors (https://github.com/rsms/inter)"
 SPDX-License-Identifier = "OFL-1.1"
-
-# https://openclipart.org/detail/222076/white-mouse-cursor-arrow
-[[annotations]]
-path = [
-    "game/assets/mouse-cursor.svg",
-]
-precedence = "aggregate"
-SPDX-FileCopyrightText = "Copyright (c) qubodupt"
-SPDX-License-Identifier = "CC0-1.0"

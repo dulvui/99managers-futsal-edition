@@ -9,10 +9,10 @@
 
 class_name NationNames
 
+
 # europe
 var albania: String = tr("Albania")
 var andorra: String = tr("Andorra")
-var armenia: String = tr("Armenia")
 var austria: String = tr("Austria")
 var azerbaijan: String = tr("Azerbaijan")
 var belarus: String = tr("Belarus")
@@ -170,6 +170,7 @@ var zimbabwe: String = tr("Zimbabwe")
 
 # asia
 var afghanistan: String = tr("Afghanistan")
+var armenia: String = tr("Armenia")
 var bahrain: String = tr("Bahrain")
 var bangladesh: String = tr("Bangladesh")
 var bhutan: String = tr("Bhutan")
