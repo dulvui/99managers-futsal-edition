@@ -66,12 +66,11 @@ func get_random_surnname(nation: Nation) -> String:
 		code = RngUtil.pick_random(names.keys())
 
 	# check if names exist for nation, if not, pick random
-	if not names.has(code):
+	if not code in names.keys() or not SURNAMES in names[code]:
 		code = RngUtil.pick_random(names.keys())
 
 	var size: int = (names[code][SURNAMES] as Array).size()
 	return names[code][SURNAMES][RngUtil.rng.randi() % size]
-
 
 
 func _load_world() -> World:
@@ -116,28 +115,36 @@ func _load_world() -> World:
 func _load_person_names(world: World) -> void:
 	for nation: Nation in world.get_all_nations():
 		for locale: Locale in nation.locales:
-			var female_names_file: String = locale.code + FEMALE_NAMES + ".csv"
-			var male_names_file: String = locale.code + MALE_NAMES + ".csv"
-			var surname_file: String = locale.code + SURNAMES + ".csv"
+			var code: String = locale.code
 
-			var female_names: Array[StringName] = _read_name_csv_file(female_names_file)
+			var female_names_file: String = NAMES_DIR + code + "_" + FEMALE_NAMES + ".csv"
+			var male_names_file: String = NAMES_DIR + code + "_" + MALE_NAMES + ".csv"
+			var surname_file: String = NAMES_DIR + code + "_" + SURNAMES + ".csv"
+
+			var female_names: Array[String] = _read_name_csv_file(female_names_file)
 			if female_names.size() > 0:
-				names[locale][FEMALE_NAMES] = female_names
+				if not code in names.keys():
+					names[code] = {}
+				names[code][FEMALE_NAMES] = female_names
 
-			var male_names: Array[StringName] = _read_name_csv_file(male_names_file)
+			var male_names: Array[String] = _read_name_csv_file(male_names_file)
 			if male_names.size() > 0:
-				names[locale][MALE_NAMES] = male_names
+				if not code in names.keys():
+					names[code] = {}
+				names[code][MALE_NAMES] = male_names
 
-			var surnames: Array[StringName] = _read_name_csv_file(surname_file)
+			var surnames: Array[String] = _read_name_csv_file(surname_file)
 			if surnames.size() > 0:
-				names[locale][SURNAMES] = surnames
+				if not code in names.keys():
+					names[code] = {}
+				names[code][SURNAMES] = surnames
 
 
-func _read_name_csv_file(path: StringName) -> Array[StringName]:
-	var names_in_csv: Array[StringName] = []
+func _read_name_csv_file(path: String) -> Array[String]:
+	var names_in_csv: Array[String] = []
 	if not FileAccess.file_exists(path):
 		return []
-
+	
 	var file: FileAccess = FileAccess.open(path, FileAccess.READ)
 	var error: Error = file.get_error()
 	if error != OK:
