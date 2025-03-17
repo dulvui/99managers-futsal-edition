@@ -11,12 +11,15 @@ A futsal manager game created with the Godot Engine.
 
 Join [Matrix](https://matrix.to/#/%23s9i.org:matrix.org) or [Discord](https://discord.gg/a5DSHZKkA8) if you have questions and want to stay updated.
 
+# Repositories and issue tracker
 The main repository is on [Codeberg](https://codeberg.org/dulvui/99managers-futsal-edition),
 which is where the issue tracker may be found and where contributions are accepted.
 A read-only mirror exists on [Github](https://github.com/dulvui/99managers-futsal-edition).  
 Note: You can use your Github account to sign in on Codeberg.
 
-The idea of mirroring a Codeberg repository to other git platforms was ispired by [riverwm](https://codeberg.org/river/river).
+The idea of mirroring a Codeberg repository to other git platforms was inspired by [riverwm](https://codeberg.org/river/river).
+
+All issues from the Codeberg issue tracker and other sources like e-mail or forums, are listed in the [issues.md](/issues.md) file.
 
 # Translations
 If you would like to add more languages or want to improve existing, you can do so on [Weblate](https://hosted.weblate.org/engage/99-managers-futsal-edition/).  
@@ -30,9 +33,6 @@ Thanks a lot Weblate!
 # FAQ
 Check out my blog post for frequently asked questions about the game.  
 [simondalvai.org/blog/futsal-manager-faq/](https://simondalvai.org/blog/99managers-futsal-faq/)
-
-# Roadmap
-Features/issues lists are visible in the [roadmap](ROADMAP.md).
 
 # Development
 This game is developed using the [Godot Engine](https://godotengine.org/) version 4.x.
@@ -95,6 +95,10 @@ GAME_PATH=
 cd scripts/build/
 bash build.sh
 ```
+
+# Changelog
+A detailed changelog of every version can be found in the [changelog.md](/changelog.md) file.  
+It can also be found in the game from the menu under About -> Changelog.
 
 # Licenses and copyrights
 All source code is licensed under [AGPLv3](LICENSES/AGPL-3.0-or-later.txt)  

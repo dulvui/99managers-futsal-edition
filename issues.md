@@ -4,16 +4,14 @@ SPDX-FileCopyrightText: 2023 Simon Dalvai <info@simondalvai.org>
 SPDX-License-Identifier: CC0-1.0
 -->
 
-# Roadmap
-List of features/issues of 99 Managers Futsal Edition.  
-This file currently serves also as changelog.
+# Issues
+Collection of open features/issues of 99 Managers Futsal Edition.  
 
 # Table of contents
-- [Roadmap](#roadmap)
+- [Issues](#issues)
   - [Table of contents](#table-of-contents)
   - [Backlog](#backlog)
   - [In progress](#in-progress)
-  - [Done](#done)
 
 # Backlog
 Features/issues that will [probably] be added/solved in future.
@@ -41,29 +39,3 @@ List of features that are currently worked on.
 - Export and import for player and team
 - Links to players and teams in emails and news
     - on click, open player/team profile
-
-# Done
-Features/issues that are added/solved in specific version.  
-This tries to follow the [keepachangelog](https://keepachangelog.com/en/1.1.0/) guideline.
-
-## [0.3.0]
-### [Unreleased]
-
-### Added
-- Custom csv files can be used during setup
-- Translations
-    - Spanish
-    - Portuguese
-- Add a futsal court design when selecting your starting lineup showing where each position is located.
-- Match engine
-    - Fouls
-        - Free kicks
-        - Penalties
-        - Penalties (10m) after 6 fouls
-
-### Changed
-- Better match engine
-    - Use finite state machines for teams and players
-
-### Security
-- Use json over custom resources for save state files to prevent [malicious code execution](https://github.com/godotengine/godot-proposals/issues/4925)
