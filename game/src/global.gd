@@ -106,7 +106,6 @@ func next_season() -> void:
 	world.promote_and_delegate_teams()
 
 	world.calendar.initialize(true)
-	
 
 	var match_util: MatchUtil = MatchUtil.new(world)
 	match_util.initialize_matches()

@@ -1,51 +1,51 @@
-CONTINENT,NATION,LEAGUE,CITY
-Europe,Portugal,Liga Futsal 1,Lisbon
-Europe,Portugal,Liga Futsal 1,Porto
-Europe,Portugal,Liga Futsal 1,Vila Nova de Gaia
-Europe,Portugal,Liga Futsal 1,Amadora
-Europe,Portugal,Liga Futsal 1,Braga
-Europe,Portugal,Liga Futsal 1,Coimbra
-Europe,Portugal,Liga Futsal 1,Funchal
-Europe,Portugal,Liga Futsal 1,Setúbal
-Europe,Portugal,Liga Futsal 1,Almada
-Europe,Portugal,Liga Futsal 1,Agualva-Cacém
-Europe,Portugal,Liga Futsal 2,Queluz
-Europe,Portugal,Liga Futsal 2,Rio Tinto
-Europe,Portugal,Liga Futsal 2,Barreiro
-Europe,Portugal,Liga Futsal 2,Aveiro
-Europe,Portugal,Liga Futsal 2,Viseu
-Europe,Portugal,Liga Futsal 2,Odivelas
-Europe,Portugal,Liga Futsal 2,Guimarães
-Europe,Portugal,Liga Futsal 2,Leiria
-Europe,Portugal,Liga Futsal 2,Faro
-Europe,Portugal,Liga Futsal 2,Matosinhos
-Europe,Spain,Liga 1,Barcelona
-Europe,Spain,Liga 1,Madrid
-Europe,Spain,Liga 1,Valencia
-Europe,Spain,Liga 1,Seville
-Europe,Spain,Liga 1,Bilbao
-Europe,Spain,Liga 1,Málaga
-Europe,Spain,Liga 1,Asturias
-Europe,Spain,Liga 1,Alicante
-Europe,Spain,Liga 1,Las Palmas
-Europe,Spain,Liga 1,Zaragoza
-South America,Argentina,Division 1,Buenos Aires
-South America,Argentina,Division 1,Córdoba
-South America,Argentina,Division 1,Rosario
-South America,Argentina,Division 1,La Plata
-South America,Argentina,Division 1,Mar del Plata
-South America,Argentina,Division 1,San Miguel de Tucumán
-South America,Argentina,Division 1,Salta
-South America,Argentina,Division 1,Santa Fe de la Vera Cruz
-South America,Argentina,Division 1,Vicente López Partido
-South America,Argentina,Division 1,Corrientes
-South America,Argentina,Division 2,Pilar
-South America,Argentina,Division 2,Bahía Blanca
-South America,Argentina,Division 2,Resistencia
-South America,Argentina,Division 2,Posadas
-South America,Argentina,Division 2,San Salvador de Jujuy
-South America,Argentina,Division 2,Santiago del Estero
-South America,Argentina,Division 2,Paraná
-South America,Argentina,Division 2,Merlo
-South America,Argentina,Division 2,Neuquén
-South America,Argentina,Division 2,Quilmes
+NATION,LEAGUE,TEAM
+Portugal:PT,Liga Futsal 1,Lisbon
+Portugal:PT,Liga Futsal 1,Porto
+Portugal:PT,Liga Futsal 1,Vila Nova de Gaia
+Portugal:PT,Liga Futsal 1,Amadora
+Portugal:PT,Liga Futsal 1,Braga
+Portugal:PT,Liga Futsal 1,Coimbra
+Portugal:PT,Liga Futsal 1,Funchal
+Portugal:PT,Liga Futsal 1,Setúbal
+Portugal:PT,Liga Futsal 1,Almada
+Portugal:PT,Liga Futsal 1,Agualva-Cacém
+Portugal:PT,Liga Futsal 2,Queluz
+Portugal:PT,Liga Futsal 2,Rio Tinto
+Portugal:PT,Liga Futsal 2,Barreiro
+Portugal:PT,Liga Futsal 2,Aveiro
+Portugal:PT,Liga Futsal 2,Viseu
+Portugal:PT,Liga Futsal 2,Odivelas
+Portugal:PT,Liga Futsal 2,Guimarães
+Portugal:PT,Liga Futsal 2,Leiria
+Portugal:PT,Liga Futsal 2,Faro
+Portugal:PT,Liga Futsal 2,Matosinhos
+Spain:ES,Liga 1,Barcelona
+Spain:ES,Liga 1,Madrid
+Spain:ES,Liga 1,Valencia
+Spain:ES,Liga 1,Seville
+Spain:ES,Liga 1,Bilbao
+Spain:ES,Liga 1,Málaga
+Spain:ES,Liga 1,Asturias
+Spain:ES,Liga 1,Alicante
+Spain:ES,Liga 1,Las Palmas
+Spain:ES,Liga 1,Zaragoza
+Argentina:AR,Division 1,Buenos Aires
+Argentina:AR,Division 1,Córdoba
+Argentina:AR,Division 1,Rosario
+Argentina:AR,Division 1,La Plata
+Argentina:AR,Division 1,Mar del Plata
+Argentina:AR,Division 1,San Miguel de Tucumán
+Argentina:AR,Division 1,Salta
+Argentina:AR,Division 1,Santa Fe de la Vera Cruz
+Argentina:AR,Division 1,Vicente López Partido
+Argentina:AR,Division 1,Corrientes
+Argentina:AR,Division 2,Pilar
+Argentina:AR,Division 2,Bahía Blanca
+Argentina:AR,Division 2,Resistencia
+Argentina:AR,Division 2,Posadas
+Argentina:AR,Division 2,San Salvador de Jujuy
+Argentina:AR,Division 2,Santiago del Estero
+Argentina:AR,Division 2,Paraná
+Argentina:AR,Division 2,Merlo
+Argentina:AR,Division 2,Neuquén
+Argentina:AR,Division 2,Quilmes

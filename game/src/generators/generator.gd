@@ -51,6 +51,8 @@ var names: GeneratorNames
 
 
 func generate_teams(world: World, world_file_path: String = WORLD_CSV_PATH) -> World:
+	var custom_file: bool = world_file_path != WORLD_CSV_PATH
+
 	names = GeneratorNames.new(world)
 	# create date ranges
 	# starts from current year and subtracts min/max years
@@ -80,7 +82,13 @@ func generate_teams(world: World, world_file_path: String = WORLD_CSV_PATH) -> W
 	# transform tot array and make lower case
 	for header: String in header_line:
 		headers.append(header.to_lower())
-	
+
+	# keep nations array for easier code lookup
+	var nations: Array[Nation] = world.get_all_nations()
+	# also keep last found nation, to compare immediatly before searching new
+	# same nation leagues/teams will most probably be close
+	var last_nation: Nation = null
+	# text server for validation
 	var text_server: TextServer = TextServerManager.get_primary_interface()
 
 	while not file.eof_reached():
@@ -96,16 +104,36 @@ func generate_teams(world: World, world_file_path: String = WORLD_CSV_PATH) -> W
 			print("error while reading lines from csv with code %d" % err)
 			return null
 	
-		if line.size() > 3:
+		if line.size() > 2:
 			for value: String in line:
-				if not _is_valid_csv_line(value, text_server):
+				if custom_file and not _is_valid_csv_line(value, text_server):
 					return null
 
-			var continent: String = line[0]
-			var nation: String = line[1]
-			var league: String = line[2]
-			var team_name: String = line[3]
-			_initialize_team(world, continent, nation, league, team_name)
+			# format must be Nation:Code example Italy:IT
+			# finally only code will be used to supported multi language nations
+			# but still keep contistency
+			var nation_cell: String = line[0]
+			var league: String = line[1]
+			var team_name: String = line[2]
+
+			# extract nation code
+			var nation_split: PackedStringArray = nation_cell.split(":", false, 1)
+			if nation_split.size() < 2:
+				print("nation has wrong format: %s" % nation_cell)
+				continue
+			var nation_code: String = nation_split[1]
+
+			# find nation, if not same as last found nation
+			if last_nation == null or last_nation.code != nation_code:
+				var nation_filter: Array[Nation] = nations.filter(
+					func(n: Nation) -> bool: return n.code == nation_code
+				)
+				if nation_filter.size() == 0:
+					print("nation not found with code: %s" % nation_code)
+					return
+				last_nation = nation_filter[0]
+
+			_initialize_team(world, last_nation, league, team_name)
 	
 	# national teams
 	for continent: Continent in world.continents:
@@ -155,13 +183,16 @@ func _is_valid_csv_line(string: String, text_server: TextServer) -> bool:
 		# hyphen
 		if unicode_char == 45:
 			return true
+		# colon
+		if unicode_char == 58:
+			return true
 
 		var valid_letter: bool = text_server.is_valid_letter(unicode_char)
 		var valid_number: bool = string[i].is_valid_float()
 
 		if not valid_letter and not valid_number:
 			print("csv line not vaild: %s" % string)
-			print("not vaild unicode letter: %d" % unicode_char)
+			print("not allowed unicode sign: %s code: %d" % [char(unicode_char), unicode_char])
 			return false
 
 	return true
@@ -606,30 +637,10 @@ func _get_salary_budget(players: Array[Player], staff: Staff) -> int:
 
 func _initialize_team(
 	world: World,
-	continent_name: String,
-	nation_name: String,
+	nation: Nation,
 	league_name: String,
 	team_name: String
 ) -> void:
-
-	# search continent
-	var continent_filter: Array[Continent] = world.continents.filter(
-		func(c: Continent) -> bool: return c.name == tr(continent_name)
-	)
-	if continent_filter.size() == 0:
-		print("continent not found " + continent_name)
-		return
-	var continent: Continent = continent_filter[0]
-
-	# search nation
-	var nation_filter: Array[Nation] = continent.nations.filter(
-		func(n: Nation) -> bool: return n.name == tr(nation_name)
-	)
-	if nation_filter.size() == 0:
-		print("nation not found: continent %s nation %s" % [continent_name, nation_name])
-		return
-	var nation: Nation = nation_filter[0]
-
 	# search league
 	if league_name.length() == 0:
 		return

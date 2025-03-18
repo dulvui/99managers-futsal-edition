@@ -23,6 +23,13 @@ func init_world() -> World:
 	north_america.name = tr("North America")
 	oceania.name = tr("Oceania")
 
+	africa.code = "AF"
+	asia.code = "AS"
+	europe.code = "EU"
+	south_america.code = "SA"
+	north_america.code = "NA"
+	oceania.code = "OC"
+
 	world.continents.append(africa)
 	world.continents.append(asia)
 	world.continents.append(europe)
