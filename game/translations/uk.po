@@ -282,10 +282,10 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: 99 Managers Futsal Edition\n"
-"PO-Revision-Date: 2025-03-16 14:01+0000\n"
+"PO-Revision-Date: 2025-03-19 06:22+0000\n"
 "Last-Translator: Максим Горпиніч <maksimgorpinic2005a@gmail.com>\n"
-"Language-Team: Ukrainian <https://hosted.weblate.org/projects/99-managers-"
-"futsal-edition/game/uk/>\n"
+"Language-Team: Ukrainian <https://hosted.weblate.org/projects/"
+"99-managers-futsal-edition/game/uk/>\n"
 "Language: uk\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -1475,10 +1475,8 @@ msgid "Random"
 msgstr "Випадковий"
 
 #: src/screens/setup/setup_world/setup_world.tscn
-#, fuzzy
-#| msgid "Open file"
 msgid "Open a File"
-msgstr "Відкрити файл"
+msgstr "Відкрийте файл"
 
 #: src/screens/setup/setup_world/setup_world.tscn
 msgid "Open"
@@ -1820,10 +1818,8 @@ msgid "Bonus national cup"
 msgstr "Бонусний національний кубок"
 
 #: src/screens/about/about.tscn
-#, fuzzy
-#| msgid "Change"
 msgid "Changelog"
-msgstr "Змінити"
+msgstr "Журнал змін"
 
 #: src/screens/about/about.tscn
 msgid "Contributors"
@@ -2009,10 +2005,8 @@ msgid "Bulgaria"
 msgstr "Болгарія"
 
 #: src/generators/generator_world.gd
-#, fuzzy
-#| msgid "Burkina"
 msgid "Burkina Faso"
-msgstr "Буркіна"
+msgstr "Буркіна Фасо"
 
 #: src/generators/generator_world.gd
 msgid "Burundi"
@@ -2035,8 +2029,6 @@ msgid "Denmark"
 msgstr "Данія"
 
 #: src/generators/generator_world.gd
-#, fuzzy
-#| msgid "Democratic Republic of Congo"
 msgid "Democratic Republic of the Congo"
 msgstr "Демократична Республіка Конго"
 
@@ -2066,7 +2058,7 @@ msgstr "Сальвадор"
 
 #: src/generators/generator_world.gd
 msgid "Côte d'Ivoire"
-msgstr ""
+msgstr "Кот д'Івуар"
 
 #: src/generators/generator_world.gd
 msgid "Eritrea"
@@ -2078,7 +2070,7 @@ msgstr "Естонія"
 
 #: src/generators/generator_world.gd
 msgid "Eswatini"
-msgstr ""
+msgstr "Есватіні"
 
 #: src/generators/generator_world.gd
 msgid "Fiji"
@@ -2133,10 +2125,8 @@ msgid "Guinea"
 msgstr "Гвінея"
 
 #: src/generators/generator_world.gd
-#, fuzzy
-#| msgid "Guinea"
 msgid "Guinea-Bissau"
-msgstr "Гвінея"
+msgstr "Гвінея-Бісау"
 
 #: src/generators/generator_world.gd
 msgid "Guyana"
@@ -2211,8 +2201,6 @@ msgid "Canada"
 msgstr "Канада"
 
 #: src/generators/generator_world.gd
-#, fuzzy
-#| msgid "Cape Verde"
 msgid "Cabo Verde"
 msgstr "Кабо-Верде"
 
@@ -2246,7 +2234,7 @@ msgstr "Коморські Острови"
 
 #: src/generators/generator_world.gd
 msgid "Kosovo"
-msgstr ""
+msgstr "Косово"
 
 #: src/generators/generator_world.gd
 msgid "Croatia"
@@ -2358,7 +2346,7 @@ msgstr "Мозамбік"
 
 #: src/generators/generator_world.gd
 msgid "Myanmar"
-msgstr ""
+msgstr "М'янма"
 
 #: src/generators/generator_world.gd
 msgid "Namibia"
@@ -2397,10 +2385,8 @@ msgid "North Korea"
 msgstr "Корейська Народно-Демократична Республіка"
 
 #: src/generators/generator_world.gd
-#, fuzzy
-#| msgid "Macedonia"
 msgid "North Macedonia"
-msgstr "Республіка Македонія"
+msgstr "Північна Македонія"
 
 #: src/generators/generator_world.gd
 msgid "Norway"
@@ -2416,17 +2402,15 @@ msgstr "Австрія"
 
 #: src/generators/generator_world.gd
 msgid "Timor-Leste"
-msgstr ""
+msgstr "Тимор-Лешті"
 
 #: src/generators/generator_world.gd
 msgid "Pakistan"
 msgstr "Пакистан"
 
 #: src/generators/generator_world.gd
-#, fuzzy
-#| msgid "Prestige"
 msgid "Palestine"
-msgstr "Престиж"
+msgstr "Палестина"
 
 #: src/generators/generator_world.gd
 msgid "Palau"
@@ -2461,10 +2445,8 @@ msgid "Portugal"
 msgstr "Португалія"
 
 #: src/generators/generator_world.gd
-#, fuzzy
-#| msgid "Democratic Republic of Congo"
 msgid "Republic of the Congo"
-msgstr "Демократична Республіка Конго"
+msgstr "Республіка Конго"
 
 #: src/generators/generator_world.gd
 msgid "Rwanda"
@@ -2476,7 +2458,7 @@ msgstr "Романія"
 
 #: src/generators/generator_world.gd
 msgid "Russia"
-msgstr ""
+msgstr "Росія"
 
 #: src/generators/generator_world.gd
 msgid "Solomon Islands"
@@ -2596,7 +2578,7 @@ msgstr "Таджикистан"
 
 #: src/generators/generator_world.gd
 msgid "Taiwan"
-msgstr ""
+msgstr "Тайвань"
 
 #: src/generators/generator_world.gd
 msgid "Tanzania"
@@ -2680,7 +2662,7 @@ msgstr "Об'єднані Арабські Емірати"
 
 #: src/generators/generator_world.gd
 msgid "United States of America"
-msgstr ""
+msgstr "Сполучені Штати Америки"
 
 #: src/generators/generator_world.gd
 msgid "United Kingdom"
