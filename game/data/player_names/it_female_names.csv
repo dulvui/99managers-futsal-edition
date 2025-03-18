@@ -1,4 +1,4 @@
-# https://en.wiktionary.org/wiki/Category:Italian_female_given_names
+# https://en.wiktionary.org/w/api.php?action=query&list=categorymembers&cmtitle=Category%3AItalian_female_given_names&cmlimit=max&format=json
 Abia
 Abigaille
 Addolorata
@@ -223,7 +223,6 @@ Iside
 Isidora
 Isotta
 Lara
-Larissa
 Laura
 Lavinia
 Leda
@@ -284,7 +283,6 @@ Natalia
 Nausicaa
 Nicoletta
 Nilde
-Noemi
 Novella
 Olimpia
 Olivia

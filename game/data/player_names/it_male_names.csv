@@ -1,4 +1,4 @@
-# https://en.wiktionary.org/wiki/Category:Italian_male_given_names
+# https://en.wiktionary.org/w/api.php?action=query&list=categorymembers&cmtitle=Category%3AItalian_male_given_names&cmlimit=max&format=json
 Abaco
 Abbondanzio
 Abbondazio
@@ -199,8 +199,6 @@ Annunziato
 Annunzio
 Anrico
 Ansaldo
-A
-
 Ansano
 Ansberto
 Anselmo
@@ -253,7 +251,6 @@ Arsacio
 Arsenio
 Arsilio
 Artemio
-Arturo
 Ascanio
 Asdrubale
 Aspasio
@@ -601,7 +598,7 @@ Giairo
 Giambattista
 Giampiero
 Gian Marco
-    Giancarlo
+Giancarlo
 Gianfranco
 Gianluca
 Gianluigi
@@ -674,7 +671,6 @@ Isacco
 Isaia
 Isidoro
 Ismaele
-Ivo
 Jacopo
 Jacopone
 Labano
