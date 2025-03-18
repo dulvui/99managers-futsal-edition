@@ -44,10 +44,8 @@ func _ready() -> void:
 		manager_name.text = Global.manager.name
 		manager_surname.text = Global.manager.surname
 
-	var nation_names: NationNames = NationNames.new()
-
-	for nation: String in nation_names.get_all_nations():
-		nations.add_item(nation)
+	# for nation: String in nation_names.get_all_nations():
+	# 	nations.add_item(nation)
 
 	continue_button.disabled = manager_name.text.length() * manager_surname.text.length() == 0
 

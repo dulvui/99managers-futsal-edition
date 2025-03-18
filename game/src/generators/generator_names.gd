@@ -2,10 +2,9 @@
 
 # SPDX-License-Identifier: AGPL-3.0-or-later
 
-class_name GeneratorData
+class_name GeneratorNames
 
 const NAMES_DIR: StringName = "res://data/player_names/"
-const WORLD_JSON_PATH: StringName = "res://data/world/world.json"
 
 const FEMALE_NAMES: StringName = "female_names"
 const MALE_NAMES: StringName = "male_names"
@@ -14,10 +13,32 @@ const SURNAMES: StringName = "surnames"
 var names: Dictionary = {}
 
 
-func load_data() -> World:
-	var world: World = _load_world()
-	_load_person_names(world)
-	return world
+func _init(world: World) -> void:
+	for nation: Nation in world.get_all_nations():
+		for locale: Locale in nation.locales:
+			var code: String = locale.code
+
+			var female_names_file: String = NAMES_DIR + code + "_" + FEMALE_NAMES + ".csv"
+			var male_names_file: String = NAMES_DIR + code + "_" + MALE_NAMES + ".csv"
+			var surname_file: String = NAMES_DIR + code + "_" + SURNAMES + ".csv"
+
+			var female_names: Array[String] = _read_name_csv_file(female_names_file)
+			if female_names.size() > 0:
+				if not code in names.keys():
+					names[code] = {}
+				names[code][FEMALE_NAMES] = female_names
+
+			var male_names: Array[String] = _read_name_csv_file(male_names_file)
+			if male_names.size() > 0:
+				if not code in names.keys():
+					names[code] = {}
+				names[code][MALE_NAMES] = male_names
+
+			var surnames: Array[String] = _read_name_csv_file(surname_file)
+			if surnames.size() > 0:
+				if not code in names.keys():
+					names[code] = {}
+				names[code][SURNAMES] = surnames
 
 
 func get_random_name(nation: Nation) -> String:
@@ -71,73 +92,6 @@ func get_random_surnname(nation: Nation) -> String:
 
 	var size: int = (names[code][SURNAMES] as Array).size()
 	return names[code][SURNAMES][RngUtil.rng.randi() % size]
-
-
-func _load_world() -> World:
-	var world: World = World.new()
-
-	var world_file: FileAccess = FileAccess.open(WORLD_JSON_PATH, FileAccess.READ)
-	var world_dict: Array = JSON.parse_string(world_file.get_as_text())
-
-	for nation_dict: Dictionary in world_dict:
-		# continent
-		var continent: Continent
-		var continent_name: String = nation_dict.continent
-		var continents: Array[Continent] = world.continents.filter(func(c: Continent) -> bool: return c.name == continent_name)
-		if continents.size() == 0:
-			continent = Continent.new()
-			continent.name = continent_name
-			world.continents.append(continent)
-		else:
-			continent = continents[0]
-
-		# nation
-		var nation: Nation = Nation.new()
-		nation.name = nation_dict.name
-		nation.code = nation_dict.code
-		
-		# locales
-		for locale_dict: Dictionary in nation_dict.languages:
-			var locale: Locale = Locale.new()
-			locale.name = locale_dict.name
-			locale.code = locale_dict.code
-			nation.locales.append(locale)
-
-		# borders
-		for border: String in nation_dict.borders:
-			nation.borders.append(border)
-
-		continent.nations.append(nation)
-
-	return world
-
-
-func _load_person_names(world: World) -> void:
-	for nation: Nation in world.get_all_nations():
-		for locale: Locale in nation.locales:
-			var code: String = locale.code
-
-			var female_names_file: String = NAMES_DIR + code + "_" + FEMALE_NAMES + ".csv"
-			var male_names_file: String = NAMES_DIR + code + "_" + MALE_NAMES + ".csv"
-			var surname_file: String = NAMES_DIR + code + "_" + SURNAMES + ".csv"
-
-			var female_names: Array[String] = _read_name_csv_file(female_names_file)
-			if female_names.size() > 0:
-				if not code in names.keys():
-					names[code] = {}
-				names[code][FEMALE_NAMES] = female_names
-
-			var male_names: Array[String] = _read_name_csv_file(male_names_file)
-			if male_names.size() > 0:
-				if not code in names.keys():
-					names[code] = {}
-				names[code][MALE_NAMES] = male_names
-
-			var surnames: Array[String] = _read_name_csv_file(surname_file)
-			if surnames.size() > 0:
-				if not code in names.keys():
-					names[code] = {}
-				names[code][SURNAMES] = surnames
 
 
 func _read_name_csv_file(path: String) -> Array[String]:

@@ -47,11 +47,17 @@ var date: Dictionary
 var max_timestamp: int
 var min_timestamp: int
 
-var data: GeneratorData = GeneratorData.new()
+var names: GeneratorNames
 
 
 func generate_world(world_file_path: String = WORLD_CSV_PATH) -> World:
-	data = GeneratorData.new()
+	var world_generator: GeneratorWorld = GeneratorWorld.new()
+
+	# load world data
+	var world: World = world_generator.init_world()
+	world.calendar.initialize()
+
+	names = GeneratorNames.new(world)
 	# create date ranges
 	# starts from current year and subtracts min/max years
 	# youngest player can be 15 and oldest 45
@@ -72,10 +78,6 @@ func generate_world(world_file_path: String = WORLD_CSV_PATH) -> World:
 	if file == null:
 		print("error while opening world file at %s" % world_file_path)
 		return null
-
-	# load world data
-	var world: World = data.load_data()
-	world.calendar.initialize()
 
 	# read from csv
 	# get header row CONTINENT, NATION, CITY, TEAM
@@ -698,8 +700,8 @@ func _initialize_team(
 
 
 func _set_random_person_values(person: Person, nation: Nation) -> void:
-	person.name = data.get_random_name(nation)
-	person.surname = data.get_random_surnname(nation)
+	person.name = names.get_random_name(nation)
+	person.surname = names.get_random_surnname(nation)
 
 	# RngUtil.rng.random date from 1970 to 2007
 	person.birth_date = Time.get_date_dict_from_unix_time(RngUtil.rng.randi_range(0, max_timestamp))
