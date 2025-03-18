@@ -50,13 +50,7 @@ var min_timestamp: int
 var names: GeneratorNames
 
 
-func generate_world(world_file_path: String = WORLD_CSV_PATH) -> World:
-	var world_generator: GeneratorWorld = GeneratorWorld.new()
-
-	# load world data
-	var world: World = world_generator.init_world()
-	world.calendar.initialize()
-
+func generate(world: World, world_file_path: String = WORLD_CSV_PATH) -> World:
 	names = GeneratorNames.new(world)
 	# create date ranges
 	# starts from current year and subtracts min/max years
@@ -126,7 +120,6 @@ func generate_world(world_file_path: String = WORLD_CSV_PATH) -> World:
 			nation.team.formation = nation.team.staff.manager.formation
 			# TODO replace with actual national colors
 			_set_random_shirt_colors(nation.team)
-
 	
 	# validate world
 	if world.continents.size() == 0:
@@ -140,11 +133,6 @@ func generate_world(world_file_path: String = WORLD_CSV_PATH) -> World:
 	if not competitive_continent_found:
 		print("world has no competitive continent")
 		return null
-
-	# sort continents, nations alphabetically
-	world.continents.sort_custom(func(a: Continent, b: Continent) -> bool: return a.name < b.name)
-	for continent: Continent in world.continents:
-		continent.nations.sort_custom(func(a: Nation, b: Nation) -> bool: return a.name < b.name)
 
 	return world
 

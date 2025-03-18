@@ -2278,4 +2278,9 @@ func init_world() -> World:
 		Locale.new("Greek", "el"), Locale.new("Turkish", "tr"), Locale.new("Armenian", "hy")
 	]
 
+	# sort continents, nations alphabetically
+	world.continents.sort_custom(func(a: Continent, b: Continent) -> bool: return a.name < b.name)
+	for continent: Continent in world.continents:
+		continent.nations.sort_custom(func(a: Nation, b: Nation) -> bool: return a.name < b.name)
+
 	return world

@@ -10,6 +10,8 @@ const CONTINUE_DISABLED_TOOLTIP: StringName = "Name and surname missing"
 var generation_seed: String = DEFAULT_SEED
 var custom_file_path: String
 
+var world: World
+
 # manager
 @onready var nations: OptionButton = %Nationality
 @onready var manager_name: LineEdit = %Name
@@ -32,6 +34,11 @@ var custom_file_path: String
 func _ready() -> void:
 	InputUtil.start_focus(self)
 
+	# create world
+	var world_generator: GeneratorWorld = GeneratorWorld.new()
+	world = world_generator.init_world()
+	world.calendar.initialize()
+
 	for player_name: Enum.PlayerNames in Enum.PlayerNames.values():
 		player_names_option.add_item(Enum.get_player_names_text(player_name))
 
@@ -44,8 +51,8 @@ func _ready() -> void:
 		manager_name.text = Global.manager.name
 		manager_surname.text = Global.manager.surname
 
-	# for nation: String in nation_names.get_all_nations():
-	# 	nations.add_item(nation)
+	for nation: Nation in world.get_all_nations(true):
+		nations.add_item(nation.name)
 
 	continue_button.disabled = manager_name.text.length() * manager_surname.text.length() == 0
 
@@ -107,9 +114,9 @@ func _on_continue_pressed() -> void:
 
 	Global.error_load_world = 0
 	if default_file_button.button_pressed or custom_file_path.is_empty():
-		ThreadUtil.generate_world()
+		ThreadUtil.generate_world(world)
 	else:
-		ThreadUtil.generate_world(custom_file_path)
+		ThreadUtil.generate_world(world, custom_file_path)
 
 
 func _on_name_text_changed(_new_text: String) -> void:

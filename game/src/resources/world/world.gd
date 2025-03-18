@@ -187,10 +187,14 @@ func get_best_players_by_nationality(nation: Nation) -> Array[Player]:
 	return best_players
 
 
-func get_all_nations() -> Array[Nation]:
+func get_all_nations(sorted_alphabetically: bool = false) -> Array[Nation]:
 	var all_nations: Array[Nation] = []
 	for continent: Continent in continents:
 		all_nations.append_array(continent.nations)
+
+	if sorted_alphabetically:
+		all_nations.sort_custom(func(a: Nation, b: Nation) -> bool: return a.name < b.name)
+	
 	return all_nations
 
 
