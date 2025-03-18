@@ -19,6 +19,7 @@ LANGUAGES = {
         "pt": "Portuguese",
         "es": "Spanish",
         "tr": "Turkish",
+        "ro": "Romanian",
 }
 
 
