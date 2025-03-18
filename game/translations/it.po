@@ -282,7 +282,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: 99 Managers Futsal Edition\n"
 "POT-Creation-Date: \n"
-"PO-Revision-Date: 2025-03-11 22:53+0100\n"
+"PO-Revision-Date: 2025-03-18 14:23+0100\n"
 "Last-Translator: Simon Dalvai <info@simondalvai.org>\n"
 "Language-Team: Italian <https://hosted.weblate.org/projects/99-managers-"
 "futsal-edition/game/it/>\n"
@@ -1477,10 +1477,8 @@ msgid "Random"
 msgstr "Casuale"
 
 #: src/screens/setup/setup_world/setup_world.tscn
-#, fuzzy
-#| msgid "Open file"
 msgid "Open a File"
-msgstr "Apri file"
+msgstr "Apri un file"
 
 #: src/screens/setup/setup_world/setup_world.tscn
 msgid "Open"
@@ -1822,10 +1820,8 @@ msgid "Bonus national cup"
 msgstr "Bonus coppa delle nazioni"
 
 #: src/screens/about/about.tscn
-#, fuzzy
-#| msgid "Change"
 msgid "Changelog"
-msgstr "Cambia"
+msgstr "Changelog"
 
 #: src/screens/about/about.tscn
 msgid "Contributors"
@@ -2010,10 +2006,8 @@ msgid "Bulgaria"
 msgstr "Bulgaria"
 
 #: src/generators/generator_world.gd
-#, fuzzy
-#| msgid "Burkina"
 msgid "Burkina Faso"
-msgstr "Burkina"
+msgstr "Burkina Faso"
 
 #: src/generators/generator_world.gd
 msgid "Burundi"
@@ -2036,8 +2030,6 @@ msgid "Denmark"
 msgstr "Danimarca"
 
 #: src/generators/generator_world.gd
-#, fuzzy
-#| msgid "Democratic Republic of Congo"
 msgid "Democratic Republic of the Congo"
 msgstr "Repubblica Democratica del Congo"
 
@@ -2067,7 +2059,7 @@ msgstr "El Salvador"
 
 #: src/generators/generator_world.gd
 msgid "Côte d'Ivoire"
-msgstr ""
+msgstr "Costa d'Avorio"
 
 #: src/generators/generator_world.gd
 msgid "Eritrea"
@@ -2079,7 +2071,7 @@ msgstr "Estonia"
 
 #: src/generators/generator_world.gd
 msgid "Eswatini"
-msgstr ""
+msgstr "Eswatini"
 
 #: src/generators/generator_world.gd
 msgid "Fiji"
@@ -2134,10 +2126,8 @@ msgid "Guinea"
 msgstr "Guinea"
 
 #: src/generators/generator_world.gd
-#, fuzzy
-#| msgid "Guinea"
 msgid "Guinea-Bissau"
-msgstr "Guinea"
+msgstr "Guinea-Bissau"
 
 #: src/generators/generator_world.gd
 msgid "Guyana"
@@ -2212,8 +2202,6 @@ msgid "Canada"
 msgstr "Canada"
 
 #: src/generators/generator_world.gd
-#, fuzzy
-#| msgid "Cape Verde"
 msgid "Cabo Verde"
 msgstr "Capo Verde"
 
@@ -2247,7 +2235,7 @@ msgstr "Comore"
 
 #: src/generators/generator_world.gd
 msgid "Kosovo"
-msgstr ""
+msgstr "Kosovo"
 
 #: src/generators/generator_world.gd
 msgid "Croatia"
@@ -2359,7 +2347,7 @@ msgstr "Mozambico"
 
 #: src/generators/generator_world.gd
 msgid "Myanmar"
-msgstr ""
+msgstr "Myanmar"
 
 #: src/generators/generator_world.gd
 msgid "Namibia"
@@ -2398,10 +2386,8 @@ msgid "North Korea"
 msgstr "Corea del Nord"
 
 #: src/generators/generator_world.gd
-#, fuzzy
-#| msgid "Macedonia"
 msgid "North Macedonia"
-msgstr "Repubblica di Macedonia"
+msgstr "Macedonia del Nord"
 
 #: src/generators/generator_world.gd
 msgid "Norway"
@@ -2417,17 +2403,15 @@ msgstr "Austria"
 
 #: src/generators/generator_world.gd
 msgid "Timor-Leste"
-msgstr ""
+msgstr "Timor-Leste"
 
 #: src/generators/generator_world.gd
 msgid "Pakistan"
 msgstr "Pakistan"
 
 #: src/generators/generator_world.gd
-#, fuzzy
-#| msgid "Prestige"
 msgid "Palestine"
-msgstr "Prestigio"
+msgstr "Palestina"
 
 #: src/generators/generator_world.gd
 msgid "Palau"
@@ -2462,10 +2446,8 @@ msgid "Portugal"
 msgstr "Portogallo"
 
 #: src/generators/generator_world.gd
-#, fuzzy
-#| msgid "Democratic Republic of Congo"
 msgid "Republic of the Congo"
-msgstr "Repubblica Democratica del Congo"
+msgstr "Repubblica del Congo"
 
 #: src/generators/generator_world.gd
 msgid "Rwanda"
@@ -2477,7 +2459,7 @@ msgstr "Romania"
 
 #: src/generators/generator_world.gd
 msgid "Russia"
-msgstr ""
+msgstr "Russia"
 
 #: src/generators/generator_world.gd
 msgid "Solomon Islands"
@@ -2597,7 +2579,7 @@ msgstr "Tagikistan"
 
 #: src/generators/generator_world.gd
 msgid "Taiwan"
-msgstr ""
+msgstr "Taiwan"
 
 #: src/generators/generator_world.gd
 msgid "Tanzania"
@@ -2681,7 +2663,7 @@ msgstr "Emirati Arabi Uniti"
 
 #: src/generators/generator_world.gd
 msgid "United States of America"
-msgstr ""
+msgstr "Stati Uniti d'America"
 
 #: src/generators/generator_world.gd
 msgid "United Kingdom"
@@ -2708,17 +2690,11 @@ msgstr "Cipro"
 #~ msgid "Congo"
 #~ msgstr "Congo"
 
-#~ msgid "Ivory Coast"
-#~ msgstr "Costa d'Avorio"
-
 #~ msgid "Swaziland"
 #~ msgstr "Swaziland"
 
 #~ msgid "Burma"
 #~ msgstr "Burma"
-
-#~ msgid "East Timor"
-#~ msgstr "Timor Est"
 
 #~ msgid "Russian Federation"
 #~ msgstr "Russia"
@@ -2737,9 +2713,6 @@ msgstr "Cipro"
 
 #~ msgid "Rest"
 #~ msgstr "Riposati"
-
-#~ msgid "Techical"
-#~ msgstr "Tecnica"
 
 #~ msgid "Morality"
 #~ msgstr "Morale"
