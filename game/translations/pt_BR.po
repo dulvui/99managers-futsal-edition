@@ -278,19 +278,20 @@
 # res://src/generators/generator.gd
 #
 # Simon Dalvai <info@simondalvai.org>, 2025.
+# Victor Gavilanes <vgavilanes951@gmail.com>, 2025.
 msgid ""
 msgstr ""
 "Project-Id-Version: 99 Managers Futsal Edition\n"
-"PO-Revision-Date: 2025-02-26 10:01+0000\n"
-"Last-Translator: Simon Dalvai <info@simondalvai.org>\n"
-"Language-Team: Portuguese (Brazil) <https://hosted.weblate.org/projects/99-"
-"managers-futsal-edition/game/pt_BR/>\n"
+"PO-Revision-Date: 2025-03-19 06:22+0000\n"
+"Last-Translator: Victor Gavilanes <vgavilanes951@gmail.com>\n"
+"Language-Team: Portuguese (Brazil) <https://hosted.weblate.org/projects/"
+"99-managers-futsal-edition/game/pt_BR/>\n"
 "Language: pt_BR\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8-bit\n"
 "Plural-Forms: nplurals=2; plural=n > 1;\n"
-"X-Generator: Weblate 5.10.2-dev\n"
+"X-Generator: Weblate 5.11-dev\n"
 
 #: src/ui_components/team_profile/team_profile.tscn
 #: src/screens/dashboard/dashboard.tscn
@@ -371,7 +372,7 @@ msgstr "Estatísticas"
 
 #: src/ui_components/player_list/player_list.gd
 msgid "All Teams"
-msgstr ""
+msgstr "Todos os Times"
 
 #: src/ui_components/player_list/player_list.gd
 msgid "All positions"
@@ -379,7 +380,7 @@ msgstr "Todas as posições"
 
 #: src/ui_components/player_list/player_list.gd
 msgid "All Leagues"
-msgstr ""
+msgstr "Todas as Ligas"
 
 #: src/ui_components/info/info.tscn
 #: src/screens/setup/setup_world/setup_world.tscn
@@ -429,13 +430,13 @@ msgstr "Gastos"
 
 #: src/ui_components/visual_finances/visual_finances.tscn
 msgid "Reamaining salary budget"
-msgstr ""
+msgstr "Verba salarial restante"
 
 #: src/ui_components/visual_finances/visual_finances.tscn
 #: src/ui_components/transfers/contract_offer/contract_offer.tscn
 #: src/ui_components/player_list/player_list_view/views/contract/player_list_view_contract.tscn
 msgid "Income"
-msgstr "Salário"
+msgstr "Receita"
 
 #: src/ui_components/visual_competitions/visual_table/visual_table.tscn
 #: src/ui_components/player_profile/info_view/info_view.tscn
@@ -460,15 +461,15 @@ msgstr "Empate"
 
 #: src/ui_components/visual_competitions/visual_table/visual_table.tscn
 msgid "Lost"
-msgstr ""
+msgstr "Perdido"
 
 #: src/ui_components/visual_competitions/visual_table/visual_table.tscn
 msgid "Goal difference"
-msgstr ""
+msgstr "Diferença de gols"
 
 #: src/ui_components/visual_competitions/visual_table/visual_table.tscn
 msgid "Difference"
-msgstr ""
+msgstr "Diferença"
 
 #: src/ui_components/visual_competitions/visual_table/visual_table.tscn
 #: src/ui_components/player_profile/statistics_view/statistics_view.tscn
@@ -478,10 +479,8 @@ msgid "Goals"
 msgstr "Gols"
 
 #: src/ui_components/visual_competitions/visual_table/visual_table.tscn
-#, fuzzy
-#| msgid "Formation"
 msgid "Form"
-msgstr "Formação"
+msgstr "Forma"
 
 #: src/ui_components/visual_competitions/visual_table/visual_table.tscn
 msgid "Points"
@@ -489,15 +488,15 @@ msgstr "Pontos"
 
 #: src/ui_components/visual_competitions/visual_table/visual_table.gd
 msgid "Victory"
-msgstr ""
+msgstr "Vitória"
 
 #: src/ui_components/visual_competitions/visual_table/visual_table.gd
 msgid "Defeat"
-msgstr ""
+msgstr "Derrota"
 
 #: src/ui_components/visual_competitions/visual_table/visual_table.gd
 msgid "To be played"
-msgstr ""
+msgstr "Será jogado"
 
 #: src/ui_components/visual_competitions/visual_knockout/visual_knockout.tscn
 msgid "Knockout"
@@ -521,10 +520,8 @@ msgstr "Vencedor A vs Vencedor B"
 
 #: src/ui_components/visual_competitions/visual_competitions.tscn
 #: src/ui_components/player_profile/statistics_view/statistics_view.tscn
-#, fuzzy
-#| msgid "Watchlist"
 msgid "Matches"
-msgstr "Observados"
+msgstr "Partidas"
 
 #: src/ui_components/visual_competitions/visual_competitions.tscn
 #: src/screens/dashboard/dashboard.tscn
@@ -569,15 +566,15 @@ msgstr "Empréstimo"
 #: src/ui_components/player_profile/contract_view/contract_view.tscn
 #: src/ui_components/player_list/player_list_view/views/contract/player_list_view_contract.tscn
 msgid "Buy clause"
-msgstr ""
+msgstr "Cláusula de compra"
 
 #: src/ui_components/visual_formation/visual_formation.gd
 msgid "Substitutes"
-msgstr ""
+msgstr "Reservas"
 
 #: src/ui_components/visual_formation/visual_formation.gd
 msgid "Other"
-msgstr ""
+msgstr "Outro"
 
 #: src/ui_components/visual_formation/players_bar/players_bar.tscn
 #: src/ui_components/visual_formation/visual_formation.tscn
@@ -587,11 +584,11 @@ msgstr "Formação"
 
 #: src/ui_components/visual_formation/players_bar/players_bar.tscn
 msgid "Players with low stamina will be changed automatically."
-msgstr ""
+msgstr "Jogadores com baixa energia serão substituídos automaticamente."
 
 #: src/ui_components/visual_formation/players_bar/players_bar.tscn
 msgid "Auto change"
-msgstr ""
+msgstr "Substituição automática"
 
 #: src/ui_components/visual_formation/visual_formation.tscn
 msgid "Change strategy"
@@ -599,7 +596,7 @@ msgstr "Alterar estratégia"
 
 #: src/ui_components/visual_formation/visual_formation.tscn
 msgid "Tactic offense"
-msgstr ""
+msgstr "Ofensiva tática"
 
 #: src/ui_components/visual_formation/visual_formation.tscn
 msgid "Intensity"
@@ -659,10 +656,8 @@ msgstr "Oferecer contrato"
 
 #: src/ui_components/player_profile/attributes_view/attributes_view.tscn
 #: src/ui_components/player_list/player_list_view/views/mental/player_list_view_mental.tscn
-#, fuzzy
-#| msgid "Pressing"
 msgid "Aggression"
-msgstr "Pressão"
+msgstr "Agressividade"
 
 #: src/ui_components/player_profile/attributes_view/attributes_view.tscn
 #: src/ui_components/player_list/player_list_view/views/mental/player_list_view_mental.tscn
@@ -687,41 +682,35 @@ msgstr "Visão"
 #: src/ui_components/player_profile/attributes_view/attributes_view.tscn
 #: src/ui_components/player_list/player_list_view/views/mental/player_list_view_mental.tscn
 msgid "Workrate"
-msgstr ""
+msgstr "Comprometimento"
 
 #: src/ui_components/player_profile/attributes_view/attributes_view.tscn
 #: src/ui_components/player_list/player_list_view/views/mental/player_list_view_mental.tscn
 msgid "Offensive movement"
-msgstr ""
+msgstr "Movimento ofensivo"
 
 #: src/ui_components/player_profile/attributes_view/attributes_view.tscn
 #: src/ui_components/player_list/player_list_view/views/goalkeeper/player_list_view_goalkeeper.tscn
 msgid "Reflexes"
-msgstr ""
+msgstr "Reflexo"
 
 #: src/ui_components/player_profile/attributes_view/attributes_view.tscn
 #: src/ui_components/player_list/player_list_view/views/goalkeeper/player_list_view_goalkeeper.tscn
-#, fuzzy
-#| msgid "Position"
 msgid "Positioning"
-msgstr "Posição"
+msgstr "Posicionamento"
 
 #: src/ui_components/player_profile/attributes_view/attributes_view.tscn
-#, fuzzy
-#| msgid "Save states"
 msgid "Save feet"
-msgstr "Estados salvos"
+msgstr ""
 
 #: src/ui_components/player_profile/attributes_view/attributes_view.tscn
-#, fuzzy
-#| msgid "Save states"
 msgid "Save hands"
-msgstr "Estados salvos"
+msgstr ""
 
 #: src/ui_components/player_profile/attributes_view/attributes_view.tscn
 #: src/ui_components/player_list/player_list_view/views/goalkeeper/player_list_view_goalkeeper.tscn
 msgid "Diving"
-msgstr ""
+msgstr "Simulação"
 
 #: src/ui_components/player_profile/attributes_view/attributes_view.tscn
 #: src/ui_components/player_list/player_list_view/views/physical/player_list_view_physical.tscn
@@ -736,7 +725,7 @@ msgstr "Aceleração"
 #: src/ui_components/player_profile/attributes_view/attributes_view.tscn
 #: src/ui_components/player_list/player_list_view/views/physical/player_list_view_physical.tscn
 msgid "Stamina"
-msgstr "Resistência"
+msgstr "Energia"
 
 #: src/ui_components/player_profile/attributes_view/attributes_view.tscn
 #: src/ui_components/player_list/player_list_view/views/physical/player_list_view_physical.tscn
@@ -796,7 +785,7 @@ msgstr "Chute de longe"
 #: src/ui_components/player_profile/attributes_view/attributes_view.tscn
 #: src/ui_components/player_list/player_list_view/views/technical/player_list_view_technical.tscn
 msgid "Free kick"
-msgstr ""
+msgstr "Cobrança de falta"
 
 #: src/ui_components/player_profile/attributes_view/attributes_view.tscn
 #: src/ui_components/player_list/player_list_view/views/technical/player_list_view_technical.tscn
@@ -823,16 +812,12 @@ msgid "Attributes"
 msgstr "Atributos"
 
 #: src/ui_components/player_profile/player_profile.tscn
-#, fuzzy
-#| msgid "Statistics"
 msgid "Statistics\n"
-msgstr "Estatísticas"
+msgstr "Estatísticas\n"
 
 #: src/ui_components/player_profile/player_profile.tscn
-#, fuzzy
-#| msgid "Contract"
 msgid "Contract\n"
-msgstr "Contrato"
+msgstr "Contrato\n"
 
 #: src/ui_components/player_profile/info_view/info_view.tscn
 #: src/screens/setup/setup_world/setup_world.tscn
@@ -846,7 +831,7 @@ msgstr "Posição"
 
 #: src/ui_components/player_profile/info_view/info_view.tscn
 msgid "Alternative position"
-msgstr ""
+msgstr "Posição alternativa"
 
 #: src/ui_components/player_profile/info_view/info_view.tscn
 msgid "Age"
@@ -863,7 +848,7 @@ msgstr "Nacionalidade"
 
 #: src/ui_components/player_profile/info_view/info_view.tscn
 msgid "Number"
-msgstr ""
+msgstr "Número"
 
 #: src/ui_components/player_profile/info_view/info_view.tscn
 msgid "Average attributes"
@@ -874,49 +859,41 @@ msgid "Value"
 msgstr "Valor"
 
 #: src/ui_components/player_profile/contract_view/contract_view.tscn
-#, fuzzy
-#| msgid "Salary budget"
 msgid "Salary"
-msgstr "Verba salarial"
+msgstr "Salário"
 
 #: src/ui_components/player_profile/contract_view/contract_view.tscn
 #: src/ui_components/player_list/player_list_view/views/contract/player_list_view_contract.tscn
 msgid "End date"
-msgstr ""
+msgstr "Data final"
 
 #: src/ui_components/player_profile/contract_view/contract_view.tscn
 msgid "Bonus"
-msgstr ""
+msgstr "Bônus"
 
 #: src/ui_components/player_profile/contract_view/contract_view.tscn
-#, fuzzy
-#| msgid "Goals"
 msgid "Goal"
-msgstr "Gols"
+msgstr "Gol"
 
 #: src/ui_components/player_profile/contract_view/contract_view.tscn
 msgid "Assist"
-msgstr ""
+msgstr "Assistência"
 
 #: src/ui_components/player_profile/contract_view/contract_view.tscn
 msgid "Clean sheet"
-msgstr ""
+msgstr "Jogo sem tomar gol"
 
 #: src/ui_components/player_profile/contract_view/contract_view.tscn
 msgid "League"
 msgstr "Liga"
 
 #: src/ui_components/player_profile/contract_view/contract_view.tscn
-#, fuzzy
-#| msgid "Nationality"
 msgid "National cup"
-msgstr "Nacionalidade"
+msgstr "Copa Nacional"
 
 #: src/ui_components/player_profile/contract_view/contract_view.tscn
-#, fuzzy
-#| msgid "Continue"
 msgid "Continental cup"
-msgstr "Continuar"
+msgstr "Copa Continental"
 
 #: src/ui_components/player_profile/contract_view/contract_view.tscn
 msgid "Make offer"
@@ -925,7 +902,7 @@ msgstr "Fazer proposta"
 #: src/ui_components/player_profile/statistics_view/statistics_view.tscn
 #: src/ui_components/player_list/player_list_view/views/statistics/player_list_view_statistics.tscn
 msgid "Assists"
-msgstr ""
+msgstr "Assistências"
 
 #: src/ui_components/player_profile/statistics_view/statistics_view.tscn
 #: src/screens/match_screen/statistics/match_stats.tscn
@@ -940,10 +917,8 @@ msgstr "Cartões vermelhos"
 
 #: src/ui_components/player_profile/statistics_view/statistics_view.tscn
 #: src/ui_components/player_list/player_list_view/views/statistics/player_list_view_statistics.tscn
-#, fuzzy
-#| msgid "Average attributes"
 msgid "Average vote"
-msgstr "Média dos atributos"
+msgstr "Média de votos"
 
 #: src/ui_components/visual_calendar/visual_day/visual_day.gd
 #: src/ui_components/visual_calendar/match_list/match_info/match_info.tscn
@@ -1003,16 +978,12 @@ msgid "Sunday"
 msgstr "Domingo"
 
 #: src/ui_components/tree_overviews/teams_tree/teams_tree.gd
-#, fuzzy
-#| msgid "Continue"
 msgid "Continents"
-msgstr "Continuar"
+msgstr "Continentes"
 
 #: src/ui_components/tree_overviews/teams_tree/teams_tree.gd
-#, fuzzy
-#| msgid "No message found"
 msgid "No team found"
-msgstr "Nenhuma mensagem"
+msgstr "Nenhum time encontrado"
 
 #: src/resources/formation/position/position.gd
 msgid "G"
@@ -1067,26 +1038,26 @@ msgstr "Manual"
 #. TRANSLATORS: {team_name} gets dynamically filled
 #: src/utils/logic/email_util.gd
 msgid "Next match: {team_name}"
-msgstr ""
+msgstr "Próxima partida: {team_name}"
 
 #. TRANSLATORS: {team_name} gets dynamically filled
 #: src/utils/logic/email_util.gd
 msgid "The next match is against {team_name}."
-msgstr ""
+msgstr "A próxima partida será contra {team_name}."
 
 #: src/utils/logic/email_util.gd
 msgid "Welcome {manager_name}"
-msgstr ""
+msgstr "Bem-vindo {manager_name}"
 
 #. TRANSLATORS: {team_name} gets dynamically filled
 #: src/utils/logic/email_util.gd
 msgid "{team_name} welcomes you to a new journey."
-msgstr ""
+msgstr "{team_name} te dá boas-vindas a uma nova jornada."
 
 #. TRANSLATORS: {player_name} gets dynamically filled
 #: src/utils/logic/email_util.gd
 msgid "Offer for {player_name}"
-msgstr ""
+msgstr "Oferta por {player_name}"
 
 #. TRANSLATORS: {cost}, {player_name}, {team_name} get dynamically filled
 #: src/utils/logic/email_util.gd
@@ -1094,11 +1065,13 @@ msgid ""
 "You made an offer for {player_name} from {team_name} at {cost}.\n"
 "{team_name} will consider the offer and respond within a few days."
 msgstr ""
+"Você fez uma oferta por {player_name} do {team_name} por {cost}.\n"
+"O {team_name} irá estudar a oferta e responder em alguns dias."
 
 #. TRANSLATORS: {player_name} gets dynamically filled
 #: src/utils/logic/email_util.gd
 msgid "Offer for {player_name} declined"
-msgstr ""
+msgstr "A oferta por {player_name} foi rejeitada"
 
 #. TRANSLATORS: {player_name}, {team_name} get dynamically filled
 #: src/utils/logic/email_util.gd
@@ -1106,11 +1079,13 @@ msgid ""
 "Your offer for {player_name} from {team_name} at {cost} has been declined.\n"
 "Increasing the transfer value could make them reconsider."
 msgstr ""
+"Sua oferta pelo {player_name} do {team_name} por {cost} foi rejeitada.\n"
+"Aumentar o valor da transferência pode fazê-los repensar."
 
 #. TRANSLATORS: {player_name} gets dynamically filled
 #: src/utils/logic/email_util.gd
 msgid "Offer for {player_name} accepted"
-msgstr ""
+msgstr "Oferta por {player_name} aceita"
 
 #. TRANSLATORS: {player_name}, {team_name} get dynamically filled
 #: src/utils/logic/email_util.gd
@@ -1118,6 +1093,8 @@ msgid ""
 "Your offer for {player_name} from {team_name} at {cost} has been accepted.\n"
 "You can now find a contractual aggreement with {player_name}."
 msgstr ""
+"Sua oferta por {player_name} do {team_name} por {cost} foi aceita.\n"
+"Você pode agora entrar em um acordo contratual com {player_name}."
 
 #: src/utils/input/joypad_util.gd
 #: src/screens/settings/input/input_settings.tscn
@@ -1150,7 +1127,7 @@ msgstr "Hacker"
 
 #: src/utils/ui/theme_util.gd
 msgid "Custom theme"
-msgstr ""
+msgstr "Tema personalizado"
 
 #: src/screens/settings/settings.tscn src/screens/dashboard/dashboard.tscn
 #: src/screens/menu/menu.tscn
@@ -1175,6 +1152,8 @@ msgid ""
 "All changed settings will be restored to the default value.\n"
 "Are you sure?"
 msgstr ""
+"Todas as configurações modificadas serão restauradas para o valor padrão.\n"
+"Tem certeza?"
 
 #: src/screens/settings/general/general_settings.tscn
 msgid "Language"
