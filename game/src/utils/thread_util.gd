@@ -58,7 +58,7 @@ func _generate_world(world: World, world_file_path: String) -> void:
 
 	# create world, teams and players
 	var generator: Generator = Generator.new()
-	world = generator.generate(world, world_file_path)
+	world = generator.generate_teams(world, world_file_path)
 	
 	# go back if world is not valid
 	if world == null:

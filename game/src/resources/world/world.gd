@@ -322,7 +322,6 @@ func promote_and_delegate_teams() -> void:
 
 			# add new seasons table
 			for league: League in nation.leagues:
-				assert(league.teams.size() == 10)
 				var table: Table = Table.new()
 				for team: Team in league.teams:
 					table.add_team(team)

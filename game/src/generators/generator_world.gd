@@ -2283,4 +2283,6 @@ func init_world() -> World:
 	for continent: Continent in world.continents:
 		continent.nations.sort_custom(func(a: Nation, b: Nation) -> bool: return a.name < b.name)
 
+	world.calendar.initialize()
+
 	return world

@@ -55,11 +55,8 @@ func setup(
 	# sort teams by presitge
 	p_teams.sort_custom(func(a: Team, b: Team) -> bool: return a.get_prestige() > b.get_prestige())
 
-	# adjust teams size, to fit knockout format, sicne can only be 64,32,16,8,4,2
-	if p_teams.size() >= 64:
-		p_teams = p_teams.slice(0, 64)
-		rounds = 5
-	elif p_teams.size() >= 32:
+	# adjust teams size, to fit knockout format, sicne can only be 32,16,8,4,2
+	if p_teams.size() >= 32:
 		p_teams = p_teams.slice(0, 32)
 		rounds = 4
 	elif p_teams.size() >= 16:

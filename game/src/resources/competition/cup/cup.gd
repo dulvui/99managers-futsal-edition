@@ -10,6 +10,8 @@ enum Stage {
 	KNOCKOUT,
 }
 
+const MAX_TEAMS: int = 32
+
 @export var groups: Array[Group]
 @export var knockout: Knockout
 @export var stage: Stage
@@ -34,6 +36,9 @@ func setup(p_teams: Array[Team]) -> void:
 	stage = Stage.GROUP
 	# sort teams by presitge
 	p_teams.sort_custom(func(a: Team, b: Team) -> bool: return a.get_prestige() > b.get_prestige())
+
+	# limit team size
+	p_teams = p_teams.slice(0, MAX_TEAMS)
 
 	# define groups size
 	var teams_amount: int = p_teams.size()

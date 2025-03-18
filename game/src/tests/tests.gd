@@ -78,12 +78,17 @@ static func find_next_matchday() -> void:
 
 
 static func create_mock_world(use_test_file: bool) -> World:
-	if use_test_file:
-		var generator: Generator = Generator.new()
-		return generator.generate_world(Generator.TEST_WORLD_CSV_PATH)
+	# create world
+	var world_generator: GeneratorWorld = GeneratorWorld.new()
+	var world: World = world_generator.init_world()
 
-	var world: World = World.new()
-	world.calendar.initialize()
+	# generate teams
+	var generator: Generator = Generator.new()
+
+	if use_test_file:
+		return generator.generate_teams(world, Generator.TEST_WORLD_CSV_PATH)
+	
+	world = generator.generate_teams(world)
 
 	for c: int in range(2):
 		var continent: Continent = Continent.new()

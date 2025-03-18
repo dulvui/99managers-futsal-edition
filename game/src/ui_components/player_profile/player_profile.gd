@@ -18,7 +18,6 @@ var player: Player
 func _ready() -> void:
 	if Tests.is_run_as_current_scene(self):
 		Global.world = World.new()
-		Global.world.calendar.initialize()
 		set_player(Tests.create_mock_player())
 
 

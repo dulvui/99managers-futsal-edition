@@ -37,7 +37,6 @@ func _ready() -> void:
 	# create world
 	var world_generator: GeneratorWorld = GeneratorWorld.new()
 	world = world_generator.init_world()
-	world.calendar.initialize()
 
 	for player_name: Enum.PlayerNames in Enum.PlayerNames.values():
 		player_names_option.add_item(Enum.get_player_names_text(player_name))

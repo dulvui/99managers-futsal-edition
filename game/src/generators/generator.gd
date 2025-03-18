@@ -50,7 +50,7 @@ var min_timestamp: int
 var names: GeneratorNames
 
 
-func generate(world: World, world_file_path: String = WORLD_CSV_PATH) -> World:
+func generate_teams(world: World, world_file_path: String = WORLD_CSV_PATH) -> World:
 	names = GeneratorNames.new(world)
 	# create date ranges
 	# starts from current year and subtracts min/max years
@@ -614,7 +614,7 @@ func _initialize_team(
 
 	# search continent
 	var continent_filter: Array[Continent] = world.continents.filter(
-		func(c: Continent) -> bool: return c.name == continent_name
+		func(c: Continent) -> bool: return c.name == tr(continent_name)
 	)
 	if continent_filter.size() == 0:
 		print("continent not found " + continent_name)
@@ -623,7 +623,7 @@ func _initialize_team(
 
 	# search nation
 	var nation_filter: Array[Nation] = continent.nations.filter(
-		func(n: Nation) -> bool: return n.name == nation_name
+		func(n: Nation) -> bool: return n.name == tr(nation_name)
 	)
 	if nation_filter.size() == 0:
 		print("nation not found: continent %s nation %s" % [continent_name, nation_name])

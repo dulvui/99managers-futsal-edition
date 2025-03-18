@@ -62,10 +62,11 @@ func test_combinations(league: League) -> void:
 
 func test_add_to_calendar(league: League) -> void:
 	print("test: add to calendar...")
-	Global.world = World.new()
-	Global.world.calendar.initialize()
 
-	var match_util: MatchUtil = MatchUtil.new(Global.world)
+	var world_generator: GeneratorWorld = GeneratorWorld.new()
+	var world: World = world_generator.init_world()
+
+	var match_util: MatchUtil = MatchUtil.new(world)
 	var match_days: Array[Array] = match_util.create_combinations(league, league.teams)
 	match_util.add_matches_to_calendar(league, match_days)
 
