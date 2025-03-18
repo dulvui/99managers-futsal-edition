@@ -1106,10 +1106,6 @@ msgstr ""
 msgid "No joypad connected"
 msgstr "Kein Joypad verbunden"
 
-#: src/utils/res_util.gd
-msgid "Restoring from backup"
-msgstr "Aus Datensicherung wiederherstellen"
-
 #: src/utils/ui/theme_util.gd
 msgid "Dark"
 msgstr "Dunkel"
@@ -1498,7 +1494,7 @@ msgid "Random"
 msgstr "Zufällig"
 
 #: src/screens/setup/setup_world/setup_world.tscn
-msgid "Open file"
+msgid "Open a File"
 msgstr ""
 
 #: src/screens/setup/setup_world/setup_world.tscn
@@ -1543,802 +1539,6 @@ msgstr "Mannschaft auswählen"
 #: src/screens/setup/setup_team/setup_team.tscn
 msgid "Select"
 msgstr "Auswählen"
-
-#: src/resources/world/continent_names.gd
-msgid "Africa"
-msgstr "Afrika"
-
-#: src/resources/world/continent_names.gd
-msgid "Asia"
-msgstr "Asien"
-
-#: src/resources/world/continent_names.gd
-msgid "Europe"
-msgstr "Europa"
-
-#: src/resources/world/continent_names.gd
-msgid "Oceania"
-msgstr "Ozeanien"
-
-#: src/resources/world/continent_names.gd
-msgid "South America"
-msgstr "Südamerika"
-
-#: src/resources/world/continent_names.gd
-msgid "North America"
-msgstr "Nordamerika"
-
-#: src/resources/world/nation_names.gd
-msgid "Albania"
-msgstr "Albanien"
-
-#: src/resources/world/nation_names.gd
-msgid "Andorra"
-msgstr "Andorra"
-
-#: src/resources/world/nation_names.gd
-msgid "Armenia"
-msgstr "Armenien"
-
-#: src/resources/world/nation_names.gd
-msgid "Austria"
-msgstr "Österreich"
-
-#: src/resources/world/nation_names.gd
-msgid "Azerbaijan"
-msgstr "Aserbaidschan"
-
-#: src/resources/world/nation_names.gd
-msgid "Belarus"
-msgstr "Belarus"
-
-#: src/resources/world/nation_names.gd
-msgid "Belgium"
-msgstr "Belgien"
-
-#: src/resources/world/nation_names.gd
-msgid "Bosnia and Herzegovina"
-msgstr "Bosnien und Herzegowina"
-
-#: src/resources/world/nation_names.gd
-msgid "Bulgaria"
-msgstr "Bulgarien"
-
-#: src/resources/world/nation_names.gd
-msgid "Croatia"
-msgstr "Kroatien"
-
-#: src/resources/world/nation_names.gd
-msgid "Cyprus"
-msgstr "Zypern"
-
-#: src/resources/world/nation_names.gd
-msgid "Czech Republic"
-msgstr "Tschechische Republik"
-
-#: src/resources/world/nation_names.gd
-msgid "Denmark"
-msgstr "Dänemark"
-
-#: src/resources/world/nation_names.gd
-msgid "Estonia"
-msgstr "Estland"
-
-#: src/resources/world/nation_names.gd
-msgid "Finland"
-msgstr "Finnland"
-
-#: src/resources/world/nation_names.gd
-msgid "France"
-msgstr "Frankreich"
-
-#: src/resources/world/nation_names.gd
-msgid "Georgia"
-msgstr "Georgien"
-
-#: src/resources/world/nation_names.gd
-msgid "Germany"
-msgstr "Deutschland"
-
-#: src/resources/world/nation_names.gd
-msgid "Greece"
-msgstr "Griechenland"
-
-#: src/resources/world/nation_names.gd
-msgid "Hungary"
-msgstr "Ungarn"
-
-#: src/resources/world/nation_names.gd
-msgid "Iceland"
-msgstr "Island"
-
-#: src/resources/world/nation_names.gd
-msgid "Ireland"
-msgstr "Irland"
-
-#: src/resources/world/nation_names.gd
-msgid "Italy"
-msgstr "Italien"
-
-#: src/resources/world/nation_names.gd
-msgid "Latvia"
-msgstr "Lettland"
-
-#: src/resources/world/nation_names.gd
-msgid "Liechtenstein"
-msgstr "Liechtenstein"
-
-#: src/resources/world/nation_names.gd
-msgid "Lithuania"
-msgstr "Litauen"
-
-#: src/resources/world/nation_names.gd
-msgid "Luxembourg"
-msgstr "Luxemburg"
-
-#: src/resources/world/nation_names.gd
-msgid "Macedonia"
-msgstr "Mazedonien"
-
-#: src/resources/world/nation_names.gd
-msgid "Malta"
-msgstr "Malta"
-
-#: src/resources/world/nation_names.gd
-msgid "Moldova"
-msgstr "Moldau"
-
-#: src/resources/world/nation_names.gd
-msgid "Monaco"
-msgstr "Monaco"
-
-#: src/resources/world/nation_names.gd
-msgid "Montenegro"
-msgstr "Montenegro"
-
-#: src/resources/world/nation_names.gd
-msgid "Netherlands"
-msgstr "Niederlande"
-
-#: src/resources/world/nation_names.gd
-msgid "Norway"
-msgstr "Norwegen"
-
-#: src/resources/world/nation_names.gd
-msgid "Poland"
-msgstr "Polen"
-
-#: src/resources/world/nation_names.gd
-msgid "Portugal"
-msgstr "Portugal"
-
-#: src/resources/world/nation_names.gd
-msgid "Romania"
-msgstr "Rumänien"
-
-#: src/resources/world/nation_names.gd
-msgid "San Marino"
-msgstr "San Marino"
-
-#: src/resources/world/nation_names.gd
-msgid "Serbia"
-msgstr "Serbien"
-
-#: src/resources/world/nation_names.gd
-msgid "Slovakia"
-msgstr "Slowakei"
-
-#: src/resources/world/nation_names.gd
-msgid "Slovenia"
-msgstr "Slowenien"
-
-#: src/resources/world/nation_names.gd
-msgid "Spain"
-msgstr "Spanien"
-
-#: src/resources/world/nation_names.gd
-msgid "Sweden"
-msgstr "Schweden"
-
-#: src/resources/world/nation_names.gd
-msgid "Switzerland"
-msgstr "Schweiz"
-
-#: src/resources/world/nation_names.gd
-msgid "Ukraine"
-msgstr "Ukraine"
-
-#: src/resources/world/nation_names.gd
-msgid "United Kingdom"
-msgstr "Vereinigtes Königreich"
-
-#: src/resources/world/nation_names.gd
-msgid "Vatican City"
-msgstr "Vatikanstadt"
-
-#: src/resources/world/nation_names.gd
-msgid "Brazil"
-msgstr "Brasilien"
-
-#: src/resources/world/nation_names.gd
-msgid "Argentina"
-msgstr "Argentinien"
-
-#: src/resources/world/nation_names.gd
-msgid "Bolivia"
-msgstr "Bolivien"
-
-#: src/resources/world/nation_names.gd
-msgid "Chile"
-msgstr "Chile"
-
-#: src/resources/world/nation_names.gd
-msgid "Colombia"
-msgstr "Kolumbien"
-
-#: src/resources/world/nation_names.gd
-msgid "Ecuador"
-msgstr "Ecuador"
-
-#: src/resources/world/nation_names.gd
-msgid "Guyana"
-msgstr "Guyana"
-
-#: src/resources/world/nation_names.gd
-msgid "Paraguay"
-msgstr "Paraguay"
-
-#: src/resources/world/nation_names.gd
-msgid "Peru"
-msgstr "Peru"
-
-#: src/resources/world/nation_names.gd
-msgid "Suriname"
-msgstr "Surinam"
-
-#: src/resources/world/nation_names.gd
-msgid "Uruguay"
-msgstr "Uruguay"
-
-#: src/resources/world/nation_names.gd
-msgid "Venezuela"
-msgstr "Venezuela"
-
-#: src/resources/world/nation_names.gd
-msgid "Antigua and Barbuda"
-msgstr "Antigua und Barbuda"
-
-#: src/resources/world/nation_names.gd
-msgid "Bahamas"
-msgstr "Bahamas"
-
-#: src/resources/world/nation_names.gd
-msgid "Barbados"
-msgstr "Barbados"
-
-#: src/resources/world/nation_names.gd
-msgid "Belize"
-msgstr "Belize"
-
-#: src/resources/world/nation_names.gd
-msgid "Canada"
-msgstr "Kanada"
-
-#: src/resources/world/nation_names.gd
-msgid "Costa Rica"
-msgstr "Costa Rica"
-
-#: src/resources/world/nation_names.gd
-msgid "Cuba"
-msgstr "Kuba"
-
-#: src/resources/world/nation_names.gd
-msgid "Dominica"
-msgstr "Dominica"
-
-#: src/resources/world/nation_names.gd
-msgid "Dominican Republic"
-msgstr "Dominikanische Republik"
-
-#: src/resources/world/nation_names.gd
-msgid "El Salvador"
-msgstr "El Salvador"
-
-#: src/resources/world/nation_names.gd
-msgid "Grenada"
-msgstr "Grenada"
-
-#: src/resources/world/nation_names.gd
-msgid "Guatemala"
-msgstr "Guatemala"
-
-#: src/resources/world/nation_names.gd
-msgid "Haiti"
-msgstr "Haiti"
-
-#: src/resources/world/nation_names.gd
-msgid "Honduras"
-msgstr "Honduras"
-
-#: src/resources/world/nation_names.gd
-msgid "Jamaica"
-msgstr "Jamaika"
-
-#: src/resources/world/nation_names.gd
-msgid "Mexico"
-msgstr "Mexiko"
-
-#: src/resources/world/nation_names.gd
-msgid "Nicaragua"
-msgstr "Nicaragua"
-
-#: src/resources/world/nation_names.gd
-msgid "Panama"
-msgstr "Panama"
-
-#: src/resources/world/nation_names.gd
-msgid "Saint Kitts and Nevis"
-msgstr "St. Kitts und Nevis"
-
-#: src/resources/world/nation_names.gd
-msgid "Saint Lucia"
-msgstr "St. Lucia"
-
-#: src/resources/world/nation_names.gd
-msgid "Saint Vincent and the Grenadines"
-msgstr "St. Vincent und die Grenadinen"
-
-#: src/resources/world/nation_names.gd
-msgid "Trinidad and Tobago"
-msgstr "Trinidad und Tobago"
-
-#: src/resources/world/nation_names.gd
-msgid "Usa"
-msgstr "USA"
-
-#: src/resources/world/nation_names.gd
-msgid "Australia"
-msgstr "Australien"
-
-#: src/resources/world/nation_names.gd
-msgid "Fiji"
-msgstr "Fidschi"
-
-#: src/resources/world/nation_names.gd
-msgid "Kiribati"
-msgstr "Kiribati"
-
-#: src/resources/world/nation_names.gd
-msgid "Marshall Islands"
-msgstr "Marshallinseln"
-
-#: src/resources/world/nation_names.gd
-msgid "Micronesia"
-msgstr "Mikronesien"
-
-#: src/resources/world/nation_names.gd
-msgid "Nauru"
-msgstr "Nauruisch"
-
-#: src/resources/world/nation_names.gd
-msgid "New Zealand"
-msgstr "Neuseeland"
-
-#: src/resources/world/nation_names.gd
-msgid "Palau"
-msgstr "Palau"
-
-#: src/resources/world/nation_names.gd
-msgid "Papua New Guinea"
-msgstr "Papua-Neuguinea"
-
-#: src/resources/world/nation_names.gd
-msgid "Samoa"
-msgstr "Samoa"
-
-#: src/resources/world/nation_names.gd
-msgid "Solomon Islands"
-msgstr "Salomonen"
-
-#: src/resources/world/nation_names.gd
-msgid "Tonga"
-msgstr "Tonga"
-
-#: src/resources/world/nation_names.gd
-msgid "Tuvalu"
-msgstr "Tuvaluisch"
-
-#: src/resources/world/nation_names.gd
-msgid "Vanuatu"
-msgstr "Vanuatu"
-
-#: src/resources/world/nation_names.gd
-msgid "Algeria"
-msgstr "Algerien"
-
-#: src/resources/world/nation_names.gd
-msgid "Angola"
-msgstr "Angola"
-
-#: src/resources/world/nation_names.gd
-msgid "Benin"
-msgstr "Benin"
-
-#: src/resources/world/nation_names.gd
-msgid "Botswana"
-msgstr "Botswana"
-
-#: src/resources/world/nation_names.gd
-msgid "Burkina"
-msgstr "Burkina"
-
-#: src/resources/world/nation_names.gd
-msgid "Burundi"
-msgstr "Burundi"
-
-#: src/resources/world/nation_names.gd
-msgid "Cameroon"
-msgstr "Kamerun"
-
-#: src/resources/world/nation_names.gd
-msgid "Cape Verde"
-msgstr "Kap Verde"
-
-#: src/resources/world/nation_names.gd
-msgid "Central African Republic"
-msgstr "Zentralafrikanische Republik"
-
-#: src/resources/world/nation_names.gd
-msgid "Chad"
-msgstr "Tschad"
-
-#: src/resources/world/nation_names.gd
-msgid "Comoros"
-msgstr "Komoren"
-
-#: src/resources/world/nation_names.gd
-msgid "Congo"
-msgstr "Kongo"
-
-#: src/resources/world/nation_names.gd
-msgid "Democratic Republic of Congo"
-msgstr "Demokratische Republik Kongo"
-
-#: src/resources/world/nation_names.gd
-msgid "Djibouti"
-msgstr "Dschibuti"
-
-#: src/resources/world/nation_names.gd
-msgid "Egypt"
-msgstr "Ägypten"
-
-#: src/resources/world/nation_names.gd
-msgid "Equatorial Guinea"
-msgstr "Äquatorialguinea"
-
-#: src/resources/world/nation_names.gd
-msgid "Eritrea"
-msgstr "Eritrea"
-
-#: src/resources/world/nation_names.gd
-msgid "Ethiopia"
-msgstr "Äthiopien"
-
-#: src/resources/world/nation_names.gd
-msgid "Gabon"
-msgstr "Gabun"
-
-#: src/resources/world/nation_names.gd
-msgid "Gambia"
-msgstr "Gambia"
-
-#: src/resources/world/nation_names.gd
-msgid "Ghana"
-msgstr "Ghana"
-
-#: src/resources/world/nation_names.gd
-msgid "Guinea"
-msgstr "Guinea"
-
-#: src/resources/world/nation_names.gd
-msgid "Ivory Coast"
-msgstr "Elfenbeinküste"
-
-#: src/resources/world/nation_names.gd
-msgid "Kenya"
-msgstr "Kenia"
-
-#: src/resources/world/nation_names.gd
-msgid "Lesotho"
-msgstr "Lesotho"
-
-#: src/resources/world/nation_names.gd
-msgid "Liberia"
-msgstr "Liberia"
-
-#: src/resources/world/nation_names.gd
-msgid "Libya"
-msgstr "Libyen"
-
-#: src/resources/world/nation_names.gd
-msgid "Madagascar"
-msgstr "Madagaskar"
-
-#: src/resources/world/nation_names.gd
-msgid "Malawi"
-msgstr "Malawi"
-
-#: src/resources/world/nation_names.gd
-msgid "Mali"
-msgstr "Mali"
-
-#: src/resources/world/nation_names.gd
-msgid "Mauritania"
-msgstr "Mauretanien"
-
-#: src/resources/world/nation_names.gd
-msgid "Mauritius"
-msgstr "Mauritius"
-
-#: src/resources/world/nation_names.gd
-msgid "Morocco"
-msgstr "Marokko"
-
-#: src/resources/world/nation_names.gd
-msgid "Mozambique"
-msgstr "Mosambik"
-
-#: src/resources/world/nation_names.gd
-msgid "Namibia"
-msgstr "Namibia"
-
-#: src/resources/world/nation_names.gd
-msgid "Niger"
-msgstr "Niger"
-
-#: src/resources/world/nation_names.gd
-msgid "Nigeria"
-msgstr "Nigeria"
-
-#: src/resources/world/nation_names.gd
-msgid "Rwanda"
-msgstr "Ruanda"
-
-#: src/resources/world/nation_names.gd
-msgid "Sao Tome and Principe"
-msgstr "São Tomé und Príncipe"
-
-#: src/resources/world/nation_names.gd
-msgid "Senegal"
-msgstr "Senegal"
-
-#: src/resources/world/nation_names.gd
-msgid "Seychelles"
-msgstr "Seychellen"
-
-#: src/resources/world/nation_names.gd
-msgid "Sierra Leone"
-msgstr "Sierra Leone"
-
-#: src/resources/world/nation_names.gd
-msgid "Somalia"
-msgstr "Somalia"
-
-#: src/resources/world/nation_names.gd
-msgid "South Africa"
-msgstr "Südafrika"
-
-#: src/resources/world/nation_names.gd
-msgid "South Sudan"
-msgstr "Südsudan"
-
-#: src/resources/world/nation_names.gd
-msgid "Sudan"
-msgstr "Sudan"
-
-#: src/resources/world/nation_names.gd
-msgid "Swaziland"
-msgstr "Swasiland"
-
-#: src/resources/world/nation_names.gd
-msgid "Tanzania"
-msgstr "Tansania"
-
-#: src/resources/world/nation_names.gd
-msgid "Togo"
-msgstr "Togo"
-
-#: src/resources/world/nation_names.gd
-msgid "Tunisia"
-msgstr "Tunesien"
-
-#: src/resources/world/nation_names.gd
-msgid "Uganda"
-msgstr "Uganda"
-
-#: src/resources/world/nation_names.gd
-msgid "Zambia"
-msgstr "Sambia"
-
-#: src/resources/world/nation_names.gd
-msgid "Zimbabwe"
-msgstr "Simbabwe"
-
-#: src/resources/world/nation_names.gd
-msgid "Afghanistan"
-msgstr "Afghanistan"
-
-#: src/resources/world/nation_names.gd
-msgid "Bahrain"
-msgstr "Bahrain"
-
-#: src/resources/world/nation_names.gd
-msgid "Bangladesh"
-msgstr "Bangladesch"
-
-#: src/resources/world/nation_names.gd
-msgid "Bhutan"
-msgstr "Bhutan"
-
-#: src/resources/world/nation_names.gd
-msgid "Brunei"
-msgstr "Brunei"
-
-#: src/resources/world/nation_names.gd
-msgid "Burma"
-msgstr "Burma"
-
-#: src/resources/world/nation_names.gd
-msgid "Cambodia"
-msgstr "Kambodscha"
-
-#: src/resources/world/nation_names.gd
-msgid "China"
-msgstr "China"
-
-#: src/resources/world/nation_names.gd
-msgid "East Timor"
-msgstr "Osttimor"
-
-#: src/resources/world/nation_names.gd
-msgid "India"
-msgstr "Indien"
-
-#: src/resources/world/nation_names.gd
-msgid "Indonesia"
-msgstr "Indonesien"
-
-#: src/resources/world/nation_names.gd
-msgid "Iran"
-msgstr "Iran"
-
-#: src/resources/world/nation_names.gd
-msgid "Iraq"
-msgstr "Irak"
-
-#: src/resources/world/nation_names.gd
-msgid "Israel"
-msgstr "Israel"
-
-#: src/resources/world/nation_names.gd
-msgid "Japan"
-msgstr "Japan"
-
-#: src/resources/world/nation_names.gd
-msgid "Jordan"
-msgstr "Jordanien"
-
-#: src/resources/world/nation_names.gd
-msgid "Kazakhstan"
-msgstr "Kasachstan"
-
-#: src/resources/world/nation_names.gd
-msgid "North Korea"
-msgstr "Nordkorea"
-
-#: src/resources/world/nation_names.gd
-msgid "South Korea"
-msgstr "Südkorea"
-
-#: src/resources/world/nation_names.gd
-msgid "Kuwait"
-msgstr "Kuwait"
-
-#: src/resources/world/nation_names.gd
-msgid "Kyrgyzstan"
-msgstr "Kirgisistan"
-
-#: src/resources/world/nation_names.gd
-msgid "Laos"
-msgstr "Laos"
-
-#: src/resources/world/nation_names.gd
-msgid "Lebanon"
-msgstr "Libanon"
-
-#: src/resources/world/nation_names.gd
-msgid "Malaysia"
-msgstr "Malaysia"
-
-#: src/resources/world/nation_names.gd
-msgid "Maldives"
-msgstr "Malediven"
-
-#: src/resources/world/nation_names.gd
-msgid "Mongolia"
-msgstr "Mongolei"
-
-#: src/resources/world/nation_names.gd
-msgid "Nepal"
-msgstr "Nepal"
-
-#: src/resources/world/nation_names.gd
-msgid "Oman"
-msgstr "Oman"
-
-#: src/resources/world/nation_names.gd
-msgid "Pakistan"
-msgstr "Pakistan"
-
-#: src/resources/world/nation_names.gd
-msgid "Philippines"
-msgstr "Philippinen"
-
-#: src/resources/world/nation_names.gd
-msgid "Qatar"
-msgstr "Katar"
-
-#: src/resources/world/nation_names.gd
-msgid "Russian Federation"
-msgstr "Russische Föderation"
-
-#: src/resources/world/nation_names.gd
-msgid "Saudi Arabia"
-msgstr "Saudi-Arabien"
-
-#: src/resources/world/nation_names.gd
-msgid "Singapore"
-msgstr "Singapur"
-
-#: src/resources/world/nation_names.gd
-msgid "Sri Lanka"
-msgstr "Sri Lanka"
-
-#: src/resources/world/nation_names.gd
-msgid "Syria"
-msgstr "Syrien"
-
-#: src/resources/world/nation_names.gd
-msgid "Tajikistan"
-msgstr "Tadschikistan"
-
-#: src/resources/world/nation_names.gd
-msgid "Thailand"
-msgstr "Thailand"
-
-#: src/resources/world/nation_names.gd
-msgid "Turkey"
-msgstr "Türkei"
-
-#: src/resources/world/nation_names.gd
-msgid "Turkmenistan"
-msgstr "Turkmenistan"
-
-#: src/resources/world/nation_names.gd
-msgid "United Arab Emirates"
-msgstr "Vereinigte Arabische Emirate"
-
-#: src/resources/world/nation_names.gd
-msgid "Uzbekistan"
-msgstr "Usbekistan"
-
-#: src/resources/world/nation_names.gd
-msgid "Vietnam"
-msgstr "Vietnam"
-
-#: src/resources/world/nation_names.gd
-msgid "Yemen"
-msgstr "Jemen"
 
 #: src/enum.gd src/screens/match_screen/match_screen.tscn
 msgid "Full game"
@@ -2624,6 +1824,12 @@ msgid "Bonus national cup"
 msgstr "Nationaler Bonuspokal"
 
 #: src/screens/about/about.tscn
+#, fuzzy
+#| msgid "Change"
+msgid "Changelog"
+msgstr "Ändern"
+
+#: src/screens/about/about.tscn
 msgid "Contributors"
 msgstr "Mitwirkende"
 
@@ -2671,6 +1877,856 @@ msgstr ""
 #: src/screens/about/contributors/contributors.tscn
 msgid "Translations"
 msgstr "Übersetzungen"
+
+#: src/generators/generator_world.gd
+msgid "Africa"
+msgstr "Afrika"
+
+#: src/generators/generator_world.gd
+msgid "Asia"
+msgstr "Asien"
+
+#: src/generators/generator_world.gd
+msgid "Europe"
+msgstr "Europa"
+
+#: src/generators/generator_world.gd
+msgid "South America"
+msgstr "Südamerika"
+
+#: src/generators/generator_world.gd
+msgid "North America"
+msgstr "Nordamerika"
+
+#: src/generators/generator_world.gd
+msgid "Oceania"
+msgstr "Ozeanien"
+
+#: src/generators/generator_world.gd
+msgid "Afghanistan"
+msgstr "Afghanistan"
+
+#: src/generators/generator_world.gd
+msgid "Egypt"
+msgstr "Ägypten"
+
+#: src/generators/generator_world.gd
+msgid "Albania"
+msgstr "Albanien"
+
+#: src/generators/generator_world.gd
+msgid "Algeria"
+msgstr "Algerien"
+
+#: src/generators/generator_world.gd
+msgid "Andorra"
+msgstr "Andorra"
+
+#: src/generators/generator_world.gd
+msgid "Angola"
+msgstr "Angola"
+
+#: src/generators/generator_world.gd
+msgid "Antigua and Barbuda"
+msgstr "Antigua und Barbuda"
+
+#: src/generators/generator_world.gd
+msgid "Equatorial Guinea"
+msgstr "Äquatorialguinea"
+
+#: src/generators/generator_world.gd
+msgid "Argentina"
+msgstr "Argentinien"
+
+#: src/generators/generator_world.gd
+msgid "Armenia"
+msgstr "Armenien"
+
+#: src/generators/generator_world.gd
+msgid "Azerbaijan"
+msgstr "Aserbaidschan"
+
+#: src/generators/generator_world.gd
+msgid "Ethiopia"
+msgstr "Äthiopien"
+
+#: src/generators/generator_world.gd
+msgid "Australia"
+msgstr "Australien"
+
+#: src/generators/generator_world.gd
+msgid "Bahamas"
+msgstr "Bahamas"
+
+#: src/generators/generator_world.gd
+msgid "Bahrain"
+msgstr "Bahrain"
+
+#: src/generators/generator_world.gd
+msgid "Bangladesh"
+msgstr "Bangladesch"
+
+#: src/generators/generator_world.gd
+msgid "Barbados"
+msgstr "Barbados"
+
+#: src/generators/generator_world.gd
+msgid "Belarus"
+msgstr "Belarus"
+
+#: src/generators/generator_world.gd
+msgid "Belgium"
+msgstr "Belgien"
+
+#: src/generators/generator_world.gd
+msgid "Belize"
+msgstr "Belize"
+
+#: src/generators/generator_world.gd
+msgid "Benin"
+msgstr "Benin"
+
+#: src/generators/generator_world.gd
+msgid "Bhutan"
+msgstr "Bhutan"
+
+#: src/generators/generator_world.gd
+msgid "Bolivia"
+msgstr "Bolivien"
+
+#: src/generators/generator_world.gd
+msgid "Bosnia and Herzegovina"
+msgstr "Bosnien und Herzegowina"
+
+#: src/generators/generator_world.gd
+msgid "Botswana"
+msgstr "Botswana"
+
+#: src/generators/generator_world.gd
+msgid "Brazil"
+msgstr "Brasilien"
+
+#: src/generators/generator_world.gd
+msgid "Brunei"
+msgstr "Brunei"
+
+#: src/generators/generator_world.gd
+msgid "Bulgaria"
+msgstr "Bulgarien"
+
+#: src/generators/generator_world.gd
+#, fuzzy
+#| msgid "Burkina"
+msgid "Burkina Faso"
+msgstr "Burkina"
+
+#: src/generators/generator_world.gd
+msgid "Burundi"
+msgstr "Burundi"
+
+#: src/generators/generator_world.gd
+msgid "Chile"
+msgstr "Chile"
+
+#: src/generators/generator_world.gd
+msgid "China"
+msgstr "China"
+
+#: src/generators/generator_world.gd
+msgid "Costa Rica"
+msgstr "Costa Rica"
+
+#: src/generators/generator_world.gd
+msgid "Denmark"
+msgstr "Dänemark"
+
+#: src/generators/generator_world.gd
+#, fuzzy
+#| msgid "Democratic Republic of Congo"
+msgid "Democratic Republic of the Congo"
+msgstr "Demokratische Republik Kongo"
+
+#: src/generators/generator_world.gd
+msgid "Germany"
+msgstr "Deutschland"
+
+#: src/generators/generator_world.gd
+msgid "Dominica"
+msgstr "Dominica"
+
+#: src/generators/generator_world.gd
+msgid "Dominican Republic"
+msgstr "Dominikanische Republik"
+
+#: src/generators/generator_world.gd
+msgid "Djibouti"
+msgstr "Dschibuti"
+
+#: src/generators/generator_world.gd
+msgid "Ecuador"
+msgstr "Ecuador"
+
+#: src/generators/generator_world.gd
+msgid "El Salvador"
+msgstr "El Salvador"
+
+#: src/generators/generator_world.gd
+msgid "Côte d'Ivoire"
+msgstr ""
+
+#: src/generators/generator_world.gd
+msgid "Eritrea"
+msgstr "Eritrea"
+
+#: src/generators/generator_world.gd
+msgid "Estonia"
+msgstr "Estland"
+
+#: src/generators/generator_world.gd
+msgid "Eswatini"
+msgstr ""
+
+#: src/generators/generator_world.gd
+msgid "Fiji"
+msgstr "Fidschi"
+
+#: src/generators/generator_world.gd
+msgid "Finland"
+msgstr "Finnland"
+
+#: src/generators/generator_world.gd
+msgid "Micronesia"
+msgstr "Mikronesien"
+
+#: src/generators/generator_world.gd
+msgid "France"
+msgstr "Frankreich"
+
+#: src/generators/generator_world.gd
+msgid "Monaco"
+msgstr "Monaco"
+
+#: src/generators/generator_world.gd
+msgid "Gabon"
+msgstr "Gabun"
+
+#: src/generators/generator_world.gd
+msgid "Gambia"
+msgstr "Gambia"
+
+#: src/generators/generator_world.gd
+msgid "Georgia"
+msgstr "Georgien"
+
+#: src/generators/generator_world.gd
+msgid "Ghana"
+msgstr "Ghana"
+
+#: src/generators/generator_world.gd
+msgid "Grenada"
+msgstr "Grenada"
+
+#: src/generators/generator_world.gd
+msgid "Greece"
+msgstr "Griechenland"
+
+#: src/generators/generator_world.gd
+msgid "Guatemala"
+msgstr "Guatemala"
+
+#: src/generators/generator_world.gd
+msgid "Guinea"
+msgstr "Guinea"
+
+#: src/generators/generator_world.gd
+#, fuzzy
+#| msgid "Guinea"
+msgid "Guinea-Bissau"
+msgstr "Guinea"
+
+#: src/generators/generator_world.gd
+msgid "Guyana"
+msgstr "Guyana"
+
+#: src/generators/generator_world.gd
+msgid "Haiti"
+msgstr "Haiti"
+
+#: src/generators/generator_world.gd
+msgid "Honduras"
+msgstr "Honduras"
+
+#: src/generators/generator_world.gd
+msgid "India"
+msgstr "Indien"
+
+#: src/generators/generator_world.gd
+msgid "Indonesia"
+msgstr "Indonesien"
+
+#: src/generators/generator_world.gd
+msgid "Iraq"
+msgstr "Irak"
+
+#: src/generators/generator_world.gd
+msgid "Iran"
+msgstr "Iran"
+
+#: src/generators/generator_world.gd
+msgid "Ireland"
+msgstr "Irland"
+
+#: src/generators/generator_world.gd
+msgid "Iceland"
+msgstr "Island"
+
+#: src/generators/generator_world.gd
+msgid "Israel"
+msgstr "Israel"
+
+#: src/generators/generator_world.gd
+msgid "Italy"
+msgstr "Italien"
+
+#: src/generators/generator_world.gd
+msgid "Jamaica"
+msgstr "Jamaika"
+
+#: src/generators/generator_world.gd
+msgid "Japan"
+msgstr "Japan"
+
+#: src/generators/generator_world.gd
+msgid "Yemen"
+msgstr "Jemen"
+
+#: src/generators/generator_world.gd
+msgid "Jordan"
+msgstr "Jordanien"
+
+#: src/generators/generator_world.gd
+msgid "Cambodia"
+msgstr "Kambodscha"
+
+#: src/generators/generator_world.gd
+msgid "Cameroon"
+msgstr "Kamerun"
+
+#: src/generators/generator_world.gd
+msgid "Canada"
+msgstr "Kanada"
+
+#: src/generators/generator_world.gd
+#, fuzzy
+#| msgid "Cape Verde"
+msgid "Cabo Verde"
+msgstr "Kap Verde"
+
+#: src/generators/generator_world.gd
+msgid "Kazakhstan"
+msgstr "Kasachstan"
+
+#: src/generators/generator_world.gd
+msgid "Qatar"
+msgstr "Katar"
+
+#: src/generators/generator_world.gd
+msgid "Kenya"
+msgstr "Kenia"
+
+#: src/generators/generator_world.gd
+msgid "Kyrgyzstan"
+msgstr "Kirgisistan"
+
+#: src/generators/generator_world.gd
+msgid "Kiribati"
+msgstr "Kiribati"
+
+#: src/generators/generator_world.gd
+msgid "Colombia"
+msgstr "Kolumbien"
+
+#: src/generators/generator_world.gd
+msgid "Comoros"
+msgstr "Komoren"
+
+#: src/generators/generator_world.gd
+msgid "Kosovo"
+msgstr ""
+
+#: src/generators/generator_world.gd
+msgid "Croatia"
+msgstr "Kroatien"
+
+#: src/generators/generator_world.gd
+msgid "Cuba"
+msgstr "Kuba"
+
+#: src/generators/generator_world.gd
+msgid "Kuwait"
+msgstr "Kuwait"
+
+#: src/generators/generator_world.gd
+msgid "Laos"
+msgstr "Laos"
+
+#: src/generators/generator_world.gd
+msgid "Lesotho"
+msgstr "Lesotho"
+
+#: src/generators/generator_world.gd
+msgid "Latvia"
+msgstr "Lettland"
+
+#: src/generators/generator_world.gd
+msgid "Lebanon"
+msgstr "Libanon"
+
+#: src/generators/generator_world.gd
+msgid "Liberia"
+msgstr "Liberia"
+
+#: src/generators/generator_world.gd
+msgid "Libya"
+msgstr "Libyen"
+
+#: src/generators/generator_world.gd
+msgid "Liechtenstein"
+msgstr "Liechtenstein"
+
+#: src/generators/generator_world.gd
+msgid "Lithuania"
+msgstr "Litauen"
+
+#: src/generators/generator_world.gd
+msgid "Luxembourg"
+msgstr "Luxemburg"
+
+#: src/generators/generator_world.gd
+msgid "Madagascar"
+msgstr "Madagaskar"
+
+#: src/generators/generator_world.gd
+msgid "Malawi"
+msgstr "Malawi"
+
+#: src/generators/generator_world.gd
+msgid "Malaysia"
+msgstr "Malaysia"
+
+#: src/generators/generator_world.gd
+msgid "Maldives"
+msgstr "Malediven"
+
+#: src/generators/generator_world.gd
+msgid "Mali"
+msgstr "Mali"
+
+#: src/generators/generator_world.gd
+msgid "Malta"
+msgstr "Malta"
+
+#: src/generators/generator_world.gd
+msgid "Morocco"
+msgstr "Marokko"
+
+#: src/generators/generator_world.gd
+msgid "Marshall Islands"
+msgstr "Marshallinseln"
+
+#: src/generators/generator_world.gd
+msgid "Mauritania"
+msgstr "Mauretanien"
+
+#: src/generators/generator_world.gd
+msgid "Mauritius"
+msgstr "Mauritius"
+
+#: src/generators/generator_world.gd
+msgid "Mexico"
+msgstr "Mexiko"
+
+#: src/generators/generator_world.gd
+msgid "Moldova"
+msgstr "Moldau"
+
+#: src/generators/generator_world.gd
+msgid "Mongolia"
+msgstr "Mongolei"
+
+#: src/generators/generator_world.gd
+msgid "Montenegro"
+msgstr "Montenegro"
+
+#: src/generators/generator_world.gd
+msgid "Mozambique"
+msgstr "Mosambik"
+
+#: src/generators/generator_world.gd
+msgid "Myanmar"
+msgstr ""
+
+#: src/generators/generator_world.gd
+msgid "Namibia"
+msgstr "Namibia"
+
+#: src/generators/generator_world.gd
+msgid "Nauru"
+msgstr "Nauruisch"
+
+#: src/generators/generator_world.gd
+msgid "Nepal"
+msgstr "Nepal"
+
+#: src/generators/generator_world.gd
+msgid "New Zealand"
+msgstr "Neuseeland"
+
+#: src/generators/generator_world.gd
+msgid "Nicaragua"
+msgstr "Nicaragua"
+
+#: src/generators/generator_world.gd
+msgid "Netherlands"
+msgstr "Niederlande"
+
+#: src/generators/generator_world.gd
+msgid "Niger"
+msgstr "Niger"
+
+#: src/generators/generator_world.gd
+msgid "Nigeria"
+msgstr "Nigeria"
+
+#: src/generators/generator_world.gd
+msgid "North Korea"
+msgstr "Nordkorea"
+
+#: src/generators/generator_world.gd
+#, fuzzy
+#| msgid "Macedonia"
+msgid "North Macedonia"
+msgstr "Mazedonien"
+
+#: src/generators/generator_world.gd
+msgid "Norway"
+msgstr "Norwegen"
+
+#: src/generators/generator_world.gd
+msgid "Oman"
+msgstr "Oman"
+
+#: src/generators/generator_world.gd
+msgid "Austria"
+msgstr "Österreich"
+
+#: src/generators/generator_world.gd
+msgid "Timor-Leste"
+msgstr ""
+
+#: src/generators/generator_world.gd
+msgid "Pakistan"
+msgstr "Pakistan"
+
+#: src/generators/generator_world.gd
+#, fuzzy
+#| msgid "Prestige"
+msgid "Palestine"
+msgstr "Ansehen"
+
+#: src/generators/generator_world.gd
+msgid "Palau"
+msgstr "Palau"
+
+#: src/generators/generator_world.gd
+msgid "Panama"
+msgstr "Panama"
+
+#: src/generators/generator_world.gd
+msgid "Papua New Guinea"
+msgstr "Papua-Neuguinea"
+
+#: src/generators/generator_world.gd
+msgid "Paraguay"
+msgstr "Paraguay"
+
+#: src/generators/generator_world.gd
+msgid "Peru"
+msgstr "Peru"
+
+#: src/generators/generator_world.gd
+msgid "Philippines"
+msgstr "Philippinen"
+
+#: src/generators/generator_world.gd
+msgid "Poland"
+msgstr "Polen"
+
+#: src/generators/generator_world.gd
+msgid "Portugal"
+msgstr "Portugal"
+
+#: src/generators/generator_world.gd
+#, fuzzy
+#| msgid "Democratic Republic of Congo"
+msgid "Republic of the Congo"
+msgstr "Demokratische Republik Kongo"
+
+#: src/generators/generator_world.gd
+msgid "Rwanda"
+msgstr "Ruanda"
+
+#: src/generators/generator_world.gd
+msgid "Romania"
+msgstr "Rumänien"
+
+#: src/generators/generator_world.gd
+msgid "Russia"
+msgstr ""
+
+#: src/generators/generator_world.gd
+msgid "Solomon Islands"
+msgstr "Salomonen"
+
+#: src/generators/generator_world.gd
+msgid "Zambia"
+msgstr "Sambia"
+
+#: src/generators/generator_world.gd
+msgid "Samoa"
+msgstr "Samoa"
+
+#: src/generators/generator_world.gd
+msgid "San Marino"
+msgstr "San Marino"
+
+#: src/generators/generator_world.gd
+msgid "Sao Tome and Principe"
+msgstr "São Tomé und Príncipe"
+
+#: src/generators/generator_world.gd
+msgid "Saudi Arabia"
+msgstr "Saudi-Arabien"
+
+#: src/generators/generator_world.gd
+msgid "Sweden"
+msgstr "Schweden"
+
+#: src/generators/generator_world.gd
+msgid "Switzerland"
+msgstr "Schweiz"
+
+#: src/generators/generator_world.gd
+msgid "Senegal"
+msgstr "Senegal"
+
+#: src/generators/generator_world.gd
+msgid "Serbia"
+msgstr "Serbien"
+
+#: src/generators/generator_world.gd
+msgid "Seychelles"
+msgstr "Seychellen"
+
+#: src/generators/generator_world.gd
+msgid "Sierra Leone"
+msgstr "Sierra Leone"
+
+#: src/generators/generator_world.gd
+msgid "Zimbabwe"
+msgstr "Simbabwe"
+
+#: src/generators/generator_world.gd
+msgid "Singapore"
+msgstr "Singapur"
+
+#: src/generators/generator_world.gd
+msgid "Slovakia"
+msgstr "Slowakei"
+
+#: src/generators/generator_world.gd
+msgid "Slovenia"
+msgstr "Slowenien"
+
+#: src/generators/generator_world.gd
+msgid "Somalia"
+msgstr "Somalia"
+
+#: src/generators/generator_world.gd
+msgid "Spain"
+msgstr "Spanien"
+
+#: src/generators/generator_world.gd
+msgid "Sri Lanka"
+msgstr "Sri Lanka"
+
+#: src/generators/generator_world.gd
+msgid "Saint Kitts and Nevis"
+msgstr "St. Kitts und Nevis"
+
+#: src/generators/generator_world.gd
+msgid "Saint Lucia"
+msgstr "St. Lucia"
+
+#: src/generators/generator_world.gd
+msgid "Saint Vincent and the Grenadines"
+msgstr "St. Vincent und die Grenadinen"
+
+#: src/generators/generator_world.gd
+msgid "South Africa"
+msgstr "Südafrika"
+
+#: src/generators/generator_world.gd
+msgid "Sudan"
+msgstr "Sudan"
+
+#: src/generators/generator_world.gd
+msgid "South Korea"
+msgstr "Südkorea"
+
+#: src/generators/generator_world.gd
+msgid "South Sudan"
+msgstr "Südsudan"
+
+#: src/generators/generator_world.gd
+msgid "Suriname"
+msgstr "Surinam"
+
+#: src/generators/generator_world.gd
+msgid "Syria"
+msgstr "Syrien"
+
+#: src/generators/generator_world.gd
+msgid "Tajikistan"
+msgstr "Tadschikistan"
+
+#: src/generators/generator_world.gd
+msgid "Taiwan"
+msgstr ""
+
+#: src/generators/generator_world.gd
+msgid "Tanzania"
+msgstr "Tansania"
+
+#: src/generators/generator_world.gd
+msgid "Thailand"
+msgstr "Thailand"
+
+#: src/generators/generator_world.gd
+msgid "Togo"
+msgstr "Togo"
+
+#: src/generators/generator_world.gd
+msgid "Tonga"
+msgstr "Tonga"
+
+#: src/generators/generator_world.gd
+msgid "Trinidad and Tobago"
+msgstr "Trinidad und Tobago"
+
+#: src/generators/generator_world.gd
+msgid "Chad"
+msgstr "Tschad"
+
+#: src/generators/generator_world.gd
+msgid "Czech Republic"
+msgstr "Tschechische Republik"
+
+#: src/generators/generator_world.gd
+msgid "Tunisia"
+msgstr "Tunesien"
+
+#: src/generators/generator_world.gd
+msgid "Turkey"
+msgstr "Türkei"
+
+#: src/generators/generator_world.gd
+msgid "Turkmenistan"
+msgstr "Turkmenistan"
+
+#: src/generators/generator_world.gd
+msgid "Tuvalu"
+msgstr "Tuvaluisch"
+
+#: src/generators/generator_world.gd
+msgid "Uganda"
+msgstr "Uganda"
+
+#: src/generators/generator_world.gd
+msgid "Ukraine"
+msgstr "Ukraine"
+
+#: src/generators/generator_world.gd
+msgid "Hungary"
+msgstr "Ungarn"
+
+#: src/generators/generator_world.gd
+msgid "Uruguay"
+msgstr "Uruguay"
+
+#: src/generators/generator_world.gd
+msgid "Uzbekistan"
+msgstr "Usbekistan"
+
+#: src/generators/generator_world.gd
+msgid "Vanuatu"
+msgstr "Vanuatu"
+
+#: src/generators/generator_world.gd
+msgid "Vatican City"
+msgstr "Vatikanstadt"
+
+#: src/generators/generator_world.gd
+msgid "Venezuela"
+msgstr "Venezuela"
+
+#: src/generators/generator_world.gd
+msgid "United Arab Emirates"
+msgstr "Vereinigte Arabische Emirate"
+
+#: src/generators/generator_world.gd
+msgid "United States of America"
+msgstr ""
+
+#: src/generators/generator_world.gd
+msgid "United Kingdom"
+msgstr "Vereinigtes Königreich"
+
+#: src/generators/generator_world.gd
+msgid "Vietnam"
+msgstr "Vietnam"
+
+#: src/generators/generator_world.gd
+msgid "Central African Republic"
+msgstr "Zentralafrikanische Republik"
+
+#: src/generators/generator_world.gd
+msgid "Cyprus"
+msgstr "Zypern"
+
+#~ msgid "Restoring from backup"
+#~ msgstr "Aus Datensicherung wiederherstellen"
+
+#~ msgid "Usa"
+#~ msgstr "USA"
+
+#~ msgid "Congo"
+#~ msgstr "Kongo"
+
+#~ msgid "Ivory Coast"
+#~ msgstr "Elfenbeinküste"
+
+#~ msgid "Swaziland"
+#~ msgstr "Swasiland"
+
+#~ msgid "Burma"
+#~ msgstr "Burma"
+
+#~ msgid "East Timor"
+#~ msgstr "Osttimor"
+
+#~ msgid "Russian Federation"
+#~ msgstr "Russische Föderation"
 
 #~ msgid "Out of lineup"
 #~ msgstr "Nicht in der Aufstellung"
