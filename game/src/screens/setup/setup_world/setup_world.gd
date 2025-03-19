@@ -177,8 +177,44 @@ func _on_world_generated() -> void:
 	else:
 		# wait loading screen is hidden
 		await Main.hide_loading_screen()
-		# TODO show error messages in file error dialog
+		# add errors
+		file_error_dialog.append_text(tr("Errors"))
+		for error: Generator.GenerationError in Global.generation_errors:
+			file_error_dialog.append_text(_get_error_text(error))
+		# add warnings
+		file_error_dialog.append_text(tr("Warnings"))
+		for warning: Generator.GenerationWarning in Global.generation_warnings:
+			file_error_dialog.append_text(_get_warning_text(warning))
+			
 		file_error_dialog.popup_centered()
+
+
+func _get_error_text(error: Generator.GenerationError) -> String:
+	match error:
+		Generator.GenerationError.ERR_READ_FILE:
+			return tr("Unable to read file.")
+		Generator.GenerationError.ERR_INVALID_CSV_FORMAT:
+			return tr("Invalid csv format.")
+		Generator.GenerationError.ERR_INVALID_CSV_FORMAT:
+			return tr("Invalid csv format.")
+		_:
+			return tr("Undefined error occurred.")
+
+
+func _get_warning_text(warning: Generator.GenerationWarning) -> String:
+	match warning:
+		Generator.GenerationWarning.WARN_NATION_FORMAT:
+			return tr("Nation {nation_name} has wrong format")
+		Generator.GenerationWarning.WARN_NATION_NOT_FOUND:
+			return tr("Nation {nation_name} not found")
+		Generator.GenerationWarning.WARN_LEAGUE_SIZE_MIN:
+			return tr("League {league_name} has less than 8 teams.")
+		Generator.GenerationWarning.WARN_LEAGUE_SIZE_MAX:
+			return tr("League {league_name} has more than 20 teams.")
+		Generator.GenerationWarning.WARN_LEAGUE_SIZE_ODD:
+			return tr("League {league_name} has odd size teams.")
+		_:
+			return tr("Undefined warning occurred.")
 
 
 func _on_back_pressed() -> void:

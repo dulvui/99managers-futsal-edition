@@ -45,7 +45,7 @@ const STAMINA_FACTOR: float = 1.0 / (FULL_TIME_SECONDS * TICKS_LOGIC * 20)  # 20
 const MAX_PRESTIGE: int = 20
 
 const LINEUP_PLAYERS_AMOUNT: int = 12
-const LEAGUE_MAX_TEAMS: int = 16
+const LEAGUE_MAX_TEAMS: int = 20
 const LEAGUE_MIN_TEAMS: int = 8
 
 # season start at 1st of june

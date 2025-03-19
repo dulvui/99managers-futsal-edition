@@ -39,6 +39,10 @@ func _ready() -> void:
 	title_label.text = custom_title
 
 
+func append_text(text: String) -> void:
+	rich_text_label.text += "\n" + text
+
+
 func _on_about_to_popup() -> void:
 	InputUtil.start_focus(cancel_button)
 
