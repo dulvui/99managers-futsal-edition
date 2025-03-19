@@ -23,7 +23,8 @@ func test_required_properties() -> void:
 	var world: World = world_generator.init_world()
 	# generate teams
 	var generator: Generator = Generator.new()
-	world = generator.generate_teams(world)
+	var success: bool = generator.generate_teams(world)
+	assert(success)
 
 	assert(world.continents.size() > 0)
 
@@ -52,7 +53,8 @@ func test_determenistic_generation() -> void:
 	var world: World = world_generator.init_world()
 	# generate teams
 	var generator: Generator = Generator.new()
-	world = generator.generate_teams(world)
+	var success: bool = generator.generate_teams(world)
+	assert(success)
 
 	# test deterministic generations x time
 	for i: int in range(2):
@@ -66,6 +68,8 @@ func test_determenistic_generation() -> void:
 		# generate teams
 		var test_generator: Generator = Generator.new()
 		test_world = test_generator.generate_teams(test_world)
+		var test_success: bool = generator.generate_teams(test_world)
+		assert(test_success)
 
 		# continents
 		assert(test_world.continents.size() == world.continents.size())
@@ -133,7 +137,8 @@ func test_history() -> void:
 	var world: World = world_generator.init_world()
 	# generate teams
 	var generator: Generator = Generator.new()
-	world = generator.generate_teams(world)
+	var success: bool = generator.generate_teams(world)
+	assert(success)
 
 	# make sure leagues have still same size after history generation
 	var league_sizes: Dictionary[String, int] = {}

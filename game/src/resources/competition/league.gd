@@ -12,6 +12,10 @@ extends Competition
 @export var nation_name: String
 @export var playoffs: Playoffs
 
+@export var playoff_teams: int
+@export var relegation_teams: int
+@export var promotion_teams: int
+
 
 func _init(
 	p_teams: Array[Team] = [],
@@ -24,6 +28,11 @@ func _init(
 	tables = p_tables
 	nation_name = p_nation_name
 	playoffs = p_playoffs
+
+
+func initialize_sizes(leagues_amount: int) -> void:
+	if leagues_amount == 1:
+		playoff_teams = 1
 
 
 func table() -> Table:

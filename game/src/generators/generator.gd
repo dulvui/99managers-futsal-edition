@@ -40,6 +40,20 @@ const EYE_COLORS: Array[String] = [
 	"000000",
 ]
 
+enum GenerationError {
+	ERR_READ_FILE,
+	ERR_INVALID_CSV_FORMAT,
+	ERR_NO_LEAGUE_CREATED,
+}
+
+enum GenerationWarning {
+	WARN_NATION_FORMAT,
+	WARN_NATION_NOT_FOUND,
+	WARN_LEAGUE_SIZE_MIN,
+	WARN_LEAGUE_SIZE_MAX,
+	WARN_LEAGUE_SIZE_ODD,
+}
+
 var leagues_data: Dictionary = {}
 
 # for birthdays range
@@ -50,7 +64,11 @@ var min_timestamp: int
 var names: GeneratorNames
 
 
-func generate_teams(world: World, world_file_path: String = WORLD_CSV_PATH) -> World:
+func generate_teams(world: World, world_file_path: String = WORLD_CSV_PATH) -> bool:
+	# reset warnings/errors
+	Global.generation_warnings = []
+	Global.generation_errors = []
+
 	var custom_file: bool = world_file_path != WORLD_CSV_PATH
 
 	names = GeneratorNames.new(world)
@@ -73,7 +91,8 @@ func generate_teams(world: World, world_file_path: String = WORLD_CSV_PATH) -> W
 	var file: FileAccess = FileAccess.open(world_file_path, FileAccess.READ)
 	if file == null:
 		print("error while opening world file at %s" % world_file_path)
-		return null
+		Global.generation_errors.append(GenerationError.ERR_READ_FILE)
+		return false
 
 	# read from csv
 	# get header row CONTINENT, NATION, CITY, TEAM
@@ -100,14 +119,14 @@ func generate_teams(world: World, world_file_path: String = WORLD_CSV_PATH) -> W
 
 		# check for errors
 		if err != Error.OK:
-			Global.error_load_world = 2
 			print("error while reading lines from csv with code %d" % err)
-			return null
+			Global.generation_errors.append(GenerationError.ERR_READ_FILE)
+			return false
 	
 		if line.size() > 2:
 			for value: String in line:
 				if custom_file and not _is_valid_csv_line(value, text_server):
-					return null
+					return false
 
 			# format must be Nation:Code example Italy:IT
 			# finally only code will be used to supported multi language nations
@@ -120,6 +139,7 @@ func generate_teams(world: World, world_file_path: String = WORLD_CSV_PATH) -> W
 			var nation_split: PackedStringArray = nation_cell.split(":", false, 1)
 			if nation_split.size() < 2:
 				print("nation has wrong format: %s" % nation_cell)
+				Global.generation_warnings.append(GenerationWarning.WARN_NATION_FORMAT)
 				continue
 			var nation_code: String = nation_split[1]
 
@@ -130,29 +150,13 @@ func generate_teams(world: World, world_file_path: String = WORLD_CSV_PATH) -> W
 				)
 				if nation_filter.size() == 0:
 					print("nation not found with code: %s" % nation_code)
-					return
+					Global.generation_warnings.append(GenerationWarning.WARN_NATION_NOT_FOUND)
+					continue
 				last_nation = nation_filter[0]
 
 			_initialize_team(world, last_nation, league, team_name)
 	
-	# national teams
-	for continent: Continent in world.continents:
-		for nation: Nation in continent.nations:
-			# national team
-			nation.team.set_id()
-			nation.team.name = nation.name
-
-			# add nations best players
-			nation.team.players = world.get_best_players_by_nationality(nation)
-			nation.team.staff = _create_staff(world, nation.team.get_prestige(), nation, 1)
-			nation.team.formation = nation.team.staff.manager.formation
-			# TODO replace with actual national colors
-			_set_random_shirt_colors(nation.team)
-	
 	# validate world
-	if world.continents.size() == 0:
-		print("world has no continents")
-		return null
 	var competitive_continent_found: bool = false
 	for continent: Continent in world.continents:
 		if continent.is_competitive():
@@ -160,9 +164,48 @@ func generate_teams(world: World, world_file_path: String = WORLD_CSV_PATH) -> W
 			break
 	if not competitive_continent_found:
 		print("world has no competitive continent")
-		return null
+		Global.generation_errors.append(GenerationError.ERR_NO_LEAGUE_CREATED)
+		return false
+	
+	# national teams
+	for continent: Continent in world.continents:
+		for nation: Nation in continent.nations:
+			# national team
+			nation.team.set_id()
+			nation.team.name = nation.name
+			# add nations best players
+			nation.team.players = world.get_best_players_by_nationality(nation)
+			nation.team.staff = _create_staff(world, nation.team.get_prestige(), nation, 1)
+			nation.team.formation = nation.team.staff.manager.formation
+			# TODO replace with actual national colors
+			_set_random_shirt_colors(nation.team)
 
-	return world
+	# calculate league size, relegations, promotions and playoffs
+	for continent: Continent in world.continents:
+		for nation: Nation in continent.nations:
+			var leagues_amount: int = nation.leagues.size()
+			for league: League in nation.leagues:
+				# max amount check
+				if league.teams.size() > Const.LEAGUE_MAX_TEAMS:
+					print("too many teams in league " + league.name)
+					Global.generation_warnings.append(GenerationWarning.WARN_LEAGUE_SIZE_MAX)
+					league.teams = league.teams.slice(0, Const.LEAGUE_MAX_TEAMS)
+
+				# even amount check
+				if league.teams.size() % 2 == 1:
+					print("odd team amounts in league " + league.name)
+					Global.generation_warnings.append(GenerationWarning.WARN_LEAGUE_SIZE_ODD)
+					# remove last team
+					league.teams = league.teams.slice(0, league.teams.size())
+
+				# min amount check
+				if league.teams.size() < Const.LEAGUE_MIN_TEAMS:
+					print("too few teams in league " + league.name)
+					Global.generation_warnings.append(GenerationWarning.WARN_LEAGUE_SIZE_MIN)
+					league.teams = league.teams.slice(0, Const.LEAGUE_MAX_TEAMS)
+				league.initialize_sizes(leagues_amount)
+
+	return true
 
 
 func _is_valid_csv_line(string: String, text_server: TextServer) -> bool:

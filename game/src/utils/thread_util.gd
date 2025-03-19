@@ -58,12 +58,10 @@ func _generate_world(world: World, world_file_path: String) -> void:
 
 	# create world, teams and players
 	var generator: Generator = Generator.new()
-	world = generator.generate_teams(world, world_file_path)
-	
+	var success: bool = generator.generate_teams(world, world_file_path)
 	# go back if world is not valid
-	if world == null:
+	if not success:
 		print("error while reading world file")
-		Global.error_load_world = 1
 		call_deferred("_loading_done")
 		return
 

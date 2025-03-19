@@ -111,7 +111,6 @@ func _on_continue_pressed() -> void:
 	await Main.show_loading_screen(tr("Generating teams and players"))
 	Main.loaded.connect(_on_world_generated)
 
-	Global.error_load_world = 0
 	if default_file_button.button_pressed or custom_file_path.is_empty():
 		ThreadUtil.generate_world(world)
 	else:
@@ -173,11 +172,12 @@ func _on_files_more_info_pressed() -> void:
 
 func _on_world_generated() -> void:
 	# check world loading error
-	if Global.error_load_world == 0:
+	if Global.generation_errors.size() == 0:
 		Main.change_scene(Const.SCREEN_SETUP_TEAM)
 	else:
 		# wait loading screen is hidden
 		await Main.hide_loading_screen()
+		# TODO show error messages in file error dialog
 		file_error_dialog.popup_centered()
 
 

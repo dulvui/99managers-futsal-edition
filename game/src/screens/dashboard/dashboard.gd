@@ -281,13 +281,13 @@ func _next_day() -> void:
 	email.update_messages()
 	date_label.text = Global.world.calendar.format_date()
 
-	if Global.world.calendar.day().matches.size() > 0:
+	# if Global.world.calendar.day().matches.size() > 0:
 		# threaded simulation
-		Main.show_loading_screen(tr("Simulating results"))
-		ThreadUtil.random_results()
+		# Main.show_loading_screen(tr("Simulating results"))
+		# ThreadUtil.random_results()
 
 		# non threaded simulation
-		# Global.world.random_r=esults()
+		# Global.world.random_results()
 
 	# check matches
 	if Global.world.calendar.is_match_day():

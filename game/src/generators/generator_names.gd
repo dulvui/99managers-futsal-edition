@@ -13,6 +13,23 @@ const SURNAMES: StringName = "surnames"
 var names: Dictionary = {}
 
 
+# Key Futsal Regions
+# South America
+# Brazil, Argentina, Paraguay, Colombia
+#
+# Europe
+# Spain, Italy, Portugal, Russia, Ukraine
+#
+# North America
+# USA, Canada
+#
+# Asia
+# Japan, Iran, Thailand, Indonesia, Vietnam, Malaysia, Australia
+#
+# Africa
+# Morocco, Egypt, Mozambique, Angola
+
+
 func _init(world: World) -> void:
 	for nation: Nation in world.get_all_nations():
 		for locale: Locale in nation.locales:
@@ -115,7 +132,6 @@ func _read_name_csv_file(path: String) -> Array[String]:
 
 		# check for reading errors
 		if error != OK:
-			Global.error_load_world = 2
 			print("error while reading lines from name csv file %s with code %d" % [path, error])
 			# returning what found so far
 			return names_in_csv

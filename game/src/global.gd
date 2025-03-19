@@ -35,8 +35,9 @@ var manager: Manager
 # save states
 var save_states: SaveStates
 
-# errors
-var error_load_world: int
+# generation warnings and errors
+var generation_warnings: Array[Generator.GenerationWarning]
+var generation_errors: Array[Generator.GenerationError]
 
 # save last player silhouette path to prevent showing the same multiple times
 var player_silhouette_last_path: String
@@ -51,7 +52,8 @@ func _ready() -> void:
 	save_states = ResUtil.load_save_states()
 	RngUtil.setup_rngs()
 
-	error_load_world = 0
+	generation_warnings = []
+	generation_errors = []
 
 
 func select_team(p_team: Team) -> void:
