@@ -67,8 +67,7 @@ func test_determenistic_generation() -> void:
 		var test_world: World = test_world_generator.init_world()
 		# generate teams
 		var test_generator: Generator = Generator.new()
-		test_world = test_generator.generate_teams(test_world)
-		var test_success: bool = generator.generate_teams(test_world)
+		var test_success: bool = test_generator.generate_teams(test_world)
 		assert(test_success)
 
 		# continents
