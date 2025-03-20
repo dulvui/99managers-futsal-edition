@@ -158,14 +158,48 @@ func generate_teams(world: World, world_file_path: String = WORLD_CSV_PATH) -> b
 			# TODO replace with actual national colors
 			_set_random_shirt_colors(nation.team)
 
-	# calculate league size, relegations, promotions and playoffs
 	for continent: Continent in world.continents:
 		for nation: Nation in continent.nations:
-			var leagues_amount: int = nation.leagues.size()
-			for league: League in nation.leagues:
-				league.initialize_sizes(leagues_amount)
+			_initialize_leagues(nation)
 
 	return true
+
+
+func _initialize_leagues(nation: Nation) -> void:
+	# calculate league size, relegations, promotions and playoffs
+	var leagues_amount: int = nation.leagues.size()
+
+	if leagues_amount == 0:
+		return
+
+	# promotion/relegation and playoff/playout team amount
+	for i: int in leagues_amount:
+		var league: League = nation.leagues[i]
+		# playoff teams
+		if league.teams.size() >= 20:
+			league.playoff_teams = 16
+		elif league.teams.size() >= 12:
+			league.playoff_teams = 8
+		else:
+			league.playoff_teams = 4
+
+		if i > 0:
+			var upper_league: League = nation.leagues[i - 1]
+
+			# direct relegation and playout teams for upper league
+			if i < leagues_amount - 1:
+				if upper_league.teams.size() > 16:
+					upper_league.direct_relegation_teams = 2
+					upper_league.playout_teams = 2
+				elif upper_league.teams.size() > 8:
+					upper_league.direct_relegation_teams = 1
+					upper_league.playout_teams = 2
+				elif upper_league.teams.size() >= 4:
+					upper_league.direct_relegation_teams = 1
+					upper_league.playout_teams = 0
+
+			# direct promotion teams is relegation amount from upper league
+			league.direct_promotion_teams = upper_league.direct_relegation_teams
 
 
 func _assign_players_to_team(
@@ -643,9 +677,10 @@ func _initialize_team(
 	_set_random_shirt_colors(team)
 
 	team.stadium = Stadium.new()
-	team.stadium.name = team.name + " Stadium"
+	team.stadium.name = team.name + " " + tr("Stadium")
+	# range from 200 to 20.000
 	team.stadium.capacity = RngUtil.rng.randi_range(
-		temp_team_prestige * 1000, temp_team_prestige * 10000
+		temp_team_prestige * 200, temp_team_prestige * 1_000
 	)
 	team.stadium.year_built = RngUtil.rng.randi_range(date.year - 70, date.year - 1)
 

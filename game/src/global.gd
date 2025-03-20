@@ -105,7 +105,7 @@ func next_season() -> void:
 
 	PlayerProgress.players_progress_season()
 
-	world.promote_and_delegate_teams()
+	world.promote_and_relegate_teams()
 
 	world.calendar.initialize(true)
 

@@ -29,7 +29,54 @@ func initialize_matches() -> void:
 			_initialize_nations_continental_cup(continent)
 
 	# last, initialize world cup
-	_initialize_world_cup()
+
+
+func initialize_playoffs(league: League, add_to_calendar: bool = true) -> void:
+	var p_teams: Array[Team] = []
+	var sorted_table: Array[TableValues] = league.table().to_sorted_array()
+
+	# remove directly promoted
+	for i: int in league.direct_promotion_teams:
+		sorted_table.pop_front()
+
+	# remaining teams in order are playoff teams
+	for i: int in league.playoff_teams:
+		var value: TableValues = sorted_table.pop_front()
+		if value == null:
+			push_error("no team left for playoff")
+		else:
+			p_teams.append(league.get_team_by_id(value.team_id))
+
+	league.playoffs.setup_knockout(p_teams)
+
+	# add to calendar
+	if add_to_calendar:
+		var matches: Array[Array] = league.playoffs.get_matches()
+		add_matches_to_calendar(league.playoffs, matches)
+
+
+func initialize_playouts(league: League, add_to_calendar: bool = true) -> void:
+	var p_teams: Array[Team] = []
+	var sorted_table: Array[TableValues] = league.table().to_sorted_array()
+
+	# remove directly relegated
+	for i: int in league.direct_relegation_teams:
+		sorted_table.pop_back()
+
+	# remaining teams in order are playoff teams
+	for i: int in league.playoff_teams:
+		var value: TableValues = sorted_table.pop_back()
+		if value == null:
+			push_error("no team left for playout")
+		else:
+			p_teams.append(league.get_team_by_id(value.team_id))
+
+	league.playouts.setup_knockout(p_teams)
+
+	# add to calendar
+	if add_to_calendar:
+		var matches: Array[Array] = league.playouts.get_matches()
+		add_matches_to_calendar(league.playouts, matches)
 
 
 func create_combinations(competition: Competition, p_teams: Array[Team]) -> Array[Array]:

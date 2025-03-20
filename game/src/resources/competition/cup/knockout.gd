@@ -179,21 +179,6 @@ func _prepare_next_round(p_round: KnockoutRound, teams: Array[TeamBasic]) -> boo
 
 	# eliminate teams
 	for matchz: Match in p_round.matches:
-		if legs_semi_finals == Legs.SINGLE:
-			if matchz.home_goals > matchz.away_goals:
-				teams.erase(matchz.away)
-			else:
-				teams.erase(matchz.home)
-		else:
-			# search for matches with fist leg reference
-			if matchz.first_leg != null:
-				var first_leg: Match = matchz.first_leg
-
-				var team_1_goal_sum: int = first_leg.home_goals + matchz.away_goals
-				var team_2_goal_sum: int = first_leg.away_goals + matchz.home_goals
-
-				if team_1_goal_sum > team_2_goal_sum:
-					teams.erase(first_leg.home)
-				else:
-					teams.erase(first_leg.away)
+		var looser: TeamBasic = matchz.get_looser()
+		teams.erase(looser)
 	return true

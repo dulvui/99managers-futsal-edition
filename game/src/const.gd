@@ -45,8 +45,9 @@ const STAMINA_FACTOR: float = 1.0 / (FULL_TIME_SECONDS * TICKS_LOGIC * 20)  # 20
 const MAX_PRESTIGE: int = 20
 
 const LINEUP_PLAYERS_AMOUNT: int = 12
-const LEAGUE_MAX_TEAMS: int = 20
-const LEAGUE_MIN_TEAMS: int = 8
+# biggest(?) official futsal league has 24 teams, the brasilian first league
+const LEAGUE_MAX_TEAMS: int = 24
+const LEAGUE_MIN_TEAMS: int = 6
 
 # season start at 1st of june
 const SEASON_START_DAY: int = 1

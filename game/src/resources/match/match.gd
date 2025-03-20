@@ -113,6 +113,40 @@ func get_result() -> String:
 	return "%d(%d) : (%d)%d" % [home_goals, home_penalties_goals, away_penalties_goals, away_goals]
 
 
+func get_winner() -> TeamBasic:
+	var home_total_goals: int = home_goals + home_penalties_goals
+	var away_total_goals: int = away_goals + away_penalties_goals
+
+	if first_leg != null:
+		# first leg will never have penalty shootout
+		home_total_goals += first_leg.away_goals
+		away_total_goals += first_leg.home_goals
+
+	if home_total_goals == away_total_goals:
+		return null
+	elif home_total_goals < away_total_goals:
+		return away
+	else:
+		return home
+
+
+func get_looser() -> TeamBasic:
+	var home_total_goals: int = home_goals + home_penalties_goals
+	var away_total_goals: int = away_goals + away_penalties_goals
+
+	if first_leg != null:
+		# first leg will never have penalty shootout
+		home_total_goals += first_leg.away_goals
+		away_total_goals += first_leg.home_goals
+
+	if home_total_goals == away_total_goals:
+		return null
+	elif home_total_goals < away_total_goals:
+		return away
+	else:
+		return home
+
+
 # checks if match is played by active team
 func has_active_team() -> bool:
 	if Global.team == null:

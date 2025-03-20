@@ -6,6 +6,7 @@ class_name Cup
 extends Competition
 
 enum Stage {
+	NOT_READY,
 	GROUP,
 	KNOCKOUT,
 }
@@ -24,7 +25,7 @@ const MAX_TEAMS: int = 32
 func _init(
 	p_groups: Array[Group] = [],
 	p_knockout: Knockout = Knockout.new(),
-	p_stage: Stage = Stage.GROUP,
+	p_stage: Stage = Stage.NOT_READY,
 ) -> void:
 	super()
 	groups = p_groups
@@ -77,6 +78,12 @@ func setup_knockout(
 	knockout.setup(teams, legs_semi_finals, legs_final)
 
 
+func reset() -> void:
+	groups = []
+	knockout = Knockout.new()
+	stage = Stage.NOT_READY
+
+
 func add_result(
 	home_id: int,
 	away_id: int,
@@ -92,7 +99,7 @@ func add_result(
 		)
 
 
-func next_stage() -> void:
+func next_stage(add_to_calendar: bool = true) -> void:
 	var match_util: MatchUtil = MatchUtil.new(Global.world)
 
 	if stage == Stage.GROUP:
@@ -104,10 +111,12 @@ func next_stage() -> void:
 		if over_counter == groups.size():
 			# group stage is over
 			setup_knockout()
-			match_util.add_matches_to_calendar(self, get_matches())
+			if add_to_calendar:
+				match_util.add_matches_to_calendar(self, get_matches())
 	elif knockout.prepare_next_round():
 		# add next round matches calendar
-		match_util.add_matches_to_calendar(self, get_matches())
+		if add_to_calendar:
+			match_util.add_matches_to_calendar(self, get_matches())
 
 
 func get_matches() -> Array[Array]:
@@ -122,6 +131,18 @@ func is_final() -> bool:
 	if knockout.final == null:
 		return false
 	return true
+
+
+func is_started() -> bool:
+	return stage != Stage.NOT_READY
+
+
+func is_over() -> bool:
+	if stage == Stage.GROUP:
+		return false
+	if knockout.final == null:
+		return false
+	return knockout.final.over
 
 
 func is_active() -> bool:

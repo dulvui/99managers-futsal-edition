@@ -42,6 +42,13 @@ func random_results() -> void:
 	for cup: Cup in get_all_cups():
 		cup.next_stage()
 
+	# check if playoffs and playouts ready for next stage
+	for league: League in get_all_leagues(true):
+		if league.playoffs.is_started():
+			league.playoffs.next_stage()
+		if league.playouts.is_started():
+			league.playouts.next_stage()
+
 
 func get_active_team() -> Team:
 	return get_team_by_id(active_team_id)
@@ -234,44 +241,53 @@ func get_all_teams(include_national_teams: bool = false) -> Array[Team]:
 	return teams
 
 
-func promote_and_delegate_teams() -> void:
+func promote_and_relegate_teams() -> void:
 	for contient: Continent in continents:
 		for nation: Nation in contient.nations:
-			# d - delegated
+			# d - relegated
 			# p - promoted
 			var teams_buffer: Dictionary = {}
-			teams_buffer["d"] = {}
+			teams_buffer["r"] = {}
 			teams_buffer["p"] = {}
 
-			# get teams that will delegate/promote
+			# get teams that will relegate/promote
 			for league: League in nation.leagues:
-				# last/first x teams will be promoted delegated
+				# last/first x teams will be promoted relegated
 				var sorted_table: Array[TableValues] = league.table().to_sorted_array()
 
-				# assign delegated
-				var delegated: Array[Team] = league.teams.filter(
-					func(t: Team) -> bool: return (
-							# get last 2 teams
-							t.id == sorted_table[-1].team_id
-							|| t.id == sorted_table[-2].team_id
-					)
+				# assign direct relegated
+				var relegated: Array[Team] = league.teams.filter(
+					func(t: Team) -> bool:
+						for i: int in league.direct_relegation_teams:
+							if t.id == sorted_table[-i].team_id:
+								return true
+						return false
 				)
-				teams_buffer["d"][league.pyramid_level] = delegated
+				# assign playouts looser
+				if league.playouts != null:
+					var runner_up: TeamBasic = league.playouts.final.get_looser()
+					relegated.append(runner_up)
 
-				# assign promoted
+				teams_buffer["r"][league.pyramid_level] = relegated
+
+				# assign direct promoted
 				var promoted: Array[Team] = league.teams.filter(
-					func(t: Team) -> bool: return (
-						# get first 2 teams
-						t.id == sorted_table[0].team_id
-						|| t.id == sorted_table[1].team_id
-					)
+					func(t: Team) -> bool:
+						for i: int in league.direct_promotion_teams:
+							if t.id == sorted_table[i].team_id:
+								return true
+						return false
 				)
+				# assign playoffs winner
+				if league.playoffs != null:
+					var winner: TeamBasic = league.playoffs.final.get_winner()
+					promoted.append(winner)
 				teams_buffer["p"][league.pyramid_level] = promoted
 
-			# delegate/promote
+			# relegate/promote
 			for league: League in nation.leagues:
 				var promoted: Array[Team] = teams_buffer["p"][league.pyramid_level]
-				var delegated: Array[Team] = teams_buffer["d"][league.pyramid_level]
+				var relegated: Array[Team] = teams_buffer["r"][league.pyramid_level]
 
 				# last league
 				# only promote to upper league
@@ -286,7 +302,7 @@ func promote_and_delegate_teams() -> void:
 							league.teams.erase(team)
 
 				# intermediate leagues
-				# delegate to lower league, promote to upper league
+				# relegate to lower league, promote to upper league
 				elif league.pyramid_level > 1 and league.pyramid_level < nation.leagues.size():
 					# promote
 					nation.get_league_by_pyramid_level(league.pyramid_level - 1).teams.append_array(
@@ -296,28 +312,28 @@ func promote_and_delegate_teams() -> void:
 					for team: Team in promoted:
 						league.teams.erase(team)
 
-					# delegate
+					# relegate
 					nation.get_league_by_pyramid_level(league.pyramid_level + 1).teams.append_array(
-						delegated
+						relegated
 					)
-					# remove delegated teams
-					for team: Team in delegated:
+					# remove relegated teams
+					for team: Team in relegated:
 						league.teams.erase(team)
 
 				# best league
-				# delegate to lower league, assign winners to cups
+				# relegate to lower league, assign winners to cups
 				else:
 					# first teams go to cup
 					# TODO add to continental cup
 					#continental_cup_teams.append_array(promoted_teams)
 
-					# add delegated teams to lower league
+					# add relegated teams to lower league
 					nation.get_league_by_pyramid_level(league.pyramid_level + 1).teams.append_array(
-						delegated
+						relegated
 					)
 
-					# remove delegated teams
-					for team: Team in delegated:
+					# remove relegated teams
+					for team: Team in relegated:
 						league.teams.erase(team)
 
 			# add new seasons table
@@ -328,3 +344,7 @@ func promote_and_delegate_teams() -> void:
 					# reassign all league ids
 					team.league_id = league.id
 				league.tables.append(table)
+
+				# reset playoffs/playouts
+				league.playoffs.reset()
+				league.playouts.reset()
