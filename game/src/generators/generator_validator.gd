@@ -66,7 +66,7 @@ func validate_csv_file(file_path: String) -> bool:
 			return false
 	
 		# check columns size same as headers
-		if line.size() != HEADERS.size():
+		if line.size() > HEADERS.size() or line.size() == 0:
 			push_error("wrong column size in row %d" % error)
 			Global.generation_errors.append(Enum.GenerationError.ERR_COLUMN_SIZE)
 			return false

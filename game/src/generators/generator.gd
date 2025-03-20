@@ -108,6 +108,9 @@ func generate_teams(world: World, world_file_path: String = WORLD_CSV_PATH) -> b
 		if err == Error.ERR_FILE_EOF:
 			break
 
+		if line.size() != GeneratorValidator.HEADERS.size():
+			continue
+
 		# format must be Nation:Code example Italy:IT
 		# finally only code will be used to supported multi language nations
 		# but still keep contistency
