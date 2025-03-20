@@ -25,12 +25,12 @@ enum GenerationError {
 	ERR_CSV_HEADER_FORMAT,
 	ERR_COLUMN_SIZE,
 	ERR_NO_LEAGUE_CREATED,
+	ERR_LEAGUE_SIZE_MIN,
 }
 
 enum GenerationWarning {
 	WARN_NATION_FORMAT,
 	WARN_NATION_NOT_FOUND,
-	WARN_LEAGUE_SIZE_MIN,
 	WARN_LEAGUE_SIZE_MAX,
 	WARN_LEAGUE_SIZE_ODD,
 	WARN_TEAM_NO_NAME,
@@ -254,6 +254,8 @@ func get_generation_error_text(error: GenerationError) -> String:
 			return tr("Unable to read file.")
 		GenerationError.ERR_CSV_INVALID_FORMAT:
 			return tr("Invalid csv format.")
+		GenerationError.ERR_LEAGUE_SIZE_MIN:
+			return tr("League {league_name} has less than 8 teams.")
 		_:
 			return tr("Undefined error occurred.")
 
@@ -264,8 +266,6 @@ func get_generation_warning_text(warning: GenerationWarning) -> String:
 			return tr("Nation {nation_name} has wrong format")
 		GenerationWarning.WARN_NATION_NOT_FOUND:
 			return tr("Nation {nation_name} not found")
-		GenerationWarning.WARN_LEAGUE_SIZE_MIN:
-			return tr("League {league_name} has less than 8 teams.")
 		GenerationWarning.WARN_LEAGUE_SIZE_MAX:
 			return tr("League {league_name} has more than 20 teams.")
 		GenerationWarning.WARN_LEAGUE_SIZE_ODD:

@@ -137,8 +137,7 @@ func generate_teams(world: World, world_file_path: String = WORLD_CSV_PATH) -> b
 		_initialize_team(world, last_nation, league, team_name)
 	
 	# validate world
-	validator.validate_world(world)
-	var is_valid_world: bool = validator.validate_csv_file(world_file_path)
+	var is_valid_world: bool = validator.validate_world(world)
 	if not is_valid_world:
 		push_error("world not valid %s" % world_file_path)
 		return false
@@ -161,24 +160,6 @@ func generate_teams(world: World, world_file_path: String = WORLD_CSV_PATH) -> b
 		for nation: Nation in continent.nations:
 			var leagues_amount: int = nation.leagues.size()
 			for league: League in nation.leagues:
-				# max amount check
-				if league.teams.size() > Const.LEAGUE_MAX_TEAMS:
-					print("too many teams in league " + league.name)
-					Global.generation_warnings.append(Enum.GenerationWarning.WARN_LEAGUE_SIZE_MAX)
-					league.teams = league.teams.slice(0, Const.LEAGUE_MAX_TEAMS)
-
-				# even amount check
-				if league.teams.size() % 2 == 1:
-					print("odd team amounts in league " + league.name)
-					Global.generation_warnings.append(Enum.GenerationWarning.WARN_LEAGUE_SIZE_ODD)
-					# remove last team
-					league.teams = league.teams.slice(0, league.teams.size())
-
-				# min amount check
-				if league.teams.size() < Const.LEAGUE_MIN_TEAMS:
-					print("too few teams in league " + league.name)
-					Global.generation_warnings.append(Enum.GenerationWarning.WARN_LEAGUE_SIZE_MIN)
-					league.teams = league.teams.slice(0, Const.LEAGUE_MAX_TEAMS)
 				league.initialize_sizes(leagues_amount)
 
 	return true

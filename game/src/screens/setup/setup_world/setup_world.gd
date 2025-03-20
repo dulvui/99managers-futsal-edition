@@ -94,7 +94,7 @@ func _on_continue_pressed() -> void:
 	if generation_seed.length() == 0:
 		generation_seed = DEFAULT_SEED
 
-	# start date in fomrat YYYY-MM-DDTHH:MM:SS
+	# start date in format YYYY-MM-DDTHH:MM:SS
 	var start_year: int = int(start_year_spinbox.value)
 	var start_date_str: String = (
 		"%d-%02d-%02dT00:00:00" % [start_year, Const.SEASON_START_MONTH, Const.SEASON_START_DAY]

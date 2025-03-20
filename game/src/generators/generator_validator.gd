@@ -51,7 +51,7 @@ func validate_csv_file(file_path: String) -> bool:
 			return false
 
 	# text server for validation
-	# var text_server: TextServer = TextServerManager.get_primary_interface()
+	var text_server: TextServer = TextServerManager.get_primary_interface()
 	while not file.eof_reached():
 		var line: PackedStringArray = file.get_csv_line()
 
@@ -65,16 +65,46 @@ func validate_csv_file(file_path: String) -> bool:
 			Global.generation_errors.append(Enum.GenerationError.ERR_READ_FILE)
 			return false
 	
+		# check columns size same as headers
 		if line.size() != HEADERS.size():
-			# for value: String in line:
-			# 	if _is_valid_csv_line(value, text_server):
 			push_error("wrong column size in row %d" % error)
 			Global.generation_errors.append(Enum.GenerationError.ERR_COLUMN_SIZE)
 			return false
+
+		# check if string is valid utf8 character
+		for string: String in line:
+			if not _is_valid_string(string, text_server):
+				push_error("not valid string found: %s" % string)
+				Global.generation_errors.append(Enum.GenerationError.ERR_CSV_INVALID_FORMAT)
+				return false
 	return true
 
 
 func validate_world(world: World) -> bool:
+	# check league size
+	for continent: Continent in world.continents:
+		for nation: Nation in continent.nations:
+			for league: League in nation.leagues:
+				# max amount check
+				if league.teams.size() > Const.LEAGUE_MAX_TEAMS:
+					push_warning("too many teams in league " + league.name)
+					Global.generation_warnings.append(Enum.GenerationWarning.WARN_LEAGUE_SIZE_MAX)
+					league.teams = league.teams.slice(0, Const.LEAGUE_MAX_TEAMS)
+
+				# even amount check
+				if league.teams.size() % 2 == 1:
+					push_warning("odd team amounts in league " + league.name)
+					Global.generation_warnings.append(Enum.GenerationWarning.WARN_LEAGUE_SIZE_ODD)
+					# remove last team
+					league.teams = league.teams.slice(0, league.teams.size())
+
+				# min amount check
+				if league.teams.size() < Const.LEAGUE_MIN_TEAMS:
+					push_warning("too few teams in league " + league.name)
+					Global.generation_errors.append(Enum.GenerationError.ERR_LEAGUE_SIZE_MIN)
+					return false
+
+	# check if at least one continent is competitive, after league check
 	var competitive_continent_found: bool = false
 	for continent: Continent in world.continents:
 		if continent.is_competitive():
@@ -88,7 +118,7 @@ func validate_world(world: World) -> bool:
 	return true
 
 
-func _is_valid_csv_line(string: String, text_server: TextServer) -> bool:
+func _is_valid_string(string: String, text_server: TextServer) -> bool:
 	if string.is_empty():
 		return true
 	if string.is_valid_float():
