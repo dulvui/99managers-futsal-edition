@@ -137,6 +137,7 @@ script = ExtResource("3_n2piq")
 [node name="Scale3" type="Button" parent="Interface/Scale"]
 unique_name_in_owner = true
 auto_translate_mode = 2
+visible = false
 custom_minimum_size = Vector2(70, 0)
 layout_mode = 2
 size_flags_horizontal = 4
