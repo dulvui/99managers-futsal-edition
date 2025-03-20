@@ -24,7 +24,7 @@ enum GenerationError {
 	ERR_CSV_HEADER_SIZE,
 	ERR_CSV_HEADER_FORMAT,
 	ERR_COLUMN_SIZE,
-	ERR_NO_LEAGUE_CREATED,
+	ERR_LEAGUE_NO_VALID,
 	ERR_LEAGUE_SIZE_MIN,
 }
 
@@ -254,6 +254,16 @@ func get_generation_error_text(error: GenerationError) -> String:
 			return tr("Unable to read file.")
 		GenerationError.ERR_CSV_INVALID_FORMAT:
 			return tr("Invalid csv format.")
+		GenerationError.ERR_FILE_TOO_BIG:
+			return tr("File too big. Max file size is {file_size}")
+		GenerationError.ERR_FILE_NOT_UTF8:
+			return tr("File has non valid characters.")
+		GenerationError.ERR_CSV_HEADER_SIZE:
+			return tr("Wrong amount of headers in first line, expected {header_size}")
+		GenerationError.ERR_CSV_HEADER_FORMAT:
+			return tr("Wrong format of headers in first line, expected {headers}")
+		GenerationError.ERR_LEAGUE_NO_VALID:
+			return tr("No vaild league was found in file.")
 		GenerationError.ERR_LEAGUE_SIZE_MIN:
 			return tr("League {league_name} has less than 8 teams.")
 		_:
@@ -270,5 +280,9 @@ func get_generation_warning_text(warning: GenerationWarning) -> String:
 			return tr("League {league_name} has more than 20 teams.")
 		GenerationWarning.WARN_LEAGUE_SIZE_ODD:
 			return tr("League {league_name} has odd size teams.")
+		GenerationWarning.WARN_LEAGUE_NO_NAME:
+			return tr("League with no name defined in line {line_number}")
+		GenerationWarning.WARN_TEAM_NO_NAME:
+			return tr("Team with no name defined in line {line_number}")
 		_:
 			return tr("Undefined warning occurred.")

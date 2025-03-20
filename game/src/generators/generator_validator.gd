@@ -112,7 +112,7 @@ func validate_world(world: World) -> bool:
 			break
 	if not competitive_continent_found:
 		push_error("world has no competitive continent")
-		Global.generation_errors.append(Enum.GenerationError.ERR_NO_LEAGUE_CREATED)
+		Global.generation_errors.append(Enum.GenerationError.ERR_LEAGUE_NO_VALID)
 		return false
 
 	return true
