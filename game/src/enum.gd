@@ -16,6 +16,27 @@ enum PlayerNames {
 	MIXED,
 }
 
+enum GenerationError {
+	ERR_READ_FILE,
+	ERR_FILE_TOO_BIG,
+	ERR_FILE_NOT_UTF8,
+	ERR_CSV_INVALID_FORMAT,
+	ERR_CSV_HEADER_SIZE,
+	ERR_CSV_HEADER_FORMAT,
+	ERR_COLUMN_SIZE,
+	ERR_NO_LEAGUE_CREATED,
+}
+
+enum GenerationWarning {
+	WARN_NATION_FORMAT,
+	WARN_NATION_NOT_FOUND,
+	WARN_LEAGUE_SIZE_MIN,
+	WARN_LEAGUE_SIZE_MAX,
+	WARN_LEAGUE_SIZE_ODD,
+	WARN_TEAM_NO_NAME,
+	WARN_LEAGUE_NO_NAME,
+}
+
 #
 # Players
 #
@@ -225,3 +246,29 @@ func get_form_text(player: Player) -> String:
 			return tr("Best")  # TRANSLATORS: Player physical form
 		_:
 			return tr("Good")  # TRANSLATORS: Player physical form
+
+
+func get_generation_error_text(error: GenerationError) -> String:
+	match error:
+		GenerationError.ERR_READ_FILE:
+			return tr("Unable to read file.")
+		GenerationError.ERR_CSV_INVALID_FORMAT:
+			return tr("Invalid csv format.")
+		_:
+			return tr("Undefined error occurred.")
+
+
+func get_generation_warning_text(warning: GenerationWarning) -> String:
+	match warning:
+		GenerationWarning.WARN_NATION_FORMAT:
+			return tr("Nation {nation_name} has wrong format")
+		GenerationWarning.WARN_NATION_NOT_FOUND:
+			return tr("Nation {nation_name} not found")
+		GenerationWarning.WARN_LEAGUE_SIZE_MIN:
+			return tr("League {league_name} has less than 8 teams.")
+		GenerationWarning.WARN_LEAGUE_SIZE_MAX:
+			return tr("League {league_name} has more than 20 teams.")
+		GenerationWarning.WARN_LEAGUE_SIZE_ODD:
+			return tr("League {league_name} has odd size teams.")
+		_:
+			return tr("Undefined warning occurred.")

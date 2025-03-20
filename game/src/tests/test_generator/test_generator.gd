@@ -6,10 +6,13 @@ class_name TestGenerator
 extends Test
 
 
+const TEST_WORLD_CSV_WITH_ERRORS: String = "res://data/world/test_world_with_errors.csv"
+
+
 func test() -> void:
 	print("test: generator...")
 	test_required_properties()
-	# test_determenistic_generation()
+	test_determenistic_generation()
 	test_history()
 	print("test: generator done.")
 
@@ -162,3 +165,19 @@ func test_history() -> void:
 
 	print("test: history done.")
 
+
+func test_errors_and_warnings() -> void:
+	print("test: errors and  warnings...")
+
+	var world_generator: GeneratorWorld = GeneratorWorld.new()
+	var world: World = world_generator.init_world()
+	# generate teams
+	var generator: Generator = Generator.new()
+	var success: bool = generator.generate_teams(world, TEST_WORLD_CSV_WITH_ERRORS)
+	assert(not success)
+
+	# TODO check exact error amount
+	assert(Global.generation_errors.size() > 0)
+	assert(Global.generation_warnings.size() > 0)
+
+	print("test: errors and  warnings done.")

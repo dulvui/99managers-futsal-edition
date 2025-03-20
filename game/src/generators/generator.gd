@@ -3,7 +3,6 @@
 # SPDX-License-Identifier: AGPL-3.0-or-later
 
 class_name Generator
-extends Node
 
 const TEST_WORLD_CSV_PATH: String = "res://data/world/test_world.csv"
 const WORLD_CSV_PATH: String = "res://data/world/world.csv"
@@ -40,20 +39,6 @@ const EYE_COLORS: Array[String] = [
 	"000000",
 ]
 
-enum GenerationError {
-	ERR_READ_FILE,
-	ERR_INVALID_CSV_FORMAT,
-	ERR_NO_LEAGUE_CREATED,
-}
-
-enum GenerationWarning {
-	WARN_NATION_FORMAT,
-	WARN_NATION_NOT_FOUND,
-	WARN_LEAGUE_SIZE_MIN,
-	WARN_LEAGUE_SIZE_MAX,
-	WARN_LEAGUE_SIZE_ODD,
-}
-
 var leagues_data: Dictionary = {}
 
 # for birthdays range
@@ -69,9 +54,24 @@ func generate_teams(world: World, world_file_path: String = WORLD_CSV_PATH) -> b
 	Global.generation_warnings = []
 	Global.generation_errors = []
 
+	# check if custom file is used
 	var custom_file: bool = world_file_path != WORLD_CSV_PATH
+	# use default if path is empty
+	if world_file_path.is_empty():
+		world_file_path = WORLD_CSV_PATH
+		custom_file = false
+	
+	# validate custom files
+	var validator: GeneratorValidator = GeneratorValidator.new()
+	if custom_file:
+		var is_valid_csv: bool = validator.validate_csv_file(world_file_path)
+		if not is_valid_csv:
+			push_error("csv file not valid %s" % world_file_path)
+			return false
 
+	# load player names
 	names = GeneratorNames.new(world)
+
 	# create date ranges
 	# starts from current year and subtracts min/max years
 	# youngest player can be 15 and oldest 45
@@ -84,31 +84,22 @@ func generate_teams(world: World, world_file_path: String = WORLD_CSV_PATH) -> b
 	max_date.year -= 30
 	min_timestamp = Time.get_unix_time_from_datetime_dict(max_date)
 	
-	# read world csv file
-	if world_file_path.is_empty():
-		world_file_path = WORLD_CSV_PATH
-	
+	# open file
 	var file: FileAccess = FileAccess.open(world_file_path, FileAccess.READ)
-	if file == null:
-		print("error while opening world file at %s" % world_file_path)
-		Global.generation_errors.append(GenerationError.ERR_READ_FILE)
+	var error: Error = file.get_error()
+	if error != OK:
+		print("error while opening world file at %s with error %d" % [world_file_path, error])
+		Global.generation_errors.append(Enum.GenerationError.ERR_READ_FILE)
 		return false
-
-	# read from csv
-	# get header row CONTINENT, NATION, CITY, TEAM
-	var header_line: PackedStringArray = file.get_csv_line()
-	var headers: Array[String] = []
-	# transform tot array and make lower case
-	for header: String in header_line:
-		headers.append(header.to_lower())
 
 	# keep nations array for easier code lookup
 	var nations: Array[Nation] = world.get_all_nations()
 	# also keep last found nation, to compare immediatly before searching new
 	# same nation leagues/teams will most probably be close
 	var last_nation: Nation = null
-	# text server for validation
-	var text_server: TextServer = TextServerManager.get_primary_interface()
+
+	# skip first line with header row NATION, LEAGUE, TEAM
+	file.get_csv_line()
 
 	while not file.eof_reached():
 		var line: PackedStringArray = file.get_csv_line()
@@ -117,56 +108,41 @@ func generate_teams(world: World, world_file_path: String = WORLD_CSV_PATH) -> b
 		if err == Error.ERR_FILE_EOF:
 			break
 
-		# check for errors
-		if err != Error.OK:
-			print("error while reading lines from csv with code %d" % err)
-			Global.generation_errors.append(GenerationError.ERR_READ_FILE)
-			return false
-	
-		if line.size() > 2:
-			for value: String in line:
-				if custom_file and not _is_valid_csv_line(value, text_server):
-					return false
+		# format must be Nation:Code example Italy:IT
+		# finally only code will be used to supported multi language nations
+		# but still keep contistency
+		var nation_cell: String = line[0]
+		var league: String = line[1]
+		var team_name: String = line[2]
 
-			# format must be Nation:Code example Italy:IT
-			# finally only code will be used to supported multi language nations
-			# but still keep contistency
-			var nation_cell: String = line[0]
-			var league: String = line[1]
-			var team_name: String = line[2]
+		# extract nation code
+		var nation_split: PackedStringArray = nation_cell.split(":", false, 1)
+		if nation_split.size() < 2:
+			print("nation has wrong format: %s" % nation_cell)
+			Global.generation_warnings.append(Enum.GenerationWarning.WARN_NATION_FORMAT)
+			continue
+		var nation_code: String = nation_split[1]
 
-			# extract nation code
-			var nation_split: PackedStringArray = nation_cell.split(":", false, 1)
-			if nation_split.size() < 2:
-				print("nation has wrong format: %s" % nation_cell)
-				Global.generation_warnings.append(GenerationWarning.WARN_NATION_FORMAT)
+		# find nation, if not same as last found nation
+		if last_nation == null or last_nation.code != nation_code:
+			var nation_filter: Array[Nation] = nations.filter(
+				func(n: Nation) -> bool: return n.code == nation_code
+			)
+			if nation_filter.size() == 0:
+				print("nation not found with code: %s" % nation_code)
+				Global.generation_warnings.append(Enum.GenerationWarning.WARN_NATION_NOT_FOUND)
 				continue
-			var nation_code: String = nation_split[1]
+			last_nation = nation_filter[0]
 
-			# find nation, if not same as last found nation
-			if last_nation == null or last_nation.code != nation_code:
-				var nation_filter: Array[Nation] = nations.filter(
-					func(n: Nation) -> bool: return n.code == nation_code
-				)
-				if nation_filter.size() == 0:
-					print("nation not found with code: %s" % nation_code)
-					Global.generation_warnings.append(GenerationWarning.WARN_NATION_NOT_FOUND)
-					continue
-				last_nation = nation_filter[0]
-
-			_initialize_team(world, last_nation, league, team_name)
+		_initialize_team(world, last_nation, league, team_name)
 	
 	# validate world
-	var competitive_continent_found: bool = false
-	for continent: Continent in world.continents:
-		if continent.is_competitive():
-			competitive_continent_found = true
-			break
-	if not competitive_continent_found:
-		print("world has no competitive continent")
-		Global.generation_errors.append(GenerationError.ERR_NO_LEAGUE_CREATED)
+	validator.validate_world(world)
+	var is_valid_world: bool = validator.validate_csv_file(world_file_path)
+	if not is_valid_world:
+		push_error("world not valid %s" % world_file_path)
 		return false
-	
+
 	# national teams
 	for continent: Continent in world.continents:
 		for nation: Nation in continent.nations:
@@ -188,55 +164,22 @@ func generate_teams(world: World, world_file_path: String = WORLD_CSV_PATH) -> b
 				# max amount check
 				if league.teams.size() > Const.LEAGUE_MAX_TEAMS:
 					print("too many teams in league " + league.name)
-					Global.generation_warnings.append(GenerationWarning.WARN_LEAGUE_SIZE_MAX)
+					Global.generation_warnings.append(Enum.GenerationWarning.WARN_LEAGUE_SIZE_MAX)
 					league.teams = league.teams.slice(0, Const.LEAGUE_MAX_TEAMS)
 
 				# even amount check
 				if league.teams.size() % 2 == 1:
 					print("odd team amounts in league " + league.name)
-					Global.generation_warnings.append(GenerationWarning.WARN_LEAGUE_SIZE_ODD)
+					Global.generation_warnings.append(Enum.GenerationWarning.WARN_LEAGUE_SIZE_ODD)
 					# remove last team
 					league.teams = league.teams.slice(0, league.teams.size())
 
 				# min amount check
 				if league.teams.size() < Const.LEAGUE_MIN_TEAMS:
 					print("too few teams in league " + league.name)
-					Global.generation_warnings.append(GenerationWarning.WARN_LEAGUE_SIZE_MIN)
+					Global.generation_warnings.append(Enum.GenerationWarning.WARN_LEAGUE_SIZE_MIN)
 					league.teams = league.teams.slice(0, Const.LEAGUE_MAX_TEAMS)
 				league.initialize_sizes(leagues_amount)
-
-	return true
-
-
-func _is_valid_csv_line(string: String, text_server: TextServer) -> bool:
-	if string.is_empty():
-		return true
-	if string.is_valid_float():
-		return true
-
-	# check if valid unicode
-	for i: int in string.length():
-		var unicode_char: int = string.unicode_at(i)
-		# space
-		if unicode_char == 32:
-			return true
-		# comma
-		if unicode_char == 44:
-			return true
-		# hyphen
-		if unicode_char == 45:
-			return true
-		# colon
-		if unicode_char == 58:
-			return true
-
-		var valid_letter: bool = text_server.is_valid_letter(unicode_char)
-		var valid_number: bool = string[i].is_valid_float()
-
-		if not valid_letter and not valid_number:
-			print("csv line not vaild: %s" % string)
-			print("not allowed unicode sign: %s code: %d" % [char(unicode_char), unicode_char])
-			return false
 
 	return true
 

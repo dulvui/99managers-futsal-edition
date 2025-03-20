@@ -36,8 +36,8 @@ var manager: Manager
 var save_states: SaveStates
 
 # generation warnings and errors
-var generation_warnings: Array[Generator.GenerationWarning]
-var generation_errors: Array[Generator.GenerationError]
+var generation_warnings: Array[Enum.GenerationWarning]
+var generation_errors: Array[Enum.GenerationError]
 
 # save last player silhouette path to prevent showing the same multiple times
 var player_silhouette_last_path: String
