@@ -322,6 +322,7 @@ type = 2
 [connection signal="pressed" from="MarginContainer/VBoxContainer/TopBar/Continue" to="." method="_on_continue_pressed"]
 [connection signal="text_changed" from="MarginContainer/VBoxContainer/Main/Manager/Manager/Container/Name" to="." method="_on_name_text_changed"]
 [connection signal="text_changed" from="MarginContainer/VBoxContainer/Main/Manager/Manager/Container/Surname" to="." method="_on_surame_text_changed"]
+[connection signal="item_selected" from="MarginContainer/VBoxContainer/Main/Manager/Manager/Container/Nationality" to="." method="_on_nationality_item_selected"]
 [connection signal="pressed" from="MarginContainer/VBoxContainer/Main/Files/FilesMoreInfo" to="." method="_on_files_more_info_pressed"]
 [connection signal="toggled" from="MarginContainer/VBoxContainer/Main/Files/FileButtons/DefaultFileButton" to="." method="_on_default_file_button_toggled"]
 [connection signal="pressed" from="MarginContainer/VBoxContainer/Main/Files/FileButtons/TemplateButton" to="." method="_on_template_button_pressed"]

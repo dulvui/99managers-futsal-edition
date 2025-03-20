@@ -50,6 +50,7 @@ func _ready() -> void:
 		manager_name.text = Global.manager.name
 		manager_surname.text = Global.manager.surname
 
+	nations.add_item(tr("Your nationality"))
 	for nation: Nation in world.get_all_nations(true):
 		nations.add_item(nation.name)
 
@@ -79,7 +80,7 @@ func _on_default_seed_button_pressed() -> void:
 
 func _on_continue_pressed() -> void:
 	# setup manager
-	if manager_name.text.length() * manager_surname.text.length() == 0:
+	if not _is_valid():
 		return
 
 	var manager: Manager = Manager.new()
@@ -118,7 +119,7 @@ func _on_continue_pressed() -> void:
 
 
 func _on_name_text_changed(_new_text: String) -> void:
-	continue_button.disabled = manager_name.text.length() * manager_surname.text.length() == 0
+	continue_button.disabled = not _is_valid()
 	if continue_button.disabled:
 		continue_button.tooltip_text = tr(CONTINUE_DISABLED_TOOLTIP)
 	else:
@@ -126,11 +127,25 @@ func _on_name_text_changed(_new_text: String) -> void:
 
 
 func _on_surame_text_changed(_new_text: String) -> void:
-	continue_button.disabled = manager_name.text.length() * manager_surname.text.length() == 0
+	continue_button.disabled = not _is_valid()
 	if continue_button.disabled:
 		continue_button.tooltip_text = tr(CONTINUE_DISABLED_TOOLTIP)
 	else:
 		continue_button.tooltip_text = "" # NO_TRANSLATE
+
+
+func _on_nationality_item_selected(_index: int) -> void:
+	continue_button.disabled = not _is_valid()
+
+
+func _is_valid() -> bool:
+	if manager_name.text.length() == 0:
+		return false
+	if manager_surname.text.length() == 0:
+		return false
+	if nations.selected == 0:
+		return false
+	return true
 
 
 func _on_template_button_pressed() -> void:
