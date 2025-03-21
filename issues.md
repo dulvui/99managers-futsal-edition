@@ -39,3 +39,4 @@ List of features that are currently worked on.
 - Export and import for player and team
 - Links to players and teams in emails and news
     - on click, open player/team profile
+- Playoffs and playouts
