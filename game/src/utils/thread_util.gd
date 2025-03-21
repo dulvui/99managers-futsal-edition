@@ -88,7 +88,8 @@ func _random_results() -> void:
 
 
 func _loading_done() -> void:
-	thread.wait_to_finish()
+	if thread.is_started():
+		thread.wait_to_finish()
 	loading_done.emit()
 	print("thread done.")
 
