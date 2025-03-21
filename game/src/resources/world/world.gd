@@ -127,6 +127,10 @@ func get_competition_by_id(competition_id: int) -> Competition:
 			for league: League in nation.leagues:
 				if league.id == competition_id:
 					return league
+				if league.playoffs.id == competition_id:
+					return league.playoffs
+				if league.playouts.id == competition_id:
+					return league.playouts
 	print("no competition with id " + str(competition_id))
 	return null
 
@@ -244,9 +248,12 @@ func get_all_teams(include_national_teams: bool = false) -> Array[Team]:
 func promote_and_relegate_teams() -> void:
 	for contient: Continent in continents:
 		for nation: Nation in contient.nations:
+			if nation.leagues.size() == 0:
+				continue
+
 			# d - relegated
 			# p - promoted
-			var teams_buffer: Dictionary = {}
+			var teams_buffer: Dictionary[String, Dictionary] = {}
 			teams_buffer["r"] = {}
 			teams_buffer["p"] = {}
 
@@ -258,8 +265,8 @@ func promote_and_relegate_teams() -> void:
 				# assign direct relegated
 				var relegated: Array[Team] = league.teams.filter(
 					func(t: Team) -> bool:
-						for i: int in league.direct_relegation_teams:
-							if t.id == sorted_table[-i].team_id:
+						for i: int in range(-1, -league.direct_relegation_teams -1, -1):
+							if t.id == sorted_table[i].team_id:
 								return true
 						return false
 				)
@@ -267,7 +274,10 @@ func promote_and_relegate_teams() -> void:
 				if league.playouts.is_over():
 					var runner_up: TeamBasic = league.playouts.knockout.final[-1].get_looser()
 					if runner_up != null:
-						relegated.append(runner_up)
+						var runner_up_team: Team = league.get_team_by_id(runner_up.id)
+						relegated.append(runner_up_team)
+					else:
+						breakpoint
 
 				teams_buffer["r"][league.pyramid_level] = relegated
 
@@ -283,7 +293,10 @@ func promote_and_relegate_teams() -> void:
 				if league.playoffs.is_over():
 					var winner: TeamBasic = league.playoffs.knockout.final[-1].get_winner()
 					if winner != null:
-						promoted.append(winner)
+						var winner_team: Team = league.get_team_by_id(winner.id)
+						promoted.append(winner_team)
+					else:
+						breakpoint
 				teams_buffer["p"][league.pyramid_level] = promoted
 
 			# relegate/promote
@@ -340,6 +353,7 @@ func promote_and_relegate_teams() -> void:
 
 			# add new seasons table
 			for league: League in nation.leagues:
+				assert(league.teams.size() == 10)
 				var table: Table = Table.new()
 				for team: Team in league.teams:
 					table.add_team(team)

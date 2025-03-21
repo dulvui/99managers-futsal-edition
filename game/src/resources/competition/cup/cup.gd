@@ -142,7 +142,7 @@ func is_over() -> bool:
 		return false
 	if knockout.final.is_empty():
 		return false
-	return knockout.final[-1].over
+	return knockout.is_over()
 
 
 func is_active() -> bool:

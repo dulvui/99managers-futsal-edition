@@ -14,7 +14,7 @@ func _init(
 	teams = p_teams
 
 
-func add_team(team: Team) -> void:
+func add_team(team: TeamBasic) -> void:
 	var values: TableValues = TableValues.new()
 	values.team_id = team.id
 	values.team_name = team.name

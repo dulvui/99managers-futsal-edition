@@ -73,7 +73,6 @@ func setup(
 		rounds = 0
 	else:
 		print("error while setting up knockout, not enouh teams")
-		breakpoint
 		return
 
 	# add teams alterning to part a/b
@@ -82,6 +81,12 @@ func setup(
 			teams_a.append(p_teams[i].get_basic())
 		else:
 			teams_b.append(p_teams[i].get_basic())
+
+
+func is_over() -> bool:
+	if final.is_empty():
+		return false
+	return final[-1].over
 
 
 func get_matches(cup: Cup) -> Array[Array]:
@@ -162,15 +167,19 @@ func get_matches(cup: Cup) -> Array[Array]:
 
 
 func prepare_next_round() -> bool:
+	if is_over():
+		return false
+
 	if rounds_a.size() * rounds_b.size() == 0:
 		push_error("error during preparing next round of knockout, no matches found")
+		breakpoint
 		return false
 
 	var a_ready: bool = _prepare_next_round(rounds_a[-1], teams_a)
 	var b_ready: bool = _prepare_next_round(rounds_b[-1], teams_b)
 
 	if a_ready != b_ready:
-		push_error("error during preparing next round of knockout, group a and b are both ready")
+		push_error("error during preparing next round of knockout, group a and b are not both ready")
 		return false
 
 	return a_ready and b_ready

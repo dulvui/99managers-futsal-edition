@@ -175,7 +175,8 @@ func _initialize_leagues(nation: Nation) -> void:
 	# promotion/relegation and playoff/playout team amount
 	for i: int in leagues_amount:
 		var league: League = nation.leagues[i]
-		# playoff teams
+
+		# all leagues have playoff teams
 		if league.teams.size() >= 20:
 			league.playoff_teams = 16
 		elif league.teams.size() >= 12:
@@ -183,22 +184,22 @@ func _initialize_leagues(nation: Nation) -> void:
 		else:
 			league.playoff_teams = 4
 
+		# relegation teams for upper leagues, so last league will not have relegations
+		# and direct promotion teams is exact relegation amount from upper league
 		if i > 0:
 			var upper_league: League = nation.leagues[i - 1]
-
-			# direct relegation and playout teams for upper league
-			if i < leagues_amount - 1:
-				if upper_league.teams.size() > 16:
-					upper_league.direct_relegation_teams = 2
-					upper_league.playout_teams = 2
-				elif upper_league.teams.size() > 8:
-					upper_league.direct_relegation_teams = 1
-					upper_league.playout_teams = 2
-				elif upper_league.teams.size() >= 4:
-					upper_league.direct_relegation_teams = 1
-					upper_league.playout_teams = 0
-
-			# direct promotion teams is relegation amount from upper league
+			if upper_league.teams.size() > 16:
+				upper_league.direct_relegation_teams = 2
+				upper_league.playout_teams = 2
+			elif upper_league.teams.size() > 8:
+				upper_league.direct_relegation_teams = 1
+				upper_league.playout_teams = 2
+			elif upper_league.teams.size() >= 4:
+				upper_league.direct_relegation_teams = 1
+				# no playoffs, since upper league has no playouts
+				# alternative: direct_promotion_teams - 1, if direct_promotion_teams > 0
+				league.playoff_teams = 0
+				upper_league.playout_teams = 0
 			league.direct_promotion_teams = upper_league.direct_relegation_teams
 
 

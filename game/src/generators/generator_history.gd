@@ -37,26 +37,24 @@ func generate_club_history(world: World = Global.world) -> void:
 					# generate random results playoffs
 					if league.playoffs.is_started():
 						while not league.playoffs.is_over():
-							print("playoffs for league " + league.name)
-							league.playoffs.next_stage(false)
-
 							# generate random results for every match
 							var play_match_days: Array[Array] = league.playoffs.get_matches()
 							for match_day: Array in play_match_days:
 								for matchz: Match in match_day:
 									match_engine.simulate_match(matchz, true)
 
+							league.playoffs.next_stage(false)
+
 					# generate random results playouts
 					if league.playouts.is_started():
 						while not league.playouts.is_over():
-							print("playouts for league " + league.name)
-							league.playouts.next_stage(false)
-
 							# generate random results for every match
 							var play_match_days: Array[Array] = league.playouts.get_matches()
 							for match_day: Array in play_match_days:
 								for matchz: Match in match_day:
 									match_engine.simulate_match(matchz, true)
+
+							league.playouts.next_stage(false)
 
 		world.promote_and_relegate_teams()
 

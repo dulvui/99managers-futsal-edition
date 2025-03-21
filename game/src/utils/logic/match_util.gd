@@ -50,6 +50,8 @@ func initialize_playoffs(league: League, add_to_calendar: bool = true) -> void:
 		else:
 			p_teams.append(league.get_team_by_id(value.team_id))
 
+	league.playoffs.name = tr("Playoffs")
+	league.playoffs.set_id()
 	league.playoffs.setup_knockout(p_teams)
 
 	if add_to_calendar:
@@ -76,6 +78,8 @@ func initialize_playouts(league: League, add_to_calendar: bool = true) -> void:
 		else:
 			p_teams.append(league.get_team_by_id(value.team_id))
 
+	league.playouts.name = tr("Playouts")
+	league.playouts.set_id()
 	league.playouts.setup_knockout(p_teams)
 
 	if add_to_calendar:

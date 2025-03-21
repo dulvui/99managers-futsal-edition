@@ -100,7 +100,7 @@ func set_result(
 				home.id, away.id, home_goals, away_goals, home_penalties_goals, away_penalties_goals
 			)
 		else:
-			print("error competition with no valid type; id: " + str(competition_id))
+			push_error("error competition with no valid type. name: %s id: %d" % [competition_name, competition_id])
 
 
 func get_result() -> String:
