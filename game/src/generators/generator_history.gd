@@ -21,13 +21,13 @@ func generate_club_history(world: World = Global.world) -> void:
 			for nation: Nation in contient.nations:
 				for league: League in nation.leagues:
 					# create match combinations
-					var match_days: Array[Array] = match_util.create_combinations(
+					var match_days: MatchDays = match_util.create_combinations(
 						league, league.teams
 					)
 
 					# generate random results for every match
-					for match_day: Array in match_days:
-						for matchz: Match in match_day:
+					for match_day: MatchDay in match_days.days:
+						for matchz: Match in match_day.matches:
 							match_engine.simulate_match(matchz, true)
 
 					# create playoffs/playouts
@@ -38,9 +38,9 @@ func generate_club_history(world: World = Global.world) -> void:
 					if league.playoffs.is_started():
 						while not league.playoffs.is_over():
 							# generate random results for every match
-							var play_match_days: Array[Array] = league.playoffs.get_matches()
-							for match_day: Array in play_match_days:
-								for matchz: Match in match_day:
+							var play_match_days: MatchDays = league.playoffs.get_match_days()
+							for match_day: MatchDay in play_match_days.days:
+								for matchz: Match in match_day.matches:
 									match_engine.simulate_match(matchz, true)
 
 							league.playoffs.next_stage(false)
@@ -49,9 +49,9 @@ func generate_club_history(world: World = Global.world) -> void:
 					if league.playouts.is_started():
 						while not league.playouts.is_over():
 							# generate random results for every match
-							var play_match_days: Array[Array] = league.playouts.get_matches()
-							for match_day: Array in play_match_days:
-								for matchz: Match in match_day:
+							var play_match_days: MatchDays = league.playouts.get_match_days()
+							for match_day: MatchDay in play_match_days.days:
+								for matchz: Match in match_day.matches:
 									match_engine.simulate_match(matchz, true)
 
 							league.playouts.next_stage(false)

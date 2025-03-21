@@ -89,11 +89,12 @@ func is_over() -> bool:
 	return final[-1].over
 
 
-func get_matches(cup: Cup) -> Array[Array]:
-	var matches: Array[Array] = []
+func get_match_days(cup: Cup) -> MatchDays:
+	var match_days: MatchDays = MatchDays.new()
+
 	# semifinals
 	if teams_a.size() > 1:
-		var match_day: Array[Match] = []
+		var match_day: MatchDay = MatchDay.new()
 		var round_a: KnockoutRound = KnockoutRound.new()
 		var round_b: KnockoutRound = KnockoutRound.new()
 		
@@ -117,12 +118,12 @@ func get_matches(cup: Cup) -> Array[Array]:
 			round_b.matches.append(matchz)
 		rounds_b.append(round_b)
 
-		matches.append(match_day)
+		match_days.append(match_day)
 
 		# second leg
 		if legs_semi_finals == Knockout.Legs.DOUBLE:
 			# second leg
-			var match_day_2: Array[Match] = []
+			var match_day_2: MatchDay = MatchDay.new()
 			var round_a_2: KnockoutRound = KnockoutRound.new()
 			var round_b_2: KnockoutRound = KnockoutRound.new()
 
@@ -145,25 +146,25 @@ func get_matches(cup: Cup) -> Array[Array]:
 				round_b_2.matches.append(matchz)
 			rounds_b.append(round_b_2)
 
-			matches.append(match_day_2)
+			match_days.append(match_day_2)
 
 	elif teams_a.size() == 1 and teams_b.size() == 1:
 		# final match
 		var matchz: Match = Match.new()
 		matchz.setup(teams_a[0], teams_b[0], cup.id, cup.name)
 		final.append(matchz)
-		matches.append([matchz])
+		match_days.append(MatchDay.new([matchz]))
 
 		# second leg
 		if legs_final == Legs.DOUBLE:
 			var matchz_2: Match = matchz.inverted(true)
 			matchz_2.no_draw = true
 			final.append(matchz_2)
-			matches.append_array([matchz_2])
+			match_days.append(MatchDay.new([matchz_2]))
 		else:
 			matchz.no_draw = true
 
-	return matches
+	return match_days
 
 
 func prepare_next_round() -> bool:

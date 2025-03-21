@@ -89,7 +89,7 @@ func next_day() -> void:
 			t.finances.update_week(t)
 
 
-func next_season() -> void:
+func next_season(save_data: bool = true) -> void:
 	current_season += 1
 
 	# TODO
@@ -111,7 +111,9 @@ func next_season() -> void:
 
 	var match_util: MatchUtil = MatchUtil.new(world)
 	match_util.initialize_matches()
-	save_all_data()
+
+	if save_data:
+		save_all_data()
 
 
 func save_all_data() -> void:

@@ -3,7 +3,6 @@
 # SPDX-License-Identifier: AGPL-3.0-or-later
 
 class_name MatchUtil
-extends Object
 
 var world: World
 
@@ -55,8 +54,8 @@ func initialize_playoffs(league: League, add_to_calendar: bool = true) -> void:
 	league.playoffs.setup_knockout(p_teams)
 
 	if add_to_calendar:
-		var matches: Array[Array] = league.playoffs.get_matches()
-		add_matches_to_calendar(league.playoffs, matches)
+		var match_days: MatchDays = league.playoffs.get_match_days()
+		add_matches_to_calendar(league.playoffs, match_days)
 
 
 func initialize_playouts(league: League, add_to_calendar: bool = true) -> void:
@@ -83,12 +82,12 @@ func initialize_playouts(league: League, add_to_calendar: bool = true) -> void:
 	league.playouts.setup_knockout(p_teams)
 
 	if add_to_calendar:
-		var matches: Array[Array] = league.playouts.get_matches()
-		add_matches_to_calendar(league.playouts, matches)
+		var match_days: MatchDays = league.playouts.get_match_days()
+		add_matches_to_calendar(league.playouts, match_days)
 
 
-func create_combinations(competition: Competition, p_teams: Array[Team]) -> Array[Array]:
-	var match_days: Array[Array]
+func create_combinations(competition: Competition, p_teams: Array[Team]) -> MatchDays:
+	var match_days: MatchDays = MatchDays.new()
 	var teams: Array = p_teams.duplicate(true)
 
 	var random_teams: Array[Team] = teams.duplicate(true)
@@ -99,7 +98,7 @@ func create_combinations(competition: Competition, p_teams: Array[Team]) -> Arra
 	var home: bool = true
 
 	for i: int in random_teams.size():
-		var current_match_day: Array = []
+		var current_match_day: MatchDay = MatchDay.new()
 		var match_one: Match
 		if home:
 			match_one = Match.new()
@@ -134,23 +133,23 @@ func create_combinations(competition: Competition, p_teams: Array[Team]) -> Arra
 		home = not home
 
 	# second round, by simply switching home/away
-	var temp_match_days: Array[Array] = []
-	for matches: Array[Match] in match_days:
-		var current_match_dayz: Array = []
-		for match_first: Match in matches:
+	var temp_match_days: MatchDays = MatchDays.new()
+	for match_day: MatchDay in match_days.days:
+		var current_match_dayz: MatchDay = MatchDay.new()
+		for match_first: Match in match_day.matches:
 			var match_second: Match = match_first.inverted()
 			current_match_dayz.append(match_second)
 		temp_match_days.append(current_match_dayz)
 
-	for temp: Array in temp_match_days:
-		match_days.append(temp)
+	for temp_match_day: MatchDay in temp_match_days.days:
+		match_days.append(temp_match_day)
 
 	return match_days
 
 
 func add_matches_to_calendar(
 	competition: Competition,
-	match_days: Array[Array],
+	match_days: MatchDays,
 	date: Dictionary = world.calendar.date,
 ) -> void:
 	var month: int = date.month
@@ -172,7 +171,7 @@ func add_matches_to_calendar(
 			day = i
 			break
 
-	for matches: Array[Match] in match_days:
+	for match_day: MatchDay in match_days.days:
 		# check if next month
 		if day >= world.calendar.month(month).days.size():
 			month += 1
@@ -184,13 +183,13 @@ func add_matches_to_calendar(
 					break
 
 		# assign matches
-		world.calendar.day(month, day).add_matches(matches)
+		world.calendar.day(month, day).add_matches(match_day.matches)
 		# restart from same weekday
 		day += 7
 
 
 func _initialize_club_league_matches(competition: Competition, teams: Array[Team]) -> void:
-	var match_days: Array[Array] = create_combinations(competition, teams)
+	var match_days: MatchDays = create_combinations(competition, teams)
 	add_matches_to_calendar(competition, match_days)
 
 
@@ -198,16 +197,20 @@ func _initialize_club_national_cup(p_nation: Nation) -> void:
 	# setup cup
 	p_nation.cup.set_id()
 	p_nation.cup.name = p_nation.name + " " + tr("Cup")
-	var all_teams_by_nation: Array[Team]
+	var teams: Array[Team]
 	for league: League in p_nation.leagues:
-		all_teams_by_nation.append_array(league.teams)
+		teams.append_array(league.teams)
 
-	p_nation.cup.setup_knockout(all_teams_by_nation)
+	# limit teams for now
+	# TODO choose best teams
+	if teams.size() > 32:
+		teams = teams.slice(0, 32)
+	p_nation.cup.setup_knockout(teams)
 
 	# create matches for first round group a
-	var matches: Array[Array] = p_nation.cup.get_matches()
+	var match_days: MatchDays = p_nation.cup.get_match_days()
 	# add to calendar
-	add_matches_to_calendar(p_nation.cup, matches)
+	add_matches_to_calendar(p_nation.cup, match_days)
 
 
 func _initialize_club_continental_cup(p_continent: Continent) -> void:
@@ -220,12 +223,16 @@ func _initialize_club_continental_cup(p_continent: Continent) -> void:
 	for nation: Nation in p_continent.nations:
 		teams.append_array(nation.get_continental_cup_qualified_teams())
 
+	# limit teams for now
+	# TODO choose best teams
+	if teams.size() > 32:
+		teams = teams.slice(0, 32)
 	p_continent.cup_clubs.setup(teams)
 
 	# create matches for first round group a
 	# for now, only single leg
-	var matches: Array[Array] = p_continent.cup_clubs.get_matches()
-	add_matches_to_calendar(p_continent.cup_clubs, matches)
+	var match_days: MatchDays = p_continent.cup_clubs.get_match_days()
+	add_matches_to_calendar(p_continent.cup_clubs, match_days)
 
 
 func _initialize_nations_continental_cup(p_continent: Continent) -> void:
@@ -238,12 +245,17 @@ func _initialize_nations_continental_cup(p_continent: Continent) -> void:
 	for nation: Nation in p_continent.nations:
 		teams.append(nation.team)
 
+	# limit teams for now
+	# TODO choose best teams
+	if teams.size() > 32:
+		teams = teams.slice(0, 32)
+
 	p_continent.cup_nations.setup(teams)
 
 	# create matches for first round group a
 	# for now, only single leg
-	var matches: Array[Array] = p_continent.cup_nations.get_matches()
-	add_matches_to_calendar(p_continent.cup_nations, matches)
+	var match_days: MatchDays = p_continent.cup_nations.get_match_days()
+	add_matches_to_calendar(p_continent.cup_nations, match_days)
 
 
 func _initialize_world_cup() -> void:
@@ -256,17 +268,17 @@ func _initialize_world_cup() -> void:
 		for nation: Nation in continent.nations:
 			teams.append(nation.team)
 
-	# limit to 20 teams for now
+	# limit teams for now
 	# TODO choose best teams
-	if teams.size() > 16:
-		teams = teams.slice(0, 16)
+	if teams.size() > 32:
+		teams = teams.slice(0, 32)
 
 	world.world_cup.setup(teams)
 
 	# create matches for first round group a
-	var matches: Array[Array] = world.world_cup.get_matches()
+	var match_days: MatchDays = world.world_cup.get_match_days()
 	# add to calendar
-	add_matches_to_calendar(world.world_cup, matches)
+	add_matches_to_calendar(world.world_cup, match_days)
 
 
 func _shift_array(array: Array) -> void:
@@ -274,3 +286,4 @@ func _shift_array(array: Array) -> void:
 	for i: int in range(array.size() - 1):
 		array[i] = array[i + 1]
 	array[array.size() - 1] = temp
+

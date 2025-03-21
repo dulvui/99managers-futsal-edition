@@ -112,17 +112,17 @@ func next_stage(add_to_calendar: bool = true) -> void:
 			# group stage is over
 			setup_knockout()
 			if add_to_calendar:
-				match_util.add_matches_to_calendar(self, get_matches())
+				match_util.add_matches_to_calendar(self, get_match_days())
 	elif knockout.prepare_next_round():
 		# add next round matches calendar
 		if add_to_calendar:
-			match_util.add_matches_to_calendar(self, get_matches())
+			match_util.add_matches_to_calendar(self, get_match_days())
 
 
-func get_matches() -> Array[Array]:
+func get_match_days() -> MatchDays:
 	if stage == Stage.GROUP:
-		return _get_group_matches()
-	return _get_knockout_matches()
+		return _get_group_match_days()
+	return _get_knockout_match_days()
 
 
 func is_final() -> bool:
@@ -149,19 +149,23 @@ func is_active() -> bool:
 	return groups.size() > 0 or knockout.teams_a.size() > 0
 
 
-func _get_group_matches() -> Array[Array]:
-	var matches: Array[Array] = []
-
+func _get_group_match_days() -> MatchDays:
+	var match_days: MatchDays = MatchDays.new()
 	var match_util: MatchUtil = MatchUtil.new(Global.world)
 
+	var group_match_day_list: Array[MatchDays] = []
+
 	for group: Group in groups:
-		matches.append_array(match_util.create_combinations(self, group.teams))
+		group_match_day_list.append(match_util.create_combinations(self, group.teams))
+	
+	for group_match_days: MatchDays in group_match_day_list:
+		pass
 
-	return matches
+	return match_days
 
 
-func _get_knockout_matches() -> Array[Array]:
-	return knockout.get_matches(self)
+func _get_knockout_match_days() -> MatchDays:
+	return knockout.get_match_days(self)
 
 
 func _find_group_by_team_id(team_id: int) -> Group:

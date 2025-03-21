@@ -26,10 +26,7 @@ func _ready() -> void:
 
 func tests_fast() -> void:
 	print("start tests: fast..")
-
-	# JSON res util currenlty not used and not working
 	# test_res_util.test()
-
 	test_format_util.test()
 	test_match_util.test()
 	test_calendar.test()
@@ -44,6 +41,9 @@ func tests_intensive() -> void:
 	print("start tests: intenstive done.")
 
 
+#
+# static testing helper methods
+#
 static func setup_mock_world(use_test_file: bool = false) -> bool:
 	if Global.world == null:
 		print("setting up mock world...")

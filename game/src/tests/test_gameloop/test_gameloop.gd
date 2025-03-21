@@ -28,6 +28,6 @@ func test_full_season() -> void:
 		Global.world.calendar.next_day()
 		Global.world.random_results()
 
-	Global.next_season()
+	Global.next_season(false)
 
 	print("test: test full season done.")
