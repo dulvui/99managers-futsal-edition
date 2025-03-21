@@ -276,8 +276,6 @@ func promote_and_relegate_teams() -> void:
 					if runner_up != null:
 						var runner_up_team: Team = league.get_team_by_id(runner_up.id)
 						relegated.append(runner_up_team)
-					else:
-						breakpoint
 
 				teams_buffer["r"][league.pyramid_level] = relegated
 
@@ -295,8 +293,6 @@ func promote_and_relegate_teams() -> void:
 					if winner != null:
 						var winner_team: Team = league.get_team_by_id(winner.id)
 						promoted.append(winner_team)
-					else:
-						breakpoint
 				teams_buffer["p"][league.pyramid_level] = promoted
 
 			# relegate/promote

@@ -172,7 +172,6 @@ func prepare_next_round() -> bool:
 
 	if rounds_a.size() * rounds_b.size() == 0:
 		push_error("error during preparing next round of knockout, no matches found")
-		breakpoint
 		return false
 
 	var a_ready: bool = _prepare_next_round(rounds_a[-1], teams_a)

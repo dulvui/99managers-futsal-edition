@@ -123,7 +123,6 @@ func get_winner() -> TeamBasic:
 		away_total_goals += first_leg.home_goals
 
 	if home_total_goals == away_total_goals:
-		breakpoint
 		return null
 	elif home_total_goals < away_total_goals:
 		return away
@@ -141,7 +140,6 @@ func get_looser() -> TeamBasic:
 		away_total_goals += first_leg.home_goals
 
 	if home_total_goals == away_total_goals:
-		breakpoint
 		return null
 	elif home_total_goals < away_total_goals:
 		return away
