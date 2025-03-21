@@ -53,7 +53,7 @@ func _load_data() -> void:
 	call_deferred("_loading_done")
 
 
-func _generate_world(world: World, world_file_path: String) -> void:
+func _generate_world(world: World, world_file_path: String = "") -> void:
 	print("generating world in thread...")
 
 	# create world, teams and players
@@ -65,19 +65,19 @@ func _generate_world(world: World, world_file_path: String) -> void:
 		call_deferred("_loading_done")
 		return
 
+	# assign world
+	Global.world = world
+
 	# history
 	var history: GeneratorHistory = GeneratorHistory.new()
 	# first generate clubs history with promotions, delegations, cup wins
-	history.generate_club_history(world)
+	history.generate_club_history()
 	# then generate player histroy with transfers and statistics
-	history.generate_player_history(world)
+	history.generate_player_history()
 
 	# create matches
 	var match_util: MatchUtil = MatchUtil.new(world)
 	match_util.initialize_matches()
-
-	# assign world
-	Global.world = world
 	call_deferred("_loading_done")
 
 

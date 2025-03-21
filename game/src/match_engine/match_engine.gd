@@ -182,13 +182,18 @@ func simulate_match(matchz: Match, fast: bool = false) -> void:
 		var home_penalties_goals: int = 0
 		var away_penalties_goals: int = 0
 
+		# combination of all goals of first and second match
+		var total_home_goals: int = home_goals
+		var total_away_goals: int = away_goals
+
+
 		# add inverted goals from first match
 		if matchz.first_leg != null:
-			home_goals += matchz.first_leg.away_goals
-			away_goals += matchz.first_leg.home_goals
+			total_home_goals += matchz.first_leg.away_goals
+			total_away_goals += matchz.first_leg.home_goals
 
 		# penalties
-		if matchz.no_draw and home_goals == away_goals:
+		if matchz.no_draw and total_home_goals == total_away_goals:
 			# fast and easy...
 			home_penalties_goals = 4
 			away_penalties_goals = 4

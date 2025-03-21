@@ -113,7 +113,8 @@ func _on_continue_pressed() -> void:
 	Main.loaded.connect(_on_world_generated)
 
 	if default_file_button.button_pressed or custom_file_path.is_empty():
-		ThreadUtil.generate_world(world)
+		# ThreadUtil.generate_world(world)
+		ThreadUtil._generate_world(world)
 	else:
 		ThreadUtil.generate_world(world, custom_file_path)
 

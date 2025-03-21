@@ -38,5 +38,7 @@ func setup(knockout: Knockout) -> void:
 			box.add_child(match_row)
 			match_row.setup(matchz)
 
-	if knockout.final != null:
-		final.text = knockout.final.get_result()
+	if not knockout.final.is_empty():
+		final.text = knockout.final[0].get_result()
+		if knockout.final.size() > 1:
+			final.text += "\n" + knockout.final[1].get_result()

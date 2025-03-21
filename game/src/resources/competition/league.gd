@@ -28,6 +28,7 @@ func _init(
 	p_tables: Array[Table] = [Table.new()],
 	p_nation_name: String = "",
 	p_playoffs: Cup = Cup.new(),
+	p_playouts: Cup = Cup.new(),
 	p_direct_promotion_teams: int = 0,
 	p_playoff_teams: int = 0,
 	p_direct_relegation_teams: int = 0,
@@ -38,6 +39,7 @@ func _init(
 	tables = p_tables
 	nation_name = p_nation_name
 	playoffs = p_playoffs
+	playouts = p_playouts
 	direct_promotion_teams = p_direct_promotion_teams
 	playoff_teams = p_playoff_teams
 	direct_relegation_teams = p_direct_relegation_teams

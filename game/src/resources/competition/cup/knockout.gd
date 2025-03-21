@@ -22,7 +22,7 @@ enum Legs {
 @export var rounds: int
 @export var rounds_a: Array[KnockoutRound]
 @export var rounds_b: Array[KnockoutRound]
-@export var final: Match
+@export var final: Array[Match]
 
 
 func _init(
@@ -33,7 +33,7 @@ func _init(
 	p_rounds: int = 1,
 	p_rounds_a: Array[KnockoutRound] = [],
 	p_rounds_b: Array[KnockoutRound] = [],
-	p_final: Match = null,
+	p_final: Array[Match] = [],
 ) -> void:
 	teams_a = p_teams_a
 	teams_b = p_teams_b
@@ -73,6 +73,7 @@ func setup(
 		rounds = 0
 	else:
 		print("error while setting up knockout, not enouh teams")
+		breakpoint
 		return
 
 	# add teams alterning to part a/b
@@ -145,28 +146,31 @@ func get_matches(cup: Cup) -> Array[Array]:
 		# final match
 		var matchz: Match = Match.new()
 		matchz.setup(teams_a[0], teams_b[0], cup.id, cup.name)
-		var final_match_day: Array[Match] = [matchz]
-		matches.append(final_match_day)
+		final.append(matchz)
+		matches.append([matchz])
 
 		# second leg
 		if legs_final == Legs.DOUBLE:
 			var matchz_2: Match = matchz.inverted(true)
 			matchz_2.no_draw = true
+			final.append(matchz_2)
 			matches.append_array([matchz_2])
+		else:
+			matchz.no_draw = true
 
 	return matches
 
 
 func prepare_next_round() -> bool:
 	if rounds_a.size() * rounds_b.size() == 0:
-		print("error during preparing next round of knockout, no matches found")
+		push_error("error during preparing next round of knockout, no matches found")
 		return false
 
 	var a_ready: bool = _prepare_next_round(rounds_a[-1], teams_a)
 	var b_ready: bool = _prepare_next_round(rounds_b[-1], teams_b)
 
 	if a_ready != b_ready:
-		print("error during preparing next round of knockout, group a and b are both ready")
+		push_error("error during preparing next round of knockout, group a and b are both ready")
 		return false
 
 	return a_ready and b_ready

@@ -8,7 +8,7 @@ class_name GeneratorHistory
 const HISTORY_YEARS: int = 10
 
 
-func generate_club_history(world: World) -> void:
+func generate_club_history(world: World = Global.world) -> void:
 	# TODO world cup history (once national teams exist)
 	# TODO continental national teams cup
 
@@ -37,7 +37,8 @@ func generate_club_history(world: World) -> void:
 					# generate random results playoffs
 					if league.playoffs.is_started():
 						while not league.playoffs.is_over():
-							league.playoffs.next_stage()
+							print("playoffs for league " + league.name)
+							league.playoffs.next_stage(false)
 
 							# generate random results for every match
 							var play_match_days: Array[Array] = league.playoffs.get_matches()
@@ -48,7 +49,8 @@ func generate_club_history(world: World) -> void:
 					# generate random results playouts
 					if league.playouts.is_started():
 						while not league.playouts.is_over():
-							league.playouts.next_stage()
+							print("playouts for league " + league.name)
+							league.playouts.next_stage(false)
 
 							# generate random results for every match
 							var play_match_days: Array[Array] = league.playouts.get_matches()
@@ -59,6 +61,6 @@ func generate_club_history(world: World) -> void:
 		world.promote_and_relegate_teams()
 
 
-func generate_player_history(_world: World) -> void:
+func generate_player_history(_world: World = Global.world) -> void:
 	pass
 

@@ -32,6 +32,9 @@ func initialize_matches() -> void:
 
 
 func initialize_playoffs(league: League, add_to_calendar: bool = true) -> void:
+	if league.playoff_teams == 0:
+		return
+
 	var p_teams: Array[Team] = []
 	var sorted_table: Array[TableValues] = league.table().to_sorted_array()
 
@@ -49,13 +52,15 @@ func initialize_playoffs(league: League, add_to_calendar: bool = true) -> void:
 
 	league.playoffs.setup_knockout(p_teams)
 
-	# add to calendar
 	if add_to_calendar:
 		var matches: Array[Array] = league.playoffs.get_matches()
 		add_matches_to_calendar(league.playoffs, matches)
 
 
 func initialize_playouts(league: League, add_to_calendar: bool = true) -> void:
+	if league.playout_teams == 0:
+		return
+
 	var p_teams: Array[Team] = []
 	var sorted_table: Array[TableValues] = league.table().to_sorted_array()
 
@@ -64,7 +69,7 @@ func initialize_playouts(league: League, add_to_calendar: bool = true) -> void:
 		sorted_table.pop_back()
 
 	# remaining teams in order are playoff teams
-	for i: int in league.playoff_teams:
+	for i: int in league.playout_teams:
 		var value: TableValues = sorted_table.pop_back()
 		if value == null:
 			push_error("no team left for playout")
@@ -73,7 +78,6 @@ func initialize_playouts(league: League, add_to_calendar: bool = true) -> void:
 
 	league.playouts.setup_knockout(p_teams)
 
-	# add to calendar
 	if add_to_calendar:
 		var matches: Array[Array] = league.playouts.get_matches()
 		add_matches_to_calendar(league.playouts, matches)

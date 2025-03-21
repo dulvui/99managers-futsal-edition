@@ -264,9 +264,10 @@ func promote_and_relegate_teams() -> void:
 						return false
 				)
 				# assign playouts looser
-				if league.playouts != null:
-					var runner_up: TeamBasic = league.playouts.final.get_looser()
-					relegated.append(runner_up)
+				if league.playouts.is_over():
+					var runner_up: TeamBasic = league.playouts.knockout.final[-1].get_looser()
+					if runner_up != null:
+						relegated.append(runner_up)
 
 				teams_buffer["r"][league.pyramid_level] = relegated
 
@@ -279,9 +280,10 @@ func promote_and_relegate_teams() -> void:
 						return false
 				)
 				# assign playoffs winner
-				if league.playoffs != null:
-					var winner: TeamBasic = league.playoffs.final.get_winner()
-					promoted.append(winner)
+				if league.playoffs.is_over():
+					var winner: TeamBasic = league.playoffs.knockout.final[-1].get_winner()
+					if winner != null:
+						promoted.append(winner)
 				teams_buffer["p"][league.pyramid_level] = promoted
 
 			# relegate/promote

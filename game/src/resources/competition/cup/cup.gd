@@ -128,7 +128,7 @@ func get_matches() -> Array[Array]:
 func is_final() -> bool:
 	if stage == Stage.GROUP:
 		return false
-	if knockout.final == null:
+	if knockout.final.is_empty():
 		return false
 	return true
 
@@ -140,9 +140,9 @@ func is_started() -> bool:
 func is_over() -> bool:
 	if stage == Stage.GROUP:
 		return false
-	if knockout.final == null:
+	if knockout.final.is_empty():
 		return false
-	return knockout.final.over
+	return knockout.final[-1].over
 
 
 func is_active() -> bool:
