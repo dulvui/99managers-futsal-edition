@@ -151,15 +151,22 @@ func is_active() -> bool:
 
 func _get_group_match_days() -> MatchDays:
 	var match_days: MatchDays = MatchDays.new()
-	var match_util: MatchUtil = MatchUtil.new(Global.world)
-
 	var group_match_day_list: Array[MatchDays] = []
+
+	var match_util: MatchUtil = MatchUtil.new(Global.world)
 
 	for group: Group in groups:
 		group_match_day_list.append(match_util.create_combinations(self, group.teams))
 	
-	for group_match_days: MatchDays in group_match_day_list:
-		pass
+	if group_match_day_list.size() == 0:
+		return match_days
+
+	# extract all match days from every group
+	for day: int in group_match_day_list[0].days.size():
+		var match_day: MatchDay = MatchDay.new()
+		for group: int in group_match_day_list.size():
+			match_day.matches.append_array(group_match_day_list[group].days[day].matches)
+		match_days.days.append(match_day)
 
 	return match_days
 
@@ -172,5 +179,5 @@ func _find_group_by_team_id(team_id: int) -> Group:
 	for group: Group in groups:
 		if group.get_team_by_id(team_id) != null:
 			return group
-	print("error while seaerching team with id %s in group" % str(team_id))
+	push_error("error while seerching team with id %s in group" % str(team_id))
 	return null
