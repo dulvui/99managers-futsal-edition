@@ -278,21 +278,21 @@
 # res://src/generators/generator.gd
 #
 # Doctorredits_here <182783629+doctorreditshere@users.noreply.github.com>, 2025.
+# Arvin Noer <oyekbudin@gmail.com>, 2025.
 msgid ""
 msgstr ""
 "Project-Id-Version: 99 Managers Futsal Edition\n"
 "POT-Creation-Date: \n"
-"PO-Revision-Date: 2025-03-03 07:16+0000\n"
-"Last-Translator: Doctorredits_here <182783629+doctorreditshere@users.noreply."
-"github.com>\n"
-"Language-Team: Indonesian <https://hosted.weblate.org/projects/99-managers-"
-"futsal-edition/game/id/>\n"
+"PO-Revision-Date: 2025-03-23 04:01+0000\n"
+"Last-Translator: Arvin Noer <oyekbudin@gmail.com>\n"
+"Language-Team: Indonesian <https://hosted.weblate.org/projects/"
+"99-managers-futsal-edition/game/id/>\n"
 "Language: id\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
-"X-Generator: Weblate 5.10.3-dev\n"
+"X-Generator: Weblate 5.11-dev\n"
 
 #: src/ui_components/team_profile/team_profile.tscn
 #: src/screens/dashboard/dashboard.tscn
@@ -373,20 +373,20 @@ msgstr "Statistik"
 
 #: src/ui_components/player_list/player_list.gd
 msgid "All Teams"
-msgstr ""
+msgstr "Semua Tim"
 
 #: src/ui_components/player_list/player_list.gd
 msgid "All positions"
-msgstr ""
+msgstr "Semua posisi"
 
 #: src/ui_components/player_list/player_list.gd
 msgid "All Leagues"
-msgstr ""
+msgstr "Semua Liga"
 
 #: src/ui_components/info/info.tscn
 #: src/screens/setup/setup_world/setup_world.tscn
 msgid "Generation seed"
-msgstr ""
+msgstr "Bibit generasi"
 
 #: src/ui_components/info/info.tscn
 msgid "Copy"
@@ -400,7 +400,7 @@ msgstr "Start date"
 
 #: src/ui_components/base/confirm_dialog/default_confirm_dialog.gd
 msgid "Ok"
-msgstr ""
+msgstr "Ok"
 
 #: src/ui_components/base/confirm_dialog/default_confirm_dialog.tscn
 #: src/ui_components/transfers/player_offer/player_offer.tscn
@@ -431,7 +431,7 @@ msgstr "Pengeluaran"
 
 #: src/ui_components/visual_finances/visual_finances.tscn
 msgid "Reamaining salary budget"
-msgstr ""
+msgstr "Sisa anggaran gaji"
 
 #: src/ui_components/visual_finances/visual_finances.tscn
 #: src/ui_components/transfers/contract_offer/contract_offer.tscn
@@ -449,7 +449,7 @@ msgstr "Kelompok"
 
 #: src/ui_components/visual_competitions/visual_table/visual_table.tscn
 msgid "Played"
-msgstr ""
+msgstr "Bermain"
 
 #: src/ui_components/visual_competitions/visual_table/visual_table.tscn
 msgid "Win"
@@ -462,28 +462,26 @@ msgstr "Gambar"
 
 #: src/ui_components/visual_competitions/visual_table/visual_table.tscn
 msgid "Lost"
-msgstr ""
+msgstr "Kalah"
 
 #: src/ui_components/visual_competitions/visual_table/visual_table.tscn
 msgid "Goal difference"
-msgstr ""
+msgstr "Perbandingan Goal"
 
 #: src/ui_components/visual_competitions/visual_table/visual_table.tscn
 msgid "Difference"
-msgstr ""
+msgstr "Perbandingan"
 
 #: src/ui_components/visual_competitions/visual_table/visual_table.tscn
 #: src/ui_components/player_profile/statistics_view/statistics_view.tscn
 #: src/screens/match_screen/statistics/match_stats.tscn
 #: src/ui_components/player_list/player_list_view/views/statistics/player_list_view_statistics.tscn
 msgid "Goals"
-msgstr ""
+msgstr "Goal"
 
 #: src/ui_components/visual_competitions/visual_table/visual_table.tscn
-#, fuzzy
-#| msgid "Formation"
 msgid "Form"
-msgstr "FORMATION"
+msgstr "Formasi"
 
 #: src/ui_components/visual_competitions/visual_table/visual_table.tscn
 msgid "Points"
@@ -491,15 +489,15 @@ msgstr "Poin"
 
 #: src/ui_components/visual_competitions/visual_table/visual_table.gd
 msgid "Victory"
-msgstr ""
+msgstr "Menang"
 
 #: src/ui_components/visual_competitions/visual_table/visual_table.gd
 msgid "Defeat"
-msgstr ""
+msgstr "Kalah"
 
 #: src/ui_components/visual_competitions/visual_table/visual_table.gd
 msgid "To be played"
-msgstr ""
+msgstr "Akan bermain"
 
 #: src/ui_components/visual_competitions/visual_knockout/visual_knockout.tscn
 msgid "Knockout"
@@ -507,29 +505,29 @@ msgstr "Knockout"
 
 #: src/ui_components/visual_competitions/visual_knockout/visual_knockout.tscn
 msgid "Group A"
-msgstr ""
+msgstr "Grup A"
 
 #: src/ui_components/visual_competitions/visual_knockout/visual_knockout.tscn
 msgid "Final"
-msgstr ""
+msgstr "Babak Final"
 
 #: src/ui_components/visual_competitions/visual_knockout/visual_knockout.tscn
 msgid "Group B"
-msgstr ""
+msgstr "Grup B"
 
 #: src/ui_components/visual_competitions/visual_knockout/visual_knockout.tscn
 msgid "Winner A vs Winner B"
-msgstr ""
+msgstr "Juara A vs Juara B"
 
 #: src/ui_components/visual_competitions/visual_competitions.tscn
 #: src/ui_components/player_profile/statistics_view/statistics_view.tscn
 msgid "Matches"
-msgstr ""
+msgstr "Pertandingan"
 
 #: src/ui_components/visual_competitions/visual_competitions.tscn
 #: src/screens/dashboard/dashboard.tscn
 msgid "Competitions"
-msgstr ""
+msgstr "Kompetisi"
 
 #: src/ui_components/visual_competitions/visual_competitions.gd
 msgid "Group"
@@ -550,7 +548,7 @@ msgstr "Tanggal"
 
 #: src/ui_components/transfers/player_offer/player_offer.tscn
 msgid "Player list"
-msgstr ""
+msgstr "Daftar pemain"
 
 #: src/ui_components/transfers/player_offer/player_offer.tscn
 #: src/ui_components/transfers/contract_offer/contract_offer.tscn
@@ -573,11 +571,11 @@ msgstr "Klausul pembelian"
 
 #: src/ui_components/visual_formation/visual_formation.gd
 msgid "Substitutes"
-msgstr ""
+msgstr "Subtitusi"
 
 #: src/ui_components/visual_formation/visual_formation.gd
 msgid "Other"
-msgstr ""
+msgstr "Lainnya"
 
 #: src/ui_components/visual_formation/players_bar/players_bar.tscn
 #: src/ui_components/visual_formation/visual_formation.tscn
@@ -587,19 +585,19 @@ msgstr "FORMATION"
 
 #: src/ui_components/visual_formation/players_bar/players_bar.tscn
 msgid "Players with low stamina will be changed automatically."
-msgstr ""
+msgstr "Pemain dengan stamina rendah akan diganti otomatis."
 
 #: src/ui_components/visual_formation/players_bar/players_bar.tscn
 msgid "Auto change"
-msgstr ""
+msgstr "Ubah otomatis"
 
 #: src/ui_components/visual_formation/visual_formation.tscn
 msgid "Change strategy"
-msgstr ""
+msgstr "Ubah strategi"
 
 #: src/ui_components/visual_formation/visual_formation.tscn
 msgid "Tactic offense"
-msgstr ""
+msgstr "Taktik menyerang"
 
 #: src/ui_components/visual_formation/visual_formation.tscn
 msgid "Intensity"
@@ -613,7 +611,7 @@ msgstr "MARKING"
 
 #: src/ui_components/visual_formation/visual_formation.tscn
 msgid "Pressing"
-msgstr ""
+msgstr "Menahan"
 
 #: src/ui_components/email/list/message_list.tscn
 #: src/ui_components/email/visual_message/visual_message.tscn
@@ -631,11 +629,11 @@ msgstr "Favorit"
 
 #: src/ui_components/email/list/message_list.gd
 msgid "No message found"
-msgstr ""
+msgstr "Tidak ada pesan"
 
 #: src/ui_components/email/list/message_row/message_row.gd
 msgid "Click to read message"
-msgstr ""
+msgstr "Klik untuk membaca pesan"
 
 #: src/ui_components/email/email.tscn
 msgid "Unread"
@@ -647,7 +645,7 @@ msgstr "Favorit"
 
 #: src/ui_components/email/visual_message/visual_message.tscn
 msgid "To"
-msgstr ""
+msgstr "Untuk"
 
 #: src/ui_components/email/visual_message/visual_message.tscn
 msgid "Action"
@@ -655,168 +653,150 @@ msgstr "Action"
 
 #: src/ui_components/email/visual_message/visual_message.gd
 msgid "Offer contract"
-msgstr ""
+msgstr "Tawarkan kontrak"
 
 #: src/ui_components/player_profile/attributes_view/attributes_view.tscn
 #: src/ui_components/player_list/player_list_view/views/mental/player_list_view_mental.tscn
-#, fuzzy
-#| msgid "Version"
 msgid "Aggression"
-msgstr "Versi"
+msgstr "Menyerang"
 
 #: src/ui_components/player_profile/attributes_view/attributes_view.tscn
 #: src/ui_components/player_list/player_list_view/views/mental/player_list_view_mental.tscn
-#, fuzzy
-#| msgid "Action"
 msgid "Anticipation"
-msgstr "Action"
+msgstr "Antisipasi"
 
 #: src/ui_components/player_profile/attributes_view/attributes_view.tscn
 #: src/ui_components/player_list/player_list_view/views/mental/player_list_view_mental.tscn
-#, fuzzy
-#| msgid "Version"
 msgid "Decisions"
-msgstr "Versi"
+msgstr "Keputusan"
 
 #: src/ui_components/player_profile/attributes_view/attributes_view.tscn
 #: src/ui_components/player_list/player_list_view/views/mental/player_list_view_mental.tscn
-#, fuzzy
-#| msgid "Formation"
 msgid "Concentration"
-msgstr "FORMATION"
+msgstr "Konsentrasi"
 
 #: src/ui_components/player_profile/attributes_view/attributes_view.tscn
 #: src/ui_components/player_list/player_list_view/views/mental/player_list_view_mental.tscn
-#, fuzzy
-#| msgid "Version"
 msgid "Vision"
-msgstr "Versi"
+msgstr "Visi"
 
 #: src/ui_components/player_profile/attributes_view/attributes_view.tscn
 #: src/ui_components/player_list/player_list_view/views/mental/player_list_view_mental.tscn
 msgid "Workrate"
-msgstr ""
+msgstr "Semangat"
 
 #: src/ui_components/player_profile/attributes_view/attributes_view.tscn
 #: src/ui_components/player_list/player_list_view/views/mental/player_list_view_mental.tscn
 msgid "Offensive movement"
-msgstr ""
+msgstr "Pergerakan menyerang"
 
 #: src/ui_components/player_profile/attributes_view/attributes_view.tscn
 #: src/ui_components/player_list/player_list_view/views/goalkeeper/player_list_view_goalkeeper.tscn
 msgid "Reflexes"
-msgstr ""
+msgstr "Refleks"
 
 #: src/ui_components/player_profile/attributes_view/attributes_view.tscn
 #: src/ui_components/player_list/player_list_view/views/goalkeeper/player_list_view_goalkeeper.tscn
-#, fuzzy
-#| msgid "Position"
 msgid "Positioning"
-msgstr "Posisi"
+msgstr "Memposisikan"
 
 #: src/ui_components/player_profile/attributes_view/attributes_view.tscn
 msgid "Save feet"
-msgstr ""
+msgstr "Kesehatan kaki"
 
 #: src/ui_components/player_profile/attributes_view/attributes_view.tscn
 msgid "Save hands"
-msgstr ""
+msgstr "Kesehatan tangan"
 
 #: src/ui_components/player_profile/attributes_view/attributes_view.tscn
 #: src/ui_components/player_list/player_list_view/views/goalkeeper/player_list_view_goalkeeper.tscn
 msgid "Diving"
-msgstr ""
+msgstr "Melakukan diving"
 
 #: src/ui_components/player_profile/attributes_view/attributes_view.tscn
 #: src/ui_components/player_list/player_list_view/views/physical/player_list_view_physical.tscn
 msgid "Pace"
-msgstr ""
+msgstr "Kecepatan"
 
 #: src/ui_components/player_profile/attributes_view/attributes_view.tscn
 #: src/ui_components/player_list/player_list_view/views/physical/player_list_view_physical.tscn
-#, fuzzy
-#| msgid "Action"
 msgid "Acceleration"
-msgstr "Action"
+msgstr "Akselerasi"
 
 #: src/ui_components/player_profile/attributes_view/attributes_view.tscn
 #: src/ui_components/player_list/player_list_view/views/physical/player_list_view_physical.tscn
 msgid "Stamina"
-msgstr ""
+msgstr "Tenaga"
 
 #: src/ui_components/player_profile/attributes_view/attributes_view.tscn
 #: src/ui_components/player_list/player_list_view/views/physical/player_list_view_physical.tscn
 msgid "Strength"
-msgstr ""
+msgstr "Kekuatan"
 
 #: src/ui_components/player_profile/attributes_view/attributes_view.tscn
 #: src/ui_components/player_list/player_list_view/views/physical/player_list_view_physical.tscn
 msgid "Agility"
-msgstr ""
+msgstr "Kelincahan"
 
 #: src/ui_components/player_profile/attributes_view/attributes_view.tscn
 #: src/ui_components/player_list/player_list_view/views/physical/player_list_view_physical.tscn
 msgid "Jump"
-msgstr ""
+msgstr "Lompat"
 
 #: src/ui_components/player_profile/attributes_view/attributes_view.tscn
 #: src/ui_components/player_list/player_list_view/views/technical/player_list_view_technical.tscn
 msgid "Crossing"
-msgstr ""
+msgstr "Melintang"
 
 #: src/ui_components/player_profile/attributes_view/attributes_view.tscn
 #: src/ui_components/player_list/player_list_view/views/technical/player_list_view_technical.tscn
 msgid "Passing"
-msgstr ""
+msgstr "Mengumpan"
 
 #: src/ui_components/player_profile/attributes_view/attributes_view.tscn
 #: src/ui_components/player_list/player_list_view/views/technical/player_list_view_technical.tscn
 msgid "Long passing"
-msgstr ""
+msgstr "Umpan jarak jauh"
 
 #: src/ui_components/player_profile/attributes_view/attributes_view.tscn
 #: src/ui_components/player_list/player_list_view/views/technical/player_list_view_technical.tscn
 msgid "Tackling"
-msgstr ""
+msgstr "Tackle"
 
 #: src/ui_components/player_profile/attributes_view/attributes_view.tscn
 #: src/ui_components/player_list/player_list_view/views/technical/player_list_view_technical.tscn
-#, fuzzy
-#| msgid "Loading"
 msgid "Heading"
-msgstr "Memuat"
+msgstr "Menyundul"
 
 #: src/ui_components/player_profile/attributes_view/attributes_view.tscn
 #: src/ui_components/player_list/player_list_view/views/technical/player_list_view_technical.tscn
 msgid "Interception"
-msgstr ""
+msgstr "Menangkap"
 
 #: src/ui_components/player_profile/attributes_view/attributes_view.tscn
 #: src/ui_components/player_list/player_list_view/views/technical/player_list_view_technical.tscn
-#, fuzzy
-#| msgid "Settings"
 msgid "Shooting"
-msgstr "Pengaturan"
+msgstr "Menembak"
 
 #: src/ui_components/player_profile/attributes_view/attributes_view.tscn
 #: src/ui_components/player_list/player_list_view/views/technical/player_list_view_technical.tscn
 msgid "Long shooting"
-msgstr ""
+msgstr "Tembakan jarak jauh"
 
 #: src/ui_components/player_profile/attributes_view/attributes_view.tscn
 #: src/ui_components/player_list/player_list_view/views/technical/player_list_view_technical.tscn
 msgid "Free kick"
-msgstr ""
+msgstr "Tendangan bebas"
 
 #: src/ui_components/player_profile/attributes_view/attributes_view.tscn
 #: src/ui_components/player_list/player_list_view/views/technical/player_list_view_technical.tscn
 msgid "Penalty"
-msgstr ""
+msgstr "Pinalti"
 
 #: src/ui_components/player_profile/attributes_view/attributes_view.tscn
 #: src/ui_components/player_list/player_list_view/views/technical/player_list_view_technical.tscn
 msgid "Finishing"
-msgstr ""
+msgstr "Penyelesaian"
 
 #: src/ui_components/player_profile/attributes_view/attributes_view.tscn
 #: src/ui_components/player_list/player_list_view/views/technical/player_list_view_technical.tscn
