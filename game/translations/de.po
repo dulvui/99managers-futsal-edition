@@ -282,16 +282,16 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: 99 Managers Futsal Edition\n"
-"PO-Revision-Date: 2025-03-09 11:23+0000\n"
+"PO-Revision-Date: 2025-03-23 20:40+0000\n"
 "Last-Translator: Ettore Atalan <atalanttore@googlemail.com>\n"
-"Language-Team: German <https://hosted.weblate.org/projects/99-managers-"
-"futsal-edition/game/de/>\n"
+"Language-Team: German <https://hosted.weblate.org/projects/"
+"99-managers-futsal-edition/game/de/>\n"
 "Language: de\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8-bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 5.10.3-dev\n"
+"X-Generator: Weblate 5.11-dev\n"
 
 #: src/ui_components/team_profile/team_profile.tscn
 #: src/screens/dashboard/dashboard.tscn
@@ -465,11 +465,11 @@ msgstr "Verloren"
 
 #: src/ui_components/visual_competitions/visual_table/visual_table.tscn
 msgid "Goal difference"
-msgstr ""
+msgstr "Tordifferenz"
 
 #: src/ui_components/visual_competitions/visual_table/visual_table.tscn
 msgid "Difference"
-msgstr ""
+msgstr "Differenz"
 
 #: src/ui_components/visual_competitions/visual_table/visual_table.tscn
 #: src/ui_components/player_profile/statistics_view/statistics_view.tscn
@@ -479,10 +479,8 @@ msgid "Goals"
 msgstr "Tore"
 
 #: src/ui_components/visual_competitions/visual_table/visual_table.tscn
-#, fuzzy
-#| msgid "Formation"
 msgid "Form"
-msgstr "Aufstellung"
+msgstr "Form"
 
 #: src/ui_components/visual_competitions/visual_table/visual_table.tscn
 msgid "Points"
@@ -490,17 +488,15 @@ msgstr "Punkte"
 
 #: src/ui_components/visual_competitions/visual_table/visual_table.gd
 msgid "Victory"
-msgstr ""
+msgstr "Sieg"
 
 #: src/ui_components/visual_competitions/visual_table/visual_table.gd
 msgid "Defeat"
-msgstr ""
+msgstr "Niederlage"
 
 #: src/ui_components/visual_competitions/visual_table/visual_table.gd
-#, fuzzy
-#| msgid "Games played"
 msgid "To be played"
-msgstr "Gespielte Partien"
+msgstr "Zu spielen"
 
 #: src/ui_components/visual_competitions/visual_knockout/visual_knockout.tscn
 msgid "Knockout"
@@ -578,7 +574,7 @@ msgstr "Ersatzleute"
 
 #: src/ui_components/visual_formation/visual_formation.gd
 msgid "Other"
-msgstr ""
+msgstr "Andere"
 
 #: src/ui_components/visual_formation/players_bar/players_bar.tscn
 #: src/ui_components/visual_formation/visual_formation.tscn
@@ -614,7 +610,7 @@ msgstr "Deckung"
 
 #: src/ui_components/visual_formation/visual_formation.tscn
 msgid "Pressing"
-msgstr "Pressing"
+msgstr "Angriffsverteidigung"
 
 #: src/ui_components/email/list/message_list.tscn
 #: src/ui_components/email/visual_message/visual_message.tscn
@@ -701,7 +697,7 @@ msgstr "Reflexe"
 #: src/ui_components/player_profile/attributes_view/attributes_view.tscn
 #: src/ui_components/player_list/player_list_view/views/goalkeeper/player_list_view_goalkeeper.tscn
 msgid "Positioning"
-msgstr "Aufstellung"
+msgstr "Positionierung"
 
 #: src/ui_components/player_profile/attributes_view/attributes_view.tscn
 msgid "Save feet"
@@ -1157,6 +1153,8 @@ msgid ""
 "All changed settings will be restored to the default value.\n"
 "Are you sure?"
 msgstr ""
+"Alle geänderten Einstellungen werden auf den Standardwert zurückgesetzt.\n"
+"Bist du sicher?"
 
 #: src/screens/settings/general/general_settings.tscn
 msgid "Language"
@@ -1390,10 +1388,8 @@ msgid "New game"
 msgstr "Neues Spiel"
 
 #: src/screens/menu/menu.tscn src/screens/about/about.tscn
-#, fuzzy
-#| msgid "Djibouti"
 msgid "About"
-msgstr "Dschibuti"
+msgstr "Über"
 
 #: src/screens/menu/menu.tscn
 msgid "Exit"
@@ -1404,10 +1400,8 @@ msgid "Exit game"
 msgstr "Spiel beenden"
 
 #: src/screens/setup/setup_world/setup_world.tscn
-#, fuzzy
-#| msgid "Start date"
 msgid "Start a new game"
-msgstr "Startdatum"
+msgstr "Neues Spiel beginnen"
 
 #: src/screens/setup/setup_world/setup_world.tscn
 #: src/screens/setup/setup_world/setup_world.gd
@@ -1439,55 +1433,46 @@ msgid "Start year"
 msgstr "Jahresbeginn"
 
 #: src/screens/setup/setup_world/setup_world.tscn
-#, fuzzy
-#| msgid "Game settings"
 msgid "File settings"
-msgstr "Spieleinstellungen"
+msgstr "Dateieinstellungen"
 
 #: src/screens/setup/setup_world/setup_world.tscn
 msgid ""
 "All countries, leagues and team names are defined in a .csv file that can be "
 "modified."
 msgstr ""
+"Alle Länder, Ligen und Mannschaftsnamen sind in einer .csv-Datei definiert, "
+"die geändert werden kann."
 
 #: src/screens/setup/setup_world/setup_world.tscn
 msgid "Show instructions"
-msgstr ""
+msgstr "Anweisungen anzeigen"
 
 #: src/screens/setup/setup_world/setup_world.tscn
 msgid "The following file will be used:"
-msgstr ""
+msgstr "Es wird die folgende Datei verwendet:"
 
 #: src/screens/setup/setup_world/setup_world.tscn
-#, fuzzy
-#| msgid "Default"
 msgid "Use default"
-msgstr "Standard"
+msgstr "Standard verwenden"
 
 #: src/screens/setup/setup_world/setup_world.tscn
-#, fuzzy
-#| msgid "Save states"
 msgid "Save template"
-msgstr "Spielstände"
+msgstr "Vorlage speichern"
 
 #: src/screens/setup/setup_world/setup_world.tscn
-#, fuzzy
-#| msgid "Load game"
 msgid "Load file"
-msgstr "Spiel laden"
+msgstr "Datei laden"
 
 #: src/screens/setup/setup_world/setup_world.tscn
-#, fuzzy
-#| msgid ""
-#| "This generation seed defines player names and attributes. When reused, it "
-#| "will generate exatly the same result."
 msgid ""
 "This generation seed defines all random starting values of the game like "
 "player names, attributes and team wealth. When reused, it will generate "
 "exatly the same result."
 msgstr ""
-"Dieser Generierungs-Seed definiert Spielernamen und Attribute. Wenn er "
-"wiederverwendet wird, wird er genau das gleiche Ergebnis erzeugen."
+"Dieser Generierungs-Seed definiert alle zufälligen Startwerte des Spiels wie "
+"Spielernamen, Attribute und Mannschaftsvermögen. Wenn er wiederverwendet "
+"wird, wird er genau das gleiche Ergebnis erzeugen."
 
 #: src/screens/setup/setup_world/setup_world.tscn
 msgid "Random"
@@ -1495,11 +1480,11 @@ msgstr "Zufällig"
 
 #: src/screens/setup/setup_world/setup_world.tscn
 msgid "Open a File"
-msgstr ""
+msgstr "Datei öffnen"
 
 #: src/screens/setup/setup_world/setup_world.tscn
 msgid "Open"
-msgstr ""
+msgstr "Öffnen"
 
 #: src/screens/setup/setup_world/setup_world.tscn
 msgid ""
@@ -1507,6 +1492,9 @@ msgid ""
 "Please make sure the file is a .csv file and has the correct format as "
 "defined in the template."
 msgstr ""
+"Beim Laden der Datei ist ein Fehler aufgetreten.\n"
+"Bitte stelle sicher, dass die Datei eine .csv-Datei ist und das richtige "
+"Format hat, wie in der Vorlage definiert."
 
 #: src/screens/setup/setup_world/setup_world.tscn
 msgid ""
@@ -1521,12 +1509,25 @@ msgid ""
 "Note: The template might change before final release. The loading will fail, "
 "if the file has not the correct format."
 msgstr ""
+"1) Klicke auf die Schaltfläche „Vorlage speichern“, um die csv-Vorlage auf "
+"deinem Computer zu speichern.\n"
+"2) Öffne sie mit einem Tabellenkalkulationsprogramm (wie LibreOffice Calc "
+"oder ähnlich)\n"
+"3) Ändere die Daten unter Beibehaltung der in der Vorlage definierten "
+"Struktur\n"
+"4) Speichere die Datei als „world.csv“ (.ods oder .xlsx Dateien werden nicht "
+"unterstützt)\n"
+"5) Klicke auf „Datei laden“, um die geänderten Daten zu importieren\n"
+"\n"
+"Und fertig! Diese Datei kann wiederverwendet und mit Freunden geteilt werden."
+"\n"
+"\n"
+"Hinweis: Die Vorlage kann sich bis zur endgültigen Freigabe noch ändern. Das "
+"Laden wird fehlschlagen, wenn die Datei nicht das richtige Format hat."
 
 #: src/screens/setup/setup_world/setup_world.gd
-#, fuzzy
-#| msgid "Default"
 msgid "Default file"
-msgstr "Standard"
+msgstr "Standarddatei"
 
 #: src/screens/setup/setup_world/setup_world.gd
 msgid "Generating teams and players"
@@ -1824,10 +1825,8 @@ msgid "Bonus national cup"
 msgstr "Nationaler Bonuspokal"
 
 #: src/screens/about/about.tscn
-#, fuzzy
-#| msgid "Change"
 msgid "Changelog"
-msgstr "Ändern"
+msgstr "Änderungsprotokoll"
 
 #: src/screens/about/about.tscn
 msgid "Contributors"
@@ -2015,10 +2014,8 @@ msgid "Bulgaria"
 msgstr "Bulgarien"
 
 #: src/generators/generator_world.gd
-#, fuzzy
-#| msgid "Burkina"
 msgid "Burkina Faso"
-msgstr "Burkina"
+msgstr "Burkina Faso"
 
 #: src/generators/generator_world.gd
 msgid "Burundi"
@@ -2041,8 +2038,6 @@ msgid "Denmark"
 msgstr "Dänemark"
 
 #: src/generators/generator_world.gd
-#, fuzzy
-#| msgid "Democratic Republic of Congo"
 msgid "Democratic Republic of the Congo"
 msgstr "Demokratische Republik Kongo"
 
@@ -2072,7 +2067,7 @@ msgstr "El Salvador"
 
 #: src/generators/generator_world.gd
 msgid "Côte d'Ivoire"
-msgstr ""
+msgstr "Elfenbeinküste"
 
 #: src/generators/generator_world.gd
 msgid "Eritrea"
@@ -2084,7 +2079,7 @@ msgstr "Estland"
 
 #: src/generators/generator_world.gd
 msgid "Eswatini"
-msgstr ""
+msgstr "Eswatini"
 
 #: src/generators/generator_world.gd
 msgid "Fiji"
@@ -2139,10 +2134,8 @@ msgid "Guinea"
 msgstr "Guinea"
 
 #: src/generators/generator_world.gd
-#, fuzzy
-#| msgid "Guinea"
 msgid "Guinea-Bissau"
-msgstr "Guinea"
+msgstr "Guinea-Bissau"
 
 #: src/generators/generator_world.gd
 msgid "Guyana"
@@ -2217,8 +2210,6 @@ msgid "Canada"
 msgstr "Kanada"
 
 #: src/generators/generator_world.gd
-#, fuzzy
-#| msgid "Cape Verde"
 msgid "Cabo Verde"
 msgstr "Kap Verde"
 
@@ -2252,7 +2243,7 @@ msgstr "Komoren"
 
 #: src/generators/generator_world.gd
 msgid "Kosovo"
-msgstr ""
+msgstr "Kosovo"
 
 #: src/generators/generator_world.gd
 msgid "Croatia"
@@ -2364,7 +2355,7 @@ msgstr "Mosambik"
 
 #: src/generators/generator_world.gd
 msgid "Myanmar"
-msgstr ""
+msgstr "Myanmar"
 
 #: src/generators/generator_world.gd
 msgid "Namibia"
@@ -2403,10 +2394,8 @@ msgid "North Korea"
 msgstr "Nordkorea"
 
 #: src/generators/generator_world.gd
-#, fuzzy
-#| msgid "Macedonia"
 msgid "North Macedonia"
-msgstr "Mazedonien"
+msgstr "Nordmazedonien"
 
 #: src/generators/generator_world.gd
 msgid "Norway"
@@ -2422,17 +2411,15 @@ msgstr "Österreich"
 
 #: src/generators/generator_world.gd
 msgid "Timor-Leste"
-msgstr ""
+msgstr "Osttimor"
 
 #: src/generators/generator_world.gd
 msgid "Pakistan"
 msgstr "Pakistan"
 
 #: src/generators/generator_world.gd
-#, fuzzy
-#| msgid "Prestige"
 msgid "Palestine"
-msgstr "Ansehen"
+msgstr "Palästina"
 
 #: src/generators/generator_world.gd
 msgid "Palau"
@@ -2467,10 +2454,8 @@ msgid "Portugal"
 msgstr "Portugal"
 
 #: src/generators/generator_world.gd
-#, fuzzy
-#| msgid "Democratic Republic of Congo"
 msgid "Republic of the Congo"
-msgstr "Demokratische Republik Kongo"
+msgstr "Republik Kongo"
 
 #: src/generators/generator_world.gd
 msgid "Rwanda"
@@ -2482,7 +2467,7 @@ msgstr "Rumänien"
 
 #: src/generators/generator_world.gd
 msgid "Russia"
-msgstr ""
+msgstr "Russland"
 
 #: src/generators/generator_world.gd
 msgid "Solomon Islands"
@@ -2602,7 +2587,7 @@ msgstr "Tadschikistan"
 
 #: src/generators/generator_world.gd
 msgid "Taiwan"
-msgstr ""
+msgstr "Taiwan"
 
 #: src/generators/generator_world.gd
 msgid "Tanzania"
@@ -2686,7 +2671,7 @@ msgstr "Vereinigte Arabische Emirate"
 
 #: src/generators/generator_world.gd
 msgid "United States of America"
-msgstr ""
+msgstr "Vereinigte Staaten von Amerika"
 
 #: src/generators/generator_world.gd
 msgid "United Kingdom"
