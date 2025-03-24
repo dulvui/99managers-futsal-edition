@@ -13,7 +13,15 @@ func currency(amount: int) -> String:
 	return format_number(amount) + " " + SIGNS[Global.config.currency]
 
 
-func format_date(p_date: Dictionary) -> String:
+func format_date(p_date: Dictionary, short: bool = true) -> String:
+	if short:
+		return (
+			tr(str(int(p_date.day)))
+			+ " "
+			+ tr(Enum.get_month_text(p_date.month - 1))
+			+ " "
+			+ str(int(p_date.year))
+		)
 	return (
 		tr(Enum.get_weekday_text(p_date.weekday))
 		+ " "
