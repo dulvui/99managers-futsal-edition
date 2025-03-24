@@ -42,9 +42,8 @@ func _ready() -> void:
 	active_national_cup = Global.world.get_active_nation().cup
 	active_continental_cup = Global.world.get_active_continent().cup_clubs
 
-	# start from last entry
-	season_index = active_league.tables.size() - 1
-	season_amount = active_league.tables.size()
+	season_index = active_league.history_tables.size()
+	season_amount = active_league.history_tables.size() + 1
 	
 	active_league_button.text = active_league.name
 	active_national_cup_button.text = active_national_cup.name
@@ -88,10 +87,14 @@ func _setup() -> void:
 			playouts.setup(league.playouts.knockout, tr("Playouts"))
 		
 		# table
-		var table: VisualTable = VisualTableScene.instantiate()
-		overview.add_child(table)
-		table.setup(
-			league.tables[season_index],
+		var visual_table: VisualTable = VisualTableScene.instantiate()
+		var table: Table = league.table
+		if season_index < season_amount:
+			table = league.history_tables[season_index]
+
+		overview.add_child(visual_table)
+		visual_table.setup(
+			table,
 			league.direct_promotion_teams,
 			league.playoff_teams,
 			league.direct_relegation_teams,

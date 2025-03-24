@@ -46,14 +46,12 @@ func _init(
 
 
 func setup(
-	p_teams: Array[Team],
+	p_teams: Array[TeamBasic],
 	p_legs_semi_finals: Legs = Legs.DOUBLE,
 	p_legs_final: Legs = Legs.SINGLE,
 ) -> void:
 	legs_semi_finals = p_legs_semi_finals
 	legs_final = p_legs_final
-	# sort teams by presitge
-	p_teams.sort_custom(func(a: Team, b: Team) -> bool: return a.get_prestige() > b.get_prestige())
 
 	# adjust teams size, to fit knockout format, sicne can only be 32,16,8,4,2
 	if p_teams.size() >= 32:
@@ -78,11 +76,9 @@ func setup(
 	# add teams alterning to part a/b
 	for i: int in p_teams.size():
 		if i % 2 == 0:
-			teams_a.append(p_teams[i].get_basic())
+			teams_a.append(p_teams[i])
 		else:
-			teams_b.append(p_teams[i].get_basic())
-
-	assert(teams_a.size() == teams_b.size())
+			teams_b.append(p_teams[i])
 
 
 func is_over() -> bool:

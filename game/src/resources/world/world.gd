@@ -260,13 +260,13 @@ func promote_and_relegate_teams() -> void:
 			# get teams that will relegate/promote
 			for league: League in nation.leagues:
 				# last/first x teams will be promoted relegated
-				var sorted_table: Array[TableValues] = league.table().to_sorted_array()
+				var sorted_table: Array[TableValues] = league.table.to_sorted_array()
 
 				# assign direct relegated
 				var relegated: Array[Team] = league.teams.filter(
 					func(t: Team) -> bool:
 						for i: int in range(-1, -league.direct_relegation_teams -1, -1):
-							if t.id == sorted_table[i].team_id:
+							if t.id == sorted_table[i].team.id:
 								return true
 						return false
 				)
@@ -283,7 +283,7 @@ func promote_and_relegate_teams() -> void:
 				var promoted: Array[Team] = league.teams.filter(
 					func(t: Team) -> bool:
 						for i: int in league.direct_promotion_teams:
-							if t.id == sorted_table[i].team_id:
+							if t.id == sorted_table[i].team.id:
 								return true
 						return false
 				)
@@ -349,14 +349,11 @@ func promote_and_relegate_teams() -> void:
 
 			# add new seasons table
 			for league: League in nation.leagues:
-				assert(league.teams.size() == 10)
-				var table: Table = Table.new()
+				# save to history and create new competitions
+				league.archive_season()
+				
 				for team: Team in league.teams:
-					table.add_team(team)
+					league.table.add_team(team)
 					# reassign all league ids
 					team.league_id = league.id
-				league.tables.append(table)
 
-				# reset playoffs/playouts
-				league.playoffs.reset()
-				league.playouts.reset()

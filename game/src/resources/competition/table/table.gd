@@ -16,8 +16,7 @@ func _init(
 
 func add_team(team: TeamBasic) -> void:
 	var values: TableValues = TableValues.new()
-	values.team_id = team.id
-	values.team_name = team.name
+	values.team = team
 	teams.append(values)
 
 
@@ -38,7 +37,7 @@ func add_result(
 func get_position(team_id: int = Global.team.id) -> int:
 	var list: Array[TableValues] = to_sorted_array()
 	for table_value: TableValues in list:
-		if table_value.team_id == team_id:
+		if table_value.team.id == team_id:
 			return list.find(table_value) + 1
 	print("error finding team position for team id " + str(team_id))
 	return -1
@@ -53,7 +52,7 @@ func to_sorted_array() -> Array[TableValues]:
 # ascending, 0 best, size -1 last
 func _point_sorter(a: TableValues, b: TableValues) -> bool:
 	if a.games_played == 0 and b.games_played == 0:
-		return a.team_name < b.team_name
+		return a.team.name < b.team.name
 	if a.points > b.points:
 		return true
 	if a.points == b.points and a.goals_made - a.goals_conceded > b.goals_made - b.goals_conceded:
@@ -63,7 +62,8 @@ func _point_sorter(a: TableValues, b: TableValues) -> bool:
 
 func _find_by_id(team_id: int) -> TableValues:
 	for value: TableValues in teams:
-		if value.team_id == team_id:
+		if value.team.id == team_id:
 			return value
 	print("ERROR while searching team in table with id: " + str(team_id))
 	return null
+

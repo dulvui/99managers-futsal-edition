@@ -6,12 +6,15 @@ class_name League
 extends Competition
 
 @export var teams: Array[Team]
-# includes also historical tables
-# tables[-1] is latest winner
-@export var tables: Array[Table]
 @export var nation_name: String
+# active table and playoffs/playouts
+@export var table: Table
 @export var playoffs: Cup
 @export var playouts: Cup
+# [-1] is latest
+@export var history_tables: Array[Table]
+@export var history_playoffs: Array[Cup]
+@export var history_playouts: Array[Cup]
 
 # in highest league, playoffs define final winner and continental cup participants
 # total promotion and total reletations teams from leagues must be the same
@@ -25,10 +28,13 @@ extends Competition
 
 func _init(
 	p_teams: Array[Team] = [],
-	p_tables: Array[Table] = [Table.new()],
 	p_nation_name: String = "",
+	p_table: Table = Table.new(),
 	p_playoffs: Cup = Cup.new(),
 	p_playouts: Cup = Cup.new(),
+	p_history_tables: Array[Table] = [],
+	p_history_playoffs: Array[Cup] = [],
+	p_history_playouts: Array[Cup] = [],
 	p_direct_promotion_teams: int = 0,
 	p_playoff_teams: int = 0,
 	p_direct_relegation_teams: int = 0,
@@ -36,23 +42,25 @@ func _init(
 ) -> void:
 	super()
 	teams = p_teams
-	tables = p_tables
 	nation_name = p_nation_name
+	table = p_table
 	playoffs = p_playoffs
 	playouts = p_playouts
+	history_tables = p_history_tables
+	history_playoffs = p_history_playoffs
+	history_playouts = p_history_playouts
 	direct_promotion_teams = p_direct_promotion_teams
 	playoff_teams = p_playoff_teams
 	direct_relegation_teams = p_direct_relegation_teams
 	playout_teams = p_playout_teams
 
-
-func table() -> Table:
-	return tables[-1]
+	playoffs.name = tr("Playoffs") + " " + name
+	playouts.name = tr("Playouts") + " " + name
 
 
 func add_team(team: Team) -> void:
 	teams.append(team)
-	tables[-1].add_team(team)
+	table.add_team(team)
 
 	# sort alphabetically
 	teams.sort_custom(func(a: Team, b: Team) -> bool: return a.name < b.name)
@@ -63,3 +71,27 @@ func get_team_by_id(team_id: int) -> Team:
 		if team.id == team_id:
 			return team
 	return null
+
+
+func get_teams_basic() -> Array[TeamBasic]:
+	var teams_basic: Array[TeamBasic] = []
+	for team: Team in teams:
+		teams_basic.append(team.get_basic())
+	return teams_basic
+
+
+func archive_season() -> void:
+	# append to history
+	history_tables.append(table.duplicate(true))
+	if playoff_teams > 0:
+		history_playoffs.append(playoffs.duplicate(true))
+	if playout_teams > 0:
+		history_playouts.append(playouts.duplicate(true))
+	
+	# new season
+	table = Table.new()
+	playoffs = Cup.new()
+	playouts = Cup.new()
+	playoffs.name = tr("Playoffs") + " " + name
+	playouts.name = tr("Playouts") + " " + name
+

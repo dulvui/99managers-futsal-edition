@@ -11,8 +11,7 @@ enum Form {
 	WIN,
 }
 
-@export var team_id: int
-@export var team_name: String
+@export var team: TeamBasic
 @export var points: int
 @export var games_played: int
 @export var goals_made: int
@@ -24,8 +23,7 @@ enum Form {
 
 
 func _init(
-	p_team_id: int = 0,
-	p_team_name: String = "",
+	p_team: TeamBasic = TeamBasic.new(),
 	p_points: int = 0,
 	p_games_played: int = 0,
 	p_goals_made: int = 0,
@@ -35,8 +33,7 @@ func _init(
 	p_lost: int = 0,
 	p_form: Array[Form] = [],
 ) -> void:
-	team_id = p_team_id
-	team_name = p_team_name
+	team = p_team
 	points = p_points
 	games_played = p_games_played
 	goals_made = p_goals_made

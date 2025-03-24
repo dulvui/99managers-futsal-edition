@@ -17,7 +17,7 @@ func initialize_matches() -> void:
 			if nation.is_competitive():
 				# first, initialize leauge matches
 				for league: League in nation.leagues:
-					_initialize_club_league_matches(league, league.teams)
+					_initialize_club_league_matches(league, league.get_teams_basic())
 
 				# seconldy, initialize national cups
 				_initialize_club_national_cup(nation)
@@ -34,8 +34,8 @@ func initialize_playoffs(league: League, add_to_calendar: bool = true) -> void:
 	if league.playoff_teams == 0:
 		return
 
-	var p_teams: Array[Team] = []
-	var sorted_table: Array[TableValues] = league.table().to_sorted_array()
+	var teams: Array[TeamBasic] = []
+	var sorted_table: Array[TableValues] = league.table.to_sorted_array()
 
 	# remove directly promoted
 	for i: int in league.direct_promotion_teams:
@@ -47,11 +47,11 @@ func initialize_playoffs(league: League, add_to_calendar: bool = true) -> void:
 		if value == null:
 			push_error("no team left for playoff")
 		else:
-			p_teams.append(league.get_team_by_id(value.team_id))
+			teams.append(value.team)
 
 	league.playoffs.name = tr("Playoffs")
 	league.playoffs.set_id()
-	league.playoffs.setup_knockout(p_teams)
+	league.playoffs.setup_knockout(teams)
 
 	if add_to_calendar:
 		var match_days: MatchDays = league.playoffs.get_match_days()
@@ -62,8 +62,8 @@ func initialize_playouts(league: League, add_to_calendar: bool = true) -> void:
 	if league.playout_teams == 0:
 		return
 
-	var p_teams: Array[Team] = []
-	var sorted_table: Array[TableValues] = league.table().to_sorted_array()
+	var teams: Array[TeamBasic] = []
+	var sorted_table: Array[TableValues] = league.table.to_sorted_array()
 
 	# remove directly relegated
 	for i: int in league.direct_relegation_teams:
@@ -75,25 +75,25 @@ func initialize_playouts(league: League, add_to_calendar: bool = true) -> void:
 		if value == null:
 			push_error("no team left for playout")
 		else:
-			p_teams.append(league.get_team_by_id(value.team_id))
+			teams.append(value.team)
 
 	league.playouts.name = tr("Playouts")
 	league.playouts.set_id()
-	league.playouts.setup_knockout(p_teams)
+	league.playouts.setup_knockout(teams)
 
 	if add_to_calendar:
 		var match_days: MatchDays = league.playouts.get_match_days()
 		add_matches_to_calendar(league.playouts, match_days)
 
 
-func create_combinations(competition: Competition, p_teams: Array[Team]) -> MatchDays:
+func create_combinations(competition: Competition, p_teams: Array[TeamBasic]) -> MatchDays:
 	var match_days: MatchDays = MatchDays.new()
 	var teams: Array = p_teams.duplicate(true)
 
-	var random_teams: Array[Team] = teams.duplicate(true)
+	var random_teams: Array[TeamBasic] = teams.duplicate(true)
 	RngUtil.shuffle(random_teams)
 
-	var last_team: Team = random_teams.pop_front()
+	var last_team: TeamBasic = random_teams.pop_front()
 
 	var home: bool = true
 
@@ -108,7 +108,7 @@ func create_combinations(competition: Competition, p_teams: Array[Team]) -> Matc
 			match_one.setup(random_teams[0], last_team, competition.id, competition.name)
 		current_match_day.append(match_one)
 
-		var copy: Array[Team] = random_teams.duplicate(true)
+		var copy: Array[TeamBasic] = random_teams.duplicate(true)
 		copy.remove_at(0)
 
 		for j: int in range(0, (teams.size() / 2) - 1):
@@ -188,7 +188,7 @@ func add_matches_to_calendar(
 		day += 7
 
 
-func _initialize_club_league_matches(competition: Competition, teams: Array[Team]) -> void:
+func _initialize_club_league_matches(competition: Competition, teams: Array[TeamBasic]) -> void:
 	var match_days: MatchDays = create_combinations(competition, teams)
 	add_matches_to_calendar(competition, match_days)
 
@@ -197,9 +197,9 @@ func _initialize_club_national_cup(p_nation: Nation) -> void:
 	# setup cup
 	p_nation.cup.set_id()
 	p_nation.cup.name = p_nation.name + " " + tr("Cup")
-	var teams: Array[Team]
+	var teams: Array[TeamBasic]
 	for league: League in p_nation.leagues:
-		teams.append_array(league.teams)
+		teams.append_array(league.get_teams_basic())
 
 	# limit teams for now
 	# TODO choose best teams
@@ -217,7 +217,7 @@ func _initialize_club_continental_cup(p_continent: Continent) -> void:
 	# setup cup
 	p_continent.cup_clubs.set_id()
 	p_continent.cup_clubs.name = p_continent.name + " " + tr("Cup")
-	var teams: Array[Team]
+	var teams: Array[TeamBasic]
 
 	# get qualified teams from every nation
 	for nation: Nation in p_continent.nations:
@@ -239,11 +239,11 @@ func _initialize_nations_continental_cup(p_continent: Continent) -> void:
 	# setup cup
 	p_continent.cup_nations.set_id()
 	p_continent.cup_nations.name = p_continent.name + " " + tr("Nations cup")
-	var teams: Array[Team]
+	var teams: Array[TeamBasic]
 
 	# get qualified teams from every nation
 	for nation: Nation in p_continent.nations:
-		teams.append(nation.team)
+		teams.append(nation.team.get_basic())
 
 	# limit teams for now
 	# TODO choose best teams
@@ -263,10 +263,10 @@ func _initialize_world_cup() -> void:
 	world.world_cup.set_id()
 	world.world_cup.name = tr("World cup")
 
-	var teams: Array[Team]
+	var teams: Array[TeamBasic]
 	for continent: Continent in world.continents:
 		for nation: Nation in continent.nations:
-			teams.append(nation.team)
+			teams.append(nation.team.get_basic())
 
 	# limit teams for now
 	# TODO choose best teams
@@ -282,7 +282,7 @@ func _initialize_world_cup() -> void:
 
 
 func _shift_array(array: Array) -> void:
-	var temp: Team = array[0]
+	var temp: TeamBasic = array[0]
 	for i: int in range(array.size() - 1):
 		array[i] = array[i + 1]
 	array[array.size() - 1] = temp

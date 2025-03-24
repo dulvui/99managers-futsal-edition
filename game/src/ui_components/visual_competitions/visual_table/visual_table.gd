@@ -37,6 +37,7 @@ func setup(
 		# _style_label(team.team_id, pos_label)
 		pos_label.text = str(pos)
 
+		# colorize promotions/relegations and playoffs/playouts
 		if pos <= direct_promotion:
 			pos_label.high()
 			pos_label.tooltip_text = tr("Direct promotion")

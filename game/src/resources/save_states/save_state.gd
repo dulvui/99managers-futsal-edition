@@ -64,7 +64,7 @@ func initialize() -> void:
 	meta_team_name = Global.team.name
 	meta_manager_name = Global.manager.get_full_name()
 	meta_create_date = Time.get_datetime_dict_from_system()
-	meta_team_position = (str(Global.league.table().get_position()) + ". " + Global.league.name)
+	meta_team_position = (str(Global.league.table.get_position()) + ". " + Global.league.name)
 	meta_last_save = Time.get_datetime_dict_from_system()
 	meta_game_date = Global.world.calendar.date
 

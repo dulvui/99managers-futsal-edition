@@ -93,7 +93,7 @@ func set_result(
 
 		if competition is League:
 			var league: League = competition as League
-			league.table().add_result(home.id, away.id, home_goals, away_goals)
+			league.table.add_result(home.id, away.id, home_goals, away_goals)
 		elif competition is Cup:
 			var cup: Cup = competition as Cup
 			cup.add_result(

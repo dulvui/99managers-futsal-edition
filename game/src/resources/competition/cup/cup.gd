@@ -17,9 +17,6 @@ const MAX_TEAMS: int = 32
 @export var knockout: Knockout
 @export var stage: Stage
 @export var teams_pass_to_knockout: int
-# includes also historical winners
-# winners[-1] is latest winner
-@export var winners: Array[Team]
 
 
 func _init(
@@ -33,11 +30,8 @@ func _init(
 	stage = p_stage
 
 
-func setup(p_teams: Array[Team]) -> void:
+func setup(p_teams: Array[TeamBasic]) -> void:
 	stage = Stage.GROUP
-	# sort teams by presitge
-	p_teams.sort_custom(func(a: Team, b: Team) -> bool: return a.get_prestige() > b.get_prestige())
-
 	# limit team size
 	p_teams = p_teams.slice(0, MAX_TEAMS)
 
@@ -62,7 +56,7 @@ func setup(p_teams: Array[Team]) -> void:
 
 
 func setup_knockout(
-	teams: Array[Team] = [],
+	teams: Array[TeamBasic] = [],
 	legs_semi_finals: Knockout.Legs = Knockout.Legs.DOUBLE,
 	legs_final: Knockout.Legs = Knockout.Legs.SINGLE,
 ) -> void:
@@ -77,12 +71,6 @@ func setup_knockout(
 			teams.append_array(group.teams.slice(0, teams_pass_to_knockout))
 
 	knockout.setup(teams, legs_semi_finals, legs_final)
-
-
-func reset() -> void:
-	groups = []
-	knockout = Knockout.new()
-	stage = Stage.NOT_READY
 
 
 func add_result(

@@ -6,27 +6,27 @@ class_name Group
 extends JSONResource
 
 @export var table: Table
-@export var teams: Array[Team]
+@export var teams: Array[TeamBasic]
 
 
 func _init(
 	p_table: Table = Table.new(),
-	p_teams: Array[Team] = [],
+	p_teams: Array[TeamBasic] = [],
 ) -> void:
 	table = p_table
 	teams = p_teams
 
 
-func add_team(team: Team) -> void:
+func add_team(team: TeamBasic) -> void:
 	teams.append(team)
 	table.add_team(team)
 
 	# sort alphabetically
-	teams.sort_custom(func(a: Team, b: Team) -> bool: return a.name < b.name)
+	teams.sort_custom(func(a: TeamBasic, b: TeamBasic) -> bool: return a.name < b.name)
 
 
-func get_team_by_id(team_id: int) -> Team:
-	for team: Team in teams:
+func get_team_by_id(team_id: int) -> TeamBasic:
+	for team: TeamBasic in teams:
 		if team.id == team_id:
 			return team
 	return null
@@ -34,7 +34,7 @@ func get_team_by_id(team_id: int) -> Team:
 
 func sort_teams_by_table_pos() -> void:
 	teams.sort_custom(
-		func(a: Team, b: Team) -> bool: return table.get_position(a.id) > table.get_position(b.id)
+		func(a: TeamBasic, b: TeamBasic) -> bool: return table.get_position(a.id) > table.get_position(b.id)
 	)
 
 
@@ -46,3 +46,4 @@ func is_over() -> bool:
 			over_count += 1
 
 	return over_count == teams.size()
+

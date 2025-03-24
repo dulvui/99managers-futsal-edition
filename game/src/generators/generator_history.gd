@@ -22,7 +22,7 @@ func generate_club_history(world: World = Global.world) -> void:
 				for league: League in nation.leagues:
 					# create match combinations
 					var match_days: MatchDays = match_util.create_combinations(
-						league, league.teams
+						league, league.get_teams_basic()
 					)
 
 					# generate random results for every match

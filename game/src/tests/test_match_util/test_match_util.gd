@@ -19,7 +19,7 @@ func test() -> void:
 func test_combinations(league: League) -> void:
 	print("test: combinations...")
 	var match_util: MatchUtil = MatchUtil.new(null)
-	var match_days: MatchDays =  match_util.create_combinations(league, league.teams)
+	var match_days: MatchDays =  match_util.create_combinations(league, league.get_teams_basic())
 
 	# match amount
 	var reference_match_count: int = (TEAMS - 1) * 2 * (TEAMS / 2)
@@ -67,7 +67,8 @@ func test_add_to_calendar(league: League) -> void:
 	var world: World = world_generator.init_world()
 
 	var match_util: MatchUtil = MatchUtil.new(world)
-	var match_days: MatchDays = match_util.create_combinations(league, league.teams)
+	var match_days: MatchDays = match_util.create_combinations(league, league.get_teams_basic())
 	match_util.add_matches_to_calendar(league, match_days)
 
 	print("test: add to calendar...")
+
