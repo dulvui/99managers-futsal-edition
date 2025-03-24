@@ -90,7 +90,13 @@ func _setup() -> void:
 		# table
 		var table: VisualTable = VisualTableScene.instantiate()
 		overview.add_child(table)
-		table.setup(league.tables[season_index])
+		table.setup(
+			league.tables[season_index],
+			league.direct_promotion_teams,
+			league.playoff_teams,
+			league.direct_relegation_teams,
+			league.playout_teams,
+		)
 	else:
 		var cup: Cup = competition as Cup
 

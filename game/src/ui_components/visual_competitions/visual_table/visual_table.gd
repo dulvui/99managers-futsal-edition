@@ -5,6 +5,9 @@
 class_name VisualTable
 extends GridContainer
 
+const ColorLabelScene: PackedScene = preload(Const.SCENE_COLOR_LABEL)
+
+
 var dynamic_content: Array[Control]
 
 
@@ -14,7 +17,13 @@ func _ready() -> void:
 	dynamic_content = []
 
 
-func setup(table: Table) -> void:
+func setup(
+	table: Table,
+	direct_promotion: int = 0,
+	playoff_teams: int = 0,
+	direct_relegation: int = 0,
+	playout_teams: int = 0,
+) -> void:
 	# clear grid
 	for label: Label in dynamic_content:
 		label.queue_free()
@@ -24,9 +33,23 @@ func setup(table: Table) -> void:
 
 	var pos: int = 1
 	for team: TableValues in table_array:
-		var pos_label: Label = Label.new()
-		_style_label(team.team_id, pos_label)
+		var pos_label: ColorLabel = ColorLabelScene.instantiate()
+		# _style_label(team.team_id, pos_label)
 		pos_label.text = str(pos)
+
+		if pos <= direct_promotion:
+			pos_label.high()
+			pos_label.tooltip_text = tr("Direct promotion")
+		elif pos <= direct_promotion + playoff_teams:
+			pos_label.mid()
+			pos_label.tooltip_text = tr("Playoffs")
+		elif pos > table_array.size() - direct_relegation:
+			pos_label.low()
+			pos_label.tooltip_text = tr("Direct relegation")
+		elif pos > table_array.size() - playout_teams - direct_relegation:
+			pos_label.mid()
+			pos_label.tooltip_text = tr("Playouts")
+
 		dynamic_content.append(pos_label)
 		pos += 1
 

@@ -1,0 +1,24 @@
+[gd_scene format=3 uid="uid://cbipml1ufktkc"]
+
+[node name="VisualTablePosition" type="MarginContainer"]
+anchors_preset = -1
+anchor_right = 0.036
+anchor_bottom = 0.0497778
+offset_right = 0.879997
+offset_bottom = 0.239998
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 0
+theme_override_constants/margin_top = 0
+theme_override_constants/margin_right = 0
+theme_override_constants/margin_bottom = 0
+metadata/_edit_use_anchors_ = true
+
+[node name="ColorRect" type="ColorRect" parent="."]
+layout_mode = 2
+color = Color(0.0286982, 0.523343, 0.249415, 1)
+
+[node name="Label" type="Label" parent="."]
+layout_mode = 2
+text = "5"
+vertical_alignment = 1

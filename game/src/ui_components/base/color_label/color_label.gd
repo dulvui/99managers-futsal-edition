@@ -24,3 +24,15 @@ func set_value(value: Variant) -> void:
 			label_settings = ThemeUtil.label_settings_mid
 		else:
 			label_settings = ThemeUtil.label_settings_high
+
+
+func low() -> void:
+	label_settings = ThemeUtil.label_settings_low
+
+
+func mid() -> void:
+	label_settings = ThemeUtil.label_settings_mid
+
+
+func high() -> void:
+	label_settings = ThemeUtil.label_settings_high
