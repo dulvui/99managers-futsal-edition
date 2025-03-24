@@ -195,5 +195,9 @@ func _prepare_next_round(p_round: KnockoutRound, teams: Array[TeamBasic]) -> boo
 	# eliminate teams
 	for matchz: Match in p_round.matches:
 		var looser: TeamBasic = matchz.get_looser()
-		teams.erase(looser)
+		for team: TeamBasic in teams:
+			if team.id == looser.id:
+				teams.erase(team)
+				break
 	return true
+

@@ -34,7 +34,7 @@ func setup(
 	var pos: int = 1
 	for team: TableValues in table_array:
 		var pos_label: ColorLabel = ColorLabelScene.instantiate()
-		# _style_label(team.team_id, pos_label)
+		# _style_label(team.team.id, pos_label)
 		pos_label.text = str(pos)
 
 		# colorize promotions/relegations and playoffs/playouts
@@ -56,33 +56,33 @@ func setup(
 
 		var name_label: Label = Label.new()
 		name_label.text_overrun_behavior = TextServer.OVERRUN_TRIM_ELLIPSIS
-		name_label.text = team.team_name
+		name_label.text = team.team.name
 		dynamic_content.append(name_label)
-		if team.team_id == Global.team.id:
+		if team.team.id == Global.team.id:
 			ThemeUtil.bold(name_label)
 
 		var games_played_label: Label = Label.new()
-		_style_label(team.team_id, games_played_label)
+		_style_label(team.team.id, games_played_label)
 		games_played_label.text = str(team.wins + team.draws + team.lost)
 		dynamic_content.append(games_played_label)
 
 		var wins_label: Label = Label.new()
-		_style_label(team.team_id, wins_label)
+		_style_label(team.team.id, wins_label)
 		wins_label.text = str(team.wins)
 		dynamic_content.append(wins_label)
 
 		var draws_label: Label = Label.new()
-		_style_label(team.team_id, draws_label)
+		_style_label(team.team.id, draws_label)
 		draws_label.text = str(team.draws)
 		dynamic_content.append(draws_label)
 
 		var lost_label: Label = Label.new()
-		_style_label(team.team_id, lost_label)
+		_style_label(team.team.id, lost_label)
 		lost_label.text = str(team.lost)
 		dynamic_content.append(lost_label)
 
 		var goals_difference: Label = Label.new()
-		_style_label(team.team_id, goals_difference)
+		_style_label(team.team.id, goals_difference)
 		var difference: int = team.goals_made - team.goals_conceded
 		if difference >= 0:
 			goals_difference.text = "+%d" % difference
@@ -91,15 +91,15 @@ func setup(
 		dynamic_content.append(goals_difference)
 
 		var goals_made_label: Label = Label.new()
-		_style_label(team.team_id, goals_made_label)
+		_style_label(team.team.id, goals_made_label)
 		goals_made_label.text = "%d:%d" % [team.goals_made, team.goals_conceded]
 		dynamic_content.append(goals_made_label)
 
 		# form
-		dynamic_content.append(_form_row(team.team_id, team.form))
+		dynamic_content.append(_form_row(team.team.id, team.form))
 
 		var points_label: Label = Label.new()
-		_style_label(team.team_id, points_label)
+		_style_label(team.team.id, points_label)
 		points_label.text = str(team.points)
 		dynamic_content.append(points_label)
 	

@@ -11,14 +11,13 @@ const HISTORY_YEARS: int = 10
 func generate_club_history(world: World = Global.world) -> void:
 	# TODO world cup history (once national teams exist)
 	# TODO continental national teams cup
-
 	var match_util: MatchUtil = MatchUtil.new(world)
 	var match_engine: MatchEngine = MatchEngine.new()
 
 	# calculate random results for x years
 	for year: int in HISTORY_YEARS + 1:
-		for contient: Continent in world.continents:
-			for nation: Nation in contient.nations:
+		for continent: Continent in world.continents:
+			for nation: Nation in continent.nations:
 				for league: League in nation.leagues:
 					# create match combinations
 					var match_days: MatchDays = match_util.create_combinations(

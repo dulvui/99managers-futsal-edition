@@ -90,7 +90,7 @@ func _setup() -> void:
 		var visual_table: VisualTable = VisualTableScene.instantiate()
 		var table: Table = league.table
 		if season_index < season_amount:
-			table = league.history_tables[season_index]
+			table = league.history_tables[season_index - 1]
 
 		overview.add_child(visual_table)
 		visual_table.setup(
