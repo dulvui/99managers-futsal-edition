@@ -26,4 +26,5 @@ func _init(
 
 
 func set_id() -> void:
-	id = IdUtil.next_id(IdUtil.Types.COMPETITION)
+	if id == -1:
+		id = IdUtil.next_id(IdUtil.Types.COMPETITION)

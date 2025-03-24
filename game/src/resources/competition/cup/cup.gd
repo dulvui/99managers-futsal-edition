@@ -52,6 +52,7 @@ func setup(p_teams: Array[Team]) -> void:
 	teams_pass_to_knockout = teams_amount / group_amount / 2
 
 	# set up groups
+	groups = []
 	for i: int in group_amount:
 		var group: Group = Group.new()
 		groups.append(group)
@@ -128,9 +129,7 @@ func get_match_days() -> MatchDays:
 func is_final() -> bool:
 	if stage == Stage.GROUP:
 		return false
-	if knockout.final.is_empty():
-		return false
-	return true
+	return knockout.is_final()
 
 
 func is_started() -> bool:

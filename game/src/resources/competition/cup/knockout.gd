@@ -82,11 +82,17 @@ func setup(
 		else:
 			teams_b.append(p_teams[i].get_basic())
 
+	assert(teams_a.size() == teams_b.size())
+
 
 func is_over() -> bool:
 	if final.is_empty():
 		return false
 	return final[-1].over
+
+
+func is_final() -> bool:
+	return not final.is_empty()
 
 
 func get_match_days(cup: Cup) -> MatchDays:
@@ -168,7 +174,7 @@ func get_match_days(cup: Cup) -> MatchDays:
 
 
 func prepare_next_round() -> bool:
-	if is_over():
+	if is_over() or is_final():
 		return false
 
 	if rounds_a.size() * rounds_b.size() == 0:

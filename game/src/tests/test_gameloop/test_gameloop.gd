@@ -9,13 +9,6 @@ extends Test
 func test() -> void:
 	print("test: game loop...")
 	test_full_season()
-
-	# test x seasons
-	for season: int in range(2):
-		print("test: season %d..." % [season])
-		test_full_season()
-		print("test: season %d done..." % [season])
-
 	print("test: game loop done.")
 
 
@@ -24,10 +17,17 @@ func test_full_season() -> void:
 
 	Tests.setup_mock_world(true)
 
-	while not Global.world.calendar.is_season_finished():
-		Global.world.calendar.next_day()
-		Global.world.random_results()
+	# set team to null, so that ALL matches get simulated
+	# world.random_results checks for active team
+	Global.team = null
 
-	Global.next_season(false)
+	for season: int in range(5):
+		print("test: season %d..." % [season])
+		while not Global.world.calendar.is_season_finished():
+			Global.world.calendar.next_day()
+			Global.world.random_results()
+
+		Global.next_season(false)
+		print("test: season %d done..." % [season])
 
 	print("test: test full season done.")
