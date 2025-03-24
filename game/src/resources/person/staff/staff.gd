@@ -27,8 +27,10 @@ func get_salary() -> int:
 	# dynamically calculate salaries
 	for property: Dictionary in get_property_list():
 		if property.usage == Const.CUSTOM_PROPERTY:
-			var variant: Variant = get(property.name)
+			var property_name: String = property.name
+			var variant: Variant = get(property_name)
 			if variant is Person:
-				salary += (variant as Person).contract.income
+				var person: Person = variant
+				salary += person.contract.income
 
 	return salary

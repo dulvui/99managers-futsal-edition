@@ -11,13 +11,13 @@ enum Legs {
 	DOUBLE,
 }
 
+# defines if the play once or twice against each other
+@export var legs_semi_finals: Legs
+@export var legs_final: Legs
 # side a and side b of knockout graph
 # final is last remaining of teams_a vs teams_b
 @export var teams_a: Array[TeamBasic]
 @export var teams_b: Array[TeamBasic]
-# defines if the play once or twice against each other
-@export var legs_semi_finals: Legs
-@export var legs_final: Legs
 # saves all matches in every round, for easier visualization
 @export var rounds: int
 @export var rounds_a: Array[KnockoutRound]

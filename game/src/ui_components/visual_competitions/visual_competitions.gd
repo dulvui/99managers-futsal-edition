@@ -42,7 +42,7 @@ func _ready() -> void:
 	active_national_cup = Global.world.get_active_nation().cup
 	active_continental_cup = Global.world.get_active_continent().cup_clubs
 
-	season_index = active_league.history_tables.size()
+	season_index = active_league.history_tables.size() + 1
 	season_amount = active_league.history_tables.size() + 1
 	
 	active_league_button.text = active_league.name
@@ -75,16 +75,22 @@ func _setup() -> void:
 		var league: League = competition as League
 
 		# playoffs
+		var playoffs: Cup = league.playoffs
+		if season_index < season_amount:
+			playoffs = league.history_playoffs[season_index - 1]
 		if league.playoffs.is_started():
-			var playoffs: VisualKnockout = VisualKnockoutScene.instantiate()
-			overview.add_child(playoffs)
-			playoffs.setup(league.playoffs.knockout, tr("Playoffs"))
+			var visual_playoffs: VisualKnockout = VisualKnockoutScene.instantiate()
+			overview.add_child(visual_playoffs)
+			visual_playoffs.setup(playoffs.knockout, tr("Playoffs"))
 
 		# playouts
+		var playouts: Cup = league.playouts
+		if season_index < season_amount:
+			playouts = league.history_playouts[season_index - 1]
 		if league.playouts.is_started():
-			var playouts: VisualKnockout = VisualKnockoutScene.instantiate()
-			overview.add_child(playouts)
-			playouts.setup(league.playouts.knockout, tr("Playouts"))
+			var visual_playouts: VisualKnockout = VisualKnockoutScene.instantiate()
+			overview.add_child(visual_playouts)
+			visual_playouts.setup(playouts.knockout, tr("Playouts"))
 		
 		# table
 		var visual_table: VisualTable = VisualTableScene.instantiate()
@@ -148,8 +154,7 @@ func _setup_seasons() -> void:
 func _on_seasons_button_item_selected(index: int) -> void:
 	# substract from season amount,
 	# seasons are inserted inverted in options button
-	# -1, because arrays start from 0
-	season_index = season_amount - 1 - index
+	season_index = season_amount - index
 	_setup()
 
 
@@ -175,6 +180,6 @@ func _on_active_continental_cup_button_pressed() -> void:
 
 func _show_competition() -> void:
 	competitions_tree.select(competition.name)
-	season_index = season_amount - 1
+	season_index = season_amount
 	seasons_button.option_button.selected = 0
 	_setup()

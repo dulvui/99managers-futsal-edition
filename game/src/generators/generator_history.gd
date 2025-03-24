@@ -5,7 +5,7 @@
 class_name GeneratorHistory
 
 # defines year, when history starts
-const HISTORY_YEARS: int = 10
+const HISTORY_YEARS: int = 2
 
 
 func generate_club_history(world: World = Global.world) -> void:
@@ -15,7 +15,7 @@ func generate_club_history(world: World = Global.world) -> void:
 	var match_engine: MatchEngine = MatchEngine.new()
 
 	# calculate random results for x years
-	for year: int in HISTORY_YEARS + 1:
+	for year: int in HISTORY_YEARS:
 		for continent: Continent in world.continents:
 			for nation: Nation in continent.nations:
 				for league: League in nation.leagues:
