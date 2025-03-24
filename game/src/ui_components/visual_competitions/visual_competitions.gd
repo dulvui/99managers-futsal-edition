@@ -74,6 +74,20 @@ func _setup() -> void:
 	competition_name.text = competition.name
 	if competition is League:
 		var league: League = competition as League
+
+		# playoffs
+		if league.playoffs.is_started():
+			var playoffs: VisualKnockout = VisualKnockoutScene.instantiate()
+			overview.add_child(playoffs)
+			playoffs.setup(league.playoffs.knockout, tr("Playoffs"))
+
+		# playouts
+		if league.playouts.is_started():
+			var playouts: VisualKnockout = VisualKnockoutScene.instantiate()
+			overview.add_child(playouts)
+			playouts.setup(league.playouts.knockout, tr("Playouts"))
+		
+		# table
 		var table: VisualTable = VisualTableScene.instantiate()
 		overview.add_child(table)
 		table.setup(league.tables[season_index])

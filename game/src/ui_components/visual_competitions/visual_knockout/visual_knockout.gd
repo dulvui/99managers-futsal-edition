@@ -11,14 +11,18 @@ const MatchInfoScene: PackedScene = preload(
 
 @onready var group_a: HBoxContainer = %GroupA
 @onready var group_b: HBoxContainer = %GroupB
-@onready var final: Label = %Final
+@onready var final_label: Label = %Final
+@onready var title_label: Label = %Title
 
 
 func _ready() -> void:
 	Tests.setup_mock_world(true)
 
 
-func setup(knockout: Knockout) -> void:
+func setup(knockout: Knockout, title: String = "") -> void:
+	if not title.is_empty():
+		title_label.text = title
+	
 	# group a
 	for roundz: KnockoutRound in knockout.rounds_a:
 		var box: VBoxContainer = VBoxContainer.new()
@@ -39,6 +43,6 @@ func setup(knockout: Knockout) -> void:
 			match_row.setup(matchz)
 
 	if not knockout.final.is_empty():
-		final.text = knockout.final[0].get_result()
+		final_label.text = knockout.final[0].get_result()
 		if knockout.final.size() > 1:
-			final.text += "\n" + knockout.final[1].get_result()
+			final_label.text += "\n" + knockout.final[1].get_result()
