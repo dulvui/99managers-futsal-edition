@@ -108,6 +108,7 @@ layout_mode = 2
 [node name="ScrollContainer" type="ScrollContainer" parent="MarginContainer/VBoxContainer/Contens"]
 layout_mode = 2
 size_flags_vertical = 3
+horizontal_scroll_mode = 0
 
 [node name="EntryList" type="VBoxContainer" parent="MarginContainer/VBoxContainer/Contens/ScrollContainer"]
 unique_name_in_owner = true
