@@ -22,7 +22,7 @@ script = ExtResource("2_5cr6f")
 [node name="Main" type="VBoxContainer" parent="."]
 layout_mode = 2
 size_flags_horizontal = 3
-theme_override_constants/separation = 15
+theme_override_constants/separation = 25
 
 [node name="Top Bar" type="HBoxContainer" parent="Main"]
 layout_mode = 2
@@ -67,10 +67,9 @@ script = ExtResource("3_6km1j")
 
 [node name="OverviewScroll" type="ScrollContainer" parent="Main"]
 unique_name_in_owner = true
-custom_minimum_size = Vector2(0, 450)
+custom_minimum_size = Vector2(0, 400)
 layout_mode = 2
 size_flags_horizontal = 3
-size_flags_vertical = 3
 
 [node name="Overview" type="VBoxContainer" parent="Main/OverviewScroll"]
 unique_name_in_owner = true

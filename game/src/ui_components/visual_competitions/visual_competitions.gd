@@ -74,6 +74,21 @@ func _setup() -> void:
 	if competition is League:
 		var league: League = competition as League
 
+		# table
+		var visual_table: VisualTable = VisualTableScene.instantiate()
+		var table: Table = league.table
+		if season_index < season_amount:
+			table = league.history_tables[season_index - 1]
+
+		overview.add_child(visual_table)
+		visual_table.setup(
+			table,
+			league.direct_promotion_teams,
+			league.playoff_teams,
+			league.direct_relegation_teams,
+			league.playout_teams,
+		)
+
 		# playoffs
 		if league.playoff_teams > 0:
 			var playoffs: Cup = league.playoffs
@@ -94,20 +109,6 @@ func _setup() -> void:
 				overview.add_child(visual_playouts)
 				visual_playouts.setup(playouts.knockout, tr("Playouts"))
 		
-		# table
-		var visual_table: VisualTable = VisualTableScene.instantiate()
-		var table: Table = league.table
-		if season_index < season_amount:
-			table = league.history_tables[season_index - 1]
-
-		overview.add_child(visual_table)
-		visual_table.setup(
-			table,
-			league.direct_promotion_teams,
-			league.playoff_teams,
-			league.direct_relegation_teams,
-			league.playout_teams,
-		)
 	else:
 		var cup: Cup = competition as Cup
 
