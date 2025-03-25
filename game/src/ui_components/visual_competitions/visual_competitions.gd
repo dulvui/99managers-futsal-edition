@@ -30,7 +30,7 @@ var active_continental_cup: Cup
 
 @onready var overview: VBoxContainer = %Overview
 @onready var overview_scroll: ScrollContainer = %OverviewScroll
-@onready var match_list: VBoxContainer = %MatchList
+@onready var match_list: FlowContainer = %MatchList
 @onready var match_scroll: ScrollContainer = %MatchListScroll
 @onready var competitions_tree: CompetitionsTree = %CompetitionsTree
 
@@ -132,15 +132,19 @@ func _setup() -> void:
 
 	# matches
 	for day: Day in Global.world.calendar.get_all_matchdays_by_competition(competition.id):
+		var vbox: VBoxContainer = VBoxContainer.new()
+		match_list.add_child(vbox)
+
 		var day_label: Label = Label.new()
 		day_label.text = day.to_format_string()
 		ThemeUtil.bold(day_label)
-		match_list.add_child(day_label)
+		vbox.add_child(day_label)
 
 		for matchz: Match in day.get_matches(competition.id):
 			var match_info: MatchInfo = MatchInfoScene.instantiate()
-			match_list.add_child(match_info)
+			vbox.add_child(match_info)
 			match_info.setup(matchz)
+
 
 
 func _setup_seasons() -> void:

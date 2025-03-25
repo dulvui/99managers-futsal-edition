@@ -67,9 +67,10 @@ script = ExtResource("3_6km1j")
 
 [node name="OverviewScroll" type="ScrollContainer" parent="Main"]
 unique_name_in_owner = true
-custom_minimum_size = Vector2(0, 350)
+custom_minimum_size = Vector2(0, 450)
 layout_mode = 2
 size_flags_horizontal = 3
+size_flags_vertical = 3
 
 [node name="Overview" type="VBoxContainer" parent="Main/OverviewScroll"]
 unique_name_in_owner = true
@@ -88,11 +89,13 @@ unique_name_in_owner = true
 layout_mode = 2
 size_flags_vertical = 3
 
-[node name="MatchList" type="VBoxContainer" parent="Main/MatchListScroll"]
+[node name="MatchList" type="FlowContainer" parent="Main/MatchListScroll"]
 unique_name_in_owner = true
 layout_mode = 2
-size_flags_horizontal = 6
-alignment = 1
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme_override_constants/h_separation = 45
+theme_override_constants/v_separation = 45
 
 [node name="Competitions" type="VBoxContainer" parent="."]
 layout_mode = 2
