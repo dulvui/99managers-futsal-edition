@@ -131,10 +131,10 @@ func get_winner() -> TeamBasic:
 
 	if home_total_goals == away_total_goals:
 		return null
-	elif home_total_goals < away_total_goals:
-		return away
-	else:
+	elif home_total_goals > away_total_goals:
 		return home
+	else:
+		return away
 
 
 func get_looser() -> TeamBasic:
@@ -149,9 +149,9 @@ func get_looser() -> TeamBasic:
 	if home_total_goals == away_total_goals:
 		return null
 	elif home_total_goals < away_total_goals:
-		return away
-	else:
 		return home
+	else:
+		return away
 
 
 # checks if match is played by active team
