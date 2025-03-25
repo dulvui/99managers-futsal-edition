@@ -75,22 +75,24 @@ func _setup() -> void:
 		var league: League = competition as League
 
 		# playoffs
-		var playoffs: Cup = league.playoffs
-		if season_index < season_amount:
-			playoffs = league.history_playoffs[season_index - 1]
-		if playoffs.is_started():
-			var visual_playoffs: VisualKnockout = VisualKnockoutScene.instantiate()
-			overview.add_child(visual_playoffs)
-			visual_playoffs.setup(playoffs.knockout, tr("Playoffs"))
+		if league.playoff_teams > 0:
+			var playoffs: Cup = league.playoffs
+			if season_index < season_amount:
+				playoffs = league.history_playoffs[season_index - 1]
+			if playoffs.is_started():
+				var visual_playoffs: VisualKnockout = VisualKnockoutScene.instantiate()
+				overview.add_child(visual_playoffs)
+				visual_playoffs.setup(playoffs.knockout, tr("Playoffs"))
 
 		# playouts
-		var playouts: Cup = league.playouts
-		if season_index < season_amount:
-			playouts = league.history_playouts[season_index - 1]
-		if playouts.is_started():
-			var visual_playouts: VisualKnockout = VisualKnockoutScene.instantiate()
-			overview.add_child(visual_playouts)
-			visual_playouts.setup(playouts.knockout, tr("Playouts"))
+		if league.playout_teams > 0:
+			var playouts: Cup = league.playouts
+			if season_index < season_amount:
+				playouts = league.history_playouts[season_index - 1]
+			if playouts.is_started():
+				var visual_playouts: VisualKnockout = VisualKnockoutScene.instantiate()
+				overview.add_child(visual_playouts)
+				visual_playouts.setup(playouts.knockout, tr("Playouts"))
 		
 		# table
 		var visual_table: VisualTable = VisualTableScene.instantiate()

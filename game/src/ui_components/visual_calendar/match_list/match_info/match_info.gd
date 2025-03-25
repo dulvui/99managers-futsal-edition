@@ -10,12 +10,18 @@ extends HBoxContainer
 @onready var result: Label = $Result
 
 
-func setup(matchz: Match) -> void:
-	home.text = matchz.home.name
-	away.text = matchz.away.name
+func setup(matchz: Match, short_name: bool = false) -> void:
+	if short_name:
+		home.text = matchz.home.name.substr(0, 3).to_upper()
+		home.tooltip_text = matchz.home.name
+		away.text = matchz.away.name.substr(0, 3).to_upper()
+		away.tooltip_text = matchz.away.name
+	else:
+		home.text = matchz.home.name
+		away.text = matchz.away.name
 
 	if matchz.over:
-		result.text = matchz.get_result()
+		result.text = matchz.get_result(true)
 
 	# make selected team label bold
 	ThemeUtil.bold(home, matchz.home.id == Global.team.id)

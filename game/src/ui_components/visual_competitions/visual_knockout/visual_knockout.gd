@@ -5,14 +5,14 @@
 class_name VisualKnockout
 extends VBoxContainer
 
-const MatchInfoScene: PackedScene = preload(
-	"res://src/ui_components/visual_calendar/match_list/match_info/match_info.tscn"
-)
+const MatchInfoScene: PackedScene = preload(Const.SCENE_MATCH_INFO)
 
+@onready var title_label: Label = %Title
+@onready var group_a_label: Label = %GroupALabel
+@onready var group_b_label: Label = %GroupBLabel
 @onready var group_a: HBoxContainer = %GroupA
 @onready var group_b: HBoxContainer = %GroupB
-@onready var final_label: Label = %Final
-@onready var title_label: Label = %Title
+@onready var final: MatchInfo = %Final
 
 
 func _ready() -> void:
@@ -24,25 +24,27 @@ func setup(knockout: Knockout, title: String = "") -> void:
 		title_label.text = title
 	
 	# group a
+	if knockout.rounds_a.size() == 0:
+		group_a_label.hide()
 	for roundz: KnockoutRound in knockout.rounds_a:
 		var box: VBoxContainer = VBoxContainer.new()
 		box.alignment = ALIGNMENT_CENTER
 		group_a.add_child(box)
 		for matchz: Match in roundz.matches:
-			var match_row: MatchInfo = MatchInfoScene.instantiate()
-			box.add_child(match_row)
-			match_row.setup(matchz)
+			var match_info: MatchInfo = MatchInfoScene.instantiate()
+			box.add_child(match_info)
+			match_info.setup(matchz, true)
 	# group b
+	if knockout.rounds_b.size() == 0:
+		group_b_label.hide()
 	for roundz: KnockoutRound in knockout.rounds_b:
 		var box: VBoxContainer = VBoxContainer.new()
 		box.alignment = ALIGNMENT_CENTER
 		group_b.add_child(box)
 		for matchz: Match in roundz.matches:
-			var match_row: MatchInfo = MatchInfoScene.instantiate()
-			box.add_child(match_row)
-			match_row.setup(matchz)
+			var match_info: MatchInfo = MatchInfoScene.instantiate()
+			box.add_child(match_info)
+			match_info.setup(matchz, true)
 
 	if not knockout.final.is_empty():
-		final_label.text = knockout.final[0].get_result()
-		if knockout.final.size() > 1:
-			final_label.text += "\n" + knockout.final[1].get_result()
+		final.setup(knockout.final[-1], true)

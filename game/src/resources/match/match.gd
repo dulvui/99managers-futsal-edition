@@ -103,14 +103,21 @@ func set_result(
 			push_error("error competition with no valid type. name: %s id: %d" % [competition_name, competition_id])
 
 
-func get_result() -> String:
+func get_result(include_first_leg: bool = false) -> String:
 	if home_goals == -1 and away_goals == -1:
 		return ""
-	if home_penalties_goals == 0 and away_penalties_goals == 0:
-		return "%d : %d" % [home_goals, away_goals]
+
+	var home_total_goals: int = home_goals
+	var away_total_goals: int = away_goals
+
+	if include_first_leg and first_leg != null:
+		home_total_goals += first_leg.away_goals
+		away_total_goals += first_leg.home_goals
 
 	# with penalties
-	return "%d(%d) : (%d)%d" % [home_goals, home_penalties_goals, away_penalties_goals, away_goals]
+	if home_penalties_goals * away_penalties_goals > 0:
+		return "%d(%d):(%d)%d" % [home_total_goals, home_penalties_goals, away_penalties_goals, away_total_goals]
+	return "%d:%d" % [home_total_goals, away_total_goals]
 
 
 func get_winner() -> TeamBasic:

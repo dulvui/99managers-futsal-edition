@@ -1,7 +1,9 @@
-[gd_scene load_steps=3 format=3 uid="uid://csak3fxlpa67q"]
+[gd_scene load_steps=5 format=3 uid="uid://csak3fxlpa67q"]
 
 [ext_resource type="Script" uid="uid://b5am0hpfqg1uf" path="res://src/ui_components/visual_competitions/visual_knockout/visual_knockout.gd" id="1_webha"]
 [ext_resource type="LabelSettings" uid="uid://cc2vi4onhgmnw" path="res://theme_base/label/label_settings_bold.tres" id="2_0fvbo"]
+[ext_resource type="LabelSettings" uid="uid://b4gu78rjvdfx4" path="res://theme_base/label/label_settings_title.tres" id="2_5q8ms"]
+[ext_resource type="PackedScene" uid="uid://sswh30in3uin" path="res://src/ui_components/visual_calendar/match_list/match_info/match_info.tscn" id="4_5hpte"]
 
 [node name="VisualKnockout" type="VBoxContainer"]
 anchors_preset = 15
@@ -17,7 +19,7 @@ script = ExtResource("1_webha")
 unique_name_in_owner = true
 layout_mode = 2
 text = "Knockout"
-label_settings = ExtResource("2_0fvbo")
+label_settings = ExtResource("2_5q8ms")
 horizontal_alignment = 1
 
 [node name="Labels" type="HBoxContainer" parent="."]
@@ -25,6 +27,7 @@ layout_mode = 2
 alignment = 1
 
 [node name="GroupALabel" type="Label" parent="Labels"]
+unique_name_in_owner = true
 layout_mode = 2
 size_flags_horizontal = 3
 text = "Group A"
@@ -33,16 +36,15 @@ horizontal_alignment = 1
 [node name="FinalLabel" type="Label" parent="Labels"]
 layout_mode = 2
 text = "Final"
+label_settings = ExtResource("2_0fvbo")
 horizontal_alignment = 1
 
 [node name="GroupBLabel" type="Label" parent="Labels"]
+unique_name_in_owner = true
 layout_mode = 2
 size_flags_horizontal = 3
 text = "Group B"
 horizontal_alignment = 1
-
-[node name="HSeparator" type="HSeparator" parent="."]
-layout_mode = 2
 
 [node name="HBoxContainer" type="HBoxContainer" parent="."]
 layout_mode = 2
@@ -56,13 +58,10 @@ layout_mode = 2
 size_flags_horizontal = 3
 alignment = 1
 
-[node name="Final" type="Label" parent="HBoxContainer"]
+[node name="Final" parent="HBoxContainer" instance=ExtResource("4_5hpte")]
 unique_name_in_owner = true
 layout_mode = 2
-size_flags_vertical = 1
-text = "Winner A vs Winner B"
-horizontal_alignment = 1
-vertical_alignment = 1
+size_flags_horizontal = 1
 
 [node name="GroupB" type="HBoxContainer" parent="HBoxContainer"]
 unique_name_in_owner = true
