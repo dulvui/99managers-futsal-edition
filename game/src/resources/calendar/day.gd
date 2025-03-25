@@ -49,11 +49,19 @@ func get_matches(competition_id: int = -1) -> Array:
 	return match_day.matches.filter(func(m: Match) -> bool: return m.competition_id == competition_id)
 
 
-func to_format_string() -> String:
+func to_format_string(long: bool = false) -> String:
+	if long:
+		return (
+			Enum.get_weekday_text(weekday)
+			+ " "
+			+ str(day)
+			+ " "
+			+ Enum.get_month_text(month - 1)
+			+ " "
+			+ str(year)
+		)
 	return (
-		Enum.get_weekday_text(weekday)
-		+ " "
-		+ str(day)
+		str(day)
 		+ " "
 		+ Enum.get_month_text(month - 1)
 		+ " "
