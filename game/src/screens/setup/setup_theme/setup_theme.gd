@@ -5,5 +5,9 @@
 extends Control
 
 
+func _ready() -> void:
+	InputUtil.start_focus(self)
+
+
 func _on_continue_button_pressed() -> void:
 	Main.change_scene(Const.SCREEN_MENU)
