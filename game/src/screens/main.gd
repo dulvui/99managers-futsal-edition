@@ -34,10 +34,7 @@ func _ready() -> void:
 func change_scene(scene_path: String) -> void:
 	await scene_fade.fade_in()
 
-	for child: Node in content.get_children():
-		content.remove_child(child)
-		child.queue_free()
-
+	_clear_content()
 	_append_scene_to_buffer(scene_path)
 
 	var scene: PackedScene = load(scene_path)
@@ -119,3 +116,10 @@ func _append_scene_to_buffer(scene_path: String) -> void:
 	previous_scenes.append(scene_path)
 	if previous_scenes.size() > 5:
 		previous_scenes.remove_at(0)
+
+
+func _clear_content() -> void:
+	for child: Node in content.get_children():
+		content.remove_child(child)
+		child.queue_free()
+
