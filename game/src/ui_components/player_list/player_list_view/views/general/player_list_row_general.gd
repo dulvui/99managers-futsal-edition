@@ -18,4 +18,4 @@ func setup(player: Player, index: int) -> void:
 	positionz.text = player.position.get_type_text()
 	prestige.text = player.get_prestige_stars()
 	nation.text = tr(player.nation)
-	birth_date.text = FormatUtil.format_date(player.birth_date)
+	birth_date.text = FormatUtil.day(player.birth_date)

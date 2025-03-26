@@ -68,14 +68,14 @@ func _ready() -> void:
 
 	manager_label.text = Global.manager.get_full_name()
 	team_label.text = Global.team.name
-	date_label.text = Global.world.calendar.format_date()
+	date_label.text = FormatUtil.day(Global.world.calendar.date)
 
 	all_players_list.setup()
 	player_list.setup(Global.team.id)
 	formation.setup(false)
 	finances.setup(Global.team)
 
-	if Global.world.calendar.is_match_day():
+	if Global.world.match_list.is_match_day():
 		continue_button.text = tr("Start match")
 		match_ready = true
 		next_match_button.hide()
@@ -279,7 +279,7 @@ func _next_day() -> void:
 
 	# general setup
 	email.update_messages()
-	date_label.text = Global.world.calendar.format_date()
+	date_label.text = FormatUtil.day(Global.world.calendar.date)
 
 	# if Global.world.calendar.day().matches.size() > 0:
 		# threaded simulation
@@ -290,7 +290,7 @@ func _next_day() -> void:
 		# Global.world.random_results()
 
 	# check matches
-	if Global.world.calendar.is_match_day():
+	if Global.world.match_list.is_match_day():
 		continue_button.text = tr("Start match")
 		match_ready = true
 		next_match_button.disabled = true

@@ -77,8 +77,8 @@ func initialize_game(testing: bool = false) -> void:
 func next_day() -> void:
 	world.calendar.next_day()
 
-	if world.calendar.is_match_day():
-		EmailUtil.next_match(world.calendar.get_next_match())
+	if world.match_list.is_match_day():
+		EmailUtil.next_match(world.match_list.get_active_match(Global.world.calendar.day()))
 
 	TransferUtil.update_day()
 

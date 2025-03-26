@@ -132,16 +132,17 @@ func _setup() -> void:
 		knockout.setup(cup.knockout)
 
 	# matches
-	for day: Day in Global.world.calendar.get_all_matchdays_by_competition(competition.id):
+	for match_day: MatchDay in Global.world.match_list.get_match_days_by_competition(competition.id):
 		var vbox: VBoxContainer = VBoxContainer.new()
 		match_list.add_child(vbox)
 
 		var day_label: Label = Label.new()
-		day_label.text = day.to_format_string()
+		day_label.text = FormatUtil.date(match_day.day, match_day.month)
+
 		ThemeUtil.bold(day_label)
 		vbox.add_child(day_label)
 
-		for matchz: Match in day.get_matches(competition.id):
+		for matchz: Match in match_day.matches:
 			var match_info: MatchInfo = MatchInfoScene.instantiate()
 			vbox.add_child(match_info)
 			match_info.setup(matchz)
@@ -161,7 +162,7 @@ func _setup_seasons() -> void:
 func _on_seasons_button_item_selected(index: int) -> void:
 	# substract from season amount,
 	# seasons are inserted inverted in options button
-	season_index = season_amount - index
+	season_index = index
 	_setup()
 
 

@@ -101,11 +101,11 @@ func next_stage(add_to_calendar: bool = true) -> void:
 			# group stage is over
 			setup_knockout()
 			if add_to_calendar:
-				match_util.add_matches_to_calendar(self, get_match_days())
+				match_util.add_matches_to_list(self, get_match_days())
 	elif knockout.prepare_next_round():
 		# add next round matches calendar
 		if add_to_calendar:
-			match_util.add_matches_to_calendar(self, get_match_days())
+			match_util.add_matches_to_list(self, get_match_days())
 
 
 func get_match_days() -> MatchDays:

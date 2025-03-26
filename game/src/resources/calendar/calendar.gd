@@ -13,34 +13,16 @@ const SEASON_END_DAY: int = 30
 const SEASON_END_MONTH: int = 11
 
 # market dates
-const MARKET_PERIODS: Array = [
-	{
-		"period": "winter",
-		"start":
-		{
-			"month": 1,
-			"day": 1,
-		},
-		"end":
-		{
-			"month": 1,
-			"day": 31,
-		},
-	},
-	{
-		"period": "summer",
-		"start":
-		{
-			"month": 6,
-			"day": 1,
-		},
-		"end":
-		{
-			"month": 8,
-			"day": 31,
-		},
-	},
-]
+
+const MARKET_WINTER_START_DAY: int = 1
+const MARKET_WINTER_START_MONTH: int = 1
+const MARKET_WINTER_END_DAY: int = 1
+const MARKET_WINTER_END_MONTH: int = 31
+
+const MARKET_SUMMER_START_DAY: int = 1
+const MARKET_SUMMER_START_MONTH: int = 6
+const MARKET_SUMMER_END_DAY: int = 31
+const MARKET_SUMMER_END_MONTH: int = 8
 
 @export var date: Dictionary
 @export var months: Array[Month]
@@ -72,8 +54,9 @@ func initialize(next_season: bool = false) -> void:
 	# clear previous season, if exists
 	months = []
 	# always add two years to calendar
-	_add_year(date.year)
-	_add_year(date.year + 1)
+	var year: int = date.year
+	_add_year(year)
+	_add_year(year + 1)
 
 
 func next_day() -> void:
@@ -88,62 +71,34 @@ func month(p_month: int = date.month) -> Month:
 	return months[p_month - 1]
 
 
-func is_match_day() -> bool:
-	var next_match: Match = get_next_match()
-	return next_match != null and not next_match.over
-
-
 func is_market_active(p_date: Dictionary = date) -> bool:
-	for market_period: Dictionary in MARKET_PERIODS:
-		if (
-			p_date.month >= market_period.start.month
-			and p_date.day >= market_period.start.day
-			and p_date.month <= market_period.end.month
-			and p_date.day <= market_period.end.day
-		):
+	if p_date.month >= MARKET_WINTER_START_MONTH and p_date.day <= MARKET_WINTER_END_MONTH and \
+		p_date.day >= MARKET_WINTER_START_DAY and p_date.day <= MARKET_WINTER_END_DAY:
+			return true
+	if p_date.month >= MARKET_SUMMER_START_MONTH and p_date.day <= MARKET_SUMMER_END_MONTH and \
+		p_date.day >= MARKET_SUMMER_START_DAY and p_date.day <= MARKET_SUMMER_END_DAY:
 			return true
 	return false
 
 
 func does_market_start_today() -> bool:
-	for market_period: Dictionary in MARKET_PERIODS:
-		if date.month == market_period.start.month and date.day == market_period.start.day:
-			return true
+	if date.month == MARKET_WINTER_START_MONTH and date.day == MARKET_WINTER_START_DAY:
+		return true
+	if date.month == MARKET_SUMMER_START_MONTH and date.day == MARKET_SUMMER_START_DAY:
+		return true
 	return false
 
 
 func does_market_end_today() -> bool:
-	for market_period: Dictionary in MARKET_PERIODS:
-		if date.month == market_period.end.month and date.day == market_period.end.day:
-			return true
+	if date.month == MARKET_WINTER_END_MONTH and date.day == MARKET_WINTER_END_DAY:
+		return true
+	if date.month == MARKET_SUMMER_END_MONTH and date.day == MARKET_WINTER_END_DAY:
+		return true
 	return false
 
 
 func is_season_finished() -> bool:
 	return date.month == SEASON_END_MONTH and date.day == SEASON_END_DAY
-
-
-func format_date(p_date: Dictionary = date) -> String:
-	return FormatUtil.format_date(p_date)
-
-
-func get_next_match() -> Match:
-	for matchz: Match in day().get_matches():
-		if matchz.home.id == Global.team.id or matchz.away.id == Global.team.id:
-			return matchz
-	return null
-
-
-func get_all_matchdays_by_competition(competition_id: int) -> Array[Day]:
-	var days: Array[Day] = []
-
-	for monthz: Month in months:
-		for dayz: Day in monthz.days:
-			var matches: Array[Match] = dayz.get_matches(competition_id)
-			if matches.size() > 0:
-				days.append(dayz)
-	
-	return days
 
 
 func _add_year(year: int) -> void:

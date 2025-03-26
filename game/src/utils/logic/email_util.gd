@@ -176,7 +176,7 @@ func new_message(subject: String, text: String, sender_team: Team = Global.team)
 	message.text = text
 	message.sender = _get_team_email_address(sender_team)
 	message.receiver = _get_manager_email_address()
-	message.date = Global.world.calendar.format_date()
+	message.date = FormatUtil.day(Global.world.calendar.date)
 	_add_message(message)
 
 

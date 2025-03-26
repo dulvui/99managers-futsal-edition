@@ -11,10 +11,6 @@ extends Competition
 @export var table: Table
 @export var playoffs: Cup
 @export var playouts: Cup
-# [-1] is latest
-@export var history_tables: Array[Table]
-@export var history_playoffs: Array[Cup]
-@export var history_playouts: Array[Cup]
 
 # in highest league, playoffs define final winner and continental cup participants
 # total promotion and total reletations teams from leagues must be the same
@@ -25,6 +21,10 @@ extends Competition
 @export var direct_relegation_teams: int
 @export var playout_teams: int
 
+# history
+@export var history_tables: Array[Table]
+@export var history_playoffs: Array[Cup]
+@export var history_playouts: Array[Cup]
 
 func _init(
 	p_teams: Array[Team] = [],

@@ -55,7 +55,7 @@ func initialize_playoffs(league: League, add_to_calendar: bool = true) -> void:
 
 	if add_to_calendar:
 		var match_days: MatchDays = league.playoffs.get_match_days()
-		add_matches_to_calendar(league.playoffs, match_days)
+		add_matches_to_list(league.playoffs, match_days)
 
 
 func initialize_playouts(league: League, add_to_calendar: bool = true) -> void:
@@ -83,7 +83,7 @@ func initialize_playouts(league: League, add_to_calendar: bool = true) -> void:
 
 	if add_to_calendar:
 		var match_days: MatchDays = league.playouts.get_match_days()
-		add_matches_to_calendar(league.playouts, match_days)
+		add_matches_to_list(league.playouts, match_days)
 
 
 func create_combinations(competition: Competition, p_teams: Array[TeamBasic]) -> MatchDays:
@@ -147,7 +147,7 @@ func create_combinations(competition: Competition, p_teams: Array[TeamBasic]) ->
 	return match_days
 
 
-func add_matches_to_calendar(
+func add_matches_to_list(
 	competition: Competition,
 	match_days: MatchDays,
 	date: Dictionary = world.calendar.date,
@@ -182,15 +182,19 @@ func add_matches_to_calendar(
 					day = i
 					break
 
+		# set day/month on match day
+		match_day.day = day
+		match_day.month = month as Enum.Months
+
 		# assign matches
-		world.calendar.day(month, day).add_matches(match_day.matches)
+		world.match_list.add_matches(match_day.matches, day, month)
 		# restart from same weekday
 		day += 7
 
 
 func _initialize_club_league_matches(competition: Competition, teams: Array[TeamBasic]) -> void:
 	var match_days: MatchDays = create_combinations(competition, teams)
-	add_matches_to_calendar(competition, match_days)
+	add_matches_to_list(competition, match_days)
 
 
 func _initialize_club_national_cup(p_nation: Nation) -> void:
@@ -210,7 +214,7 @@ func _initialize_club_national_cup(p_nation: Nation) -> void:
 	# create matches for first round group a
 	var match_days: MatchDays = p_nation.cup.get_match_days()
 	# add to calendar
-	add_matches_to_calendar(p_nation.cup, match_days)
+	add_matches_to_list(p_nation.cup, match_days)
 
 
 func _initialize_club_continental_cup(p_continent: Continent) -> void:
@@ -232,7 +236,7 @@ func _initialize_club_continental_cup(p_continent: Continent) -> void:
 	# create matches for first round group a
 	# for now, only single leg
 	var match_days: MatchDays = p_continent.cup_clubs.get_match_days()
-	add_matches_to_calendar(p_continent.cup_clubs, match_days)
+	add_matches_to_list(p_continent.cup_clubs, match_days)
 
 
 func _initialize_nations_continental_cup(p_continent: Continent) -> void:
@@ -255,7 +259,7 @@ func _initialize_nations_continental_cup(p_continent: Continent) -> void:
 	# create matches for first round group a
 	# for now, only single leg
 	var match_days: MatchDays = p_continent.cup_nations.get_match_days()
-	add_matches_to_calendar(p_continent.cup_nations, match_days)
+	add_matches_to_list(p_continent.cup_nations, match_days)
 
 
 func _initialize_world_cup() -> void:
@@ -278,7 +282,7 @@ func _initialize_world_cup() -> void:
 	# create matches for first round group a
 	var match_days: MatchDays = world.world_cup.get_match_days()
 	# add to calendar
-	add_matches_to_calendar(world.world_cup, match_days)
+	add_matches_to_list(world.world_cup, match_days)
 
 
 func _shift_array(array: Array) -> void:

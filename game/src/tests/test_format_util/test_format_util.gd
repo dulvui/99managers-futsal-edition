@@ -10,8 +10,8 @@ func test() -> void:
 	print("test: format util...")
 
 	# numbers
-	assert("100 000" == FormatUtil.format_number(100000))
-	assert("1 000 000" == FormatUtil.format_number(1000000))
-	assert("219 123 000 727" == FormatUtil.format_number(219123000727))
+	assert("100 000" == FormatUtil.number(100000))
+	assert("1 000 000" == FormatUtil.number(1000000))
+	assert("219 123 000 727" == FormatUtil.number(219123000727))
 
 	print("test: format util done.")

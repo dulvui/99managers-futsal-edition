@@ -11,7 +11,7 @@ extends VBoxContainer
 
 func _ready() -> void:
 	generation_seed.text = Global.generation_seed
-	start_date.text = FormatUtil.format_date(Global.start_date)
+	start_date.text = FormatUtil.day(Global.start_date)
 
 
 func _on_copy_seed_pressed() -> void:

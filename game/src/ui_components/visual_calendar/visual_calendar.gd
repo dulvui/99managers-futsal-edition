@@ -32,7 +32,7 @@ func setup() -> void:
 
 func setup_days() -> void:
 	# clean grid container
-	for child in days.get_children():
+	for child: Node in days.get_children():
 		if not child is Label:
 			child.queue_free()
 
@@ -51,9 +51,10 @@ func setup_days() -> void:
 
 	# add days
 	for day: Day in Global.world.calendar.month(current_month).days:
-		var matchz: Match = day.get_active_match()
 		var calendar_day: VisualDay = VisualDayScene.instantiate()
 		days.add_child(calendar_day)
+		# add matches
+		var matchz: Match = Global.world.match_list.get_active_match(day)
 		calendar_day.setup(day, matchz)
 		calendar_day.show_match_list.connect(_on_calendar_day_pressed.bind(day, matchz))
 
@@ -66,11 +67,12 @@ func setup_days() -> void:
 	page_label.text = active_month + " " + active_year
 
 
-func _on_calendar_day_pressed(day: Day, matchz: Match) -> void:
+func _on_calendar_day_pressed(day: Day, matchz: Match = null) -> void:
 	if matchz == null:
 		match_list.setup(day)
 	else:
-		match_list.setup(day, Global.world.get_competition_by_id(matchz.competition_id))
+		var competition: Competition = Global.world.get_competition_by_id(matchz.competition_id)
+		match_list.setup(day, competition)
 
 
 func _on_prev_pressed() -> void:

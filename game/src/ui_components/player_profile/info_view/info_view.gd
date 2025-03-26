@@ -28,7 +28,7 @@ func setup(player: Player) -> void:
 	)
 	age.text = (
 		"%d - %s"
-		% [player.get_age(Global.world.calendar.date), FormatUtil.format_date(player.birth_date)]
+		% [player.get_age(Global.world.calendar.date), FormatUtil.day(player.birth_date)]
 	)
 	foot.text = Enum.get_foot_text(player)
 	nationality.text = tr(player.nation)

@@ -73,7 +73,7 @@ static func find_next_matchday() -> void:
 		return
 
 	# search next match day
-	while Global.world.calendar.day().get_matches(Global.league.id).size() == 0:
+	while not Global.world.match_list.is_match_day():
 		Global.world.calendar.next_day()
 
 

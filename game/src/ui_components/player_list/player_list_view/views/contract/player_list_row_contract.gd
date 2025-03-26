@@ -28,8 +28,8 @@ func setup(player: Player, index: int) -> void:
 	bonus_national_cup.text = FormatUtil.currency(player.contract.bonus_national_cup)
 	bonus_continental_cup.text = FormatUtil.currency(player.contract.bonus_continental_cup)
 	buy_clause.text = FormatUtil.currency(player.contract.buy_clause)
-	start_date.text = FormatUtil.format_date(player.contract.start_date)
-	end_date.text = FormatUtil.format_date(player.contract.end_date)
+	start_date.text = FormatUtil.day(player.contract.start_date)
+	end_date.text = FormatUtil.day(player.contract.end_date)
 	if player.contract.is_on_loan:
 		is_on_loan.text = tr("Yes")
 	else:

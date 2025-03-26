@@ -5,13 +5,21 @@
 class_name MatchDays
 extends JSONResource
 
-var days: Array[MatchDay]
+@export var year: int
+# days with matches still to play
+@export var days: Array[MatchDay]
+# days with finished matches
+@export var history_days: Array[MatchDay]
 
 
 func _init(
+	p_year: int = 0,
 	p_days: Array[MatchDay] = [],
+	p_history_days: Array[MatchDay] = [],
 ) -> void:
+	year = p_year
 	days = p_days
+	history_days = p_history_days
 
 
 func append(match_day: MatchDay) -> void:

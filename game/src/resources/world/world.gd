@@ -9,11 +9,10 @@ extends JSONResource
 @export var world_cup: Cup
 @export var active_team_id: int
 
-@export var calendar: Calendar
+@export var match_list: MatchList
 @export var transfers: Transfers
+@export var calendar: Calendar
 @export var inbox: Inbox
-# TODO: move calendar day matches here
-# @export var matches: Array[Match]
 
 
 func _init(
@@ -23,6 +22,7 @@ func _init(
 	p_calendar: Calendar = Calendar.new(),
 	p_transfers: Transfers = Transfers.new(),
 	p_inbox: Inbox = Inbox.new(),
+	p_match_list: MatchList = MatchList.new(),
 ) -> void:
 	continents = p_continents
 	world_cup = p_world_cup
@@ -30,11 +30,12 @@ func _init(
 	calendar = p_calendar
 	transfers = p_transfers
 	inbox = p_inbox
+	match_list = p_match_list
 
 
 func random_results() -> void:
 	var match_engine: MatchEngine = MatchEngine.new()
-	var matches: Array = Global.world.calendar.day().get_matches()
+	var matches: Array[Match] = match_list.get_matches_by_day()
 	for matchz: Match in matches:
 		if not matchz.has_active_team() and not matchz.over:
 			# set true for fast simulation
@@ -94,7 +95,7 @@ func get_team_by_id(team_id: int, league_id: int = -1) -> Team:
 					return team
 
 	for continent: Continent in continents:
-		for nation in continent.nations:
+		for nation: Nation in continent.nations:
 			if nation.team.id == team_id:
 				return nation.team
 			for league: League in nation.leagues:

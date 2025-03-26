@@ -27,8 +27,8 @@ func setup(player: Player) -> void:
 
 	income.text = FormatUtil.currency(player.contract.income)
 	buy_clause.text = FormatUtil.currency(player.contract.buy_clause)
-	start_date.text = FormatUtil.format_date(player.contract.start_date)
-	end_date.text = FormatUtil.format_date(player.contract.end_date)
+	start_date.text = FormatUtil.day(player.contract.start_date)
+	end_date.text = FormatUtil.day(player.contract.end_date)
 
 	bonus_goal.text = FormatUtil.currency(player.contract.bonus_goal)
 	bonus_assist.text = FormatUtil.currency(player.contract.bonus_assist)

@@ -19,6 +19,9 @@ func setup(day: Day, competition: Competition = Global.league) -> void:
 	for child: Node in matches_list.get_children():
 		child.queue_free()
 
+	# get matches by competition
+	var match_day: MatchDay = Global.world.match_list.get_match_day_by_day(day)
+
 	all_matches = []
 
 	# reset scroll position
@@ -28,7 +31,7 @@ func setup(day: Day, competition: Competition = Global.league) -> void:
 	date_label.text = day.to_format_string()
 
 	# add active competition games to top
-	_add_matches(day, competition)
+	_add_matches(match_day, competition)
 
 	# if active competition is a League, show other leagues first
 	# otherwise show other cups first
@@ -40,23 +43,23 @@ func setup(day: Day, competition: Competition = Global.league) -> void:
 		# add  leagues with same nation as active first
 		for league: League in leagues:
 			if league.id != active_league.id and league.nation_name == active_league.nation_name:
-				_add_matches(day, league)
+				_add_matches(match_day, league)
 		# add other nations
 		for league: League in leagues:
 			if league.id != active_league.id and league.nation_name != active_league.nation_name:
-				_add_matches(day, league)
+				_add_matches(match_day, league)
 
 		# add cups
 		for cup: Cup in Global.world.get_all_cups():
-			_add_matches(day, cup)
+			_add_matches(match_day, cup)
 	else:
 		# add cups
 		for cup: Cup in Global.world.get_all_cups():
 			if competition.id != cup.id:
-				_add_matches(day, cup)
+				_add_matches(match_day, cup)
 		# add other leagues matches
 		for league: League in Global.world.get_all_leagues(true):
-			_add_matches(day, league)
+			_add_matches(match_day, league)
 
 	# show no match notice
 	if all_matches.is_empty():
@@ -65,23 +68,26 @@ func setup(day: Day, competition: Competition = Global.league) -> void:
 		matches_list.add_child(label)
 
 
-func _add_matches(day: Day, competition: Competition) -> void:
-	# get matches by competition
-	var matches: Array = Global.world.calendar.day(day.month, day.day).get_matches(competition.id)
+func _add_matches(match_day: MatchDay, competition: Competition) -> void:
+	if match_day == null:
+		return
+	if match_day.matches.size() == 0:
+		return
+
 	# add to list
-	if matches.size() > 0:
-		all_matches.append_array(matches)
+	all_matches.append_array(match_day.matches)
 
-		var competition_label: Label = Label.new()
-		competition_label.text = competition.name
-		if competition is League:
-			competition_label.text += " - %s" % (competition as League).nation_name
-		ThemeUtil.bold(competition_label)
-		matches_list.add_child(competition_label)
+	var competition_label: Label = Label.new()
+	competition_label.text = competition.name
+	if competition is League:
+		competition_label.text += " - %s" % (competition as League).nation_name
+	ThemeUtil.bold(competition_label)
+	matches_list.add_child(competition_label)
 
-		for matchz: Match in matches:
-			var match_row: MatchInfo = MatchInfoScene.instantiate()
-			matches_list.add_child(match_row)
-			match_row.setup(matchz)
+	for matchz: Match in match_day.matches:
+		var match_row: MatchInfo = MatchInfoScene.instantiate()
+		matches_list.add_child(match_row)
+		match_row.setup(matchz)
 
-		matches_list.add_child(HSeparator.new())
+	matches_list.add_child(HSeparator.new())
+

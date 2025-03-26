@@ -12,7 +12,6 @@ func test() -> void:
 	print("test: match combination...")
 	var league: League = Tests.create_mock_league(TEAMS)
 	test_combinations(league)
-	test_add_to_calendar(league)
 	print("test: match combination done.")
 
 
@@ -58,17 +57,3 @@ func test_combinations(league: League) -> void:
 			assert(away_counter[key] == 1)
 
 	print("test: combinations done...")
-
-
-func test_add_to_calendar(league: League) -> void:
-	print("test: add to calendar...")
-
-	var world_generator: GeneratorWorld = GeneratorWorld.new()
-	var world: World = world_generator.init_world()
-
-	var match_util: MatchUtil = MatchUtil.new(world)
-	var match_days: MatchDays = match_util.create_combinations(league, league.get_teams_basic())
-	match_util.add_matches_to_calendar(league, match_days)
-
-	print("test: add to calendar...")
-

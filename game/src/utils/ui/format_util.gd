@@ -10,32 +10,25 @@ const SIGNS: Array = ["€", "$", "£", "₿"]
 
 
 func currency(amount: int) -> String:
-	return format_number(amount) + " " + SIGNS[Global.config.currency]
+	return number(amount) + " " + SIGNS[Global.config.currency]
 
 
-func format_date(p_date: Dictionary, short: bool = true) -> String:
-	if short:
-		return (
-			tr(str(int(p_date.day)))
-			+ " "
-			+ tr(Enum.get_month_text(p_date.month - 1))
-			+ " "
-			+ str(int(p_date.year))
-		)
-	return (
-		tr(Enum.get_weekday_text(p_date.weekday))
-		+ " "
-		+ tr(str(int(p_date.day)))
-		+ " "
-		+ tr(Enum.get_month_text(p_date.month - 1))
-		+ " "
-		+ str(int(p_date.year))
-	)
+func day(p_date: Dictionary) -> String:
+	var p_day: int = p_date.day
+	var p_month: int = p_date.month
+	var p_year: int = p_date.year
+	return date(p_day, p_month, p_year)
 
 
-func format_number(number: int) -> String:
-	var formatted: String = str(number)
-	var string: String = str(number)
+func date(p_day: int, p_month: int, p_year: int = -1) -> String:
+	if p_year == -1:
+		return "%d/%d" % [p_day, p_month]
+	return "%d/%d/%d" % [p_day, p_month, p_year - 2000]
+
+
+func number(value: int) -> String:
+	var formatted: String = str(value)
+	var string: String = str(value)
 
 	for i: int in range(string.length(), 0, -3):
 		formatted = formatted.substr(0, i) + " " + formatted.substr(i)
@@ -43,3 +36,4 @@ func format_number(number: int) -> String:
 	formatted = formatted.rstrip(" ")
 	# print(string + " becomes '" + formatted + "'")
 	return formatted
+
