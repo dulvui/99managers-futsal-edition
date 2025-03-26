@@ -5,19 +5,6 @@
 class_name JSONResource
 extends Resource
 
-# enum SaveStrategy {
-# 	ALWAYS,
-# 	MANUAL,
-# }
-#
-# var save_strategy: SaveStrategy
-#
-# var has_changed: bool
-# var changed_childs: Array[String]
-#
-# var dict_on_load: Dictionary
-# var self_hash: int
-
 
 func to_json() -> Dictionary:
 	var data: Dictionary = {}
@@ -33,61 +20,123 @@ func to_json() -> Dictionary:
 		):
 			continue
 
-		# if hash(self) == self_hash:
-		# 	return dict_on_load
-
 		var property_name: String = property.name
 		var value: Variant = get(property_name)
-		if value != null:
-			if value is Array:
-				var parsed_array: Array = []
-				var array: Array = value as Array
-				for item: Variant in array:
+
+		if value == null:
+			continue
+
+		if value is Array:
+			var array: Array = value
+
+			if array.size() == 0:
+				continue
+
+			data[property_name] = array.map(
+				func(item: Variant) -> Variant:
 					if item is JSONResource:
-						parsed_array.append((item as JSONResource).to_json())
-					else:
-						parsed_array.append(item)
-				data[property_name] = parsed_array
-			elif value is JSONResource:
-				data[property_name] = (value as JSONResource).to_json()
-			else:
-				data[property_name] = value
+						var json_resource: JSONResource = item
+						return json_resource.to_json()
+					return item
+			)
+
+		elif value is JSONResource:
+			var json_resource: JSONResource = value
+			data[property_name] = json_resource.to_json()
+
+		else:
+			data[property_name] = value
+
 	return data
 
 
 func from_json(dict: Dictionary) -> void:
-	# dict_on_load = dict.duplicate()
-	# self_hash = hash(self)
-
 	for key: String in dict.keys():
 		var property: Variant = get(key)
 
-		# cover edge case if firt leg of match.gd
+		# cover edge case if first leg of match.gd
 		# first leg is null in init, so manual initialization is needed
 		if key == "first_leg":
 			property = Match.new()
 
 		if property == null:
 			continue
-
+		
+		# Arrays
 		if property is Array:
-			var array: Array[Variant] = property as Array
+			var array: Array[Variant] = property
+
 			var dict_array: Array = dict[key]
+			if dict_array.size() == 0:
+				continue
+
 			# assuming all used resources are JSON resources
 			# could be made more precise by checking path of get_typed_script
 			var array_script: GDScript = array.get_typed_script()
 			if array_script != null:
-				for dict_item: Variant in dict_array:
+				array.append_array(
+					dict_array.map(func(dict_item: Variant) -> Variant:
 					var resource: JSONResource = array_script.new()
-					resource.from_json(dict_item)
-					array.append(resource)
+					var dictionary: Dictionary = dict_item
+					resource.from_json(dictionary)
+					return resource
+					)
+				)
+
 			# built in types, without considering nested arrays
 			else:
 				var array_type: int = array.get_typed_builtin()
-				for dict_item: Variant in dict_array:
-					array.append(type_convert(dict_item, array_type))
+				array.append_array(
+					dict_array.map(func(dict_item: Variant) -> Variant:
+					return type_convert(dict_item, array_type)
+					)
+				)
 
+		# JSONResource
 		elif property is JSONResource:
-			(property as JSONResource).from_json(dict[key])
+				var json_resource: JSONResource = property
+				var dictionary: Dictionary = dict[key]
+				json_resource.from_json(dictionary)
+
+		# other built in types
 		else:
 			set(key, dict[key])
+
+
+# # only saves data structure with names, ids and save strategy
+# # from skeleton than all the data gets loaded
+# func as_skeleton() -> JSONSkeleton:
+# 	var skeleton: JSONSkeleton = JSONSkeleton.new()
+#
+# 	for property_name: String in skeleton_properties:
+# 		var value: Variant = get(property_name)
+#
+# 		if value == null:
+# 			continue
+#
+# 		match typeof(value):
+# 			TYPE_ARRAY:
+# 				var array: Array = value
+# 				if array.size() == 0:
+# 					continue
+# 				data[property_name] = array.map(
+# 					func(item: Variant) -> Variant:
+# 						var skeleton: JSONSkeleton = item
+# 						var sub_skeleton: Dictionary = skeleton.as_skeleton()
+# 						var parsed_item: Dictionary = {
+# 							"i": skeleton.get_res_id()
+# 						}
+# 						if not sub_skeleton.is_empty():
+# 							parsed_item["s"] = sub_skeleton
+# 						return parsed_item
+# 				)
+# 			TYPE_OBJECT:
+# 				var skeleton: JSONSkeleton = value
+# 				var sub_skeleton: Dictionary = skeleton.as_skeleton()
+# 				data[property_name]["i"] = skeleton.get_res_id()
+# 				if not sub_skeleton.is_empty():
+# 					data[property_name]["s"] = sub_skeleton
+# 			_:
+# 				data[property_name] = value
+#
+# 	return data

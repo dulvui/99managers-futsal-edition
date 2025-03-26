@@ -6,6 +6,9 @@ extends Node
 
 signal loading_failed
 
+const COMPRESSION_ON: bool = true
+const COMPRESSION_MODE: FileAccess.CompressionMode = FileAccess.CompressionMode.COMPRESSION_GZIP
+
 const CONFIG_FILE: StringName = "settings_config"
 const SAVE_STATE_FILE: StringName = "save_state"
 const SAVE_STATES_FILE: StringName = "save_states"
@@ -17,8 +20,6 @@ const SAVE_STATES_PATH: StringName = "user://save_states/"
 const FILE_SUFFIX: StringName = ".json"
 const FILE_SUFFIX_COMPRESS: StringName = ".save"
 const BACKUP_SUFFIX: StringName = ".backup"
-const COMPRESSION_MODE: FileAccess.CompressionMode = FileAccess.CompressionMode.COMPRESSION_GZIP
-const COMPRESSION_ON: bool = true
 
 
 func save_config() -> void:
@@ -60,14 +61,15 @@ func save_save_state() -> void:
 	if active == null:
 		print("no active save state found to save")
 		return
+	# save id by type
+	active.id_by_type = Global.id_by_type
 	_save_resource(active.id + "/" + SAVE_STATE_FILE, active)
 
 
 func load_save_state_data() -> void:
 	var active: SaveState = Global.save_states.get_active()
 	IdUtil.id_by_type = active.id_by_type
-	Global.world = World.new()
-	_load_resource(active.id + "/" + DATA_FILE, Global.world)
+	Global.world = _load_world(active)
 
 	Global.team = Global.world.get_active_team()
 	Global.league = Global.world.get_league_by_id(Global.team.league_id)
@@ -81,11 +83,35 @@ func save_save_state_data() -> void:
 	if active == null:
 		print("no active save state found to save data")
 		return
-	active.id_by_type = Global.id_by_type
-	_save_resource(active.id + "/" + DATA_FILE, Global.world)
+	_save_world(active, Global.world)
+
+
+func _load_world(save_state: SaveState) -> World:
+	var generator: GeneratorWorld = GeneratorWorld.new()
+	var world: World = generator.init_world()
+	_load_resource(save_state.id + "/" + DATA_FILE, world)
+
+	return world
+
+
+func _save_world(save_state: SaveState, world: World) -> void:
+	print("save data...")
+	# for continent: Continent in world.continents:
+	# 	for nation: Nation in continent.nations:
+	# 		for league: League in nation.leagues:
+	# 			for team: Team in league.teams:
+	# 				_save_resource(save_state.id + "/" + continent.code + "/" + nation.code + "/" + str(league.id) + "/" + str(team.id), team)
+	# 			_save_resource(save_state.id + "/" + continent.code + "/" + nation.code + "/" + str(league.id), league)
+	# 		_save_resource(save_state.id + "/" + continent.code + "/" + nation.code, nation)
+	# 	_save_resource(save_state.id + "/" + continent.code + "/" + continent.code, continent)
+
+	_save_resource(save_state.id + "/" + DATA_FILE, world)
+	print("save data done.")
 
 
 func _load_resource(path: String, resource: JSONResource, after_backup: bool = false) -> void:
+	# make sure path is lower case
+	path = path.to_lower()
 	var full_path: String = SAVE_STATES_PATH + path
 	# open file
 	var file: FileAccess
@@ -94,13 +120,7 @@ func _load_resource(path: String, resource: JSONResource, after_backup: bool = f
 		file = FileAccess.open_compressed(full_path, FileAccess.READ, FileAccess.COMPRESSION_GZIP)
 	else:
 		full_path += FILE_SUFFIX
-		file = (
-			FileAccess
-			. open(
-				full_path,
-				FileAccess.READ,
-			)
-		)
+		file = FileAccess.open( full_path, FileAccess.READ)
 
 	# check errors
 	var err: int = FileAccess.get_open_error()
@@ -132,40 +152,46 @@ func _load_resource(path: String, resource: JSONResource, after_backup: bool = f
 
 
 func _save_resource(path: String, resource: JSONResource) -> void:
-	path = SAVE_STATES_PATH + path
-	print("saving %s..." % path)
-
 	print("converting resurce...")
 	var json: Dictionary = resource.to_json()
 	print("converting resource done.")
+	_save_json(path, json)
+
+
+func _save_json(path: String, json: Dictionary) -> void:
+	path = SAVE_STATES_PATH + path
+	# make sure path is lower case
+	path = path.to_lower()
+	print("saving json %s..." % path)
 
 	# create directory, if not exist yet
 	var dir_path: String = path.get_base_dir()
 	var dir: DirAccess = DirAccess.open(USER_PATH)
 	if not dir.dir_exists(dir_path):
 		print("dir %s not found, creating now..." % dir_path)
-		dir.make_dir_recursive(dir_path)
+		var err_dir: Error = dir.make_dir_recursive(dir_path)
+		if err_dir != OK:
+			push_error("error while creating directory %s; error with code %d" % [dir_path, err_dir])
+			return
 
-	print("saving resource...")
+	# print("saving resource...")
 	var file: FileAccess
 	if COMPRESSION_ON:
 		path += FILE_SUFFIX_COMPRESS
 		file = FileAccess.open_compressed(path, FileAccess.WRITE, COMPRESSION_MODE)
 	else:
 		path += FILE_SUFFIX
-		file = (
-			FileAccess
-			. open(
-				path,
-				FileAccess.WRITE,
-			)
-		)
+		file = FileAccess.open(path, FileAccess.WRITE)
+
+	if file == null:
+		push_error("error while opening file: file is null")
+		breakpoint
+		return
 
 	# check for file errors
 	var err: int = file.get_error()
 	if err != OK:
-		print("opening file error with code %d" % err)
-		print(err)
+		push_error("error while opening file: error with code %d" % err)
 		return
 
 	# save to file
@@ -216,3 +242,4 @@ func _restore_backup(path: String) -> void:
 		print("restoring backup for %s gone wrong." % path)
 		loading_failed.emit()
 		return
+

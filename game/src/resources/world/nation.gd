@@ -5,15 +5,15 @@
 class_name Nation
 extends JSONResource
 
-@export var name: String
 @export var code: String
-@export var locales: Array[Locale]
-@export var borders: Array[String]
 
 @export var leagues: Array[League]
 @export var cup: Cup
 @export var team: Team
 
+var name: String
+var locales: Array[Locale]
+var borders: Array[String]
 
 func _init(
 	p_name: String = "",

@@ -12,6 +12,8 @@ extends JSONResource
 @export var calendar: Calendar
 @export var transfers: Transfers
 @export var inbox: Inbox
+# TODO: move calendar day matches here
+# @export var matches: Array[Match]
 
 
 func _init(
