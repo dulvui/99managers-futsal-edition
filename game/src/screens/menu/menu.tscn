@@ -198,7 +198,9 @@ uri = "https://store.steampowered.com/app/3334770"
 
 [node name="ExitConfirmDialog" parent="." instance=ExtResource("6_1a2kt")]
 unique_name_in_owner = true
-custom_text = "Exit game"
+size = Vector2i(400, 180)
+custom_title = "Exit game"
+custom_text = "You are exiting the game. Proceed?"
 
 [connection signal="pressed" from="MarginContainer/VBoxContainer/Buttons/ContinueGame" to="." method="_on_continue_game_pressed"]
 [connection signal="pressed" from="MarginContainer/VBoxContainer/Buttons/NewGame" to="." method="_on_new_game_pressed"]
