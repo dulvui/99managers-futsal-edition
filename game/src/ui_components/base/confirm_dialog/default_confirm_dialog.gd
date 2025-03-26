@@ -28,13 +28,15 @@ enum Type {
 func _ready() -> void:
 	hide()
 
+	# buttons
 	if type == Type.YES_NO:
 		cancel_button.hide()
 	elif type == Type.ONLY_OK:
 		cancel_button.text = tr("Ok")
 		no_button.hide()
 		yes_button.hide()
-
+	
+	# labels
 	rich_text_label.text = custom_text
 	title_label.text = custom_title
 
