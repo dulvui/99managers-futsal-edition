@@ -56,7 +56,6 @@ func _on_close_color_picker_button_pressed() -> void:
 
 
 func _on_color_picker_color_changed(color: Color) -> void:
-	print(color)
 	match active_color_type:
 		ColorType.FONT:
 			Global.config.theme_custom_font_color = color.to_html(true)

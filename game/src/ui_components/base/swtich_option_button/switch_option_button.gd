@@ -33,19 +33,19 @@ func setup(items: Array, selected: int = 0) -> void:
 
 
 func _on_next_pressed() -> void:
-	if option_button.selected > 0:
-		option_button.selected -= 1
+	if option_button.selected < option_button.item_count - 1:
+		option_button.selected += 1
 	else:
-		option_button.selected = option_button.item_count - 1
+		option_button.selected = 0
 	item_selected.emit(option_button.selected)
 	option_button.tooltip_text = option_button.text
 
 
 func _on_prev_pressed() -> void:
-	if option_button.selected < option_button.item_count - 1:
-		option_button.selected += 1
+	if option_button.selected > 0:
+		option_button.selected -= 1
 	else:
-		option_button.selected = 0
+		option_button.selected = option_button.item_count - 1
 	item_selected.emit(option_button.selected)
 	option_button.tooltip_text = option_button.text
 
