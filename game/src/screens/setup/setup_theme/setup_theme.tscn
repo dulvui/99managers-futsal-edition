@@ -1,9 +1,10 @@
-[gd_scene load_steps=5 format=3 uid="uid://dm872hq626bjx"]
+[gd_scene load_steps=6 format=3 uid="uid://dm872hq626bjx"]
 
 [ext_resource type="Script" uid="uid://cjcwyuhujgi0t" path="res://src/screens/setup/setup_theme/setup_theme.gd" id="1_misw4"]
 [ext_resource type="LabelSettings" uid="uid://b4gu78rjvdfx4" path="res://theme_base/label/label_settings_title.tres" id="2_ndirm"]
 [ext_resource type="PackedScene" uid="uid://can4wvc3g3b84" path="res://src/screens/settings/theme_picker/theme_picker.tscn" id="2_qqjlt"]
 [ext_resource type="PackedScene" uid="uid://ck1i6uxkqg3pi" path="res://src/ui_components/player_silhouette/player_silhouette.tscn" id="2_y2tkf"]
+[ext_resource type="Script" uid="uid://cnyyowwlb04kl" path="res://src/ui_components/base/defaults/default_button.gd" id="4_uaft0"]
 
 [node name="SetupTheme" type="Control"]
 layout_mode = 3
@@ -61,6 +62,8 @@ layout_mode = 2
 size_flags_horizontal = 4
 theme_type_variation = &"ImportantButton"
 text = "Continue"
+script = ExtResource("4_uaft0")
+metadata/_custom_type_script = "uid://cnyyowwlb04kl"
 
 [node name="CenterContainer" type="VBoxContainer" parent="MarginContainer/VBoxContainer"]
 custom_minimum_size = Vector2(400, 0)
