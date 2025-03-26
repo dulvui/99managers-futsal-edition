@@ -18,11 +18,22 @@ func setup(day: Day, competition: Competition = Global.league) -> void:
 	# remove children
 	for child: Node in matches_list.get_children():
 		child.queue_free()
+	
+	all_matches = []
 
 	# get matches by competition
 	var match_day: MatchDay = Global.world.match_list.get_match_day_by_day(day)
 
-	all_matches = []
+	# add to list
+	if match_day != null:
+		all_matches.append_array(match_day.matches)
+
+	# show no match notice
+	if all_matches.is_empty():
+		var label: Label = Label.new()
+		label.text = tr("No match")
+		matches_list.add_child(label)
+		return
 
 	# reset scroll position
 	scroll_container.scroll_horizontal = 0
@@ -61,12 +72,6 @@ func setup(day: Day, competition: Competition = Global.league) -> void:
 		for league: League in Global.world.get_all_leagues(true):
 			_add_matches(match_day, league)
 
-	# show no match notice
-	if all_matches.is_empty():
-		var label: Label = Label.new()
-		label.text = tr("No match")
-		matches_list.add_child(label)
-
 
 func _add_matches(match_day: MatchDay, competition: Competition) -> void:
 	if match_day == null:
@@ -74,8 +79,9 @@ func _add_matches(match_day: MatchDay, competition: Competition) -> void:
 	if match_day.matches.size() == 0:
 		return
 
-	# add to list
-	all_matches.append_array(match_day.matches)
+	var matches: Array[Match] = match_day.get_matches_by_competition(competition.id)
+	if matches.size() == 0:
+		return
 
 	var competition_label: Label = Label.new()
 	competition_label.text = competition.name
@@ -84,7 +90,7 @@ func _add_matches(match_day: MatchDay, competition: Competition) -> void:
 	ThemeUtil.bold(competition_label)
 	matches_list.add_child(competition_label)
 
-	for matchz: Match in match_day.matches:
+	for matchz: Match in matches:
 		var match_row: MatchInfo = MatchInfoScene.instantiate()
 		matches_list.add_child(match_row)
 		match_row.setup(matchz)

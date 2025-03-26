@@ -142,7 +142,7 @@ func _setup() -> void:
 		ThemeUtil.bold(day_label)
 		vbox.add_child(day_label)
 
-		for matchz: Match in match_day.matches:
+		for matchz: Match in match_day.get_matches_by_competition(competition.id):
 			var match_info: MatchInfo = MatchInfoScene.instantiate()
 			vbox.add_child(match_info)
 			match_info.setup(matchz)
