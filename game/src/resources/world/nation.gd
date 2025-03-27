@@ -73,7 +73,7 @@ func get_team_by_id(team_id: int) -> Team:
 		var found_team: Team = league.get_team_by_id(team_id)
 		if found_team:
 			return found_team
-	print("ERROR: team not found with id: " + str(team_id))
+	push_error("error team not found with id: " + str(team_id))
 	return null
 
 

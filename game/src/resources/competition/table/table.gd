@@ -64,6 +64,6 @@ func _find_by_id(team_id: int) -> TableValues:
 	for value: TableValues in teams:
 		if value.team.id == team_id:
 			return value
-	print("ERROR while searching team in table with id: " + str(team_id))
+	push_error("error while searching team in table with id: " + str(team_id))
 	return null
 

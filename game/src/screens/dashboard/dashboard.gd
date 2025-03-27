@@ -304,7 +304,7 @@ func _on_email_email_action(message: EmailMessage) -> void:
 		contract_offer.setup(TransferUtil.get_transfer_id(message.foreign_id))
 		_show_active_view(ContentViews.CONTRACT_OFFER)
 	else:
-		print("ERROR: Email action with no type. Text: " + message.text)
+		push_error("error email action with no type. text: " + message.text)
 
 
 func _on_contract_offer_cancel() -> void:

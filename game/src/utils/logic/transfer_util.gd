@@ -36,7 +36,7 @@ func get_transfer_id(id: int) -> Transfer:
 	for transfer: Transfer in Global.transfers.list:
 		if transfer.id == id:
 			return transfer
-	print("ERROR: transfer not found with id: " + str(id))
+	push_error("error transfer not found with id: " + str(id))
 	return null
 
 

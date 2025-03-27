@@ -83,7 +83,7 @@ func save_save_state_data() -> void:
 	if active == null:
 		print("no active save state found to save data")
 		return
-	_save_world(active, Global.world)
+	# _save_world(active, Global.world)
 
 
 func _load_world(save_state: SaveState) -> World:
@@ -96,15 +96,6 @@ func _load_world(save_state: SaveState) -> World:
 
 func _save_world(save_state: SaveState, world: World) -> void:
 	print("save data...")
-	# for continent: Continent in world.continents:
-	# 	for nation: Nation in continent.nations:
-	# 		for league: League in nation.leagues:
-	# 			for team: Team in league.teams:
-	# 				_save_resource(save_state.id + "/" + continent.code + "/" + nation.code + "/" + str(league.id) + "/" + str(team.id), team)
-	# 			_save_resource(save_state.id + "/" + continent.code + "/" + nation.code + "/" + str(league.id), league)
-	# 		_save_resource(save_state.id + "/" + continent.code + "/" + nation.code, nation)
-	# 	_save_resource(save_state.id + "/" + continent.code + "/" + continent.code, continent)
-
 	_save_resource(save_state.id + "/" + DATA_FILE, world)
 	print("save data done.")
 
