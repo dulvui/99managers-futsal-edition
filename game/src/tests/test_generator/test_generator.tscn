@@ -2,5 +2,5 @@
 
 [ext_resource type="Script" uid="uid://cp41vp1xilqfw" path="res://src/tests/test_generator/test_generator.gd" id="1_ndxo4"]
 
-[node name="GeneratorTest" type="Node"]
+[node name="TestGenerator" type="Node"]
 script = ExtResource("1_ndxo4")

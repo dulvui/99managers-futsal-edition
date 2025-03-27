@@ -28,8 +28,10 @@ func _ready() -> void:
 		var bus_name: String = AudioBus.keys()[bus_id]
 		AudioServer.add_bus(bus_id)
 		AudioServer.set_bus_name(bus_id, bus_name)
-		AudioServer.set_bus_mute(bus_id, Global.config.audio[bus_id].mute)
-		AudioServer.set_bus_volume_db(bus_id, Global.config.audio[bus_id].volume)
+		var mute: bool = Global.config.audio[bus_id].mute
+		AudioServer.set_bus_mute(bus_id, mute)
+		var volume: float = Global.config.audio[bus_id].volume
+		AudioServer.set_bus_volume_db(bus_id, volume)
 
 	# button press sfx
 	button_press = AudioStreamPlayer.new()

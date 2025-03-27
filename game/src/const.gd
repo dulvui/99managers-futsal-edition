@@ -30,7 +30,7 @@ const PENALTY_KICKS: int = 5
 const TICKS: int = 32
 # used for state machine updates, player movements ecc...
 # is always relative to TICKS
-const TICKS_LOGIC: int = TICKS / 4
+const TICKS_LOGIC: int = int(TICKS / 4.0)
 
 const SPEED: float = 0.5
 

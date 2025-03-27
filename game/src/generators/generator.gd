@@ -42,7 +42,8 @@ const EYE_COLORS: Array[String] = [
 var leagues_data: Dictionary = {}
 
 # for birthdays range
-var date: Dictionary
+var start_date: Dictionary
+var year: int
 var max_timestamp: int
 var min_timestamp: int
 
@@ -75,8 +76,9 @@ func generate_teams(world: World, world_file_path: String = WORLD_CSV_PATH) -> b
 	# create date ranges
 	# starts from current year and subtracts min/max years
 	# youngest player can be 15 and oldest 45
-	date = Global.start_date
-	var max_date: Dictionary = date.duplicate()
+	start_date = Global.start_date
+	year = start_date.year
+	var max_date: Dictionary = start_date.duplicate()
 	max_date.month = 1
 	max_date.day = 1
 	max_date.year -= 15
@@ -435,7 +437,7 @@ func _get_value(age: int, prestige: int, position: Position) -> int:
 
 	var total_factor: int = age_factor + pos_factor + prestige
 
-	return RngUtil.rng.randi_range(max(total_factor - 20, 0), total_factor) * 1000
+	return RngUtil.rng.randi_range(maxi(total_factor - 20, 0), total_factor) * 1000
 
 
 func _get_random_foot() -> Enum.Foot:
@@ -492,7 +494,8 @@ func _create_manager(
 	manager.nation = nation.name
 
 	# create random preferred tactics
-	manager.formation.set_variation(RngUtil.pick_random(Formation.Variations.values()))
+	var variation: Formation.Variations = RngUtil.pick_random(Formation.Variations.values())
+	manager.formation.set_variation(variation)
 	manager.formation.tactic_offense.intensity = RngUtil.rng.randf()
 	manager.formation.tactic_offense.tactic = RngUtil.pick_random(TacticOffense.Tactics.values())
 	manager.formation.tactic_defense.marking = RngUtil.pick_random(TacticDefense.Marking.values())
@@ -542,7 +545,9 @@ func _create_player(
 	random_positions(player, p_position_type)
 	var prestige: int = _get_player_prestige(p_prestige)
 
-	player.value = _get_value(date.year - player.birth_date.year, prestige, player.position)
+	var birth_date_year: int = player.birth_date.year
+
+	player.value = _get_value(year - birth_date_year, prestige, player.position)
 	player.team = p_team.name
 	player.team_id = p_team.id
 	player.league = p_league.name
@@ -560,14 +565,14 @@ func _create_player(
 
 	player.attributes = Attributes.new()
 	player.attributes.goalkeeper = _get_goalkeeper_attributes(
-		date.year - player.birth_date.year, prestige, player.position
+		year - birth_date_year, prestige, player.position
 	)
-	player.attributes.mental = _get_mental(date.year - player.birth_date.year, prestige)
+	player.attributes.mental = _get_mental(year - birth_date_year, prestige)
 	player.attributes.technical = _get_technical(
-		date.year - player.birth_date.year, prestige, player.position
+		year - birth_date_year, prestige, player.position
 	)
 	player.attributes.physical = _get_physical(
-		date.year - player.birth_date.year, prestige, player.position
+		year - birth_date_year, prestige, player.position
 	)
 
 	var statistics: Statistics = Statistics.new()
@@ -620,7 +625,7 @@ func _get_random_nationality(
 ) -> Nation:
 	# (100 - prestige)% given nation, prestige% random nation
 	# with prestige, lower division teams have less players from other nations
-	if RngUtil.rng.randi_range(1, 100) > 100 - (prestige * 2 / pyramid_level):
+	if RngUtil.rng.randi_range(1, 100) > 100 - (prestige * 2.0 / pyramid_level):
 		return world.get_all_nations()[RngUtil.rng.randi_range(
 			0, world.get_all_nations().size() - 1
 		)]
@@ -683,7 +688,7 @@ func _initialize_team(
 	team.stadium.capacity = RngUtil.rng.randi_range(
 		temp_team_prestige * 200, temp_team_prestige * 1_000
 	)
-	team.stadium.year_built = RngUtil.rng.randi_range(date.year - 70, date.year - 1)
+	team.stadium.year_built = RngUtil.rng.randi_range(year - 70, year - 1)
 
 	team.staff = _create_staff(world, team.get_prestige(), nation, league.pyramid_level)
 
@@ -719,10 +724,10 @@ func _set_random_person_values(person: Person, nation: Nation) -> void:
 	# contract
 	# TODO use different contract for differen roles
 	var contract: Contract = Contract.new()
-	var age_factor: int = _get_age_factor(person.get_age(date))
+	var age_factor: int = _get_age_factor(person.get_age(start_date))
 	contract.income = (person.prestige + age_factor) * 1000
-	contract.start_date = date
-	contract.end_date = date
+	contract.start_date = start_date
+	contract.end_date = start_date
 	contract.bonus_goal = 0
 	contract.bonus_clean_sheet = 0
 	contract.bonus_assist = 0

@@ -25,6 +25,6 @@ script = ExtResource("1_t2lbh")
 
 [node name="TestResUtil" parent="." instance=ExtResource("8_f2jty")]
 
-[node name="CSVUtilTest" parent="." instance=ExtResource("8_h3tx0")]
-
 [node name="TestFormatUtil" parent="." instance=ExtResource("9_p518b")]
+
+[node name="CSVUtilTest" parent="." instance=ExtResource("8_h3tx0")]

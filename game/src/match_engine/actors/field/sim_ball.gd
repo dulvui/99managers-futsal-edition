@@ -80,15 +80,15 @@ func shoot_on_goal(player: Player, left_half: bool) -> void:
 	else:
 		random_target = field.goals.left
 
-	random_target += Vector2(0, rng.randi_range(-field.goals.size, field.goals.size))
+	random_target += Vector2(0, rng.randf_range(-field.goals.size, field.goals.size))
 
 	shoot(random_target, power * rng.randi_range(1, 3))
 
 
 func penalty(player: Player) -> void:
-	var left_half: bool = pos.x < field.size.x / 2
+	var left_half: bool = pos.x < field.size.x / 2.0
 
-	var power: int = player.attributes.technical.shooting / 2
+	var power: int = int(player.attributes.technical.shooting / 2.0)
 
 	colission_timer = 0
 
@@ -103,7 +103,7 @@ func penalty(player: Player) -> void:
 	# 0.6 best, 1.55 worst
 	var aim: float = 0.6 + (1.0 - aim_factor)
 
-	random_target += Vector2(0, rng.randi_range(-field.goals.size * aim, field.goals.size * aim))
+	random_target += Vector2(0, rng.randf_range(-field.goals.size * aim, field.goals.size * aim))
 
 	shoot(random_target, power * rng.randi_range(1, 3))
 
@@ -124,9 +124,10 @@ func free_kick(player: SimPlayer) -> void:
 	# 0.6 best, 1.55 worst
 	var aim: float = 0.6 + (1.0 - aim_factor)
 
-	random_target += Vector2(0, rng.randi_range(-field.goals.size * aim, field.goals.size * aim))
+	random_target += Vector2(0, rng.randf_range(-field.goals.size * aim, field.goals.size * aim))
 
 	shoot(random_target, power * rng.randi_range(1, 3))
+
 
 func stop() -> void:
 	super()
@@ -135,3 +136,4 @@ func stop() -> void:
 
 func _random_rotation() -> void:
 	rotation = rng.randf_range(-0.8, 0.8)
+

@@ -111,7 +111,7 @@ func create_combinations(competition: Competition, p_teams: Array[TeamBasic]) ->
 		var copy: Array[TeamBasic] = random_teams.duplicate(true)
 		copy.remove_at(0)
 
-		for j: int in range(0, (teams.size() / 2) - 1):
+		for j: int in range(0, (teams.size() / 2.0) - 1):
 			var home_index: int = j
 			var away_index: int = -j - 1
 

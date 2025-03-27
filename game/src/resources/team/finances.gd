@@ -42,7 +42,7 @@ func update_week(team: Team) -> void:
 	expenses[-1] += team.staff.get_salary()
 
 	for player: Player in team.players:
-		expenses[-1] += player.contract.income / 52
+		expenses[-1] += int(player.contract.income / 52.0)
 
 	balance[-1] -= expenses[-1]
 
@@ -65,7 +65,7 @@ func update_season(team: Team) -> void:
 	var total_profit: int = total_income - total_expenses
 
 	# calculate taxes, base on profits, and can't be less than 0
-	income_tax = max(0, total_profit / 100 * 28)
+	income_tax = max(0, total_profit / 100.0 * 28)
 
 	# save to history
 	balance_history.append(balance)

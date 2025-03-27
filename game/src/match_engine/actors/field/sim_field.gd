@@ -172,7 +172,8 @@ func _check_touch_line() -> void:
 		)
 		if intersection:
 			clock_running = false
-			ball.set_pos(intersection)
+			var vector: Vector2 = intersection
+			ball.set_pos(vector)
 			touch_line_out.emit()
 			return
 	if ball.pos.y > line_bottom:
@@ -181,7 +182,8 @@ func _check_touch_line() -> void:
 		)
 		if intersection:
 			clock_running = false
-			ball.set_pos(intersection)
+			var vector: Vector2 = intersection
+			ball.set_pos(vector)
 			touch_line_out.emit()
 			return
 

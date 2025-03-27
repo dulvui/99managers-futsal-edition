@@ -27,7 +27,7 @@ static func _player_season_progress(player: Player) -> void:
 	var age: int = Global.start_date.year - player.birth_date.year
 
 	# -1/+1 depending on player age and prestige
-	var age_factor: int = AGE_PHYSICAL_DEGARDE - age + (player.prestige / 12)
+	var age_factor: int = AGE_PHYSICAL_DEGARDE - age + int(player.prestige / 12.0)
 	if age_factor < 0:
 		age_factor = -1
 	else:

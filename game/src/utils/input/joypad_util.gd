@@ -26,7 +26,8 @@ func _ready() -> void:
 func get_joypad_type_string() -> String:
 	if not joypads.is_empty():
 		_set_active()
-		return get_type_text(active_joypad.type)
+		var active_type: Type = active_joypad.type
+		return get_type_text(active_type)
 	return tr("No joypad connected")
 
 
@@ -129,7 +130,9 @@ func _guess_type(info: Dictionary) -> Type:
 
 func _should_be_ignored(info: Dictionary) -> bool:
 	if "vendor_id" in info and "product_id" in info:
-		var ignore_device: bool = Input.should_ignore_device(info.vendor_id, info.product_id)
+		var vendor_id: int = info.vendor_id
+		var product_id: int = info.product_id
+		var ignore_device: bool = Input.should_ignore_device(vendor_id, product_id)
 		if ignore_device:
 			print("joypad ignored info: %s" % info)
 			return true

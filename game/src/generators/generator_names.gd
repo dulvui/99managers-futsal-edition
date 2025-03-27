@@ -71,24 +71,23 @@ func get_random_name(nation: Nation) -> String:
 
 	# male
 	if Global.generation_player_names == Enum.PlayerNames.MALE:
-		var size: int = (names[code][MALE_NAMES] as Array).size()
-		return names[code][MALE_NAMES][RngUtil.rng.randi() % size]
+		var names_array: Array[String] = names[code][MALE_NAMES]
+		var size: int = names_array.size()
+		return names_array[RngUtil.rng.randi() % size]
 	# female
 	elif Global.generation_player_names == Enum.PlayerNames.FEMALE:
-		var size: int = (names[code][FEMALE_NAMES] as Array).size()
-		return names[code][FEMALE_NAMES][RngUtil.rng.randi() % size]
+		var names_array: Array[String] = names[code][FEMALE_NAMES]
+		var size: int = names_array.size()
+		return names_array[RngUtil.rng.randi() % size]
 
 	# mixed
-	var size_female: int = (names[code][FEMALE_NAMES] as Array).size()
-	var size_male: int = (names[code][MALE_NAMES] as Array).size()
 	var female_names: Array = names[code][FEMALE_NAMES]
 	var male_names: Array = names[code][MALE_NAMES]
-
 	var mixed_names: Array = []
 	mixed_names.append_array(female_names)
 	mixed_names.append_array(male_names)
 
-	return mixed_names[RngUtil.rng.randi() % (size_female + size_male)]
+	return mixed_names[RngUtil.rng.randi() % mixed_names.size()]
 
 
 func get_random_surnname(nation: Nation) -> String:
@@ -107,8 +106,9 @@ func get_random_surnname(nation: Nation) -> String:
 	if not code in names.keys() or not SURNAMES in names[code]:
 		code = RngUtil.pick_random(names.keys())
 
-	var size: int = (names[code][SURNAMES] as Array).size()
-	return names[code][SURNAMES][RngUtil.rng.randi() % size]
+	var names_array: Array[String] = names[code][SURNAMES]
+	var size: int = names_array.size()
+	return names_array[RngUtil.rng.randi() % size]
 
 
 func _read_name_csv_file(path: String) -> Array[String]:

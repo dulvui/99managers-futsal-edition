@@ -45,8 +45,8 @@ func _init(field: SimField) -> void:
 	left = Vector2(field.line_left, field.size.y / 2)
 	right = Vector2(field.line_right, field.size.y / 2)
 
-	post_bottom = (field.size.y / 2) + (size / 2)
-	post_top = (field.size.y / 2) - (size / 2)
+	post_bottom = int(field.size.y / 2.0) + int(size / 2.0)
+	post_top = int(field.size.y / 2.0) - int(size / 2.0)
 
 	post_top_left = Vector2(field.line_left, post_top)
 	post_bottom_left = Vector2(field.line_left, post_bottom)

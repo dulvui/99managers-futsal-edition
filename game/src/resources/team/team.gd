@@ -100,13 +100,13 @@ func get_prestige() -> int:
 
 	var value: int = 0
 	for player: Player in players:
-		value += player.get_overall()
-	return value / players.size()
+		value += int(player.get_overall())
+	return int(value / float(players.size()))
 
 
 func get_prestige_stars() -> String:
-	var relation: int = Const.MAX_PRESTIGE / 4
-	var star_factor: int = Const.MAX_PRESTIGE / relation
+	var relation: int = int(Const.MAX_PRESTIGE / 4.0)
+	var star_factor: float = Const.MAX_PRESTIGE / float(relation)
 	var stars: int = max(1, get_prestige() / star_factor)
 	var spaces: int = 5 - stars
 	# creates right padding example: '***  '

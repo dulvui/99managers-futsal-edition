@@ -60,7 +60,7 @@ func _init(field: SimField, goals: SimGoals) -> void:
 	right.append_array(curve.get_baked_points())
 
 	# move to opposite site
-	for i in right.size():
+	for i: int in right.size():
 		right[i] += Vector2(field.WIDTH, 0)
 
 	# caclulate penalty spots

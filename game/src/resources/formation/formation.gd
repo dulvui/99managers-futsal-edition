@@ -76,7 +76,7 @@ func set_variation(p_variation: Variations) -> void:
 
 	# extract int values
 	var int_values: Array[int] = []
-	for value in string_values:
+	for value: String in string_values:
 		var int_value: int = int(value)
 		int_values.append(int_value)
 

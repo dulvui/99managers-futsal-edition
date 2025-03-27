@@ -37,13 +37,13 @@ func setup(p_teams: Array[TeamBasic]) -> void:
 
 	# define groups size
 	var teams_amount: int = p_teams.size()
-	var group_amount: int = max(teams_amount / 4, 1)
+	var group_amount: int = max(teams_amount / 4.0, 1)
 	# if only one group possible, go direclty to knockout
 	if group_amount == 1:
 		setup_knockout(p_teams)
 		return
 
-	teams_pass_to_knockout = teams_amount / group_amount / 2
+	teams_pass_to_knockout = int(teams_amount / float(group_amount) / 2.0)
 
 	# set up groups
 	groups = []

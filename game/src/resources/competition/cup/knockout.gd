@@ -101,7 +101,7 @@ func get_match_days(cup: Cup) -> MatchDays:
 		var round_b: KnockoutRound = KnockoutRound.new()
 		
 		# group a
-		for i: int in teams_a.size() / 2:
+		for i: int in teams_a.size() / 2.0:
 			# assign first vs last, first + 1 vs last - 1 etc...
 			var matchz: Match = Match.new()
 			matchz.setup(teams_a[i], teams_a[-(i + 1)], cup.id, cup.name)
@@ -111,7 +111,7 @@ func get_match_days(cup: Cup) -> MatchDays:
 		rounds_a.append(round_a)
 
 		# group b
-		for i: int in teams_b.size() / 2:
+		for i: int in teams_b.size() / 2.0:
 			# assign first vs last, first + 1 vs last - 1 etc...
 			var matchz: Match = Match.new()
 			matchz.setup(teams_b[i], teams_b[-(i + 1)], cup.id, cup.name)
