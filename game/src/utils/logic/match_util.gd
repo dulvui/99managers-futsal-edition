@@ -231,6 +231,7 @@ func _initialize_club_continental_cup(p_continent: Continent) -> void:
 	# TODO choose best teams
 	if teams.size() > 32:
 		teams = teams.slice(0, 32)
+	
 	p_continent.cup_clubs.setup(teams)
 
 	# create matches for first round group a

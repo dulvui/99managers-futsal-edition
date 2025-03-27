@@ -61,8 +61,9 @@ func get_continental_cup_qualified_teams() -> Array[TeamBasic]:
 	var league: League = get_league_by_pyramid_level(1)
 	var table: Array[TableValues] = league.table.to_sorted_array()
 
-	# always qualify a quarter of teams??
-	for i: int in table.size() / 4.0:
+	# always qualify all teams for now
+	# TODO: find better way to define number of teams
+	for i: int in table.size():
 		teams.append(table[i].team)
 
 	return teams

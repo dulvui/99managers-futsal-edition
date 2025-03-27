@@ -12,11 +12,11 @@ enum Stage {
 }
 
 const MAX_TEAMS: int = 32
+const TEAMS_PASS_TO_KNOCKOUT: int = 2
 
 @export var groups: Array[Group]
 @export var knockout: Knockout
 @export var stage: Stage
-@export var teams_pass_to_knockout: int
 
 
 func _init(
@@ -31,25 +31,34 @@ func _init(
 
 
 func setup(p_teams: Array[TeamBasic]) -> void:
+	knockout = Knockout.new()
 	stage = Stage.GROUP
 	# limit team size
 	p_teams = p_teams.slice(0, MAX_TEAMS)
 
-	# define groups size
-	var teams_amount: int = p_teams.size()
-	var group_amount: int = max(teams_amount / 4.0, 1)
-	# if only one group possible, go direclty to knockout
-	if group_amount == 1:
+	var group_amount: int = 0
+
+	# adjust teams size, to fit knockout format, sicne can only be 32,16,8,4,2
+	if p_teams.size() >= 32:
+		p_teams = p_teams.slice(0, 32)
+		group_amount = 8
+	elif p_teams.size() >= 16:
+		p_teams = p_teams.slice(0, 16)
+		group_amount = 4
+	elif p_teams.size() >= 8:
+		p_teams = p_teams.slice(0, 8)
+		group_amount = 2
+	else:
+		# go directly to knockouts
 		setup_knockout(p_teams)
 		return
-
-	teams_pass_to_knockout = int(teams_amount / float(group_amount) / 2.0)
 
 	# set up groups
 	groups = []
 	for i: int in group_amount:
 		var group: Group = Group.new()
 		groups.append(group)
+	
 	# split teams in groups, according to prestige
 	for i: int in p_teams.size():
 		groups[i % group_amount].add_team(p_teams[i])
@@ -68,7 +77,7 @@ func setup_knockout(
 			group.sort_teams_by_table_pos()
 		# add winning teams to knockout stage
 		for group: Group in groups:
-			teams.append_array(group.teams.slice(0, teams_pass_to_knockout))
+			teams.append_array(group.teams.slice(0, TEAMS_PASS_TO_KNOCKOUT))
 
 	knockout.setup(teams, legs_semi_finals, legs_final)
 
@@ -168,3 +177,4 @@ func _find_group_by_team_id(team_id: int) -> Group:
 			return group
 	push_error("error while seerching team with id %s in group" % str(team_id))
 	return null
+

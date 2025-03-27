@@ -109,6 +109,8 @@ func next_season(save_data: bool = true) -> void:
 
 	world.calendar.initialize(true)
 
+	world.match_list.archive_season()
+
 	var match_util: MatchUtil = MatchUtil.new(world)
 	match_util.initialize_matches()
 
@@ -138,3 +140,4 @@ func load_save_state() -> bool:
 		return true
 
 	return false
+

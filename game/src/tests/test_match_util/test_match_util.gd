@@ -21,7 +21,7 @@ func test_combinations(league: League) -> void:
 	var match_days: MatchDays =  match_util.create_combinations(league, league.get_teams_basic())
 
 	# match amount
-	var reference_match_count: int = (TEAMS - 1) * 2 * (TEAMS / 2)
+	var reference_match_count: int = (TEAMS - 1) * 2 * int(TEAMS / 2.0)
 	var match_count: int = 0
 	for match_day: MatchDay in match_days.days:
 		match_count += match_day.size()
