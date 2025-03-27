@@ -1,6 +1,6 @@
-[gd_scene load_steps=2 format=3 uid="uid://kv2bpwmcco3t"]
+[gd_scene load_steps=2 format=3 uid="uid://wf8y8myqy8o1"]
 
 [ext_resource type="Script" uid="uid://cp41vp1xilqfw" path="res://src/tests/test_generator/test_generator.gd" id="1_ndxo4"]
 
-[node name="TestGenerator" type="Node"]
+[node name="TestGenertor" type="Node"]
 script = ExtResource("1_ndxo4")

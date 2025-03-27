@@ -1,6 +1,6 @@
-[gd_scene load_steps=2 format=3 uid="uid://kv2bpwmcco3t"]
+[gd_scene load_steps=2 format=3 uid="uid://bprgrtr7qtga8"]
 
-[ext_resource type="Script" uid="uid://eham8epqwufj" path="res://src/tests/test_csv_util/test_csv_util.gd" id="1_v88pg"]
+[ext_resource type="Script" uid="uid://cga6q3m7hve2v" path="res://src/tests/test_csv_util/test_csv_util.gd" id="1_v88pg"]
 
-[node name="CSVUtilTest" type="Node"]
+[node name="TestCSVUtil" type="Node"]
 script = ExtResource("1_v88pg")
