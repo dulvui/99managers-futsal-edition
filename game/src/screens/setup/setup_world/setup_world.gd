@@ -19,8 +19,10 @@ var world: World
 # game settings
 @onready var player_names_option: OptionButton = %PlayerNames
 @onready var start_year_spinbox: SpinBox = %StartYear
-@onready var generation_seed_edit: LineEdit = %GeneratedSeedLineEdit
 
+# advanced settings
+@onready var advanced_settings: VBoxContainer = %AdvancedSettings
+@onready var generation_seed_edit: LineEdit = %GeneratedSeedLineEdit
 @onready var file_dialog: FileDialog = %FileDialog
 @onready var file_info_dialog: DefaultConfirmDialog = %FileInfoDialog
 @onready var file_error_dialog: DefaultConfirmDialog = %FileErrorDialog
@@ -33,6 +35,8 @@ var world: World
 
 func _ready() -> void:
 	InputUtil.start_focus(self)
+	
+	advanced_settings.hide()
 
 	# create world
 	var world_generator: GeneratorWorld = GeneratorWorld.new()
@@ -185,6 +189,10 @@ func _on_files_more_info_pressed() -> void:
 	file_info_dialog.popup_centered()
 
 
+func _on_advanced_stettings_button_toggled(toggled_on: bool) -> void:
+	advanced_settings.visible = toggled_on
+
+
 func _on_world_generated() -> void:
 	# check world loading error
 	if Global.generation_errors.size() == 0:
@@ -206,3 +214,4 @@ func _on_world_generated() -> void:
 
 func _on_back_pressed() -> void:
 	Main.change_scene(Const.SCREEN_MENU)
+
