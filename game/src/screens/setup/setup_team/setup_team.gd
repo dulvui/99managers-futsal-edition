@@ -38,4 +38,4 @@ func _on_select_team_pressed() -> void:
 
 
 func _on_back_pressed() -> void:
-	Main.previous_scene()
+	Main.clear_current_scene()

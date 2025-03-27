@@ -31,10 +31,11 @@ func _ready() -> void:
 	scene_fade.fade_in()
 
 
-func change_scene(scene_path: String) -> void:
+func change_scene(scene_path: String, keep_current_scene: bool = false) -> void:
 	await scene_fade.fade_in()
-
-	_clear_content()
+	
+	if not keep_current_scene:
+		_clear_content()
 	_append_scene_to_buffer(scene_path)
 
 	var scene: PackedScene = load(scene_path)
@@ -53,7 +54,21 @@ func previous_scene() -> void:
 		print("not valid previous scene found")
 
 
+# useful if change scene was used with keep_current_scene
+func clear_current_scene() -> void:
+	await scene_fade.fade_in()
+
+	var child: Node = content.get_children().pop_back()
+	if child != null:
+		content.remove_child(child)
+		child.queue_free()
+	
+	await scene_fade.fade_out()
+
+
 func show_loading_screen(p_message: String, p_indeterminate: bool = true) -> void:
+	_toggle_input(false)
+
 	loading_screen.start(p_message, p_indeterminate)
 
 	await scene_fade.fade_in()
@@ -75,6 +90,8 @@ func hide_loading_screen() -> void:
 	await scene_fade.fade_in()
 	loading_screen.hide()
 	await scene_fade.fade_out()
+
+	_toggle_input(true)
 
 
 func loading_done() -> void:
@@ -122,4 +139,17 @@ func _clear_content() -> void:
 	for child: Node in content.get_children():
 		content.remove_child(child)
 		child.queue_free()
+
+
+# prevents children from processing input while loading screen is visible
+func _toggle_input(toggle: bool) -> void:
+	var children_process_mode: Node.ProcessMode
+
+	if toggle:
+		children_process_mode = Node.PROCESS_MODE_INHERIT
+	else:
+		children_process_mode = Node.PROCESS_MODE_DISABLED
+
+	for child: Node in content.get_children():
+		child.process_mode = children_process_mode
 

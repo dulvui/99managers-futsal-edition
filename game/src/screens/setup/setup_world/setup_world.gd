@@ -52,21 +52,18 @@ func _ready() -> void:
 	player_names = Enum.PlayerNames.values()[0]
 	player_names_option.setup(Enum.player_names)
 
-	# set start year to current system year
+	nations.option_button.add_item(tr("Your nationality"))
+	var all_nations: Array[String] = []
+	for nation: Nation in world.get_all_nations(true):
+		all_nations.append(tr(nation.name))
+	for nation: String in all_nations:
+		nations.option_button.add_item(nation)
+
 	start_year = str(Time.get_date_dict_from_system().year)
 	var years: Array[String] = []
 	for year: int in range(2000, 3000):
 		years.append(str(year))
 	start_year_option.setup(years, years.find(start_year))
-
-	# reset temp values
-	if Global.manager:
-		manager_name.text = Global.manager.name
-		manager_surname.text = Global.manager.surname
-
-	nations.option_button.add_item(tr("Your nationality"))
-	for nation: Nation in world.get_all_nations(true):
-		nations.option_button.add_item(nation.name)
 
 	continue_button.disabled = manager_name.text.length() * manager_surname.text.length() == 0
 
@@ -218,7 +215,7 @@ func _on_continue_pressed() -> void:
 func _on_world_generated() -> void:
 	# check world loading error
 	if Global.generation_errors.size() == 0:
-		Main.change_scene(Const.SCREEN_SETUP_TEAM)
+		Main.change_scene(Const.SCREEN_SETUP_TEAM, true)
 	else:
 		# wait loading screen is hidden
 		await Main.hide_loading_screen()
