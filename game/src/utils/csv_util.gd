@@ -13,7 +13,7 @@ var array_headers: PackedStringArray
 var resource_headers: PackedStringArray
 
 
-func save_world(path: String, world: World) -> void:
+func world_to_csv(world: World) -> Array[PackedStringArray]:
 	var world_lines: Array[PackedStringArray] = []
 	var players_lines: Array[PackedStringArray] = []
 
@@ -51,15 +51,17 @@ func save_world(path: String, world: World) -> void:
 
 						players_lines.append(player_line)
 
-	var world_csv: Array[PackedStringArray] = []
-	# world_csv.append(world_headers)
-	world_csv.append_array(world_lines)
-	_save_csv(path + "world.csv", world_csv)
+	# var world_csv: Array[PackedStringArray] = []
+	# # world_csv.append(world_headers)
+	# world_csv.append_array(world_lines)
+	# _save_csv(path + "world.csv", world_csv)
 
 	var players_csv: Array[PackedStringArray] = []
 	# players_csv.append(players_headers)
 	players_csv.append_array(players_lines)
-	_save_csv(path + "players.csv", players_csv)
+	# _save_csv(path + "players.csv", players_csv)
+
+	return players_csv
 
 
 func get_headers(resource: Resource) -> PackedStringArray:
@@ -131,7 +133,7 @@ func res_array_to_csv(array: Array[Resource]) -> Array[PackedStringArray]:
 	return csv
 
 
-func _save_csv(path: String, csv: Array[PackedStringArray]) -> void:
+func save_csv(path: String, csv: Array[PackedStringArray], append: bool = false) -> void:
 	path = ResUtil.SAVE_STATES_PATH + path
 	# make sure path is lower case
 	path = path.to_lower()
@@ -146,12 +148,17 @@ func _save_csv(path: String, csv: Array[PackedStringArray]) -> void:
 		if err_dir != OK:
 			push_error("error while creating directory %s; error with code %d" % [dir_path, err_dir])
 			return
+	var file: FileAccess
 
-	var file: FileAccess = FileAccess.open(path, FileAccess.WRITE)
+	if append:
+		# READ_WRITE is needed to append
+		file = FileAccess.open(path, FileAccess.READ_WRITE)
+
+	if file == null:
+		file = FileAccess.open(path, FileAccess.WRITE, )
 
 	if file == null:
 		push_error("error while opening file: file is null")
-		breakpoint
 		return
 
 	# check for file errors
@@ -160,9 +167,14 @@ func _save_csv(path: String, csv: Array[PackedStringArray]) -> void:
 		push_error("error while opening file: error with code %d" % err)
 		return
 
+	# go to end of file to append
+	if append:
+		file.seek_end()
+
 	# save to file
 	for line: PackedStringArray in csv:
 		file.store_csv_line(line)
+	
 	file.close()
 
 	# check again for file errors

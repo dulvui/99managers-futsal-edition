@@ -4,7 +4,7 @@
 
 class_name GeneratorValidator
 
-const MAX_FILE_SIZE: int = 1000000 # 1MB
+const MAX_FILE_SIZE: int = 1_000_000_000 # 1000MB
 const HEADERS: Array[String] = ["NATION", "LEAGUE", "TEAM"]
 
 

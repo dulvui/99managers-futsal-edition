@@ -27,10 +27,14 @@ func test_save_world() -> void:
 	var success: bool = generator.generate_teams(world)
 	assert(success)
 	print("generating world done...")
+	
+	print("converting world to csv...")
+	var csv_util: CSVUtil = CSVUtil.new()
+	var world_csv: Array[PackedStringArray] = csv_util.world_to_csv(world)
+	print("converting world to csv done.")
 
 	print("saving csv...")
-	var csv_util: CSVUtil = CSVUtil.new()
-	csv_util.save_world("test", world)
+	csv_util.save_csv("testworld.csv", world_csv)
 	print("saving csv done.")
 
 	print("test: save world done.")
