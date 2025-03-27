@@ -13,6 +13,55 @@ var array_headers: PackedStringArray
 var resource_headers: PackedStringArray
 
 
+func save_world(path: String, world: World) -> void:
+	var world_lines: Array[PackedStringArray] = []
+	var players_lines: Array[PackedStringArray] = []
+
+	for continent: Continent in world.continents:
+		for nation: Nation in continent.nations:
+			for league: League in nation.leagues:
+				for team: Team in league.teams:
+					var team_line: PackedStringArray = PackedStringArray()
+					team_line.append(continent.code)
+					team_line.append(nation.code)
+					team_line.append(league.name)
+					team_line.append(str(league.id))
+					
+					get_headers(team)
+					team_line.append_array(res_to_line(team))
+
+					world_lines.append(team_line)
+
+					for player: Player in team.players:
+						var player_line: PackedStringArray = PackedStringArray()
+						player_line.append(str(team.id))
+					
+						get_headers(player)
+						player_line.append_array(res_to_line(player))
+
+						# attributes
+						get_headers(player.attributes.mental)
+						player_line.append_array(res_to_line(player.attributes.mental))
+						get_headers(player.attributes.physical)
+						player_line.append_array(res_to_line(player.attributes.physical))
+						get_headers(player.attributes.technical)
+						player_line.append_array(res_to_line(player.attributes.technical))
+						get_headers(player.attributes.goalkeeper)
+						player_line.append_array(res_to_line(player.attributes.goalkeeper))
+
+						players_lines.append(player_line)
+
+	var world_csv: Array[PackedStringArray] = []
+	# world_csv.append(world_headers)
+	world_csv.append_array(world_lines)
+	_save_csv(path + "world.csv", world_csv)
+
+	var players_csv: Array[PackedStringArray] = []
+	# players_csv.append(players_headers)
+	players_csv.append_array(players_lines)
+	_save_csv(path + "players.csv", players_csv)
+
+
 func get_headers(resource: Resource) -> PackedStringArray:
 	line_index = 0
 	headers = PackedStringArray()
@@ -66,7 +115,7 @@ func res_to_line(resource: Resource) -> PackedStringArray:
 
 	# for header: String in resource_headers:
 	# 	var value: JSONResource = get(header)
-	# 	line.append(value)
+	# 	line.append_array(res_to_line(value))
 
 	return line
 
@@ -80,42 +129,6 @@ func res_array_to_csv(array: Array[Resource]) -> Array[PackedStringArray]:
 	for resource: Resource in array:
 		csv.append(res_to_line(resource))
 	return csv
-
-
-func save_world(save_state: SaveState, world: World) -> void:
-	var csv_dir: String = save_state.id + "/csv/"
-	var csv_util: CSVResourceUtil = CSVResourceUtil.new()
-
-	var world_csv: Array[PackedStringArray] = []
-	var players_csv: Array[PackedStringArray] = []
-	
-	for continent: Continent in world.continents:
-		for nation: Nation in continent.nations:
-			for league: League in nation.leagues:
-				for team: Team in league.teams:
-					var team_line: PackedStringArray = []
-					team_line.append(continent.code)
-					team_line.append(nation.code)
-					team_line.append(league.name)
-					team_line.append(str(league.id))
-					
-					csv_util.get_headers(team)
-					team_line.append_array(csv_util.res_to_line(team))
-
-					world_csv.append(team_line)
-
-					for player: Player in team.players:
-						var player_line: PackedStringArray = []
-						player_line.append(str(team.id))
-					
-						csv_util.get_headers(player)
-						player_line.append_array(csv_util.res_to_line(player))
-
-						players_csv.append(player_line)
-
-
-	_save_csv(csv_dir + "world.csv", world_csv)
-	_save_csv(csv_dir + "players.csv", players_csv)
 
 
 func _save_csv(path: String, csv: Array[PackedStringArray]) -> void:

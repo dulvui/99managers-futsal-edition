@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=3 uid="uid://dauiul27o5t72"]
+[gd_scene load_steps=10 format=3 uid="uid://dauiul27o5t72"]
 
 [ext_resource type="PackedScene" uid="uid://kv2bpwmcco3t" path="res://src/tests/test_generator/test_generator.tscn" id="1_dyknh"]
 [ext_resource type="Script" uid="uid://imkgdies7mn1" path="res://src/tests/tests.gd" id="1_t2lbh"]
@@ -7,6 +7,7 @@
 [ext_resource type="PackedScene" uid="uid://b4be7fe8k03ed" path="res://src/tests/test_calendar/test_calendar.tscn" id="5_d4v01"]
 [ext_resource type="PackedScene" uid="uid://bwt4px40ci3tm" path="res://src/tests/test_gameloop/test_gameloop.tscn" id="6_23yln"]
 [ext_resource type="PackedScene" uid="uid://drkuowjglmai6" path="res://src/tests/test_res_util/test_res_util.tscn" id="8_f2jty"]
+[ext_resource type="PackedScene" uid="uid://kv2bpwmcco3t" path="res://src/tests/test_csv_util/test_csv_util.tscn" id="8_h3tx0"]
 [ext_resource type="PackedScene" uid="uid://vm4k835pvvn5" path="res://src/tests/test_format_util/test_format_util.tscn" id="9_p518b"]
 
 [node name="Tests" type="Node"]
@@ -23,5 +24,7 @@ script = ExtResource("1_t2lbh")
 [node name="TestMatchUtil" parent="." instance=ExtResource("4_ldc2r")]
 
 [node name="TestResUtil" parent="." instance=ExtResource("8_f2jty")]
+
+[node name="CSVUtilTest" parent="." instance=ExtResource("8_h3tx0")]
 
 [node name="TestFormatUtil" parent="." instance=ExtResource("9_p518b")]
