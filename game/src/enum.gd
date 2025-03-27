@@ -16,6 +16,8 @@ enum PlayerNames {
 	MIXED,
 }
 
+var player_names: Array[String] = ["Male", "Female","Mixed"]
+
 enum GenerationError {
 	ERR_READ_FILE,
 	ERR_FILE_TOO_BIG,
@@ -114,8 +116,8 @@ func get_match_speed_text() -> String:
 			return tr("Full game")
 
 
-func get_player_names_text(player_names: PlayerNames = Global.generation_player_names) -> String:
-	match player_names:
+func get_player_names_text(p_player_names: PlayerNames = Global.generation_player_names) -> String:
+	match p_player_names:
 		PlayerNames.MALE:
 			return tr("Male")
 		PlayerNames.FEMALE:

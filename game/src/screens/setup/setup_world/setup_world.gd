@@ -9,19 +9,22 @@ const CONTINUE_DISABLED_TOOLTIP: StringName = "Name and surname missing"
 
 var generation_seed: String = DEFAULT_SEED
 var custom_file_path: String
+var start_year: String
+var player_names: Enum.PlayerNames
+var advanced_settings: bool
 
 var world: World
 
 # manager
-@onready var nations: OptionButton = %Nationality
+@onready var nations: SwitchOptionButton = %Nationality
 @onready var manager_name: LineEdit = %Name
 @onready var manager_surname: LineEdit = %Surname
 # game settings
-@onready var player_names_option: OptionButton = %PlayerNames
-@onready var start_year_spinbox: SpinBox = %StartYear
+@onready var player_names_option: SwitchOptionButton = %PlayerNames
+@onready var start_year_option: SwitchOptionButton = %StartYear
 
 # advanced settings
-@onready var advanced_settings: VBoxContainer = %AdvancedSettings
+@onready var advanced_settings_box: VBoxContainer = %AdvancedSettings
 @onready var generation_seed_edit: LineEdit = %GeneratedSeedLineEdit
 @onready var file_dialog: FileDialog = %FileDialog
 @onready var file_info_dialog: DefaultConfirmDialog = %FileInfoDialog
@@ -36,27 +39,34 @@ var world: World
 func _ready() -> void:
 	InputUtil.start_focus(self)
 	
-	advanced_settings.hide()
-
 	# create world
 	var world_generator: GeneratorWorld = GeneratorWorld.new()
 	world = world_generator.init_world()
 
-	for player_name: Enum.PlayerNames in Enum.PlayerNames.values():
-		player_names_option.add_item(Enum.get_player_names_text(player_name))
+	# setup ui components
+	advanced_settings_box.hide()
+	advanced_settings = false
 
 	generation_seed_edit.text = generation_seed
+
+	player_names = Enum.PlayerNames.values()[0]
+	player_names_option.setup(Enum.player_names)
+
 	# set start year to current system year
-	start_year_spinbox.value = Time.get_date_dict_from_system().year
+	start_year = str(Time.get_date_dict_from_system().year)
+	var years: Array[String] = []
+	for year: int in range(2000, 3000):
+		years.append(str(year))
+	start_year_option.setup(years, years.find(start_year))
 
 	# reset temp values
 	if Global.manager:
 		manager_name.text = Global.manager.name
 		manager_surname.text = Global.manager.surname
 
-	nations.add_item(tr("Your nationality"))
+	nations.option_button.add_item(tr("Your nationality"))
 	for nation: Nation in world.get_all_nations(true):
-		nations.add_item(nation.name)
+		nations.option_button.add_item(nation.name)
 
 	continue_button.disabled = manager_name.text.length() * manager_surname.text.length() == 0
 
@@ -82,46 +92,6 @@ func _on_default_seed_button_pressed() -> void:
 	generation_seed_edit.text = generation_seed
 
 
-func _on_continue_pressed() -> void:
-	# setup manager
-	if not _is_valid():
-		return
-
-	var manager: Manager = Manager.new()
-	manager.name = manager_name.text
-	manager.surname = manager_surname.text
-	manager.nation = nations.get_item_text(nations.selected)
-	Global.manager = manager
-
-	IdUtil.reset()
-
-	# setup generation
-	if generation_seed.length() == 0:
-		generation_seed = DEFAULT_SEED
-
-	# start date in format YYYY-MM-DDTHH:MM:SS
-	var start_year: int = int(start_year_spinbox.value)
-	var start_date_str: String = (
-		"%d-%02d-%02dT00:00:00" % [start_year, Const.SEASON_START_MONTH, Const.SEASON_START_DAY]
-	)
-	Global.start_date = Time.get_datetime_dict_from_datetime_string(start_date_str, true)
-	# also set Global.start_date, so functions like person.get_age work
-	Global.generation_seed = generation_seed
-	Global.generation_player_names = player_names_option.selected as Enum.PlayerNames
-
-	RngUtil.reset_seed(generation_seed, player_names_option.selected)
-
-	Main.manual_hide_loading_screen()
-	# await and make sure loading screen is visible, before it can be hidden on error
-	await Main.show_loading_screen(tr("Generating teams and players"))
-	Main.loaded.connect(_on_world_generated)
-
-	if default_file_button.button_pressed or custom_file_path.is_empty():
-		ThreadUtil.generate_world(world)
-	else:
-		ThreadUtil.generate_world(world, custom_file_path)
-
-
 func _on_name_text_changed(_new_text: String) -> void:
 	continue_button.disabled = not _is_valid()
 	if continue_button.disabled:
@@ -142,12 +112,20 @@ func _on_nationality_item_selected(_index: int) -> void:
 	continue_button.disabled = not _is_valid()
 
 
+func _on_player_names_item_selected(index: int) -> void:
+	player_names = Enum.PlayerNames.values()[index]
+
+
+func _on_start_year_item_selected(index: int) -> void:
+	start_year = start_year_option.option_button.get_item_text(index)
+
+
 func _is_valid() -> bool:
 	if manager_name.text.length() == 0:
 		return false
 	if manager_surname.text.length() == 0:
 		return false
-	if nations.selected == 0:
+	if nations.option_button.selected == 0:
 		return false
 	return true
 
@@ -190,7 +168,51 @@ func _on_files_more_info_pressed() -> void:
 
 
 func _on_advanced_stettings_button_toggled(toggled_on: bool) -> void:
-	advanced_settings.visible = toggled_on
+	advanced_settings = toggled_on
+	advanced_settings_box.visible = toggled_on
+
+func _on_continue_pressed() -> void:
+	# setup manager
+	if not _is_valid():
+		return
+
+	var manager: Manager = Manager.new()
+	manager.name = manager_name.text
+	manager.surname = manager_surname.text
+	manager.nation = nations.option_button.get_item_text(nations.option_button.selected)
+	Global.manager = manager
+
+	IdUtil.reset()
+
+	# setup generation
+	if generation_seed.length() == 0:
+		generation_seed = DEFAULT_SEED
+
+	# start date in format YYYY-MM-DDTHH:MM:SS
+	var start_date_str: String = (
+		"%s-%02d-%02dT00:00:00" % [start_year, Const.SEASON_START_MONTH, Const.SEASON_START_DAY]
+	)
+	Global.start_date = Time.get_datetime_dict_from_datetime_string(start_date_str, true)
+	# also set Global.start_date, so functions like person.get_age work
+	Global.generation_seed = DEFAULT_SEED
+	Global.generation_player_names = player_names
+
+	world.calendar.initialize()
+
+	if advanced_settings:
+		Global.generation_seed = generation_seed
+
+	RngUtil.reset_seed(generation_seed, player_names_option.option_button.selected)
+
+	Main.manual_hide_loading_screen()
+	# await and make sure loading screen is visible, before it can be hidden on error
+	await Main.show_loading_screen(tr("Generating teams and players"))
+	Main.loaded.connect(_on_world_generated)
+
+	if not advanced_settings or default_file_button.button_pressed or custom_file_path.is_empty():
+		ThreadUtil.generate_world(world)
+	else:
+		ThreadUtil.generate_world(world, custom_file_path)
 
 
 func _on_world_generated() -> void:
@@ -214,4 +236,5 @@ func _on_world_generated() -> void:
 
 func _on_back_pressed() -> void:
 	Main.change_scene(Const.SCREEN_MENU)
+
 

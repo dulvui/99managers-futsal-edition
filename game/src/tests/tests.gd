@@ -83,6 +83,7 @@ static func create_mock_world(use_test_file: bool) -> World:
 	# create world
 	var world_generator: GeneratorWorld = GeneratorWorld.new()
 	var world: World = world_generator.init_world()
+	world.calendar.initialize()
 
 	# generate teams
 	var generator: Generator = Generator.new()

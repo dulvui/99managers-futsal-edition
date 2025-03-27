@@ -14,10 +14,11 @@ signal item_selected(index: int)
 @onready var next_button: Button = %Next
 
 
-func setup(items: Array, selected: int = 0) -> void:
+func setup(items: Array[Variant], selected: int = 0) -> void:
 	option_button.clear()
-	for item: String in items:
-		option_button.add_item(tr(item))
+	for item: Variant in items:
+		var string: String = item
+		option_button.add_item(tr(string))
 	option_button.selected = selected
 
 	option_button.disabled = disabled
