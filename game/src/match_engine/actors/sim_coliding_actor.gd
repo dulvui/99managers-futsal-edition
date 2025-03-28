@@ -20,3 +20,4 @@ func collides(p_from: Vector2, p_to: Vector2) -> Variant:
 		return null
 
 	return p_from.direction_to(p_to).reflect(normal)
+

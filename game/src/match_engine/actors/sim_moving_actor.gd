@@ -7,6 +7,7 @@ class_name MovingActor
 var pos: Vector2
 var last_pos: Vector2
 var next_pos: Vector2
+var height: float 
 
 var direction: Vector2
 var destination: Vector2

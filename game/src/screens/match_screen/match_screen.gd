@@ -67,7 +67,7 @@ func _ready() -> void:
 
 	# setup match and check if running tests
 	if Global.world:
-		matchz = Global.world.calendar.get_next_match()
+		matchz = Global.world.match_list.get_active_match()
 		home_team = Global.world.get_team_by_id(matchz.home.id, matchz.competition_id)
 		away_team = Global.world.get_team_by_id(matchz.away.id, matchz.competition_id)
 	elif Tests.is_run_as_current_scene(self):

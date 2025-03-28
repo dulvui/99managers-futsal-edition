@@ -1,0 +1,26 @@
+[gd_scene load_steps=4 format=3 uid="uid://8acy2q3fqj76"]
+
+[ext_resource type="Script" uid="uid://ciaekfgb6ark5" path="res://src/screens/match_screen/match_simulator/visual_match_3d/visual_field_3d.gd" id="1_gqik3"]
+[ext_resource type="PackedScene" uid="uid://bkfkjsv3f5y8p" path="res://src/screens/match_screen/match_simulator/visual_match/visual_actors/visual_field/visual_field.tscn" id="2_gqik3"]
+
+[sub_resource type="ViewportTexture" id="ViewportTexture_gqik3"]
+viewport_path = NodePath("SubViewport")
+
+[node name="VisualField3D" type="Node3D"]
+script = ExtResource("1_gqik3")
+
+[node name="Sprite3D" type="Sprite3D" parent="."]
+transform = Transform3D(100, 0, 0, 0, -4.37114e-06, -100, 0, 100, -4.37114e-06, 0, 0, 0)
+texture = SubResource("ViewportTexture_gqik3")
+
+[node name="SubViewport" type="SubViewport" parent="."]
+disable_3d = true
+transparent_bg = true
+size = Vector2i(4000, 4000)
+size_2d_override = Vector2i(4000, 4000)
+
+[node name="VisualField" parent="SubViewport" instance=ExtResource("2_gqik3")]
+unique_name_in_owner = true
+
+[node name="Camera3D" type="Camera3D" parent="."]
+transform = Transform3D(0.688912, -0.248715, 0.680838, -0.72431, -0.272297, 0.633427, 0.0278471, -0.929514, -0.367735, -122.973, 659.275, 266.155)

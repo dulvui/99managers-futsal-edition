@@ -83,7 +83,7 @@ func save_save_state_data() -> void:
 	if active == null:
 		print("no active save state found to save data")
 		return
-	# _save_world(active, Global.world)
+	_save_world(active, Global.world)
 
 
 func _load_world(save_state: SaveState) -> World:
