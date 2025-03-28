@@ -196,6 +196,7 @@ func _check_goal_line() -> bool:
 		if goals.is_goal_left(ball):
 			ball.stop()
 			goal_left.emit()
+			kickoff = true
 			return true
 
 		# corner
@@ -214,6 +215,7 @@ func _check_goal_line() -> bool:
 		if goals.is_goal_right(ball):
 			ball.stop()
 			goal_right.emit()
+			kickoff = true
 			return true
 
 		# corner
