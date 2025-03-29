@@ -34,6 +34,10 @@ func execute() -> void:
 
 	owner.field.ball.penalty(owner.player.player_res)
 
+	# set opponent goalkeeper movement to true
+	# so he will start to move towards a random save spot
+	owner.team.team_opponents.players[0].can_move = true
+
 	if wait_after_shot > 0:
 		wait_after_shot -= 1
 		return

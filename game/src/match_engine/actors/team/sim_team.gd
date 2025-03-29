@@ -269,7 +269,6 @@ func shoot_on_goal(_player: Player) -> void:
 
 
 func penalties_shot_taken() -> void:
-	print("shot")
 	stats.penalty_shootout_shots += 1
 	penalties_shot.emit()
 

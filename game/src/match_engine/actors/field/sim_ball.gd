@@ -88,15 +88,17 @@ func shoot_on_goal(player: Player, left_half: bool) -> void:
 func penalty(player: Player) -> void:
 	var left_half: bool = pos.x < field.size.x / 2.0
 
-	var power: int = int(player.attributes.technical.shooting / 2.0)
+	var power: float = 20 + player.attributes.technical.shooting
+	power *= rng.randf_range(2.0, 3.0)
 
-	colission_timer = 0
+
+	colission_timer = 1
 
 	var random_target: Vector2
 	if left_half:
-		random_target = field.goals.right
-	else:
 		random_target = field.goals.left
+	else:
+		random_target = field.goals.right
 
 	# 1.0 best, 0.05 worst
 	var aim_factor: float = 20.0 / player.attributes.technical.penalty
@@ -105,13 +107,13 @@ func penalty(player: Player) -> void:
 
 	random_target += Vector2(0, rng.randf_range(-field.goals.size * aim, field.goals.size * aim))
 
-	shoot(random_target, power * rng.randi_range(1, 3))
+	shoot(random_target, power)
 
 
 func free_kick(player: SimPlayer) -> void:
 	var power: int = player.player_res.attributes.technical.shooting
 
-	colission_timer = 0
+	colission_timer = 1
 
 	var random_target: Vector2
 	if player.left_half:

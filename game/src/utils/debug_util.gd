@@ -13,7 +13,7 @@ var penalties_test: bool
 func _ready() -> void:
 	visual_state_machine = true
 	match_engine = true
-	penalties_test = false
+	penalties_test = true
 
 	# always reset flags, if not open in editor
 	if not OS.has_feature("editor"):

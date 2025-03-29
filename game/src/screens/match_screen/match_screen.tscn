@@ -122,6 +122,7 @@ layout_mode = 2
 text = "Away"
 label_settings = ExtResource("5_2mnrh")
 horizontal_alignment = 2
+text_overrun_behavior = 3
 ellipsis_char = ""
 uppercase = true
 

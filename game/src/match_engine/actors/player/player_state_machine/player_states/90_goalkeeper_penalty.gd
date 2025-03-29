@@ -15,6 +15,7 @@ func _init() -> void:
 
 
 func enter() -> void:
+	wait = 4
 	owner.field.penalty_ready = false
 
 	owner.player.head_look = owner.field.goals.left
@@ -29,25 +30,34 @@ func enter() -> void:
 	var save_attempt_spot_x: int = owner.player.rng.randi_range(0, 20)
 	save_attempt_spot = owner.player.destination + Vector2(save_attempt_spot_x, save_attempt_spot_y)
 
-	wait = 3
-
 
 func execute() -> void:
+	if owner.field.penalty_ready:
+		return
+
 	if not owner.player.destination_reached():
 		return
 
+	# look to ball
 	owner.player.head_look = Vector2.ZERO
 
+	# wait before ready
 	if wait > 0:
 		wait -= 1
 		return
 
-	owner.field.penalty_ready = true
+	# block goalkeeper from moving
+	# when player will shoot, goalkeeper movement gets unlocked
+	owner.player.can_move = false
+	# set save attempt spot
+	owner.player.set_destination(save_attempt_spot, 30)
 
-	if not is_saving:
-		owner.player.set_destination(save_attempt_spot, 30)
-		is_saving = true
+
+	# set ready
+	owner.field.penalty_ready = true
 
 
 func exit() -> void:
 	owner.field.penalty_ready = false
+	owner.player.can_move = true
+

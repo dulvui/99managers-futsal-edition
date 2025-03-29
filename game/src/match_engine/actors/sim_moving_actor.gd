@@ -16,8 +16,12 @@ var follow_actor: MovingActor
 var collision_radius: float
 var speed: float
 
+var can_move: bool
+
 
 func _init(p_collision_radius: float) -> void:
+	can_move = true
+
 	# collision_radius = pow(p_collision_radius, 2)
 	collision_radius = p_collision_radius
 
@@ -76,7 +80,7 @@ func destination_reached() -> bool:
 
 
 func move() -> void:
-	if speed > 0:
+	if can_move and speed > 0:
 		last_pos = pos
 		pos = next_pos
 
@@ -96,3 +100,4 @@ func _reset_movents() -> void:
 	direction = Vector2.INF
 	destination = Vector2.INF
 	follow_actor = null
+
