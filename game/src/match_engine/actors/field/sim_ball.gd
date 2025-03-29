@@ -91,8 +91,7 @@ func penalty(player: Player) -> void:
 	var power: float = 20 + player.attributes.technical.shooting
 	power *= rng.randf_range(2.0, 3.0)
 
-
-	colission_timer = 1
+	colission_timer = 0
 
 	var random_target: Vector2
 	if left_half:

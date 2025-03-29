@@ -20,6 +20,8 @@ func enter() -> void:
 	wait = 3
 	wait_after_shot = owner.player.rng.randi_range(2, 7)
 
+	owner.player.can_collide = false
+
 
 func execute() -> void:
 	# wait for player to reach spot
@@ -44,3 +46,8 @@ func execute() -> void:
 
 	# go idle and let team move player back to center, if needed
 	owner.player.set_state(PlayerStateIdle.new())
+
+
+func exit() -> void:
+	owner.player.can_collide = true
+

@@ -52,7 +52,6 @@ func execute() -> void:
 	# set save attempt spot
 	owner.player.set_destination(save_attempt_spot, 30)
 
-
 	# set ready
 	owner.field.penalty_ready = true
 

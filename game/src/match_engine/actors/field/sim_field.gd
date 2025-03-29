@@ -273,11 +273,17 @@ func _check_ball_players_colissions() -> void:
 		return
 
 	for player: SimPlayer in left_team.players:
+		if not player.can_collide:
+			continue
+
 		if player.collides(ball):
 			ball.stop()
 			return
 
 	for player: SimPlayer in right_team.players:
+		if not player.can_collide:
+			continue
+
 		if player.collides(ball):
 			ball.stop()
 			return
