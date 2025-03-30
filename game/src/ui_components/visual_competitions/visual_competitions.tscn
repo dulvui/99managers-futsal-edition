@@ -38,13 +38,13 @@ label_settings = ExtResource("3_mir7s")
 
 [node name="SeasonsButton" parent="Main/Top Bar" instance=ExtResource("3_88ilj")]
 unique_name_in_owner = true
-custom_minimum_size = Vector2(240, 0)
+custom_minimum_size = Vector2(220, 0)
 layout_mode = 2
 
 [node name="ActiveLeagueButton" type="Button" parent="Main/Top Bar"]
 unique_name_in_owner = true
 auto_translate_mode = 2
-custom_minimum_size = Vector2(240, 0)
+custom_minimum_size = Vector2(220, 0)
 layout_mode = 2
 text = "League"
 script = ExtResource("3_6km1j")
@@ -52,7 +52,7 @@ script = ExtResource("3_6km1j")
 [node name="ActiveNationalCupButton" type="Button" parent="Main/Top Bar"]
 unique_name_in_owner = true
 auto_translate_mode = 2
-custom_minimum_size = Vector2(240, 0)
+custom_minimum_size = Vector2(220, 0)
 layout_mode = 2
 text = "Natioinal cup"
 script = ExtResource("3_6km1j")
@@ -60,7 +60,7 @@ script = ExtResource("3_6km1j")
 [node name="ActiveContinentalCupButton" type="Button" parent="Main/Top Bar"]
 unique_name_in_owner = true
 auto_translate_mode = 2
-custom_minimum_size = Vector2(240, 0)
+custom_minimum_size = Vector2(220, 0)
 layout_mode = 2
 text = "Continental cup"
 script = ExtResource("3_6km1j")
@@ -106,7 +106,7 @@ label_settings = ExtResource("3_mir7s")
 
 [node name="CompetitionsTree" parent="Competitions" instance=ExtResource("4_113m2")]
 unique_name_in_owner = true
-custom_minimum_size = Vector2(400, 0)
+custom_minimum_size = Vector2(360, 0)
 layout_mode = 2
 size_flags_horizontal = 1
 
