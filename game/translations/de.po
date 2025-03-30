@@ -282,7 +282,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: 99 Managers Futsal Edition\n"
-"PO-Revision-Date: 2025-03-30 05:00+0000\n"
+"PO-Revision-Date: 2025-03-31 12:02+0000\n"
 "Last-Translator: Ettore Atalan <atalanttore@googlemail.com>\n"
 "Language-Team: German <https://hosted.weblate.org/projects/"
 "99-managers-futsal-edition/game/de/>\n"
@@ -1359,7 +1359,7 @@ msgstr "Jobs"
 
 #: src/screens/dashboard/dashboard.tscn
 msgid "Hall of fame"
-msgstr "Hall of fame"
+msgstr "Ehrenhalle"
 
 #: src/screens/dashboard/dashboard.tscn
 msgid "Notes"
