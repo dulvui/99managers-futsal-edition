@@ -42,7 +42,6 @@ enum GenerationWarning {
 #
 # Players
 #
-enum Foot { LEFT, RIGHT, LEFT_AND_RIGHT }
 enum Morality { WORST, BAD, NEUTRAL, GOOD, BEST }
 enum Form { INJURED, RECOVER, GOOD, BEST }
 
@@ -206,18 +205,6 @@ func get_input_type_text() -> String:
 			return tr("Touchscreen")
 		_:
 			return tr("Mouse and Keyboard")
-
-
-func get_foot_text(player: Player) -> String:
-	match player.foot:
-		Foot.LEFT:
-			return tr("Left")  # TRANSLATORS: Preferred foot
-		Foot.RIGHT:
-			return tr("Right")  # TRANSLATORS: Preferred foot
-		Foot.LEFT_AND_RIGHT:
-			return tr("Left and right")  # TRANSLATORS: Preferred foot
-		_:
-			return tr("Right")  # TRANSLATORS: Preferred foot
 
 
 func get_morality_text(player: Player) -> String:

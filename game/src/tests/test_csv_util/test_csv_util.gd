@@ -36,7 +36,19 @@ func test_save_world() -> void:
 
 	print("converting csv to world...")
 	var world_from_csv: World = csv_util.csv_to_world(world_csv)
+	print("converting world to csv done.")
 
+	print("converting players to csv...")
+	var players_csv: Array[PackedStringArray] = csv_util.players_to_csv(world)
+	csv_util.save_csv("players.csv", players_csv)
+	print("converting players to csv done.")
+
+	print("converting csv to players...")
+	csv_util.csv_to_players(players_csv, world_from_csv)
+	print("converting csv to players done.")
+
+
+	print("compare world with world from csv...")
 	assert(world.continents.size() == world_from_csv.continents.size())
 	assert(world.get_all_nations().size() == world_from_csv.get_all_nations().size())
 	assert(world.get_all_leagues().size() == world_from_csv.get_all_leagues().size())
@@ -51,12 +63,15 @@ func test_save_world() -> void:
 		assert(team.finances.balance[-1] == csv_team.finances.balance[-1])
 		assert(team.stadium.name == csv_team.stadium.name)
 		assert(team.stadium.capacity == csv_team.stadium.capacity)
-	print("converting world to csv done.")
 
-	print("converting players to csv...")
-	var players_csv: Array[PackedStringArray] = csv_util.players_to_csv(world)
-	csv_util.save_csv("players.csv", players_csv)
-	print("converting world to csv done.")
+		assert(team.players.size() == csv_team.players.size())
+		for j: int in team.players.size():
+			var player: Player = team.players[j]
+			var csv_player: Player = csv_team.players[j]
+			assert(player.name == csv_player.name)
+			assert(player.surname == csv_player.surname)
+			# TODO: add missing fields
+	print("compare world with world from csv done.")
 
 	print("test: save world done.")
 

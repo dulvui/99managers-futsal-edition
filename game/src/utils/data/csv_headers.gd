@@ -5,31 +5,32 @@
 class_name CSVHeaders
 
 const WORLD: PackedStringArray = [
-	"continent",
-	"nation",
+	"continent [iso code]",
+	"nation [iso code]",
 	"league name",
 ]
 
 const TEAM: PackedStringArray = [
 	"team name",
-	"budget",
+	"budget [0, 999_999_999]",
 	"stadium name",
-	"stadium capacity",
+	"stadium capacity [200, 20_000]",
 ]
 
 const PLAYER: PackedStringArray = [
 	"name",
 	"surname",
-	"birth_date",
-	"nationality",
-	"shirt number",
-	"preferred foot",
-	"main position",
-	"alt positions",
-	"injury prone",
-	"eye color",
-	"hair color",
-	"skintone color",
+	"birth_date [dd/mm/yyyy]",
+	"nationality [iso code]",
+	"shirt number [1, 99]",
+	"foot left [1, 20]",
+	"foot right [1, 20]",
+	"main position [G, D, P...]",
+	"alt positions [\"D,C,P\"]",
+	"injury prone [1, 20]",
+	"eye color [hex]",
+	"hair color [hex]",
+	"skintone color [hex]",
 ]
 
 const PLAYER_ATTRIBUTES_GOALKEEPER: PackedStringArray = [

@@ -19,7 +19,8 @@ extends Person
 @export var morality: Enum.Morality
 @export var statistics: Statistics
 @export var history: Array[History]
-@export var foot: Enum.Foot
+@export var foot_left: int
+@export var foot_right: int
 @export var position: Position
 @export var alt_positions: Array[Position]
 @export var attributes: Attributes
@@ -32,7 +33,7 @@ func _init(
 	p_loyality: int = 0,
 	p_prestige: int = 0,
 	p_injury_factor: int = 0,
-	p_stamina: float = 1,
+	p_stamina: float = 0,
 	p_name: String = "",
 	p_league: String = "",
 	p_league_id: int = 0,
@@ -45,7 +46,8 @@ func _init(
 	p_morality: Enum.Morality = Enum.Morality.NEUTRAL,
 	p_statistics: Statistics = Statistics.new(),
 	p_history: Array[History] = [],
-	p_foot: Enum.Foot = Enum.Foot.RIGHT,
+	p_foot_left: int = 0,
+	p_foot_right: int = 0,
 	p_position: Position = Position.new(),
 	p_alt_positions: Array[Position] = [],
 	p_contract: Contract = Contract.new(),
@@ -71,7 +73,8 @@ func _init(
 	morality = p_morality
 	statistics = p_statistics
 	history = p_history
-	foot = p_foot
+	foot_left = p_foot_left
+	foot_right = p_foot_right
 	position = p_position
 	alt_positions = p_alt_positions
 	contract = p_contract
@@ -119,3 +122,4 @@ func position_match_factor(p_position: Position) -> float:
 		var alt_factor: float = alt_position.match_factor(p_position)
 		factor = max(factor, alt_factor)
 	return factor
+

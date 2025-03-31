@@ -26,6 +26,19 @@ func date(p_day: int, p_month: int, p_year: int = -1) -> String:
 	return "%d/%d/%d" % [p_day, p_month, p_year]
 
 
+func day_from_string(p_date: String) -> Dictionary:
+	var date_parts: PackedStringArray = p_date.split("/")
+	if date_parts.size() != 3:
+		push_error("date string has wrong format %s" % p_date)
+		return {}
+
+	return {
+		"day": int(date_parts[0]),
+		"month": int(date_parts[1]),
+		"year": int(date_parts[2]),
+	}
+
+
 func number(value: int) -> String:
 	var formatted: String = str(value)
 	var string: String = str(value)

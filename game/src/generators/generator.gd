@@ -258,7 +258,7 @@ func _assign_players_to_team(
 
 	# bench and rest
 	for position_type: int in Position.Type.values():
-		var amount: int = RngUtil.rng.randi_range(2, 5)
+		var amount: int = RngUtil.rng.randi_range(1, 2)
 		if position_type == Position.Type.G:
 			amount = 3
 
@@ -440,13 +440,20 @@ func _get_value(age: int, prestige: int, position: Position) -> int:
 	return RngUtil.rng.randi_range(maxi(total_factor - 20, 0), total_factor) * 1000
 
 
-func _get_random_foot() -> Enum.Foot:
+func _get_random_foot_left() -> int:
 	var random: int = RngUtil.rng.randi_range(1, 100)
-	if random < 10:
-		return Enum.Foot.LEFT_AND_RIGHT
+	# 35% have good left foot
 	if random < 35:
-		return Enum.Foot.LEFT
-	return Enum.Foot.RIGHT
+		return RngUtil.rng.randi_range(10, 20)
+	return RngUtil.rng.randi_range(1, 10)
+
+
+func _get_random_foot_right() -> int:
+	var random: int = RngUtil.rng.randi_range(1, 100)
+	# 65% have good right foot
+	if random < 65:
+		return RngUtil.rng.randi_range(10, 20)
+	return RngUtil.rng.randi_range(1, 10)
 
 
 func _get_random_form() -> Enum.Form:
@@ -553,7 +560,8 @@ func _create_player(
 	player.league = p_league.name
 	player.league_id = p_league.id
 	player.nation = nation.name
-	player.foot = _get_random_foot()
+	player.foot_left = _get_random_foot_right()
+	player.foot_right = _get_random_foot_right()
 	player.morality = _get_random_morality()
 	player.form = _get_random_form()
 	player.prestige = prestige

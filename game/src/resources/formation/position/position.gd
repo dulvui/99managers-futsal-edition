@@ -17,11 +17,9 @@ enum Type {
 	PL,
 	PC,
 	PR,
+	UNDEFINED
 }
 
-@export var name: String
-@export var description: String
-@export var coordinates: Vector2
 @export var type: Type
 
 static var defense_types: Array[Type] = [Type.DL, Type.DC, Type.DR]
@@ -30,14 +28,8 @@ static var attack_types: Array[Type] = [Type.PL, Type.PC, Type.PR]
 
 
 func _init(
-	p_name: String = "",
-	p_description: String = "",
-	p_coordinates: Vector2 = Vector2.ZERO,
 	p_type: Type = Type.G,
 ) -> void:
-	name = p_name
-	description = p_description
-	coordinates = p_coordinates
 	type = p_type
 
 
@@ -97,4 +89,35 @@ func get_type_text(p_type: Type = type) -> String:
 		Type.PR:
 			return tr("PR")
 	return ""
+
+
+func set_type_from_string(string: String) -> void:
+	if string == null or string.is_empty():
+		type = Type.UNDEFINED
+		return
+
+	match string.to_upper():
+		"G":
+			type = Type.G
+		"DL":
+			type = Type.DL
+		"DC":
+			type = Type.DC
+		"DR":
+			type = Type.DR
+		"C":
+			type = Type.C
+		"WL":
+			type = Type.WL
+		"WR":
+			type = Type.WR
+		"PL":
+			type = Type.PL
+		"PC":
+			type = Type.PC
+		"PR":
+			type = Type.PR
+		_:
+			type = Type.UNDEFINED
+
 
