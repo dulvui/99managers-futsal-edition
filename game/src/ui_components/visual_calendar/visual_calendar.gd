@@ -62,7 +62,7 @@ func setup_days() -> void:
 		if day == Global.world.calendar.day():
 			calendar_day.select()
 
-	var active_year: String = str(current_year + (int(current_month - 1) / 12))
+	var active_year: String = str(current_year + (int(current_month - 1) / 12.0))
 	var active_month: String = Enum.get_month_text((current_month - 1) % 12)
 	page_label.text = active_month + " " + active_year
 

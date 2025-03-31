@@ -36,7 +36,7 @@ func _ready() -> void:
 
 	team = Global.team
 	for t_player: Player in team.players:
-		exchange_players_button.add_item(t_player.name + " " + str(t_player.value / 1000) + "K")
+		exchange_players_button.add_item(t_player.name + " " + str(int(t_player.value / 1000.0)) + "K")
 		exchange_players.append(t_player)
 
 
@@ -79,7 +79,7 @@ func _on_exchange_players_item_selected(index: int) -> void:
 	selected_players.append(player)
 
 	var remove_button: Button = DefaultButton.new()
-	remove_button.text = exchange_player.name + " " + str(exchange_player.value / 1000) + "K"
+	remove_button.text = exchange_player.name + " " + str(int(exchange_player.value / 1000.0)) + "K"
 	remove_button.pressed.connect(remove_from_list.bind(exchange_player))
 	selected_players_box.add_child(remove_button)
 
@@ -89,7 +89,7 @@ func _on_exchange_players_item_selected(index: int) -> void:
 
 
 func remove_from_list(p_player: Player) -> void:
-	for child in selected_players_box.get_children():
+	for child: Node in selected_players_box.get_children():
 		child.queue_free()
 	selected_players.erase(p_player)
 	exchange_players.append(p_player)
@@ -98,7 +98,7 @@ func remove_from_list(p_player: Player) -> void:
 	# before only _player existed
 	for selected_player: Player in selected_players:
 		var remove_button: Button = DefaultButton.new()
-		remove_button.text = selected_player.name + " " + str(selected_player.value / 1000) + "K"
+		remove_button.text = selected_player.name + " " + str(int(selected_player.value / 1000.0)) + "K"
 		remove_button.pressed.connect(remove_from_list.bind(selected_player))
 		selected_players_box.add_child(remove_button)
 

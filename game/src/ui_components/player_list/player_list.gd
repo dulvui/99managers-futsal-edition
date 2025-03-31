@@ -203,7 +203,7 @@ func _show_active_view(sort_key: String = "") -> void:
 			_show_view(ViewSceneGeneral, RowSceneGeneral)
 
 	# update page indicator
-	page_max = players.size() / page_size
+	page_max = int(players.size() / float(page_size))
 	page_indicator.text = "%d / %d" % [page + 1, page_max + 1]
 	last.text = str(page_max + 1)
 

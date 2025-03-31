@@ -54,21 +54,24 @@ func setup(p_only_lineup: bool, p_team: Team = Global.team) -> void:
 	change_strategy_select.setup(Formation.CHANGE_STRATEGY_TEXT, team.formation.change_strategy)
 
 	# tactics offense
+	var index_offense: int = team.formation.tactic_offense.tactic
 	tactic_select_offense.setup(
 		TacticOffense.Tactics.keys(),
-		TacticOffense.Tactics.values()[team.formation.tactic_offense.tactic]
+		index_offense
 	)
 
 	tactic_offense_intensity.value = team.formation.tactic_offense.intensity
 
 	# tactics defense
+	var index_defense_marking: int = team.formation.tactic_defense.marking
 	tactic_select_marking.setup(
 		TacticDefense.Marking.keys(),
-		TacticDefense.Marking.values()[team.formation.tactic_defense.marking]
+		index_defense_marking
 	)
+	var index_defense_pressing: int = team.formation.tactic_defense.pressing
 	tactic_select_pressing.setup(
 		TacticDefense.Pressing.keys(),
-		TacticDefense.Pressing.values()[team.formation.tactic_defense.pressing]
+		index_defense_pressing
 	)
 
 	set_players()
