@@ -97,3 +97,4 @@ func get_type_text(p_type: Type = type) -> String:
 		Type.PR:
 			return tr("PR")
 	return ""
+

@@ -54,6 +54,7 @@ func _ready() -> void:
 	competition = active_league
 	competitions_tree.setup(competition.name)
 	_setup()
+	breakpoint
 
 
 func _setup() -> void:
