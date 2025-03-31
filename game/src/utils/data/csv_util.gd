@@ -28,10 +28,10 @@ func world_to_csv(world: World) -> Array[PackedStringArray]:
 
 					# using CSVHeaders.TEAM
 					team_line.append(team.name)
-					if team.finances.balance.size() > 1:
+					if team.finances.balance.size() > 0:
 						team_line.append(str(team.finances.balance[-1]))
 					else:
-						team_line.append("-1")
+						team_line.append("0")
 					team_line.append(team.stadium.name)
 					team_line.append(str(team.stadium.capacity))
 
@@ -114,6 +114,68 @@ func players_to_csv(world: World) -> Array[PackedStringArray]:
 	csv.append_array(lines)
 
 	return csv
+
+
+func csv_to_world(csv: Array[PackedStringArray]) -> World:
+	var generator: GeneratorWorld = GeneratorWorld.new()
+	var world: World = generator.init_world()
+	
+	# remove headers
+	csv.pop_front()
+
+
+	# last values found in last line read
+	# can be reused for next line, since lines most likely are grouped by team
+	var continent: Continent = null
+	var nation: Nation = null
+	var league: League = null
+	var team: Team = null
+
+	for line: PackedStringArray in csv:
+		var continent_code: String = line[0]
+		var nation_code: String = line[1]
+		var league_name: String = line[2]
+		var team_name: String = line[3]
+		var team_balance: String = line[4]
+		var stadium_name: String = line[5]
+		var stadium_capacity: String = line[6]
+	
+		# continent
+		if continent == null or continent.code != continent_code:
+			continent = world.get_continent_by_code(continent_code)
+		if continent == null:
+			push_error("csv line parse error: no continent with code %s found" % continent_code)
+			continue
+
+		# nation
+		if nation == null or nation.code != nation_code:
+			nation = world.get_nation_by_code(nation_code, continent)
+		if nation == null:
+			push_error("csv line parse error: no nation with code %s found" % nation_code)
+			continue
+
+		# league
+		if league == null or league.name != league_name:
+			league = world.get_league_by_name(league_name, nation)
+		if league == null:
+			league = League.new()
+			league.name = league_name
+			league.pyramid_level = nation.leagues.size() + 1
+			nation.leagues.append(league)
+
+		# team
+		if team == null or team.name != team_name:
+			team = league.get_team_by_name(team_name)
+		if team == null:
+			team = Team.new()
+			team.name = team_name
+			team.finances.balance[-1] = int(team_balance)
+			team.stadium = Stadium.new()
+			team.stadium.name = stadium_name
+			team.stadium.capacity = int(stadium_capacity)
+			league.teams.append(team)
+
+	return world
 
 
 # use result, since on next call array will be reused for performance

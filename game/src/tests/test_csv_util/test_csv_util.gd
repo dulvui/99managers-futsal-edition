@@ -34,6 +34,25 @@ func test_save_world() -> void:
 	csv_util.save_csv("world.csv", world_csv)
 	print("converting world to csv done.")
 
+	print("converting csv to world...")
+	var world_from_csv: World = csv_util.csv_to_world(world_csv)
+
+	assert(world.continents.size() == world_from_csv.continents.size())
+	assert(world.get_all_nations().size() == world_from_csv.get_all_nations().size())
+	assert(world.get_all_leagues().size() == world_from_csv.get_all_leagues().size())
+	var all_teams: Array[Team] = world.get_all_teams()
+	var csv_all_teams: Array[Team] = world_from_csv.get_all_teams()
+	assert(all_teams.size() == csv_all_teams.size())
+
+	for i: int in all_teams.size():
+		var team: Team = all_teams[i]
+		var csv_team: Team = csv_all_teams[i]
+		assert(team.name == csv_team.name)
+		assert(team.finances.balance[-1] == csv_team.finances.balance[-1])
+		assert(team.stadium.name == csv_team.stadium.name)
+		assert(team.stadium.capacity == csv_team.stadium.capacity)
+	print("converting world to csv done.")
+
 	print("converting players to csv...")
 	var players_csv: Array[PackedStringArray] = csv_util.players_to_csv(world)
 	csv_util.save_csv("players.csv", players_csv)

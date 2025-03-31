@@ -62,7 +62,7 @@ func get_active_league() -> League:
 		for t: Team in l.teams:
 			if t.id == active_team_id:
 				return l
-	printerr("no league/team with id " + str(active_team_id))
+	push_error("no league/team with id " + str(active_team_id))
 	return null
 
 
@@ -72,7 +72,7 @@ func get_active_nation() -> Nation:
 			for league: League in nation.leagues:
 				if league.id == Global.league.id:
 					return nation
-	printerr("no nation for team id " + str(active_team_id))
+	push_error("no nation for team id " + str(active_team_id))
 	return null
 
 
@@ -82,7 +82,29 @@ func get_active_continent() -> Continent:
 			for league: League in nation.leagues:
 				if league.id == Global.league.id:
 					return continent
-	printerr("no continent for team id " + str(active_team_id))
+	push_error("no continent for team id " + str(active_team_id))
+	return null
+
+
+func get_continent_by_code(code: String) -> Continent:
+	for continent: Continent in continents:
+		if continent.code == code:
+			return continent
+	push_error("no continent with code %s found." % code)
+	return null
+
+
+func get_nation_by_code(code: String, p_continent: Continent = null) -> Nation:
+	if p_continent != null:
+		for nation: Nation in p_continent.nations:
+			if nation.code == code:
+				return nation
+
+	for continent: Continent in continents:
+		for nation: Nation in continent.nations:
+			if nation.code == code:
+				return nation
+	push_error("no nation with code %s found." % code)
 	return null
 
 
@@ -102,17 +124,37 @@ func get_team_by_id(team_id: int, league_id: int = -1) -> Team:
 				for team: Team in league.teams:
 					if team.id == team_id:
 						return team
-	printerr("no team with id " + str(team_id))
+	push_error("no team with id " + str(team_id))
 	return null
 
 
-func get_league_by_id(league_id: int) -> League:
+func get_league_by_id(league_id: int, p_nation: Nation = null) -> League:
+	if p_nation != null:
+		for league: League in p_nation.leagues:
+			if league.id == league_id:
+				return league
+
 	for continent: Continent in continents:
 		for nation: Nation in continent.nations:
 			for league: League in nation.leagues:
 				if league.id == league_id:
 					return league
-	print("no league with id " + str(league_id))
+	push_error("no league with id " + str(league_id))
+	return null
+
+
+func get_league_by_name(league_name: String, p_nation: Nation = null) -> League:
+	if p_nation != null:
+		for league: League in p_nation.leagues:
+			if league.name == league_name:
+				return league
+
+	for continent: Continent in continents:
+		for nation: Nation in continent.nations:
+			for league: League in nation.leagues:
+				if league.name == league_name:
+					return league
+	push_error("no league with name " + str(league_name))
 	return null
 
 
@@ -134,7 +176,7 @@ func get_competition_by_id(competition_id: int) -> Competition:
 					return league.playoffs
 				if league.playouts.id == competition_id:
 					return league.playouts
-	print("no competition with id " + str(competition_id))
+	push_error("no competition with id " + str(competition_id))
 	return null
 
 

@@ -7,7 +7,7 @@ class_name CSVHeaders
 const WORLD: PackedStringArray = [
 	"continent",
 	"nation",
-	"league",
+	"league name",
 ]
 
 const TEAM: PackedStringArray = [
