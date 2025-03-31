@@ -43,7 +43,14 @@ func random_results() -> void:
 
 func _save_all_data() -> void:
 	print("save data in thread...")
+	# set save state language always to english
+	var locale: String = TranslationServer.get_locale()
+	TranslationServer.set_locale("en")
+
 	Global.save_all_data()
+	
+	# reset locale
+	TranslationServer.set_locale(locale)
 	call_deferred("_loading_done")
 
 

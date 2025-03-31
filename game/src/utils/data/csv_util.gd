@@ -13,10 +13,6 @@ var resource_headers: PackedStringArray
 
 
 func world_to_csv(world: World) -> Array[PackedStringArray]:
-	# set locale always to english
-	var locale: String = TranslationServer.get_locale()
-	TranslationServer.set_locale("en")
-
 	var lines: Array[PackedStringArray] = []
 
 	for continent: Continent in world.continents:
@@ -50,17 +46,10 @@ func world_to_csv(world: World) -> Array[PackedStringArray]:
 	csv.append(headers)
 	csv.append_array(lines)
 
-	# reset locale
-	TranslationServer.set_locale(locale)
-
 	return csv
 
 
 func players_to_csv(world: World) -> Array[PackedStringArray]:
-	# set locale always to english
-	var locale: String = TranslationServer.get_locale()
-	TranslationServer.set_locale("en")
-
 	var lines: Array[PackedStringArray] = []
 
 	for continent: Continent in world.continents:
@@ -114,9 +103,6 @@ func players_to_csv(world: World) -> Array[PackedStringArray]:
 	var csv: Array[PackedStringArray] = []
 	csv.append(headers)
 	csv.append_array(lines)
-
-	# reset locale
-	TranslationServer.set_locale(locale)
 
 	return csv
 
@@ -195,9 +181,18 @@ func csv_to_players(csv: Array[PackedStringArray], world: World) -> void:
 	var league: League = null
 	var team: Team = null
 
+	var column_size: int = 15
+	column_size += CSVHeaders.PLAYER_ATTRIBUTES_GOALKEEPER.size()
+	column_size += CSVHeaders.PLAYER_ATTRIBUTES_MENTAL.size()
+	column_size += CSVHeaders.PLAYER_ATTRIBUTES_PHYSICAL.size()
+	column_size += CSVHeaders.PLAYER_ATTRIBUTES_TECHNICAL.size()
+
 	var line_index: int = 0
 	for line: PackedStringArray in csv:
 		line_index += 1
+		if line.size() != column_size:
+			continue
+
 		var league_name: String = line[0]
 		var team_name: String = line[1]
 		var name: String = line[2]
@@ -247,7 +242,7 @@ func csv_to_players(csv: Array[PackedStringArray], world: World) -> void:
 		for alt_position_string: String in alt_positions_array:
 			var alt_position: Position = Position.new()
 			alt_position.set_type_from_string(alt_position_string)
-			player.alt_positions.append(alt_positions)
+			player.alt_positions.append(alt_position)
 		player.injury_factor = int(injury_factor)
 		# remove quotes
 		player.eyecolor = eyecolor.replace("\"", "")
@@ -287,7 +282,6 @@ func res_to_line(resource: Resource, headers: PackedStringArray) -> PackedString
 	# 	line.append_array(res_to_line(value))
 
 	return line
-
 
 
 func res_array_to_csv(array: Array[Resource], headers: PackedStringArray) -> Array[PackedStringArray]:
@@ -356,6 +350,35 @@ func save_csv(path: String, csv: Array[PackedStringArray], append: bool = false)
 		print("again opening file error with code %d" % err)
 		print(err)
 		return
+
+
+func read_csv(path: String) -> Array[PackedStringArray]:
+	path = ResUtil.SAVE_STATES_PATH + path
+	# make sure path is lower case
+	path = path.to_lower()
+
+	# open file
+	var file: FileAccess
+	if COMPRESSION_ON:
+		file = FileAccess.open_compressed(path, FileAccess.READ, FileAccess.COMPRESSION_GZIP)
+	else:
+		file = FileAccess.open(path, FileAccess.READ)
+
+	# check errors
+	var err: int = FileAccess.get_open_error()
+	if err != OK:
+		print("opening file %s error with code %d" % [path, err])
+		return []
+
+	var csv: Array[PackedStringArray] = []
+	while not file.eof_reached():
+		var line: PackedStringArray = file.get_csv_line()
+		if line.size() > 0:
+			csv.append(line)
+
+	file.close()
+
+	return csv
 
 
 func _array_to_csv_list(array: Array[StringName]) -> String:

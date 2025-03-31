@@ -91,12 +91,19 @@ func _load_world(save_state: SaveState) -> World:
 	var world: World = generator.init_world()
 	_load_resource(save_state.id + "/" + DATA_FILE, world)
 
+	var csv_util: CSVUtil = CSVUtil.new()
+	var players_csv: Array[PackedStringArray] = csv_util.read_csv(save_state.id + "/" + "players.csv")
+	csv_util.csv_to_players(players_csv, world)
+
 	return world
 
 
 func _save_world(save_state: SaveState, world: World) -> void:
 	print("save data...")
 	_save_resource(save_state.id + "/" + DATA_FILE, world)
+	var csv_util: CSVUtil = CSVUtil.new()
+	var players_csv: Array[PackedStringArray] = csv_util.players_to_csv(world)
+	csv_util.save_csv(save_state.id + "/" + "players.csv", players_csv)
 	print("save data done.")
 
 
@@ -111,7 +118,7 @@ func _load_resource(path: String, resource: JSONResource, after_backup: bool = f
 		file = FileAccess.open_compressed(full_path, FileAccess.READ, FileAccess.COMPRESSION_GZIP)
 	else:
 		full_path += FILE_SUFFIX
-		file = FileAccess.open( full_path, FileAccess.READ)
+		file = FileAccess.open(full_path, FileAccess.READ)
 
 	# check errors
 	var err: int = FileAccess.get_open_error()

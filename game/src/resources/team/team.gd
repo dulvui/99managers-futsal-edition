@@ -8,7 +8,7 @@ extends TeamBasic
 @export var formation: Formation
 @export var finances: Finances
 # 0 to 4 active, 5 to 12 subs, 12 to x rest
-@export var players: Array[Player]
+var players: Array[Player]
 
 @export var staff: Staff
 @export var stadium: Stadium
