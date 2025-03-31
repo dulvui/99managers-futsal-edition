@@ -42,6 +42,7 @@ func _ready() -> void:
 	active_national_cup = Global.world.get_active_nation().cup
 	active_continental_cup = Global.world.get_active_continent().cup_clubs
 
+	# history seasons + current season
 	season_index = active_league.history_tables.size() + 1
 	season_amount = active_league.history_tables.size() + 1
 	
@@ -162,7 +163,7 @@ func _setup_seasons() -> void:
 func _on_seasons_button_item_selected(index: int) -> void:
 	# substract from season amount,
 	# seasons are inserted inverted in options button
-	season_index = index
+	season_index = season_amount - index
 	_setup()
 
 
