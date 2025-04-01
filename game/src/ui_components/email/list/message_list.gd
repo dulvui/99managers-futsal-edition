@@ -25,7 +25,7 @@ func _ready() -> void:
 
 
 func update() -> void:
-	for child in list.get_children():
+	for child: Node in list.get_children():
 		child.queue_free()
 
 	var inbox_list: Array[EmailMessage] = Global.inbox.list
@@ -49,7 +49,7 @@ func update() -> void:
 	else:
 		# to test perfomrance of email view
 		#for j in range(1000):
-		for i in range(inbox_list.size() - 1, -1, -1):  # reverse list
+		for i: int in range(inbox_list.size() - 1, -1, -1):  # reverse list
 			var message: EmailMessage = inbox_list[i]
 			var row: MessageRow = MessageRowScene.instantiate()
 			list.add_child(row)

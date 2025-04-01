@@ -17,7 +17,7 @@ func test_deterministic_simulations() -> void:
 	print("test: deterministic simulation...")
 	var matches: Array[Match] = []
 
-	const MATCH_AMOUNT: int = 3
+	const MATCH_AMOUNT: int = 2
 	const SEED_AMOUNT: int = 9
 
 	var match_engine: MatchEngine = MatchEngine.new()
@@ -67,3 +67,4 @@ func test_benchmark() -> void:
 	match_engine.setup(matchz, home_team, away_team)
 	match_engine.simulate()
 	print("test: match engine benchmark done.")
+

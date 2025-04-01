@@ -62,7 +62,7 @@ func _physics_process(delta: float) -> void:
 		# update stats
 		if stats_buffer.buffer.size() > 0:
 			stats_entry = stats_buffer.buffer[-1]
-		_update_engine(Const.TICKS / 2)
+		_update_engine(int(Const.TICKS / 2.0))
 
 
 func setup(matchz: Match, p_home_team: Team = null, p_away_team: Team = null) -> void:
