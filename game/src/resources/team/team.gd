@@ -25,7 +25,7 @@ func _init(
 	p_staff: Staff = Staff.new(),
 	p_stadium: Stadium = Stadium.new(),
 	p_board_requests: BoardRequests = BoardRequests.new(),
-	p_colors: Array[String] = ["000000", "000000", "000000"],
+	p_colors: Array[String] = [],
 ) -> void:
 	finances = p_finances
 	players = p_players
