@@ -54,7 +54,7 @@ func setup_days() -> void:
 		var calendar_day: VisualDay = VisualDayScene.instantiate()
 		days.add_child(calendar_day)
 		# add matches
-		var matchz: Match = Global.world.match_list.get_active_match(day)
+		var matchz: Match = Global.world.match_list.get_active_match(day, true)
 		calendar_day.setup(day, matchz)
 		calendar_day.show_match_list.connect(_on_calendar_day_pressed.bind(day, matchz))
 

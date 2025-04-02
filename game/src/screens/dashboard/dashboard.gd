@@ -258,7 +258,7 @@ func _next_day() -> void:
 		# ThreadUtil.random_results()
 
 		# non threaded simulation
-		# Global.world.random_results()
+		Global.world.random_results()
 		print("TODO simulate other matches")
 
 		Main.change_scene(Const.SCREEN_MATCH)
@@ -281,13 +281,13 @@ func _next_day() -> void:
 	email.update_messages()
 	date_label.text = FormatUtil.day(Global.world.calendar.date)
 
-	# if Global.world.calendar.day().matches.size() > 0:
+	if not Global.world.match_list.get_matches_by_day().is_empty():
 		# threaded simulation
 		# Main.show_loading_screen(tr("Simulating results"))
 		# ThreadUtil.random_results()
 
 		# non threaded simulation
-		# Global.world.random_results()
+		Global.world.random_results()
 
 	# check matches
 	if Global.world.match_list.is_match_day():

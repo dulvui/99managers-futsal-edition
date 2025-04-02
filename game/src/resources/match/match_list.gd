@@ -42,15 +42,19 @@ func get_match_day_by_day(p_day: Day = Global.world.calendar.day()) -> MatchDay:
 	return null
 
 
-func get_active_match(day: Day = null) -> Match:
+func get_active_match(day: Day = null, also_over: bool = false) -> Match:
 	if day == null:
 		for match_day: MatchDay in match_days.days:
 			for matchz: Match in match_day.matches:
+				if not also_over and matchz.over:
+					continue
 				if Global.team.id in [matchz.home.id, matchz.away.id]:
 					return matchz
 	else:
 		for matchz: Match in get_matches_by_day(day):
 			if Global.team.id in [matchz.home.id, matchz.away.id]:
+				if not also_over and matchz.over:
+					continue
 				return matchz
 	return null
 
@@ -100,4 +104,3 @@ func archive_days() -> void:
 func archive_season() -> void:
 	history_match_days.append(match_days)
 	match_days = MatchDays.new()
-
