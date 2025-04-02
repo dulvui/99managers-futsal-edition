@@ -16,8 +16,8 @@ const SEASON_END_MONTH: int = 11
 
 const MARKET_WINTER_START_DAY: int = 1
 const MARKET_WINTER_START_MONTH: int = 1
-const MARKET_WINTER_END_DAY: int = 1
-const MARKET_WINTER_END_MONTH: int = 31
+const MARKET_WINTER_END_DAY: int = 31
+const MARKET_WINTER_END_MONTH: int = 1
 
 const MARKET_SUMMER_START_DAY: int = 1
 const MARKET_SUMMER_START_MONTH: int = 6
@@ -68,10 +68,10 @@ func month(p_month: int = date.month) -> Month:
 
 
 func is_market_active(p_date: Dictionary = date) -> bool:
-	if p_date.month >= MARKET_WINTER_START_MONTH and p_date.day <= MARKET_WINTER_END_MONTH and \
+	if p_date.month >= MARKET_WINTER_START_MONTH and p_date.month <= MARKET_WINTER_END_MONTH and \
 		p_date.day >= MARKET_WINTER_START_DAY and p_date.day <= MARKET_WINTER_END_DAY:
 			return true
-	if p_date.month >= MARKET_SUMMER_START_MONTH and p_date.day <= MARKET_SUMMER_END_MONTH and \
+	if p_date.month >= MARKET_SUMMER_START_MONTH and p_date.month <= MARKET_SUMMER_END_MONTH and \
 		p_date.day >= MARKET_SUMMER_START_DAY and p_date.day <= MARKET_SUMMER_END_DAY:
 			return true
 	return false
