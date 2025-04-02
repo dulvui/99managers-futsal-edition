@@ -11,9 +11,9 @@ const TEST_WORLD_CSV_WITH_ERRORS: String = "res://data/world/test_world_with_err
 
 func test() -> void:
 	print("test: generator...")
+	test_history()
 	test_required_properties()
 	test_determenistic_generation()
-	test_history()
 	print("test: generator done.")
 
 
@@ -137,6 +137,9 @@ func test_history() -> void:
 	# create world
 	var world_generator: GeneratorWorld = GeneratorWorld.new()
 	var world: World = world_generator.init_world()
+	world.calendar.initialize()
+	Global.world = world
+
 	# generate teams
 	var generator: Generator = Generator.new()
 	var success: bool = generator.generate_teams(world)

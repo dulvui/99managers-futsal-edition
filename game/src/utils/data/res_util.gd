@@ -188,7 +188,6 @@ func _save_json(path: String, json: Dictionary) -> void:
 
 	if file == null:
 		push_error("error while opening file: file is null")
-		breakpoint
 		return
 
 	# check for file errors

@@ -317,7 +317,9 @@ func promote_and_relegate_teams() -> void:
 				)
 				# assign playouts looser
 				if league.playouts.is_over():
-					var runner_up: TeamBasic = league.playouts.knockout.final[-1].get_looser()
+					var final_id: int = league.playouts.knockout.final_ids[-1]
+					var final_match: Match = Global.world.match_list.get_match_by_id(final_id)
+					var runner_up: TeamBasic = final_match.get_looser()
 					if runner_up != null:
 						var runner_up_team: Team = league.get_team_by_id(runner_up.id)
 						relegated.append(runner_up_team)
@@ -334,7 +336,9 @@ func promote_and_relegate_teams() -> void:
 				)
 				# assign playoffs winner
 				if league.playoffs.is_over():
-					var winner: TeamBasic = league.playoffs.knockout.final[-1].get_winner()
+					var final_id: int = league.playoffs.knockout.final_ids[-1]
+					var final_match: Match = Global.world.match_list.get_match_by_id(final_id)
+					var winner: TeamBasic = final_match.get_winner()
 					if winner != null:
 						var winner_team: Team = league.get_team_by_id(winner.id)
 						promoted.append(winner_team)

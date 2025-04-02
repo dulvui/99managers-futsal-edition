@@ -5,8 +5,8 @@
 class_name KnockoutRound
 extends JSONResource
 
-@export var matches: Array[Match]
+@export var match_ids: Array[int]
 
-func _init(p_matches: Array[Match] = []) -> void:
-	matches = p_matches
+func _init(p_match_ids: Array[int] = []) -> void:
+	match_ids = p_match_ids
 

@@ -63,6 +63,9 @@ func setup(p_teams: Array[TeamBasic]) -> void:
 	for i: int in p_teams.size():
 		groups[i % group_amount].add_team(p_teams[i])
 
+	var match_util: MatchUtil = MatchUtil.new(Global.world)
+	match_util.add_matches_to_list(self, create_match_days())
+
 
 func setup_knockout(
 	teams: Array[TeamBasic] = [],
@@ -81,6 +84,9 @@ func setup_knockout(
 
 	knockout.setup(teams, legs_semi_finals, legs_final)
 
+	var match_util: MatchUtil = MatchUtil.new(Global.world)
+	match_util.add_matches_to_list(self, create_match_days())
+
 
 func add_result(
 	home_id: int,
@@ -97,8 +103,7 @@ func add_result(
 		)
 
 
-func next_stage(add_to_calendar: bool = true) -> void:
-	var match_util: MatchUtil = MatchUtil.new(Global.world)
+func next_stage() -> void:
 
 	if stage == Stage.GROUP:
 		# check if group stage is over
@@ -109,18 +114,15 @@ func next_stage(add_to_calendar: bool = true) -> void:
 		if over_counter == groups.size():
 			# group stage is over
 			setup_knockout()
-			if add_to_calendar:
-				match_util.add_matches_to_list(self, get_match_days())
 	elif knockout.prepare_next_round():
-		# add next round matches calendar
-		if add_to_calendar:
-			match_util.add_matches_to_list(self, get_match_days())
+		var match_util: MatchUtil = MatchUtil.new(Global.world)
+		match_util.add_matches_to_list(self, create_match_days())
 
 
-func get_match_days() -> MatchDays:
+func create_match_days() -> MatchDays:
 	if stage == Stage.GROUP:
-		return _get_group_match_days()
-	return _get_knockout_match_days()
+		return _create_group_match_days()
+	return _create_knockout_match_days()
 
 
 func is_final() -> bool:
@@ -136,7 +138,7 @@ func is_started() -> bool:
 func is_over() -> bool:
 	if stage == Stage.GROUP:
 		return false
-	if knockout.final.is_empty():
+	if knockout.final_ids.is_empty():
 		return false
 	return knockout.is_over()
 
@@ -145,7 +147,7 @@ func is_active() -> bool:
 	return groups.size() > 0 or knockout.teams_a.size() > 0
 
 
-func _get_group_match_days() -> MatchDays:
+func _create_group_match_days() -> MatchDays:
 	var match_days: MatchDays = MatchDays.new()
 	var group_match_day_list: Array[MatchDays] = []
 
@@ -167,8 +169,8 @@ func _get_group_match_days() -> MatchDays:
 	return match_days
 
 
-func _get_knockout_match_days() -> MatchDays:
-	return knockout.get_match_days(self)
+func _create_knockout_match_days() -> MatchDays:
+	return knockout.create_match_days(self)
 
 
 func _find_group_by_team_id(team_id: int) -> Group:

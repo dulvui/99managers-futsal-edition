@@ -20,9 +20,11 @@ enum Legs {
 @export var teams_b: Array[TeamBasic]
 # saves all matches in every round, for easier visualization
 @export var rounds: int
+# only id of matches
 @export var rounds_a: Array[KnockoutRound]
 @export var rounds_b: Array[KnockoutRound]
-@export var final: Array[Match]
+# only id of matches
+@export var final_ids: Array[int]
 
 
 func _init(
@@ -33,7 +35,7 @@ func _init(
 	p_rounds: int = 1,
 	p_rounds_a: Array[KnockoutRound] = [],
 	p_rounds_b: Array[KnockoutRound] = [],
-	p_final: Array[Match] = [],
+	p_final_ids: Array[int] = [],
 ) -> void:
 	teams_a = p_teams_a
 	teams_b = p_teams_b
@@ -42,7 +44,7 @@ func _init(
 	rounds = p_rounds
 	rounds_a = p_rounds_a
 	rounds_b = p_rounds_b
-	final = p_final
+	final_ids = p_final_ids
 
 
 func setup(
@@ -82,16 +84,18 @@ func setup(
 
 
 func is_over() -> bool:
-	if final.is_empty():
+	if final_ids.is_empty():
 		return false
-	return final[-1].over
+	
+	var final: Match = Global.world.match_list.get_match_by_id(final_ids[-1])
+	return final.over
 
 
 func is_final() -> bool:
-	return not final.is_empty()
+	return not final_ids.is_empty()
 
 
-func get_match_days(cup: Cup) -> MatchDays:
+func create_match_days(cup: Cup) -> MatchDays:
 	var match_days: MatchDays = MatchDays.new()
 
 	# semifinals
@@ -99,6 +103,9 @@ func get_match_days(cup: Cup) -> MatchDays:
 		var match_day: MatchDay = MatchDay.new()
 		var round_a: KnockoutRound = KnockoutRound.new()
 		var round_b: KnockoutRound = KnockoutRound.new()
+
+		var round_matches_a: Array[Match] = []
+		var round_matches_b: Array[Match] = []
 		
 		# group a
 		for i: int in teams_a.size() / 2.0:
@@ -107,7 +114,8 @@ func get_match_days(cup: Cup) -> MatchDays:
 			matchz.setup(teams_a[i], teams_a[-(i + 1)], cup.id, cup.name)
 			match_day.append(matchz)
 			# save also in matches by round
-			round_a.matches.append(matchz)
+			round_a.match_ids.append(matchz.id)
+			round_matches_a.append(matchz)
 		rounds_a.append(round_a)
 
 		# group b
@@ -117,7 +125,8 @@ func get_match_days(cup: Cup) -> MatchDays:
 			matchz.setup(teams_b[i], teams_b[-(i + 1)], cup.id, cup.name)
 			match_day.append(matchz)
 			# save also in matches by round
-			round_b.matches.append(matchz)
+			round_b.match_ids.append(matchz.id)
+			round_matches_b.append(matchz)
 		rounds_b.append(round_b)
 
 		match_days.append(match_day)
@@ -131,21 +140,21 @@ func get_match_days(cup: Cup) -> MatchDays:
 
 			# iterate over all matches of match day 1 and invert home/away
 			# group a
-			for matchz_1: Match in rounds_a[-1].matches:
+			for matchz_1: Match in round_matches_a:
 				var matchz: Match = matchz_1.inverted(true)
 				matchz.no_draw = true
 				match_day_2.append(matchz)
 				# save also in matches by round
-				round_a_2.matches.append(matchz)
+				round_a_2.match_ids.append(matchz.id)
 			rounds_a.append(round_a_2)
 
 			# group b
-			for matchz_1: Match in rounds_b[-1].matches:
+			for matchz_1: Match in round_matches_b:
 				var matchz: Match = matchz_1.inverted(true)
 				matchz.no_draw = true
 				match_day_2.append(matchz)
 				# save also in matches by round
-				round_b_2.matches.append(matchz)
+				round_b_2.match_ids.append(matchz.id)
 			rounds_b.append(round_b_2)
 
 			match_days.append(match_day_2)
@@ -154,14 +163,14 @@ func get_match_days(cup: Cup) -> MatchDays:
 		# final match
 		var matchz: Match = Match.new()
 		matchz.setup(teams_a[0], teams_b[0], cup.id, cup.name)
-		final.append(matchz)
+		final_ids.append(matchz.id)
 		match_days.append(MatchDay.new([matchz]))
 
 		# second leg
 		if legs_final == Legs.DOUBLE:
 			var matchz_2: Match = matchz.inverted(true)
 			matchz_2.no_draw = true
-			final.append(matchz_2)
+			final_ids.append(matchz_2.id)
 			match_days.append(MatchDay.new([matchz_2]))
 		else:
 			matchz.no_draw = true
@@ -188,16 +197,19 @@ func prepare_next_round() -> bool:
 
 
 func _prepare_next_round(p_round: KnockoutRound, teams: Array[TeamBasic]) -> bool:
-	for matchz: Match in p_round.matches:
+	var matches: Array[Match] = Global.world.match_list.get_matches_by_ids(p_round.match_ids)
+
+	for matchz: Match in matches:
 		if not matchz.over:
 			return false
 
 	# eliminate teams
-	for matchz: Match in p_round.matches:
+	for matchz: Match in matches:
 		var looser: TeamBasic = matchz.get_looser()
 		for team: TeamBasic in teams:
 			if team.id == looser.id:
 				teams.erase(team)
 				break
+
 	return true
 

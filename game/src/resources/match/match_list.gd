@@ -84,6 +84,25 @@ func get_matches_by_competition(competition_id: int) -> Array[Match]:
 	return matches
 
 
+func get_match_by_id(match_id: int) -> Match:
+	for match_day: MatchDay in match_days.days:
+		for matchz: Match in match_day.matches:
+			if matchz.id == match_id:
+				return matchz
+	push_error("match with id %d not found" % match_id)
+	return null
+
+
+func get_matches_by_ids(match_ids: Array[int]) -> Array[Match]:
+	var matches: Array[Match] = []
+
+	for match_day: MatchDay in match_days.days:
+		for matchz: Match in match_day.matches:
+			if matchz.id in match_ids:
+				matches.append(matchz)
+	return matches
+
+
 func is_match_day() -> bool:
 	return get_active_match(Global.world.calendar.day()) != null
 

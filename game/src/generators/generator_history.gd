@@ -5,7 +5,7 @@
 class_name GeneratorHistory
 
 # defines year, when history starts
-const HISTORY_YEARS: int = 2
+const HISTORY_YEARS: int = 5
 
 
 func generate_club_history(world: World = Global.world) -> void:
@@ -28,32 +28,34 @@ func generate_club_history(world: World = Global.world) -> void:
 					for match_day: MatchDay in match_days.days:
 						for matchz: Match in match_day.matches:
 							match_engine.simulate_match(matchz, true)
-
+					
 					# create playoffs/playouts
-					match_util.initialize_playoffs(league, false)
-					match_util.initialize_playouts(league, false)
+					match_util.initialize_playoffs(league)
+					match_util.initialize_playouts(league)
 
 					# generate random results playoffs
 					if league.playoffs.is_started():
 						while not league.playoffs.is_over():
 							# generate random results for every match
-							var play_match_days: MatchDays = league.playoffs.get_match_days()
-							for match_day: MatchDay in play_match_days.days:
-								for matchz: Match in match_day.matches:
-									match_engine.simulate_match(matchz, true)
+							var matches: Array[Match] = Global.world.match_list.get_matches_by_competition(league.playoffs.id)
+							for matchz: Match in matches:
+								if matchz.over:
+									continue
+								match_engine.simulate_match(matchz, true)
 
-							league.playoffs.next_stage(false)
+							league.playoffs.next_stage()
 
 					# generate random results playouts
 					if league.playouts.is_started():
 						while not league.playouts.is_over():
 							# generate random results for every match
-							var play_match_days: MatchDays = league.playouts.get_match_days()
-							for match_day: MatchDay in play_match_days.days:
-								for matchz: Match in match_day.matches:
-									match_engine.simulate_match(matchz, true)
+							var matches: Array[Match] = Global.world.match_list.get_matches_by_competition(league.playouts.id)
+							for matchz: Match in matches:
+								if matchz.over:
+									continue
+								match_engine.simulate_match(matchz, true)
 
-							league.playouts.next_stage(false)
+							league.playouts.next_stage()
 
 		world.promote_and_relegate_teams()
 

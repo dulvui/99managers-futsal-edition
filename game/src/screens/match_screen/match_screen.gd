@@ -184,7 +184,7 @@ func _on_match_finsh() -> void:
 
 	events.full_time(home_stats.goals, away_stats.goals)
 
-	#assign result
+	# assign result
 	matchz.set_result(home_stats.goals, away_stats.goals)
 
 #

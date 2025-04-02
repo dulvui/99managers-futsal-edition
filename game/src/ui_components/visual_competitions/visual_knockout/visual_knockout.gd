@@ -30,7 +30,9 @@ func setup(knockout: Knockout, title: String = "") -> void:
 		var box: VBoxContainer = VBoxContainer.new()
 		box.alignment = ALIGNMENT_CENTER
 		group_a.add_child(box)
-		for matchz: Match in roundz.matches:
+
+		var matches: Array[Match] = Global.world.match_list.get_matches_by_ids(roundz.match_ids)
+		for matchz: Match in matches:
 			var match_info: MatchInfo = MatchInfoScene.instantiate()
 			box.add_child(match_info)
 			match_info.setup(matchz, true)
@@ -41,10 +43,13 @@ func setup(knockout: Knockout, title: String = "") -> void:
 		var box: VBoxContainer = VBoxContainer.new()
 		box.alignment = ALIGNMENT_CENTER
 		group_b.add_child(box)
-		for matchz: Match in roundz.matches:
+		var matches: Array[Match] = Global.world.match_list.get_matches_by_ids(roundz.match_ids)
+		for matchz: Match in matches:
 			var match_info: MatchInfo = MatchInfoScene.instantiate()
 			box.add_child(match_info)
 			match_info.setup(matchz, true)
 
-	if not knockout.final.is_empty():
-		final.setup(knockout.final[-1], true)
+	if not knockout.final_ids.is_empty():
+		var final_match: Match = Global.world.match_list.get_match_by_id(knockout.final_ids[-1])
+		final.setup(final_match, true)
+
