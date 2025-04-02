@@ -88,6 +88,17 @@ func next_day() -> void:
 		for t: Team in world.get_all_teams():
 			t.finances.update_week(t)
 
+	# check if cups are ready for next stage
+	for cup: Cup in world.get_all_cups():
+		cup.next_stage()
+
+	# check if playoffs and playouts ready for next stage
+	for p_league: League in world.get_all_leagues(true):
+		if p_league.playoffs.is_started():
+			p_league.playoffs.next_stage()
+		if p_league.playouts.is_started():
+			p_league.playouts.next_stage()
+
 
 func next_season(save_data: bool = true) -> void:
 	current_season += 1

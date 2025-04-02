@@ -41,17 +41,6 @@ func random_results() -> void:
 			# set true for fast simulation
 			match_engine.simulate_match(matchz, true)
 
-	# check if cups are ready for next stage
-	for cup: Cup in get_all_cups():
-		cup.next_stage()
-
-	# check if playoffs and playouts ready for next stage
-	for league: League in get_all_leagues(true):
-		if league.playoffs.is_started():
-			league.playoffs.next_stage()
-		if league.playouts.is_started():
-			league.playouts.next_stage()
-
 
 func get_active_team() -> Team:
 	return get_team_by_id(active_team_id)
