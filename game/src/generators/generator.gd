@@ -611,7 +611,7 @@ func random_positions(player: Player, p_position_type: Position.Type) -> void:
 	alt_positions_keys.pop_back()
 	RngUtil.shuffle(alt_positions_keys)
 
-	for i: int in RngUtil.rng.randi_range(0, alt_positions_keys.size()):
+	for i: int in RngUtil.rng.randi_range(0, alt_positions_keys.size() - 1):
 		var alt_position: Position = Position.new()
 		alt_position.type = alt_positions_keys[i]
 		alt_positions.append(alt_position)

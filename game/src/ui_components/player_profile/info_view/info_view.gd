@@ -24,7 +24,7 @@ func setup(player: Player) -> void:
 	player_name.text = player.get_full_name()
 	pos.text = str(Position.Type.keys()[player.position.type])
 	alt_pos.text = str(
-		player.alt_positions.map(func(p: Position) -> String: return Position.Type.keys()[p.type])
+		", ".join(player.alt_positions.map(func(p: Position) -> String: return Position.Type.keys()[p.type]))
 	)
 	age.text = (
 		"%d - %s"

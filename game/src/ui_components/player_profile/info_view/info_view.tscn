@@ -31,7 +31,12 @@ text = "Pivot"
 layout_mode = 2
 text = "Alternative position"
 
-[node name="AltPosition" type="Label" parent="."]
+[node name="ScrollContainer" type="ScrollContainer" parent="."]
+layout_mode = 2
+size_flags_horizontal = 3
+vertical_scroll_mode = 0
+
+[node name="AltPosition" type="Label" parent="ScrollContainer"]
 unique_name_in_owner = true
 auto_translate_mode = 2
 layout_mode = 2
