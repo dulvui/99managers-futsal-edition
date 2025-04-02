@@ -24,7 +24,8 @@ func initialize_matches() -> void:
 
 		# third, initialize continental cups
 		if continent.is_competitive():
-			_initialize_club_continental_cup(continent)
+			# TODO: fix overlay with national cups
+			# _initialize_club_continental_cup(continent)
 			_initialize_nations_continental_cup(continent)
 
 	# last, initialize world cup

@@ -60,6 +60,7 @@ script = ExtResource("3_6km1j")
 [node name="ActiveContinentalCupButton" type="Button" parent="Main/Top Bar"]
 unique_name_in_owner = true
 auto_translate_mode = 2
+visible = false
 custom_minimum_size = Vector2(220, 0)
 layout_mode = 2
 text = "Continental cup"

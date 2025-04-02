@@ -27,6 +27,16 @@ func add_matches(matches: Array[Match], day: int, month: Enum.Months) -> void:
 	# no matchday with day/month found, append new
 	match_days.append(MatchDay.new(matches, day, month))
 
+	# sort match days
+	match_days.days.sort_custom(
+		func(a: MatchDay, b: MatchDay) -> bool:
+			if a.month < b.month:
+				return true
+			if a.month == b.month:
+				return a.day < b.day
+			return false
+	)
+
 
 func get_matches_by_day(p_day: Day = Global.world.calendar.day()) -> Array[Match]:
 	for match_day: MatchDay in match_days.days:

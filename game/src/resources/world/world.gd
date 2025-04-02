@@ -406,3 +406,5 @@ func promote_and_relegate_teams() -> void:
 					# reassign all league ids
 					team.league_id = league.id
 
+	match_list.archive_season()
+
