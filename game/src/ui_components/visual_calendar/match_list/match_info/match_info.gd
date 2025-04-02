@@ -23,6 +23,9 @@ func setup(matchz: Match, short_name: bool = false) -> void:
 	if matchz.over:
 		result.text = matchz.get_result(true)
 
-	# make selected team label bold
-	ThemeUtil.bold(home, matchz.home.id == Global.team.id)
-	ThemeUtil.bold(away, matchz.away.id == Global.team.id)
+	# make selected team labels bold
+	if matchz.home.id == Global.team.id or matchz.away.id == Global.team.id:
+		ThemeUtil.bold(home)
+		ThemeUtil.bold(result)
+		ThemeUtil.bold(away)
+

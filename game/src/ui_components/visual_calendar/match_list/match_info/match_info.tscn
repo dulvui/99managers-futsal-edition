@@ -1,7 +1,6 @@
-[gd_scene load_steps=3 format=3 uid="uid://sswh30in3uin"]
+[gd_scene load_steps=2 format=3 uid="uid://sswh30in3uin"]
 
 [ext_resource type="Script" uid="uid://durm22w7xk4kn" path="res://src/ui_components/visual_calendar/match_list/match_info/match_info.gd" id="1_kuvam"]
-[ext_resource type="LabelSettings" uid="uid://cc2vi4onhgmnw" path="res://theme_base/label/label_settings_bold.tres" id="2_qfnce"]
 
 [node name="MatchInfo" type="HBoxContainer"]
 auto_translate_mode = 2
@@ -19,7 +18,6 @@ custom_minimum_size = Vector2(60, 0)
 layout_mode = 2
 mouse_filter = 1
 text = "Home"
-label_settings = ExtResource("2_qfnce")
 text_overrun_behavior = 3
 
 [node name="Result" type="Label" parent="."]
@@ -34,6 +32,5 @@ custom_minimum_size = Vector2(60, 0)
 layout_mode = 2
 mouse_filter = 1
 text = "Away"
-label_settings = ExtResource("2_qfnce")
 horizontal_alignment = 2
 text_overrun_behavior = 3
