@@ -14,10 +14,12 @@ func currency(amount: int) -> String:
 
 
 func day(p_date: Dictionary) -> String:
-	var p_day: int = p_date.day
-	var p_month: int = p_date.month
-	var p_year: int = p_date.year
-	return date(p_day, p_month, p_year)
+	if "day" in p_date and "month" in p_date and "year" in p_date:
+		var p_day: int = p_date.day
+		var p_month: int = p_date.month
+		var p_year: int = p_date.year
+		return date(p_day, p_month, p_year)
+	return ""
 
 
 func date(p_day: int, p_month: int, p_year: int = -1) -> String:

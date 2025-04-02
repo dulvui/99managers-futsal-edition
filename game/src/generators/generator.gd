@@ -339,7 +339,7 @@ func _get_physical(age: int, prestige: int, position: Position) -> Physical:
 
 	attributes.pace = _in_bounds_random(pace_factor, max_potential)
 	attributes.acceleration = _in_bounds_random(pace_factor, max_potential)
-	attributes.stamina = _in_bounds_random(physical_factor, max_potential)
+	attributes.resistance = _in_bounds_random(physical_factor, max_potential)
 	attributes.strength = _in_bounds_random(physical_factor, max_potential)
 	attributes.agility = _in_bounds_random(physical_factor, max_potential)
 	attributes.jump = _in_bounds_random(physical_factor, max_potential)
