@@ -43,8 +43,8 @@ func _ready() -> void:
 	active_continental_cup = Global.world.get_active_continent().cup_clubs
 
 	# history seasons + current season
-	season_index = active_league.history_tables.size() + 1
 	season_amount = active_league.history_tables.size() + 1
+	season_index = season_amount
 	
 	active_league_button.text = active_league.name
 	active_national_cup_button.text = active_national_cup.name
@@ -79,7 +79,7 @@ func _setup() -> void:
 		var visual_table: VisualTable = VisualTableScene.instantiate()
 		var table: Table = league.table
 		if season_index < season_amount:
-			table = league.history_tables[season_index - 1]
+			table = league.history_tables[season_index - 2]
 
 		overview.add_child(visual_table)
 		visual_table.setup(
@@ -94,7 +94,7 @@ func _setup() -> void:
 		if league.playoff_teams > 0:
 			var playoffs: Cup = league.playoffs
 			if season_index < season_amount:
-				playoffs = league.history_playoffs[season_index - 1]
+				playoffs = league.history_playoffs[season_index - 2]
 			if playoffs.is_started():
 				var visual_playoffs: VisualKnockout = VisualKnockoutScene.instantiate()
 				overview.add_child(visual_playoffs)
@@ -104,7 +104,7 @@ func _setup() -> void:
 		if league.playout_teams > 0:
 			var playouts: Cup = league.playouts
 			if season_index < season_amount:
-				playouts = league.history_playouts[season_index - 1]
+				playouts = league.history_playouts[season_index - 2]
 			if playouts.is_started():
 				var visual_playouts: VisualKnockout = VisualKnockoutScene.instantiate()
 				overview.add_child(visual_playouts)
@@ -149,21 +149,20 @@ func _setup() -> void:
 			match_info.setup(matchz)
 
 
-
 func _setup_seasons() -> void:
-	var start_year: int = Global.world.calendar.date.year
-	var end_year: int = Global.world.calendar.date.year - season_amount
+	var current_year: int = Global.world.calendar.date.year
+	var history_year: int = Global.world.calendar.date.year - season_amount
 
 	var season_years: Array[String] = []
-	for year: int in range(start_year, end_year, -1):
+	for year: int in range(history_year, current_year + 1):
 		season_years.append(str(year))
-	seasons_button.setup(season_years)
+	seasons_button.setup(season_years, season_amount)
 
 
 func _on_seasons_button_item_selected(index: int) -> void:
 	# substract from season amount,
 	# seasons are inserted inverted in options button
-	season_index = season_amount - index
+	season_index = index
 	_setup()
 
 
