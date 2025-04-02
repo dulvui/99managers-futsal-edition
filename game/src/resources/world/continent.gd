@@ -5,12 +5,12 @@
 class_name Continent
 extends JSONResource
 
+@export var name: String
 @export var code: String
 @export var nations: Array[Nation]
 @export var cup_clubs: Cup
 @export var cup_nations: Cup
 
-var name: String
 
 func _init(
 	p_name: String = "",

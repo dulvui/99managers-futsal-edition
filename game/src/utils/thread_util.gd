@@ -7,7 +7,7 @@ extends Node
 signal loading_done
 
 var thread: Thread
-
+var locale: String
 
 func _ready() -> void:
 	thread = Thread.new()
@@ -17,6 +17,10 @@ func save_all_data() -> void:
 	if thread and thread.is_started():
 		print("thread is already running")
 		return
+	# set save state language always to english
+	locale = TranslationServer.get_locale()
+	TranslationServer.set_locale("en")
+
 	thread.start(_save_all_data, Thread.Priority.PRIORITY_HIGH)
 
 
@@ -43,15 +47,8 @@ func random_results() -> void:
 
 func _save_all_data() -> void:
 	print("save data in thread...")
-	# set save state language always to english
-	var locale: String = TranslationServer.get_locale()
-	TranslationServer.set_locale("en")
-
 	Global.save_all_data()
-	
-	# reset locale
-	TranslationServer.set_locale(locale)
-	call_deferred("_loading_done")
+	call_deferred("_saving_done")
 
 
 func _load_data() -> void:
@@ -98,6 +95,15 @@ func _loading_done() -> void:
 	if thread.is_started():
 		thread.wait_to_finish()
 	loading_done.emit()
+
+
+func _saving_done() -> void:
+	if thread.is_started():
+		thread.wait_to_finish()
+	loading_done.emit()
+	
+	# reset locale
+	TranslationServer.set_locale(locale)
 	print("thread done.")
 
 
