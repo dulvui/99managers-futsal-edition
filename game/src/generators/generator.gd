@@ -257,7 +257,7 @@ func _assign_players_to_team(
 		nr += 1
 
 	# bench and rest
-	for position_type: int in Position.Type.values():
+	for position_type: int in Position.Type.values().size() - 1: # -1, last is undefined
 		var amount: int = RngUtil.rng.randi_range(1, 2)
 		if position_type == Position.Type.G:
 			amount = 3
@@ -607,6 +607,8 @@ func random_positions(player: Player, p_position_type: Position.Type) -> void:
 	#      to attributes, like defender should have good defense stats
 	var alt_positions: Array[Position] = []
 	var alt_positions_keys: Array[Variant] = Position.Type.values()
+	# remove Position.Type.UNDEFINED
+	alt_positions_keys.pop_back()
 	RngUtil.shuffle(alt_positions_keys)
 
 	for i: int in RngUtil.rng.randi_range(0, alt_positions_keys.size()):
