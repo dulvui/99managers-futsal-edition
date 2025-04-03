@@ -138,7 +138,7 @@ func load_save_state() -> bool:
 	var save_sate: SaveState = save_states.get_active()
 	if save_sate:
 		start_date = save_sate.start_date
-		id_by_type = save_sate.id_by_type
+		IdUtil.id_by_type = save_sate.id_by_type
 		current_season = save_sate.current_season
 		match_speed = save_sate.match_speed
 		generation_seed = save_sate.generation_seed
