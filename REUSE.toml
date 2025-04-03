@@ -63,6 +63,7 @@ SPDX-License-Identifier = "CC0-1.0"
 path = [
     "game/data/world/world.csv",
     "game/data/world/test_world.csv",
+    "game/data/world/test_world_with_errors.csv",
 ]
 precedence = "aggregate"
 SPDX-FileCopyrightText = "Wikipedia"
