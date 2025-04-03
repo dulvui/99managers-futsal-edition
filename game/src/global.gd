@@ -17,8 +17,6 @@ var generation_player_names: Enum.PlayerNames
 var current_season: int
 # global game states
 var match_speed: Enum.MatchSpeed
-# saves current id for resources
-var id_by_type: Dictionary
 
 # saves match pause state
 var match_paused: bool

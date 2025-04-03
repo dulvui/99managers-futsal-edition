@@ -62,7 +62,8 @@ func save_save_state() -> void:
 		print("no active save state found to save")
 		return
 	# save id by type
-	active.id_by_type = Global.id_by_type
+	active.id_by_type = IdUtil.id_by_type
+	breakpoint
 	_save_resource(active.id + "/" + SAVE_STATE_FILE, active)
 
 
