@@ -374,6 +374,7 @@ func _get_technical(age: int, prestige: int, position: Position) -> Technical:
 	attributes.interception = _in_bounds_random(defense_factor, max_potential)
 	attributes.shooting = _in_bounds_random(shoot_factor, max_potential)
 	attributes.long_shooting = _in_bounds_random(shoot_factor, max_potential)
+	attributes.free_kick = _in_bounds_random(shoot_factor, max_potential)
 	attributes.penalty = _in_bounds_random(technique_factor, max_potential)
 	attributes.finishing = _in_bounds_random(shoot_factor, max_potential)
 	attributes.dribbling = _in_bounds_random(shoot_factor, max_potential)
