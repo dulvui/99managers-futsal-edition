@@ -93,7 +93,7 @@ func _random_results() -> void:
 
 func _loading_done() -> void:
 	if thread.is_started():
-		thread.wait_to_finish()
+		await thread.wait_to_finish()
 	loading_done.emit()
 
 

@@ -19,7 +19,7 @@ func _ready() -> void:
 	Tests.setup_mock_world(true)
 
 
-func setup(knockout: Knockout, title: String = "") -> void:
+func setup(knockout: Knockout, history_index: int = -1, title: String = "") -> void:
 	if not title.is_empty():
 		title_label.text = title
 	
@@ -31,7 +31,7 @@ func setup(knockout: Knockout, title: String = "") -> void:
 		box.alignment = ALIGNMENT_CENTER
 		group_a.add_child(box)
 
-		var matches: Array[Match] = Global.world.match_list.get_matches_by_ids(roundz.match_ids)
+		var matches: Array[Match] = Global.world.match_list.get_matches_by_ids(roundz.match_ids, history_index)
 		for matchz: Match in matches:
 			var match_info: MatchInfo = MatchInfoScene.instantiate()
 			box.add_child(match_info)
@@ -43,13 +43,13 @@ func setup(knockout: Knockout, title: String = "") -> void:
 		var box: VBoxContainer = VBoxContainer.new()
 		box.alignment = ALIGNMENT_CENTER
 		group_b.add_child(box)
-		var matches: Array[Match] = Global.world.match_list.get_matches_by_ids(roundz.match_ids)
+		var matches: Array[Match] = Global.world.match_list.get_matches_by_ids(roundz.match_ids, history_index)
 		for matchz: Match in matches:
 			var match_info: MatchInfo = MatchInfoScene.instantiate()
 			box.add_child(match_info)
 			match_info.setup(matchz, true)
 
 	if not knockout.final_ids.is_empty():
-		var final_match: Match = Global.world.match_list.get_match_by_id(knockout.final_ids[-1])
+		var final_match: Match = Global.world.match_list.get_match_by_id(knockout.final_ids[-1], history_index)
 		final.setup(final_match, true)
 

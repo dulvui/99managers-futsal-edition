@@ -15,7 +15,7 @@ func generate_club_history(world: World = Global.world) -> void:
 	var match_engine: MatchEngine = MatchEngine.new()
 
 	# calculate random results for x years
-	for year: int in HISTORY_YEARS:
+	for year: int in HISTORY_YEARS - 1:
 		for continent: Continent in world.continents:
 			for nation: Nation in continent.nations:
 				for league: League in nation.leagues:
@@ -24,10 +24,14 @@ func generate_club_history(world: World = Global.world) -> void:
 						league, league.get_teams_basic()
 					)
 
+					# add to list
+					match_util.add_matches_to_list(league, match_days)
+
 					# generate random results for every match
 					for match_day: MatchDay in match_days.days:
 						for matchz: Match in match_day.matches:
 							match_engine.simulate_match(matchz, true)
+
 					
 					# create playoffs/playouts
 					match_util.initialize_playoffs(league)

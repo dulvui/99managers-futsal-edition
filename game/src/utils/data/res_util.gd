@@ -71,11 +71,11 @@ func load_save_state_data() -> void:
 	IdUtil.id_by_type = active.id_by_type
 	Global.world = _load_world(active)
 
-	Global.team = Global.world.get_active_team()
-	Global.league = Global.world.get_league_by_id(Global.team.league_id)
-	Global.manager = Global.team.staff.manager
 	Global.transfers = Global.world.transfers
 	Global.inbox = Global.world.inbox
+	Global.team = Global.world.get_active_team()
+	Global.manager = Global.team.staff.manager
+	Global.league = Global.world.get_league_by_id(Global.team.league_id)
 
 
 func save_save_state_data() -> void:

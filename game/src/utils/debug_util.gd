@@ -19,3 +19,4 @@ func _ready() -> void:
 	if not OS.has_feature("editor"):
 		visual_state_machine = false
 		match_engine = false
+

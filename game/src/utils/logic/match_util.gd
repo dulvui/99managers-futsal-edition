@@ -54,9 +54,6 @@ func initialize_playoffs(league: League) -> void:
 	league.playoffs.set_id()
 	league.playoffs.setup_knockout(teams)
 
-	# var match_days: MatchDays = league.playoffs.get_match_days()
-	# add_matches_to_list(league.playoffs, match_days)
-
 
 func initialize_playouts(league: League) -> void:
 	if league.playout_teams == 0:
@@ -80,9 +77,6 @@ func initialize_playouts(league: League) -> void:
 	league.playouts.name = tr("Playouts")
 	league.playouts.set_id()
 	league.playouts.setup_knockout(teams)
-	#
-	# var match_days: MatchDays = league.playouts.get_match_days()
-	# add_matches_to_list(league.playouts, match_days)
 
 
 func create_combinations(competition: Competition, p_teams: Array[TeamBasic]) -> MatchDays:

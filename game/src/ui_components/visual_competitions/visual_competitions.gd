@@ -43,7 +43,7 @@ func _ready() -> void:
 	active_continental_cup = Global.world.get_active_continent().cup_clubs
 
 	# history seasons + current season
-	season_amount = active_league.history_tables.size() + 1
+	season_amount = Global.world.match_list.history_match_days.size()
 	season_index = season_amount
 	
 	active_league_button.text = active_league.name
@@ -70,6 +70,9 @@ func _setup() -> void:
 	overview_scroll.scroll_horizontal = 0
 	overview_scroll.scroll_vertical = 0
 	
+	# index to see if history matches or active season matches
+	var history_index: int = season_index
+	
 	# overview
 	competition_name.text = competition.name
 	if competition is League:
@@ -79,7 +82,7 @@ func _setup() -> void:
 		var visual_table: VisualTable = VisualTableScene.instantiate()
 		var table: Table = league.table
 		if season_index < season_amount:
-			table = league.history_tables[season_index - 2]
+			table = league.history_tables[season_index]
 
 		overview.add_child(visual_table)
 		visual_table.setup(
@@ -94,21 +97,21 @@ func _setup() -> void:
 		if league.playoff_teams > 0:
 			var playoffs: Cup = league.playoffs
 			if season_index < season_amount:
-				playoffs = league.history_playoffs[season_index - 2]
+				playoffs = league.history_playoffs[season_index]
 			if playoffs.is_started():
 				var visual_playoffs: VisualKnockout = VisualKnockoutScene.instantiate()
 				overview.add_child(visual_playoffs)
-				visual_playoffs.setup(playoffs.knockout, tr("Playoffs"))
+				visual_playoffs.setup(playoffs.knockout, history_index, tr("Playoffs"))
 
 		# playouts
 		if league.playout_teams > 0:
 			var playouts: Cup = league.playouts
 			if season_index < season_amount:
-				playouts = league.history_playouts[season_index - 2]
+				playouts = league.history_playouts[season_index]
 			if playouts.is_started():
 				var visual_playouts: VisualKnockout = VisualKnockoutScene.instantiate()
 				overview.add_child(visual_playouts)
-				visual_playouts.setup(playouts.knockout, tr("Playouts"))
+				visual_playouts.setup(playouts.knockout, history_index, tr("Playouts"))
 		
 	else:
 		var cup: Cup = competition as Cup
@@ -133,7 +136,8 @@ func _setup() -> void:
 		knockout.setup(cup.knockout)
 
 	# matches
-	for match_day: MatchDay in Global.world.match_list.get_match_days_by_competition(competition.id):
+	var match_days: Array[MatchDay] = Global.world.match_list.get_match_days_by_competition(competition.id, history_index)
+	for match_day: MatchDay in match_days:
 		var vbox: VBoxContainer = VBoxContainer.new()
 		match_list.add_child(vbox)
 
