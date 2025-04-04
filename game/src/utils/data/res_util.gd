@@ -19,7 +19,13 @@ const SAVE_STATES_DIR: StringName = "save_states/"
 const SAVE_STATES_PATH: StringName = "user://save_states/"
 const FILE_SUFFIX: StringName = ".json"
 const FILE_SUFFIX_COMPRESS: StringName = ".save"
-const BACKUP_SUFFIX: StringName = ".backup"
+
+
+var backup_util: BackupUtil
+
+
+func _init() -> void:
+	backup_util = BackupUtil.new()
 
 
 func save_config() -> void:
@@ -128,11 +134,16 @@ func _load_resource(path: String, resource: JSONResource, after_backup: bool = f
 	# check errors
 	var err: int = FileAccess.get_open_error()
 	if err != OK:
-		print("opening file %s error with code %d" % [full_path, err])
-		if not after_backup:
-			_restore_backup(full_path)
-			# Main.loading_screen.update_message(tr("Restoring from backup"))
-			_load_resource(path, resource, true)
+		if after_backup:
+			print("opening file %s error with code %d after backup attempt." % [full_path, err])
+			loading_failed.emit()
+			return
+		else:
+			print("opening file %s error with code %d, restroing backup..." % [full_path, err])
+			var backup_result: bool = backup_util.restore(full_path)
+			if backup_result:
+				# Main.loading_screen.update_message(tr("Restoring from backup"))
+				_load_resource(path, resource, true)
 		return
 
 	# load and parse file
@@ -142,10 +153,15 @@ func _load_resource(path: String, resource: JSONResource, after_backup: bool = f
 
 	# check for parsing errors
 	if result != OK:
-		print("parsing file %s error with code %d" % [full_path, result])
-		if not after_backup:
-			_restore_backup(full_path)
-			_load_resource(path, resource, true)
+		if after_backup:
+			print("parsing file %s error with code %d after backup" % [full_path, result])
+			loading_failed.emit()
+			return
+		else:
+			print("parsing file %s error with code %d, restoring backup..." % [full_path, result])
+			var backup_result: bool = backup_util.restore(full_path)
+			if backup_result:
+				_load_resource(path, resource, true)
 		return
 
 	# convert to json resource
@@ -208,39 +224,7 @@ func _save_json(path: String, json: Dictionary) -> void:
 		return
 
 	# create backup
-	_create_backup(path)
+	backup_util.create(path)
 
 	print("saving %s done..." % path)
 
-
-func _create_backup(path: StringName) -> void:
-	var backup_path: StringName = path + BACKUP_SUFFIX
-	print("creating backup for %s..." % backup_path)
-
-	var dir_access: DirAccess = DirAccess.open(path.get_base_dir())
-	if dir_access:
-		dir_access.copy(path, backup_path)
-		print("creating backup for %s done." % path)
-	else:
-		print("creating backup for %s gone wrong." % path)
-
-
-func _restore_backup(path: String) -> void:
-	# check first, if file exists
-	var file: FileAccess = FileAccess.open(path, FileAccess.READ)
-	if file == null:
-		print("backup file %s does not exist" % path)
-		loading_failed.emit()
-		return
-
-	print("restoring backup for %s..." % path)
-	var backup_path: StringName = path + BACKUP_SUFFIX
-
-	var dir: DirAccess = DirAccess.open(path.get_base_dir())
-	if dir:
-		dir.copy(backup_path, path)
-		print("restoring backup for %s done." % path)
-	else:
-		print("restoring backup for %s gone wrong." % path)
-		loading_failed.emit()
-		return

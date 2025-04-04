@@ -11,6 +11,12 @@ var built_in_headers: PackedStringArray
 var array_headers: PackedStringArray
 var resource_headers: PackedStringArray
 
+var backup_util: BackupUtil
+
+
+func _init() -> void:
+	backup_util = BackupUtil.new()
+
 
 func world_to_csv(world: World) -> Array[PackedStringArray]:
 	var lines: Array[PackedStringArray] = []
@@ -267,7 +273,6 @@ func csv_to_players(csv: Array[PackedStringArray], world: World) -> void:
 
 # use result, since on next call array will be reused for performance
 func res_to_line(resource: Resource, headers: PackedStringArray) -> PackedStringArray:
-	# line.clear()
 	var line: PackedStringArray = PackedStringArray()
 
 	for header: String in headers:
@@ -276,10 +281,6 @@ func res_to_line(resource: Resource, headers: PackedStringArray) -> PackedString
 			line.append("")
 		else:
 			line.append(str(value))
-
-	# for header: String in resource_headers:
-	# 	var value: JSONResource = get(header)
-	# 	line.append_array(res_to_line(value))
 
 	return line
 
@@ -351,8 +352,10 @@ func save_csv(path: String, csv: Array[PackedStringArray], append: bool = false)
 		print(err)
 		return
 
+	backup_util.create(path)
 
-func read_csv(path: String) -> Array[PackedStringArray]:
+
+func read_csv(path: String, after_backup: bool = false) -> Array[PackedStringArray]:
 	path = ResUtil.SAVE_STATES_PATH + path
 	# make sure path is lower case
 	path = path.to_lower()
@@ -367,8 +370,17 @@ func read_csv(path: String) -> Array[PackedStringArray]:
 	# check errors
 	var err: int = FileAccess.get_open_error()
 	if err != OK:
-		print("opening file %s error with code %d" % [path, err])
-		return []
+		if after_backup:
+			print("opening file %s error with code %d" % [path, err])
+			return []
+		else:
+			print("opening file %s error with code %d, restoring backup..." % [path, err])
+			var backup_result: bool = backup_util.restore(path)
+			if backup_result:
+				return read_csv(path, true)
+			else:
+				print("error while restoring backup")
+				return []
 
 	var csv: Array[PackedStringArray] = []
 	while not file.eof_reached():
@@ -377,7 +389,6 @@ func read_csv(path: String) -> Array[PackedStringArray]:
 			csv.append(line)
 
 	file.close()
-
 	return csv
 
 
