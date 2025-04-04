@@ -8,8 +8,14 @@ SPDX-License-Identifier: CC0-1.0
 Features/issues that are added/solved in specific versions.  
 This tries to follow the [keepachangelog](https://keepachangelog.com/en/1.1.0/) guideline.
 
-# [0.3.0]
+# [0.3.1]
 ## [Unreleased]
+
+## Added
+- Backup for csv files
+
+# [0.3.0]
+## https://codeberg.org/dulvui/99managers-futsal-edition/releases/tag/v0.3.0
 
 ## Added
 - Custom csv files can be used during setup
@@ -22,6 +28,7 @@ This tries to follow the [keepachangelog](https://keepachangelog.com/en/1.1.0/) 
         - Free kicks
         - Penalties
         - Penalties (10m) after 6 fouls
+- UI restyling
 
 ## Changed
 - Better match engine
