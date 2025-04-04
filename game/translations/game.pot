@@ -134,7 +134,6 @@
 # res://src/utils/input/mapping_util.gd
 # res://src/utils/input/joypad_util.gd
 # res://src/utils/debug_util.gd
-# res://src/utils/res_util.gd
 # res://src/utils/ui/sound_util.gd
 # res://src/utils/ui/theme_util.gd
 # res://src/utils/ui/format_util.gd
@@ -222,6 +221,7 @@ msgstr ""
 
 #: src/ui_components/team_profile/team_profile.tscn
 #: src/screens/dashboard/dashboard.tscn
+#: src/generators/generator.gd
 msgid "Stadium"
 msgstr ""
 
@@ -404,6 +404,26 @@ msgid "Points"
 msgstr ""
 
 #: src/ui_components/visual_competitions/visual_table/visual_table.gd
+msgid "Direct promotion"
+msgstr ""
+
+#: src/ui_components/visual_competitions/visual_table/visual_table.gd
+#: src/ui_components/visual_competitions/visual_competitions.gd
+#: src/resources/competition/league.gd
+msgid "Playoffs"
+msgstr ""
+
+#: src/ui_components/visual_competitions/visual_table/visual_table.gd
+msgid "Direct relegation"
+msgstr ""
+
+#: src/ui_components/visual_competitions/visual_table/visual_table.gd
+#: src/ui_components/visual_competitions/visual_competitions.gd
+#: src/resources/competition/league.gd
+msgid "Playouts"
+msgstr ""
+
+#: src/ui_components/visual_competitions/visual_table/visual_table.gd
 msgid "Victory"
 msgstr ""
 
@@ -429,10 +449,6 @@ msgstr ""
 
 #: src/ui_components/visual_competitions/visual_knockout/visual_knockout.tscn
 msgid "Group B"
-msgstr ""
-
-#: src/ui_components/visual_competitions/visual_knockout/visual_knockout.tscn
-msgid "Winner A vs Winner B"
 msgstr ""
 
 #: src/ui_components/visual_competitions/visual_competitions.tscn
@@ -773,6 +789,14 @@ msgstr ""
 
 #: src/ui_components/player_profile/info_view/info_view.tscn
 msgid "Value"
+msgstr ""
+
+#: src/ui_components/player_profile/info_view/info_view.gd
+msgid "Left"
+msgstr ""
+
+#: src/ui_components/player_profile/info_view/info_view.gd
+msgid "Right"
 msgstr ""
 
 #: src/ui_components/player_profile/contract_view/contract_view.tscn
@@ -1219,10 +1243,6 @@ msgid "Email"
 msgstr ""
 
 #: src/screens/dashboard/dashboard.gd
-msgid "Simulating results"
-msgstr ""
-
-#: src/screens/dashboard/dashboard.gd
 msgid "Saving game"
 msgstr ""
 
@@ -1299,7 +1319,7 @@ msgid "Exit"
 msgstr ""
 
 #: src/screens/menu/menu.tscn
-msgid "Exit game"
+msgid "You are exiting the game. Proceed?"
 msgstr ""
 
 #: src/screens/setup/setup_world/setup_world.tscn
@@ -1333,6 +1353,10 @@ msgstr ""
 
 #: src/screens/setup/setup_world/setup_world.tscn
 msgid "Start year"
+msgstr ""
+
+#: src/screens/setup/setup_world/setup_world.tscn
+msgid "Advanced settings"
 msgstr ""
 
 #: src/screens/setup/setup_world/setup_world.tscn
@@ -1399,11 +1423,23 @@ msgid ""
 msgstr ""
 
 #: src/screens/setup/setup_world/setup_world.gd
+msgid "Your nationality"
+msgstr ""
+
+#: src/screens/setup/setup_world/setup_world.gd
 msgid "Default file"
 msgstr ""
 
 #: src/screens/setup/setup_world/setup_world.gd
 msgid "Generating teams and players"
+msgstr ""
+
+#: src/screens/setup/setup_world/setup_world.gd
+msgid "Errors"
+msgstr ""
+
+#: src/screens/setup/setup_world/setup_world.gd
+msgid "Warnings"
 msgstr ""
 
 #: src/screens/setup/setup_team/setup_team.tscn
@@ -1503,21 +1539,6 @@ msgstr ""
 msgid "Touchscreen"
 msgstr ""
 
-#. TRANSLATORS: Preferred foot
-#: src/enum.gd
-msgid "Left"
-msgstr ""
-
-#. TRANSLATORS: Preferred foot
-#: src/enum.gd
-msgid "Right"
-msgstr ""
-
-#. TRANSLATORS: Preferred foot
-#: src/enum.gd
-msgid "Left and right"
-msgstr ""
-
 #. TRANSLATORS: Player morality
 #: src/enum.gd
 msgid "Worst"
@@ -1553,6 +1574,70 @@ msgstr ""
 #. TRANSLATORS: Player physical form
 #: src/enum.gd
 msgid "Recover"
+msgstr ""
+
+#: src/enum.gd
+msgid "Unable to read file."
+msgstr ""
+
+#: src/enum.gd
+msgid "Invalid csv format."
+msgstr ""
+
+#: src/enum.gd
+msgid "File too big. Max file size is {file_size}"
+msgstr ""
+
+#: src/enum.gd
+msgid "File has non valid characters."
+msgstr ""
+
+#: src/enum.gd
+msgid "Wrong amount of headers in first line, expected {header_size}"
+msgstr ""
+
+#: src/enum.gd
+msgid "Wrong format of headers in first line, expected {headers}"
+msgstr ""
+
+#: src/enum.gd
+msgid "No vaild league was found in file."
+msgstr ""
+
+#: src/enum.gd
+msgid "League {league_name} has less than 8 teams."
+msgstr ""
+
+#: src/enum.gd
+msgid "Undefined error occurred."
+msgstr ""
+
+#: src/enum.gd
+msgid "Nation {nation_name} has wrong format"
+msgstr ""
+
+#: src/enum.gd
+msgid "Nation {nation_name} not found"
+msgstr ""
+
+#: src/enum.gd
+msgid "League {league_name} has more than 20 teams."
+msgstr ""
+
+#: src/enum.gd
+msgid "League {league_name} has odd size teams."
+msgstr ""
+
+#: src/enum.gd
+msgid "League with no name defined in line {line_number}"
+msgstr ""
+
+#: src/enum.gd
+msgid "Team with no name defined in line {line_number}"
+msgstr ""
+
+#: src/enum.gd
+msgid "Undefined warning occurred."
 msgstr ""
 
 #: src/screens/match_screen/match_screen.gd
