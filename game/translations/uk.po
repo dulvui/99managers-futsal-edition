@@ -282,10 +282,10 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: 99 Managers Futsal Edition\n"
-"PO-Revision-Date: 2025-03-19 06:22+0000\n"
+"PO-Revision-Date: 2025-04-05 06:40+0000\n"
 "Last-Translator: Максим Горпиніч <maksimgorpinic2005a@gmail.com>\n"
-"Language-Team: Ukrainian <https://hosted.weblate.org/projects/99-managers-"
-"futsal-edition/game/uk/>\n"
+"Language-Team: Ukrainian <https://hosted.weblate.org/projects/"
+"99-managers-futsal-edition/game/uk/>\n"
 "Language: uk\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -489,29 +489,23 @@ msgstr "Очки"
 
 #: src/ui_components/visual_competitions/visual_table/visual_table.gd
 msgid "Direct promotion"
-msgstr ""
+msgstr "Пряме просування"
 
 #: src/ui_components/visual_competitions/visual_table/visual_table.gd
 #: src/ui_components/visual_competitions/visual_competitions.gd
 #: src/resources/competition/league.gd
-#, fuzzy
-#| msgid "Players"
 msgid "Playoffs"
-msgstr "Гравці"
+msgstr "Плей-офф"
 
 #: src/ui_components/visual_competitions/visual_table/visual_table.gd
-#, fuzzy
-#| msgid "Acceleration"
 msgid "Direct relegation"
-msgstr "Прискорення"
+msgstr "Пряме виліт"
 
 #: src/ui_components/visual_competitions/visual_table/visual_table.gd
 #: src/ui_components/visual_competitions/visual_competitions.gd
 #: src/resources/competition/league.gd
-#, fuzzy
-#| msgid "Players"
 msgid "Playouts"
-msgstr "Гравці"
+msgstr "Відтворення"
 
 #: src/ui_components/visual_competitions/visual_table/visual_table.gd
 msgid "Victory"
@@ -1419,7 +1413,7 @@ msgstr "Вихід"
 
 #: src/screens/menu/menu.tscn
 msgid "You are exiting the game. Proceed?"
-msgstr ""
+msgstr "Ви виходите з гри. Продовжити?"
 
 #: src/screens/setup/setup_world/setup_world.tscn
 msgid "Start a new game"
@@ -1455,10 +1449,8 @@ msgid "Start year"
 msgstr "Початковий рік"
 
 #: src/screens/setup/setup_world/setup_world.tscn
-#, fuzzy
-#| msgid "Game settings"
 msgid "Advanced settings"
-msgstr "Налаштування гри"
+msgstr "Розширені налаштування"
 
 #: src/screens/setup/setup_world/setup_world.tscn
 msgid "File settings"
@@ -1551,10 +1543,8 @@ msgstr ""
 "вдасться, якщо файл має неправильний формат."
 
 #: src/screens/setup/setup_world/setup_world.gd
-#, fuzzy
-#| msgid "Nationality"
 msgid "Your nationality"
-msgstr "Національність"
+msgstr "Ваша національність"
 
 #: src/screens/setup/setup_world/setup_world.gd
 msgid "Default file"
@@ -1566,11 +1556,11 @@ msgstr "Формування команд і гравців"
 
 #: src/screens/setup/setup_world/setup_world.gd
 msgid "Errors"
-msgstr ""
+msgstr "Помилки"
 
 #: src/screens/setup/setup_world/setup_world.gd
 msgid "Warnings"
-msgstr ""
+msgstr "Попередження"
 
 #: src/screens/setup/setup_team/setup_team.tscn
 msgid "Choose team"
@@ -1707,67 +1697,68 @@ msgstr "Відновлюється"
 
 #: src/enum.gd
 msgid "Unable to read file."
-msgstr ""
+msgstr "Неможливо прочитати файл."
 
 #: src/enum.gd
 msgid "Invalid csv format."
-msgstr ""
+msgstr "Недійсний формат CSV."
 
 #: src/enum.gd
 msgid "File too big. Max file size is {file_size}"
-msgstr ""
+msgstr "Файл завеликий. Максимальний розмір файлу: {file_size}"
 
 #: src/enum.gd
 msgid "File has non valid characters."
-msgstr ""
+msgstr "Файл містить недійсні символи."
 
 #: src/enum.gd
 msgid "Wrong amount of headers in first line, expected {header_size}"
 msgstr ""
+"Неправильна кількість заголовків у першому рядку, очікується {header_size}"
 
 #: src/enum.gd
 msgid "Wrong format of headers in first line, expected {headers}"
-msgstr ""
+msgstr "Неправильний формат заголовків у першому рядку, очікується {headers}"
 
 #: src/enum.gd
 msgid "No vaild league was found in file."
-msgstr ""
+msgstr "У файлі не знайдено дійсну лігу."
 
 #: src/enum.gd
 msgid "League {league_name} has less than 8 teams."
-msgstr ""
+msgstr "У лізі {league_name} менше 8 команд."
 
 #: src/enum.gd
 msgid "Undefined error occurred."
-msgstr ""
+msgstr "Виникла невизначена помилка."
 
 #: src/enum.gd
 msgid "Nation {nation_name} has wrong format"
-msgstr ""
+msgstr "Нація {nation_name} має неправильний формат"
 
 #: src/enum.gd
 msgid "Nation {nation_name} not found"
-msgstr ""
+msgstr "Націю {nation_name} не знайдено"
 
 #: src/enum.gd
 msgid "League {league_name} has more than 20 teams."
-msgstr ""
+msgstr "Ліга {league_name} налічує понад 20 команд."
 
 #: src/enum.gd
 msgid "League {league_name} has odd size teams."
-msgstr ""
+msgstr "Ліга {league_name} має команди непарного розміру."
 
 #: src/enum.gd
 msgid "League with no name defined in line {line_number}"
-msgstr ""
+msgstr "Ліга без назви в рядку {line_number}"
 
 #: src/enum.gd
 msgid "Team with no name defined in line {line_number}"
-msgstr ""
+msgstr "Команда без назви в рядку {line_number}"
 
 #: src/enum.gd
 msgid "Undefined warning occurred."
-msgstr ""
+msgstr "Виникло невизначене попередження."
 
 #: src/screens/match_screen/match_screen.gd
 #: src/screens/match_screen/match_screen.tscn
