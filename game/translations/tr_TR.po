@@ -308,7 +308,7 @@ msgid "Budget"
 msgstr "Bütçe"
 
 #: src/ui_components/team_profile/team_profile.tscn
-#: src/screens/dashboard/dashboard.tscn
+#: src/screens/dashboard/dashboard.tscn src/generators/generator.gd
 msgid "Stadium"
 msgstr "Stadyum"
 
@@ -493,6 +493,32 @@ msgid "Points"
 msgstr "Puan"
 
 #: src/ui_components/visual_competitions/visual_table/visual_table.gd
+msgid "Direct promotion"
+msgstr ""
+
+#: src/ui_components/visual_competitions/visual_table/visual_table.gd
+#: src/ui_components/visual_competitions/visual_competitions.gd
+#: src/resources/competition/league.gd
+#, fuzzy
+#| msgid "Players"
+msgid "Playoffs"
+msgstr "Oyuncular"
+
+#: src/ui_components/visual_competitions/visual_table/visual_table.gd
+#, fuzzy
+#| msgid "Acceleration"
+msgid "Direct relegation"
+msgstr "Hızlanma"
+
+#: src/ui_components/visual_competitions/visual_table/visual_table.gd
+#: src/ui_components/visual_competitions/visual_competitions.gd
+#: src/resources/competition/league.gd
+#, fuzzy
+#| msgid "Players"
+msgid "Playouts"
+msgstr "Oyuncular"
+
+#: src/ui_components/visual_competitions/visual_table/visual_table.gd
 msgid "Victory"
 msgstr ""
 
@@ -521,10 +547,6 @@ msgstr "Final"
 #: src/ui_components/visual_competitions/visual_knockout/visual_knockout.tscn
 msgid "Group B"
 msgstr "B Grubu"
-
-#: src/ui_components/visual_competitions/visual_knockout/visual_knockout.tscn
-msgid "Winner A vs Winner B"
-msgstr "Galip A vs Galip B"
 
 #: src/ui_components/visual_competitions/visual_competitions.tscn
 #: src/ui_components/player_profile/statistics_view/statistics_view.tscn
@@ -865,6 +887,14 @@ msgstr "Ortalama özellik"
 #: src/ui_components/player_profile/info_view/info_view.tscn
 msgid "Value"
 msgstr "Değer"
+
+#: src/ui_components/player_profile/info_view/info_view.gd
+msgid "Left"
+msgstr "Sol"
+
+#: src/ui_components/player_profile/info_view/info_view.gd
+msgid "Right"
+msgstr "Sağ"
 
 #: src/ui_components/player_profile/contract_view/contract_view.tscn
 msgid "Salary"
@@ -1323,10 +1353,6 @@ msgid "Email"
 msgstr "Eposta"
 
 #: src/screens/dashboard/dashboard.gd
-msgid "Simulating results"
-msgstr "Simulasyon sonuçları"
-
-#: src/screens/dashboard/dashboard.gd
 msgid "Saving game"
 msgstr "Oyun kaydediliyor"
 
@@ -1403,8 +1429,8 @@ msgid "Exit"
 msgstr "Çık"
 
 #: src/screens/menu/menu.tscn
-msgid "Exit game"
-msgstr "Oyundan çık"
+msgid "You are exiting the game. Proceed?"
+msgstr ""
 
 #: src/screens/setup/setup_world/setup_world.tscn
 #, fuzzy
@@ -1440,6 +1466,12 @@ msgstr "Oyuncu isimleri"
 #: src/screens/setup/setup_world/setup_world.tscn
 msgid "Start year"
 msgstr "Başlangıç yılı"
+
+#: src/screens/setup/setup_world/setup_world.tscn
+#, fuzzy
+#| msgid "Game settings"
+msgid "Advanced settings"
+msgstr "Oyun ayarları"
 
 #: src/screens/setup/setup_world/setup_world.tscn
 #, fuzzy
@@ -1527,6 +1559,12 @@ msgstr ""
 
 #: src/screens/setup/setup_world/setup_world.gd
 #, fuzzy
+#| msgid "Nationality"
+msgid "Your nationality"
+msgstr "Milliyet"
+
+#: src/screens/setup/setup_world/setup_world.gd
+#, fuzzy
 #| msgid "Default"
 msgid "Default file"
 msgstr "Varsayılan"
@@ -1536,6 +1574,14 @@ msgstr "Varsayılan"
 #| msgid "Generating players"
 msgid "Generating teams and players"
 msgstr "Oyuncular oluşturuluyor"
+
+#: src/screens/setup/setup_world/setup_world.gd
+msgid "Errors"
+msgstr ""
+
+#: src/screens/setup/setup_world/setup_world.gd
+msgid "Warnings"
+msgstr ""
 
 #: src/screens/setup/setup_team/setup_team.tscn
 msgid "Choose team"
@@ -1633,21 +1679,6 @@ msgstr "Joypad"
 msgid "Touchscreen"
 msgstr "Dokunmatik ekran"
 
-#. TRANSLATORS: Preferred foot
-#: src/enum.gd
-msgid "Left"
-msgstr "Sol"
-
-#. TRANSLATORS: Preferred foot
-#: src/enum.gd
-msgid "Right"
-msgstr "Sağ"
-
-#. TRANSLATORS: Preferred foot
-#: src/enum.gd
-msgid "Left and right"
-msgstr "Sol ve sağ"
-
 #. TRANSLATORS: Player morality
 #: src/enum.gd
 msgid "Worst"
@@ -1684,6 +1715,70 @@ msgstr "Yaralı"
 #: src/enum.gd
 msgid "Recover"
 msgstr "İyileşiyor"
+
+#: src/enum.gd
+msgid "Unable to read file."
+msgstr ""
+
+#: src/enum.gd
+msgid "Invalid csv format."
+msgstr ""
+
+#: src/enum.gd
+msgid "File too big. Max file size is {file_size}"
+msgstr ""
+
+#: src/enum.gd
+msgid "File has non valid characters."
+msgstr ""
+
+#: src/enum.gd
+msgid "Wrong amount of headers in first line, expected {header_size}"
+msgstr ""
+
+#: src/enum.gd
+msgid "Wrong format of headers in first line, expected {headers}"
+msgstr ""
+
+#: src/enum.gd
+msgid "No vaild league was found in file."
+msgstr ""
+
+#: src/enum.gd
+msgid "League {league_name} has less than 8 teams."
+msgstr ""
+
+#: src/enum.gd
+msgid "Undefined error occurred."
+msgstr ""
+
+#: src/enum.gd
+msgid "Nation {nation_name} has wrong format"
+msgstr ""
+
+#: src/enum.gd
+msgid "Nation {nation_name} not found"
+msgstr ""
+
+#: src/enum.gd
+msgid "League {league_name} has more than 20 teams."
+msgstr ""
+
+#: src/enum.gd
+msgid "League {league_name} has odd size teams."
+msgstr ""
+
+#: src/enum.gd
+msgid "League with no name defined in line {line_number}"
+msgstr ""
+
+#: src/enum.gd
+msgid "Team with no name defined in line {line_number}"
+msgstr ""
+
+#: src/enum.gd
+msgid "Undefined warning occurred."
+msgstr ""
 
 #: src/screens/match_screen/match_screen.gd
 #: src/screens/match_screen/match_screen.tscn
@@ -2712,6 +2807,18 @@ msgstr "Orta Afrika Cumhuriyeti"
 #: src/generators/generator_world.gd
 msgid "Cyprus"
 msgstr "Kıbrıs"
+
+#~ msgid "Winner A vs Winner B"
+#~ msgstr "Galip A vs Galip B"
+
+#~ msgid "Simulating results"
+#~ msgstr "Simulasyon sonuçları"
+
+#~ msgid "Exit game"
+#~ msgstr "Oyundan çık"
+
+#~ msgid "Left and right"
+#~ msgstr "Sol ve sağ"
 
 #~ msgid "Restoring from backup"
 #~ msgstr "Yedekten kurtarma"
