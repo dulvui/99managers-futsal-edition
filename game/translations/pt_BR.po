@@ -282,10 +282,10 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: 99 Managers Futsal Edition\n"
-"PO-Revision-Date: 2025-03-19 06:22+0000\n"
+"PO-Revision-Date: 2025-04-05 06:40+0000\n"
 "Last-Translator: Victor Gavilanes <vgavilanes951@gmail.com>\n"
-"Language-Team: Portuguese (Brazil) <https://hosted.weblate.org/projects/99-"
-"managers-futsal-edition/game/pt_BR/>\n"
+"Language-Team: Portuguese (Brazil) <https://hosted.weblate.org/projects/"
+"99-managers-futsal-edition/game/pt_BR/>\n"
 "Language: pt_BR\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -488,7 +488,7 @@ msgstr "Pontos"
 
 #: src/ui_components/visual_competitions/visual_table/visual_table.gd
 msgid "Direct promotion"
-msgstr ""
+msgstr "Acesso direto"
 
 #: src/ui_components/visual_competitions/visual_table/visual_table.gd
 #: src/ui_components/visual_competitions/visual_competitions.gd
@@ -1203,11 +1203,11 @@ msgstr "Áudio"
 
 #: src/screens/settings/general/general_settings.tscn
 msgid "Sfx volume"
-msgstr ""
+msgstr "Volume Sfx"
 
 #: src/screens/settings/general/general_settings.tscn
 msgid "Interface settings"
-msgstr ""
+msgstr "Configurações de interface"
 
 #: src/screens/settings/general/general_settings.tscn
 msgid "Font size"
@@ -1257,7 +1257,7 @@ msgstr "Menu"
 
 #: src/screens/save_states_screen/save_states_screen.tscn
 msgid "All save states are located in the following directory"
-msgstr ""
+msgstr "Todos os estados salvos estão localizados no seguinte diretório"
 
 #: src/screens/save_states_screen/save_states_screen.tscn
 #, fuzzy
@@ -1270,6 +1270,8 @@ msgid ""
 "Note: Deleted save states might still exist in your trash, if supported and "
 "not disabled by your operating system."
 msgstr ""
+"Nota: Estados salvos deletados ainda podem permanecer na sua lixeira se "
+"suportados pelo seus sistema operacional."
 
 #: src/screens/save_states_screen/save_state_entry/save_state_entry.gd
 #: src/screens/menu/menu.gd
@@ -1287,7 +1289,7 @@ msgstr "Posição na tabela"
 
 #: src/screens/save_states_screen/save_state_entry/save_state_entry.tscn
 msgid "Game date"
-msgstr ""
+msgstr "Data do jogo"
 
 #: src/screens/save_states_screen/save_state_entry/save_state_entry.tscn
 msgid "Last save"
@@ -1299,7 +1301,7 @@ msgstr "Criado"
 
 #: src/screens/save_states_screen/save_state_entry/save_state_entry.tscn
 msgid "Corrupt"
-msgstr ""
+msgstr "Corrompido"
 
 #: src/screens/save_states_screen/save_state_entry/save_state_entry.tscn
 msgid "Delete"
@@ -1315,6 +1317,8 @@ msgid ""
 "Deleting a save state is permanent and can't be undone.\n"
 "Are you sure you want delete this save state?"
 msgstr ""
+"O apagamento de um estado salvo é permanente e não pode ser desfeito\n"
+"Tem certeza de que quer deletar esse estado salvo?"
 
 #: src/screens/save_states_screen/save_state_entry/save_state_entry.tscn
 msgid ""
@@ -1322,6 +1326,9 @@ msgid ""
 "in the following directory for further diagnostics.\n"
 "{path}"
 msgstr ""
+"Esse estado salvo e seu backup está corrompido. Você pode encontrar esse "
+"estado salvo no diretório seguinte para um diagnóstico.\n"
+"{path}"
 
 #: src/screens/dashboard/dashboard.gd
 msgid "Start match"
@@ -1337,7 +1344,7 @@ msgstr "Próxima temporada"
 
 #: src/screens/dashboard/dashboard.gd src/screens/dashboard/dashboard.tscn
 msgid "Email"
-msgstr ""
+msgstr "Email"
 
 #: src/screens/dashboard/dashboard.gd
 msgid "Saving game"
@@ -1395,7 +1402,7 @@ msgstr "Continuar"
 
 #: src/screens/dashboard/dashboard.tscn
 msgid "Save the game before exiting?"
-msgstr ""
+msgstr "Salvar o jogo antes de sair?"
 
 #: src/screens/loading_screen/loading_screen.tscn
 msgid "Loading"
@@ -1417,7 +1424,7 @@ msgstr "Sair"
 
 #: src/screens/menu/menu.tscn
 msgid "You are exiting the game. Proceed?"
-msgstr ""
+msgstr "Você está saindo do jogo. Continuar?"
 
 #: src/screens/setup/setup_world/setup_world.tscn
 #, fuzzy
@@ -1428,7 +1435,7 @@ msgstr "Data de início"
 #: src/screens/setup/setup_world/setup_world.tscn
 #: src/screens/setup/setup_world/setup_world.gd
 msgid "Name and surname missing"
-msgstr ""
+msgstr "Não há nome e sobrenome"
 
 #: src/screens/setup/setup_world/setup_world.tscn
 msgid "Your name"
@@ -1452,7 +1459,7 @@ msgstr "Nomes dos jogadores"
 
 #: src/screens/setup/setup_world/setup_world.tscn
 msgid "Start year"
-msgstr ""
+msgstr "Ano de início"
 
 #: src/screens/setup/setup_world/setup_world.tscn
 #, fuzzy
@@ -1471,14 +1478,16 @@ msgid ""
 "All countries, leagues and team names are defined in a .csv file that can be "
 "modified."
 msgstr ""
+"Todos os países, ligas e nomes de times são definidos em um arquivo .csv que "
+"pode ser modificado."
 
 #: src/screens/setup/setup_world/setup_world.tscn
 msgid "Show instructions"
-msgstr ""
+msgstr "Mostrar instruções"
 
 #: src/screens/setup/setup_world/setup_world.tscn
 msgid "The following file will be used:"
-msgstr ""
+msgstr "O seguinte arquivo será usado:"
 
 #: src/screens/setup/setup_world/setup_world.tscn
 #, fuzzy
