@@ -18,8 +18,8 @@ const TEAM: PackedStringArray = [
 ]
 
 const PLAYER: PackedStringArray = [
-	"name",
-	"surname",
+	"player first name",
+	"player surname",
 	"birth_date [dd/mm/yyyy]",
 	"nationality [iso code]",
 	"shirt number [1, 99]",
