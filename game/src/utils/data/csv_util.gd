@@ -71,6 +71,7 @@ func players_to_csv(world: World) -> Array[PackedStringArray]:
 						# based on CSVHeaders.PLAYER
 						player_line.append(player.name)
 						player_line.append(player.surname)
+						player_line.append(str(player.value))
 						player_line.append(FormatUtil.day(player.birth_date))
 						player_line.append(player.nation)
 						player_line.append(str(player.nr))
