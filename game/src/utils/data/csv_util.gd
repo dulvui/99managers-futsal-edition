@@ -179,15 +179,15 @@ func csv_to_world(csv: Array[PackedStringArray]) -> World:
 
 # adds players to teams in world
 func csv_to_players(csv: Array[PackedStringArray], world: World) -> void:
-	# remove headers
-	csv.pop_front()
-
 	# last values found in last line read
 	# can be reused for next line, since lines most likely are grouped by team
 	var league: League = null
 	var team: Team = null
 
-	var column_size: int = 15
+	# remove header
+	csv.pop_front()
+
+	var column_size: int = 16
 	column_size += CSVHeaders.PLAYER_ATTRIBUTES_GOALKEEPER.size()
 	column_size += CSVHeaders.PLAYER_ATTRIBUTES_MENTAL.size()
 	column_size += CSVHeaders.PLAYER_ATTRIBUTES_PHYSICAL.size()
@@ -203,20 +203,21 @@ func csv_to_players(csv: Array[PackedStringArray], world: World) -> void:
 		var team_name: String = line[1]
 		var name: String = line[2]
 		var surname: String = line[3]
-		var birth_date: String = line[4]
-		var nationality: String = line[5]
-		var nr: String = line[6]
-		var foot_left: String = line[7]
-		var foot_right: String = line[8]
-		var position: String = line[9]
-		var alt_positions: String = line[10]
-		var injury_factor: String = line[11]
-		var eyecolor: String = line[12]
-		var haircolor: String = line[13]
-		var skintone: String = line[14]
+		var value: String = line[4]
+		var birth_date: String = line[5]
+		var nationality: String = line[6]
+		var nr: String = line[7]
+		var foot_left: String = line[8]
+		var foot_right: String = line[9]
+		var position: String = line[10]
+		var alt_positions: String = line[11]
+		var injury_factor: String = line[12]
+		var eyecolor: String = line[13]
+		var haircolor: String = line[14]
+		var skintone: String = line[15]
 		# next values are attributes
 		# attributes get set by iterating over attribute name arrays/headers
-		var column_index: int = 15
+		var column_index: int = 16
 
 		# league
 		if league == null or league.name != league_name:
@@ -235,6 +236,7 @@ func csv_to_players(csv: Array[PackedStringArray], world: World) -> void:
 		var player: Player = Player.new()
 		player.name = name
 		player.surname = surname
+		player.value = int(value)
 		player.team = team_name
 		player.birth_date = FormatUtil.day_from_string(birth_date)
 		player.nation = nationality
