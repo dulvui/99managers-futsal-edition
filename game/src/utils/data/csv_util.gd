@@ -6,53 +6,20 @@ class_name CSVUtil
 
 const COMPRESSION_ON: bool = false
 const COMPRESSION_MODE: FileAccess.CompressionMode = FileAccess.CompressionMode.COMPRESSION_GZIP
-
-var built_in_headers: PackedStringArray
-var array_headers: PackedStringArray
-var resource_headers: PackedStringArray
+const MAX_FILE_SIZE: int = 1_000_000 # 100MB
 
 var backup_util: BackupUtil
+var headers: CSVHeaders
 
 
 func _init() -> void:
 	backup_util = BackupUtil.new()
+	headers = CSVHeaders.new()
 
 
-func world_to_csv(world: World) -> Array[PackedStringArray]:
-	var lines: Array[PackedStringArray] = []
-
-	for continent: Continent in world.continents:
-		for nation: Nation in continent.nations:
-			for league: League in nation.leagues:
-				for team: Team in league.teams:
-					var team_line: PackedStringArray = PackedStringArray()
-					# using CSVHeaders.WORLD
-					team_line.append(continent.code)
-					team_line.append(nation.code)
-					team_line.append(league.name)
-					# team_line.append(str(league.id))
-
-					# using CSVHeaders.TEAM
-					team_line.append(team.name)
-					if team.finances.balance.size() > 0:
-						team_line.append(str(team.finances.balance[-1]))
-					else:
-						team_line.append("0")
-					team_line.append(team.stadium.name)
-					team_line.append(str(team.stadium.capacity))
-
-					lines.append(team_line)
-
-	var headers: PackedStringArray = []
-	# add headers
-	headers.append_array(CSVHeaders.WORLD)
-	headers.append_array(CSVHeaders.TEAM)
-
-	var csv: Array[PackedStringArray] = []
-	csv.append(headers)
-	csv.append_array(lines)
-
-	return csv
+func initialize_world(csv_path: String, world: World) -> void:
+	var csv: Array[PackedStringArray] = read_csv(csv_path)
+	csv_to_players(csv, world)
 
 
 func players_to_csv(world: World) -> Array[PackedStringArray]:
@@ -64,6 +31,7 @@ func players_to_csv(world: World) -> Array[PackedStringArray]:
 				for team: Team in league.teams:
 					for player: Player in team.players:
 						var player_line: PackedStringArray = PackedStringArray()
+						player_line.append(nation.code)
 						player_line.append(league.name)
 						player_line.append(team.name)
 						# player_line.append(str(team.id))
@@ -96,17 +64,6 @@ func players_to_csv(world: World) -> Array[PackedStringArray]:
 
 						lines.append(player_line)
 
-	var headers: PackedStringArray = []
-	# add headers
-	headers.append("league name")
-	headers.append("team name")
-	# headers.append("team id")
-	headers.append_array(CSVHeaders.PLAYER)
-	headers.append_array(CSVHeaders.PLAYER_ATTRIBUTES_GOALKEEPER)
-	headers.append_array(CSVHeaders.PLAYER_ATTRIBUTES_MENTAL)
-	headers.append_array(CSVHeaders.PLAYER_ATTRIBUTES_PHYSICAL)
-	headers.append_array(CSVHeaders.PLAYER_ATTRIBUTES_TECHNICAL)
-
 	var csv: Array[PackedStringArray] = []
 	csv.append(headers)
 	csv.append_array(lines)
@@ -114,44 +71,46 @@ func players_to_csv(world: World) -> Array[PackedStringArray]:
 	return csv
 
 
-func csv_to_world(csv: Array[PackedStringArray]) -> World:
-	var generator: GeneratorWorld = GeneratorWorld.new()
-	var world: World = generator.init_world()
-	
-	# remove headers
-	csv.pop_front()
-
-
+func csv_to_players(csv: Array[PackedStringArray], world: World) -> void:
 	# last values found in last line read
 	# can be reused for next line, since lines most likely are grouped by team
-	var continent: Continent = null
 	var nation: Nation = null
 	var league: League = null
 	var team: Team = null
 
+	# remove header
+	csv.pop_front()
+
 	var line_index: int = 0
 	for line: PackedStringArray in csv:
 		line_index += 1
-		var continent_code: String = line[0]
-		var nation_code: String = line[1]
-		var league_name: String = line[2]
-		var team_name: String = line[3]
-		var team_balance: String = line[4]
-		var stadium_name: String = line[5]
-		var stadium_capacity: String = line[6]
-	
-		# continent
-		if continent == null or continent.code != continent_code:
-			continent = world.get_continent_by_code(continent_code)
-		if continent == null:
-			push_error("no continent with code %s found in line %d" % [continent_code, line_index])
+
+		if line.size() < 3:
 			continue
+
+		var nation_code: String = _get_string_or_default(line, 0)
+		var league_name: String = _get_string_or_default(line, 1)
+		var team_name: String = _get_string_or_default(line, 2)
+		var name: String = _get_string_or_default(line, 3)
+		var surname: String = _get_string_or_default(line, 4)
+		var value: String = _get_string_or_default(line, 5)
+		var birth_date: String = _get_string_or_default(line, 6)
+		var nationality: String = _get_string_or_default(line, 7)
+		var nr: String = _get_string_or_default(line, 8)
+		var foot_left: String = _get_string_or_default(line, 9)
+		var foot_right: String = _get_string_or_default(line, 10)
+		var position: String = _get_string_or_default(line, 11)
+		var alt_positions: String = _get_string_or_default(line, 12)
+		var injury_factor: String = _get_string_or_default(line, 13)
+		var eyecolor: String = _get_string_or_default(line, 14)
+		var haircolor: String = _get_string_or_default(line, 15)
+		var skintone: String = _get_string_or_default(line, 16)
 
 		# nation
 		if nation == null or nation.code != nation_code:
-			nation = world.get_nation_by_code(nation_code, continent)
+			nation = world.get_nation_by_code(nation_code)
 		if nation == null:
-			push_error("no nation with code %s found in line %d" % [nation_code, line_index])
+			push_error("no nation with code \"%s\" found in line %d" % [nation_code, line_index])
 			continue
 
 		# league
@@ -159,6 +118,7 @@ func csv_to_world(csv: Array[PackedStringArray]) -> World:
 			league = world.get_league_by_name(league_name, nation)
 		if league == null:
 			league = League.new()
+			league.set_id()
 			league.name = league_name
 			league.pyramid_level = nation.leagues.size() + 1
 			nation.leagues.append(league)
@@ -168,73 +128,16 @@ func csv_to_world(csv: Array[PackedStringArray]) -> World:
 			team = league.get_team_by_name(team_name)
 		if team == null:
 			team = Team.new()
+			team.set_id()
 			team.name = team_name
-			team.finances.balance[-1] = int(team_balance)
-			team.stadium = Stadium.new()
-			team.stadium.name = stadium_name
-			team.stadium.capacity = int(stadium_capacity)
-			league.teams.append(team)
+			league.add_team(team)
 
-	return world
-
-
-# adds players to teams in world
-func csv_to_players(csv: Array[PackedStringArray], world: World) -> void:
-	# last values found in last line read
-	# can be reused for next line, since lines most likely are grouped by team
-	var league: League = null
-	var team: Team = null
-
-	# remove header
-	csv.pop_front()
-
-	var column_size: int = 16
-	column_size += CSVHeaders.PLAYER_ATTRIBUTES_GOALKEEPER.size()
-	column_size += CSVHeaders.PLAYER_ATTRIBUTES_MENTAL.size()
-	column_size += CSVHeaders.PLAYER_ATTRIBUTES_PHYSICAL.size()
-	column_size += CSVHeaders.PLAYER_ATTRIBUTES_TECHNICAL.size()
-
-	var line_index: int = 0
-	for line: PackedStringArray in csv:
-		line_index += 1
-		if line.size() != column_size:
-			continue
-
-		var league_name: String = line[0]
-		var team_name: String = line[1]
-		var name: String = line[2]
-		var surname: String = line[3]
-		var value: String = line[4]
-		var birth_date: String = line[5]
-		var nationality: String = line[6]
-		var nr: String = line[7]
-		var foot_left: String = line[8]
-		var foot_right: String = line[9]
-		var position: String = line[10]
-		var alt_positions: String = line[11]
-		var injury_factor: String = line[12]
-		var eyecolor: String = line[13]
-		var haircolor: String = line[14]
-		var skintone: String = line[15]
-		# next values are attributes
-		# attributes get set by iterating over attribute name arrays/headers
-		var column_index: int = 16
-
-		# league
-		if league == null or league.name != league_name:
-			league = world.get_league_by_name(league_name)
-		if league == null:
-			push_error("league not found with name %s in line %d" % [league_name, line_index])
-			continue
-
-		# team
-		if team == null or team.name != team_name:
-			team = league.get_team_by_name(team_name)
-		if team == null:
-			push_error("team not found with name %s in line %d" % [team_name, line_index])
+		# player
+		if name.is_empty() or surname.is_empty():
 			continue
 		
 		var player: Player = Player.new()
+		player.set_id()
 		player.name = name
 		player.surname = surname
 		player.value = int(value)
@@ -257,28 +160,32 @@ func csv_to_players(csv: Array[PackedStringArray], world: World) -> void:
 		player.eyecolor = eyecolor.replace("\"", "")
 		player.haircolor = haircolor.replace("\"", "")
 		player.skintone = skintone.replace("\"", "")
+
+		# next values are attributes
+		# attributes get set by iterating over attribute name arrays/headers
+		var column_index: int = headers.attributes_start
 		# attributes
-		for attribute: String in CSVHeaders.PLAYER_ATTRIBUTES_GOALKEEPER:
-			player.attributes.goalkeeper.set(attribute, line[column_index])
+		for attribute: String in headers.PLAYER_ATTRIBUTES_GOALKEEPER:
+			player.attributes.goalkeeper.set(attribute, _get_int_or_default(line, column_index))
 			column_index += 1
-		for attribute: String in CSVHeaders.PLAYER_ATTRIBUTES_MENTAL:
-			player.attributes.mental.set(attribute, line[column_index])
+		for attribute: String in headers.PLAYER_ATTRIBUTES_MENTAL:
+			player.attributes.mental.set(attribute, _get_int_or_default(line, column_index))
 			column_index += 1
-		for attribute: String in CSVHeaders.PLAYER_ATTRIBUTES_PHYSICAL:
-			player.attributes.physical.set(attribute, line[column_index])
+		for attribute: String in headers.PLAYER_ATTRIBUTES_PHYSICAL:
+			player.attributes.physical.set(attribute, _get_int_or_default(line, column_index))
 			column_index += 1
-		for attribute: String in CSVHeaders.PLAYER_ATTRIBUTES_TECHNICAL:
-			player.attributes.technical.set(attribute, line[column_index])
+		for attribute: String in headers.PLAYER_ATTRIBUTES_TECHNICAL:
+			player.attributes.technical.set(attribute, _get_int_or_default(line, column_index))
 			column_index += 1
 
 		team.players.append(player)
 
 
 # use result, since on next call array will be reused for performance
-func res_to_line(resource: Resource, headers: PackedStringArray) -> PackedStringArray:
+func res_to_line(resource: Resource, p_headers: PackedStringArray) -> PackedStringArray:
 	var line: PackedStringArray = PackedStringArray()
 
-	for header: String in headers:
+	for header: String in p_headers:
 		var value: Variant = resource.get(header)
 		if value == null:
 			line.append("")
@@ -288,14 +195,77 @@ func res_to_line(resource: Resource, headers: PackedStringArray) -> PackedString
 	return line
 
 
-func res_array_to_csv(array: Array[Resource], headers: PackedStringArray) -> Array[PackedStringArray]:
-	if array.size() == 0:
-		return []
+func validate_csv_file(file_path: String) -> bool:
+	# open file
+	var file: FileAccess = FileAccess.open(file_path, FileAccess.READ)
+	var error: Error = file.get_error()
+	if error != OK:
+		push_error("error while opening csv file at %s" % file_path)
+		Global.generation_errors.append(Enum.GenerationError.ERR_READ_FILE)
+		return false
 
-	var csv: Array[PackedStringArray] = []
-	for resource: Resource in array:
-		csv.append(res_to_line(resource, headers))
-	return csv
+
+	var file_size: int = file.get_length()
+	if file_size > MAX_FILE_SIZE:
+		push_error("error csv file too big. size %d bytes" % file_size)
+		Global.generation_errors.append(Enum.GenerationError.ERR_FILE_TOO_BIG)
+		return false
+
+	# read as text to see if utf8
+	# var text: String = file.get_as_text()
+	file.get_as_text()
+	error = file.get_error()
+	if error != OK:
+		push_error("error while reading file as text. error %d" % error)
+		Global.generation_errors.append(Enum.GenerationError.ERR_FILE_NOT_UTF8)
+		return false
+
+	# validate header row CONTINENT, NATION, CITY, TEAM
+	# check size
+	var header_line: PackedStringArray = file.get_csv_line()
+	if header_line.size() != headers.size:
+		push_error("error csv file has wrong header amount")
+		Global.generation_errors.append(Enum.GenerationError.ERR_CSV_HEADER_SIZE)
+		return false
+
+	# check order and format
+	for i: int in header_line.size():
+		var header: String = header_line[i]
+		header = header.to_upper()
+		header = header.replace(" ", "")
+		if header != headers.list[i]:
+			push_error("error csv header wrong format. expecetd %s but found %s" % [headers.list[i], header])
+			Global.generation_errors.append(Enum.GenerationError.ERR_CSV_HEADER_FORMAT)
+			return false
+
+	# text server for validation
+	var text_server: TextServer = TextServerManager.get_primary_interface()
+	while not file.eof_reached():
+		var line: PackedStringArray = file.get_csv_line()
+
+		error = file.get_error()
+		if error == Error.ERR_FILE_EOF:
+			break
+
+		# check for errors
+		if error != Error.OK:
+			push_error("error while reading lines from csv with code %d" % error)
+			Global.generation_errors.append(Enum.GenerationError.ERR_READ_FILE)
+			return false
+	
+		# check columns size same as headers
+		if line.size() > headers.size or line.size() == 0:
+			push_error("wrong column size in row %d" % error)
+			Global.generation_errors.append(Enum.GenerationError.ERR_COLUMN_SIZE)
+			return false
+
+		# check if string is valid utf8 character
+		for string: String in line:
+			if not _is_valid_string(string, text_server):
+				push_error("not valid string found: %s" % string)
+				Global.generation_errors.append(Enum.GenerationError.ERR_CSV_INVALID_FORMAT)
+				return false
+	return true
 
 
 func save_csv(path: String, csv: Array[PackedStringArray], append: bool = false) -> void:
@@ -359,7 +329,6 @@ func save_csv(path: String, csv: Array[PackedStringArray], append: bool = false)
 
 
 func read_csv(path: String, after_backup: bool = false) -> Array[PackedStringArray]:
-	path = ResUtil.SAVE_STATES_PATH + path
 	# make sure path is lower case
 	path = path.to_lower()
 
@@ -400,4 +369,53 @@ func _array_to_csv_list(array: Array[StringName]) -> String:
 		return ""
 	var string: StringName = ", ".join(array)
 	return "\"%s\"" % string
+
+
+func _is_valid_string(string: String, text_server: TextServer) -> bool:
+	if string.is_empty():
+		return true
+	if string.is_valid_float():
+		return true
+
+	# check if valid unicode
+	for i: int in string.length():
+		var unicode_char: int = string.unicode_at(i)
+		# space
+		if unicode_char == 32:
+			return true
+		# comma
+		if unicode_char == 44:
+			return true
+		# hyphen
+		if unicode_char == 45:
+			return true
+		# colon
+		if unicode_char == 58:
+			return true
+
+		var valid_letter: bool = text_server.is_valid_letter(unicode_char)
+		var valid_number: bool = string[i].is_valid_float()
+
+		if not valid_letter and not valid_number:
+			print("csv line not vaild: %s" % string)
+			print("not allowed unicode sign: %s code: %d" % [char(unicode_char), unicode_char])
+			return false
+
+	return true
+
+
+func _get_string_or_default(line: PackedStringArray, index: int) -> String:
+	if index < 0:
+		return ""
+	if index >= line.size():
+		return ""
+	return line[index]
+
+
+func _get_int_or_default(line: PackedStringArray, index: int) -> int:
+	if index < 0:
+		return 0
+	if index >= line.size():
+		return 0
+	return int(line[index])
 

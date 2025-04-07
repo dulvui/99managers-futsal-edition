@@ -77,6 +77,13 @@ func change_players(p1: Player, p2: Player) -> void:
 	players[index2] = p1
 
 
+func assign_shirt_numbers() -> void:
+	# TODO: check assigned numbers and save missing players
+	# check duplicates and remove
+	# assign new and non used numbers to missing players
+	pass
+
+
 func remove_player(p_player: Player) -> void:
 	players.erase(p_player)
 
@@ -129,3 +136,5 @@ func duplicate_real_deep() -> Team:
 	for player: Player in players:
 		copy.players.append(player.duplicate(true))
 	return copy
+
+

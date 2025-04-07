@@ -5,7 +5,6 @@
 class_name CSVHeaders
 
 const WORLD: PackedStringArray = [
-	"continent [iso code]",
 	"nation [iso code]",
 	"league name",
 ]
@@ -106,4 +105,27 @@ const EMAIL: PackedStringArray = [
 
 const TRANSFERS: PackedStringArray = [
 ]
+
+
+var size: int
+var attributes_start: int
+var list: PackedStringArray
+
+
+func _init() -> void:
+	size = WORLD.size() + TEAM.size() + PLAYER.size()
+
+	attributes_start = size
+	
+	size += PLAYER_ATTRIBUTES_GOALKEEPER.size() + PLAYER_ATTRIBUTES_MENTAL.size()
+	size += PLAYER_ATTRIBUTES_PHYSICAL.size() + PLAYER_ATTRIBUTES_TECHNICAL.size()
+
+	list = PackedStringArray()
+	list.append_array(WORLD)
+	list.append_array(TEAM)
+	list.append_array(PLAYER)
+	list.append_array(PLAYER_ATTRIBUTES_GOALKEEPER)
+	list.append_array(PLAYER_ATTRIBUTES_MENTAL)
+	list.append_array(PLAYER_ATTRIBUTES_PHYSICAL)
+	list.append_array(PLAYER_ATTRIBUTES_TECHNICAL)
 

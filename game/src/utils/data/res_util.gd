@@ -103,7 +103,8 @@ func _load_world(save_state: SaveState) -> World:
 	_load_resource(save_state.id + "/" + DATA_FILE, world)
 
 	var csv_util: CSVUtil = CSVUtil.new()
-	var players_csv: Array[PackedStringArray] = csv_util.read_csv(save_state.id + "/" + "players.csv")
+	var csv_path: String = ResUtil.SAVE_STATES_PATH + save_state.id + "/players.csv"
+	var players_csv: Array[PackedStringArray] = csv_util.read_csv(csv_path)
 	csv_util.csv_to_players(players_csv, world)
 
 	return world

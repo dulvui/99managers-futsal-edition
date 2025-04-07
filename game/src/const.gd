@@ -49,6 +49,9 @@ const LINEUP_PLAYERS_AMOUNT: int = 12
 const LEAGUE_MAX_TEAMS: int = 24
 const LEAGUE_MIN_TEAMS: int = 6
 
+const TEAM_PLAYERS_AMOUNT_MIN: int = 12
+const TEAM_PLAYERS_AMOUNT_MAX: int = 24
+
 # season start at 1st of june
 const SEASON_START_DAY: int = 1
 const SEASON_START_MONTH: int = 6

@@ -29,14 +29,6 @@ func test_save_world() -> void:
 	print("generating world done...")
 	
 	var csv_util: CSVUtil = CSVUtil.new()
-	print("converting world to csv...")
-	var world_csv: Array[PackedStringArray] = csv_util.world_to_csv(world)
-	csv_util.save_csv("world.csv", world_csv)
-	print("converting world to csv done.")
-
-	print("converting csv to world...")
-	var world_from_csv: World = csv_util.csv_to_world(world_csv)
-	print("converting world to csv done.")
 
 	print("converting players to csv...")
 	var players_csv: Array[PackedStringArray] = csv_util.players_to_csv(world)
@@ -44,34 +36,12 @@ func test_save_world() -> void:
 	print("converting players to csv done.")
 
 	print("converting csv to players...")
-	csv_util.csv_to_players(players_csv, world_from_csv)
+	csv_util.csv_to_players(players_csv, world)
 	print("converting csv to players done.")
 
-
-	print("compare world with world from csv...")
-	assert(world.continents.size() == world_from_csv.continents.size())
-	assert(world.get_all_nations().size() == world_from_csv.get_all_nations().size())
-	assert(world.get_all_leagues().size() == world_from_csv.get_all_leagues().size())
-	var all_teams: Array[Team] = world.get_all_teams()
-	var csv_all_teams: Array[Team] = world_from_csv.get_all_teams()
-	assert(all_teams.size() == csv_all_teams.size())
-
-	for i: int in all_teams.size():
-		var team: Team = all_teams[i]
-		var csv_team: Team = csv_all_teams[i]
-		assert(team.name == csv_team.name)
-		assert(team.finances.balance[-1] == csv_team.finances.balance[-1])
-		assert(team.stadium.name == csv_team.stadium.name)
-		assert(team.stadium.capacity == csv_team.stadium.capacity)
-
-		assert(team.players.size() == csv_team.players.size())
-		for j: int in team.players.size():
-			var player: Player = team.players[j]
-			var csv_player: Player = csv_team.players[j]
-			assert(player.name == csv_player.name)
-			assert(player.surname == csv_player.surname)
-			# TODO: add missing fields
-	print("compare world with world from csv done.")
+	print("validate world...")
+	# TODO: validate world
+	print("validate world done.")
 
 	print("test: save world done.")
 

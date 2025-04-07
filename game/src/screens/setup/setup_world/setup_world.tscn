@@ -314,7 +314,7 @@ custom_title = "File settings info"
 custom_text = "1) Click \"Save template\" button to save csv template on your machine
 2) Open with a spreadsheet editor (like LibreOffice Calc or similar)
 3) Modify data by keeping structure defined in template
-4) Save file as \"world.csv\" (.ods or .xlsx files are not supported)
+4) Save file as \".csv\" (.ods or .xlsx files are not supported)
 5) Click \"Load file\" to import modified data
 
 And done! This file can be reused and shared with friends.

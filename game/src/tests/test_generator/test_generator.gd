@@ -6,7 +6,7 @@ class_name TestGenerator
 extends Test
 
 
-const TEST_WORLD_CSV_WITH_ERRORS: String = "res://data/world/test_world_with_errors.csv"
+const TEST_WORLD_CSV_WITH_ERRORS: String = "res://data/world/test-data-with-errors.csv"
 
 
 func test() -> void:

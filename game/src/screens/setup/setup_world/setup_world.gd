@@ -168,6 +168,7 @@ func _on_advanced_stettings_button_toggled(toggled_on: bool) -> void:
 	advanced_settings = toggled_on
 	advanced_settings_box.visible = toggled_on
 
+
 func _on_continue_pressed() -> void:
 	# setup manager
 	if not _is_valid():

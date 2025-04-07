@@ -4,8 +4,8 @@
 
 class_name Generator
 
-const TEST_WORLD_CSV_PATH: String = "res://data/world/test_world.csv"
-const WORLD_CSV_PATH: String = "res://data/world/world.csv"
+const TEST_WORLD_CSV_PATH: String = "res://data/world/test-data.csv"
+const WORLD_CSV_PATH: String = "res://data/world/data.csv"
 
 # defines noise added to attribute factors
 const NOISE: int = 3
@@ -62,13 +62,24 @@ func generate_teams(world: World, world_file_path: String = WORLD_CSV_PATH) -> b
 		world_file_path = WORLD_CSV_PATH
 		custom_file = false
 	
+	#
+	# read csv and create world
+	#
+	var csv_util: CSVUtil = CSVUtil.new()
+	
 	# validate custom files
 	var validator: GeneratorValidator = GeneratorValidator.new()
 	if custom_file:
-		var is_valid_csv: bool = validator.validate_csv_file(world_file_path)
+		var is_valid_csv: bool = csv_util.validate_csv_file(world_file_path)
 		if not is_valid_csv:
 			push_error("csv file not valid %s" % world_file_path)
 			return false
+
+	csv_util.initialize_world(world_file_path, world)
+
+	#
+	# generate missing players
+	#
 
 	# load player names
 	names = GeneratorNames.new(world)
@@ -87,67 +98,12 @@ func generate_teams(world: World, world_file_path: String = WORLD_CSV_PATH) -> b
 	max_date.year -= 30
 	max_timestamp = Time.get_unix_time_from_datetime_dict(max_date)
 	
-	# open file
-	var file: FileAccess = FileAccess.open(world_file_path, FileAccess.READ)
-	var error: Error = file.get_error()
-	if error != OK:
-		print("error while opening world file at %s with error %d" % [world_file_path, error])
-		Global.generation_errors.append(Enum.GenerationError.ERR_READ_FILE)
-		return false
-
-	# keep nations array for easier code lookup
-	var nations: Array[Nation] = world.get_all_nations()
-	# also keep last found nation, to compare immediatly before searching new
-	# same nation leagues/teams will most probably be close
-	var last_nation: Nation = null
-
-	# skip first line with header row NATION, LEAGUE, TEAM
-	file.get_csv_line()
-
-	while not file.eof_reached():
-		var line: PackedStringArray = file.get_csv_line()
-
-		var err: Error = file.get_error()
-		if err == Error.ERR_FILE_EOF:
-			break
-
-		if line.size() != GeneratorValidator.HEADERS.size():
-			continue
-
-		# format must be Nation:Code example Italy:IT
-		# finally only code will be used to supported multi language nations
-		# but still keep contistency
-		var nation_cell: String = line[0]
-		var league: String = line[1]
-		var team_name: String = line[2]
-
-		# extract nation code
-		var nation_split: PackedStringArray = nation_cell.split(":", false, 1)
-		if nation_split.size() < 2:
-			print("nation has wrong format: %s" % nation_cell)
-			Global.generation_warnings.append(Enum.GenerationWarning.WARN_NATION_FORMAT)
-			continue
-		var nation_code: String = nation_split[1]
-
-		# find nation, if not same as last found nation
-		if last_nation == null or last_nation.code != nation_code:
-			var nation_filter: Array[Nation] = nations.filter(
-				func(n: Nation) -> bool: return n.code == nation_code
-			)
-			if nation_filter.size() == 0:
-				print("nation not found with code: %s" % nation_code)
-				Global.generation_warnings.append(Enum.GenerationWarning.WARN_NATION_NOT_FOUND)
-				continue
-			last_nation = nation_filter[0]
-
-		_initialize_team(world, last_nation, league, team_name)
+	for continent: Continent in world.continents:
+		for nation: Nation in continent.nations:
+			for league: League in nation.leagues:
+				for team: Team in league.teams:
+					_generate_missing_properties(world, nation, league, team)
 	
-	# validate world
-	var is_valid_world: bool = validator.validate_world(world)
-	if not is_valid_world:
-		push_error("world not valid %s" % world_file_path)
-		return false
-
 	# national teams
 	for continent: Continent in world.continents:
 		for nation: Nation in continent.nations:
@@ -161,9 +117,16 @@ func generate_teams(world: World, world_file_path: String = WORLD_CSV_PATH) -> b
 			# TODO replace with actual national colors
 			_set_random_shirt_colors(nation.team)
 
+	# initialize league promotion/relegation amounts
 	for continent: Continent in world.continents:
 		for nation: Nation in continent.nations:
 			_initialize_leagues(nation)
+
+	# validate world
+	var is_valid_world: bool = validator.validate_world(world)
+	if not is_valid_world:
+		push_error("world not valid %s" % world_file_path)
+		return false
 
 	return true
 
@@ -209,69 +172,65 @@ func _initialize_leagues(nation: Nation) -> void:
 func _assign_players_to_team(
 	world: World, league: League, team: Team, nation: Nation, prestige: int
 ) -> Team:
-	var nr: int = 1
 
-	# lineup
-	for amount: int in team.formation.goalkeeper:
-		var position_type: Position.Type = Position.Type.G
+	# team has no players or not enough
+	if team.players.size() < Const.TEAM_PLAYERS_AMOUNT_MIN:
+		# lineup
+		for amount: int in team.formation.goalkeeper:
+			var position_type: Position.Type = Position.Type.G
 
-		var random_nation: Nation = _get_random_nationality(
-			world, nation, prestige, league.pyramid_level
-		)
-		var player: Player = _create_player(
-			world, random_nation, nr, prestige, position_type, league, team
-		)
-		team.players.append(player)
-		nr += 1
-	for amount: int in team.formation.defense:
-		var position_type: Position.Type = _get_random_defense_position_type()
-
-		var random_nation: Nation = _get_random_nationality(
-			world, nation, prestige, league.pyramid_level
-		)
-		var player: Player = _create_player(
-			world, random_nation, nr, prestige, position_type, league, team
-		)
-		team.players.append(player)
-		nr += 1
-	for amount: int in team.formation.center:
-		var position_type: Position.Type = _get_random_center_position_type()
-
-		var random_nation: Nation = _get_random_nationality(
-			world, nation, prestige, league.pyramid_level
-		)
-		var player: Player = _create_player(
-			world, random_nation, nr, prestige, position_type, league, team
-		)
-		team.players.append(player)
-		nr += 1
-	for amount: int in team.formation.attack:
-		var position_type: Position.Type = _get_random_attack_position_type()
-
-		var random_nation: Nation = _get_random_nationality(
-			world, nation, prestige, league.pyramid_level
-		)
-		var player: Player = _create_player(
-			world, random_nation, nr, prestige, position_type, league, team
-		)
-		team.players.append(player)
-		nr += 1
-
-	# bench and rest
-	for position_type: int in Position.Type.values().size() - 1: # -1, last is undefined
-		var amount: int = RngUtil.rng.randi_range(1, 2)
-		if position_type == Position.Type.G:
-			amount = 3
-
-		for i: int in amount:
 			var random_nation: Nation = _get_random_nationality(
 				world, nation, prestige, league.pyramid_level
 			)
 			var player: Player = _create_player(
-				world, random_nation, nr, prestige, position_type, league, team
+				world, random_nation, prestige, position_type, league, team
 			)
 			team.players.append(player)
-			nr += 1
+		for amount: int in team.formation.defense:
+			var position_type: Position.Type = _get_random_defense_position_type()
+
+			var random_nation: Nation = _get_random_nationality(
+				world, nation, prestige, league.pyramid_level
+			)
+			var player: Player = _create_player(
+				world, random_nation, prestige, position_type, league, team
+			)
+			team.players.append(player)
+		for amount: int in team.formation.center:
+			var position_type: Position.Type = _get_random_center_position_type()
+
+			var random_nation: Nation = _get_random_nationality(
+				world, nation, prestige, league.pyramid_level
+			)
+			var player: Player = _create_player(
+				world, random_nation, prestige, position_type, league, team
+			)
+			team.players.append(player)
+		for amount: int in team.formation.attack:
+			var position_type: Position.Type = _get_random_attack_position_type()
+
+			var random_nation: Nation = _get_random_nationality(
+				world, nation, prestige, league.pyramid_level
+			)
+			var player: Player = _create_player(
+				world, random_nation, prestige, position_type, league, team
+			)
+			team.players.append(player)
+
+		# bench and rest
+		for position_type: int in Position.Type.values().size() - 1: # -1, last is undefined
+			var amount: int = RngUtil.rng.randi_range(1, 2)
+			if position_type == Position.Type.G:
+				amount = 3
+
+			for i: int in amount:
+				var random_nation: Nation = _get_random_nationality(
+					world, nation, prestige, league.pyramid_level
+				)
+				var player: Player = _create_player(
+					world, random_nation, prestige, position_type, league, team
+				)
+				team.players.append(player)
 
 	return team
 
@@ -540,7 +499,6 @@ func _create_scout(
 func _create_player(
 	_world: World,
 	nation: Nation,
-	nr: int,
 	p_prestige: int,
 	p_position_type: Position.Type,
 	p_league: League,
@@ -571,7 +529,6 @@ func _create_player(
 	# if player is loyal, he doesnt want to leave the club,
 	# otherwise he leaves esaily, also on its own
 	player.loyality = RngUtil.rng.randi_range(1, 20)
-	player.nr = nr
 
 	player.attributes = Attributes.new()
 	player.attributes.goalkeeper = _get_goalkeeper_attributes(
@@ -657,40 +614,12 @@ func _get_salary_budget(players: Array[Player], staff: Staff) -> int:
 	return salary_budget
 
 
-func _initialize_team(
+func _generate_missing_properties(
 	world: World,
 	nation: Nation,
-	league_name: String,
-	team_name: String
+	league: League,
+	team: Team,
 ) -> void:
-	# search league
-	if league_name.length() == 0:
-		return
-
-	var league: League
-	var league_filter: Array[League] = nation.leagues.filter(
-		func(l: League) -> bool: return l.name == league_name
-	)
-	if league_filter.size() == 0:
-		league = League.new()
-		league.set_id()
-		league.name = league_name
-		league.nation_name = nation.name
-		# could be added direclty to csv
-		# with this code, leagues/teams need to be in pyramid level order
-		league.pyramid_level = nation.leagues.size() + 1
-		nation.leagues.append(league)
-	else:
-		league = league_filter[0]
-
-	# create team
-	var team: Team = Team.new()
-	team.set_id()
-	team.name = team_name
-
-	team.league_id = league.id
-	league.add_team(team)
-
 	var temp_team_prestige: int = _get_team_prestige(league.pyramid_level)
 	_set_random_shirt_colors(team)
 
@@ -719,6 +648,8 @@ func _initialize_team(
 
 	# assign players after formation has been choosen, to assign correct players positions
 	_assign_players_to_team(world, league, team, nation, temp_team_prestige)
+
+	team.assign_shirt_numbers()
 
 
 func _set_random_person_values(person: Person, nation: Nation) -> void:
