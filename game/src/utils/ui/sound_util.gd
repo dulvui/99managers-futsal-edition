@@ -10,7 +10,7 @@ enum AudioBus {
 }
 
 # in decibel, dont start with 100%
-const DEFAULT_VOLUME: float = -6.0
+const DEFAULT_VOLUME: float = -24.0
 
 var button_press: AudioStreamPlayer
 
