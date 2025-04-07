@@ -13,6 +13,7 @@ This tries to follow the [keepachangelog](https://keepachangelog.com/en/1.1.0/) 
 
 ## Added
 - Backup for csv files
+- Player properties and attributes can be defined in custom csv file
 
 # [0.3.0]
 ## https://codeberg.org/dulvui/99managers-futsal-edition/releases/tag/v0.3.0
