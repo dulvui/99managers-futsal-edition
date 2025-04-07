@@ -82,9 +82,10 @@ func generate_teams(world: World, world_file_path: String = WORLD_CSV_PATH) -> b
 	max_date.month = 1
 	max_date.day = 1
 	max_date.year -= 15
-	max_timestamp = Time.get_unix_time_from_datetime_dict(max_date)
-	max_date.year -= 30
 	min_timestamp = Time.get_unix_time_from_datetime_dict(max_date)
+
+	max_date.year -= 30
+	max_timestamp = Time.get_unix_time_from_datetime_dict(max_date)
 	
 	# open file
 	var file: FileAccess = FileAccess.open(world_file_path, FileAccess.READ)
@@ -724,8 +725,8 @@ func _set_random_person_values(person: Person, nation: Nation) -> void:
 	person.name = names.get_random_name(nation)
 	person.surname = names.get_random_surnname(nation)
 
-	# RngUtil.rng.random date from 1970 to 2007
-	person.birth_date = Time.get_date_dict_from_unix_time(RngUtil.rng.randi_range(0, max_timestamp))
+	# random birthday
+	person.birth_date = Time.get_date_dict_from_unix_time(RngUtil.rng.randi_range(min_timestamp, max_timestamp))
 
 	# colors
 	person.skintone = RngUtil.pick_random(SKINTONE)
