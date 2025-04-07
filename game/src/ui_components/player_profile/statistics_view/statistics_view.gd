@@ -46,7 +46,7 @@ func _add_statistics(statistics: Statistics, team_name: String) -> void:
 	assists.text = str(statistics.assists)
 	yellow_cards.text = str(statistics.yellow_cards)
 	red_cards.text = str(statistics.red_cards)
-	average_vote.text = str(statistics.average_vote)
+	average_vote.text = "%.2f" % statistics.average_vote
 
 	grid.add_child(team)
 	grid.add_child(games_played)

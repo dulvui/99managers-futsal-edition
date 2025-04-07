@@ -35,7 +35,7 @@ func setup(player: Player) -> void:
 	team_link.text = player.team
 	prestige.text = str(player.prestige)
 	nr.text = str(player.nr)
-	attributes_average.text = str(player.get_overall())
+	attributes_average.text = "%.2f" % player.get_overall()
 	value.text = FormatUtil.currency(player.value)
 
 	team_id = player.team_id
