@@ -78,10 +78,22 @@ func change_players(p1: Player, p2: Player) -> void:
 
 
 func assign_shirt_numbers() -> void:
-	# TODO: check assigned numbers and save missing players
-	# check duplicates and remove
-	# assign new and non used numbers to missing players
-	pass
+	var used_numbers: Array[int] = []
+	# find used and duplicate numbers
+	for player: Player in players:
+		if player.nr in used_numbers:
+			player.nr = 0
+		else:
+			used_numbers.append(player.nr)
+	# assign number to players with 0
+	for player: Player in players:
+		if player.nr == 0:
+			for i: int in 99:
+				if i in used_numbers:
+					continue
+				player.nr = i
+				break
+			used_numbers.append(player.nr)
 
 
 func remove_player(p_player: Player) -> void:

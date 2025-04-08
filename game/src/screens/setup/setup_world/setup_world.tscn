@@ -186,7 +186,7 @@ label_settings = ExtResource("3_mfpia")
 
 [node name="FilesDescription" type="Label" parent="MarginContainer/VBoxContainer/Main/AdvancedSettings/Files"]
 layout_mode = 2
-text = "All countries, leagues and team names are defined in a .csv file that can be modified."
+text = "All starting data are defined in a .csv file that can be modified."
 autowrap_mode = 2
 
 [node name="FilesMoreInfo" type="Button" parent="MarginContainer/VBoxContainer/Main/AdvancedSettings/Files"]
