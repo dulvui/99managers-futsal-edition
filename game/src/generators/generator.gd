@@ -48,13 +48,17 @@ var max_timestamp: int
 var min_timestamp: int
 
 var names: GeneratorNames
+var csv_util: CSVUtil
 
 
-func generate_teams(world: World, world_file_path: String = WORLD_CSV_PATH) -> bool:
+func _init() -> void:
+	csv_util = CSVUtil.new()
 	# reset warnings/errors
 	Global.generation_warnings = []
 	Global.generation_errors = []
 
+
+func generate_teams(world: World, world_file_path: String = WORLD_CSV_PATH) -> bool:
 	# check if custom file is used
 	var custom_file: bool = world_file_path != WORLD_CSV_PATH
 	# use default if path is empty
@@ -62,25 +66,27 @@ func generate_teams(world: World, world_file_path: String = WORLD_CSV_PATH) -> b
 		world_file_path = WORLD_CSV_PATH
 		custom_file = false
 	
-	#
-	# read csv and create world
-	#
-	var csv_util: CSVUtil = CSVUtil.new()
+	# read csv and create world, without players
+	csv_util.initialize_world(world_file_path, world)
 	
 	# validate custom files
-	var validator: GeneratorValidator = GeneratorValidator.new()
 	if custom_file:
 		var is_valid_csv: bool = csv_util.validate_csv_file(world_file_path)
 		if not is_valid_csv:
 			push_error("csv file not valid %s" % world_file_path)
 			return false
+	
+	# validate world
+	var validator: GeneratorValidator = GeneratorValidator.new()
+	var is_valid_world: bool = validator.validate_world(world)
+	if not is_valid_world:
+		push_error("world not valid %s" % world_file_path)
+		return false
+	
+	return true
 
-	csv_util.initialize_world(world_file_path, world)
 
-	#
-	# generate missing players
-	#
-
+func generate_players(world: World, world_file_path: String = WORLD_CSV_PATH) -> bool:
 	# load player names
 	names = GeneratorNames.new(world)
 
@@ -98,6 +104,13 @@ func generate_teams(world: World, world_file_path: String = WORLD_CSV_PATH) -> b
 	max_date.year -= 30
 	max_timestamp = Time.get_unix_time_from_datetime_dict(max_date)
 	
+
+	# read csv and add players
+	csv_util.initialize_players(world_file_path, world)
+
+	# TODO: validate players
+
+	# generate missing players
 	for continent: Continent in world.continents:
 		for nation: Nation in continent.nations:
 			for league: League in nation.leagues:
@@ -121,12 +134,6 @@ func generate_teams(world: World, world_file_path: String = WORLD_CSV_PATH) -> b
 	for continent: Continent in world.continents:
 		for nation: Nation in continent.nations:
 			_initialize_leagues(nation)
-
-	# validate world
-	var is_valid_world: bool = validator.validate_world(world)
-	if not is_valid_world:
-		push_error("world not valid %s" % world_file_path)
-		return false
 
 	return true
 
@@ -623,13 +630,16 @@ func _generate_missing_properties(
 	var temp_team_prestige: int = _get_team_prestige(league.pyramid_level)
 	_set_random_shirt_colors(team)
 
-	team.stadium = Stadium.new()
-	team.stadium.name = team.name + " " + tr("Stadium")
-	# range from 200 to 20.000
-	team.stadium.capacity = RngUtil.rng.randi_range(
-		temp_team_prestige * 200, temp_team_prestige * 1_000
-	)
-	team.stadium.year_built = RngUtil.rng.randi_range(year - 70, year - 1)
+	# stadium
+	if team.stadium.name.is_empty():
+		team.stadium.name = team.name + " " + tr("Stadium")
+	if team.stadium.capacity == 0:
+		# range from 200 to 20.000
+		team.stadium.capacity = RngUtil.rng.randi_range(
+			temp_team_prestige * 200, temp_team_prestige * 1_000
+		)
+	if team.stadium.year_built == 0:
+		team.stadium.year_built = RngUtil.rng.randi_range(year - 70, year - 1)
 
 	team.staff = _create_staff(world, team.get_prestige(), nation, league.pyramid_level)
 
@@ -720,3 +730,4 @@ func _in_bounds_random(value: int, max_bound: int = Const.MAX_PRESTIGE) -> int:
 # returns value between 1 and 20
 func _in_bounds(value: int, max_bound: int = Const.MAX_PRESTIGE) -> int:
 	return maxi(mini(value, max_bound), 1)
+

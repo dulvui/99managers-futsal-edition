@@ -19,6 +19,11 @@ func _init() -> void:
 
 func initialize_world(csv_path: String, world: World) -> void:
 	var csv: Array[PackedStringArray] = read_csv(csv_path)
+	csv_to_world_only_teams(csv, world)
+
+
+func initialize_players(csv_path: String, world: World) -> void:
+	var csv: Array[PackedStringArray] = read_csv(csv_path)
 	csv_to_world(csv, world)
 
 
@@ -73,6 +78,51 @@ func world_to_csv(world: World) -> Array[PackedStringArray]:
 	csv.append_array(lines)
 
 	return csv
+
+
+func csv_to_world_only_teams(csv: Array[PackedStringArray], world: World) -> void:
+	# last values found in last line read
+	# can be reused for next line, since lines most likely are grouped by team
+	var nation: Nation = null
+	var league: League = null
+	var team: Team = null
+
+	# remove header
+	csv.pop_front()
+
+	var line_index: int = 0
+	for line: PackedStringArray in csv:
+		line_index += 1
+
+		if line.size() < 3:
+			continue
+
+		# team
+		var nation_code: String = _get_string_or_default(line, 0)
+		var league_name: String = _get_string_or_default(line, 1)
+		var team_name: String = _get_string_or_default(line, 2)
+
+		# nation
+		if nation == null or nation.code != nation_code:
+			nation = world.get_nation_by_code(nation_code)
+		if nation == null:
+			push_error("no nation with code \"%s\" found in line %d" % [nation_code, line_index])
+			continue
+
+		# league
+		if league == null or league.name != league_name:
+			league = League.new()
+			league.set_id()
+			league.name = league_name
+			league.pyramid_level = nation.leagues.size() + 1
+			nation.leagues.append(league)
+
+		# team
+		if team == null or team.name != team_name:
+			team = Team.new()
+			team.set_id()
+			team.name = team_name
+			league.add_team(team)
 
 
 func csv_to_world(csv: Array[PackedStringArray], world: World) -> void:

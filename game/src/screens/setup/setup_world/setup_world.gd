@@ -209,7 +209,7 @@ func _on_continue_pressed() -> void:
 	await Main.show_loading_screen(tr("Generating teams and players"))
 
 	if not advanced_settings or default_file_button.button_pressed or custom_file_path.is_empty():
-		ThreadUtil._generate_world(world)
+		ThreadUtil.generate_world(world)
 	else:
 		ThreadUtil.generate_world(world, custom_file_path)
 

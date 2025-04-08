@@ -60,7 +60,9 @@ func _load_data() -> void:
 func _generate_world(world: World, world_file_path: String = "") -> void:
 	print("generating world in thread...")
 
-	# create world, teams and players
+	# initialize world with laegues and teams
+	# but only with team name and id
+	# because histroy generation swaps team ids and names
 	var generator: Generator = Generator.new()
 	var success: bool = generator.generate_teams(world, world_file_path)
 	# go back if world is not valid
@@ -76,6 +78,16 @@ func _generate_world(world: World, world_file_path: String = "") -> void:
 	var history: GeneratorHistory = GeneratorHistory.new()
 	# first generate clubs history with promotions, delegations, cup wins
 	history.generate_club_history()
+
+	# initialize players and other custom team properties after club history
+	# because histroy generation swaps team ids and names
+	var success_players: bool = generator.generate_players(world, world_file_path)
+	# go back if players are not valid
+	if not success_players:
+		print("error while reading players from world file %d errors occurred." % Global.generation_errors.size())
+		call_deferred("_loading_done")
+		return
+
 	# then generate player histroy with transfers and statistics
 	history.generate_player_history()
 
@@ -110,3 +122,4 @@ func _saving_done() -> void:
 func _exit_tree() -> void:
 	if thread and thread.is_started():
 		thread.wait_to_finish()
+
