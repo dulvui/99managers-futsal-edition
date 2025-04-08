@@ -279,20 +279,21 @@
 #
 # João Ricardo de Mendonça Caruço <joaocaruco77@gmail.com>, 2025.
 # Simon Dalvai <info@simondalvai.org>, 2025.
+# ssantos <ssantos@web.de>, 2025.
 msgid ""
 msgstr ""
 "Project-Id-Version: 99 Managers Futsal Edition\n"
 "POT-Creation-Date: \n"
-"PO-Revision-Date: 2025-02-26 10:01+0000\n"
-"Last-Translator: Simon Dalvai <info@simondalvai.org>\n"
-"Language-Team: Portuguese <https://hosted.weblate.org/projects/99-managers-"
-"futsal-edition/game/pt/>\n"
+"PO-Revision-Date: 2025-04-09 21:01+0000\n"
+"Last-Translator: ssantos <ssantos@web.de>\n"
+"Language-Team: Portuguese <https://hosted.weblate.org/projects/"
+"99-managers-futsal-edition/game/pt/>\n"
 "Language: pt\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n > 1;\n"
-"X-Generator: Weblate 5.10.2-dev\n"
+"X-Generator: Weblate 5.11-dev\n"
 
 #: src/ui_components/team_profile/team_profile.tscn
 #: src/screens/dashboard/dashboard.tscn
@@ -466,11 +467,11 @@ msgstr "Perdido"
 
 #: src/ui_components/visual_competitions/visual_table/visual_table.tscn
 msgid "Goal difference"
-msgstr ""
+msgstr "Diferença de gols"
 
 #: src/ui_components/visual_competitions/visual_table/visual_table.tscn
 msgid "Difference"
-msgstr ""
+msgstr "Diferença"
 
 #: src/ui_components/visual_competitions/visual_table/visual_table.tscn
 #: src/ui_components/player_profile/statistics_view/statistics_view.tscn
@@ -480,10 +481,8 @@ msgid "Goals"
 msgstr "Metas"
 
 #: src/ui_components/visual_competitions/visual_table/visual_table.tscn
-#, fuzzy
-#| msgid "Formation"
 msgid "Form"
-msgstr "Formação"
+msgstr "Forma"
 
 #: src/ui_components/visual_competitions/visual_table/visual_table.tscn
 msgid "Points"
@@ -491,7 +490,7 @@ msgstr "Pontos de recompensa"
 
 #: src/ui_components/visual_competitions/visual_table/visual_table.gd
 msgid "Direct promotion"
-msgstr ""
+msgstr "Acesso direto"
 
 #: src/ui_components/visual_competitions/visual_table/visual_table.gd
 #: src/ui_components/visual_competitions/visual_competitions.gd
@@ -521,11 +520,11 @@ msgstr ""
 
 #: src/ui_components/visual_competitions/visual_table/visual_table.gd
 msgid "Defeat"
-msgstr ""
+msgstr "Derrota"
 
 #: src/ui_components/visual_competitions/visual_table/visual_table.gd
 msgid "To be played"
-msgstr ""
+msgstr "Será jogado"
 
 #: src/ui_components/visual_competitions/visual_knockout/visual_knockout.tscn
 msgid "Knockout"
@@ -545,10 +544,8 @@ msgstr "Grupo B"
 
 #: src/ui_components/visual_competitions/visual_competitions.tscn
 #: src/ui_components/player_profile/statistics_view/statistics_view.tscn
-#, fuzzy
-#| msgid "Watchlist"
 msgid "Matches"
-msgstr "Lista preferencial"
+msgstr "Partidas"
 
 #: src/ui_components/visual_competitions/visual_competitions.tscn
 #: src/screens/dashboard/dashboard.tscn
@@ -597,11 +594,11 @@ msgstr "Cláusula de compra"
 
 #: src/ui_components/visual_formation/visual_formation.gd
 msgid "Substitutes"
-msgstr ""
+msgstr "Reservas"
 
 #: src/ui_components/visual_formation/visual_formation.gd
 msgid "Other"
-msgstr ""
+msgstr "Outro"
 
 #: src/ui_components/visual_formation/players_bar/players_bar.tscn
 #: src/ui_components/visual_formation/visual_formation.tscn
@@ -611,11 +608,11 @@ msgstr "Formação"
 
 #: src/ui_components/visual_formation/players_bar/players_bar.tscn
 msgid "Players with low stamina will be changed automatically."
-msgstr ""
+msgstr "Jogadores com baixa energia serão substituídos automaticamente."
 
 #: src/ui_components/visual_formation/players_bar/players_bar.tscn
 msgid "Auto change"
-msgstr ""
+msgstr "Substituição automática"
 
 #: src/ui_components/visual_formation/visual_formation.tscn
 msgid "Change strategy"
@@ -683,10 +680,8 @@ msgstr "Oferecer contrato"
 
 #: src/ui_components/player_profile/attributes_view/attributes_view.tscn
 #: src/ui_components/player_list/player_list_view/views/mental/player_list_view_mental.tscn
-#, fuzzy
-#| msgid "Pressing"
 msgid "Aggression"
-msgstr "Pressão"
+msgstr "Agressividade"
 
 #: src/ui_components/player_profile/attributes_view/attributes_view.tscn
 #: src/ui_components/player_list/player_list_view/views/mental/player_list_view_mental.tscn
@@ -711,24 +706,22 @@ msgstr "Visão"
 #: src/ui_components/player_profile/attributes_view/attributes_view.tscn
 #: src/ui_components/player_list/player_list_view/views/mental/player_list_view_mental.tscn
 msgid "Workrate"
-msgstr ""
+msgstr "Comprometimento"
 
 #: src/ui_components/player_profile/attributes_view/attributes_view.tscn
 #: src/ui_components/player_list/player_list_view/views/mental/player_list_view_mental.tscn
 msgid "Offensive movement"
-msgstr ""
+msgstr "Movimento ofensivo"
 
 #: src/ui_components/player_profile/attributes_view/attributes_view.tscn
 #: src/ui_components/player_list/player_list_view/views/goalkeeper/player_list_view_goalkeeper.tscn
 msgid "Reflexes"
-msgstr ""
+msgstr "Reflexo"
 
 #: src/ui_components/player_profile/attributes_view/attributes_view.tscn
 #: src/ui_components/player_list/player_list_view/views/goalkeeper/player_list_view_goalkeeper.tscn
-#, fuzzy
-#| msgid "Position"
 msgid "Positioning"
-msgstr "Posição"
+msgstr "Posicionamento"
 
 #: src/ui_components/player_profile/attributes_view/attributes_view.tscn
 #, fuzzy
@@ -745,7 +738,7 @@ msgstr "Guardar estados"
 #: src/ui_components/player_profile/attributes_view/attributes_view.tscn
 #: src/ui_components/player_list/player_list_view/views/goalkeeper/player_list_view_goalkeeper.tscn
 msgid "Diving"
-msgstr ""
+msgstr "Simulação"
 
 #: src/ui_components/player_profile/attributes_view/attributes_view.tscn
 #: src/ui_components/player_list/player_list_view/views/physical/player_list_view_physical.tscn
@@ -820,7 +813,7 @@ msgstr "Remates longos"
 #: src/ui_components/player_profile/attributes_view/attributes_view.tscn
 #: src/ui_components/player_list/player_list_view/views/technical/player_list_view_technical.tscn
 msgid "Free kick"
-msgstr ""
+msgstr "Cobrança de falta"
 
 #: src/ui_components/player_profile/attributes_view/attributes_view.tscn
 #: src/ui_components/player_list/player_list_view/views/technical/player_list_view_technical.tscn
@@ -847,16 +840,12 @@ msgid "Attributes"
 msgstr "Atributos"
 
 #: src/ui_components/player_profile/player_profile.tscn
-#, fuzzy
-#| msgid "Statistics"
 msgid "Statistics\n"
-msgstr "Estatísticas"
+msgstr "Estatísticas\n"
 
 #: src/ui_components/player_profile/player_profile.tscn
-#, fuzzy
-#| msgid "Contract"
 msgid "Contract\n"
-msgstr "Contrato"
+msgstr "Contrato\n"
 
 #: src/ui_components/player_profile/info_view/info_view.tscn
 #: src/screens/setup/setup_world/setup_world.tscn
@@ -899,56 +888,48 @@ msgstr "Valor"
 
 #: src/ui_components/player_profile/info_view/info_view.gd
 msgid "Left"
-msgstr ""
+msgstr "Esquerdo"
 
 #: src/ui_components/player_profile/info_view/info_view.gd
 msgid "Right"
-msgstr ""
+msgstr "Direito"
 
 #: src/ui_components/player_profile/contract_view/contract_view.tscn
-#, fuzzy
-#| msgid "Salary budget"
 msgid "Salary"
-msgstr "Orçamento para salários"
+msgstr "Salário"
 
 #: src/ui_components/player_profile/contract_view/contract_view.tscn
 #: src/ui_components/player_list/player_list_view/views/contract/player_list_view_contract.tscn
 msgid "End date"
-msgstr ""
+msgstr "Data final"
 
 #: src/ui_components/player_profile/contract_view/contract_view.tscn
 msgid "Bonus"
-msgstr ""
+msgstr "Bônus"
 
 #: src/ui_components/player_profile/contract_view/contract_view.tscn
-#, fuzzy
-#| msgid "Goals"
 msgid "Goal"
-msgstr "Metas"
+msgstr "Gol"
 
 #: src/ui_components/player_profile/contract_view/contract_view.tscn
 msgid "Assist"
-msgstr ""
+msgstr "Assistência"
 
 #: src/ui_components/player_profile/contract_view/contract_view.tscn
 msgid "Clean sheet"
-msgstr ""
+msgstr "Jogo sem tomar gol"
 
 #: src/ui_components/player_profile/contract_view/contract_view.tscn
 msgid "League"
 msgstr "Liga"
 
 #: src/ui_components/player_profile/contract_view/contract_view.tscn
-#, fuzzy
-#| msgid "Nationality"
 msgid "National cup"
-msgstr "Nacionalidade"
+msgstr "Copa Nacional"
 
 #: src/ui_components/player_profile/contract_view/contract_view.tscn
-#, fuzzy
-#| msgid "Continue"
 msgid "Continental cup"
-msgstr "Continuar"
+msgstr "Copa Continental"
 
 #: src/ui_components/player_profile/contract_view/contract_view.tscn
 msgid "Make offer"
@@ -957,7 +938,7 @@ msgstr "Fazer proposta"
 #: src/ui_components/player_profile/statistics_view/statistics_view.tscn
 #: src/ui_components/player_list/player_list_view/views/statistics/player_list_view_statistics.tscn
 msgid "Assists"
-msgstr ""
+msgstr "Assistências"
 
 #: src/ui_components/player_profile/statistics_view/statistics_view.tscn
 #: src/screens/match_screen/statistics/match_stats.tscn
@@ -972,10 +953,8 @@ msgstr "Cartões Vermelhos"
 
 #: src/ui_components/player_profile/statistics_view/statistics_view.tscn
 #: src/ui_components/player_list/player_list_view/views/statistics/player_list_view_statistics.tscn
-#, fuzzy
-#| msgid "Average attributes"
 msgid "Average vote"
-msgstr "Média dos atributos"
+msgstr "Média de votos"
 
 #: src/ui_components/visual_calendar/visual_day/visual_day.gd
 #: src/ui_components/visual_calendar/match_list/match_info/match_info.tscn
@@ -1035,16 +1014,12 @@ msgid "Sunday"
 msgstr "Domingo"
 
 #: src/ui_components/tree_overviews/teams_tree/teams_tree.gd
-#, fuzzy
-#| msgid "Continue"
 msgid "Continents"
-msgstr "Continuar"
+msgstr "Continentes"
 
 #: src/ui_components/tree_overviews/teams_tree/teams_tree.gd
-#, fuzzy
-#| msgid "No message found"
 msgid "No team found"
-msgstr "Nenhuma mensagem"
+msgstr "Nenhum grupo encontrado"
 
 #: src/resources/formation/position/position.gd
 msgid "G"
@@ -1113,12 +1088,12 @@ msgstr "Bem-vindo"
 #. TRANSLATORS: {team_name} gets dynamically filled
 #: src/utils/logic/email_util.gd
 msgid "{team_name} welcomes you to a new journey."
-msgstr ""
+msgstr "{team_name} te dá boas-vindas a uma nova jornada."
 
 #. TRANSLATORS: {player_name} gets dynamically filled
 #: src/utils/logic/email_util.gd
 msgid "Offer for {player_name}"
-msgstr ""
+msgstr "Oferta por {player_name}"
 
 #. TRANSLATORS: {cost}, {player_name}, {team_name} get dynamically filled
 #: src/utils/logic/email_util.gd
@@ -1126,11 +1101,13 @@ msgid ""
 "You made an offer for {player_name} from {team_name} at {cost}.\n"
 "{team_name} will consider the offer and respond within a few days."
 msgstr ""
+"Fez uma oferta por {player_name} do {team_name} por {cost}.\n"
+"O {team_name} irá estudar a oferta e responder em alguns dias."
 
 #. TRANSLATORS: {player_name} gets dynamically filled
 #: src/utils/logic/email_util.gd
 msgid "Offer for {player_name} declined"
-msgstr ""
+msgstr "A oferta por {player_name} foi rejeitada"
 
 #. TRANSLATORS: {player_name}, {team_name} get dynamically filled
 #: src/utils/logic/email_util.gd
@@ -1138,11 +1115,13 @@ msgid ""
 "Your offer for {player_name} from {team_name} at {cost} has been declined.\n"
 "Increasing the transfer value could make them reconsider."
 msgstr ""
+"A sua oferta pelo {player_name} do {team_name} por {cost} foi rejeitada.\n"
+"Aumentar o valor da transferência pode fazê-los repensar."
 
 #. TRANSLATORS: {player_name} gets dynamically filled
 #: src/utils/logic/email_util.gd
 msgid "Offer for {player_name} accepted"
-msgstr ""
+msgstr "Oferta por {player_name} aceita"
 
 #. TRANSLATORS: {player_name}, {team_name} get dynamically filled
 #: src/utils/logic/email_util.gd
@@ -1150,6 +1129,8 @@ msgid ""
 "Your offer for {player_name} from {team_name} at {cost} has been accepted.\n"
 "You can now find a contractual aggreement with {player_name}."
 msgstr ""
+"Sua oferta por {player_name} do {team_name} por {cost} foi aceita.\n"
+"Pode agora entrar num acordo contratual com {player_name}."
 
 #: src/utils/input/joypad_util.gd
 #: src/screens/settings/input/input_settings.tscn
@@ -1182,7 +1163,7 @@ msgstr "Hacker"
 
 #: src/utils/ui/theme_util.gd
 msgid "Custom theme"
-msgstr ""
+msgstr "Tema personalizado"
 
 #: src/screens/settings/settings.tscn src/screens/dashboard/dashboard.tscn
 #: src/screens/menu/menu.tscn
@@ -1207,10 +1188,12 @@ msgid ""
 "All changed settings will be restored to the default value.\n"
 "Are you sure?"
 msgstr ""
+"Todas as configurações modificadas serão restauradas para o valor padrão.\n"
+"Tem certeza?"
 
 #: src/screens/settings/general/general_settings.tscn
 msgid "Language"
-msgstr ""
+msgstr "Idioma"
 
 #: src/screens/settings/general/general_settings.tscn
 msgid ""
@@ -1226,11 +1209,11 @@ msgstr "Audio"
 
 #: src/screens/settings/general/general_settings.tscn
 msgid "Sfx volume"
-msgstr ""
+msgstr "Volume Sfx"
 
 #: src/screens/settings/general/general_settings.tscn
 msgid "Interface settings"
-msgstr ""
+msgstr "Configurações de interface"
 
 #: src/screens/settings/general/general_settings.tscn
 msgid "Font size"
@@ -1280,7 +1263,7 @@ msgstr "Menu"
 
 #: src/screens/save_states_screen/save_states_screen.tscn
 msgid "All save states are located in the following directory"
-msgstr ""
+msgstr "Todos os estados gravados estão localizados no seguinte diretório"
 
 #: src/screens/save_states_screen/save_states_screen.tscn
 #, fuzzy
@@ -1293,11 +1276,13 @@ msgid ""
 "Note: Deleted save states might still exist in your trash, if supported and "
 "not disabled by your operating system."
 msgstr ""
+"Nota: Estados gravados deletados ainda podem permanecer no seu lixo se "
+"suportados pelo seus sistema operativo."
 
 #: src/screens/save_states_screen/save_state_entry/save_state_entry.gd
 #: src/screens/menu/menu.gd
 msgid "Loading game"
-msgstr ""
+msgstr "A carregar jogo"
 
 #: src/screens/save_states_screen/save_state_entry/save_state_entry.tscn
 #: src/screens/setup/setup_world/setup_world.tscn
@@ -1310,7 +1295,7 @@ msgstr "Posição na tabela"
 
 #: src/screens/save_states_screen/save_state_entry/save_state_entry.tscn
 msgid "Game date"
-msgstr ""
+msgstr "Data do jogo"
 
 #: src/screens/save_states_screen/save_state_entry/save_state_entry.tscn
 msgid "Last save"
@@ -1322,7 +1307,7 @@ msgstr "Criado"
 
 #: src/screens/save_states_screen/save_state_entry/save_state_entry.tscn
 msgid "Corrupt"
-msgstr ""
+msgstr "Corrompido"
 
 #: src/screens/save_states_screen/save_state_entry/save_state_entry.tscn
 msgid "Delete"
@@ -1338,6 +1323,8 @@ msgid ""
 "Deleting a save state is permanent and can't be undone.\n"
 "Are you sure you want delete this save state?"
 msgstr ""
+"O apagamento de um estado gravado é permanente e não pode ser desfeito\n"
+"Tem certeza de que quer deletar este estado gravado?"
 
 #: src/screens/save_states_screen/save_state_entry/save_state_entry.tscn
 msgid ""
@@ -1345,6 +1332,9 @@ msgid ""
 "in the following directory for further diagnostics.\n"
 "{path}"
 msgstr ""
+"Este estado gravado e o seu backup está corrompido. Pode encontrar este "
+"estado gravado no diretório seguinte para um diagnóstico.\n"
+"{path}"
 
 #: src/screens/dashboard/dashboard.gd
 msgid "Start match"
@@ -1356,15 +1346,15 @@ msgstr "Próximo dia"
 
 #: src/screens/dashboard/dashboard.gd
 msgid "Next season"
-msgstr ""
+msgstr "Próxima temporada"
 
 #: src/screens/dashboard/dashboard.gd src/screens/dashboard/dashboard.tscn
 msgid "Email"
-msgstr ""
+msgstr "Email"
 
 #: src/screens/dashboard/dashboard.gd
 msgid "Saving game"
-msgstr ""
+msgstr "A gravar o jogo"
 
 #: src/screens/dashboard/dashboard.tscn
 msgid "Calendar"
@@ -1376,7 +1366,7 @@ msgstr "Finanças"
 
 #: src/screens/dashboard/dashboard.tscn
 msgid "Coming soon"
-msgstr ""
+msgstr "Em breve"
 
 #: src/screens/dashboard/dashboard.tscn
 msgid "Search player"
@@ -1418,7 +1408,7 @@ msgstr "Continuar"
 
 #: src/screens/dashboard/dashboard.tscn
 msgid "Save the game before exiting?"
-msgstr ""
+msgstr "Gravar o jogo antes de sair?"
 
 #: src/screens/loading_screen/loading_screen.tscn
 msgid "Loading"
@@ -1440,7 +1430,7 @@ msgstr "Sair"
 
 #: src/screens/menu/menu.tscn
 msgid "You are exiting the game. Proceed?"
-msgstr ""
+msgstr "Está a sair do jogo. Continuar?"
 
 #: src/screens/setup/setup_world/setup_world.tscn
 #, fuzzy
@@ -1451,7 +1441,7 @@ msgstr "Data inicial"
 #: src/screens/setup/setup_world/setup_world.tscn
 #: src/screens/setup/setup_world/setup_world.gd
 msgid "Name and surname missing"
-msgstr ""
+msgstr "Não há nome e apelido"
 
 #: src/screens/setup/setup_world/setup_world.tscn
 msgid "Your name"
@@ -1475,7 +1465,7 @@ msgstr "Nomes dos jogadores"
 
 #: src/screens/setup/setup_world/setup_world.tscn
 msgid "Start year"
-msgstr ""
+msgstr "Ano de início"
 
 #: src/screens/setup/setup_world/setup_world.tscn
 #, fuzzy
@@ -1494,14 +1484,16 @@ msgid ""
 "All countries, leagues and team names are defined in a .csv file that can be "
 "modified."
 msgstr ""
+"Todos os países, ligas e nomes de grupos são definidos num ficheiro .csv que "
+"pode ser modificado."
 
 #: src/screens/setup/setup_world/setup_world.tscn
 msgid "Show instructions"
-msgstr ""
+msgstr "Mostrar instruções"
 
 #: src/screens/setup/setup_world/setup_world.tscn
 msgid "The following file will be used:"
-msgstr ""
+msgstr "O seguinte ficheiro será usado:"
 
 #: src/screens/setup/setup_world/setup_world.tscn
 #, fuzzy
@@ -1599,7 +1591,7 @@ msgstr "Full game"
 
 #: src/enum.gd
 msgid "Key actions"
-msgstr ""
+msgstr "Ações-chave"
 
 #: src/enum.gd
 msgid "Only goals"
@@ -1671,7 +1663,7 @@ msgstr "Automático"
 
 #: src/enum.gd
 msgid "Mouse and Keyboard"
-msgstr ""
+msgstr "Rato e Teclado"
 
 #: src/enum.gd
 msgid "Joypad"
@@ -1941,15 +1933,15 @@ msgstr "Alterar"
 
 #: src/screens/about/about.tscn
 msgid "Contributors"
-msgstr ""
+msgstr "Colaboradores"
 
 #: src/screens/about/about.tscn
 msgid "Licenses"
-msgstr ""
+msgstr "Licenças"
 
 #: src/screens/about/license/license.tscn
 msgid "Game license"
-msgstr ""
+msgstr "Licença do jogo"
 
 #: src/screens/about/license/license.tscn
 msgid ""
@@ -1958,11 +1950,11 @@ msgstr ""
 
 #: src/screens/about/license/license.tscn
 msgid "Read full license"
-msgstr ""
+msgstr "Ler licença na íntegra"
 
 #: src/screens/about/license/license.tscn
 msgid "Source code"
-msgstr ""
+msgstr "Código fonte"
 
 #: src/screens/about/license/license.tscn
 msgid "The full source code of the game is available on the websites below."
@@ -1970,7 +1962,7 @@ msgstr ""
 
 #: src/screens/about/license/license.tscn
 msgid "Third party licenses"
-msgstr ""
+msgstr "Licenças de terceiros"
 
 #: src/screens/about/license/license.tscn
 msgid ""
