@@ -143,7 +143,7 @@ func get_league_by_name(league_name: String, p_nation: Nation = null) -> League:
 			for league: League in nation.leagues:
 				if league.name == league_name:
 					return league
-	push_error("no league with name " + str(league_name))
+	push_warning("no league with name " + str(league_name))
 	return null
 
 

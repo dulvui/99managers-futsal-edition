@@ -38,6 +38,8 @@ var world: World
 
 func _ready() -> void:
 	InputUtil.start_focus(self)
+
+	Main.loaded.connect(_on_world_generated)
 	
 	# create world
 	var world_generator: GeneratorWorld = GeneratorWorld.new()
@@ -205,7 +207,6 @@ func _on_continue_pressed() -> void:
 	Main.manual_hide_loading_screen()
 	# await and make sure loading screen is visible, before it can be hidden on error
 	await Main.show_loading_screen(tr("Generating teams and players"))
-	Main.loaded.connect(_on_world_generated)
 
 	if not advanced_settings or default_file_button.button_pressed or custom_file_path.is_empty():
 		ThreadUtil.generate_world(world)

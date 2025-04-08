@@ -247,9 +247,9 @@ func validate_csv_file(file_path: String) -> bool:
 	# check order and format
 	for i: int in header_line.size():
 		var header: String = header_line[i]
-		header = header.to_upper()
-		header = header.replace(" ", "")
-		if header != headers.list[i]:
+		header = header.to_lower()
+		header = header.strip_edges()
+		if header != headers.list[i].to_lower():
 			push_error("error csv header wrong format. expecetd %s but found %s" % [headers.list[i], header])
 			Global.generation_errors.append(Enum.GenerationError.ERR_CSV_HEADER_FORMAT)
 			return false
@@ -407,6 +407,9 @@ func _is_valid_string(string: String, text_server: TextServer) -> bool:
 			return true
 		# colon
 		if unicode_char == 58:
+			return true
+		# slash
+		if unicode_char == 47:
 			return true
 
 		var valid_letter: bool = text_server.is_valid_letter(unicode_char)

@@ -1,5 +1,5 @@
 nation [iso code],league name,team name,"budget [0, 999_999_999]",stadium name,"stadium capacity [200, 20_000]",stadium construction year [yyyy],player first name,player surname,"value [€, $,...]",birth_date [dd/mm/yyyy],nationality [iso code],"shirt number [1, 99]","foot left [1, 20]","foot right [1, 20]","main position [G, D, P...]","alt positions [""D,C,P""]","injury prone [1, 20]",eye color [hex],hair color [hex],skintone color [hex],reflexes,positioning,save_feet,save_hands,diving,aggression,anticipation,decisions,concentration,vision,workrate,offensive_movement,marking,pace,acceleration,stamina,strength,agility,jump,crossing,passing,long_passing,tackling,heading,interception,shooting,long_shooting,free_kick,penalty,finishing,dribbling,blocking
-PT,Liga Futsal 1,Lisbon,5,Test stadium,5,1993,hello,wold,5,05/05/05,IT,5,5,5,G,D,5,88888,88888,88888,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5
+PT,Liga Futsal 1,Lisbon,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
 PT,Liga Futsal 1,Porto,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
 PT,Liga Futsal 1,Vila Nova de Gaia,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
 PT,Liga Futsal 1,Amadora,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
