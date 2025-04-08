@@ -4,19 +4,14 @@
 
 class_name CSVHeaders
 
-const WORLD: PackedStringArray = [
+const BASE: PackedStringArray = [
 	"nation [iso code]",
 	"league name",
-]
-
-const TEAM: PackedStringArray = [
 	"team name",
 	"budget [0, 999_999_999]",
 	"stadium name",
 	"stadium capacity [200, 20_000]",
-]
-
-const PLAYER: PackedStringArray = [
+	"stadium construction year [yyyy]",
 	"player first name",
 	"player surname",
 	"value [€, $,...]",
@@ -48,6 +43,7 @@ const PLAYER_ATTRIBUTES_MENTAL: PackedStringArray = [
 	"concentration",
 	"vision",
 	"workrate",
+	"offensive_movement",
 	"marking",
 ]
 
@@ -113,7 +109,7 @@ var list: PackedStringArray
 
 
 func _init() -> void:
-	size = WORLD.size() + TEAM.size() + PLAYER.size()
+	size = BASE.size()
 
 	attributes_start = size
 	
@@ -121,9 +117,7 @@ func _init() -> void:
 	size += PLAYER_ATTRIBUTES_PHYSICAL.size() + PLAYER_ATTRIBUTES_TECHNICAL.size()
 
 	list = PackedStringArray()
-	list.append_array(WORLD)
-	list.append_array(TEAM)
-	list.append_array(PLAYER)
+	list.append_array(BASE)
 	list.append_array(PLAYER_ATTRIBUTES_GOALKEEPER)
 	list.append_array(PLAYER_ATTRIBUTES_MENTAL)
 	list.append_array(PLAYER_ATTRIBUTES_PHYSICAL)

@@ -78,7 +78,7 @@ func get_team_by_name(team_name: String) -> Team:
 	for team: Team in teams:
 		if team.name == team_name:
 			return team
-	push_error("no team with name %s" % team_name)
+	push_warning("no team with name %s" % team_name)
 	return null
 
 

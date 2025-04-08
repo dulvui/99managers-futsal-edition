@@ -31,12 +31,16 @@ func players_to_csv(world: World) -> Array[PackedStringArray]:
 				for team: Team in league.teams:
 					for player: Player in team.players:
 						var player_line: PackedStringArray = PackedStringArray()
+						# team
 						player_line.append(nation.code)
 						player_line.append(league.name)
 						player_line.append(team.name)
-						# player_line.append(str(team.id))
+						player_line.append(str(team.finances.balance))
+						player_line.append(team.stadium.name)
+						player_line.append(str(team.stadium.capacity))
+						player_line.append(str(team.stadium.year_built))
 						
-						# based on CSVHeaders.PLAYER
+						# player
 						player_line.append(player.name)
 						player_line.append(player.surname)
 						player_line.append(str(player.value))
@@ -57,15 +61,15 @@ func players_to_csv(world: World) -> Array[PackedStringArray]:
 						player_line.append("\"%s\"" % player.skintone)
 
 						# attributes
-						player_line.append_array(res_to_line(player.attributes.goalkeeper, CSVHeaders.PLAYER_ATTRIBUTES_GOALKEEPER))
-						player_line.append_array(res_to_line(player.attributes.mental, CSVHeaders.PLAYER_ATTRIBUTES_MENTAL))
-						player_line.append_array(res_to_line(player.attributes.physical, CSVHeaders.PLAYER_ATTRIBUTES_PHYSICAL))
-						player_line.append_array(res_to_line(player.attributes.technical, CSVHeaders.PLAYER_ATTRIBUTES_TECHNICAL))
+						player_line.append_array(res_to_line(player.attributes.goalkeeper, headers.PLAYER_ATTRIBUTES_GOALKEEPER))
+						player_line.append_array(res_to_line(player.attributes.mental, headers.PLAYER_ATTRIBUTES_MENTAL))
+						player_line.append_array(res_to_line(player.attributes.physical, headers.PLAYER_ATTRIBUTES_PHYSICAL))
+						player_line.append_array(res_to_line(player.attributes.technical, headers.PLAYER_ATTRIBUTES_TECHNICAL))
 
 						lines.append(player_line)
 
 	var csv: Array[PackedStringArray] = []
-	csv.append(headers)
+	csv.append(headers.list)
 	csv.append_array(lines)
 
 	return csv
@@ -88,22 +92,28 @@ func csv_to_players(csv: Array[PackedStringArray], world: World) -> void:
 		if line.size() < 3:
 			continue
 
+		# team
 		var nation_code: String = _get_string_or_default(line, 0)
 		var league_name: String = _get_string_or_default(line, 1)
 		var team_name: String = _get_string_or_default(line, 2)
-		var name: String = _get_string_or_default(line, 3)
-		var surname: String = _get_string_or_default(line, 4)
-		var value: String = _get_string_or_default(line, 5)
-		var birth_date: String = _get_string_or_default(line, 6)
-		var nationality: String = _get_string_or_default(line, 7)
-		var nr: String = _get_string_or_default(line, 8)
-		var foot_left: String = _get_string_or_default(line, 9)
-		var foot_right: String = _get_string_or_default(line, 10)
-		var position: String = _get_string_or_default(line, 11)
-		var alt_positions: String = _get_string_or_default(line, 12)
-		var injury_factor: String = _get_string_or_default(line, 13)
-		var eyecolor: String = _get_string_or_default(line, 14)
-		var haircolor: String = _get_string_or_default(line, 15)
+		var team_budget: int = _get_int_or_default(line, 3)
+		var stadium_name: String = _get_string_or_default(line, 4)
+		var stadium_capacity: int = _get_int_or_default(line, 5)
+		var stadium_year_built: int = _get_int_or_default(line, 6)
+		# player
+		var name: String = _get_string_or_default(line, 7)
+		var surname: String = _get_string_or_default(line, 8)
+		var value: String = _get_string_or_default(line, 9)
+		var birth_date: String = _get_string_or_default(line, 10)
+		var nationality: String = _get_string_or_default(line, 11)
+		var nr: int = _get_int_or_default(line, 12)
+		var foot_left: int = _get_int_or_default(line, 13)
+		var foot_right: int = _get_int_or_default(line, 14)
+		var position: String = _get_string_or_default(line, 15)
+		var alt_positions: String = _get_string_or_default(line, 16)
+		var injury_factor: int = _get_int_or_default(line, 17)
+		var eyecolor: String = _get_string_or_default(line, 18)
+		var haircolor: String = _get_string_or_default(line, 19)
 		var skintone: String = _get_string_or_default(line, 16)
 
 		# nation
@@ -130,7 +140,13 @@ func csv_to_players(csv: Array[PackedStringArray], world: World) -> void:
 			team = Team.new()
 			team.set_id()
 			team.name = team_name
+			team.finances.balance[-1] = team_budget
+			team.stadium.name = stadium_name
+			team.stadium.capacity = stadium_capacity
+			team.stadium.year_built = stadium_year_built
+
 			league.add_team(team)
+
 
 		# player
 		if name.is_empty() or surname.is_empty():

@@ -18,11 +18,11 @@ extends JSONResource
 
 
 func _init(
-	p_reflexes: int = Const.MAX_PRESTIGE,
-	p_positioning: int = Const.MAX_PRESTIGE,
-	p_save_feet: int = Const.MAX_PRESTIGE,
-	p_save_hands: int = Const.MAX_PRESTIGE,
-	p_diving: int = Const.MAX_PRESTIGE,
+	p_reflexes: int = 0,
+	p_positioning: int = 0,
+	p_save_feet: int = 0,
+	p_save_hands: int = 0,
+	p_diving: int = 0,
 ) -> void:
 	reflexes = p_reflexes
 	positioning = p_positioning
@@ -43,3 +43,4 @@ func sum() -> int:
 
 func average() -> float:
 	return sum() / 5.0
+

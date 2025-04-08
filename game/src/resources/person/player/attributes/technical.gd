@@ -22,19 +22,19 @@ extends JSONResource
 
 
 func _init(
-	p_crossing: int = Const.MAX_PRESTIGE,
-	p_passing: int = Const.MAX_PRESTIGE,
-	p_long_passing: int = Const.MAX_PRESTIGE,
-	p_tackling: int = Const.MAX_PRESTIGE,
-	p_heading: int = Const.MAX_PRESTIGE,
-	p_interception: int = Const.MAX_PRESTIGE,
-	p_shooting: int = Const.MAX_PRESTIGE,
-	p_long_shooting: int = Const.MAX_PRESTIGE,
-	p_free_kick: int = Const.MAX_PRESTIGE,
-	p_penalty: int = Const.MAX_PRESTIGE,
-	p_finishing: int = Const.MAX_PRESTIGE,
-	p_dribbling: int = Const.MAX_PRESTIGE,
-	p_blocking: int = Const.MAX_PRESTIGE,
+	p_crossing: int = 0,
+	p_passing: int = 0,
+	p_long_passing: int = 0,
+	p_tackling: int = 0,
+	p_heading: int = 0,
+	p_interception: int = 0,
+	p_shooting: int = 0,
+	p_long_shooting: int = 0,
+	p_free_kick: int = 0,
+	p_penalty: int = 0,
+	p_finishing: int = 0,
+	p_dribbling: int = 0,
+	p_blocking: int = 0,
 ) -> void:
 	crossing = p_crossing
 	passing = p_passing

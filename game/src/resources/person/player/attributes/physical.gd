@@ -15,12 +15,12 @@ extends JSONResource
 
 
 func _init(
-	p_pace: int = Const.MAX_PRESTIGE,
-	p_acceleration: int = Const.MAX_PRESTIGE,
-	p_resistance: int = Const.MAX_PRESTIGE,
-	p_strength: int = Const.MAX_PRESTIGE,
-	p_agility: int = Const.MAX_PRESTIGE,
-	p_jump: int = Const.MAX_PRESTIGE,
+	p_pace: int = 0,
+	p_acceleration: int = 0,
+	p_resistance: int = 0,
+	p_strength: int = 0,
+	p_agility: int = 0,
+	p_jump: int = 0,
 ) -> void:
 	pace = p_pace
 	acceleration = p_acceleration
