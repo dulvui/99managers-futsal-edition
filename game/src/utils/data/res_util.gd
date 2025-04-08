@@ -103,9 +103,9 @@ func _load_world(save_state: SaveState) -> World:
 	_load_resource(save_state.id + "/" + DATA_FILE, world)
 
 	var csv_util: CSVUtil = CSVUtil.new()
-	var csv_path: String = ResUtil.SAVE_STATES_PATH + save_state.id + "/players.csv"
-	var players_csv: Array[PackedStringArray] = csv_util.read_csv(csv_path)
-	csv_util.csv_to_players(players_csv, world)
+	var csv_path: String = ResUtil.SAVE_STATES_PATH + save_state.id + "/world.csv"
+	var csv: Array[PackedStringArray] = csv_util.read_csv(csv_path)
+	csv_util.csv_to_world(csv, world)
 
 	return world
 
@@ -114,8 +114,8 @@ func _save_world(save_state: SaveState, world: World) -> void:
 	print("save data...")
 	_save_resource(save_state.id + "/" + DATA_FILE, world)
 	var csv_util: CSVUtil = CSVUtil.new()
-	var players_csv: Array[PackedStringArray] = csv_util.players_to_csv(world)
-	csv_util.save_csv(save_state.id + "/" + "players.csv", players_csv)
+	var world_csv: Array[PackedStringArray] = csv_util.world_to_csv(world)
+	csv_util.save_csv(save_state.id + "/" + "world.csv", world_csv)
 	print("save data done.")
 
 

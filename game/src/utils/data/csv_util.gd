@@ -19,10 +19,10 @@ func _init() -> void:
 
 func initialize_world(csv_path: String, world: World) -> void:
 	var csv: Array[PackedStringArray] = read_csv(csv_path)
-	csv_to_players(csv, world)
+	csv_to_world(csv, world)
 
 
-func players_to_csv(world: World) -> Array[PackedStringArray]:
+func world_to_csv(world: World) -> Array[PackedStringArray]:
 	var lines: Array[PackedStringArray] = []
 
 	for continent: Continent in world.continents:
@@ -75,7 +75,7 @@ func players_to_csv(world: World) -> Array[PackedStringArray]:
 	return csv
 
 
-func csv_to_players(csv: Array[PackedStringArray], world: World) -> void:
+func csv_to_world(csv: Array[PackedStringArray], world: World) -> void:
 	# last values found in last line read
 	# can be reused for next line, since lines most likely are grouped by team
 	var nation: Nation = null

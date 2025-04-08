@@ -12,8 +12,12 @@ This tries to follow the [keepachangelog](https://keepachangelog.com/en/1.1.0/) 
 ## [Unreleased]
 
 ## Added
-- Backup for csv files
 - Player properties and attributes can be defined in custom csv file
+- Backup for csv files
+- Automated shirt number assignment
+
+## Changed
+- Teams are now starting in the league defined in the starting csv file, after history generation
 
 # [0.3.0]
 ## https://codeberg.org/dulvui/99managers-futsal-edition/releases/tag/v0.3.0
