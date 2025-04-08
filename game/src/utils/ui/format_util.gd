@@ -25,7 +25,7 @@ func day(p_date: Dictionary) -> String:
 func date(p_day: int, p_month: int, p_year: int = -1) -> String:
 	if p_year == -1:
 		return "%d/%d" % [p_day, p_month]
-	return "%d/%d/%d" % [p_day, p_month, p_year]
+	return "%d/%d/%d" % [p_day, p_month, p_year % 1000]
 
 
 func day_from_string(p_date: String) -> Dictionary:

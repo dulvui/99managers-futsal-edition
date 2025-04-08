@@ -159,7 +159,7 @@ func _setup_seasons() -> void:
 
 	var season_years: Array[String] = []
 	for year: int in range(history_year, current_year + 1):
-		season_years.append(str(year))
+		season_years.append("%d/%d" % [year % 1000, (year % 1000) + 1])
 	seasons_button.setup(season_years, season_amount)
 
 
