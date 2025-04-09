@@ -30,7 +30,7 @@ func _ready() -> void:
 
 	Main.check_layout_direction()
 
-	ResUtil.loading_failed.connect(_on_res_util_loading_failed)
+	DataUtil.loading_failed.connect(_on_res_util_loading_failed)
 
 
 func _on_new_game_pressed() -> void:

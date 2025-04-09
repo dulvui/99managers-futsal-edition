@@ -25,7 +25,7 @@ config/icon="uid://cvrrfbsy8unhx"
 
 Const="*res://src/const.gd"
 Enum="*res://src/enum.gd"
-ResUtil="*res://src/utils/data/res_util.gd"
+DataUtil="*res://src/utils/data/data_util.gd"
 Global="*res://src/global.gd"
 ThemeUtil="*res://src/utils/ui/theme_util.gd"
 Main="*res://src/screens/main.tscn"

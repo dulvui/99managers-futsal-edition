@@ -21,14 +21,14 @@ func _ready() -> void:
 
 	for save_state_id: String in Global.save_states.id_list:
 		if save_state_id != active_save_state.id:
-			var save_state: SaveState = ResUtil.load_save_state(save_state_id)
+			var save_state: SaveState = DataUtil.load_save_state(save_state_id)
 			var entry: SaveStateEntry = SaveStateEntryScene.instantiate()
 			entry_list.add_child(entry)
 			entry.setup(save_state)
 
-	ResUtil.loading_failed.connect(_on_res_util_loading_failed)
+	DataUtil.loading_failed.connect(_on_res_util_loading_failed)
 
-	save_states_path.text = ProjectSettings.globalize_path(ResUtil.SAVE_STATES_PATH)
+	save_states_path.text = ProjectSettings.globalize_path(DataUtil.SAVE_STATES_PATH)
 	trash_notice.visible = not OS.get_name() in "iOS,Web"
 
 
@@ -44,4 +44,4 @@ func _on_res_util_loading_failed() -> void:
 
 
 func _on_save_states_path_copy_pressed() -> void:
-	DisplayServer.clipboard_set(ProjectSettings.globalize_path(ResUtil.SAVE_STATES_PATH))
+	DisplayServer.clipboard_set(ProjectSettings.globalize_path(DataUtil.SAVE_STATES_PATH))

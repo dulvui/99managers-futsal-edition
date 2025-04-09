@@ -44,7 +44,7 @@ func set_bus_volume(bus_id: AudioBus, volume: float) -> void:
 	Global.config.audio[bus_id].volume = volume
 	AudioServer.set_bus_volume_db(bus_id, volume)
 	print(AudioServer.get_bus_volume_db(bus_id))
-	ResUtil.save_config()
+	DataUtil.save_config()
 
 
 func get_bus_volume(bus_id: AudioBus) -> float:
@@ -55,7 +55,7 @@ func set_bus_mute(bus_id: AudioBus, mute: bool) -> void:
 	Global.config.audio[bus_id].mute = mute
 	AudioServer.set_bus_mute(bus_id, mute)
 	print("mute bus id: %d" % bus_id)
-	ResUtil.save_config()
+	DataUtil.save_config()
 
 
 func get_bus_mute(bus_id: AudioBus) -> bool:

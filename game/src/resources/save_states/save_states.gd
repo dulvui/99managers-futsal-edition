@@ -44,7 +44,7 @@ func get_active() -> SaveState:
 
 	# load active
 	if active == null and active_id != "":
-		active = ResUtil.load_save_state(active_id)
+		active = DataUtil.load_save_state(active_id)
 		if active == null:
 			print("error while loading save state with id %s, removing it" % active_id)
 			id_list.erase(active_id)
@@ -60,7 +60,7 @@ func delete(state: SaveState) -> void:
 
 	# set next value to active
 	if id_list.size() > 0:
-		active = ResUtil.load_save_state(id_list[-1])
+		active = DataUtil.load_save_state(id_list[-1])
 		active_id = active.id
 	else:
 		active_id = ""
@@ -69,7 +69,7 @@ func delete(state: SaveState) -> void:
 
 # scan for new save states, that not exist in save_states.res yet
 func scan() -> void:
-	var dir: DirAccess = DirAccess.open(ResUtil.SAVE_STATES_PATH)
+	var dir: DirAccess = DirAccess.open(DataUtil.SAVE_STATES_PATH)
 	if dir:
 		dir.list_dir_begin()
 		var file: String = dir.get_next()

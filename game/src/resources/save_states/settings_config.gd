@@ -50,4 +50,4 @@ func _init(
 func set_lang(lang: String) -> void:
 	TranslationServer.set_locale(lang)
 	language = lang
-	ResUtil.save_config()
+	DataUtil.save_config()

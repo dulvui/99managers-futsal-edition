@@ -70,15 +70,15 @@ func initialize() -> void:
 
 
 func delete() -> void:
-	var user_dir: DirAccess = DirAccess.open(ResUtil.SAVE_STATES_PATH)
+	var user_dir: DirAccess = DirAccess.open(DataUtil.SAVE_STATES_PATH)
 	if user_dir:
 		# delete whole folder
-		var err: int = user_dir.change_dir(ResUtil.SAVE_STATES_PATH)
+		var err: int = user_dir.change_dir(DataUtil.SAVE_STATES_PATH)
 		if err == OK and user_dir.dir_exists(id):
 			# move to trash not not implemented on iOS and Web
 			if OS.get_name() in "iOS,Web":
 				user_dir.remove(id + "/")
 			else:
 				OS.move_to_trash(
-					ProjectSettings.globalize_path(ResUtil.SAVE_STATES_PATH + id + "/")
+					ProjectSettings.globalize_path(DataUtil.SAVE_STATES_PATH + id + "/")
 				)

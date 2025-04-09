@@ -36,9 +36,9 @@ func _on_detection_mode_button_item_selected(index: int) -> void:
 	Global.config.input_detection_mode = index as Enum.InputDetectionMode
 	if index == Enum.InputDetectionMode.MANUAL:
 		InputUtil.type = Global.config.input_type
-	ResUtil.save_config()
+	DataUtil.save_config()
 
 
 func _on_type_button_item_selected(index: int) -> void:
 	InputUtil.type = index as Enum.InputType
-	ResUtil.save_config()
+	DataUtil.save_config()

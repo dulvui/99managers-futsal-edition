@@ -46,7 +46,7 @@ func setup(p_save_state: SaveState) -> void:
 		load_button.theme_type_variation = ThemeUtil.BUTTON_NORMAL
 		corrupt_button.theme_type_variation = ThemeUtil.BUTTON_IMPORTANT
 		corrupt_dialog.rich_text_label.text = corrupt_dialog.custom_text.format(
-			{"path": ProjectSettings.globalize_path(ResUtil.SAVE_STATES_PATH + "/" + save_state.id)}
+			{"path": ProjectSettings.globalize_path(DataUtil.SAVE_STATES_PATH + "/" + save_state.id)}
 		)
 
 
@@ -64,8 +64,8 @@ func _on_delete_pressed() -> void:
 
 func _on_delete_dialog_confirmed() -> void:
 	Global.save_states.delete(save_state)
-	ResUtil.save_config()
-	ResUtil.save_save_states()
+	DataUtil.save_config()
+	DataUtil.save_save_states()
 	if Global.save_states.id_list.size() == 0:
 		Main.change_scene(Const.SCREEN_MENU)
 	else:

@@ -335,14 +335,14 @@ func validate_csv_file(file_path: String) -> bool:
 
 
 func save_csv(path: String, csv: Array[PackedStringArray], append: bool = false) -> void:
-	path = ResUtil.SAVE_STATES_PATH + path
+	path = DataUtil.SAVE_STATES_PATH + path
 	# make sure path is lower case
 	path = path.to_lower()
 	# print("saving json %s..." % path)
 
 	# create directory, if not exist yet
 	var dir_path: String = path.get_base_dir()
-	var dir: DirAccess = DirAccess.open(ResUtil.USER_PATH)
+	var dir: DirAccess = DirAccess.open(DataUtil.USER_PATH)
 	if not dir.dir_exists(dir_path):
 		print("dir %s not found, creating now..." % dir_path)
 		var err_dir: Error = dir.make_dir_recursive(dir_path)

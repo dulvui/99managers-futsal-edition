@@ -53,7 +53,7 @@ func _save_all_data() -> void:
 
 func _load_data() -> void:
 	print("load data in thread...")
-	ResUtil.load_save_state_data()
+	DataUtil.load_save_state_data()
 	call_deferred("_loading_done")
 
 

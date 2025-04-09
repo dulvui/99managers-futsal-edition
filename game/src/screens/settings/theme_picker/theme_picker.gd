@@ -30,7 +30,7 @@ func _ready() -> void:
 func _on_option_button_item_selected(index: int) -> void:
 	Main.apply_theme(index)
 	Global.config.theme_index = index
-	ResUtil.save_config()
+	DataUtil.save_config()
 
 
 func _on_font_color_button_pressed() -> void:

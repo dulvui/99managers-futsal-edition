@@ -21,7 +21,7 @@ func _on_defaults_pressed() -> void:
 func _on_default_dialog_confirmed() -> void:
 	general.restore_defaults()
 	input.restore_defaults()
-	ResUtil.save_config()
+	DataUtil.save_config()
 
 
 func _on_back_pressed() -> void:

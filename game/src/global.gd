@@ -43,11 +43,11 @@ var player_silhouette_last_path: String
 
 func _ready() -> void:
 	print("version " + Global.version)
-	config = ResUtil.load_config()
+	config = DataUtil.load_config()
 	TranslationServer.set_locale(config.language)
 	get_tree().root.content_scale_factor = config.theme_scale
 
-	save_states = ResUtil.load_save_states()
+	save_states = DataUtil.load_save_states()
 	RngUtil.setup_rngs()
 
 	generation_warnings = []
@@ -128,10 +128,10 @@ func next_season(save_data: bool = true) -> void:
 
 
 func save_all_data() -> void:
-	ResUtil.save_config()
-	ResUtil.save_save_states()
-	ResUtil.save_save_state()
-	ResUtil.save_save_state_data()
+	DataUtil.save_config()
+	DataUtil.save_save_states()
+	DataUtil.save_save_state()
+	DataUtil.save_save_state_data()
 
 
 func load_save_state() -> bool:
@@ -144,7 +144,7 @@ func load_save_state() -> bool:
 		generation_seed = save_sate.generation_seed
 		generation_state = save_sate.generation_state
 		generation_player_names = save_sate.generation_player_names
-		# ResUtil.load_save_state_data()
+		# DataUtil.load_save_state_data()
 		ThreadUtil.load_data()
 		return true
 

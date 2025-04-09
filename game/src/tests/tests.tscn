@@ -23,7 +23,7 @@ script = ExtResource("1_t2lbh")
 
 [node name="TestMatchUtil" parent="." instance=ExtResource("4_ldc2r")]
 
-[node name="TestResUtil" parent="." instance=ExtResource("8_f2jty")]
+[node name="TestDataUtil" parent="." instance=ExtResource("8_f2jty")]
 
 [node name="TestFormatUtil" parent="." instance=ExtResource("9_p518b")]
 
