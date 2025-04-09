@@ -17,16 +17,6 @@ func _init() -> void:
 	headers = CSVHeaders.new()
 
 
-func initialize_world(csv_path: String, world: World) -> void:
-	var csv: Array[PackedStringArray] = read_csv(csv_path)
-	csv_to_world_only_teams(csv, world)
-
-
-func initialize_players(csv_path: String, world: World) -> void:
-	var csv: Array[PackedStringArray] = read_csv(csv_path)
-	csv_to_world(csv, world)
-
-
 func world_to_csv(world: World) -> Array[PackedStringArray]:
 	var lines: Array[PackedStringArray] = []
 
@@ -87,54 +77,6 @@ func csv_to_world_only_teams(csv: Array[PackedStringArray], world: World) -> voi
 	var league: League = null
 	var team: Team = null
 
-	# remove header
-	csv.pop_front()
-
-	var line_index: int = 0
-	for line: PackedStringArray in csv:
-		line_index += 1
-
-		if line.size() < 3:
-			continue
-
-		# team
-		var nation_code: String = _get_string_or_default(line, 0)
-		var league_name: String = _get_string_or_default(line, 1)
-		var team_name: String = _get_string_or_default(line, 2)
-
-		# nation
-		if nation == null or nation.code != nation_code:
-			nation = world.get_nation_by_code(nation_code)
-		if nation == null:
-			push_error("no nation with code \"%s\" found in line %d" % [nation_code, line_index])
-			continue
-
-		# league
-		if league == null or league.name != league_name:
-			league = League.new()
-			league.set_id()
-			league.name = league_name
-			league.pyramid_level = nation.leagues.size() + 1
-			nation.leagues.append(league)
-
-		# team
-		if team == null or team.name != team_name:
-			team = Team.new()
-			team.set_id()
-			team.name = team_name
-			league.add_team(team)
-
-
-func csv_to_world(csv: Array[PackedStringArray], world: World) -> void:
-	# last values found in last line read
-	# can be reused for next line, since lines most likely are grouped by team
-	var nation: Nation = null
-	var league: League = null
-	var team: Team = null
-
-	# remove header
-	csv.pop_front()
-
 	var line_index: int = 0
 	for line: PackedStringArray in csv:
 		line_index += 1
@@ -150,6 +92,53 @@ func csv_to_world(csv: Array[PackedStringArray], world: World) -> void:
 		var stadium_name: String = _get_string_or_default(line, 4)
 		var stadium_capacity: int = _get_int_or_default(line, 5)
 		var stadium_year_built: int = _get_int_or_default(line, 6)
+
+		# nation
+		if nation == null or nation.code != nation_code:
+			nation = world.get_nation_by_code(nation_code)
+		if nation == null:
+			push_warning("no nation with code \"%s\" found in line %d" % [nation_code, line_index])
+			continue
+
+		# league
+		if league == null or league.name != league_name:
+			league = League.new()
+			league.set_id()
+			league.name = league_name
+			league.pyramid_level = nation.leagues.size() + 1
+			nation.leagues.append(league)
+
+		# team
+		if team == null or team.name != team_name:
+			team = Team.new()
+			team.set_id()
+			team.name = team_name
+			team.finances.balance[-1] = team_budget
+			team.stadium.name = stadium_name
+			team.stadium.capacity = stadium_capacity
+			team.stadium.year_built = stadium_year_built
+
+			league.add_team(team)
+
+
+func csv_to_world(csv: Array[PackedStringArray], world: World) -> void:
+	# last values found in last line read
+	# can be reused for next line, since lines most likely are grouped by team
+	var nation: Nation = null
+	var league: League = null
+	var team: Team = null
+
+	var line_index: int = 0
+	for line: PackedStringArray in csv:
+		line_index += 1
+
+		if line.size() < 3:
+			continue
+
+		# team
+		var nation_code: String = _get_string_or_default(line, 0)
+		var league_name: String = _get_string_or_default(line, 1)
+		var team_name: String = _get_string_or_default(line, 2)
 		# player
 		var name: String = _get_string_or_default(line, 7)
 		var surname: String = _get_string_or_default(line, 8)
@@ -167,36 +156,36 @@ func csv_to_world(csv: Array[PackedStringArray], world: World) -> void:
 		var skintone: String = _get_string_or_default(line, 16)
 
 		# nation
-		if nation == null or nation.code != nation_code:
+		if nation == null:
 			nation = world.get_nation_by_code(nation_code)
+		elif nation_code.length() > 0 and nation.code != nation_code:
+			nation = world.get_nation_by_code(nation_code)
+
 		if nation == null:
 			push_error("no nation with code \"%s\" found in line %d" % [nation_code, line_index])
+			print(line)
+			breakpoint
 			continue
 
 		# league
-		if league == null or league.name != league_name:
-			league = world.get_league_by_name(league_name, nation)
 		if league == null:
-			league = League.new()
-			league.set_id()
-			league.name = league_name
-			league.pyramid_level = nation.leagues.size() + 1
-			nation.leagues.append(league)
+			league = world.get_league_by_name(league_name, nation)
+		elif league_name.length() > 0 and league.name != league_name:
+			league = world.get_league_by_name(league_name, nation)
+
+		if league == null:
+			push_warning("league not found in line %d" % line_index)
+			continue
 
 		# team
-		if team == null or team.name != team_name:
-			team = league.get_team_by_name(team_name)
 		if team == null:
-			team = Team.new()
-			team.set_id()
-			team.name = team_name
-			team.finances.balance[-1] = team_budget
-			team.stadium.name = stadium_name
-			team.stadium.capacity = stadium_capacity
-			team.stadium.year_built = stadium_year_built
+			team = league.get_team_by_name(team_name)
+		elif team_name.length() > 0 and team.name != team_name:
+			team = league.get_team_by_name(team_name)
 
-			league.add_team(team)
-
+		if team == null:
+			push_warning("team not found in line %d" % line_index)
+			continue
 
 		# player
 		if name.is_empty() or surname.is_empty():
@@ -207,7 +196,7 @@ func csv_to_world(csv: Array[PackedStringArray], world: World) -> void:
 		player.name = name
 		player.surname = surname
 		player.value = int(value)
-		player.team = team_name
+		player.team = team.name
 		player.birth_date = FormatUtil.day_from_string(birth_date)
 		player.nation = nationality
 		player.nr = int(nr)
@@ -460,6 +449,34 @@ func _is_valid_string(string: String, text_server: TextServer) -> bool:
 			return true
 		# slash
 		if unicode_char == 47:
+			return true
+		# all type of quotes
+		# '
+		if unicode_char == 39:
+			return true
+		# "
+		if unicode_char == 34:
+			return true
+		# ‘
+		if unicode_char == 8216:
+			return true
+		# ’
+		if unicode_char == 8217:
+			return true
+		# ‛
+		if unicode_char == 8219:
+			return true
+		# “
+		if unicode_char == 8220:
+			return true
+		# ”
+		if unicode_char == 8221:
+			return true
+		# „
+		if unicode_char == 8222:
+			return true
+		# ‟
+		if unicode_char == 8223:
 			return true
 
 		var valid_letter: bool = text_server.is_valid_letter(unicode_char)

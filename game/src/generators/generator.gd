@@ -69,6 +69,9 @@ func initialize_world(world: World, world_file_path: String = Const.WORLD_CSV_PA
 			return false
 	
 	var csv: Array[PackedStringArray] = csv_util.read_csv(world_file_path)
+	# remove header
+	csv.pop_front()
+
 	csv_util.csv_to_world_only_teams(csv, world)
 	
 	# validate world
@@ -82,6 +85,9 @@ func initialize_world(world: World, world_file_path: String = Const.WORLD_CSV_PA
 	var history: GeneratorHistory = GeneratorHistory.new()
 	# first generate clubs history with promotions, delegations, cup wins
 	history.generate_club_history(world)
+
+	# now also read players from, after history generation
+	csv_util.csv_to_world(csv, world)
 
 	# initialize players and other custom team properties after club history
 	# because histroy generation swaps team ids and names

@@ -65,6 +65,7 @@ const POSITION: StringName = "Postition"
 # csv data paths
 const TEST_WORLD_CSV_PATH: String = "res://data/world/test-data.csv"
 const WORLD_CSV_PATH: String = "res://data/world/data.csv"
+const WORLD_CSV_PATH_WITH_PLAYERS: String = "res://data/world/test-data-with-players.csv"
 
 # screens
 const SCREEN_MENU: String = "res://src/screens/menu/menu.tscn"

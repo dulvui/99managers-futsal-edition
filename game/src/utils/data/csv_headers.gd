@@ -23,9 +23,9 @@ const BASE: PackedStringArray = [
 	"main position [G, D, P...]",
 	"alt positions [\"D,C,P\"]",
 	"injury prone [1, 20]",
-	"eye color [hex]",
-	"hair color [hex]",
-	"skintone color [hex]",
+	"eye color [\"hex\"]",
+	"hair color [\"hex\"]",
+	"skintone color [\"hex\"]",
 ]
 
 const PLAYER_ATTRIBUTES_GOALKEEPER: PackedStringArray = [

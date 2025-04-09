@@ -127,7 +127,7 @@ func _is_valid() -> bool:
 
 
 func _on_template_button_pressed() -> void:
-	template_dialog.current_file = Const.WORLD_CSV_PATH
+	template_dialog.current_file = "99managers-futsal-data.csv"
 	template_dialog.popup_centered()
 
 
@@ -144,7 +144,7 @@ func _on_file_dialog_file_selected(path: String) -> void:
 func _on_template_dialog_file_selected(path: String) -> void:
 	var dir_access: DirAccess = DirAccess.open(path.get_base_dir())
 	if dir_access:
-		dir_access.copy(Const.WORLD_CSV_PATH, path)
+		dir_access.copy(Const.WORLD_CSV_PATH_WITH_PLAYERS, path)
 		print("creating backup for %s done." % path)
 	else:
 		print("creating backup for %s gone wrong." % path)
@@ -206,7 +206,7 @@ func _on_continue_pressed() -> void:
 	if not advanced_settings or default_file_button.button_pressed or custom_file_path.is_empty():
 		ThreadUtil.generate_world()
 	else:
-		ThreadUtil.generate_world(custom_file_path)
+		ThreadUtil._generate_world(custom_file_path)
 
 
 func _on_world_generated() -> void:
