@@ -24,7 +24,7 @@ func test_save_world() -> void:
 	var world: World = world_generator.init_world()
 	# generate teams
 	var generator: Generator = Generator.new()
-	var success: bool = generator.generate_teams(world)
+	var success: bool = generator.initialize_world(world)
 	assert(success)
 	print("generating world done...")
 	

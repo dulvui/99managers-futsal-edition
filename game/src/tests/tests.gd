@@ -89,11 +89,11 @@ static func create_mock_world(use_test_file: bool) -> World:
 	var generator: Generator = Generator.new()
 
 	if use_test_file:
-		var test_success: bool = generator.generate_teams(world, Generator.TEST_WORLD_CSV_PATH)
+		var test_success: bool = generator.initialize_world(world, Const.TEST_WORLD_CSV_PATH)
 		assert(test_success)
 		return world
 	
-	var success: bool = generator.generate_teams(world)
+	var success: bool = generator.initialize_world(world)
 	assert(success)
 
 	for c: int in range(2):

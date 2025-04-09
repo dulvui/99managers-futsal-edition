@@ -13,8 +13,6 @@ var start_year: String
 var player_names: Enum.PlayerNames
 var advanced_settings: bool
 
-var world: World
-
 # manager
 @onready var nations: SwitchOptionButton = %Nationality
 @onready var manager_name: LineEdit = %Name
@@ -41,10 +39,6 @@ func _ready() -> void:
 
 	Main.loaded.connect(_on_world_generated)
 	
-	# create world
-	var world_generator: GeneratorWorld = GeneratorWorld.new()
-	world = world_generator.init_world()
-
 	# setup ui components
 	advanced_settings_box.hide()
 	advanced_settings = false
@@ -54,6 +48,9 @@ func _ready() -> void:
 	player_names = Enum.PlayerNames.values()[0]
 	player_names_option.setup(Enum.player_names)
 
+	# create world to get nations
+	var world_generator: GeneratorWorld = GeneratorWorld.new()
+	var world: World = world_generator.init_world()
 	nations.option_button.add_item(tr("Your nationality"))
 	var all_nations: Array[String] = []
 	for nation: Nation in world.get_all_nations(true):
@@ -130,7 +127,7 @@ func _is_valid() -> bool:
 
 
 func _on_template_button_pressed() -> void:
-	template_dialog.current_file = Generator.WORLD_CSV_PATH
+	template_dialog.current_file = Const.WORLD_CSV_PATH
 	template_dialog.popup_centered()
 
 
@@ -147,7 +144,7 @@ func _on_file_dialog_file_selected(path: String) -> void:
 func _on_template_dialog_file_selected(path: String) -> void:
 	var dir_access: DirAccess = DirAccess.open(path.get_base_dir())
 	if dir_access:
-		dir_access.copy(Generator.WORLD_CSV_PATH, path)
+		dir_access.copy(Const.WORLD_CSV_PATH, path)
 		print("creating backup for %s done." % path)
 	else:
 		print("creating backup for %s gone wrong." % path)
@@ -197,8 +194,6 @@ func _on_continue_pressed() -> void:
 	Global.generation_seed = DEFAULT_SEED
 	Global.generation_player_names = player_names
 
-	world.calendar.initialize()
-
 	if advanced_settings:
 		Global.generation_seed = generation_seed
 
@@ -209,9 +204,9 @@ func _on_continue_pressed() -> void:
 	await Main.show_loading_screen(tr("Generating teams and players"))
 
 	if not advanced_settings or default_file_button.button_pressed or custom_file_path.is_empty():
-		ThreadUtil.generate_world(world)
+		ThreadUtil.generate_world()
 	else:
-		ThreadUtil.generate_world(world, custom_file_path)
+		ThreadUtil.generate_world(custom_file_path)
 
 
 func _on_world_generated() -> void:

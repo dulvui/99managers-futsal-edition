@@ -31,11 +31,11 @@ func load_data() -> void:
 	thread.start(_load_data)
 
 
-func generate_world(world: World, world_file_path: String = "") -> void:
+func generate_world(world_file_path: String = Const.WORLD_CSV_PATH) -> void:
 	if thread and thread.is_started():
 		print("thread is already running")
 		return
-	thread.start(_generate_world.bind(world, world_file_path), Thread.Priority.PRIORITY_HIGH)
+	thread.start(_generate_world.bind(world_file_path), Thread.Priority.PRIORITY_HIGH)
 
 
 func random_results() -> void:
@@ -57,43 +57,19 @@ func _load_data() -> void:
 	call_deferred("_loading_done")
 
 
-func _generate_world(world: World, world_file_path: String = "") -> void:
+func _generate_world(world_file_path: String = Const.WORLD_CSV_PATH) -> void:
 	print("generating world in thread...")
-
-	# initialize world with laegues and teams
-	# but only with team name and id
-	# because histroy generation swaps team ids and names
+	var generator_world: GeneratorWorld = GeneratorWorld.new()
 	var generator: Generator = Generator.new()
-	var success: bool = generator.generate_teams(world, world_file_path)
-	# go back if world is not valid
+
+	var world: World = generator_world.init_world()
+	world.calendar.initialize()
+
+	var success: bool = generator.initialize_world(world, world_file_path)
 	if not success:
-		print("error while reading world file %d errors occurred." % Global.generation_errors.size())
 		call_deferred("_loading_done")
 		return
 
-	# assign world
-	Global.world = world
-
-	# history
-	var history: GeneratorHistory = GeneratorHistory.new()
-	# first generate clubs history with promotions, delegations, cup wins
-	history.generate_club_history()
-
-	# initialize players and other custom team properties after club history
-	# because histroy generation swaps team ids and names
-	var success_players: bool = generator.generate_players(world, world_file_path)
-	# go back if players are not valid
-	if not success_players:
-		print("error while reading players from world file %d errors occurred." % Global.generation_errors.size())
-		call_deferred("_loading_done")
-		return
-
-	# then generate player histroy with transfers and statistics
-	history.generate_player_history()
-
-	# create matches
-	var match_util: MatchUtil = MatchUtil.new(world)
-	match_util.initialize_matches()
 	call_deferred("_loading_done")
 
 

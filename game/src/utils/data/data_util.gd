@@ -93,11 +93,6 @@ func save_save_state_data() -> void:
 
 
 func _load_world(save_state: SaveState) -> World:
-	# use generator for continents/nations, but currently not working
-	# var generator: GeneratorWorld = GeneratorWorld.new()
-	# var world: World = generator.init_world()
-	# _load_resource(save_state.id + "/" + DATA_FILE, world)
-
 	# load whole world from csv
 	var world: World = World.new()
 	_load_resource(save_state.id + "/" + DATA_FILE, world)

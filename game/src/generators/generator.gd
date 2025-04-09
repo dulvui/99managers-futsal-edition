@@ -4,9 +4,6 @@
 
 class_name Generator
 
-const TEST_WORLD_CSV_PATH: String = "res://data/world/test-data.csv"
-const WORLD_CSV_PATH: String = "res://data/world/data.csv"
-
 # defines noise added to attribute factors
 const NOISE: int = 3
 
@@ -48,33 +45,28 @@ var max_timestamp: int
 var min_timestamp: int
 
 var names: GeneratorNames
-var csv_util: CSVUtil
 
+func initialize_world(world: World, world_file_path: String = Const.WORLD_CSV_PATH) -> bool:
 
-func _init() -> void:
-	csv_util = CSVUtil.new()
 	# reset warnings/errors
 	Global.generation_warnings = []
 	Global.generation_errors = []
 
+	var csv_util: CSVUtil = CSVUtil.new()
 
-func generate_teams(world: World, world_file_path: String = WORLD_CSV_PATH) -> bool:
 	# check if custom file is used
-	var custom_file: bool = world_file_path != WORLD_CSV_PATH
-	# use default if path is empty
-	if world_file_path.is_empty():
-		world_file_path = WORLD_CSV_PATH
-		custom_file = false
-	
+	var custom_file: bool = world_file_path != Const.WORLD_CSV_PATH
+
 	# read csv and create world, without players
-	csv_util.initialize_world(world_file_path, world)
-	
-	# validate custom files
+	# validate custom file first
 	if custom_file:
 		var is_valid_csv: bool = csv_util.validate_csv_file(world_file_path)
 		if not is_valid_csv:
 			push_error("csv file not valid %s" % world_file_path)
 			return false
+	
+	var csv: Array[PackedStringArray] = csv_util.read_csv(world_file_path)
+	csv_util.csv_to_world_only_teams(csv, world)
 	
 	# validate world
 	var validator: GeneratorValidator = GeneratorValidator.new()
@@ -82,11 +74,84 @@ func generate_teams(world: World, world_file_path: String = WORLD_CSV_PATH) -> b
 	if not is_valid_world:
 		push_error("world not valid %s" % world_file_path)
 		return false
+
+	# history
+	var history: GeneratorHistory = GeneratorHistory.new()
+	# first generate clubs history with promotions, delegations, cup wins
+	history.generate_club_history(world)
+
+	# initialize players and other custom team properties after club history
+	# because histroy generation swaps team ids and names
+	var success_players: bool = _generate_players(world)
+
+	# go back if players are not valid
+	if not success_players:
+		print("error while reading players from world file %d errors occurred." % Global.generation_errors.size())
+		return false
+
+	# then generate player histroy with transfers and statistics
+	history.generate_player_history(world)
+
+	# initialize league promotion/relegation amounts
+	for continent: Continent in world.continents:
+		for nation: Nation in continent.nations:
+			# calculate league size, relegations, promotions and playoffs
+			var leagues_amount: int = nation.leagues.size()
+
+			# promotion/relegation and playoff/playout team amount
+			for i: int in leagues_amount:
+				var league: League = nation.leagues[i]
+
+				# all leagues have playoff teams
+				if league.teams.size() >= 20:
+					league.playoff_teams = 16
+				elif league.teams.size() >= 12:
+					league.playoff_teams = 8
+				else:
+					league.playoff_teams = 4
+
+				# relegation teams for upper leagues, so last league will not have relegations
+				# and direct promotion teams is exact relegation amount from upper league
+				if i > 0:
+					var upper_league: League = nation.leagues[i - 1]
+					if upper_league.teams.size() > 16:
+						upper_league.direct_relegation_teams = 2
+						upper_league.playout_teams = 2
+					elif upper_league.teams.size() > 8:
+						upper_league.direct_relegation_teams = 1
+						upper_league.playout_teams = 2
+					elif upper_league.teams.size() >= 4:
+						upper_league.direct_relegation_teams = 1
+						# no playoffs, since upper league has no playouts
+						# alternative: direct_promotion_teams - 1, if direct_promotion_teams > 0
+						league.playoff_teams = 0
+						upper_league.playout_teams = 0
+					league.direct_promotion_teams = upper_league.direct_relegation_teams
+
+	# initialize national teams
+	for continent: Continent in world.continents:
+		for nation: Nation in continent.nations:
+			# national team
+			nation.team.set_id()
+			nation.team.name = nation.name
+			# add nations best players
+			nation.team.players = world.get_best_players_by_nationality(nation)
+			nation.team.staff = _create_staff(world, nation.team.get_prestige(), nation, 1)
+			nation.team.formation = nation.team.staff.manager.formation
+			# TODO replace with actual national colors
+			_set_random_shirt_colors(nation.team)
+
+	# make world global, needed for matchutil
+	Global.world = world
+
+	# create matches for current season
+	var match_util: MatchUtil = MatchUtil.new(world)
+	match_util.initialize_matches()
 	
 	return true
 
 
-func generate_players(world: World, world_file_path: String = WORLD_CSV_PATH) -> bool:
+func _generate_players(world: World) -> bool:
 	# load player names
 	names = GeneratorNames.new(world)
 
@@ -103,12 +168,6 @@ func generate_players(world: World, world_file_path: String = WORLD_CSV_PATH) ->
 
 	max_date.year -= 30
 	max_timestamp = Time.get_unix_time_from_datetime_dict(max_date)
-	
-
-	# read csv and add players
-	csv_util.initialize_players(world_file_path, world)
-
-	# TODO: validate players
 
 	# generate missing players
 	for continent: Continent in world.continents:
@@ -117,63 +176,7 @@ func generate_players(world: World, world_file_path: String = WORLD_CSV_PATH) ->
 				for team: Team in league.teams:
 					_generate_missing_properties(world, nation, league, team)
 	
-	# national teams
-	for continent: Continent in world.continents:
-		for nation: Nation in continent.nations:
-			# national team
-			nation.team.set_id()
-			nation.team.name = nation.name
-			# add nations best players
-			nation.team.players = world.get_best_players_by_nationality(nation)
-			nation.team.staff = _create_staff(world, nation.team.get_prestige(), nation, 1)
-			nation.team.formation = nation.team.staff.manager.formation
-			# TODO replace with actual national colors
-			_set_random_shirt_colors(nation.team)
-
-	# initialize league promotion/relegation amounts
-	for continent: Continent in world.continents:
-		for nation: Nation in continent.nations:
-			_initialize_leagues(nation)
-
 	return true
-
-
-func _initialize_leagues(nation: Nation) -> void:
-	# calculate league size, relegations, promotions and playoffs
-	var leagues_amount: int = nation.leagues.size()
-
-	if leagues_amount == 0:
-		return
-
-	# promotion/relegation and playoff/playout team amount
-	for i: int in leagues_amount:
-		var league: League = nation.leagues[i]
-
-		# all leagues have playoff teams
-		if league.teams.size() >= 20:
-			league.playoff_teams = 16
-		elif league.teams.size() >= 12:
-			league.playoff_teams = 8
-		else:
-			league.playoff_teams = 4
-
-		# relegation teams for upper leagues, so last league will not have relegations
-		# and direct promotion teams is exact relegation amount from upper league
-		if i > 0:
-			var upper_league: League = nation.leagues[i - 1]
-			if upper_league.teams.size() > 16:
-				upper_league.direct_relegation_teams = 2
-				upper_league.playout_teams = 2
-			elif upper_league.teams.size() > 8:
-				upper_league.direct_relegation_teams = 1
-				upper_league.playout_teams = 2
-			elif upper_league.teams.size() >= 4:
-				upper_league.direct_relegation_teams = 1
-				# no playoffs, since upper league has no playouts
-				# alternative: direct_promotion_teams - 1, if direct_promotion_teams > 0
-				league.playoff_teams = 0
-				upper_league.playout_teams = 0
-			league.direct_promotion_teams = upper_league.direct_relegation_teams
 
 
 func _assign_players_to_team(

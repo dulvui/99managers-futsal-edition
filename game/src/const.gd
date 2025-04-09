@@ -62,6 +62,10 @@ const SEASON_START_MONTH: int = 6
 const SURNAME: StringName = "Surname"
 const POSITION: StringName = "Postition"
 
+# csv data paths
+const TEST_WORLD_CSV_PATH: String = "res://data/world/test-data.csv"
+const WORLD_CSV_PATH: String = "res://data/world/data.csv"
+
 # screens
 const SCREEN_MENU: String = "res://src/screens/menu/menu.tscn"
 const SCREEN_SETTINGS: String = "res://src/screens/settings/settings.tscn"

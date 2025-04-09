@@ -24,9 +24,9 @@ func test_required_properties() -> void:
 	# create world
 	var world_generator: GeneratorWorld = GeneratorWorld.new()
 	var world: World = world_generator.init_world()
-	# generate teams
+	# generate players
 	var generator: Generator = Generator.new()
-	var success: bool = generator.generate_teams(world)
+	var success: bool = generator.initialize_world(world)
 	assert(success)
 
 	assert(world.continents.size() > 0)
@@ -56,7 +56,7 @@ func test_determenistic_generation() -> void:
 	var world: World = world_generator.init_world()
 	# generate teams
 	var generator: Generator = Generator.new()
-	var success: bool = generator.generate_teams(world)
+	var success: bool = generator.initialize_world(world)
 	assert(success)
 
 	# test deterministic generations x time
@@ -70,7 +70,7 @@ func test_determenistic_generation() -> void:
 		var test_world: World = test_world_generator.init_world()
 		# generate teams
 		var test_generator: Generator = Generator.new()
-		var test_success: bool = test_generator.generate_teams(test_world)
+		var test_success: bool = test_generator.initialize_world(test_world)
 		assert(test_success)
 
 		# continents
@@ -142,8 +142,13 @@ func test_history() -> void:
 
 	# generate teams
 	var generator: Generator = Generator.new()
-	var success: bool = generator.generate_teams(world)
+	var success: bool = generator.initialize_world(world)
 	assert(success)
+
+	# history
+	var history: GeneratorHistory = GeneratorHistory.new()
+	# first generate clubs history with promotions, delegations, cup wins
+	history.generate_club_history(world)
 
 	# make sure leagues have still same size after history generation
 	var league_sizes: Dictionary[String, int] = {}
@@ -151,11 +156,6 @@ func test_history() -> void:
 		for nation: Nation in continent.nations:
 			for league: League in nation.leagues:
 				league_sizes[league.name] = league.teams.size()
-
-	# history
-	var history: GeneratorHistory = GeneratorHistory.new()
-	# first generate clubs history with promotions, delegations, cup wins
-	history.generate_club_history(world)
 
 	# check league team sizes
 	for continent: Continent in world.continents:
@@ -178,7 +178,7 @@ func test_errors_and_warnings() -> void:
 	var world: World = world_generator.init_world()
 	# generate teams
 	var generator: Generator = Generator.new()
-	var success: bool = generator.generate_teams(world, TEST_WORLD_CSV_WITH_ERRORS)
+	var success: bool = generator.initialize_world(world, TEST_WORLD_CSV_WITH_ERRORS)
 	assert(not success)
 
 	# TODO check exact error amount
@@ -186,3 +186,4 @@ func test_errors_and_warnings() -> void:
 	assert(Global.generation_warnings.size() > 0)
 
 	print("test: errors and  warnings done.")
+

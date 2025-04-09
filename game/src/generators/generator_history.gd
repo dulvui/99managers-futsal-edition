@@ -8,7 +8,7 @@ class_name GeneratorHistory
 const HISTORY_YEARS: int = 5
 
 
-func generate_club_history(world: World = Global.world) -> void:
+func generate_club_history(world: World) -> void:
 	# TODO world cup history (once national teams exist)
 	# TODO continental national teams cup
 	var match_util: MatchUtil = MatchUtil.new(world)
@@ -105,6 +105,6 @@ func generate_club_history(world: World = Global.world) -> void:
 				matchz.away.name = teams_name_mapping[matchz.away.name]
 
 
-func generate_player_history(_world: World = Global.world) -> void:
+func generate_player_history(_world: World) -> void:
 	pass
 
