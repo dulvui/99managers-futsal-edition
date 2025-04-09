@@ -7,9 +7,11 @@ SPDX-License-Identifier: CC0-1.0
 # Changelog
 Features/issues that are added/solved in specific versions.  
 This tries to follow the [keepachangelog](https://keepachangelog.com/en/1.1.0/) guideline.
+# [0.3.2]
+## [Unreleased]
 
 # [0.3.1]
-## [Unreleased]
+## https://codeberg.org/dulvui/99managers-futsal-edition/releases/tag/v0.3.1
 
 ## Added
 - Player properties and attributes can be defined in custom csv file
