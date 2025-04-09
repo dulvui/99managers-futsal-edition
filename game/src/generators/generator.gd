@@ -46,11 +46,14 @@ var min_timestamp: int
 
 var names: GeneratorNames
 
+
 func initialize_world(world: World, world_file_path: String = Const.WORLD_CSV_PATH) -> bool:
 
 	# reset warnings/errors
 	Global.generation_warnings = []
 	Global.generation_errors = []
+
+	world.calendar.initialize()
 
 	var csv_util: CSVUtil = CSVUtil.new()
 

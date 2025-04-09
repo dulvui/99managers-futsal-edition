@@ -137,18 +137,12 @@ func test_history() -> void:
 	# create world
 	var world_generator: GeneratorWorld = GeneratorWorld.new()
 	var world: World = world_generator.init_world()
-	world.calendar.initialize()
 	Global.world = world
 
 	# generate teams
 	var generator: Generator = Generator.new()
 	var success: bool = generator.initialize_world(world)
 	assert(success)
-
-	# history
-	var history: GeneratorHistory = GeneratorHistory.new()
-	# first generate clubs history with promotions, delegations, cup wins
-	history.generate_club_history(world)
 
 	# make sure leagues have still same size after history generation
 	var league_sizes: Dictionary[String, int] = {}

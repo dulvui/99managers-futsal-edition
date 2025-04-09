@@ -59,11 +59,10 @@ func _load_data() -> void:
 
 func _generate_world(world_file_path: String = Const.WORLD_CSV_PATH) -> void:
 	print("generating world in thread...")
-	var generator_world: GeneratorWorld = GeneratorWorld.new()
 	var generator: Generator = Generator.new()
 
+	var generator_world: GeneratorWorld = GeneratorWorld.new()
 	var world: World = generator_world.init_world()
-	world.calendar.initialize()
 
 	var success: bool = generator.initialize_world(world, world_file_path)
 	if not success:
