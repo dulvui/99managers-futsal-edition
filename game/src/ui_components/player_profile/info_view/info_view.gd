@@ -22,9 +22,10 @@ var team_id: int
 
 func setup(player: Player) -> void:
 	player_name.text = player.get_full_name()
-	pos.text = str(Position.Type.keys()[player.position.type])
+	pos.text = Enum.get_position_type_text(player.position.main)
 	alt_pos.text = str(
-		", ".join(player.alt_positions.map(func(p: Position) -> String: return Position.Type.keys()[p.type]))
+		", ".join(player.position.alternatives.map(func(t: Position.Type) -> String:
+			return Enum.get_position_type_text(t)))
 	)
 	age.text = (
 		"%d - %s"

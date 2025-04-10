@@ -290,7 +290,7 @@ func _sort_players(sort_key: String) -> void:
 func _sort_player(player: Player, key: String) -> Variant:
 	match key:
 		"position":
-			return player.position.type
+			return player.position.main
 		"birth_date":
 			return Time.get_unix_time_from_datetime_dict(player.birth_date)
 		_:
@@ -328,7 +328,7 @@ func _filter() -> void:
 			value = str(filters[key])
 
 			if key == Const.POSITION:
-				if not str(player.position.type) == value:
+				if not str(player.position.main) == value:
 					filter_counter += 1
 			elif not str(player[key.to_lower()]).to_lower().contains(value.to_lower()):
 				filter_counter += 1

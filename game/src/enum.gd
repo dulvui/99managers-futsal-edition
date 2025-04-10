@@ -275,3 +275,59 @@ func get_generation_warning_text(warning: GenerationWarning) -> String:
 			return tr("Team with no name defined in line {line_number}")
 		_:
 			return tr("Undefined warning occurred.")
+
+
+func get_position_type_text(p_type: Position.Type) -> String:
+	match p_type:
+		Position.Type.G:
+			return tr("G")
+		Position.Type.DL:
+			return tr("DL")
+		Position.Type.DC:
+			return tr("DC")
+		Position.Type.DR:
+			return tr("DR")
+		Position.Type.C:
+			return tr("C")
+		Position.Type.WL:
+			return tr("WL")
+		Position.Type.WR:
+			return tr("WR")
+		Position.Type.PL:
+			return tr("PL")
+		Position.Type.PC:
+			return tr("PC")
+		Position.Type.PR:
+			return tr("PR")
+	return ""
+
+
+func get_position_type_from_string(string: String) -> Position.Type:
+	if string == null or string.is_empty():
+		return Position.Type.UNDEFINED
+
+	match string.to_upper():
+		"G":
+			return Position.Type.G
+		"DL":
+			return Position.Type.DL
+		"DC":
+			return Position.Type.DC
+		"DR":
+			return Position.Type.DR
+		"C":
+			return Position.Type.C
+		"WL":
+			return Position.Type.WL
+		"WR":
+			return Position.Type.WR
+		"PL":
+			return Position.Type.PL
+		"PC":
+			return Position.Type.PC
+		"PR":
+			return Position.Type.PR
+		_:
+			return Position.Type.UNDEFINED
+
+

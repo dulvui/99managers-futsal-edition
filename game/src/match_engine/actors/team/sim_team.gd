@@ -167,7 +167,7 @@ func auto_change() -> void:
 		for sim_player: SimPlayer in low_stamina_players:
 			var possible_sub_players: Array[Player] = bench.filter(
 				func(p: Player) -> bool: return (
-					p.position.match_factor(sim_player.player_res.position) >= 0.5
+					p.position.match_factor(sim_player.player_res.position.main) >= 0.5
 				)
 			)
 			if possible_sub_players.size() > 0:

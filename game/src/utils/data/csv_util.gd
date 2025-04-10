@@ -44,10 +44,10 @@ func world_to_csv(world: World) -> Array[PackedStringArray]:
 						player_line.append(str(player.nr))
 						player_line.append(str(player.foot_left))
 						player_line.append(str(player.foot_right))
-						player_line.append(player.position.get_type_text())
+						player_line.append(Enum.get_position_type_text(player.position.main))
 						var alt_positions: Array[StringName] = []
-						for position: Position in player.alt_positions:
-							alt_positions.append(position.get_type_text())
+						for type: Position.Type in player.position.alternatives:
+							alt_positions.append(Enum.get_position_type_text(type))
 						player_line.append(_array_to_csv_list(alt_positions))
 						player_line.append(str(player.injury_factor))
 						# add double quotes so that sheet editors see it as strings and not numbers
@@ -202,35 +202,34 @@ func csv_to_world(csv: Array[PackedStringArray], world: World) -> void:
 		player.nr = int(nr)
 		player.foot_left = int(foot_left)
 		player.foot_right = int(foot_right)
-		player.position = Position.new()
-		player.position.set_type_from_string(position)
-		alt_positions = alt_positions.replace("\"", "")
-		var alt_positions_array: PackedStringArray = alt_positions.split(",")
-		for alt_position_string: String in alt_positions_array:
-			var alt_position: Position = Position.new()
-			alt_position.set_type_from_string(alt_position_string)
-			player.alt_positions.append(alt_position)
 		player.injury_factor = int(injury_factor)
 		# remove quotes
 		player.eyecolor = eyecolor.replace("\"", "")
 		player.haircolor = haircolor.replace("\"", "")
 		player.skintone = skintone.replace("\"", "")
 
+		# positions
+		player.position.main = Enum.get_position_type_from_string(position)
+		alt_positions = alt_positions.replace("\"", "")
+		var alt_positions_array: PackedStringArray = alt_positions.split(",")
+		for alt_position_string: String in alt_positions_array:
+			player.position.alternatives.append(Enum.get_position_type_from_string(alt_position_string))
+
 		# next values are attributes
 		# attributes get set by iterating over attribute name arrays/headers
 		var column_index: int = headers.attributes_start
 		# attributes
 		for attribute: String in headers.PLAYER_ATTRIBUTES_GOALKEEPER:
-			player.attributes.goalkeeper.set(attribute, _get_int_or_default(line, column_index))
+			player.attributes.goalkeeper.set(attribute, _get_attribute_or_default(line, column_index))
 			column_index += 1
 		for attribute: String in headers.PLAYER_ATTRIBUTES_MENTAL:
-			player.attributes.mental.set(attribute, _get_int_or_default(line, column_index))
+			player.attributes.mental.set(attribute, _get_attribute_or_default(line, column_index))
 			column_index += 1
 		for attribute: String in headers.PLAYER_ATTRIBUTES_PHYSICAL:
-			player.attributes.physical.set(attribute, _get_int_or_default(line, column_index))
+			player.attributes.physical.set(attribute, _get_attribute_or_default(line, column_index))
 			column_index += 1
 		for attribute: String in headers.PLAYER_ATTRIBUTES_TECHNICAL:
-			player.attributes.technical.set(attribute, _get_int_or_default(line, column_index))
+			player.attributes.technical.set(attribute, _get_attribute_or_default(line, column_index))
 			column_index += 1
 
 		team.players.append(player)
@@ -504,4 +503,13 @@ func _get_int_or_default(line: PackedStringArray, index: int) -> int:
 	if index >= line.size():
 		return 0
 	return int(line[index])
+
+
+func _get_attribute_or_default(line: PackedStringArray, index: int) -> int:
+	var value: int = _get_int_or_default(line, index)
+	if value < 1:
+		return 0
+	if value > 20:
+		return 0
+	return value
 

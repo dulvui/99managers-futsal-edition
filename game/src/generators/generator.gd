@@ -192,7 +192,7 @@ func _assign_players_to_team(
 	world: World, league: League, team: Team, nation: Nation, prestige: int
 ) -> Team:
 
-	# team has no players or not enough
+	# team not enough players
 	if team.players.size() < Const.TEAM_PLAYERS_AMOUNT_MIN:
 		# lineup
 		for amount: int in team.formation.goalkeeper:
@@ -201,8 +201,9 @@ func _assign_players_to_team(
 			var random_nation: Nation = _get_random_nationality(
 				world, nation, prestige, league.pyramid_level
 			)
-			var player: Player = _create_player(
-				world, random_nation, prestige, position_type, league, team
+			var player: Player = Player.new()
+			_initialize_player(
+				player, random_nation, prestige, league, team, position_type
 			)
 			team.players.append(player)
 		for amount: int in team.formation.defense:
@@ -211,8 +212,9 @@ func _assign_players_to_team(
 			var random_nation: Nation = _get_random_nationality(
 				world, nation, prestige, league.pyramid_level
 			)
-			var player: Player = _create_player(
-				world, random_nation, prestige, position_type, league, team
+			var player: Player = Player.new()
+			_initialize_player(
+				player, random_nation, prestige, league, team, position_type
 			)
 			team.players.append(player)
 		for amount: int in team.formation.center:
@@ -221,8 +223,9 @@ func _assign_players_to_team(
 			var random_nation: Nation = _get_random_nationality(
 				world, nation, prestige, league.pyramid_level
 			)
-			var player: Player = _create_player(
-				world, random_nation, prestige, position_type, league, team
+			var player: Player = Player.new()
+			_initialize_player(
+				player, random_nation, prestige, league, team, position_type
 			)
 			team.players.append(player)
 		for amount: int in team.formation.attack:
@@ -231,8 +234,9 @@ func _assign_players_to_team(
 			var random_nation: Nation = _get_random_nationality(
 				world, nation, prestige, league.pyramid_level
 			)
-			var player: Player = _create_player(
-				world, random_nation, prestige, position_type, league, team
+			var player: Player = Player.new()
+			_initialize_player(
+				player, random_nation, prestige, league, team, position_type
 			)
 			team.players.append(player)
 
@@ -246,8 +250,9 @@ func _assign_players_to_team(
 				var random_nation: Nation = _get_random_nationality(
 					world, nation, prestige, league.pyramid_level
 				)
-				var player: Player = _create_player(
-					world, random_nation, prestige, position_type, league, team
+				var player: Player = Player.new()
+				_initialize_player(
+					player, random_nation, prestige, league, team, position_type
 				)
 				team.players.append(player)
 
@@ -255,32 +260,29 @@ func _assign_players_to_team(
 
 
 func _get_random_defense_position_type() -> Position.Type:
-	var positions: Array[Position.Type] = []
-	positions.append(Position.Type.DC)
-	positions.append(Position.Type.DL)
-	positions.append(Position.Type.DR)
-	return RngUtil.pick_random(positions)
+	return RngUtil.pick_random(Position.defense_types)
 
 
 func _get_random_center_position_type() -> Position.Type:
-	var positions: Array[Position.Type] = []
-	positions.append(Position.Type.C)
-	positions.append(Position.Type.WL)
-	positions.append(Position.Type.WR)
-	return RngUtil.pick_random(positions)
+	return RngUtil.pick_random(Position.center_types)
 
 
 func _get_random_attack_position_type() -> Position.Type:
-	var positions: Array[Position.Type] = []
-	positions.append(Position.Type.PC)
-	positions.append(Position.Type.PL)
-	positions.append(Position.Type.PR)
-	return RngUtil.pick_random(positions)
+	return RngUtil.pick_random(Position.attack_types)
 
 
-func _get_goalkeeper_attributes(age: int, prestige: int, position: Position) -> Goalkeeper:
-	var attributes: Goalkeeper = Goalkeeper.new()
+func _get_random_position_type() -> Position.Type:
+	var all_positions: Array[Position.Type] = []
 
+	all_positions.append(Position.Type.G)
+	all_positions.append_array(Position.defense_types)
+	all_positions.append_array(Position.center_types)
+	all_positions.append_array(Position.attack_types)
+
+	return RngUtil.pick_random(all_positions)
+
+
+func _set_goalkeeper_attributes(attributes: Goalkeeper, age: int, prestige: int, position: Position) -> void:
 	var age_factor: int = _get_age_factor(age)
 	var factor: int = _in_bounds_random(prestige + age_factor)
 
@@ -289,20 +291,22 @@ func _get_goalkeeper_attributes(age: int, prestige: int, position: Position) -> 
 
 	# non-goalkeepers have max potential of 10,
 	# since they could play as goalkeeper in a 4 + 1 field player situation
-	if position.type != Position.Type.G:
+	if position.main != Position.Type.G:
 		max_potential /= 2
 
-	attributes.reflexes = _in_bounds_random(factor, max_potential)
-	attributes.positioning = _in_bounds_random(factor, max_potential)
-	attributes.save_feet = _in_bounds_random(factor, max_potential)
-	attributes.save_hands = _in_bounds_random(factor, max_potential)
-	attributes.diving = _in_bounds_random(factor, max_potential)
-	return attributes
+	if attributes.reflexes == 0:
+		attributes.reflexes = _in_bounds_random(factor, max_potential)
+	if attributes.positioning == 0:
+		attributes.positioning = _in_bounds_random(factor, max_potential)
+	if attributes.save_feet == 0:
+		attributes.save_feet = _in_bounds_random(factor, max_potential)
+	if attributes.save_hands == 0:
+		attributes.save_hands = _in_bounds_random(factor, max_potential)
+	if attributes.diving == 0:
+		attributes.diving = _in_bounds_random(factor, max_potential)
 
 
-func _get_physical(age: int, prestige: int, position: Position) -> Physical:
-	var attributes: Physical = Physical.new()
-
+func _set_physical_attributes(attributes: Physical, age: int, prestige: int, position: Position) -> void:
 	var age_factor: int = _get_physical_age_factor(age)
 
 	var pace_factor: int = _in_bounds_random(prestige + age_factor)
@@ -313,22 +317,24 @@ func _get_physical(age: int, prestige: int, position: Position) -> Physical:
 
 	# goalkeepers have max potential of 10,
 	# since they could play as goalkeeper in a 4 + 1 field player situation
-	if position.type == Position.Type.G:
+	if position.main == Position.Type.G:
 		max_potential /= 2
 
-	attributes.pace = _in_bounds_random(pace_factor, max_potential)
-	attributes.acceleration = _in_bounds_random(pace_factor, max_potential)
-	attributes.resistance = _in_bounds_random(physical_factor, max_potential)
-	attributes.strength = _in_bounds_random(physical_factor, max_potential)
-	attributes.agility = _in_bounds_random(physical_factor, max_potential)
-	attributes.jump = _in_bounds_random(physical_factor, max_potential)
+	if attributes.pace == 0:
+		attributes.pace = _in_bounds_random(pace_factor, max_potential)
+	if attributes.acceleration == 0:
+		attributes.acceleration = _in_bounds_random(pace_factor, max_potential)
+	if attributes.resistance == 0:
+		attributes.resistance = _in_bounds_random(physical_factor, max_potential)
+	if attributes.strength == 0:
+		attributes.strength = _in_bounds_random(physical_factor, max_potential)
+	if attributes.agility == 0:
+		attributes.agility = _in_bounds_random(physical_factor, max_potential)
+	if attributes.jump == 0:
+		attributes.jump = _in_bounds_random(physical_factor, max_potential)
 
-	return attributes
 
-
-func _get_technical(age: int, prestige: int, position: Position) -> Technical:
-	var attributes: Technical = Technical.new()
-
+func _set_technical_attributes(attributes: Technical, age: int, prestige: int, position: Position) -> void:
 	var age_factor: int = _get_age_factor(age)
 
 	# use also pos i calculation
@@ -342,28 +348,38 @@ func _get_technical(age: int, prestige: int, position: Position) -> Technical:
 
 	# goalkeepers have max potential of 10,
 	# since they could play as goalkeeper in a 4 + 1 field player situation
-	if position.type == Position.Type.G:
+	if position.main == Position.Type.G:
 		max_potential /= 2
 
-	attributes.crossing = _in_bounds_random(pass_factor, max_potential)
-	attributes.passing = _in_bounds_random(pass_factor, max_potential)
-	attributes.long_passing = _in_bounds_random(pass_factor, max_potential)
-	attributes.tackling = _in_bounds_random(defense_factor, max_potential)
-	attributes.heading = _in_bounds_random(shoot_factor, max_potential)
-	attributes.interception = _in_bounds_random(defense_factor, max_potential)
-	attributes.shooting = _in_bounds_random(shoot_factor, max_potential)
-	attributes.long_shooting = _in_bounds_random(shoot_factor, max_potential)
-	attributes.free_kick = _in_bounds_random(shoot_factor, max_potential)
-	attributes.penalty = _in_bounds_random(technique_factor, max_potential)
-	attributes.finishing = _in_bounds_random(shoot_factor, max_potential)
-	attributes.dribbling = _in_bounds_random(shoot_factor, max_potential)
-	attributes.blocking = _in_bounds_random(shoot_factor, max_potential)
-	return attributes
+	if attributes.crossing == 0:
+		attributes.crossing = _in_bounds_random(pass_factor, max_potential)
+	if attributes.passing == 0:
+		attributes.passing = _in_bounds_random(pass_factor, max_potential)
+	if attributes.long_passing == 0:
+		attributes.long_passing = _in_bounds_random(pass_factor, max_potential)
+	if attributes.tackling == 0:
+		attributes.tackling = _in_bounds_random(defense_factor, max_potential)
+	if attributes.heading == 0:
+		attributes.heading = _in_bounds_random(shoot_factor, max_potential)
+	if attributes.interception == 0:
+		attributes.interception = _in_bounds_random(defense_factor, max_potential)
+	if attributes.shooting == 0:
+		attributes.shooting = _in_bounds_random(shoot_factor, max_potential)
+	if attributes.long_shooting == 0:
+		attributes.long_shooting = _in_bounds_random(shoot_factor, max_potential)
+	if attributes.free_kick == 0:
+		attributes.free_kick = _in_bounds_random(shoot_factor, max_potential)
+	if attributes.penalty == 0:
+		attributes.penalty = _in_bounds_random(technique_factor, max_potential)
+	if attributes.finishing == 0:
+		attributes.finishing = _in_bounds_random(shoot_factor, max_potential)
+	if attributes.dribbling == 0:
+		attributes.dribbling = _in_bounds_random(shoot_factor, max_potential)
+	if attributes.blocking == 0:
+		attributes.blocking = _in_bounds_random(shoot_factor, max_potential)
 
 
-func _get_mental(age: int, prestige: int) -> Mental:
-	var attribtues: Mental = Mental.new()
-
+func _set_mental_attributes(attribtues: Mental, age: int, prestige: int) -> void:
 	var age_factor: int = _get_age_factor(age)
 
 	var offensive_factor: int = _in_bounds_random(prestige + age_factor)
@@ -371,17 +387,23 @@ func _get_mental(age: int, prestige: int) -> Mental:
 
 	var max_potential: int = _in_bounds_random(prestige)
 
-	attribtues.aggression = _in_bounds_random(defensive_factor, max_potential)
-	attribtues.anticipation = _in_bounds_random(defensive_factor, max_potential)
-	attribtues.marking = _in_bounds_random(defensive_factor, max_potential)
+	if attribtues.aggression == 0:
+		attribtues.aggression = _in_bounds_random(defensive_factor, max_potential)
+	if attribtues.anticipation == 0:
+		attribtues.anticipation = _in_bounds_random(defensive_factor, max_potential)
+	if attribtues.marking == 0:
+		attribtues.marking = _in_bounds_random(defensive_factor, max_potential)
 
-	attribtues.decisions = _in_bounds_random(offensive_factor, max_potential)
-	attribtues.concentration = _in_bounds_random(offensive_factor, max_potential)
-	attribtues.vision = _in_bounds_random(offensive_factor, max_potential)
-	attribtues.workrate = _in_bounds_random(offensive_factor, max_potential)
-	attribtues.offensive_movement = _in_bounds_random(offensive_factor, max_potential)
-
-	return attribtues
+	if attribtues.decisions == 0:
+		attribtues.decisions = _in_bounds_random(offensive_factor, max_potential)
+	if attribtues.concentration == 0:
+		attribtues.concentration = _in_bounds_random(offensive_factor, max_potential)
+	if attribtues.vision == 0:
+		attribtues.vision = _in_bounds_random(offensive_factor, max_potential)
+	if attribtues.workrate == 0:
+		attribtues.workrate = _in_bounds_random(offensive_factor, max_potential)
+	if attribtues.offensive_movement == 0:
+		attribtues.offensive_movement = _in_bounds_random(offensive_factor, max_potential)
 
 
 func _get_physical_age_factor(age: int) -> int:
@@ -402,15 +424,15 @@ func _get_age_factor(age: int) -> int:
 func _get_value(age: int, prestige: int, position: Position) -> int:
 	var age_factor: int = max(min(abs(age - 30), 20), 1)
 	var pos_factor: int = 0
-	if position.type == Position.Type.G:
+	if position.main == Position.Type.G:
 		pos_factor = 5
 	elif (
-		position.type == Position.Type.DC
-		|| position.type == Position.Type.DR
-		|| position.type == Position.Type.DL
+		position.main == Position.Type.DC
+		|| position.main == Position.Type.DR
+		|| position.main == Position.Type.DL
 	):
 		pos_factor = 10
-	elif position.type == Position.Type.WL || position.type == Position.Type.WR:
+	elif position.main == Position.Type.WL || position.main == Position.Type.WR:
 		pos_factor = 15
 	else:
 		pos_factor = 20
@@ -515,20 +537,24 @@ func _create_scout(
 	return scout
 
 
-func _create_player(
-	_world: World,
+func _initialize_player(
+	player: Player,
 	nation: Nation,
 	p_prestige: int,
-	p_position_type: Position.Type,
 	p_league: League,
 	p_team: Team,
-) -> Player:
-	var player: Player = Player.new()
+	p_position: Position.Type = _get_random_position_type(),
+) -> void:
 	player.set_id()
 
 	_set_random_person_values(player, nation)
 
-	random_positions(player, p_position_type)
+	if player.position.main == Position.Type.UNDEFINED:
+		player.position.main =  p_position
+
+	if player.position.alternatives.is_empty():
+		_random_alt_positions(player)
+
 	var prestige: int = _get_player_prestige(p_prestige)
 
 	var birth_date_year: int = player.birth_date.year
@@ -539,62 +565,39 @@ func _create_player(
 	player.league = p_league.name
 	player.league_id = p_league.id
 	player.nation = nation.name
-	player.foot_left = _get_random_foot_right()
-	player.foot_right = _get_random_foot_right()
+	if player.foot_left == 0:
+		player.foot_left = _get_random_foot_right()
+	if player.foot_right == 0:
+		player.foot_right = _get_random_foot_right()
 	player.morality = _get_random_morality()
 	player.form = _get_random_form()
 	player.prestige = prestige
-	player.injury_factor = RngUtil.rng.randi_range(1, 20)
+	if player.injury_factor == 0:
+		player.injury_factor = RngUtil.rng.randi_range(1, 20)
 	# if player is loyal, he doesnt want to leave the club,
 	# otherwise he leaves esaily, also on its own
-	player.loyality = RngUtil.rng.randi_range(1, 20)
-
-	player.attributes = Attributes.new()
-	player.attributes.goalkeeper = _get_goalkeeper_attributes(
-		year - birth_date_year, prestige, player.position
-	)
-	player.attributes.mental = _get_mental(year - birth_date_year, prestige)
-	player.attributes.technical = _get_technical(
-		year - birth_date_year, prestige, player.position
-	)
-	player.attributes.physical = _get_physical(
-		year - birth_date_year, prestige, player.position
-	)
-
-	var statistics: Statistics = Statistics.new()
-	statistics.games_played = 0
-	statistics.goals = 0
-	statistics.assists = 0
-	statistics.yellow_cards = 0
-	statistics.red_cards = 0
-	statistics.average_vote = 0
-	player.statistics = statistics
-	# TODO create history
-
-	return player
+	if player.loyality == 0:
+		player.loyality = RngUtil.rng.randi_range(1, 20)
+	
+	var age: int = year - birth_date_year
+	_set_goalkeeper_attributes(player.attributes.goalkeeper, age, prestige, player.position)
+	_set_mental_attributes(player.attributes.mental, age, prestige)
+	_set_technical_attributes(player.attributes.technical, age, prestige, player.position)
+	_set_physical_attributes(player.attributes.physical, age, prestige, player.position)
 
 
-func random_positions(player: Player, p_position_type: Position.Type) -> void:
-	# assign main positions
-	var position: Position = Position.new()
-	position.type = p_position_type
-	player.position = position
-
+func _random_alt_positions(player: Player) -> void:
 	# TODO should goalkeeper have alt positions?
 	# TODO adapt to make alteratinos more cohereant
 	#      to attributes, like defender should have good defense stats
-	var alt_positions: Array[Position] = []
-	var alt_positions_keys: Array[Variant] = Position.Type.values()
+	var alt_positions: Array[Variant] = Position.Type.values()
 	# remove Position.Type.UNDEFINED
-	alt_positions_keys.pop_back()
-	RngUtil.shuffle(alt_positions_keys)
+	alt_positions.pop_back()
+	RngUtil.shuffle(alt_positions)
 
-	for i: int in RngUtil.rng.randi_range(0, alt_positions_keys.size() - 1):
-		var alt_position: Position = Position.new()
-		alt_position.type = alt_positions_keys[i]
-		alt_positions.append(alt_position)
-
-	player.alt_positions = alt_positions
+	for i: int in RngUtil.rng.randi_range(0, alt_positions.size() - 1):
+		var alt_type: Position.Type = alt_positions[i]
+		player.position.alternatives.append(alt_type)
 
 
 func _get_player_prestige(team_prestige: int) -> int:
@@ -668,23 +671,34 @@ func _generate_missing_properties(
 		temp_team_prestige * 10_000, temp_team_prestige * 100_000
 	)
 
-	# assign players after formation has been choosen, to assign correct players positions
+	# assign missing properties to existing players coming from csv
+	for player: Player in team.players:
+		_initialize_player(player, nation, temp_team_prestige, league, team)
+	
+	# generate missing players
+	# after formation has been choosen, to assign correct players positions
 	_assign_players_to_team(world, league, team, nation, temp_team_prestige)
 
 	team.assign_shirt_numbers()
 
 
 func _set_random_person_values(person: Person, nation: Nation) -> void:
-	person.name = names.get_random_name(nation)
-	person.surname = names.get_random_surnname(nation)
+	if person.name.is_empty():
+		person.name = names.get_random_name(nation)
+	if person.surname.is_empty():
+		person.surname = names.get_random_surnname(nation)
 
 	# random birthday
-	person.birth_date = Time.get_date_dict_from_unix_time(RngUtil.rng.randi_range(min_timestamp, max_timestamp))
+	if person.birth_date.is_empty():
+		person.birth_date = Time.get_date_dict_from_unix_time(RngUtil.rng.randi_range(min_timestamp, max_timestamp))
 
 	# colors
-	person.skintone = RngUtil.pick_random(SKINTONE)
-	person.haircolor = RngUtil.pick_random(HAIR_COLORS)
-	person.eyecolor = RngUtil.pick_random(EYE_COLORS)
+	if person.skintone.is_empty():
+		person.skintone = RngUtil.pick_random(SKINTONE)
+	if person.haircolor.is_empty():
+		person.haircolor = RngUtil.pick_random(HAIR_COLORS)
+	if person.eyecolor.is_empty():
+		person.eyecolor = RngUtil.pick_random(EYE_COLORS)
 
 	# contract
 	# TODO use different contract for differen roles

@@ -22,7 +22,6 @@ extends Person
 @export var foot_left: int
 @export var foot_right: int
 @export var position: Position
-@export var alt_positions: Array[Position]
 @export var attributes: Attributes
 @export var agent: Agent
 
@@ -49,7 +48,6 @@ func _init(
 	p_foot_left: int = 0,
 	p_foot_right: int = 0,
 	p_position: Position = Position.new(),
-	p_alt_positions: Array[Position] = [],
 	p_contract: Contract = Contract.new(),
 	p_attributes: Attributes = Attributes.new(),
 	p_agent: Agent = Agent.new(),
@@ -76,7 +74,6 @@ func _init(
 	foot_left = p_foot_left
 	foot_right = p_foot_right
 	position = p_position
-	alt_positions = p_alt_positions
 	contract = p_contract
 	attributes = p_attributes
 	agent = p_agent
@@ -87,7 +84,7 @@ func get_goalkeeper_attributes() -> int:
 
 
 func get_overall() -> float:
-	if position.type == Position.Type.G:
+	if position.main == Position.Type.G:
 		return attributes.goal_keeper_average()
 	return attributes.field_player_average()
 
@@ -117,9 +114,5 @@ func consume_stamina(speed: float) -> void:
 
 
 func position_match_factor(p_position: Position) -> float:
-	var factor: float = position.match_factor(p_position)
-	for alt_position: Position in alt_positions:
-		var alt_factor: float = alt_position.match_factor(p_position)
-		factor = max(factor, alt_factor)
-	return factor
+	return position.match_factor(p_position.main)
 
