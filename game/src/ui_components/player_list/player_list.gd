@@ -353,7 +353,7 @@ func _on_name_search_text_changed(new_text: String) -> void:
 
 func _on_position_select_item_selected(index: int) -> void:
 	if index > 0:
-		filters[Const.POSITION] = Position.Type.values()[index - 1]
+		filters[Const.POSITION] = str(Position.Type.values()[index - 1])
 	else:
 		filters.erase(Const.POSITION)
 	

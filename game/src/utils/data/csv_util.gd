@@ -163,8 +163,6 @@ func csv_to_world(csv: Array[PackedStringArray], world: World) -> void:
 
 		if nation == null:
 			push_error("no nation with code \"%s\" found in line %d" % [nation_code, line_index])
-			print(line)
-			breakpoint
 			continue
 
 		# league
