@@ -10,6 +10,9 @@ This tries to follow the [keepachangelog](https://keepachangelog.com/en/1.1.0/) 
 # [0.3.2]
 ## [Unreleased]
 
+## Added
+- Missing player attributes coming from csv get generated
+
 # [0.3.1]
 ## https://codeberg.org/dulvui/99managers-futsal-edition/releases/tag/v0.3.1
 
