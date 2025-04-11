@@ -359,6 +359,7 @@ func _teams_switch_sides() -> void:
 
 	field.left_team = away_team
 	field.right_team = home_team
+
 	left_team.left_half = true
 	right_team.left_half = false
 
@@ -377,10 +378,13 @@ func _recover_stamina(minutes: int) -> void:
 
 
 func _on_half_time() -> void:
-	field.ball.set_pos(field.center)
-	_teams_switch_sides()
-	_recover_stamina(15)
 	half_time.emit()
+
+	_recover_stamina(15)
+	_teams_switch_sides()
+	left_team.set_state(TeamStateEnterField.new())
+	right_team.set_state(TeamStateEnterField.new())
+	field.ball.set_pos(field.center)
 
 
 func _on_full_time() -> void:

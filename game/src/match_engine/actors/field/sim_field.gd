@@ -322,3 +322,4 @@ func _check_clock_running() -> void:
 		clock_running = false
 		return
 	clock_running = true
+

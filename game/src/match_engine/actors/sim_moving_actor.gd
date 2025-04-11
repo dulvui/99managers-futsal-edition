@@ -92,9 +92,8 @@ func move() -> void:
 			next_pos = pos.move_toward(destination, speed * Const.SPEED)
 		elif follow_actor != null:
 			next_pos = pos.move_toward(follow_actor.pos, speed * Const.SPEED)
-
-		if speed <= 0:
-			stop()
+	else:
+		stop()
 
 
 func _reset_movents() -> void:

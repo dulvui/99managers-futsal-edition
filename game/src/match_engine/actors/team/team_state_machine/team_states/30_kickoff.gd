@@ -40,11 +40,8 @@ func execute() -> void:
 	if owner.team.has_ball:
 		# pass ball
 		kickoff_pass()
+		owner.team.team_opponents.set_state(TeamStateDefend.new())
 		set_state(TeamStateAttack.new())
-		return
-	else:
-		set_state(TeamStateDefend.new())
-		return
 
 
 func exit() -> void:
