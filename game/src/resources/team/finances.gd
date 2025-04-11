@@ -54,6 +54,13 @@ func update_week(team: Team) -> void:
 
 
 func update_season(team: Team) -> void:
+	var league: League = Global.world.get_league_by_id(team.league_id)
+	# do nothing if team not playing in a league
+	# should not happen
+	if league == null:
+		push_error("team with no league found \"%s\" while updating season finances" % team.name)
+		return
+
 	var total_income: int = 0
 	for i: int in income:
 		total_income += i
@@ -88,7 +95,7 @@ func update_season(team: Team) -> void:
 
 	# TODO only get price money for team
 	# TODO also cups
-	income[-1] += Global.league.price_money
+	income[-1] += league.price_money
 
 	balance[-1] += income[-1]
 
