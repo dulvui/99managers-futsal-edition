@@ -653,8 +653,17 @@ func _generate_missing_properties(
 		team.stadium.capacity = RngUtil.rng.randi_range(
 			temp_team_prestige * 200, temp_team_prestige * 1_000
 		)
-	if team.stadium.year_built == 0:
-		team.stadium.year_built = RngUtil.rng.randi_range(year - 70, year - 1)
+	var	year_built: int = team.stadium.year_built
+	if year_built == 0:
+		year_built = RngUtil.rng.randi_range(year - 70, year - 1)
+		team.stadium.year_built = year_built
+	if team.stadium.year_renewed < year_built:
+		var stadium_age: int = year - year_built
+		# only if stadium is at least 5 years old
+		if stadium_age >= 5:
+			team.stadium.year_renewed = year_built + RngUtil.rng.randi_range(0, year - stadium_age)
+		else:
+			team.stadium.year_renewed = year_built
 
 	team.staff = _create_staff(world, team.get_prestige(), nation, league.pyramid_level)
 

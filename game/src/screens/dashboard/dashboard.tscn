@@ -1,4 +1,4 @@
-[gd_scene load_steps=22 format=3 uid="uid://c8mhb22bae1my"]
+[gd_scene load_steps=23 format=3 uid="uid://c8mhb22bae1my"]
 
 [ext_resource type="Script" uid="uid://isdkorclbxno" path="res://src/screens/dashboard/dashboard.gd" id="2"]
 [ext_resource type="PackedScene" uid="uid://c51vyn54bk7q4" path="res://src/ui_components/visual_calendar/visual_calendar.tscn" id="3"]
@@ -17,6 +17,7 @@
 [ext_resource type="PackedScene" uid="uid://cdrmqgiuv6wf3" path="res://src/ui_components/team_profile/team_profile.tscn" id="13_0hk3g"]
 [ext_resource type="PackedScene" uid="uid://bpvg2vhxml3a1" path="res://src/ui_components/base/confirm_dialog/default_confirm_dialog.tscn" id="14_t4c55"]
 [ext_resource type="PackedScene" uid="uid://dwyn5mtdb3qra" path="res://src/ui_components/visual_finances/visual_finances.tscn" id="15_jfh6w"]
+[ext_resource type="PackedScene" uid="uid://dpfdl6oojbr15" path="res://src/ui_components/visual_stadium/visual_stadium.tscn" id="17_ua0am"]
 
 [sub_resource type="InputEventJoypadButton" id="InputEventJoypadButton_3gkim"]
 button_index = 9
@@ -135,7 +136,6 @@ custom_minimum_size = Vector2(180, 0)
 layout_mode = 2
 size_flags_vertical = 4
 tooltip_text = "Coming soon"
-disabled = true
 text = "Stadium"
 alignment = 0
 script = ExtResource("3_kbasy")
@@ -454,6 +454,10 @@ unique_name_in_owner = true
 visible = false
 layout_mode = 2
 
+[node name="Stadium" parent="HBoxContainer/MainContainer/Main/Content" instance=ExtResource("17_ua0am")]
+unique_name_in_owner = true
+layout_mode = 2
+
 [node name="SaveConfirmDialog" parent="." instance=ExtResource("14_t4c55")]
 unique_name_in_owner = true
 visible = false
@@ -463,6 +467,7 @@ custom_text = "Save the game before exiting?"
 [connection signal="pressed" from="HBoxContainer/PanelContainer/MarginContainer/Buttons/CalendarButton" to="." method="_on_calendar_button_pressed"]
 [connection signal="pressed" from="HBoxContainer/PanelContainer/MarginContainer/Buttons/CompetitionsButton" to="." method="_on_competitions_button_pressed"]
 [connection signal="pressed" from="HBoxContainer/PanelContainer/MarginContainer/Buttons/FinancesButton" to="." method="_on_finances_button_pressed"]
+[connection signal="pressed" from="HBoxContainer/PanelContainer/MarginContainer/Buttons/StadiumButton" to="." method="_on_stadium_button_pressed"]
 [connection signal="pressed" from="HBoxContainer/PanelContainer/MarginContainer/Buttons/FormationButton" to="." method="_on_formation_button_pressed"]
 [connection signal="pressed" from="HBoxContainer/PanelContainer/MarginContainer/Buttons/PlayersButton" to="." method="_on_players_button_pressed"]
 [connection signal="pressed" from="HBoxContainer/PanelContainer/MarginContainer/Buttons/SearchPlayerButton" to="." method="_on_search_player_button_pressed"]

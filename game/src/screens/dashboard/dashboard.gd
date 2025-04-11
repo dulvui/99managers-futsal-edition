@@ -18,6 +18,7 @@ enum ContentViews {
 	PLAYER_PROFILE,
 	TEAM_PROFILE,
 	FINANCES,
+	STADIUM,
 }
 
 const DASHBOARD_DAY_DELAY: float = 0.5
@@ -56,6 +57,7 @@ var active_view: ContentViews = ContentViews.EMAIL
 @onready var player_profile: PlayerProfile = %PlayerProfile
 @onready var team_profile: TeamProfile = %TeamProfile
 @onready var finances: VisualFinances = %Finances
+@onready var stadium: VisualStadium = %Stadium
 
 # confirm dialogs
 @onready var save_confirm_dialog: DefaultConfirmDialog = %SaveConfirmDialog
@@ -86,6 +88,8 @@ func _ready() -> void:
 	if Global.world.calendar.is_season_finished():
 		next_season = true
 		continue_button.text = tr("Next season")
+	
+	stadium.setup(Global.team.stadium)
 
 	_show_active_view()
 	email_button.grab_focus()
@@ -149,6 +153,10 @@ func _on_finances_button_pressed() -> void:
 	_show_active_view(ContentViews.FINANCES)
 
 
+func _on_stadium_button_pressed() -> void:
+	_show_active_view(ContentViews.STADIUM)
+
+
 func _on_all_player_list_select_player(player: Player) -> void:
 	player_profile.set_player(player)
 	_show_active_view(ContentViews.PLAYER_PROFILE)
@@ -169,7 +177,8 @@ func _on_player_link(p_player: Player) -> void:
 	_show_active_view(ContentViews.PLAYER_PROFILE)
 
 
-func _hide_all() -> void:
+func _show_active_view(p_active_view: int = -1, from_history: bool = false) -> void:
+	# hide all views
 	competitions.hide()
 	email.hide()
 	visual_calendar.hide()
@@ -182,13 +191,13 @@ func _hide_all() -> void:
 	player_profile.hide()
 	team_profile.hide()
 	finances.hide()
+	stadium.hide()
 
-
-func _show_active_view(p_active_view: int = -1, from_history: bool = false) -> void:
-	_hide_all()
+	# set active view
 	if p_active_view > -1:
 		active_view = p_active_view as ContentViews
 
+	# show active view
 	match active_view:
 		ContentViews.EMAIL:
 			email.show()
@@ -214,9 +223,12 @@ func _show_active_view(p_active_view: int = -1, from_history: bool = false) -> v
 			contract_offer.show()
 		ContentViews.FINANCES:
 			finances.show()
+		ContentViews.STADIUM:
+			stadium.show()
 		_:
 			email.show()
 
+	# add to history
 	if not from_history:
 		# overwrite history, if other view clicked, while in prevois view
 		if view_history_index < view_history.size() - 1:
@@ -233,8 +245,6 @@ func _show_active_view(p_active_view: int = -1, from_history: bool = false) -> v
 
 func _on_continue_button_pressed() -> void:
 	_next_day()
-	# remove comment to test player progress
-	# PlayerProgress.update_players()
 
 
 func _on_next_match_button_pressed() -> void:
@@ -368,3 +378,4 @@ func _on_save_confirm_dialog_confirmed() -> void:
 
 func _on_save_confirm_dialog_denied() -> void:
 	Main.change_scene(Const.SCREEN_MENU)
+
