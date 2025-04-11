@@ -148,6 +148,16 @@ static func create_mock_player(nr: int = randi_range(1, 99)) -> Player:
 	player.contract.start_date = Time.get_date_dict_from_system()
 	player.contract.end_date = Time.get_date_dict_from_system()
 
+	# attributes
+	for attribute: String in Const.PLAYER_ATTRIBUTES_GOALKEEPER:
+		player.attributes.goalkeeper.set(attribute, 20)
+	for attribute: String in Const.PLAYER_ATTRIBUTES_MENTAL:
+		player.attributes.mental.set(attribute, 20)
+	for attribute: String in Const.PLAYER_ATTRIBUTES_PHYSICAL:
+		player.attributes.physical.set(attribute, 20)
+	for attribute: String in Const.PLAYER_ATTRIBUTES_TECHNICAL:
+		player.attributes.technical.set(attribute, 20)
+
 	return player
 
 

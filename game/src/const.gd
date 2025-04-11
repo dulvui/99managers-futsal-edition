@@ -91,3 +91,73 @@ const SCENE_MATCH_INFO: String = "res://src/ui_components/visual_calendar/match_
 const CUSTOM_PROPERTY: int = 4096
 const CUSTOM_PROPERTY_EXPORT: int = 4102
 const CUSTOM_PROPERTY_EXPORT_ENUM: int = 69638
+
+
+const CSV_HEADERS: PackedStringArray = [
+	"nation [iso code]",
+	"league name",
+	"team name",
+	"budget [0, 999_999_999]",
+	"stadium name",
+	"stadium capacity [200, 20_000]",
+	"stadium construction year [yyyy]",
+	"player first name",
+	"player surname",
+	"value [€, $,...]",
+	"birth_date [dd/mm/yyyy]",
+	"nationality [iso code]",
+	"shirt number [1, 99]",
+	"foot left [1, 20]",
+	"foot right [1, 20]",
+	"main position [G, D, P...]",
+	"alt positions [\"D,C,P\"]",
+	"injury prone [1, 20]",
+	"eye color [\"hex\"]",
+	"hair color [\"hex\"]",
+	"skintone color [\"hex\"]",
+]
+
+const PLAYER_ATTRIBUTES_GOALKEEPER: PackedStringArray = [
+	"reflexes",
+	"positioning",
+	"save_feet",
+	"save_hands",
+	"diving",
+]
+
+const PLAYER_ATTRIBUTES_MENTAL: PackedStringArray = [
+	"aggression",
+	"anticipation",
+	"decisions",
+	"concentration",
+	"vision",
+	"workrate",
+	"offensive_movement",
+	"marking",
+]
+
+const PLAYER_ATTRIBUTES_PHYSICAL: PackedStringArray = [
+	"pace",
+	"acceleration",
+	"stamina",
+	"strength",
+	"agility",
+	"jump",
+]
+
+const PLAYER_ATTRIBUTES_TECHNICAL: PackedStringArray = [
+	"crossing",
+	"passing",
+	"long_passing",
+	"tackling",
+	"heading",
+	"interception",
+	"shooting",
+	"long_shooting",
+	"free_kick",
+	"penalty",
+	"finishing",
+	"dribbling",
+	"blocking",
+]
+

@@ -9,12 +9,20 @@ const COMPRESSION_MODE: FileAccess.CompressionMode = FileAccess.CompressionMode.
 const MAX_FILE_SIZE: int = 1_000_000 # 100MB
 
 var backup_util: BackupUtil
-var headers: CSVHeaders
+
+# headers
+var headers: PackedStringArray
 
 
 func _init() -> void:
 	backup_util = BackupUtil.new()
-	headers = CSVHeaders.new()
+
+	headers = PackedStringArray()
+	headers.append_array(Const.CSV_HEADERS)
+	headers.append_array(Const.PLAYER_ATTRIBUTES_GOALKEEPER)
+	headers.append_array(Const.PLAYER_ATTRIBUTES_MENTAL)
+	headers.append_array(Const.PLAYER_ATTRIBUTES_PHYSICAL)
+	headers.append_array(Const.PLAYER_ATTRIBUTES_TECHNICAL)
 
 
 func world_to_csv(world: World) -> Array[PackedStringArray]:
@@ -56,15 +64,15 @@ func world_to_csv(world: World) -> Array[PackedStringArray]:
 						player_line.append("\"%s\"" % player.skintone)
 
 						# attributes
-						player_line.append_array(res_to_line(player.attributes.goalkeeper, headers.PLAYER_ATTRIBUTES_GOALKEEPER))
-						player_line.append_array(res_to_line(player.attributes.mental, headers.PLAYER_ATTRIBUTES_MENTAL))
-						player_line.append_array(res_to_line(player.attributes.physical, headers.PLAYER_ATTRIBUTES_PHYSICAL))
-						player_line.append_array(res_to_line(player.attributes.technical, headers.PLAYER_ATTRIBUTES_TECHNICAL))
+						player_line.append_array(res_to_line(player.attributes.goalkeeper, Const.PLAYER_ATTRIBUTES_GOALKEEPER))
+						player_line.append_array(res_to_line(player.attributes.mental, Const.PLAYER_ATTRIBUTES_MENTAL))
+						player_line.append_array(res_to_line(player.attributes.physical, Const.PLAYER_ATTRIBUTES_PHYSICAL))
+						player_line.append_array(res_to_line(player.attributes.technical, Const.PLAYER_ATTRIBUTES_TECHNICAL))
 
 						lines.append(player_line)
 
 	var csv: Array[PackedStringArray] = []
-	csv.append(headers.list)
+	csv.append(headers)
 	csv.append_array(lines)
 
 	return csv
@@ -215,18 +223,18 @@ func csv_to_world(csv: Array[PackedStringArray], world: World) -> void:
 
 		# next values are attributes
 		# attributes get set by iterating over attribute name arrays/headers
-		var column_index: int = headers.attributes_start
+		var column_index: int = Const.CSV_HEADERS.size()
 		# attributes
-		for attribute: String in headers.PLAYER_ATTRIBUTES_GOALKEEPER:
+		for attribute: String in Const.PLAYER_ATTRIBUTES_GOALKEEPER:
 			player.attributes.goalkeeper.set(attribute, _get_attribute_or_default(line, column_index))
 			column_index += 1
-		for attribute: String in headers.PLAYER_ATTRIBUTES_MENTAL:
+		for attribute: String in Const.PLAYER_ATTRIBUTES_MENTAL:
 			player.attributes.mental.set(attribute, _get_attribute_or_default(line, column_index))
 			column_index += 1
-		for attribute: String in headers.PLAYER_ATTRIBUTES_PHYSICAL:
+		for attribute: String in Const.PLAYER_ATTRIBUTES_PHYSICAL:
 			player.attributes.physical.set(attribute, _get_attribute_or_default(line, column_index))
 			column_index += 1
-		for attribute: String in headers.PLAYER_ATTRIBUTES_TECHNICAL:
+		for attribute: String in Const.PLAYER_ATTRIBUTES_TECHNICAL:
 			player.attributes.technical.set(attribute, _get_attribute_or_default(line, column_index))
 			column_index += 1
 
@@ -275,7 +283,7 @@ func validate_csv_file(file_path: String) -> bool:
 	# validate header row CONTINENT, NATION, CITY, TEAM
 	# check size
 	var header_line: PackedStringArray = file.get_csv_line()
-	if header_line.size() != headers.size:
+	if header_line.size() != headers.size():
 		push_error("error csv file has wrong header amount")
 		Global.generation_errors.append(Enum.GenerationError.ERR_CSV_HEADER_SIZE)
 		return false
@@ -285,8 +293,8 @@ func validate_csv_file(file_path: String) -> bool:
 		var header: String = header_line[i]
 		header = header.to_lower()
 		header = header.strip_edges()
-		if header != headers.list[i].to_lower():
-			push_error("error csv header wrong format. expecetd %s but found %s" % [headers.list[i], header])
+		if header != headers[i].to_lower():
+			push_error("error csv header wrong format. expecetd %s but found %s" % [headers[i], header])
 			Global.generation_errors.append(Enum.GenerationError.ERR_CSV_HEADER_FORMAT)
 			return false
 
@@ -306,7 +314,7 @@ func validate_csv_file(file_path: String) -> bool:
 			return false
 	
 		# check columns size same as headers
-		if line.size() > headers.size or line.size() == 0:
+		if line.size() > headers.size() or line.size() == 0:
 			push_error("wrong column size in row %d" % error)
 			Global.generation_errors.append(Enum.GenerationError.ERR_COLUMN_SIZE)
 			return false
