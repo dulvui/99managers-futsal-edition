@@ -1,29 +1,31 @@
 [preset.0]
 
-name="Linux/X11"
-platform="Linux/X11"
+name="Linux"
+platform="Linux"
 runnable=true
+advanced_options=false
 dedicated_server=false
 custom_features=""
 export_filter="all_resources"
 include_filter="*.csv"
 exclude_filter=""
 export_path=""
+patches=PackedStringArray()
 encryption_include_filters=""
 encryption_exclude_filters=""
+seed=0
 encrypt_pck=false
 encrypt_directory=false
+script_export_mode=2
 
 [preset.0.options]
 
 custom_template/debug=""
 custom_template/release=""
 debug/export_console_wrapper=1
-binary_format/embed_pck=true
-texture_format/bptc=true
-texture_format/s3tc=true
-texture_format/etc=false
-texture_format/etc2=false
+binary_format/embed_pck=false
+texture_format/s3tc_bptc=true
+texture_format/etc2_astc=false
 binary_format/architecture="x86_64"
 ssh_remote_deploy/enabled=false
 ssh_remote_deploy/host="user@host_ip"
