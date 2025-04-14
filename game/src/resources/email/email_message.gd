@@ -26,7 +26,7 @@ enum Type {
 @export var text: String
 @export var sender: String
 @export var receiver: String
-@export var date: String
+@export var date: Dictionary
 @export var read: bool
 @export var starred: bool
 
@@ -38,7 +38,7 @@ func _init(
 	p_text: String = "",
 	p_sender: String = "",
 	p_reveiver: String = "",
-	p_date: String = "",
+	p_date: Dictionary = {},
 	p_read: bool = false,
 	p_starred: bool = false,
 ) -> void:

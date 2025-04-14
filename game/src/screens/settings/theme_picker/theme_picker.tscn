@@ -24,6 +24,7 @@ label_settings = ExtResource("1_haxqt")
 
 [node name="OptionButton" parent="Defaut" instance=ExtResource("3_ykm8n")]
 unique_name_in_owner = true
+custom_minimum_size = Vector2(240, 30)
 layout_mode = 2
 
 [node name="Custom" type="VBoxContainer" parent="."]

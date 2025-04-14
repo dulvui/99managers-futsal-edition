@@ -5,8 +5,19 @@
 extends Node
 
 enum Currencies { EURO, DOLLAR, POUND, BITCOIN }
+enum Dates {
+	DMY_SLASH, DMY_DOT, DMY_HYPHEN,
+	MDY_SLASH, MDY_DOT, MDY_HYPHEN,
+	YMD_SLASH,
+}
 
-const SIGNS: Array = ["€", "$", "£", "₿"]
+const SIGNS: Array[String] = ["€", "$", "£", "₿"]
+const SIGNS_TEXT: Array[String] = ["Euro €", "Dollar $", "Pound £", "Bitcoin ₿"]
+const DATES_EXAMPLES: Array[String] = [
+	"31/12/2000","31.12.2000","31-12-2000",
+	"12/31/2000","12.31.2000","12-31-2000",
+	"2000-12-31",
+]
 
 
 func currency(amount: int) -> String:
@@ -23,9 +34,31 @@ func day(p_date: Dictionary) -> String:
 
 
 func date(p_day: int, p_month: int, p_year: int = -1) -> String:
+	# short
 	if p_year == -1:
-		return "%d/%d" % [p_day, p_month]
-	return "%d/%d/%d" % [p_day, p_month, p_year % 1000]
+		match Global.config.date:
+			Dates.DMY_SLASH, Dates.DMY_DOT, Dates.DMY_HYPHEN, Dates.YMD_SLASH:
+				return "%d/%d" % [p_day, p_month]
+			_:
+				return "%d/%d" % [p_month, p_month]
+	# long
+	match Global.config.date:
+		Dates.DMY_SLASH:
+			return "%d/%d/%d" % [p_day, p_month, p_year % 1000]
+		Dates.DMY_DOT:
+			return "%d.%d.%d" % [p_day, p_month, p_year % 1000]
+		Dates.DMY_HYPHEN:
+			return "%d-%d-%d" % [p_day, p_month, p_year % 1000]
+		Dates.MDY_SLASH:
+			return "%d/%d/%d" % [p_month, p_day, p_year % 1000]
+		Dates.MDY_DOT:
+			return "%d.%d.%d" % [p_month, p_day, p_year % 1000]
+		Dates.MDY_HYPHEN:
+			return "%d-%d-%d" % [p_month, p_day, p_year % 1000]
+		Dates.YMD_SLASH:
+			return "%d-%d-%d" % [p_year, p_month, p_day]
+		_:
+			return "%d/%d/%d" % [p_day, p_month, p_year % 1000]
 
 
 func day_from_string(p_date: String) -> Dictionary:

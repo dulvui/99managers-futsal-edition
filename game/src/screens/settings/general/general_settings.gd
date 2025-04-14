@@ -10,9 +10,14 @@ extends VBoxContainer
 @onready var font_size_spinbox: SpinBox = %FontSizeSpinBox
 @onready var screen_fade_button: CheckButton = %ScreenFadeButton
 @onready var theme_picker: ThemePicker = %ThemePicker
+# scale
 @onready var scale_button_1: DefaultButton = %Scale1
 @onready var scale_button_2: DefaultButton = %Scale2
 @onready var scale_button_3: DefaultButton = %Scale3
+# formats
+@onready var date_button: SwitchOptionButton = %DatesOptionsButton
+@onready var currency_button: SwitchOptionButton = %CurrenciesOptionsButton
+@onready var formats_example_label: Label = %FormatsExample
 
 
 func _ready() -> void:
@@ -28,6 +33,11 @@ func _ready() -> void:
 	scale_button_1.button_pressed = Global.config.theme_scale == Const.SCALE_1
 	scale_button_2.button_pressed = Global.config.theme_scale == Const.SCALE_2
 	scale_button_3.button_pressed = Global.config.theme_scale == Const.SCALE_3
+
+	date_button.setup(FormatUtil.DATES_EXAMPLES, Global.config.date)
+	currency_button.setup(FormatUtil.SIGNS_TEXT, Global.config.currency)
+
+	formats_example_label.text = "%s   %s" % [FormatUtil.date(31, 12, 2000), FormatUtil.currency(1234)]
 
 
 func restore_defaults() -> void:
@@ -92,3 +102,19 @@ func _on_ui_sfx_volume_slider_drag_ended(value_changed: bool) -> void:
 		)
 		SoundUtil.play_button_sfx()
 		DataUtil.save_config()
+
+
+func _on_translations_link_meta_clicked(_meta: Variant) -> void:
+	SoundUtil.play_button_sfx()
+	OS.shell_open("https://hosted.weblate.org/projects/99-managers-futsal-edition/game/")
+
+func _on_currencies_options_button_item_selected(index: int) -> void:
+	Global.config.currency = index as FormatUtil.Currencies
+	formats_example_label.text = "%s   %s" % [FormatUtil.date(31, 12, 2000), FormatUtil.currency(1234)]
+	DataUtil.save_config()
+
+func _on_dates_options_button_item_selected(index: int) -> void:
+	Global.config.date = index as FormatUtil.Dates
+	formats_example_label.text = "%s   %s" % [FormatUtil.date(31, 12, 2000), FormatUtil.currency(1234)]
+	DataUtil.save_config()
+

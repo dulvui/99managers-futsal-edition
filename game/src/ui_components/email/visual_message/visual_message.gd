@@ -25,7 +25,7 @@ func show_message(p_message: EmailMessage) -> void:
 	subject.text = message.subject
 	sender.text = message.sender
 	receiver.set_text(message.receiver)
-	date.text = message.date
+	date.text = FormatUtil.day(message.date)
 	text.text = message.text
 
 	if message.type == EmailMessage.Type.CONTRACT_OFFER:

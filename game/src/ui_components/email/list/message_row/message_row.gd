@@ -25,7 +25,7 @@ func setup(p_message: EmailMessage, index: int) -> void:
 
 	subject_label.set_text(message.subject)
 	sender_label.set_text(message.sender)
-	date_label.set_text(message.date)
+	date_label.set_text(FormatUtil.day(message.date))
 	
 	star.button_pressed = message.starred
 	_star_color()

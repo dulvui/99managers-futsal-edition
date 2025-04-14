@@ -206,4 +206,3 @@ func _on_world_generated() -> void:
 func _on_back_pressed() -> void:
 	Main.change_scene(Const.SCREEN_MENU)
 
-

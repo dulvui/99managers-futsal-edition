@@ -6,7 +6,8 @@ class_name SettingsConfig
 extends JSONResource
 
 @export var language: String
-@export var currency: int
+@export var currency: FormatUtil.Currencies
+@export var date: FormatUtil.Dates
 @export var audio: Dictionary
 @export var input_detection_mode: Enum.InputDetectionMode
 @export var input_type: Enum.InputType
@@ -21,7 +22,8 @@ extends JSONResource
 
 func _init(
 	p_language: String = "",
-	p_currency: int = FormatUtil.Currencies.EURO,
+	p_currency: FormatUtil.Currencies = FormatUtil.Currencies.EURO,
+	p_date: FormatUtil.Dates = FormatUtil.Dates.DMY_SLASH,
 	p_audio: Dictionary = {},
 	p_input_detection_mode: Enum.InputDetectionMode = Enum.InputDetectionMode.AUTO,
 	p_input_type: Enum.InputType = Enum.InputType.MOUSE_AND_KEYBOARD,
@@ -35,6 +37,7 @@ func _init(
 ) -> void:
 	language = p_language
 	currency = p_currency
+	date = p_date
 	audio = p_audio
 	input_detection_mode = p_input_detection_mode
 	input_type = p_input_type

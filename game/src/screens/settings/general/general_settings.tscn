@@ -4,7 +4,7 @@
 [ext_resource type="Script" uid="uid://ciy03xjqjdkwp" path="res://src/screens/settings/general/general_settings.gd" id="1_gl78q"]
 [ext_resource type="PackedScene" uid="uid://djrvl8pvkr7aa" path="res://src/screens/settings/language_picker/language_picker.tscn" id="2_p1exx"]
 [ext_resource type="Script" uid="uid://cnyyowwlb04kl" path="res://src/ui_components/base/defaults/default_button.gd" id="3_n2piq"]
-[ext_resource type="LabelSettings" uid="uid://c5yfa40ut1pyv" path="res://theme_base/label/label_settings.tres" id="4_jbix3"]
+[ext_resource type="PackedScene" uid="uid://b2mwv4cl5sm6t" path="res://src/ui_components/base/swtich_option_button/switch_option_button.tscn" id="4_1qk6n"]
 [ext_resource type="PackedScene" uid="uid://can4wvc3g3b84" path="res://src/screens/settings/theme_picker/theme_picker.tscn" id="6_ryj47"]
 
 [sub_resource type="ButtonGroup" id="ButtonGroup_1qk6n"]
@@ -32,17 +32,62 @@ theme_override_constants/separation = 15
 layout_mode = 2
 alignment = 0
 
-[node name="TranslationInstructions" type="Label" parent="Langauge"]
+[node name="TranslationsLink" type="RichTextLabel" parent="Langauge"]
 layout_mode = 2
-text = "You can fix errors or add new languages easily on Weblate, just click on the link below."
-label_settings = ExtResource("4_jbix3")
-autowrap_mode = 2
+bbcode_enabled = true
+text = "You can fix errors or add new languages on [url]weblate.org[/url]"
+fit_content = true
+scroll_active = false
 
-[node name="TranslationsLink" type="LinkButton" parent="Langauge"]
+[node name="FormatsLabel" type="Label" parent="."]
+layout_mode = 2
+text = "Formats"
+label_settings = ExtResource("1_6o6h0")
+
+[node name="Formats" type="VBoxContainer" parent="."]
+layout_mode = 2
+
+[node name="Dates" type="HBoxContainer" parent="Formats"]
+layout_mode = 2
+
+[node name="DatesLabel" type="Label" parent="Formats/Dates"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "Dates"
+
+[node name="DatesOptionsButton" parent="Formats/Dates" instance=ExtResource("4_1qk6n")]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(240, 30)
+layout_mode = 2
+
+[node name="Currencies" type="HBoxContainer" parent="Formats"]
+layout_mode = 2
+
+[node name="CurrenciesLabel" type="Label" parent="Formats/Currencies"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "Currencies"
+
+[node name="CurrenciesOptionsButton" parent="Formats/Currencies" instance=ExtResource("4_1qk6n")]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(240, 30)
+layout_mode = 2
+
+[node name="FormatsExample" type="HBoxContainer" parent="Formats"]
+layout_mode = 2
+
+[node name="FormatsExampleLabel" type="Label" parent="Formats/FormatsExample"]
 auto_translate_mode = 2
 layout_mode = 2
-text = "weblate.org"
-uri = "https://hosted.weblate.org/engage/99-managers-futsal-edition/"
+size_flags_horizontal = 3
+size_flags_vertical = 6
+text = "Example"
+
+[node name="FormatsExample" type="Label" parent="Formats/FormatsExample"]
+unique_name_in_owner = true
+auto_translate_mode = 2
+layout_mode = 2
+text = "31.12.00 - 1234€"
 
 [node name="Audio" type="VBoxContainer" parent="."]
 layout_mode = 2
@@ -184,6 +229,9 @@ size_flags_horizontal = 3
 text = "v1.0.0"
 horizontal_alignment = 2
 
+[connection signal="meta_clicked" from="Langauge/TranslationsLink" to="." method="_on_translations_link_meta_clicked"]
+[connection signal="item_selected" from="Formats/Dates/DatesOptionsButton" to="." method="_on_dates_options_button_item_selected"]
+[connection signal="item_selected" from="Formats/Currencies/CurrenciesOptionsButton" to="." method="_on_currencies_options_button_item_selected"]
 [connection signal="drag_ended" from="Audio/UISfx/UISfxVolumeSlider" to="." method="_on_ui_sfx_volume_slider_drag_ended"]
 [connection signal="value_changed" from="Interface/FontSize/FontSizeSpinBox" to="." method="_on_font_size_spin_box_value_changed"]
 [connection signal="pressed" from="Interface/FontSize/FontDefaultButton" to="." method="_on_font_default_button_pressed"]
