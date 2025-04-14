@@ -71,7 +71,6 @@ unique_name_in_owner = true
 custom_minimum_size = Vector2(200, 0)
 layout_mode = 2
 size_flags_horizontal = 4
-tooltip_text = "Name and surname missing"
 theme_type_variation = &"ImportantButton"
 text = "Continue"
 script = ExtResource("3_g76wv")
@@ -324,9 +323,6 @@ type = 2
 
 [connection signal="pressed" from="MarginContainer/VBoxContainer/TopBar/Back" to="." method="_on_back_pressed"]
 [connection signal="pressed" from="MarginContainer/VBoxContainer/TopBar/Continue" to="." method="_on_continue_pressed"]
-[connection signal="text_changed" from="MarginContainer/VBoxContainer/Main/Manager/Manager/Container/Name" to="." method="_on_name_text_changed"]
-[connection signal="text_changed" from="MarginContainer/VBoxContainer/Main/Manager/Manager/Container/Surname" to="." method="_on_surame_text_changed"]
-[connection signal="item_selected" from="MarginContainer/VBoxContainer/Main/Manager/Manager/Container/Nationality" to="." method="_on_nationality_item_selected"]
 [connection signal="item_selected" from="MarginContainer/VBoxContainer/Main/Settings/Container/PlayerNames" to="." method="_on_player_names_item_selected"]
 [connection signal="item_selected" from="MarginContainer/VBoxContainer/Main/Settings/Container/StartYear" to="." method="_on_start_year_item_selected"]
 [connection signal="toggled" from="MarginContainer/VBoxContainer/Main/AdvancedStettingsButton" to="." method="_on_advanced_stettings_button_toggled"]

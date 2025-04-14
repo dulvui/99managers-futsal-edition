@@ -5,7 +5,6 @@
 extends Control
 
 const DEFAULT_SEED: StringName = "289636-522140-666834"
-const CONTINUE_DISABLED_TOOLTIP: StringName = "Name and surname missing"
 
 var generation_seed: String = DEFAULT_SEED
 var custom_file_path: String
@@ -64,8 +63,6 @@ func _ready() -> void:
 		years.append(str(year))
 	start_year_option.setup(years, years.find(start_year))
 
-	continue_button.disabled = manager_name.text.length() * manager_surname.text.length() == 0
-
 	file_path_line_edit.text = tr("Default file")
 
 	# set filters here to prevent adding "*.csv" to game.pot file
@@ -88,42 +85,12 @@ func _on_default_seed_button_pressed() -> void:
 	generation_seed_edit.text = generation_seed
 
 
-func _on_name_text_changed(_new_text: String) -> void:
-	continue_button.disabled = not _is_valid()
-	if continue_button.disabled:
-		continue_button.tooltip_text = tr(CONTINUE_DISABLED_TOOLTIP)
-	else:
-		continue_button.tooltip_text = "" # NO_TRANSLATE
-
-
-func _on_surame_text_changed(_new_text: String) -> void:
-	continue_button.disabled = not _is_valid()
-	if continue_button.disabled:
-		continue_button.tooltip_text = tr(CONTINUE_DISABLED_TOOLTIP)
-	else:
-		continue_button.tooltip_text = "" # NO_TRANSLATE
-
-
-func _on_nationality_item_selected(_index: int) -> void:
-	continue_button.disabled = not _is_valid()
-
-
 func _on_player_names_item_selected(index: int) -> void:
 	player_names = Enum.PlayerNames.values()[index]
 
 
 func _on_start_year_item_selected(index: int) -> void:
 	start_year = start_year_option.option_button.get_item_text(index)
-
-
-func _is_valid() -> bool:
-	if manager_name.text.length() == 0:
-		return false
-	if manager_surname.text.length() == 0:
-		return false
-	if nations.option_button.selected == 0:
-		return false
-	return true
 
 
 func _on_template_button_pressed() -> void:
@@ -170,7 +137,15 @@ func _on_advanced_stettings_button_toggled(toggled_on: bool) -> void:
 
 func _on_continue_pressed() -> void:
 	# setup manager
-	if not _is_valid():
+	if manager_name.text.length() == 0:
+		manager_name.grab_focus()
+		return
+	if manager_surname.text.length() == 0:
+		manager_surname.grab_focus()
+		return
+	if nations.option_button.selected == 0:
+		nations.option_button.show_popup()
+		nations.option_button.grab_focus()
 		return
 
 	var manager: Manager = Manager.new()
@@ -206,7 +181,7 @@ func _on_continue_pressed() -> void:
 	if not advanced_settings or default_file_button.button_pressed or custom_file_path.is_empty():
 		ThreadUtil.generate_world()
 	else:
-		ThreadUtil._generate_world(custom_file_path)
+		ThreadUtil.generate_world(custom_file_path)
 
 
 func _on_world_generated() -> void:
