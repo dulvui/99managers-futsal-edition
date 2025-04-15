@@ -26,6 +26,7 @@ extends Competition
 @export var history_playoffs: Array[Cup]
 @export var history_playouts: Array[Cup]
 
+
 func _init(
 	p_teams: Array[Team] = [],
 	p_nation_name: String = "",

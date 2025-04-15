@@ -13,6 +13,10 @@ var backup_util: BackupUtil
 # headers
 var headers: PackedStringArray
 
+var active_line: PackedStringArray
+var line_index: int
+var column_index: int
+
 
 func _init() -> void:
 	backup_util = BackupUtil.new()
@@ -38,7 +42,7 @@ func world_to_csv(world: World) -> Array[PackedStringArray]:
 						player_line.append(nation.code)
 						player_line.append(league.name)
 						player_line.append(team.name)
-						player_line.append(str(team.finances.balance))
+						player_line.append(str(team.finances.balance[-1]))
 						player_line.append(team.stadium.name)
 						player_line.append(str(team.stadium.capacity))
 						player_line.append(str(team.stadium.year_built))
@@ -79,27 +83,29 @@ func world_to_csv(world: World) -> Array[PackedStringArray]:
 
 
 func csv_to_world_only_teams(csv: Array[PackedStringArray], world: World) -> void:
+	line_index = 0
+
 	# last values found in last line read
 	# can be reused for next line, since lines most likely are grouped by team
 	var nation: Nation = null
 	var league: League = null
 	var team: Team = null
 
-	var line_index: int = 0
 	for line: PackedStringArray in csv:
-		line_index += 1
 
 		if line.size() < 3:
 			continue
 
+		_set_active_line(line)
+
 		# team
-		var nation_code: String = _get_string_or_default(line, 0)
-		var league_name: String = _get_string_or_default(line, 1)
-		var team_name: String = _get_string_or_default(line, 2)
-		var team_budget: int = _get_int_or_default(line, 3)
-		var stadium_name: String = _get_string_or_default(line, 4)
-		var stadium_capacity: int = _get_int_or_default(line, 5)
-		var stadium_year_built: int = _get_int_or_default(line, 6)
+		var nation_code: String = _get_string_or_default()
+		var league_name: String = _get_string_or_default()
+		var team_name: String = _get_string_or_default()
+		var team_budget: int = _get_int_or_default()
+		var stadium_name: String = _get_string_or_default()
+		var stadium_capacity: int = _get_int_or_default()
+		var stadium_year_built: int = _get_int_or_default()
 
 		# nation
 		if nation == null or nation.code != nation_code:
@@ -130,38 +136,44 @@ func csv_to_world_only_teams(csv: Array[PackedStringArray], world: World) -> voi
 
 
 func csv_to_world(csv: Array[PackedStringArray], world: World) -> void:
+	line_index = 0
+
 	# last values found in last line read
 	# can be reused for next line, since lines most likely are grouped by team
 	var nation: Nation = null
 	var league: League = null
 	var team: Team = null
 
-	var line_index: int = 0
 	for line: PackedStringArray in csv:
-		line_index += 1
 
 		if line.size() < 3:
 			continue
 
+		_set_active_line(line)
+
 		# team
-		var nation_code: String = _get_string_or_default(line, 0)
-		var league_name: String = _get_string_or_default(line, 1)
-		var team_name: String = _get_string_or_default(line, 2)
+		var nation_code: String = _get_string_or_default()
+		var league_name: String = _get_string_or_default()
+		var team_name: String = _get_string_or_default()
+
+		# skip stadium section
+		column_index += 4
+		
 		# player
-		var name: String = _get_string_or_default(line, 7)
-		var surname: String = _get_string_or_default(line, 8)
-		var value: String = _get_string_or_default(line, 9)
-		var birth_date: String = _get_string_or_default(line, 10)
-		var nationality: String = _get_string_or_default(line, 11)
-		var nr: int = _get_int_or_default(line, 12)
-		var foot_left: int = _get_int_or_default(line, 13)
-		var foot_right: int = _get_int_or_default(line, 14)
-		var position: String = _get_string_or_default(line, 15)
-		var alt_positions: String = _get_string_or_default(line, 16)
-		var injury_factor: int = _get_int_or_default(line, 17)
-		var eyecolor: String = _get_string_or_default(line, 18)
-		var haircolor: String = _get_string_or_default(line, 19)
-		var skintone: String = _get_string_or_default(line, 16)
+		var name: String = _get_string_or_default()
+		var surname: String = _get_string_or_default()
+		var value: String = _get_string_or_default()
+		var birth_date: String = _get_string_or_default()
+		var nationality: String = _get_string_or_default()
+		var nr: int = _get_int_or_default()
+		var foot_left: int = _get_int_or_default()
+		var foot_right: int = _get_int_or_default()
+		var position: String = _get_string_or_default()
+		var alt_positions: String = _get_string_or_default()
+		var injury_factor: int = _get_int_or_default()
+		var eyecolor: String = _get_string_or_default()
+		var haircolor: String = _get_string_or_default()
+		var skintone: String = _get_string_or_default()
 
 		# nation
 		if nation == null:
@@ -170,7 +182,7 @@ func csv_to_world(csv: Array[PackedStringArray], world: World) -> void:
 			nation = world.get_nation_by_code(nation_code)
 
 		if nation == null:
-			push_error("no nation with code \"%s\" found in line %d" % [nation_code, line_index])
+			push_error("no nation with code \"%s\" found in line %d \n %s" % [nation_code, line_index, active_line])
 			continue
 
 		# league
@@ -223,22 +235,148 @@ func csv_to_world(csv: Array[PackedStringArray], world: World) -> void:
 
 		# next values are attributes
 		# attributes get set by iterating over attribute name arrays/headers
-		var column_index: int = Const.CSV_HEADERS.size()
 		# attributes
 		for attribute: String in Const.PLAYER_ATTRIBUTES_GOALKEEPER:
-			player.attributes.goalkeeper.set(attribute, _get_attribute_or_default(line, column_index))
+			player.attributes.goalkeeper.set(attribute, _get_attribute_or_default())
 			column_index += 1
 		for attribute: String in Const.PLAYER_ATTRIBUTES_MENTAL:
-			player.attributes.mental.set(attribute, _get_attribute_or_default(line, column_index))
+			player.attributes.mental.set(attribute, _get_attribute_or_default())
 			column_index += 1
 		for attribute: String in Const.PLAYER_ATTRIBUTES_PHYSICAL:
-			player.attributes.physical.set(attribute, _get_attribute_or_default(line, column_index))
+			player.attributes.physical.set(attribute, _get_attribute_or_default())
 			column_index += 1
 		for attribute: String in Const.PLAYER_ATTRIBUTES_TECHNICAL:
-			player.attributes.technical.set(attribute, _get_attribute_or_default(line, column_index))
+			player.attributes.technical.set(attribute, _get_attribute_or_default())
 			column_index += 1
 
 		team.players.append(player)
+
+
+func csv_to_match_days(csv: Array[PackedStringArray]) -> Array[MatchDays]:
+	line_index = 0
+
+	var list: Array[MatchDays] = []
+
+	# active days
+	var match_days: MatchDays = null
+	var match_day: MatchDay = null
+	var current_match_days_index: int = 0
+
+	# for quick access to find first legs
+	var quick_access: Dictionary[int, Match] = {}
+
+	for line: PackedStringArray in csv:
+
+		if line.size() < 3:
+			continue
+
+		_set_active_line(line)
+
+		var match_days_index: int =_get_int_or_default()
+		var match_day_day: int =_get_int_or_default()
+		var match_day_month: int =_get_int_or_default()
+		var id: int = _get_int_or_default()
+		var home_id: int = _get_int_or_default()
+		var home_name: String = _get_string_or_default()
+		var home_league_id: int = _get_int_or_default()
+		var away_id: int = _get_int_or_default()
+		var away_name: String = _get_string_or_default()
+		var away_league_id: int = _get_int_or_default()
+		var over: int = _get_int_or_default()
+		var home_goals: int = _get_int_or_default()
+		var away_goals: int = _get_int_or_default()
+		var home_penalties_goals: int = _get_int_or_default()
+		var away_penalties_goals: int = _get_int_or_default()
+		var competition_id: int = _get_int_or_default()
+		var competition_name: String = _get_string_or_default()
+		var no_draw: int = _get_int_or_default()
+		var first_leg_id: int = _get_int_or_default()
+
+		# check active match days
+		if match_days == null or match_days_index != current_match_days_index:
+			current_match_days_index = match_days_index
+			match_days = MatchDays.new()
+			list.append(match_days)
+
+		# check active match day
+		if match_day == null or match_day_day != match_day.day or match_day_month != match_day.month:
+			match_day = MatchDay.new()
+			match_day.day = match_day_day
+			match_day.month = match_day_month as Enum.Months
+			match_days.days.append(match_day)
+
+		var matchz: Match = Match.new()
+		matchz.id = id
+
+		matchz.home = TeamBasic.new()
+		matchz.home.id = home_id
+		matchz.home.name = home_name
+		matchz.home.league_id = home_league_id
+
+		matchz.away = TeamBasic.new()
+		matchz.away.id = away_id
+		matchz.away.name = away_name
+		matchz.away.league_id = away_league_id
+
+		matchz.over = bool(over)
+		matchz.home_goals = home_goals
+		matchz.away_goals = away_goals
+		matchz.home_penalties_goals = home_penalties_goals
+		matchz.away_penalties_goals = away_penalties_goals
+		matchz.competition_id = competition_id
+		matchz.competition_name = competition_name
+		matchz.no_draw = bool(no_draw)
+
+		# find first leg
+		if first_leg_id > -1:
+			if quick_access.has(first_leg_id):
+				matchz.first_leg = quick_access[first_leg_id]
+			else:
+				push_error("first leg with id %d not found" % first_leg_id)
+		else:
+			quick_access[id] = matchz
+		
+		match_day.matches.append(matchz)
+
+	return list
+
+
+func match_days_to_csv(match_days_list: Array[MatchDays]) -> Array[PackedStringArray]:
+	var csv: Array[PackedStringArray] = []
+
+	var index: int = -1
+	for match_days: MatchDays in match_days_list:
+		index += 1
+		for match_day: MatchDay in match_days.days:
+			for matchz: Match in match_day.matches:
+				var line: PackedStringArray = PackedStringArray()
+
+				line.append(str(index))
+				line.append(str(match_day.day))
+				line.append(str(match_day.month))
+				line.append(str(matchz.id))
+				line.append(str(matchz.home.id))
+				line.append(matchz.home.name)
+				line.append(str(matchz.home.league_id))
+				line.append(str(matchz.away.id))
+				line.append(matchz.away.name)
+				line.append(str(matchz.away.league_id))
+				line.append(str(int(matchz.over)))
+				line.append(str(matchz.home_goals))
+				line.append(str(matchz.away_goals))
+				line.append(str(matchz.home_penalties_goals))
+				line.append(str(matchz.away_penalties_goals))
+				line.append(str(matchz.competition_id))
+				line.append(matchz.competition_name)
+				line.append(str(int(matchz.no_draw)))
+				if matchz.first_leg == null:
+					line.append("-1")
+				else:
+					line.append(str(matchz.first_leg.id))
+
+				csv.append(line)
+
+	return csv
 
 
 # use result, since on next call array will be reused for performance
@@ -495,24 +633,28 @@ func _is_valid_string(string: String, text_server: TextServer) -> bool:
 	return true
 
 
-func _get_string_or_default(line: PackedStringArray, index: int) -> String:
-	if index < 0:
+func _set_active_line(line: PackedStringArray) -> void:
+	active_line = line
+	column_index = -1
+	line_index += 1
+
+
+func _get_string_or_default() -> String:
+	column_index += 1
+	if column_index >= active_line.size():
 		return ""
-	if index >= line.size():
-		return ""
-	return line[index]
+	return active_line[column_index]
 
 
-func _get_int_or_default(line: PackedStringArray, index: int) -> int:
-	if index < 0:
+func _get_int_or_default() -> int:
+	column_index += 1
+	if column_index >= active_line.size():
 		return 0
-	if index >= line.size():
-		return 0
-	return int(line[index])
+	return int(active_line[column_index])
 
 
-func _get_attribute_or_default(line: PackedStringArray, index: int) -> int:
-	var value: int = _get_int_or_default(line, index)
+func _get_attribute_or_default() -> int:
+	var value: int = _get_int_or_default()
 	if value < 1:
 		return 0
 	if value > 20:

@@ -6,8 +6,8 @@ class_name MatchList
 extends JSONResource
 
 @export var match_days: MatchDays
-# old season matches
-@export var history_match_days: Array[MatchDays]
+# history season matches, saved as csv
+var history_match_days: Array[MatchDays]
 
 
 func _init(

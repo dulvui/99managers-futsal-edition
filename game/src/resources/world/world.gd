@@ -9,10 +9,12 @@ extends JSONResource
 @export var world_cup: Cup
 @export var active_team_id: int
 
-@export var match_list: MatchList
 @export var transfers: Transfers
 @export var calendar: Calendar
 @export var inbox: Inbox
+
+# csv
+var match_list: MatchList
 
 
 func _init(

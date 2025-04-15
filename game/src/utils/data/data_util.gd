@@ -93,14 +93,33 @@ func save_save_state_data() -> void:
 
 
 func _load_world(save_state: SaveState) -> World:
-	# load whole world from csv
+	# load main data from json
 	var world: World = World.new()
 	_load_resource(save_state.id + "/" + DATA_FILE, world)
 
+	# rest is loaded as csv
 	var csv_util: CSVUtil = CSVUtil.new()
-	var csv_path: String = DataUtil.SAVE_STATES_PATH + save_state.id + "/world.csv"
-	var csv: Array[PackedStringArray] = csv_util.read_csv(csv_path)
-	csv_util.csv_to_world(csv, world)
+
+	# players csv
+	var world_csv_path: String = DataUtil.SAVE_STATES_PATH + save_state.id + "/world.csv"
+	var world_csv: Array[PackedStringArray] = csv_util.read_csv(world_csv_path)
+	# remove header
+	world_csv.pop_front()
+	csv_util.csv_to_world(world_csv, world)
+
+	# history match days csv, read only
+	var history_matches_path: String = DataUtil.SAVE_STATES_PATH + save_state.id + "/history_matches.csv"
+	var history_matches_csv: Array[PackedStringArray] = csv_util.read_csv(history_matches_path)
+	world.match_list.history_match_days = csv_util.csv_to_match_days(history_matches_csv)
+
+	# match days csv
+	var matches_path: String = DataUtil.SAVE_STATES_PATH + save_state.id + "/matches.csv"
+	var matches_csv: Array[PackedStringArray] = csv_util.read_csv(matches_path)
+	var match_days: Array[MatchDays] = csv_util.csv_to_match_days(matches_csv)
+	if match_days.size() == 1:
+		world.match_list.match_days = match_days[0]
+	else:
+		push_error("error while loading matchdays, match days from csv is not 1")
 
 	return world
 
@@ -108,10 +127,22 @@ func _load_world(save_state: SaveState) -> World:
 func _save_world(save_state: SaveState, world: World) -> void:
 	print("save data...")
 	_save_resource(save_state.id + "/" + DATA_FILE, world)
+
 	var csv_util: CSVUtil = CSVUtil.new()
-	var world_csv: Array[PackedStringArray] = csv_util.world_to_csv(world)
-	csv_util.save_csv(save_state.id + "/" + "world.csv", world_csv)
-	print("save data done.")
+	# players
+	csv_util.save_csv(save_state.id + "/" + "world.csv", csv_util.world_to_csv(world))
+	
+	# history match days csv, read only
+	csv_util.save_csv(
+		save_state.id + "/" + "history_matches.csv",
+		csv_util.match_days_to_csv(world.match_list.history_match_days),
+	)
+
+	# match days csv
+	csv_util.save_csv(
+		save_state.id + "/" + "matches.csv",
+		csv_util.match_days_to_csv([world.match_list.match_days]),
+	)
 
 
 func _load_resource(path: String, resource: JSONResource, after_backup: bool = false) -> void:

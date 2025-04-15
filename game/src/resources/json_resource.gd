@@ -54,11 +54,6 @@ func from_json(dict: Dictionary) -> void:
 	for key: String in dict.keys():
 		var property: Variant = get(key)
 
-		# cover edge case if first leg of match.gd
-		# first leg is null in init, so manual initialization is needed
-		if key == "first_leg":
-			property = Match.new()
-
 		if property == null:
 			continue
 		
@@ -102,41 +97,3 @@ func from_json(dict: Dictionary) -> void:
 		else:
 			set(key, dict[key])
 
-
-# # only saves data structure with names, ids and save strategy
-# # from skeleton than all the data gets loaded
-# func as_skeleton() -> JSONSkeleton:
-# 	var skeleton: JSONSkeleton = JSONSkeleton.new()
-#
-# 	for property_name: String in skeleton_properties:
-# 		var value: Variant = get(property_name)
-#
-# 		if value == null:
-# 			continue
-#
-# 		match typeof(value):
-# 			TYPE_ARRAY:
-# 				var array: Array = value
-# 				if array.size() == 0:
-# 					continue
-# 				data[property_name] = array.map(
-# 					func(item: Variant) -> Variant:
-# 						var skeleton: JSONSkeleton = item
-# 						var sub_skeleton: Dictionary = skeleton.as_skeleton()
-# 						var parsed_item: Dictionary = {
-# 							"i": skeleton.get_res_id()
-# 						}
-# 						if not sub_skeleton.is_empty():
-# 							parsed_item["s"] = sub_skeleton
-# 						return parsed_item
-# 				)
-# 			TYPE_OBJECT:
-# 				var skeleton: JSONSkeleton = value
-# 				var sub_skeleton: Dictionary = skeleton.as_skeleton()
-# 				data[property_name]["i"] = skeleton.get_res_id()
-# 				if not sub_skeleton.is_empty():
-# 					data[property_name]["s"] = sub_skeleton
-# 			_:
-# 				data[property_name] = value
-#
-# 	return data
