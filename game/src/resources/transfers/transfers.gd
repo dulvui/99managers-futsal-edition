@@ -12,3 +12,4 @@ func _init(
 	p_list: Array[Transfer] = [],
 ) -> void:
 	list = p_list
+

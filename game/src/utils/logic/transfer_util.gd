@@ -58,7 +58,12 @@ func _request_players() -> void:
 
 
 func make_transfer(transfer: Transfer) -> void:
-	var player: Player = transfer.player
-	transfer.sell_team.remove_player(player)
-	player.team = transfer.buy_team.name
-	transfer.buy_team.players.append(player)
+	var old_team: Team = Global.world.get_team_by_id(transfer.team.id, transfer.team.league_id)
+	var new_team: Team = Global.world.get_team_by_id(transfer.offer_team.id, transfer.offer_team.league_id)
+	var player: Player = old_team.get_player_by_id(transfer.player_id)
+
+	old_team.remove_player(player)
+	new_team.players.append(player)
+	player.team = new_team.name
+	player.league_id = new_team.league_id
+

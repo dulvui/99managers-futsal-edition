@@ -59,12 +59,12 @@ func welcome_manager() -> void:
 func transfer_message(transfer: Transfer) -> void:
 	var subject: String
 	var text: String
-	var sender_team: Team
+	var sender_team: TeamBasic
 
-	if transfer.buy_team == Global.team:
-		sender_team = transfer.sell_team
+	if transfer.offer_team.id == Global.team.id:
+		sender_team = transfer.team
 	else:
-		sender_team = transfer.buy_team
+		sender_team = transfer.offer_team
 
 	match transfer.state:
 		Transfer.State.OFFER:
@@ -72,12 +72,15 @@ func transfer_message(transfer: Transfer) -> void:
 			subject = tr("Offer for {player_name}")
 			# TRANSLATORS: {cost}, {player_name}, {team_name} get dynamically filled
 			text = tr(
-				"You made an offer for {player_name} from {team_name} at {cost}.\n{team_name} will consider the offer and respond within a few days."
+				"You made an offer for {player_name} from {team_name} at {cost}.\n
+				{team_name} will consider the offer and respond within a few days."
 			)
 
-			subject = subject.format({"player_name": transfer.player.surname})
+			subject = subject.format({"player_name": transfer.player_name})
 
-			var player_link: String = LinkUtil.get_player_url(transfer.player)
+			var player_link: String = LinkUtil.get_player_url(
+				transfer.player_id, transfer.player_name, transfer.team.id
+			)
 			text = (
 				text
 				. format(
@@ -96,8 +99,10 @@ func transfer_message(transfer: Transfer) -> void:
 				"Your offer for {player_name} from {team_name} at {cost} has been declined.\nIncreasing the transfer value could make them reconsider."
 			)
 
-			subject = subject.format({"player_name": transfer.player.get_full_name()})
-			var player_link: String = LinkUtil.get_player_url(transfer.player)
+			subject = subject.format({"player_name": transfer.player_name})
+			var player_link: String = LinkUtil.get_player_url(
+				transfer.player_id, transfer.player_name, transfer.team.id
+			)
 
 			text = (
 				text
@@ -117,9 +122,11 @@ func transfer_message(transfer: Transfer) -> void:
 				"Your offer for {player_name} from {team_name} at {cost} has been accepted.\nYou can now find a contractual aggreement with {player_name}."
 			)
 
-			subject = subject.format({"player_name": transfer.player.get_full_name()})
+			subject = subject.format({"player_name": transfer.player_name})
 
-			var player_link: String = LinkUtil.get_player_url(transfer.player)
+			var player_link: String = LinkUtil.get_player_url(
+				transfer.player_id, transfer.player_name, transfer.team.id
+			)
 			text = (
 				text
 				. format(
@@ -164,12 +171,12 @@ func transfer_message(transfer: Transfer) -> void:
 		# 	)
 		_:
 			subject = "ERROR"
-			text = "Error in code " + transfer.player.get_full_name()
+			text = "Error in code " + transfer.player_name
 
 	new_message(subject, text, sender_team)
 
 
-func new_message(subject: String, text: String, sender_team: Team = Global.team) -> void:
+func new_message(subject: String, text: String, sender_team: TeamBasic = Global.team) -> void:
 	var message: EmailMessage = EmailMessage.new()
 	message.set_id()
 	message.subject = subject
@@ -195,7 +202,7 @@ func _get_manager_email_address(team: Team = Global.team) -> String:
 	return email
 
 
-func _get_team_email_address(team: Team = Global.team) -> String:
+func _get_team_email_address(team: TeamBasic = Global.team) -> String:
 	var email: String = "info"
 	email += "@" + team.name.replace(" ", "") + ".com"
 	email = email.to_lower()

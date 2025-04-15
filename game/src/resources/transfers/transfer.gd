@@ -20,37 +20,40 @@ enum State {
 }
 
 @export var id: int
-@export var player: Player
+@export var player_id: int
+@export var player_name: String
+@export var team: TeamBasic
+@export var offer_team: TeamBasic
 @export var state: State
 @export var type: Type
-@export var buy_team: Team
-@export var sell_team: Team
 @export var cost: int
 @export var contract: Contract
 @export var delay_days: int
-@export var exchange_players: Array[Player]
+@export var exchange_players: Array[int]
 @export var date: Dictionary
 
 
 func _init(
 	p_id: int = -1,
-	p_player: Player = Player.new(),
+	p_player_id: int = -1,
+	p_player_name: String = "",
+	p_team: TeamBasic = TeamBasic.new(),
+	p_offer_team: TeamBasic = TeamBasic.new(),
 	p_state: State = State.OFFER,
 	p_type: Type = Type.BUY,
-	p_buy_team: Team = Team.new(),
-	p_sell_team: Team = Team.new(),
 	p_contract: Contract = Contract.new(),
 	p_cost: int = 0,
 	p_delay_days: int = 0,
-	p_exchange_players: Array[Player] = [],
+	p_exchange_players: Array[int] = [],
 	p_date: Dictionary = {},
 ) -> void:
 	id = p_id
-	player = p_player
+	player_id = p_player_id
+	player_name = p_player_name
+	team = p_team
+	offer_team = p_offer_team
 	state = p_state
 	type = p_type
-	buy_team = p_buy_team
-	sell_team = p_sell_team
 	contract = p_contract
 	cost = p_cost
 	delay_days = p_delay_days
@@ -102,3 +105,4 @@ func _update_state() -> void:
 					state = State.CONTRACT_DECLINED
 				else:
 					state = State.CONTRACT
+

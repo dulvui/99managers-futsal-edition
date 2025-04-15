@@ -30,7 +30,9 @@ func _ready() -> void:
 
 func setup(p_transfer: Transfer) -> void:
 	transfer = p_transfer
-	player = transfer.player
+	player = Global.world.get_player_by_id(
+		transfer.player_id, transfer.team.id, transfer.team.league_id
+	)
 
 	info_label.text = "Offer a contract to " + player.get_full_name()
 
@@ -86,3 +88,4 @@ func _on_confirm_pressed() -> void:
 
 func _on_cancel_pressed() -> void:
 	cancel.emit()
+

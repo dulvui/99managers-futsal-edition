@@ -60,6 +60,14 @@ func get_non_lineup_players() -> Array[Player]:
 	return players.slice(Const.LINEUP_PLAYERS_AMOUNT, players.size())
 
 
+func get_player_by_id(player_id: int) -> Player:
+	for player: Player in players:
+		if player.id == player_id:
+			return player
+	push_error("player with id %d not found in team %s" % [player_id, name])
+	return null
+
+
 func is_lineup_player(player: Player) -> bool:
 	var index: int = players.find(player.id)
 	return index >= 0 and index <= 4

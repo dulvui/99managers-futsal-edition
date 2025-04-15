@@ -97,6 +97,17 @@ func get_nation_by_code(code: String, p_continent: Continent = null) -> Nation:
 	return null
 
 
+func get_player_by_id(player_id: int, team_id: int, league_id: int) -> Player:
+	var league: League = get_league_by_id(league_id)
+	if league != null:
+		for team: Team in league.teams:
+			if team.id == team_id:
+				return team.get_player_by_id(player_id)
+
+	push_error("player with id %d not found in team id:%d and league id:%d" % [player_id, team_id, league_id])
+	return null
+
+
 func get_team_by_id(team_id: int, league_id: int = -1) -> Team:
 	if league_id > -1:
 		var league: League = get_league_by_id(league_id)

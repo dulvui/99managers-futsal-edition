@@ -29,9 +29,6 @@ func get_team_url(team_id: int, team_name: String) -> String:
 	return "[url=t%s]%s[/url]" % [team_id, team_name]
 
 
-# func get_player_url(player_id: int, player_name: String, team_id: int) -> String:
-# 	return "[url=p%s/t%s]%s[/url]" % [player_id, team_id, player_name]
+func get_player_url(player_id: int, player_name: String, team_id: int) -> String:
+	return "[url=p%s/t%s]%s[/url]" % [player_id, team_id, player_name]
 
-
-func get_player_url(player: Player) -> String:
-	return "[url=p%s/t%s]%s[/url]" % [player.id, player.team_id, player.get_full_name()]
