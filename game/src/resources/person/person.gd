@@ -37,9 +37,9 @@ func _init(
 	p_birth_date: Dictionary = {},
 	p_prestige: int = 10,
 	p_contract: Contract = Contract.new(),
-	p_skintone: String = Color.SALMON.to_html(true),
-	p_haircolor: String = Color.BROWN.to_html(true),
-	p_eyecolor: String = Color.BLACK.to_html(true),
+	p_skintone: String = "",
+	p_haircolor: String = "",
+	p_eyecolor: String = "",
 ) -> void:
 	role = p_role
 	id = p_id

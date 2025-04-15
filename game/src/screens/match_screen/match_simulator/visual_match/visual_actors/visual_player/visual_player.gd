@@ -32,6 +32,9 @@ func _physics_process(delta: float) -> void:
 func setup(
 	p_pos: Vector2,
 	p_player_info: String = "",
+	skintone: String = "000000",
+	haircolor: String = "000000",
+	eyecolor: String = "000000",
 	shirt_color: String = "000000",
 	p_ball: VisualBall = null,
 ) -> void:
@@ -41,9 +44,9 @@ func setup(
 	ball = p_ball
 
 	# set colors
-	# head.modulate = sim_player.player_res.skintone
-	# hair.modulate = sim_player.player_res.haircolor
-	# eyes.modulate = sim_player.player_res.eyecolor
+	head.modulate = Color(skintone)
+	hair.modulate = Color(haircolor)
+	eyes.modulate = Color(eyecolor)
 
 
 func update(
@@ -52,3 +55,4 @@ func update(
 	super(p_pos)
 	player_info = p_player_info
 	head_look = p_head_look
+
