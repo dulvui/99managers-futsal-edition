@@ -131,6 +131,8 @@ func is_match_day() -> bool:
 func archive_season() -> void:
 	history_match_days.append(match_days)
 	match_days = MatchDays.new()
+	# set flag to save match history
+	DataUtil.write_match_history = true
 
 
 func _get_active_match_days(history_index: int) -> MatchDays:

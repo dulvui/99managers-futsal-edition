@@ -20,12 +20,15 @@ const SAVE_STATES_PATH: StringName = "user://save_states/"
 const FILE_SUFFIX: StringName = ".json"
 const FILE_SUFFIX_COMPRESS: StringName = ".save"
 
-
 var backup_util: BackupUtil
+
+# flag if match list history should be saved
+var write_match_history: bool
 
 
 func _init() -> void:
 	backup_util = BackupUtil.new()
+	write_match_history = false
 
 
 func save_config() -> void:
@@ -132,11 +135,15 @@ func _save_world(save_state: SaveState, world: World) -> void:
 	# players
 	csv_util.save_csv(save_state.id + "/" + "world.csv", csv_util.world_to_csv(world))
 	
-	# history match days csv, read only
-	csv_util.save_csv(
-		save_state.id + "/" + "history_matches.csv",
-		csv_util.match_days_to_csv(world.match_list.history_match_days),
-	)
+	# history match days csv
+	# TODO: could be optimized even more by just appending new history,
+	# instead of writing full history
+	if write_match_history:
+		csv_util.save_csv(
+			save_state.id + "/" + "history_matches.csv",
+			csv_util.match_days_to_csv(world.match_list.history_match_days),
+		)
+		write_match_history = false
 
 	# match days csv
 	csv_util.save_csv(
