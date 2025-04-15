@@ -56,10 +56,10 @@ func world_to_csv(world: World) -> Array[PackedStringArray]:
 						player_line.append(str(player.nr))
 						player_line.append(str(player.foot_left))
 						player_line.append(str(player.foot_right))
-						player_line.append(Enum.get_position_type_text(player.position.main))
+						player_line.append(_get_position_type_text(player.position.main))
 						var alt_positions: Array[StringName] = []
 						for type: Position.Type in player.position.alternatives:
-							alt_positions.append(Enum.get_position_type_text(type))
+							alt_positions.append(_get_position_type_text(type))
 						player_line.append(_array_to_csv_list(alt_positions))
 						player_line.append(str(player.injury_factor))
 						# add double quotes so that sheet editors see it as strings and not numbers
@@ -660,4 +660,30 @@ func _get_attribute_or_default() -> int:
 	if value > 20:
 		return 0
 	return value
+
+
+# declare func from enum.gd here to prevent thrad call deffered error
+func _get_position_type_text(p_type: Position.Type) -> String:
+	match p_type:
+		Position.Type.G:
+			return "G"
+		Position.Type.DL:
+			return "DL"
+		Position.Type.DC:
+			return "DC"
+		Position.Type.DR:
+			return "DR"
+		Position.Type.C:
+			return "C"
+		Position.Type.WL:
+			return "WL"
+		Position.Type.WR:
+			return "WR"
+		Position.Type.PL:
+			return "PL"
+		Position.Type.PC:
+			return "PC"
+		Position.Type.PR:
+			return "PR"
+	return ""
 
