@@ -19,6 +19,7 @@ This tries to follow the [keepachangelog](https://keepachangelog.com/en/1.1.0/) 
 - Fixed issues in seasonal finances calculation
 - Better data validation when starting new game
 - Faster loading/saving of game data by saving matches as csv
+- Show player's hair, eye and skin color again
 
 # [0.3.1]
 ## https://codeberg.org/dulvui/99managers-futsal-edition/releases/tag/v0.3.1

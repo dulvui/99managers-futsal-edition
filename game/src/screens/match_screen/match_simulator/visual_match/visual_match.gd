@@ -61,3 +61,4 @@ func show_actors() -> void:
 	ball.show()
 	home_team.show()
 	away_team.show()
+

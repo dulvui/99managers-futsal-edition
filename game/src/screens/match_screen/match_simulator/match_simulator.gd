@@ -177,8 +177,19 @@ func _update_visuals(delta: float = 1) -> void:
 	# update visual teams
 	teams_entry = teams_buffer.get_entry()
 	visual_match.home_team.update(
-		teams_entry.home_pos, teams_entry.home_info, teams_entry.home_head_look
+		teams_entry.home_pos,
+		teams_entry.home_head_look,
+		teams_entry.home_info,
+		teams_entry.home_skintone,
+		teams_entry.home_haircolor,
+		teams_entry.home_eyecolor,
 	)
 	visual_match.away_team.update(
-		teams_entry.away_pos, teams_entry.away_info, teams_entry.away_head_look
+		teams_entry.away_pos,
+		teams_entry.away_head_look,
+		teams_entry.away_info,
+		teams_entry.away_skintone,
+		teams_entry.away_haircolor,
+		teams_entry.away_eyecolor,
 	)
+

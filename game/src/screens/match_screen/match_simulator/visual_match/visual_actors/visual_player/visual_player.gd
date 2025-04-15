@@ -20,6 +20,7 @@ var ball: VisualBall
 
 func _physics_process(delta: float) -> void:
 	super._physics_process(delta)
+
 	if not Global.match_paused:
 		if head_look == Vector2.ZERO:
 			sprites.look_at(ball.position)
@@ -40,19 +41,30 @@ func setup(
 ) -> void:
 	super(p_pos)
 	player_info = p_player_info
-	body.modulate = Color(shirt_color)
 	ball = p_ball
 
 	# set colors
+	body.modulate = Color(shirt_color)
 	head.modulate = Color(skintone)
 	hair.modulate = Color(haircolor)
 	eyes.modulate = Color(eyecolor)
 
 
 func update(
-	p_pos: Vector2, p_player_info: String = "", p_head_look: Vector2 = Vector2.ZERO
+	p_pos: Vector2,
+	p_head_look: Vector2 = Vector2.ZERO,
+	p_player_info: String = "",
+	skintone: String = "000000",
+	haircolor: String = "000000",
+	eyecolor: String = "000000",
 ) -> void:
 	super(p_pos)
-	player_info = p_player_info
 	head_look = p_head_look
+
+	player_info = p_player_info
+
+	# set colors
+	head.modulate = Color(skintone)
+	hair.modulate = Color(haircolor)
+	eyes.modulate = Color(eyecolor)
 

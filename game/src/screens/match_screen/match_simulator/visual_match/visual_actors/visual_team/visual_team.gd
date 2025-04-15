@@ -29,11 +29,16 @@ func setup(
 
 
 func update(
-	pos: Array[Vector2], infos: Array[String], head_look: Array[Vector2]
+	pos: Array[Vector2],
+	head: Array[Vector2],
+	infos: Array[String],
+	skintones: Array[String],
+	hair_color: Array[String],
+	eye_color: Array[String],
 ) -> void:
-	player1.update(pos[0], infos[0], head_look[0])
-	player2.update(pos[1], infos[1], head_look[1])
-	player3.update(pos[2], infos[2], head_look[2])
-	player4.update(pos[3], infos[3], head_look[3])
-	player5.update(pos[4], infos[4], head_look[4])
+	player1.update(pos[0], head[0],infos[0], skintones[0], hair_color[0], eye_color[0])
+	player2.update(pos[1], head[1],infos[1], skintones[1], hair_color[1], eye_color[1])
+	player3.update(pos[2], head[2],infos[2], skintones[2], hair_color[2], eye_color[2])
+	player4.update(pos[3], head[3],infos[3], skintones[3], hair_color[3], eye_color[3])
+	player5.update(pos[4], head[4],infos[4], skintones[4], hair_color[4], eye_color[4])
 
