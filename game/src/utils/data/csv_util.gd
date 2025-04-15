@@ -231,6 +231,7 @@ func csv_to_world(csv: Array[PackedStringArray], world: World) -> void:
 		alt_positions = alt_positions.replace("\"", "")
 		var alt_positions_array: PackedStringArray = alt_positions.split(",")
 		for alt_position_string: String in alt_positions_array:
+			alt_position_string = alt_position_string.strip_edges()
 			player.position.alternatives.append(Enum.get_position_type_from_string(alt_position_string))
 
 		# next values are attributes
