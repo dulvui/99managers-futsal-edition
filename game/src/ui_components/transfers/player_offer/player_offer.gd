@@ -135,11 +135,13 @@ func _on_confirm_pressed() -> void:
 	var transfer: Transfer = Transfer.new()
 	transfer.player_id = player.id
 	transfer.cost = amount
-	transfer.exchange_players = selected_players.map(func(p: Player) -> int: return p.id)
 	transfer.delay_days = (randi() % 5) + 1
 	transfer.state = Transfer.State.OFFER
 	transfer.offer_team = Global.team
-	transfer.team = Global.world.get_team_by_id(player.team_id)
+	transfer.team = Global.world.get_team_by_id(player.team_id, player.league_id)
+
+	for s_player: Player in selected_players:
+		transfer.exchange_players.append(s_player.id)
 
 	TransferUtil.make_offer(transfer)
 	confirm.emit()
