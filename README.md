@@ -108,3 +108,5 @@ This project uses the [FSFE reuse tool](https://github.com/fsfe/reuse-tool) to l
 Check out all licenses and copyrights holders [here](REUSE.toml).  
 The corresponding full license texts can be found in the [LICENSES/](./LICENSES/) directory.
 
+# Trademark
+The "99 Managers" name is a registered Trademark of Simon Dalvai.
