@@ -238,16 +238,15 @@ func csv_to_world(csv: Array[PackedStringArray], world: World) -> void:
 		# attributes
 		for attribute: String in Const.PLAYER_ATTRIBUTES_GOALKEEPER:
 			player.attributes.goalkeeper.set(attribute, _get_attribute_or_default())
-			column_index += 1
 		for attribute: String in Const.PLAYER_ATTRIBUTES_MENTAL:
 			player.attributes.mental.set(attribute, _get_attribute_or_default())
-			column_index += 1
 		for attribute: String in Const.PLAYER_ATTRIBUTES_PHYSICAL:
 			player.attributes.physical.set(attribute, _get_attribute_or_default())
-			column_index += 1
 		for attribute: String in Const.PLAYER_ATTRIBUTES_TECHNICAL:
 			player.attributes.technical.set(attribute, _get_attribute_or_default())
-			column_index += 1
+
+		player.team_id = team.id
+		player.league_id = league.id
 
 		team.players.append(player)
 
