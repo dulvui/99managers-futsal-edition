@@ -282,7 +282,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: 99 Managers Futsal Edition\n"
-"PO-Revision-Date: 2025-04-06 12:01+0000\n"
+"PO-Revision-Date: 2025-04-16 05:59+0000\n"
 "Last-Translator: Ettore Atalan <atalanttore@googlemail.com>\n"
 "Language-Team: German <https://hosted.weblate.org/projects/"
 "99-managers-futsal-edition/game/de/>\n"
@@ -291,7 +291,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8-bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 5.11-dev\n"
+"X-Generator: Weblate 5.11.1-dev\n"
 
 #: src/ui_components/team_profile/team_profile.tscn
 #: src/screens/dashboard/dashboard.tscn
@@ -1753,7 +1753,7 @@ msgstr "Liga {league_name} hat mehr als 20 Mannschaften."
 
 #: src/enum.gd
 msgid "League {league_name} has odd size teams."
-msgstr ""
+msgstr "Liga {league_name} hat ungerade Größe an Mannschaften."
 
 #: src/enum.gd
 msgid "League with no name defined in line {line_number}"
