@@ -16,11 +16,14 @@ This tries to follow the [keepachangelog](https://keepachangelog.com/en/1.1.0/) 
 - Date and currency format can be changed in settings
 
 ## Changed
-- Fixed issues in seasonal finances calculation
 - Better data validation when starting new game
+- Player profile has now tabs: Overview, Transfers, Contract
+
+## Fixed
+- Fixed issues in seasonal finances calculation
 - Faster loading/saving of game data by saving matches as csv
 - Show player's hair, eye and skin color again
-- Player profile has now tabs: Overview, Transfers, Contract
+- Save and load all players data like contract and statistics
 
 # [0.3.1]
 ## https://codeberg.org/dulvui/99managers-futsal-edition/releases/tag/v0.3.1
