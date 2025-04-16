@@ -1,6 +1,6 @@
 [gd_scene load_steps=5 format=3 uid="uid://ccipqeqmthtfr"]
 
-[ext_resource type="Script" uid="uid://cnn2g27pt0ubw" path="res://src/ui_components/transfers/contract_offer/contract_offer.gd" id="1"]
+[ext_resource type="Script" uid="uid://cnn2g27pt0ubw" path="res://src/ui_components/player_profile/transfers/contract_offer/contract_offer.gd" id="1"]
 [ext_resource type="Theme" uid="uid://pt1hrfiuwfpg" path="res://theme_base/theme.tres" id="2"]
 [ext_resource type="LabelSettings" uid="uid://b4gu78rjvdfx4" path="res://theme_base/label/label_settings_title.tres" id="3_r046q"]
 [ext_resource type="Script" uid="uid://cnyyowwlb04kl" path="res://src/ui_components/base/defaults/default_button.gd" id="3_ycdro"]

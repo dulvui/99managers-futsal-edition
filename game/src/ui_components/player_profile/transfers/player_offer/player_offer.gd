@@ -2,7 +2,7 @@
 
 # SPDX-License-Identifier: AGPL-3.0-or-later
 
-class_name PlayerOfferLoan
+class_name PlayerOffer
 extends VBoxContainer
 
 signal confirm
@@ -24,8 +24,8 @@ func _ready() -> void:
 	amount_label.text = str(amount)
 
 
-func set_player(new_player: Player) -> void:
-	player = new_player
+func setup(p_player: Player) -> void:
+	player = p_player
 
 	if player.value <= Global.team.finances.balance[-1]:
 		amount = player.value
@@ -61,7 +61,7 @@ func _on_amount_text_changed(new_text: String) -> void:
 
 func _on_confirm_pressed() -> void:
 	var transfer: Transfer = Transfer.new()
-	transfer.type = Transfer.Type.LOAN
+	transfer.type = Transfer.Type.BUY
 	transfer.player_id = player.id
 	transfer.cost = amount
 	transfer.delay_days = (randi() % 5) + 1
