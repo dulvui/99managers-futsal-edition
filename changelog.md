@@ -20,6 +20,7 @@ This tries to follow the [keepachangelog](https://keepachangelog.com/en/1.1.0/) 
 - Better data validation when starting new game
 - Faster loading/saving of game data by saving matches as csv
 - Show player's hair, eye and skin color again
+- Player profile has now tabs: Overview, Transfers, Contract
 
 # [0.3.1]
 ## https://codeberg.org/dulvui/99managers-futsal-edition/releases/tag/v0.3.1
@@ -54,3 +55,4 @@ This tries to follow the [keepachangelog](https://keepachangelog.com/en/1.1.0/) 
 
 ## Security
 - Use json over custom resources for save state files to prevent [malicious code execution](https://github.com/godotengine/godot-proposals/issues/4925)
+
