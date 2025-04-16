@@ -31,12 +31,12 @@ func test_save_world() -> void:
 	var csv_util: CSVUtil = CSVUtil.new()
 
 	print("converting players to csv...")
-	var csv: Array[PackedStringArray] = csv_util.world_to_csv(world)
+	var csv: Array[PackedStringArray] = csv_util.players_to_csv(world)
 	csv_util.save_csv("test.csv", csv)
 	print("converting players to csv done.")
 
 	print("converting csv to players...")
-	csv_util.csv_to_world(csv, world)
+	csv_util.csv_to_players(csv, world)
 	print("converting csv to players done.")
 
 	print("validate world...")

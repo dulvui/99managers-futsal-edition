@@ -104,19 +104,19 @@ func _load_world(save_state: SaveState) -> World:
 	var csv_util: CSVUtil = CSVUtil.new()
 
 	# players csv
-	var world_csv_path: String = DataUtil.SAVE_STATES_PATH + save_state.id + "/world.csv"
-	var world_csv: Array[PackedStringArray] = csv_util.read_csv(world_csv_path)
+	var players_csv_path: String = SAVE_STATES_PATH + save_state.id + "/" + Const.CSV_PLAYERS_FILE
+	var players_csv: Array[PackedStringArray] = csv_util.read_csv(players_csv_path)
 	# remove header
-	world_csv.pop_front()
-	csv_util.csv_to_world(world_csv, world)
+	players_csv.pop_front()
+	csv_util.csv_to_players(players_csv, world)
 
 	# history match days csv, read only
-	var history_matches_path: String = DataUtil.SAVE_STATES_PATH + save_state.id + "/history_matches.csv"
+	var history_matches_path: String = SAVE_STATES_PATH + save_state.id + "/" + Const.CSV_MATCH_HISTORY_FILE
 	var history_matches_csv: Array[PackedStringArray] = csv_util.read_csv(history_matches_path)
 	world.match_list.history_match_days = csv_util.csv_to_match_days(history_matches_csv)
 
 	# match days csv
-	var matches_path: String = DataUtil.SAVE_STATES_PATH + save_state.id + "/matches.csv"
+	var matches_path: String = SAVE_STATES_PATH + save_state.id + "/" + Const.CSV_MATCH_LIST_FILE
 	var matches_csv: Array[PackedStringArray] = csv_util.read_csv(matches_path)
 	var match_days: Array[MatchDays] = csv_util.csv_to_match_days(matches_csv)
 	if match_days.size() == 1:
@@ -133,21 +133,21 @@ func _save_world(save_state: SaveState, world: World) -> void:
 
 	var csv_util: CSVUtil = CSVUtil.new()
 	# players
-	csv_util.save_csv(save_state.id + "/" + "world.csv", csv_util.world_to_csv(world))
+	csv_util.save_csv(save_state.id + "/" + Const.CSV_PLAYERS_FILE, csv_util.players_to_csv(world))
 	
 	# history match days csv
 	# TODO: could be optimized even more by just appending new history,
 	# instead of writing full history
 	if write_match_history:
 		csv_util.save_csv(
-			save_state.id + "/" + "history_matches.csv",
+			save_state.id + "/" + Const.CSV_MATCH_HISTORY_FILE,
 			csv_util.match_days_to_csv(world.match_list.history_match_days),
 		)
 		write_match_history = false
 
 	# match days csv
 	csv_util.save_csv(
-		save_state.id + "/" + "matches.csv",
+		save_state.id + "/" + Const.CSV_MATCH_LIST_FILE,
 		csv_util.match_days_to_csv([world.match_list.match_days]),
 	)
 

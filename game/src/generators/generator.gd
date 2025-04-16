@@ -72,7 +72,7 @@ func initialize_world(world: World, world_file_path: String = Const.WORLD_CSV_PA
 	# remove header
 	csv.pop_front()
 
-	csv_util.csv_to_world_only_teams(csv, world)
+	csv_util.csv_to_teams(csv, world)
 	
 	# validate world
 	var validator: GeneratorValidator = GeneratorValidator.new()
@@ -126,7 +126,7 @@ func initialize_world(world: World, world_file_path: String = Const.WORLD_CSV_PA
 	history.generate_club_history(world)
 
 	# now also read players from, after history generation
-	csv_util.csv_to_world(csv, world)
+	csv_util.csv_to_players(csv, world, true)
 
 	# initialize players and other custom team properties after club history
 	# because histroy generation swaps team ids and names
@@ -134,7 +134,7 @@ func initialize_world(world: World, world_file_path: String = Const.WORLD_CSV_PA
 
 	# go back if players are not valid
 	if not success_players:
-		print("error while reading players from world file %d errors occurred." % Global.generation_errors.size())
+		print("error reading players from file %d errors occurred." % Global.generation_errors.size())
 		return false
 
 	# then generate player histroy with transfers and statistics

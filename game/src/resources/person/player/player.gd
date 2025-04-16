@@ -9,21 +9,25 @@ extends Person
 @export var nr: int  # shirt number
 @export var loyality: int
 @export var injury_factor: int
-@export var stamina: float
 # for easier filtering
 @export var league: String
 @export var league_id: int
 @export var team: String
 @export var team_id: int
-@export var form: Enum.Form
-@export var morality: Enum.Morality
-@export var statistics: Statistics
-@export var history: Array[History]
 @export var foot_left: int
 @export var foot_right: int
 @export var position: Position
 @export var attributes: Attributes
+
+# internal data
+@export var form: Enum.Form
+@export var stamina: float
+@export var morality: Enum.Morality
+@export var statistics: Statistics
 @export var agent: Agent
+
+# history data
+@export var history: Array[History]
 
 
 func _init(

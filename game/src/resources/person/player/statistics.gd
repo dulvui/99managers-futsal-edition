@@ -27,3 +27,4 @@ func _init(
 	yellow_cards = p_yellow_cards
 	red_cards = p_red_cards
 	average_vote = p_average_vote
+

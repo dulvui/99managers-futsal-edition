@@ -29,7 +29,7 @@ func _init() -> void:
 	headers.append_array(Const.PLAYER_ATTRIBUTES_TECHNICAL)
 
 
-func world_to_csv(world: World) -> Array[PackedStringArray]:
+func players_to_csv(world: World) -> Array[PackedStringArray]:
 	var lines: Array[PackedStringArray] = []
 
 	for continent: Continent in world.continents:
@@ -73,6 +73,37 @@ func world_to_csv(world: World) -> Array[PackedStringArray]:
 						player_line.append_array(res_to_line(player.attributes.physical, Const.PLAYER_ATTRIBUTES_PHYSICAL))
 						player_line.append_array(res_to_line(player.attributes.technical, Const.PLAYER_ATTRIBUTES_TECHNICAL))
 
+
+						#
+						# now internal data, not coming from user at setup
+						#
+
+						player_line.append(str(player.id))
+						player_line.append(str(player.morality))
+						player_line.append(str(player.form))
+						player_line.append(str(player.stamina))
+
+						# contract
+						player_line.append(str(player.contract.income))
+						player_line.append(FormatUtil.day(player.contract.start_date))
+						player_line.append(FormatUtil.day(player.contract.end_date))
+						player_line.append(str(player.contract.bonus_goal))
+						player_line.append(str(player.contract.bonus_clean_sheet))
+						player_line.append(str(player.contract.bonus_assist))
+						player_line.append(str(player.contract.bonus_league))
+						player_line.append(str(player.contract.bonus_national_cup))
+						player_line.append(str(player.contract.bonus_continental_cup))
+						player_line.append(str(player.contract.buy_clause))
+						player_line.append(str(int(player.contract.is_on_loan)))
+
+						# statistics
+						player_line.append(str(player.statistics.games_played))
+						player_line.append(str(player.statistics.goals))
+						player_line.append(str(player.statistics.assists))
+						player_line.append(str(player.statistics.yellow_cards))
+						player_line.append(str(player.statistics.red_cards))
+						player_line.append(str(player.statistics.average_vote))
+
 						lines.append(player_line)
 
 	var csv: Array[PackedStringArray] = []
@@ -82,7 +113,7 @@ func world_to_csv(world: World) -> Array[PackedStringArray]:
 	return csv
 
 
-func csv_to_world_only_teams(csv: Array[PackedStringArray], world: World) -> void:
+func csv_to_teams(csv: Array[PackedStringArray], world: World) -> void:
 	line_index = 0
 
 	# last values found in last line read
@@ -135,7 +166,7 @@ func csv_to_world_only_teams(csv: Array[PackedStringArray], world: World) -> voi
 			league.add_team(team)
 
 
-func csv_to_world(csv: Array[PackedStringArray], world: World) -> void:
+func csv_to_players(csv: Array[PackedStringArray], world: World, first_time: bool = false) -> void:
 	line_index = 0
 
 	# last values found in last line read
@@ -210,7 +241,8 @@ func csv_to_world(csv: Array[PackedStringArray], world: World) -> void:
 			continue
 		
 		var player: Player = Player.new()
-		player.set_id()
+		if first_time:
+			player.set_id()
 		player.name = name
 		player.surname = surname
 		player.value = int(value)
@@ -234,6 +266,7 @@ func csv_to_world(csv: Array[PackedStringArray], world: World) -> void:
 			alt_position_string = alt_position_string.strip_edges()
 			player.position.alternatives.append(Enum.get_position_type_from_string(alt_position_string))
 
+
 		# next values are attributes
 		# attributes get set by iterating over attribute name arrays/headers
 		# attributes
@@ -249,7 +282,41 @@ func csv_to_world(csv: Array[PackedStringArray], world: World) -> void:
 		player.team_id = team.id
 		player.league_id = league.id
 
+
 		team.players.append(player)
+
+		if first_time:
+			return
+
+		#
+		# now internal data, not coming from user at setup
+		#
+
+		player.id = _get_int_or_default()
+		player.morality = _get_int_or_default() as Enum.Morality
+		player.form = _get_int_or_default() as Enum.Form
+		player.stamina = _get_float_or_default()
+
+		# contract
+		player.contract.income = _get_int_or_default()
+		player.contract.start_date = FormatUtil.day_from_string(_get_string_or_default())
+		player.contract.end_date = FormatUtil.day_from_string(_get_string_or_default())
+		player.contract.bonus_goal = _get_int_or_default()
+		player.contract.bonus_clean_sheet = _get_int_or_default()
+		player.contract.bonus_assist = _get_int_or_default()
+		player.contract.bonus_league = _get_int_or_default()
+		player.contract.bonus_national_cup = _get_int_or_default()
+		player.contract.bonus_continental_cup = _get_int_or_default()
+		player.contract.buy_clause = _get_int_or_default()
+		player.contract.is_on_loan = _get_int_or_default()
+
+		# statistics
+		player.statistics.games_played = _get_int_or_default()
+		player.statistics.goals = _get_int_or_default()
+		player.statistics.assists = _get_int_or_default()
+		player.statistics.yellow_cards = _get_int_or_default()
+		player.statistics.red_cards = _get_int_or_default()
+		player.statistics.average_vote = _get_float_or_default()
 
 
 func csv_to_match_days(csv: Array[PackedStringArray]) -> Array[MatchDays]:
@@ -282,14 +349,14 @@ func csv_to_match_days(csv: Array[PackedStringArray]) -> Array[MatchDays]:
 		var away_id: int = _get_int_or_default()
 		var away_name: String = _get_string_or_default()
 		var away_league_id: int = _get_int_or_default()
-		var over: int = _get_int_or_default()
+		var over: int = _get_bool_or_default()
 		var home_goals: int = _get_int_or_default()
 		var away_goals: int = _get_int_or_default()
 		var home_penalties_goals: int = _get_int_or_default()
 		var away_penalties_goals: int = _get_int_or_default()
 		var competition_id: int = _get_int_or_default()
 		var competition_name: String = _get_string_or_default()
-		var no_draw: int = _get_int_or_default()
+		var no_draw: bool = _get_bool_or_default()
 		var first_leg_id: int = _get_int_or_default()
 
 		# check active match days
@@ -318,14 +385,14 @@ func csv_to_match_days(csv: Array[PackedStringArray]) -> Array[MatchDays]:
 		matchz.away.name = away_name
 		matchz.away.league_id = away_league_id
 
-		matchz.over = bool(over)
+		matchz.over = over
 		matchz.home_goals = home_goals
 		matchz.away_goals = away_goals
 		matchz.home_penalties_goals = home_penalties_goals
 		matchz.away_penalties_goals = away_penalties_goals
 		matchz.competition_id = competition_id
 		matchz.competition_name = competition_name
-		matchz.no_draw = bool(no_draw)
+		matchz.no_draw = no_draw
 
 		# find first leg
 		if first_leg_id > -1:
@@ -651,6 +718,21 @@ func _get_int_or_default() -> int:
 	if column_index >= active_line.size():
 		return 0
 	return int(active_line[column_index])
+
+
+func _get_float_or_default() -> float:
+	column_index += 1
+	if column_index >= active_line.size():
+		return 0.0
+	return float(active_line[column_index])
+
+
+# saved in csv as 0, 1
+func _get_bool_or_default() -> bool:
+	column_index += 1
+	if column_index >= active_line.size():
+		return false
+	return bool(int(active_line[column_index]))
 
 
 func _get_attribute_or_default() -> int:

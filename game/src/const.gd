@@ -93,6 +93,14 @@ const CUSTOM_PROPERTY_EXPORT: int = 4102
 const CUSTOM_PROPERTY_EXPORT_ENUM: int = 69638
 
 
+#
+# csv stuff
+#
+const CSV_PLAYERS_FILE: StringName = "players.csv"
+const CSV_MATCH_LIST_FILE: StringName = "match_list.csv"
+const CSV_MATCH_HISTORY_FILE: StringName = "match_history.csv"
+
+
 const CSV_HEADERS: PackedStringArray = [
 	"nation [iso code]",
 	"league name",
