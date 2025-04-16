@@ -282,7 +282,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: 99 Managers Futsal Edition\n"
-"PO-Revision-Date: 2025-04-05 06:40+0000\n"
+"PO-Revision-Date: 2025-04-16 05:59+0000\n"
 "Last-Translator: Victor Gavilanes <vgavilanes951@gmail.com>\n"
 "Language-Team: Portuguese (Brazil) <https://hosted.weblate.org/projects/"
 "99-managers-futsal-edition/game/pt_BR/>\n"
@@ -291,7 +291,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8-bit\n"
 "Plural-Forms: nplurals=2; plural=n > 1;\n"
-"X-Generator: Weblate 5.11-dev\n"
+"X-Generator: Weblate 5.11.1-dev\n"
 
 #: src/ui_components/team_profile/team_profile.tscn
 #: src/screens/dashboard/dashboard.tscn
@@ -1496,10 +1496,8 @@ msgid "Use default"
 msgstr "Padrão"
 
 #: src/screens/setup/setup_world/setup_world.tscn
-#, fuzzy
-#| msgid "Save states"
 msgid "Save template"
-msgstr "Estados salvos"
+msgstr "Salvar modelo"
 
 #: src/screens/setup/setup_world/setup_world.tscn
 #, fuzzy
@@ -1513,6 +1511,9 @@ msgid ""
 "player names, attributes and team wealth. When reused, it will generate "
 "exatly the same result."
 msgstr ""
+"Essa semente de geração define todos os valores iniciais aleatórios do jogo "
+"como nomes, atributos e riqueza dos times. Quando usado, gerará exatamente o "
+"mesmo resultado."
 
 #: src/screens/setup/setup_world/setup_world.tscn
 msgid "Random"
@@ -1520,11 +1521,11 @@ msgstr "Aleatório"
 
 #: src/screens/setup/setup_world/setup_world.tscn
 msgid "Open a File"
-msgstr ""
+msgstr "Abrir um Jogo"
 
 #: src/screens/setup/setup_world/setup_world.tscn
 msgid "Open"
-msgstr ""
+msgstr "Abrir"
 
 #: src/screens/setup/setup_world/setup_world.tscn
 msgid ""
@@ -1532,6 +1533,9 @@ msgid ""
 "Please make sure the file is a .csv file and has the correct format as "
 "defined in the template."
 msgstr ""
+"Houve um erro ao carregar o arquivo.\n"
+"Por favor, certifique-se de que se trata de um arquivo .csv e que tenha um "
+"formato definido no modelo."
 
 #: src/screens/setup/setup_world/setup_world.tscn
 msgid ""
@@ -1546,6 +1550,17 @@ msgid ""
 "Note: The template might change before final release. The loading will fail, "
 "if the file has not the correct format."
 msgstr ""
+"1) Clique em \"Salvar modelo\" para salvar o modelo csv no seu computador\n"
+"2) Abrir com um editor de planilhas (como LibreOffice Calc ou similar)\n"
+"3) Modificar dados mantendo a estrutura definida no modelo\n"
+"4) Salvar arquivo como \"world.csv\" (arquivos .ods or .xlsx não são "
+"suportados )\n"
+"5) Clique em \"Carregar arquivo\" para importar dados modificados\n"
+"\n"
+"E pronto! Esse arquivo poderá ser reutilizado e compartilhado com amigos.\n"
+"\n"
+"Nota: O modelo pode ser modificado antes do lançamento final. O carregamento "
+"não funcionará em um formato incorreto."
 
 #: src/screens/setup/setup_world/setup_world.gd
 #, fuzzy
@@ -1561,19 +1576,19 @@ msgstr "Padrão"
 
 #: src/screens/setup/setup_world/setup_world.gd
 msgid "Generating teams and players"
-msgstr ""
+msgstr "Gerando times e jogadores"
 
 #: src/screens/setup/setup_world/setup_world.gd
 msgid "Errors"
-msgstr ""
+msgstr "Erros"
 
 #: src/screens/setup/setup_world/setup_world.gd
 msgid "Warnings"
-msgstr ""
+msgstr "Avisos"
 
 #: src/screens/setup/setup_team/setup_team.tscn
 msgid "Choose team"
-msgstr ""
+msgstr "Escolher time"
 
 #: src/screens/setup/setup_team/setup_team.tscn
 msgid "Select"
@@ -1706,67 +1721,68 @@ msgstr "Recuperar"
 
 #: src/enum.gd
 msgid "Unable to read file."
-msgstr ""
+msgstr "Não é possível ler o arquivo."
 
 #: src/enum.gd
 msgid "Invalid csv format."
-msgstr ""
+msgstr "Formato csv inválido."
 
 #: src/enum.gd
 msgid "File too big. Max file size is {file_size}"
-msgstr ""
+msgstr "Arquivo grande demais. O tamanho máximo é {file_size}"
 
 #: src/enum.gd
 msgid "File has non valid characters."
-msgstr ""
+msgstr "O arquivo tem caracteres inválidos."
 
 #: src/enum.gd
 msgid "Wrong amount of headers in first line, expected {header_size}"
 msgstr ""
+"Quantidade incorreta de cabeçalhos na primeira linha, espera-se {header_size}"
 
 #: src/enum.gd
 msgid "Wrong format of headers in first line, expected {headers}"
-msgstr ""
+msgstr "Formato incorreto de cabeçalhos na primeira linha, espera-se {headers}"
 
 #: src/enum.gd
 msgid "No vaild league was found in file."
-msgstr ""
+msgstr "Não foram encontradas ligas válidas no arquivo."
 
 #: src/enum.gd
 msgid "League {league_name} has less than 8 teams."
-msgstr ""
+msgstr "A Liga {league_name} tem menos de 8 times."
 
 #: src/enum.gd
 msgid "Undefined error occurred."
-msgstr ""
+msgstr "Ocorreu um erro indefinido."
 
 #: src/enum.gd
 msgid "Nation {nation_name} has wrong format"
-msgstr ""
+msgstr "A Nação {nation_name} está em formato incorreto"
 
 #: src/enum.gd
 msgid "Nation {nation_name} not found"
-msgstr ""
+msgstr "Nação {nation_name} não encontrada"
 
 #: src/enum.gd
 msgid "League {league_name} has more than 20 teams."
-msgstr ""
+msgstr "A Liga {league_name} tem mais de 20 times."
 
 #: src/enum.gd
 msgid "League {league_name} has odd size teams."
-msgstr ""
+msgstr "A Liga {league_name} tem um número ímpar de times."
 
 #: src/enum.gd
 msgid "League with no name defined in line {line_number}"
-msgstr ""
+msgstr "Liga sem nome definido na linha {line_number}"
 
 #: src/enum.gd
 msgid "Team with no name defined in line {line_number}"
-msgstr ""
+msgstr "Time sem nome definido na linha {line_number}"
 
 #: src/enum.gd
 msgid "Undefined warning occurred."
-msgstr ""
+msgstr "Ocorreu um aviso indefinido."
 
 #: src/screens/match_screen/match_screen.gd
 #: src/screens/match_screen/match_screen.tscn
@@ -1775,7 +1791,7 @@ msgstr "Pausar"
 
 #: src/screens/match_screen/match_screen.tscn
 msgid "Overview"
-msgstr ""
+msgstr "Visão geral"
 
 #: src/screens/match_screen/match_screen.tscn
 msgid "Simulate"
@@ -1792,36 +1808,36 @@ msgstr "Posse"
 
 #: src/screens/match_screen/match_screen.tscn
 msgid "Do you want to simulate the whole match?"
-msgstr ""
+msgstr "Deseja simular o jogo inteiro?"
 
 #: src/screens/match_screen/penalties_bar/penalties_bar.tscn
 #: src/screens/match_screen/statistics/match_stats.tscn
 msgid "Penalties"
-msgstr ""
+msgstr "Pênaltis"
 
 #: src/screens/match_screen/statistics/match_stats.tscn
 msgid "Shots (on target)"
-msgstr ""
+msgstr "Chutes (no alvo)"
 
 #: src/screens/match_screen/statistics/match_stats.tscn
 msgid "Shots hit post"
-msgstr ""
+msgstr "Chutes na trave"
 
 #: src/screens/match_screen/statistics/match_stats.tscn
 msgid "Passes (success)"
-msgstr ""
+msgstr "Passes (bem-sucedidos)"
 
 #: src/screens/match_screen/statistics/match_stats.tscn
 msgid "Passes accuracy"
-msgstr ""
+msgstr "Precisão dos passes"
 
 #: src/screens/match_screen/statistics/match_stats.tscn
 msgid "Kick-ins"
-msgstr ""
+msgstr "Reposições do goleiro"
 
 #: src/screens/match_screen/statistics/match_stats.tscn
 msgid "Free kicks"
-msgstr ""
+msgstr "Cobranças de falta"
 
 #: src/screens/match_screen/statistics/match_stats.tscn
 #, fuzzy
@@ -1831,15 +1847,15 @@ msgstr "Pênalti"
 
 #: src/screens/match_screen/statistics/match_stats.tscn
 msgid "Fouls"
-msgstr ""
+msgstr "Faltas"
 
 #: src/screens/match_screen/statistics/match_stats.tscn
 msgid "Tackles (success)"
-msgstr ""
+msgstr "Desarmes (bem-sucedidos)"
 
 #: src/screens/match_screen/statistics/match_stats.tscn
 msgid "Corners"
-msgstr ""
+msgstr "Escanteios"
 
 #: src/screens/settings/theme_picker/theme_picker.tscn
 msgid "Themes"
@@ -1863,7 +1879,7 @@ msgstr "Cor de fundo"
 
 #: src/ui_components/player_list/player_list_view/views/statistics/player_list_view_statistics.tscn
 msgid "Games played"
-msgstr ""
+msgstr "Partidas jogadas"
 
 #: src/ui_components/player_list/player_list_view/views/statistics/player_list_view_statistics.tscn
 #, fuzzy
@@ -1873,11 +1889,11 @@ msgstr "Cartões vermelhos"
 
 #: src/ui_components/player_list/player_list_view/views/goalkeeper/player_list_view_goalkeeper.tscn
 msgid "Feet"
-msgstr ""
+msgstr "Pés"
 
 #: src/ui_components/player_list/player_list_view/views/goalkeeper/player_list_view_goalkeeper.tscn
 msgid "Hands"
-msgstr ""
+msgstr "Mãos"
 
 #: src/ui_components/player_list/player_list_view/views/general/player_list_view_general.tscn
 msgid "Nation"
@@ -1895,7 +1911,7 @@ msgstr "Only goals"
 
 #: src/ui_components/player_list/player_list_view/views/contract/player_list_view_contract.tscn
 msgid "Bonus clean sheet"
-msgstr ""
+msgstr "Bônus clean sheet"
 
 #: src/ui_components/player_list/player_list_view/views/contract/player_list_view_contract.tscn
 #, fuzzy
@@ -1905,19 +1921,19 @@ msgstr "Only goals"
 
 #: src/ui_components/player_list/player_list_view/views/contract/player_list_view_contract.tscn
 msgid "Bonus league"
-msgstr ""
+msgstr "Bônus liga"
 
 #: src/ui_components/player_list/player_list_view/views/contract/player_list_view_contract.tscn
 msgid "Is on loan"
-msgstr ""
+msgstr "Está emprestado"
 
 #: src/ui_components/player_list/player_list_view/views/contract/player_list_view_contract.tscn
 msgid "Bonus continental cup"
-msgstr ""
+msgstr "Bônus copa continental"
 
 #: src/ui_components/player_list/player_list_view/views/contract/player_list_view_contract.tscn
 msgid "Bonus national cup"
-msgstr ""
+msgstr "Bônus copa nacional"
 
 #: src/screens/about/about.tscn
 #, fuzzy
