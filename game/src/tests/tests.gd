@@ -80,6 +80,8 @@ static func find_next_matchday() -> void:
 
 
 static func create_mock_world(use_test_file: bool) -> World:
+	Global.start_date = Time.get_date_dict_from_system()
+
 	# create world
 	var world_generator: GeneratorWorld = GeneratorWorld.new()
 	var world: World = world_generator.init_world()

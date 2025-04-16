@@ -49,6 +49,7 @@ func initialize(next_season: bool = false) -> void:
 	
 	# clear previous season, if exists
 	months = []
+
 	# always add two years to calendar
 	var year: int = date.year
 	_add_year(year)

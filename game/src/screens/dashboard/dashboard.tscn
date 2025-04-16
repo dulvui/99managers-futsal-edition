@@ -1,4 +1,4 @@
-[gd_scene load_steps=23 format=3 uid="uid://c8mhb22bae1my"]
+[gd_scene load_steps=21 format=3 uid="uid://c8mhb22bae1my"]
 
 [ext_resource type="Script" uid="uid://isdkorclbxno" path="res://src/screens/dashboard/dashboard.gd" id="2"]
 [ext_resource type="PackedScene" uid="uid://c51vyn54bk7q4" path="res://src/ui_components/visual_calendar/visual_calendar.tscn" id="3"]
@@ -9,10 +9,8 @@
 [ext_resource type="LabelSettings" uid="uid://cc2vi4onhgmnw" path="res://theme_base/label/label_settings_bold.tres" id="5_jjvpr"]
 [ext_resource type="PackedScene" uid="uid://dcv0qm4k1wi4q" path="res://src/ui_components/email/email.tscn" id="6"]
 [ext_resource type="PackedScene" uid="uid://c7bh7ukttbkvu" path="res://src/ui_components/visual_competitions/visual_competitions.tscn" id="7"]
-[ext_resource type="PackedScene" uid="uid://cbijtmv151qg7" path="res://src/ui_components/transfers/player_offer/player_offer.tscn" id="8"]
 [ext_resource type="PackedScene" uid="uid://dual4o5whtk85" path="res://src/ui_components/info/info.tscn" id="8_bk8g0"]
 [ext_resource type="PackedScene" uid="uid://mvca6wjq0pv6" path="res://src/ui_components/player_list/player_list.tscn" id="8_nkdvo"]
-[ext_resource type="PackedScene" uid="uid://ccipqeqmthtfr" path="res://src/ui_components/transfers/contract_offer/contract_offer.tscn" id="9"]
 [ext_resource type="PackedScene" uid="uid://dtvkd1ks3xiqc" path="res://src/ui_components/player_profile/player_profile.tscn" id="11_838pl"]
 [ext_resource type="PackedScene" uid="uid://cdrmqgiuv6wf3" path="res://src/ui_components/team_profile/team_profile.tscn" id="13_0hk3g"]
 [ext_resource type="PackedScene" uid="uid://bpvg2vhxml3a1" path="res://src/ui_components/base/confirm_dialog/default_confirm_dialog.tscn" id="14_t4c55"]
@@ -439,16 +437,6 @@ unique_name_in_owner = true
 visible = false
 layout_mode = 2
 
-[node name="PlayerOffer" parent="HBoxContainer/MainContainer/Main/Content" instance=ExtResource("8")]
-unique_name_in_owner = true
-visible = false
-layout_mode = 2
-
-[node name="ContractOffer" parent="HBoxContainer/MainContainer/Main/Content" instance=ExtResource("9")]
-unique_name_in_owner = true
-visible = false
-layout_mode = 2
-
 [node name="Finances" parent="HBoxContainer/MainContainer/Main/Content" instance=ExtResource("15_jfh6w")]
 unique_name_in_owner = true
 visible = false
@@ -480,10 +468,5 @@ custom_text = "Save the game before exiting?"
 [connection signal="pressed" from="HBoxContainer/MainContainer/PanelContainer/Top/TopBar/ContinueButton" to="." method="_on_continue_button_pressed"]
 [connection signal="select_player" from="HBoxContainer/MainContainer/Main/Content/AllPlayerList" to="." method="_on_all_player_list_select_player"]
 [connection signal="select_player" from="HBoxContainer/MainContainer/Main/Content/PlayerList" to="." method="_on_player_list_select_player"]
-[connection signal="offer" from="HBoxContainer/MainContainer/Main/Content/PlayerProfile" to="." method="_on_player_profile_offer"]
-[connection signal="cancel" from="HBoxContainer/MainContainer/Main/Content/PlayerOffer" to="." method="_on_player_offer_cancel"]
-[connection signal="confirm" from="HBoxContainer/MainContainer/Main/Content/PlayerOffer" to="." method="_on_player_offer_confirm"]
-[connection signal="cancel" from="HBoxContainer/MainContainer/Main/Content/ContractOffer" to="." method="_on_contract_offer_cancel"]
-[connection signal="confirm" from="HBoxContainer/MainContainer/Main/Content/ContractOffer" to="." method="_on_contract_offer_confirm"]
 [connection signal="confirmed" from="SaveConfirmDialog" to="." method="_on_save_confirm_dialog_confirmed"]
 [connection signal="denied" from="SaveConfirmDialog" to="." method="_on_save_confirm_dialog_denied"]

@@ -5,8 +5,6 @@
 class_name PlayerProfile
 extends MarginContainer
 
-signal offer(player: Player)
-
 var player: Player
 
 @onready var info_view: InfoView = %Info
@@ -17,7 +15,7 @@ var player: Player
 
 func _ready() -> void:
 	if Tests.is_run_as_current_scene(self):
-		Global.world = World.new()
+		Global.world = Tests.create_mock_world(true)
 		set_player(Tests.create_mock_player())
 
 
@@ -28,7 +26,6 @@ func set_player(p_player: Player) -> void:
 	attributes_view.setup(player)
 	statistics_view.setup(player)
 	contract_view.setup(player)
-	contract_view.offer_button.pressed.connect(func() -> void: offer.emit(player))
 
 	# always show info view, when setting new player
 	info_view.show()

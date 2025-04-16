@@ -18,10 +18,9 @@ var team: Team
 var player: Player
 var transfer: Transfer
 
-@onready var income_label: Label = $VBoxContainer/GridContainer/Income
-@onready var info_label: Label = $VBoxContainer/Info
-@onready var years_label: Label = $VBoxContainer/GridContainer/Years
-@onready var buy_clause_label: Label = $VBoxContainer/GridContainer/BuyClause
+@onready var income_label: LineEdit = %Income
+@onready var years_label: Label = %Years
+@onready var buy_clause_label: LineEdit = %BuyClause
 
 
 func _ready() -> void:
@@ -33,8 +32,6 @@ func setup(p_transfer: Transfer) -> void:
 	player = Global.world.get_player_by_id(
 		transfer.player_id, transfer.team.id, transfer.team.league_id
 	)
-
-	info_label.text = "Offer a contract to " + player.get_full_name()
 
 
 func _on_income_more_pressed() -> void:

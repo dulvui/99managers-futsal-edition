@@ -2,7 +2,7 @@
 
 # SPDX-License-Identifier: AGPL-3.0-or-later
 
-class_name PlayerOffer
+class_name PlayerOfferLoan
 extends VBoxContainer
 
 signal confirm
@@ -61,7 +61,7 @@ func _on_amount_text_changed(new_text: String) -> void:
 
 func _on_confirm_pressed() -> void:
 	var transfer: Transfer = Transfer.new()
-	transfer.type = Transfer.Type.BUY
+	transfer.type = Transfer.Type.LOAN
 	transfer.player_id = player.id
 	transfer.cost = amount
 	transfer.delay_days = (randi() % 5) + 1

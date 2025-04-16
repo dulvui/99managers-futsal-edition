@@ -1,8 +1,7 @@
-[gd_scene load_steps=4 format=3 uid="uid://dmd8ysnepfvi0"]
+[gd_scene load_steps=3 format=3 uid="uid://dmd8ysnepfvi0"]
 
 [ext_resource type="Script" uid="uid://cwn5b2lkl0oqu" path="res://src/ui_components/player_profile/contract_view/contract_view.gd" id="1_njuoh"]
 [ext_resource type="LabelSettings" uid="uid://cc2vi4onhgmnw" path="res://theme_base/label/label_settings_bold.tres" id="2_j4fgt"]
-[ext_resource type="Script" uid="uid://cnyyowwlb04kl" path="res://src/ui_components/base/defaults/default_button.gd" id="3_yh7ku"]
 
 [node name="ContractView" type="VBoxContainer"]
 anchors_preset = 15
@@ -151,12 +150,3 @@ text = "Continental cup"
 [node name="ContinentalCup" type="Label" parent="Bonus/GridContainer/ContinentalCub"]
 unique_name_in_owner = true
 layout_mode = 2
-
-[node name="Offer" type="Button" parent="."]
-unique_name_in_owner = true
-custom_minimum_size = Vector2(150, 0)
-layout_mode = 2
-size_flags_horizontal = 4
-theme_type_variation = &"ImportantButton"
-text = "Make offer"
-script = ExtResource("3_yh7ku")

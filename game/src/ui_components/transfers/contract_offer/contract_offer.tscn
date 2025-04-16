@@ -1,115 +1,143 @@
-[gd_scene load_steps=4 format=3 uid="uid://ccipqeqmthtfr"]
+[gd_scene load_steps=5 format=3 uid="uid://ccipqeqmthtfr"]
 
 [ext_resource type="Script" uid="uid://cnn2g27pt0ubw" path="res://src/ui_components/transfers/contract_offer/contract_offer.gd" id="1"]
 [ext_resource type="Theme" uid="uid://pt1hrfiuwfpg" path="res://theme_base/theme.tres" id="2"]
+[ext_resource type="LabelSettings" uid="uid://b4gu78rjvdfx4" path="res://theme_base/label/label_settings_title.tres" id="3_r046q"]
 [ext_resource type="Script" uid="uid://cnyyowwlb04kl" path="res://src/ui_components/base/defaults/default_button.gd" id="3_ycdro"]
 
-[node name="ContractOffer" type="PanelContainer"]
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-theme = ExtResource("2")
-script = ExtResource("1")
-
-[node name="VBoxContainer" type="VBoxContainer" parent="."]
-layout_mode = 2
+[node name="ContractOffer" type="VBoxContainer"]
+custom_minimum_size = Vector2(960, 0)
+anchors_preset = -1
+anchor_right = 0.5
+anchor_bottom = 0.343556
+offset_bottom = -0.0400391
+grow_horizontal = 2
+grow_vertical = 2
 size_flags_horizontal = 4
 size_flags_vertical = 4
+theme = ExtResource("2")
+script = ExtResource("1")
+metadata/_edit_use_anchors_ = true
 
-[node name="Info" type="Label" parent="VBoxContainer"]
+[node name="Title" type="Label" parent="."]
 layout_mode = 2
-text = "Contract"
+text = "Offer contract"
+label_settings = ExtResource("3_r046q")
 
-[node name="GridContainer" type="GridContainer" parent="VBoxContainer"]
+[node name="Description" type="Label" parent="."]
 layout_mode = 2
-columns = 4
+text = "Offer the player a contract to join your team."
 
-[node name="IncomeLabel" type="Label" parent="VBoxContainer/GridContainer"]
+[node name="Income" type="HBoxContainer" parent="."]
+custom_minimum_size = Vector2(240, 0)
+layout_mode = 2
+
+[node name="IncomeLabel" type="Label" parent="Income"]
 layout_mode = 2
 size_flags_horizontal = 3
 text = "Income"
 
-[node name="IncomeLess" type="Button" parent="VBoxContainer/GridContainer"]
+[node name="IncomeAmount" type="HBoxContainer" parent="Income"]
+custom_minimum_size = Vector2(240, 0)
+layout_mode = 2
+
+[node name="IncomeLess" type="Button" parent="Income/IncomeAmount"]
 auto_translate_mode = 2
 layout_mode = 2
 text = "-"
 script = ExtResource("3_ycdro")
 
-[node name="Income" type="Label" parent="VBoxContainer/GridContainer"]
+[node name="Income" type="LineEdit" parent="Income/IncomeAmount"]
+unique_name_in_owner = true
 auto_translate_mode = 2
 layout_mode = 2
 size_flags_horizontal = 3
 text = "0"
-horizontal_alignment = 1
+alignment = 1
 
-[node name="IncomeMore" type="Button" parent="VBoxContainer/GridContainer"]
+[node name="IncomeMore" type="Button" parent="Income/IncomeAmount"]
 auto_translate_mode = 2
 layout_mode = 2
 text = "+"
 script = ExtResource("3_ycdro")
 
-[node name="YearsLabel" type="Label" parent="VBoxContainer/GridContainer"]
+[node name="Years" type="HBoxContainer" parent="."]
+layout_mode = 2
+
+[node name="YearsLabel" type="Label" parent="Years"]
 layout_mode = 2
 size_flags_horizontal = 3
 text = "Year"
 
-[node name="YearsLess" type="Button" parent="VBoxContainer/GridContainer"]
+[node name="YearsAmouns" type="HBoxContainer" parent="Years"]
+custom_minimum_size = Vector2(240, 0)
+layout_mode = 2
+
+[node name="YearsLess" type="Button" parent="Years/YearsAmouns"]
 auto_translate_mode = 2
 layout_mode = 2
 text = "-"
 script = ExtResource("3_ycdro")
 
-[node name="Years" type="Label" parent="VBoxContainer/GridContainer"]
+[node name="Years" type="Label" parent="Years/YearsAmouns"]
+unique_name_in_owner = true
 auto_translate_mode = 2
 layout_mode = 2
 size_flags_horizontal = 3
 text = "1"
 horizontal_alignment = 1
 
-[node name="YearsMore" type="Button" parent="VBoxContainer/GridContainer"]
+[node name="YearsMore" type="Button" parent="Years/YearsAmouns"]
 auto_translate_mode = 2
 layout_mode = 2
 text = "+"
 script = ExtResource("3_ycdro")
 
-[node name="BuyClauseLabel" type="Label" parent="VBoxContainer/GridContainer"]
+[node name="BuyClause" type="HBoxContainer" parent="."]
+layout_mode = 2
+
+[node name="BuyClauseLabel" type="Label" parent="BuyClause"]
 layout_mode = 2
 size_flags_horizontal = 3
 text = "Buy clause"
 
-[node name="BuyClauseLess" type="Button" parent="VBoxContainer/GridContainer"]
+[node name="BuyClauseAmount" type="HBoxContainer" parent="BuyClause"]
+custom_minimum_size = Vector2(240, 0)
+layout_mode = 2
+
+[node name="BuyClauseLess" type="Button" parent="BuyClause/BuyClauseAmount"]
 auto_translate_mode = 2
 layout_mode = 2
 text = "-"
 script = ExtResource("3_ycdro")
 
-[node name="BuyClause" type="Label" parent="VBoxContainer/GridContainer"]
+[node name="BuyClause" type="LineEdit" parent="BuyClause/BuyClauseAmount"]
+unique_name_in_owner = true
 auto_translate_mode = 2
 layout_mode = 2
 size_flags_horizontal = 3
 text = "0"
-horizontal_alignment = 1
+alignment = 1
 
-[node name="BuyClauseMore" type="Button" parent="VBoxContainer/GridContainer"]
+[node name="BuyClauseMore" type="Button" parent="BuyClause/BuyClauseAmount"]
 auto_translate_mode = 2
 layout_mode = 2
 text = "+"
 script = ExtResource("3_ycdro")
 
-[node name="Confirm" type="Button" parent="VBoxContainer"]
+[node name="Confirm" type="Button" parent="."]
+custom_minimum_size = Vector2(240, 0)
 layout_mode = 2
+size_flags_horizontal = 4
+theme_type_variation = &"ImportantButton"
 text = "Confirm"
 script = ExtResource("3_ycdro")
+metadata/_custom_type_script = "uid://cnyyowwlb04kl"
 
-[node name="Cancel" type="Button" parent="VBoxContainer"]
-layout_mode = 2
-text = "Cancel"
-
-[connection signal="pressed" from="VBoxContainer/GridContainer/IncomeLess" to="." method="_on_income_less_pressed"]
-[connection signal="pressed" from="VBoxContainer/GridContainer/IncomeMore" to="." method="_on_income_more_pressed"]
-[connection signal="pressed" from="VBoxContainer/GridContainer/YearsLess" to="." method="_on_years_less_pressed"]
-[connection signal="pressed" from="VBoxContainer/GridContainer/YearsMore" to="." method="_on_years_more_pressed"]
-[connection signal="pressed" from="VBoxContainer/GridContainer/BuyClauseLess" to="." method="_on_buy_clause_less_pressed"]
-[connection signal="pressed" from="VBoxContainer/GridContainer/BuyClauseMore" to="." method="_on_buy_clause_more_pressed"]
-[connection signal="pressed" from="VBoxContainer/Confirm" to="." method="_on_confirm_pressed"]
-[connection signal="pressed" from="VBoxContainer/Cancel" to="." method="_on_cancel_pressed"]
+[connection signal="pressed" from="Income/IncomeAmount/IncomeLess" to="." method="_on_income_less_pressed"]
+[connection signal="pressed" from="Income/IncomeAmount/IncomeMore" to="." method="_on_income_more_pressed"]
+[connection signal="pressed" from="Years/YearsAmouns/YearsLess" to="." method="_on_years_less_pressed"]
+[connection signal="pressed" from="Years/YearsAmouns/YearsMore" to="." method="_on_years_more_pressed"]
+[connection signal="pressed" from="BuyClause/BuyClauseAmount/BuyClauseLess" to="." method="_on_buy_clause_less_pressed"]
+[connection signal="pressed" from="BuyClause/BuyClauseAmount/BuyClauseMore" to="." method="_on_buy_clause_more_pressed"]
+[connection signal="pressed" from="Confirm" to="." method="_on_confirm_pressed"]

@@ -13,8 +13,6 @@ enum ContentViews {
 	ALL_PLAYERS,
 	FORMATION,
 	INFO,
-	PLAYER_OFFER,
-	CONTRACT_OFFER,
 	PLAYER_PROFILE,
 	TEAM_PROFILE,
 	FINANCES,
@@ -52,8 +50,6 @@ var active_view: ContentViews = ContentViews.EMAIL
 @onready var formation: VisualFormation = %Formation
 @onready var player_list: PlayerList = %PlayerList
 @onready var all_players_list: PlayerList = %AllPlayerList
-@onready var player_offer: PlayerOffer = %PlayerOffer
-@onready var contract_offer: ContractOffer = %ContractOffer
 @onready var player_profile: PlayerProfile = %PlayerProfile
 @onready var team_profile: TeamProfile = %TeamProfile
 @onready var finances: VisualFinances = %Finances
@@ -186,8 +182,6 @@ func _show_active_view(p_active_view: int = -1, from_history: bool = false) -> v
 	all_players_list.hide()
 	player_list.hide()
 	info.hide()
-	player_offer.hide()
-	contract_offer.hide()
 	player_profile.hide()
 	team_profile.hide()
 	finances.hide()
@@ -213,14 +207,10 @@ func _show_active_view(p_active_view: int = -1, from_history: bool = false) -> v
 			player_list.show()
 		ContentViews.INFO:
 			info.show()
-		ContentViews.PLAYER_OFFER:
-			player_offer.show()
 		ContentViews.PLAYER_PROFILE:
 			player_profile.show()
 		ContentViews.TEAM_PROFILE:
 			team_profile.show()
-		ContentViews.CONTRACT_OFFER:
-			contract_offer.show()
 		ContentViews.FINANCES:
 			finances.show()
 		ContentViews.STADIUM:
@@ -309,32 +299,14 @@ func _next_day() -> void:
 	visual_calendar.setup()
 
 
-func _on_email_email_action(message: EmailMessage) -> void:
-	if message.type == EmailMessage.Type.CONTRACT_OFFER:
-		contract_offer.setup(TransferUtil.get_transfer_id(message.foreign_id))
-		_show_active_view(ContentViews.CONTRACT_OFFER)
-	else:
-		push_error("error email action with no type. text: " + message.text)
-
-
-func _on_contract_offer_cancel() -> void:
-	contract_offer.hide()
-	_show_active_view(ContentViews.EMAIL)
-
-
-func _on_contract_offer_confirm() -> void:
-	contract_offer.hide()
-	_show_active_view(ContentViews.EMAIL)
-
-
-func _on_player_offer_confirm() -> void:
-	email.update_messages()
-	player_offer.hide()
-	_show_active_view(ContentViews.ALL_PLAYERS)
-
-
-func _on_player_offer_cancel() -> void:
-	_show_active_view(ContentViews.PLAYER_PROFILE)
+func _on_email_email_action(_message: EmailMessage) -> void:
+	# TODO show player profile of player and open contract offer tab
+	pass
+	# if message.type == EmailMessage.Type.CONTRACT_OFFER:
+	# 	contract_offer.setup(TransferUtil.get_transfer_id(message.foreign_id))
+	# 	_show_active_view(ContentViews.CONTRACT_OFFER)
+	# else:
+	# 	push_error("error email action with no type. text: " + message.text)
 
 
 func _on_prev_view_button_pressed() -> void:
@@ -355,11 +327,6 @@ func _on_next_view_button_pressed() -> void:
 
 	active_view = view_history[view_history_index]
 	_show_active_view(active_view, true)
-
-
-func _on_player_profile_offer(player: Player) -> void:
-	player_offer.set_player(player)
-	_show_active_view(ContentViews.PLAYER_OFFER)
 
 
 func _on_settings_button_pressed() -> void:

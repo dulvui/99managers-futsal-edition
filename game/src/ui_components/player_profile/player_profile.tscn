@@ -1,12 +1,16 @@
-[gd_scene load_steps=8 format=3 uid="uid://dtvkd1ks3xiqc"]
+[gd_scene load_steps=12 format=3 uid="uid://dtvkd1ks3xiqc"]
 
 [ext_resource type="Theme" uid="uid://pt1hrfiuwfpg" path="res://theme_base/theme.tres" id="1"]
 [ext_resource type="Script" uid="uid://ban4a3puf83fg" path="res://src/ui_components/player_profile/player_profile.gd" id="2"]
 [ext_resource type="PackedScene" uid="uid://o6iglxooy6g3" path="res://src/ui_components/player_profile/info_view/info_view.tscn" id="3_rkqc7"]
 [ext_resource type="LabelSettings" uid="uid://b4gu78rjvdfx4" path="res://theme_base/label/label_settings_title.tres" id="3_uqqup"]
 [ext_resource type="PackedScene" uid="uid://c1ybc8k2e473c" path="res://src/ui_components/player_profile/attributes_view/attributes_view.tscn" id="3_whctl"]
+[ext_resource type="Script" uid="uid://bkg838a5hys8o" path="res://src/ui_components/base/defaults/default_tab_container.gd" id="3_wt7t7"]
 [ext_resource type="PackedScene" uid="uid://b4oxudl2hadi7" path="res://src/ui_components/player_profile/statistics_view/statistics_view.tscn" id="4_hpiic"]
 [ext_resource type="PackedScene" uid="uid://dmd8ysnepfvi0" path="res://src/ui_components/player_profile/contract_view/contract_view.tscn" id="7_4elh2"]
+[ext_resource type="PackedScene" uid="uid://cbijtmv151qg7" path="res://src/ui_components/transfers/player_offer/player_offer.tscn" id="9_frkmc"]
+[ext_resource type="PackedScene" uid="uid://d0wtou46drev3" path="res://src/ui_components/transfers/player_offer_loan/player_offer_loan.tscn" id="10_4ogna"]
+[ext_resource type="PackedScene" uid="uid://ccipqeqmthtfr" path="res://src/ui_components/transfers/contract_offer/contract_offer.tscn" id="10_idrwx"]
 
 [node name="PlayerProfile" type="MarginContainer"]
 anchors_preset = 15
@@ -25,79 +29,128 @@ theme_override_constants/margin_bottom = 0
 script = ExtResource("2")
 metadata/_edit_use_anchors_ = true
 
-[node name="GridContainer" type="GridContainer" parent="."]
+[node name="DefaultTabContainer" type="TabContainer" parent="."]
+layout_mode = 2
+current_tab = 0
+script = ExtResource("3_wt7t7")
+metadata/_custom_type_script = "uid://bkg838a5hys8o"
+
+[node name="Overview" type="MarginContainer" parent="DefaultTabContainer"]
+layout_mode = 2
+theme_override_constants/margin_left = 0
+theme_override_constants/margin_right = 0
+theme_override_constants/margin_bottom = 0
+metadata/_tab_index = 0
+
+[node name="Overview" type="GridContainer" parent="DefaultTabContainer/Overview"]
 layout_mode = 2
 columns = 2
 
-[node name="InfoContainer" type="VBoxContainer" parent="GridContainer"]
+[node name="InfoContainer" type="VBoxContainer" parent="DefaultTabContainer/Overview/Overview"]
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
 theme_override_constants/separation = 15
 
-[node name="Label" type="Label" parent="GridContainer/InfoContainer"]
+[node name="Label" type="Label" parent="DefaultTabContainer/Overview/Overview/InfoContainer"]
 layout_mode = 2
 text = "General"
 label_settings = ExtResource("3_uqqup")
 
-[node name="Info" parent="GridContainer/InfoContainer" instance=ExtResource("3_rkqc7")]
+[node name="Info" parent="DefaultTabContainer/Overview/Overview/InfoContainer" instance=ExtResource("3_rkqc7")]
 unique_name_in_owner = true
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
 
-[node name="AttributesContainer" type="VBoxContainer" parent="GridContainer"]
+[node name="AttributesContainer" type="VBoxContainer" parent="DefaultTabContainer/Overview/Overview"]
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
 theme_override_constants/separation = 15
 
-[node name="Label" type="Label" parent="GridContainer/AttributesContainer"]
+[node name="Label" type="Label" parent="DefaultTabContainer/Overview/Overview/AttributesContainer"]
 layout_mode = 2
 text = "Attributes"
 label_settings = ExtResource("3_uqqup")
 
-[node name="Attributes" parent="GridContainer/AttributesContainer" instance=ExtResource("3_whctl")]
+[node name="Attributes" parent="DefaultTabContainer/Overview/Overview/AttributesContainer" instance=ExtResource("3_whctl")]
 unique_name_in_owner = true
 layout_mode = 2
 
-[node name="StatisticsContainer" type="VBoxContainer" parent="GridContainer"]
+[node name="Statistics" type="VBoxContainer" parent="DefaultTabContainer/Overview/Overview"]
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
 theme_override_constants/separation = 15
 
-[node name="Label" type="Label" parent="GridContainer/StatisticsContainer"]
+[node name="Label" type="Label" parent="DefaultTabContainer/Overview/Overview/Statistics"]
 layout_mode = 2
 text = "Statistics
 "
 label_settings = ExtResource("3_uqqup")
 
-[node name="ScrollContainer" type="ScrollContainer" parent="GridContainer/StatisticsContainer"]
+[node name="ScrollContainer" type="ScrollContainer" parent="DefaultTabContainer/Overview/Overview/Statistics"]
 layout_mode = 2
 size_flags_vertical = 3
 horizontal_scroll_mode = 0
 
-[node name="Statistics" parent="GridContainer/StatisticsContainer/ScrollContainer" instance=ExtResource("4_hpiic")]
+[node name="Statistics" parent="DefaultTabContainer/Overview/Overview/Statistics/ScrollContainer" instance=ExtResource("4_hpiic")]
 unique_name_in_owner = true
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
 
-[node name="ContractContainer" type="VBoxContainer" parent="GridContainer"]
+[node name="Transfers" type="MarginContainer" parent="DefaultTabContainer"]
+visible = false
+layout_mode = 2
+theme_override_constants/margin_left = 0
+theme_override_constants/margin_right = 0
+theme_override_constants/margin_bottom = 0
+metadata/_tab_index = 1
+
+[node name="Transfers" type="VBoxContainer" parent="DefaultTabContainer/Transfers"]
+layout_mode = 2
+theme_override_constants/separation = 45
+
+[node name="PlayerOffer" parent="DefaultTabContainer/Transfers/Transfers" instance=ExtResource("9_frkmc")]
+layout_mode = 2
+size_flags_horizontal = 0
+
+[node name="PlayerOfferLoan" parent="DefaultTabContainer/Transfers/Transfers" instance=ExtResource("10_4ogna")]
+layout_mode = 2
+size_flags_horizontal = 0
+
+[node name="Contract" type="MarginContainer" parent="DefaultTabContainer"]
+visible = false
+layout_mode = 2
+theme_override_constants/margin_left = 0
+theme_override_constants/margin_right = 0
+theme_override_constants/margin_bottom = 0
+metadata/_tab_index = 2
+
+[node name="Contract" type="HBoxContainer" parent="DefaultTabContainer/Contract"]
+layout_mode = 2
+
+[node name="Contract" type="VBoxContainer" parent="DefaultTabContainer/Contract/Contract"]
 layout_mode = 2
 size_flags_horizontal = 3
-size_flags_vertical = 3
+size_flags_vertical = 0
 theme_override_constants/separation = 15
 
-[node name="Label" type="Label" parent="GridContainer/ContractContainer"]
+[node name="Label" type="Label" parent="DefaultTabContainer/Contract/Contract/Contract"]
 layout_mode = 2
 text = "Contract
 "
 label_settings = ExtResource("3_uqqup")
 
-[node name="Contract" parent="GridContainer/ContractContainer" instance=ExtResource("7_4elh2")]
+[node name="Contract" parent="DefaultTabContainer/Contract/Contract/Contract" instance=ExtResource("7_4elh2")]
 unique_name_in_owner = true
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
+
+[node name="ContractOffer" parent="DefaultTabContainer/Contract/Contract" instance=ExtResource("10_idrwx")]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 0

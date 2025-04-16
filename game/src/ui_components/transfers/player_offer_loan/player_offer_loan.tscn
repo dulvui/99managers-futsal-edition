@@ -1,11 +1,11 @@
-[gd_scene load_steps=5 format=3 uid="uid://cbijtmv151qg7"]
+[gd_scene load_steps=5 format=3 uid="uid://d0wtou46drev3"]
 
-[ext_resource type="Theme" uid="uid://pt1hrfiuwfpg" path="res://theme_base/theme.tres" id="1"]
-[ext_resource type="Script" uid="uid://b2n3ovynlg2e1" path="res://src/ui_components/transfers/player_offer/player_offer.gd" id="2"]
-[ext_resource type="LabelSettings" uid="uid://b4gu78rjvdfx4" path="res://theme_base/label/label_settings_title.tres" id="3_gekmq"]
-[ext_resource type="Script" uid="uid://cnyyowwlb04kl" path="res://src/ui_components/base/defaults/default_button.gd" id="3_s2lfu"]
+[ext_resource type="Theme" uid="uid://pt1hrfiuwfpg" path="res://theme_base/theme.tres" id="1_6v7de"]
+[ext_resource type="Script" uid="uid://cef5ph2fi6xj7" path="res://src/ui_components/transfers/player_offer_loan/player_offer_loan.gd" id="2_llawq"]
+[ext_resource type="LabelSettings" uid="uid://b4gu78rjvdfx4" path="res://theme_base/label/label_settings_title.tres" id="3_8a1ku"]
+[ext_resource type="Script" uid="uid://cnyyowwlb04kl" path="res://src/ui_components/base/defaults/default_button.gd" id="4_s2og8"]
 
-[node name="PlayerOffer" type="VBoxContainer"]
+[node name="PlayerOfferLoan" type="VBoxContainer"]
 custom_minimum_size = Vector2(960, 0)
 anchors_preset = -1
 anchor_right = 0.5
@@ -13,17 +13,17 @@ anchor_bottom = 0.41
 offset_bottom = 0.199982
 size_flags_horizontal = 4
 size_flags_vertical = 4
-theme = ExtResource("1")
-script = ExtResource("2")
+theme = ExtResource("1_6v7de")
+script = ExtResource("2_llawq")
 
 [node name="Title" type="Label" parent="."]
 layout_mode = 2
-text = "Buy"
-label_settings = ExtResource("3_gekmq")
+text = "Loan"
+label_settings = ExtResource("3_8a1ku")
 
 [node name="Description" type="Label" parent="."]
 layout_mode = 2
-text = "Make an offer to buy the player."
+text = "Make an offer to get the player on loan."
 
 [node name="Details" type="VBoxContainer" parent="."]
 layout_mode = 2
@@ -44,7 +44,7 @@ layout_mode = 2
 auto_translate_mode = 2
 layout_mode = 2
 text = "-"
-script = ExtResource("3_s2lfu")
+script = ExtResource("4_s2og8")
 metadata/_custom_type_script = "uid://cnyyowwlb04kl"
 
 [node name="Amount" type="LineEdit" parent="Details/Price/Money"]
@@ -59,7 +59,7 @@ alignment = 1
 auto_translate_mode = 2
 layout_mode = 2
 text = "+"
-script = ExtResource("3_s2lfu")
+script = ExtResource("4_s2og8")
 metadata/_custom_type_script = "uid://cnyyowwlb04kl"
 
 [node name="Date" type="HBoxContainer" parent="Details"]
@@ -80,7 +80,7 @@ layout_mode = 2
 size_flags_horizontal = 4
 theme_type_variation = &"ImportantButton"
 text = "Confirm"
-script = ExtResource("3_s2lfu")
+script = ExtResource("4_s2og8")
 metadata/_custom_type_script = "uid://cnyyowwlb04kl"
 
 [connection signal="pressed" from="Details/Price/Money/Less" to="." method="_on_less_pressed"]
