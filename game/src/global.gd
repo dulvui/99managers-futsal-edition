@@ -72,6 +72,15 @@ func initialize_game(testing: bool = false) -> void:
 	EmailUtil.welcome_manager()
 
 
+func reset_data() -> void:
+	team = null
+	world = null
+	league = null
+	transfers = null
+	inbox = null
+	manager = null
+
+
 func next_day() -> void:
 	world.calendar.next_day()
 

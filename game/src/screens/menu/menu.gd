@@ -32,6 +32,9 @@ func _ready() -> void:
 
 	DataUtil.loading_failed.connect(_on_res_util_loading_failed)
 
+	# always reset data in menu, to clear memory
+	Global.reset_data()
+
 
 func _on_new_game_pressed() -> void:
 	Main.change_scene(Const.SCREEN_SETUP_WORLD)
