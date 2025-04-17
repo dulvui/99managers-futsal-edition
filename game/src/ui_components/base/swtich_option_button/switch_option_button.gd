@@ -55,3 +55,4 @@ func _on_option_button_item_selected(index: int) -> void:
 	item_selected.emit(index)
 	SoundUtil.play_button_sfx()
 	option_button.tooltip_text = option_button.text
+

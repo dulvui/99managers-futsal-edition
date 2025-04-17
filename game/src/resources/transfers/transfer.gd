@@ -5,6 +5,12 @@
 class_name Transfer
 extends JSONResource
 
+enum Timing {
+	IMMEDIATE,
+	NEXT_WINDOW,
+	END_OF_SEASON,
+}
+
 enum Type {
 	BUY,
 	LOAN,
@@ -31,6 +37,7 @@ enum State {
 @export var delay_days: int
 # not used for now for simplicity, might be re-introduced later
 @export var exchange_players: Array[int]
+@export var timing: Timing
 @export var date: Dictionary
 
 
@@ -46,6 +53,7 @@ func _init(
 	p_cost: int = 0,
 	p_delay_days: int = 0,
 	p_exchange_players: Array[int] = [],
+	p_timing: Timing = Timing.IMMEDIATE,
 	p_date: Dictionary = {},
 ) -> void:
 	id = p_id
@@ -59,6 +67,7 @@ func _init(
 	cost = p_cost
 	delay_days = p_delay_days
 	exchange_players = p_exchange_players
+	timing = p_timing
 	date = p_date
 
 

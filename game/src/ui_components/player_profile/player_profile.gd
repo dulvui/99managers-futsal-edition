@@ -13,7 +13,6 @@ var player: Player
 @onready var contract_view: ContractView = %Contract
 # transfers
 @onready var offer: PlayerOffer = %PlayerOffer
-@onready var offer_loan: PlayerOfferLoan = %PlayerOfferLoan
 @onready var contract_offer: ContractOffer = %ContractOffer
 
 
@@ -33,7 +32,6 @@ func set_player(p_player: Player) -> void:
 	contract_view.setup(player)
 
 	offer.setup(player)
-	offer_loan.setup(player)
 
 	# hide contract offer if already playing for team
 	if player.team_id == Global.team.id:

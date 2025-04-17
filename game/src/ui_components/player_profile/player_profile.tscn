@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=3 uid="uid://dtvkd1ks3xiqc"]
+[gd_scene load_steps=11 format=3 uid="uid://dtvkd1ks3xiqc"]
 
 [ext_resource type="Theme" uid="uid://pt1hrfiuwfpg" path="res://theme_base/theme.tres" id="1"]
 [ext_resource type="Script" uid="uid://ban4a3puf83fg" path="res://src/ui_components/player_profile/player_profile.gd" id="2"]
@@ -9,7 +9,6 @@
 [ext_resource type="PackedScene" uid="uid://b4oxudl2hadi7" path="res://src/ui_components/player_profile/statistics_view/statistics_view.tscn" id="4_hpiic"]
 [ext_resource type="PackedScene" uid="uid://dmd8ysnepfvi0" path="res://src/ui_components/player_profile/contract_view/contract_view.tscn" id="7_4elh2"]
 [ext_resource type="PackedScene" uid="uid://cbijtmv151qg7" path="res://src/ui_components/player_profile/transfers/player_offer/player_offer.tscn" id="9_frkmc"]
-[ext_resource type="PackedScene" uid="uid://d0wtou46drev3" path="res://src/ui_components/player_profile/transfers/player_offer_loan/player_offer_loan.tscn" id="10_4ogna"]
 [ext_resource type="PackedScene" uid="uid://ccipqeqmthtfr" path="res://src/ui_components/player_profile/transfers/contract_offer/contract_offer.tscn" id="10_idrwx"]
 
 [node name="PlayerProfile" type="MarginContainer"]
@@ -109,19 +108,11 @@ theme_override_constants/margin_right = 0
 theme_override_constants/margin_bottom = 0
 metadata/_tab_index = 1
 
-[node name="Transfers" type="VBoxContainer" parent="DefaultTabContainer/Transfers"]
-layout_mode = 2
-theme_override_constants/separation = 45
-
-[node name="PlayerOffer" parent="DefaultTabContainer/Transfers/Transfers" instance=ExtResource("9_frkmc")]
+[node name="PlayerOffer" parent="DefaultTabContainer/Transfers" instance=ExtResource("9_frkmc")]
 unique_name_in_owner = true
 layout_mode = 2
 size_flags_horizontal = 0
-
-[node name="PlayerOfferLoan" parent="DefaultTabContainer/Transfers/Transfers" instance=ExtResource("10_4ogna")]
-unique_name_in_owner = true
-layout_mode = 2
-size_flags_horizontal = 0
+size_flags_vertical = 1
 
 [node name="Contract" type="MarginContainer" parent="DefaultTabContainer"]
 visible = false

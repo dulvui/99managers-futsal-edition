@@ -5,12 +5,12 @@
 [ext_resource type="Script" uid="uid://b7gkxesmo6fix" path="res://src/ui_components/base/defaults/default_option_button.gd" id="3_c4scu"]
 
 [node name="SwitchOptionsButton" type="MarginContainer"]
-custom_minimum_size = Vector2(200, 30)
+custom_minimum_size = Vector2(240, 0)
 anchors_preset = -1
-anchor_right = 0.167042
-anchor_bottom = 0.0277407
-offset_right = -150.72
-offset_bottom = 0.0400009
+anchor_right = 0.125
+anchor_bottom = 0.028
+offset_right = -69.9994
+offset_bottom = -0.240044
 theme_override_constants/margin_left = 0
 theme_override_constants/margin_top = 0
 theme_override_constants/margin_right = 0

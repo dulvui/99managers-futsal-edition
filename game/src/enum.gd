@@ -99,6 +99,12 @@ enum InputType {
 
 var input_type: Array[String] = ["Joypad", "Mouse and keybaord","Touchscreen"]
 
+#
+# transfers
+#
+
+var transfer_timings: Array[String] = ["Immediate", "Next transfer window","End of season"]
+
 
 #
 # get text functions
@@ -330,4 +336,14 @@ func get_position_type_from_string(string: String) -> Position.Type:
 		_:
 			return Position.Type.UNDEFINED
 
+
+func get_transfer_timing_text(timing: Transfer.Timing) -> String:
+	match timing:
+		Transfer.Timing.IMMEDIATE:
+			return tr("Immediate")
+		Transfer.Timing.NEXT_WINDOW:
+			return tr("Next transfer window")
+		Transfer.Timing.END_OF_SEASON:
+			return tr("End of season")
+	return tr("Immediate")
 
