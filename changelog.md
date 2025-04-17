@@ -25,6 +25,9 @@ This tries to follow the [keepachangelog](https://keepachangelog.com/en/1.1.0/) 
 - Show player's hair, eye and skin color again
 - Save and load all players data like contract and statistics
 
+## Contributors
+- Simon Dalvai
+
 # [0.3.1]
 ## https://codeberg.org/dulvui/99managers-futsal-edition/releases/tag/v0.3.1
 
@@ -35,6 +38,9 @@ This tries to follow the [keepachangelog](https://keepachangelog.com/en/1.1.0/) 
 
 ## Changed
 - Teams are now starting in the league defined in the starting csv file, after history generation
+
+## Contributors
+- Simon Dalvai
 
 # [0.3.0]
 ## https://codeberg.org/dulvui/99managers-futsal-edition/releases/tag/v0.3.0
@@ -58,4 +64,7 @@ This tries to follow the [keepachangelog](https://keepachangelog.com/en/1.1.0/) 
 
 ## Security
 - Use json over custom resources for save state files to prevent [malicious code execution](https://github.com/godotengine/godot-proposals/issues/4925)
+
+## Contributors
+- Simon Dalvai
 
