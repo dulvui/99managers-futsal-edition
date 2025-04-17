@@ -52,6 +52,9 @@ const LEAGUE_MIN_TEAMS: int = 6
 const TEAM_PLAYERS_AMOUNT_MIN: int = 12
 const TEAM_PLAYERS_AMOUNT_MAX: int = 24
 
+const FREE_AGENTS_PERCENTAGE: float = 0.10
+const FREE_AGENTS_AMOUNT_MIN: int = 50
+
 # season start at 1st of june
 const SEASON_START_DAY: int = 1
 const SEASON_START_MONTH: int = 6

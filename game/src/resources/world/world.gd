@@ -15,6 +15,7 @@ extends JSONResource
 
 # csv
 var match_list: MatchList
+var free_agents: FreeAgents
 
 
 func _init(
@@ -25,6 +26,7 @@ func _init(
 	p_transfers: Transfers = Transfers.new(),
 	p_inbox: Inbox = Inbox.new(),
 	p_match_list: MatchList = MatchList.new(),
+	p_free_agents: FreeAgents = FreeAgents.new(),
 ) -> void:
 	continents = p_continents
 	world_cup = p_world_cup
@@ -33,6 +35,7 @@ func _init(
 	transfers = p_transfers
 	inbox = p_inbox
 	match_list = p_match_list
+	free_agents = p_free_agents
 
 
 func random_results() -> void:
@@ -94,17 +97,6 @@ func get_nation_by_code(code: String, p_continent: Continent = null) -> Nation:
 		for nation: Nation in continent.nations:
 			if nation.code == code:
 				return nation
-	return null
-
-
-func get_player_by_id(player_id: int, team_id: int, league_id: int) -> Player:
-	var league: League = get_league_by_id(league_id)
-	if league != null:
-		for team: Team in league.teams:
-			if team.id == team_id:
-				return team.get_player_by_id(player_id)
-
-	push_error("player with id %d not found in team id:%d and league id:%d" % [player_id, team_id, league_id])
 	return null
 
 

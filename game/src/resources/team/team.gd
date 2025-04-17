@@ -7,8 +7,6 @@ extends TeamBasic
 
 @export var formation: Formation
 @export var finances: Finances
-# 0 to 4 active, 5 to 12 subs, 12 to x rest
-var players: Array[Player]
 
 @export var staff: Staff
 @export var stadium: Stadium
@@ -16,6 +14,10 @@ var players: Array[Player]
 # shirt colors
 # 0: home color, 1: away, 2 third color
 @export var colors: Array[String]
+
+# 0 to 4 active, 5 to 12 subs, 12 to x rest
+# no export, saved as csv
+var players: Array[Player]
 
 
 func _init(
