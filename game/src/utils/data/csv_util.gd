@@ -29,90 +29,6 @@ func _init() -> void:
 	headers.append_array(Const.PLAYER_ATTRIBUTES_TECHNICAL)
 
 
-func players_to_csv(world: World) -> Array[PackedStringArray]:
-	var lines: Array[PackedStringArray] = []
-
-	for continent: Continent in world.continents:
-		for nation: Nation in continent.nations:
-			for league: League in nation.leagues:
-				for team: Team in league.teams:
-					for player: Player in team.players:
-						var player_line: PackedStringArray = PackedStringArray()
-						# team
-						player_line.append(nation.code)
-						player_line.append(league.name)
-						player_line.append(team.name)
-						player_line.append(str(team.finances.balance[-1]))
-						player_line.append(team.stadium.name)
-						player_line.append(str(team.stadium.capacity))
-						player_line.append(str(team.stadium.year_built))
-						
-						# player
-						player_line.append(player.name)
-						player_line.append(player.surname)
-						player_line.append(str(player.value))
-						player_line.append(FormatUtil.day(player.birth_date))
-						player_line.append(player.nation)
-						player_line.append(str(player.nr))
-						player_line.append(str(player.foot_left))
-						player_line.append(str(player.foot_right))
-						player_line.append(_get_position_type_text(player.position.main))
-						var alt_positions: Array[StringName] = []
-						for type: Position.Type in player.position.alternatives:
-							alt_positions.append(_get_position_type_text(type))
-						player_line.append(_array_to_csv_list(alt_positions))
-						player_line.append(str(player.injury_factor))
-						# add double quotes so that sheet editors see it as strings and not numbers
-						player_line.append("\"%s\"" % player.eyecolor)
-						player_line.append("\"%s\"" % player.haircolor)
-						player_line.append("\"%s\"" % player.skintone)
-
-						# attributes
-						player_line.append_array(res_to_line(player.attributes.goalkeeper, Const.PLAYER_ATTRIBUTES_GOALKEEPER))
-						player_line.append_array(res_to_line(player.attributes.mental, Const.PLAYER_ATTRIBUTES_MENTAL))
-						player_line.append_array(res_to_line(player.attributes.physical, Const.PLAYER_ATTRIBUTES_PHYSICAL))
-						player_line.append_array(res_to_line(player.attributes.technical, Const.PLAYER_ATTRIBUTES_TECHNICAL))
-
-
-						#
-						# now internal data, not coming from user at setup
-						#
-
-						player_line.append(str(player.id))
-						player_line.append(str(player.morality))
-						player_line.append(str(player.form))
-						player_line.append(str(player.stamina))
-
-						# contract
-						player_line.append(str(player.contract.income))
-						player_line.append(FormatUtil.day(player.contract.start_date))
-						player_line.append(FormatUtil.day(player.contract.end_date))
-						player_line.append(str(player.contract.bonus_goal))
-						player_line.append(str(player.contract.bonus_clean_sheet))
-						player_line.append(str(player.contract.bonus_assist))
-						player_line.append(str(player.contract.bonus_league))
-						player_line.append(str(player.contract.bonus_national_cup))
-						player_line.append(str(player.contract.bonus_continental_cup))
-						player_line.append(str(player.contract.buy_clause))
-						player_line.append(str(int(player.contract.is_on_loan)))
-
-						# statistics
-						player_line.append(str(player.statistics.games_played))
-						player_line.append(str(player.statistics.goals))
-						player_line.append(str(player.statistics.assists))
-						player_line.append(str(player.statistics.yellow_cards))
-						player_line.append(str(player.statistics.red_cards))
-						player_line.append(str(player.statistics.average_vote))
-
-						lines.append(player_line)
-
-	var csv: Array[PackedStringArray] = []
-	csv.append(headers)
-	csv.append_array(lines)
-
-	return csv
-
-
 func csv_to_teams(csv: Array[PackedStringArray], world: World) -> void:
 	line_index = 0
 
@@ -166,6 +82,23 @@ func csv_to_teams(csv: Array[PackedStringArray], world: World) -> void:
 			league.add_team(team)
 
 
+func players_to_csv(world: World) -> Array[PackedStringArray]:
+	var lines: Array[PackedStringArray] = []
+
+	for continent: Continent in world.continents:
+		for nation: Nation in continent.nations:
+			for league: League in nation.leagues:
+				for team: Team in league.teams:
+					for player: Player in team.players:
+						lines.append(_player_to_line(player, nation, league, team))
+
+	var csv: Array[PackedStringArray] = []
+	csv.append(headers)
+	csv.append_array(lines)
+
+	return csv
+
+
 func csv_to_players(csv: Array[PackedStringArray], world: World, first_time: bool = false) -> void:
 	line_index = 0
 
@@ -186,25 +119,6 @@ func csv_to_players(csv: Array[PackedStringArray], world: World, first_time: boo
 		var nation_code: String = _get_string_or_default()
 		var league_name: String = _get_string_or_default()
 		var team_name: String = _get_string_or_default()
-
-		# skip stadium section
-		column_index += 4
-		
-		# player
-		var name: String = _get_string_or_default()
-		var surname: String = _get_string_or_default()
-		var value: String = _get_string_or_default()
-		var birth_date: String = _get_string_or_default()
-		var nationality: String = _get_string_or_default()
-		var nr: int = _get_int_or_default()
-		var foot_left: int = _get_int_or_default()
-		var foot_right: int = _get_int_or_default()
-		var position: String = _get_string_or_default()
-		var alt_positions: String = _get_string_or_default()
-		var injury_factor: int = _get_int_or_default()
-		var eyecolor: String = _get_string_or_default()
-		var haircolor: String = _get_string_or_default()
-		var skintone: String = _get_string_or_default()
 
 		# nation
 		if nation == null:
@@ -236,87 +150,37 @@ func csv_to_players(csv: Array[PackedStringArray], world: World, first_time: boo
 			push_warning("team not found in line %d" % line_index)
 			continue
 
-		# player
-		if name.is_empty() or surname.is_empty():
+		var player: Player = _line_to_player(league.id, team.id, team.name, first_time)
+
+		if player != null:
+			team.players.append(player)
+
+
+func free_agents_to_csv(world: World) -> Array[PackedStringArray]:
+	var lines: Array[PackedStringArray] = []
+
+	for player: Player in world.free_agents.list:
+		lines.append(_player_to_line(player))
+
+	var csv: Array[PackedStringArray] = []
+	csv.append(headers)
+	csv.append_array(lines)
+
+	return csv
+
+
+func csv_to_free_agents(csv: Array[PackedStringArray], world: World) -> void:
+	line_index = 0
+
+	for line: PackedStringArray in csv:
+
+		if line.size() < 3:
 			continue
-		
-		var player: Player = Player.new()
-		if first_time:
-			player.set_id()
-		player.name = name
-		player.surname = surname
-		player.value = int(value)
-		player.team = team.name
-		player.birth_date = FormatUtil.day_from_string(birth_date)
-		player.nation = nationality
-		player.nr = int(nr)
-		player.foot_left = int(foot_left)
-		player.foot_right = int(foot_right)
-		player.injury_factor = int(injury_factor)
-		# remove quotes
-		player.eyecolor = eyecolor.replace("\"", "")
-		player.haircolor = haircolor.replace("\"", "")
-		player.skintone = skintone.replace("\"", "")
 
-		# positions
-		player.position.main = Enum.get_position_type_from_string(position)
-		alt_positions = alt_positions.replace("\"", "")
-		var alt_positions_array: PackedStringArray = alt_positions.split(",")
-		for alt_position_string: String in alt_positions_array:
-			alt_position_string = alt_position_string.strip_edges()
-			player.position.alternatives.append(Enum.get_position_type_from_string(alt_position_string))
-
-
-		# next values are attributes
-		# attributes get set by iterating over attribute name arrays/headers
-		# attributes
-		for attribute: String in Const.PLAYER_ATTRIBUTES_GOALKEEPER:
-			player.attributes.goalkeeper.set(attribute, _get_attribute_or_default())
-		for attribute: String in Const.PLAYER_ATTRIBUTES_MENTAL:
-			player.attributes.mental.set(attribute, _get_attribute_or_default())
-		for attribute: String in Const.PLAYER_ATTRIBUTES_PHYSICAL:
-			player.attributes.physical.set(attribute, _get_attribute_or_default())
-		for attribute: String in Const.PLAYER_ATTRIBUTES_TECHNICAL:
-			player.attributes.technical.set(attribute, _get_attribute_or_default())
-
-		player.team_id = team.id
-		player.league_id = league.id
-
-
-		team.players.append(player)
-
-		if first_time:
-			return
-
-		#
-		# now internal data, not coming from user at setup
-		#
-
-		player.id = _get_int_or_default()
-		player.morality = _get_int_or_default() as Enum.Morality
-		player.form = _get_int_or_default() as Enum.Form
-		player.stamina = _get_float_or_default()
-
-		# contract
-		player.contract.income = _get_int_or_default()
-		player.contract.start_date = FormatUtil.day_from_string(_get_string_or_default())
-		player.contract.end_date = FormatUtil.day_from_string(_get_string_or_default())
-		player.contract.bonus_goal = _get_int_or_default()
-		player.contract.bonus_clean_sheet = _get_int_or_default()
-		player.contract.bonus_assist = _get_int_or_default()
-		player.contract.bonus_league = _get_int_or_default()
-		player.contract.bonus_national_cup = _get_int_or_default()
-		player.contract.bonus_continental_cup = _get_int_or_default()
-		player.contract.buy_clause = _get_int_or_default()
-		player.contract.is_on_loan = _get_int_or_default()
-
-		# statistics
-		player.statistics.games_played = _get_int_or_default()
-		player.statistics.goals = _get_int_or_default()
-		player.statistics.assists = _get_int_or_default()
-		player.statistics.yellow_cards = _get_int_or_default()
-		player.statistics.red_cards = _get_int_or_default()
-		player.statistics.average_vote = _get_float_or_default()
+		_set_active_line(line)
+		var player: Player = _line_to_player()
+		if player != null:
+			world.free_agents.list.append(player)
 
 
 func csv_to_match_days(csv: Array[PackedStringArray]) -> Array[MatchDays]:
@@ -627,6 +491,190 @@ func read_csv(path: String, after_backup: bool = false) -> Array[PackedStringArr
 
 	file.close()
 	return csv
+
+
+func _player_to_line(player: Player, nation: Nation = null, league: League = null, team: Team = null) -> PackedStringArray:
+	var player_line: PackedStringArray = PackedStringArray()
+	
+	if nation == null:
+		# free agent
+		player_line.append("")
+		player_line.append("")
+		player_line.append("")
+		player_line.append("")
+		player_line.append("")
+		player_line.append("")
+		player_line.append("")
+	
+	else:
+		# team
+		player_line.append(nation.code)
+		player_line.append(league.name)
+		player_line.append(team.name)
+		player_line.append(str(team.finances.balance[-1]))
+		player_line.append(team.stadium.name)
+		player_line.append(str(team.stadium.capacity))
+		player_line.append(str(team.stadium.year_built))
+	
+	# player
+	player_line.append(player.name)
+	player_line.append(player.surname)
+	player_line.append(str(player.value))
+	player_line.append(FormatUtil.day(player.birth_date))
+	player_line.append(player.nation)
+	player_line.append(str(player.nr))
+	player_line.append(str(player.foot_left))
+	player_line.append(str(player.foot_right))
+	player_line.append(_get_position_type_text(player.position.main))
+	var alt_positions: Array[StringName] = []
+	for type: Position.Type in player.position.alternatives:
+		alt_positions.append(_get_position_type_text(type))
+	player_line.append(_array_to_csv_list(alt_positions))
+	player_line.append(str(player.injury_factor))
+	# add double quotes so that sheet editors see it as strings and not numbers
+	player_line.append("\"%s\"" % player.eyecolor)
+	player_line.append("\"%s\"" % player.haircolor)
+	player_line.append("\"%s\"" % player.skintone)
+
+	# attributes
+	player_line.append_array(res_to_line(player.attributes.goalkeeper, Const.PLAYER_ATTRIBUTES_GOALKEEPER))
+	player_line.append_array(res_to_line(player.attributes.mental, Const.PLAYER_ATTRIBUTES_MENTAL))
+	player_line.append_array(res_to_line(player.attributes.physical, Const.PLAYER_ATTRIBUTES_PHYSICAL))
+	player_line.append_array(res_to_line(player.attributes.technical, Const.PLAYER_ATTRIBUTES_TECHNICAL))
+
+
+	#
+	# now internal data, not coming from user at setup
+	#
+	player_line.append(str(player.id))
+	player_line.append(str(player.morality))
+	player_line.append(str(player.form))
+	player_line.append(str(player.stamina))
+
+	# contract
+	player_line.append(str(player.contract.income))
+	player_line.append(FormatUtil.day(player.contract.start_date))
+	player_line.append(FormatUtil.day(player.contract.end_date))
+	player_line.append(str(player.contract.bonus_goal))
+	player_line.append(str(player.contract.bonus_clean_sheet))
+	player_line.append(str(player.contract.bonus_assist))
+	player_line.append(str(player.contract.bonus_league))
+	player_line.append(str(player.contract.bonus_national_cup))
+	player_line.append(str(player.contract.bonus_continental_cup))
+	player_line.append(str(player.contract.buy_clause))
+	player_line.append(str(int(player.contract.is_on_loan)))
+
+	# statistics
+	player_line.append(str(player.statistics.games_played))
+	player_line.append(str(player.statistics.goals))
+	player_line.append(str(player.statistics.assists))
+	player_line.append(str(player.statistics.yellow_cards))
+	player_line.append(str(player.statistics.red_cards))
+	player_line.append(str(player.statistics.average_vote))
+
+	return player_line
+
+
+func _line_to_player(
+	league_id: int = 0, team_id: int = 0, team_name: String = "", first_time: bool = false
+	) -> Player:
+	# skip stadium section
+	column_index += 4
+	
+	# player
+	var name: String = _get_string_or_default()
+	var surname: String = _get_string_or_default()
+	var value: String = _get_string_or_default()
+	var birth_date: String = _get_string_or_default()
+	var nationality: String = _get_string_or_default()
+	var nr: int = _get_int_or_default()
+	var foot_left: int = _get_int_or_default()
+	var foot_right: int = _get_int_or_default()
+	var position: String = _get_string_or_default()
+	var alt_positions: String = _get_string_or_default()
+	var injury_factor: int = _get_int_or_default()
+	var eyecolor: String = _get_string_or_default()
+	var haircolor: String = _get_string_or_default()
+	var skintone: String = _get_string_or_default()
+
+	# player
+	if name.is_empty() or surname.is_empty():
+		return null
+	
+	var player: Player = Player.new()
+	if first_time:
+		player.set_id()
+	player.name = name
+	player.surname = surname
+	player.value = int(value)
+	player.team = team_name
+	player.birth_date = FormatUtil.day_from_string(birth_date)
+	player.nation = nationality
+	player.nr = int(nr)
+	player.foot_left = int(foot_left)
+	player.foot_right = int(foot_right)
+	player.injury_factor = int(injury_factor)
+	# remove quotes
+	player.eyecolor = eyecolor.replace("\"", "")
+	player.haircolor = haircolor.replace("\"", "")
+	player.skintone = skintone.replace("\"", "")
+
+	# positions
+	player.position.main = Enum.get_position_type_from_string(position)
+	alt_positions = alt_positions.replace("\"", "")
+	var alt_positions_array: PackedStringArray = alt_positions.split(",")
+	for alt_position_string: String in alt_positions_array:
+		alt_position_string = alt_position_string.strip_edges()
+		player.position.alternatives.append(Enum.get_position_type_from_string(alt_position_string))
+
+	# next values are attributes
+	# attributes get set by iterating over attribute name arrays/headers
+	# attributes
+	for attribute: String in Const.PLAYER_ATTRIBUTES_GOALKEEPER:
+		player.attributes.goalkeeper.set(attribute, _get_attribute_or_default())
+	for attribute: String in Const.PLAYER_ATTRIBUTES_MENTAL:
+		player.attributes.mental.set(attribute, _get_attribute_or_default())
+	for attribute: String in Const.PLAYER_ATTRIBUTES_PHYSICAL:
+		player.attributes.physical.set(attribute, _get_attribute_or_default())
+	for attribute: String in Const.PLAYER_ATTRIBUTES_TECHNICAL:
+		player.attributes.technical.set(attribute, _get_attribute_or_default())
+
+	player.team_id = team_id
+	player.league_id = league_id
+
+	if first_time:
+		return player
+
+	#
+	# now internal data, not coming from user at setup
+	#
+	player.id = _get_int_or_default()
+	player.morality = _get_int_or_default() as Enum.Morality
+	player.form = _get_int_or_default() as Enum.Form
+	player.stamina = _get_float_or_default()
+
+	# contract
+	player.contract.income = _get_int_or_default()
+	player.contract.start_date = FormatUtil.day_from_string(_get_string_or_default())
+	player.contract.end_date = FormatUtil.day_from_string(_get_string_or_default())
+	player.contract.bonus_goal = _get_int_or_default()
+	player.contract.bonus_clean_sheet = _get_int_or_default()
+	player.contract.bonus_assist = _get_int_or_default()
+	player.contract.bonus_league = _get_int_or_default()
+	player.contract.bonus_national_cup = _get_int_or_default()
+	player.contract.bonus_continental_cup = _get_int_or_default()
+	player.contract.buy_clause = _get_int_or_default()
+	player.contract.is_on_loan = _get_int_or_default()
+
+	# statistics
+	player.statistics.games_played = _get_int_or_default()
+	player.statistics.goals = _get_int_or_default()
+	player.statistics.assists = _get_int_or_default()
+	player.statistics.yellow_cards = _get_int_or_default()
+	player.statistics.red_cards = _get_int_or_default()
+	player.statistics.average_vote = _get_float_or_default()
+
+	return player
 
 
 func _array_to_csv_list(array: Array[StringName]) -> String:

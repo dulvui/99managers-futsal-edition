@@ -110,6 +110,13 @@ func _load_world(save_state: SaveState) -> World:
 	players_csv.pop_front()
 	csv_util.csv_to_players(players_csv, world)
 
+	# free_agents csv
+	var free_agents_csv_path: String = SAVE_STATES_PATH + save_state.id + "/" + Const.CSV_FREE_AGENTS_FILE
+	var free_agents_csv: Array[PackedStringArray] = csv_util.read_csv(free_agents_csv_path)
+	# remove header
+	free_agents_csv.pop_front()
+	csv_util.csv_to_free_agents(free_agents_csv, world)
+
 	# history match days csv, read only
 	var history_matches_path: String = SAVE_STATES_PATH + save_state.id + "/" + Const.CSV_MATCH_HISTORY_FILE
 	var history_matches_csv: Array[PackedStringArray] = csv_util.read_csv(history_matches_path)
@@ -134,6 +141,9 @@ func _save_world(save_state: SaveState, world: World) -> void:
 	var csv_util: CSVUtil = CSVUtil.new()
 	# players
 	csv_util.save_csv(save_state.id + "/" + Const.CSV_PLAYERS_FILE, csv_util.players_to_csv(world))
+
+	# free agents
+	csv_util.save_csv(save_state.id + "/" + Const.CSV_FREE_AGENTS_FILE, csv_util.free_agents_to_csv(world))
 	
 	# history match days csv
 	# TODO: could be optimized even more by just appending new history,

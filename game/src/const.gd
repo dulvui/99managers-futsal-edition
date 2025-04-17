@@ -55,10 +55,6 @@ const TEAM_PLAYERS_AMOUNT_MAX: int = 24
 const FREE_AGENTS_PERCENTAGE: float = 0.10
 const FREE_AGENTS_AMOUNT_MIN: int = 50
 
-# season start at 1st of june
-const SEASON_START_DAY: int = 1
-const SEASON_START_MONTH: int = 6
-
 #
 # Strings
 #
@@ -100,6 +96,7 @@ const CUSTOM_PROPERTY_EXPORT_ENUM: int = 69638
 # csv stuff
 #
 const CSV_PLAYERS_FILE: StringName = "players.csv"
+const CSV_FREE_AGENTS_FILE: StringName = "free_agents.csv"
 const CSV_MATCH_LIST_FILE: StringName = "match_list.csv"
 const CSV_MATCH_HISTORY_FILE: StringName = "match_history.csv"
 

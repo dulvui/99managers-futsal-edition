@@ -162,7 +162,7 @@ func _on_continue_pressed() -> void:
 
 	# start date in format YYYY-MM-DDTHH:MM:SS
 	var start_date_str: String = (
-		"%s-%02d-%02dT00:00:00" % [start_year, Const.SEASON_START_MONTH, Const.SEASON_START_DAY]
+		"%s-%02d-%02dT00:00:00" % [start_year, Calendar.SEASON_START_MONTH, Calendar.SEASON_START_DAY]
 	)
 	Global.start_date = Time.get_datetime_dict_from_datetime_string(start_date_str, true)
 	# also set Global.start_date, so functions like person.get_age work

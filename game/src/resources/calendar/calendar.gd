@@ -7,8 +7,9 @@ extends JSONResource
 
 const DAY_IN_SECONDS: int = 86400
 
-# TODO replace with different dates per nation/contintent
-# season end 30th of november
+# season start at 1st of june
+const SEASON_START_DAY: int = 1
+const SEASON_START_MONTH: int = 6
 const SEASON_END_DAY: int = 30
 const SEASON_END_MONTH: int = 11
 
@@ -44,8 +45,8 @@ func initialize(next_season: bool = false) -> void:
 		date = Global.start_date
 
 	# set start date
-	date.day = Const.SEASON_START_DAY
-	date.month = Const.SEASON_START_MONTH
+	date.day = SEASON_START_DAY
+	date.month = SEASON_START_MONTH
 	
 	# clear previous season, if exists
 	months = []
@@ -74,7 +75,7 @@ func days_difference(p_date_1: Dictionary, p_date_2: Dictionary = date) -> int:
 
 	var difference: float = unix_2 - unix_1
 	# divide with seconds of day
-	difference = difference / 86400.0
+	difference = difference / float(DAY_IN_SECONDS)
 	return int(difference)
 
 
