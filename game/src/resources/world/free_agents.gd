@@ -20,3 +20,11 @@ func get_player_by_id(player_id: int) -> Player:
 			return player
 	return null
 
+
+func append(player: Player) -> void:
+	player.team = ""
+	player.league = ""
+	player.league_id = 0
+	player.team_id = 0
+	list.append(player)
+

@@ -27,3 +27,22 @@ func make_training() -> void:
 
 func check_injuries() -> void:
 	pass
+
+func check_contracts_terminated() -> void:
+	# check contracts of players and act for terminating contracts
+	# check if team wants to renew: compare prestiges and consider age and value
+	# let player go if contract doesn't get renewed => add to free agents
+
+	var terminated_players: Array[Player]
+	
+	for team: Team in Global.world.get_all_teams():
+		terminated_players = []
+		for player: Player in team.players:
+			if Global.world.calendar.days_difference(player.contract.end_date) < 0:
+				terminated_players.append(player)
+
+		# remove players with no contract and add to free agents
+		for player: Player in terminated_players:
+			team.remove_player(player)
+			Global.world.free_agents.append(player)
+	pass

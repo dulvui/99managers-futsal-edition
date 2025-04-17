@@ -196,9 +196,6 @@ func _generate_players(world: World) -> bool:
 		_initialize_player(player)
 		world.free_agents.list.append(player)
 	
-
-	breakpoint
-	
 	return true
 
 

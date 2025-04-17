@@ -68,6 +68,16 @@ func month(p_month: int = date.month) -> Month:
 	return months[p_month - 1]
 
 
+func days_difference(p_date_1: Dictionary, p_date_2: Dictionary = date) -> int:
+	var unix_1: int = Time.get_unix_time_from_datetime_dict(p_date_1)
+	var unix_2: int = Time.get_unix_time_from_datetime_dict(p_date_2)
+
+	var difference: float = unix_2 - unix_1
+	# divide with seconds of day
+	difference = difference / 86400.0
+	return int(difference)
+
+
 func is_market_active(p_date: Dictionary = date) -> bool:
 	if p_date.month >= MARKET_WINTER_START_MONTH and p_date.month <= MARKET_WINTER_END_MONTH and \
 		p_date.day >= MARKET_WINTER_START_DAY and p_date.day <= MARKET_WINTER_END_DAY:
@@ -132,3 +142,4 @@ func _get_next_day(p_date: Dictionary = date) -> Dictionary:
 	next_day_date.erase("second")
 
 	return next_day_date
+

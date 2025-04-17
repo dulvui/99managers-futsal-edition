@@ -2,14 +2,45 @@
 
 # SPDX-License-Identifier: AGPL-3.0-or-later
 
-class_name PlayerProgress
+class_name PlayerUtil
 extends Node
 
 const NOISE: int = 20
 const AGE_PHYSICAL_DEGARDE: int = 30
 
 
-static func players_progress_season() -> void:
+func check_injuries() -> void:
+	pass
+
+
+func check_retiring_players() -> void:
+	pass
+
+
+func add_new_players() -> void:
+	# for every retired player, add new players
+	pass
+
+
+func check_contracts_terminated() -> void:
+	# check contracts of players and act for terminating contracts
+	# check if team wants to renew: compare prestiges and consider age and value
+	# let player go if contract doesn't get renewed => add to free agents
+	var terminated_players: Array[Player]
+	
+	for team: Team in Global.world.get_all_teams():
+		terminated_players = []
+		for player: Player in team.players:
+			if Global.world.calendar.days_difference(player.contract.end_date) < 0:
+				terminated_players.append(player)
+
+		# remove players with no contract and add to free agents
+		for player: Player in terminated_players:
+			team.remove_player(player)
+			Global.world.free_agents.append(player)
+
+
+func players_progress_season() -> void:
 	for c: Continent in Global.world.continents:
 		for n: Nation in c.nations:
 			for league: League in n.leagues:
@@ -18,7 +49,7 @@ static func players_progress_season() -> void:
 						_player_season_progress(player)
 
 
-static func _player_season_progress(player: Player) -> void:
+func _player_season_progress(player: Player) -> void:
 	# add random noise
 	var prestige_factor: int = player.prestige + RngUtil.rng.randi_range(-NOISE, NOISE)
 	# age factor only affects fisical attributes neagtively
@@ -57,7 +88,7 @@ static func _player_season_progress(player: Player) -> void:
 
 	# physical
 	for attribute: Dictionary in player.attributes.physical.get_property_list():
-		if attribute.usage == Const.CUSTOM_PROPERTY_EXPORT:  # custoom properties
+		if attribute.usage == Const.CUSTOM_PROPERTY_EXPORT:  # custom properties
 			var value: int = (
 				RngUtil.rng.randi_range(1, Const.MAX_PRESTIGE)
 				+ RngUtil.rng.randi_range(1, prestige_factor)
@@ -70,7 +101,7 @@ static func _player_season_progress(player: Player) -> void:
 
 	# technical
 	for attribute: Dictionary in player.attributes.technical.get_property_list():
-		if attribute.usage == Const.CUSTOM_PROPERTY_EXPORT:  # custoom properties
+		if attribute.usage == Const.CUSTOM_PROPERTY_EXPORT:  # custom properties
 			var value: int = (
 				RngUtil.rng.randi_range(1, Const.MAX_PRESTIGE)
 				+ RngUtil.rng.randi_range(1, prestige_factor)
@@ -83,7 +114,7 @@ static func _player_season_progress(player: Player) -> void:
 
 	#goalkeeper
 	for attribute: Dictionary in player.attributes.goalkeeper.get_property_list():
-		if attribute.usage == Const.CUSTOM_PROPERTY_EXPORT:  # custoom properties
+		if attribute.usage == Const.CUSTOM_PROPERTY_EXPORT:  # custom properties
 			var value: int = (
 				RngUtil.rng.randi_range(1, Const.MAX_PRESTIGE)
 				+ RngUtil.rng.randi_range(1, prestige_factor)
@@ -93,3 +124,4 @@ static func _player_season_progress(player: Player) -> void:
 			player.attributes.goalkeeper[attribute.name] = min(
 				player.attributes.goalkeeper[attribute.name] + value, 20
 			)
+

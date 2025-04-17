@@ -121,7 +121,9 @@ func next_season(save_data: bool = true) -> void:
 		for t: Team in world.get_all_teams():
 			t.finances.update_season(t)
 
-	PlayerProgress.players_progress_season()
+	var player_util: PlayerUtil = PlayerUtil.new()
+	player_util.players_progress_season()
+	player_util.check_contracts_terminated()
 
 	world.promote_and_relegate_teams()
 

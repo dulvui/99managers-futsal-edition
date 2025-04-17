@@ -48,13 +48,6 @@ func make_transfer(transfer: Transfer) -> void:
 	player.league_id = new_team.league_id
 
 
-func check_contracts(_team: Team = Global.team) -> void:
-	# check contracts of players and act for terminating contracts
-	# check if team wants to renew: compare prestiges and consider age and value
-	# let player go if contract doesn't get renewed => add to free agents
-	pass
-
-
 func analyze_team_needs(_team: Team = Global.team) -> void:
 	# team gets analized an results in following factors
 	# depending on the factors the team decides on how to use the budget
