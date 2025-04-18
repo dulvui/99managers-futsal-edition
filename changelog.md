@@ -19,6 +19,7 @@ This tries to follow the [keepachangelog](https://keepachangelog.com/en/1.1.0/) 
 ## Changed
 - Better data validation when starting new game
 - Player profile has now tabs: Overview, Transfers, Contract
+- Realistic contract start and end dates
 
 ## Fixed
 - Fixed issues in seasonal finances calculation
