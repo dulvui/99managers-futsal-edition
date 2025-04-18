@@ -15,22 +15,20 @@ func _init(
 	p_president: President = President.new(),
 	p_scout: Scout = Scout.new(),
 	p_manager: Manager = Manager.new(),
+	p_medical: Medical = Medical.new(),
 ) -> void:
 	president = p_president
 	scout = p_scout
 	manager = p_manager
+	medical = p_medical
 
 
 func get_salary() -> int:
 	var salary: int = 0
 
-	# dynamically calculate salaries
-	for property: Dictionary in get_property_list():
-		if property.usage == Const.CUSTOM_PROPERTY:
-			var property_name: String = property.name
-			var variant: Variant = get(property_name)
-			if variant is Person:
-				var person: Person = variant
-				salary += person.contract.income
+	salary += scout.contract.income
+	salary += manager.contract.income
+	salary += medical.contract.income
 
 	return salary
+
