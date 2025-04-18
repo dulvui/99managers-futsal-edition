@@ -55,6 +55,8 @@ const TEAM_PLAYERS_AMOUNT_MAX: int = 24
 const FREE_AGENTS_PERCENTAGE: float = 0.10
 const FREE_AGENTS_AMOUNT_MIN: int = 50
 
+const CONTRACT_MAX_DURATION: int = 5
+
 #
 # Strings
 #

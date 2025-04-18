@@ -41,8 +41,13 @@ var leagues_data: Dictionary = {}
 # for birthdays range
 var start_date: Dictionary
 var year: int
-var max_timestamp: int
-var min_timestamp: int
+var player_max_timestamp: int
+var player_min_timestamp: int
+var staff_max_timestamp: int
+var staff_min_timestamp: int
+# for contracts
+var contract_max_year: int
+var contract_min_year: int
 
 var names: GeneratorNames
 var all_nations: Array[Nation]
@@ -53,6 +58,10 @@ func initialize_world(world: World, world_file_path: String = Const.WORLD_CSV_PA
 	# reset warnings/errors
 	Global.generation_warnings = []
 	Global.generation_errors = []
+
+	# set start date/year
+	start_date = Global.start_date
+	year = start_date.year
 
 	# save once instead of fetching every time, many many times
 	all_nations = world.get_all_nations()
@@ -128,6 +137,10 @@ func initialize_world(world: World, world_file_path: String = Const.WORLD_CSV_PA
 	# now also read players from, after history generation
 	csv_util.csv_to_players(csv, world, true)
 
+
+	# initialize min/max date ranges for birthdays, contracts ecc
+	_init_date_ranges()
+
 	# initialize players and other custom team properties after club history
 	# because histroy generation swaps team ids and names
 	var success_players: bool = _generate_players(world)
@@ -160,23 +173,34 @@ func initialize_world(world: World, world_file_path: String = Const.WORLD_CSV_PA
 	return true
 
 
+func _init_date_ranges() -> void:
+	# player age from 15 to 45
+	var player_max_date: Dictionary = start_date.duplicate()
+	player_max_date.month = 1
+	player_max_date.day = 1
+	player_max_date.year -= 15
+	player_min_timestamp = Time.get_unix_time_from_datetime_dict(player_max_date)
+	player_max_date.year -= 30
+	player_max_timestamp = Time.get_unix_time_from_datetime_dict(player_max_date)
+
+	# staff age from 25 to 70
+	var staff_max_date: Dictionary = start_date.duplicate()
+	staff_max_date.month = 1
+	staff_max_date.day = 1
+	staff_max_date.year -= 25
+
+	staff_min_timestamp = Time.get_unix_time_from_datetime_dict(staff_max_date)
+	staff_max_date.year -= 50
+	staff_max_timestamp = Time.get_unix_time_from_datetime_dict(staff_max_date)
+
+	# contract date ranges
+	contract_max_year = start_date.year + Const.CONTRACT_MAX_DURATION
+	contract_min_year = start_date.year - Const.CONTRACT_MAX_DURATION + 1
+
+
 func _generate_players(world: World) -> bool:
 	# load player names
 	names = GeneratorNames.new(world)
-
-	# create date ranges
-	# starts from current year and subtracts min/max years
-	# youngest player can be 15 and oldest 45
-	start_date = Global.start_date
-	year = start_date.year
-	var max_date: Dictionary = start_date.duplicate()
-	max_date.month = 1
-	max_date.day = 1
-	max_date.year -= 15
-	min_timestamp = Time.get_unix_time_from_datetime_dict(max_date)
-
-	max_date.year -= 30
-	max_timestamp = Time.get_unix_time_from_datetime_dict(max_date)
 
 	# generate missing players
 	var players_count: int = 0
@@ -193,6 +217,7 @@ func _generate_players(world: World) -> bool:
 	free_agents_amount = min(free_agents_amount, Const.FREE_AGENTS_AMOUNT_MIN)
 	for i: int in free_agents_amount:
 		var player: Player = Player.new()
+		player.set_id()
 		_initialize_player(player)
 		world.free_agents.list.append(player)
 	
@@ -712,7 +737,12 @@ func _set_random_person_values(person: Person, nation: Nation) -> void:
 
 	# random birthday
 	if person.birth_date.is_empty():
-		person.birth_date = Time.get_date_dict_from_unix_time(RngUtil.rng.randi_range(min_timestamp, max_timestamp))
+		if person.role == Person.Role.PLAYER:
+			var unix_time: int = RngUtil.rng.randi_range(player_min_timestamp, player_max_timestamp)
+			person.birth_date = Time.get_date_dict_from_unix_time(unix_time)
+		else:
+			var unix_time: int = RngUtil.rng.randi_range(staff_min_timestamp, staff_max_timestamp)
+			person.birth_date = Time.get_date_dict_from_unix_time(unix_time)
 
 	# colors
 	if person.skintone.is_empty():
@@ -723,10 +753,11 @@ func _set_random_person_values(person: Person, nation: Nation) -> void:
 		person.eyecolor = RngUtil.pick_random(EYE_COLORS)
 
 	# contract
-	# TODO use different contract for differen roles
 	var contract: Contract = Contract.new()
-	var age_factor: int = _get_age_factor(person.get_age(start_date))
-	contract.income = (person.prestige + age_factor) * 1000
+	var age: int = person.get_age(start_date)
+
+
+	contract.income = (person.prestige + age) * 1000
 	contract.start_date = start_date
 	contract.end_date = start_date
 	contract.bonus_goal = 0
@@ -736,7 +767,9 @@ func _set_random_person_values(person: Person, nation: Nation) -> void:
 	contract.bonus_national_cup = 0
 	contract.bonus_continental_cup = 0
 	contract.buy_clause = 0
+	# TODO: find way to have loan players on start
 	contract.is_on_loan = false
+
 	person.contract = contract
 
 
