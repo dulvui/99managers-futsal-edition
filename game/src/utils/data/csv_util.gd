@@ -398,10 +398,7 @@ func validate_csv_file(file_path: String) -> bool:
 
 
 func save_csv(path: String, csv: Array[PackedStringArray], append: bool = false) -> void:
-	path = DataUtil.SAVE_STATES_PATH + path
-	# make sure path is lower case
-	path = path.to_lower()
-	# print("saving json %s..." % path)
+	path = DataUtil.SAVE_STATES_PATH + path.to_lower()
 
 	# create directory, if not exist yet
 	var dir_path: String = path.get_base_dir()
@@ -458,8 +455,7 @@ func save_csv(path: String, csv: Array[PackedStringArray], append: bool = false)
 
 
 func read_csv(path: String, after_backup: bool = false) -> Array[PackedStringArray]:
-	# make sure path is lower case
-	path = path.to_lower()
+	path = DataUtil.SAVE_STATES_PATH + path.to_lower()
 
 	# open file
 	var file: FileAccess
