@@ -9,14 +9,14 @@ signal loading_failed
 const COMPRESSION_ON: bool = true
 const COMPRESSION_MODE: FileAccess.CompressionMode = FileAccess.CompressionMode.COMPRESSION_GZIP
 
+const USER_PATH: StringName = "user://"
+const SAVE_STATES_PATH: StringName = "user://save_states/"
+
 const CONFIG_FILE: StringName = "settings_config"
 const SAVE_STATE_FILE: StringName = "save_state"
 const SAVE_STATES_FILE: StringName = "save_states"
 const DATA_FILE: StringName = "data"
 
-const USER_PATH: StringName = "user://"
-const SAVE_STATES_DIR: StringName = "save_states/"
-const SAVE_STATES_PATH: StringName = "user://save_states/"
 const FILE_SUFFIX: StringName = ".json"
 const FILE_SUFFIX_COMPRESS: StringName = ".save"
 
@@ -104,26 +104,27 @@ func _load_world(save_state: SaveState) -> World:
 
 	# the rest is loaded as csv
 	var csv_util: CSVUtil = CSVUtil.new()
+	var csv_path: String = SAVE_STATES_PATH + save_state.id + "/"
 
 	# players csv
-	var players_csv_path: String = path + Const.CSV_PLAYERS_FILE
+	var players_csv_path: String = csv_path + Const.CSV_PLAYERS_FILE
 	var players_csv: Array[PackedStringArray] = csv_util.read_csv(players_csv_path)
 	# remove header
 	players_csv.pop_front()
 	csv_util.csv_to_players(players_csv, world)
 
 	# free_agents csv
-	var free_agents_csv_path: String = path + Const.CSV_FREE_AGENTS_FILE
+	var free_agents_csv_path: String = csv_path + Const.CSV_FREE_AGENTS_FILE
 	var free_agents_csv: Array[PackedStringArray] = csv_util.read_csv(free_agents_csv_path)
 	csv_util.csv_to_free_agents(free_agents_csv, world)
 
 	# history match days csv, read only
-	var history_matches_path: String = path + Const.CSV_MATCH_HISTORY_FILE
+	var history_matches_path: String = csv_path + Const.CSV_MATCH_HISTORY_FILE
 	var history_matches_csv: Array[PackedStringArray] = csv_util.read_csv(history_matches_path)
 	world.match_list.history_match_days = csv_util.csv_to_match_days(history_matches_csv)
 
 	# match days csv
-	var matches_path: String = path + Const.CSV_MATCH_LIST_FILE
+	var matches_path: String = csv_path + Const.CSV_MATCH_LIST_FILE
 	var matches_csv: Array[PackedStringArray] = csv_util.read_csv(matches_path)
 	var match_days: Array[MatchDays] = csv_util.csv_to_match_days(matches_csv)
 	if match_days.size() == 1:
@@ -136,19 +137,20 @@ func _load_world(save_state: SaveState) -> World:
 
 func _save_world(save_state: SaveState, world: World) -> void:
 	print("save data...")
-	_save_resource(save_state.id + "/" + DATA_FILE, world)
-
 	var path: String = save_state.id + "/"
+	_save_resource(path + DATA_FILE, world)
+
+	var csv_path: String = SAVE_STATES_PATH + save_state.id + "/"
 
 	var csv_util: CSVUtil = CSVUtil.new()
 	# players
 	csv_util.save_csv(
-		path + Const.CSV_PLAYERS_FILE, csv_util.players_to_csv(world)
+		csv_path + Const.CSV_PLAYERS_FILE, csv_util.players_to_csv(world)
 	)
 
 	# free agents
 	csv_util.save_csv(
-		path + Const.CSV_FREE_AGENTS_FILE, csv_util.free_agents_to_csv(world)
+		csv_path + Const.CSV_FREE_AGENTS_FILE, csv_util.free_agents_to_csv(world)
 	)
 	
 	# history match days csv
@@ -156,14 +158,14 @@ func _save_world(save_state: SaveState, world: World) -> void:
 	# instead of writing full history
 	if write_match_history:
 		csv_util.save_csv(
-			path + Const.CSV_MATCH_HISTORY_FILE,
+			csv_path + Const.CSV_MATCH_HISTORY_FILE,
 			csv_util.match_days_to_csv(world.match_list.history_match_days),
 		)
 		write_match_history = false
 
 	# match days csv
 	csv_util.save_csv(
-		path + Const.CSV_MATCH_LIST_FILE,
+		csv_path + Const.CSV_MATCH_LIST_FILE,
 		csv_util.match_days_to_csv([world.match_list.match_days]),
 	)
 
