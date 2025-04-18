@@ -163,7 +163,6 @@ func free_agents_to_csv(world: World) -> Array[PackedStringArray]:
 		lines.append(_player_to_line(player))
 
 	var csv: Array[PackedStringArray] = []
-	csv.append(headers)
 	csv.append_array(lines)
 
 	return csv
@@ -178,6 +177,7 @@ func csv_to_free_agents(csv: Array[PackedStringArray], world: World) -> void:
 			continue
 
 		_set_active_line(line)
+
 		var player: Player = _line_to_player()
 		if player != null:
 			world.free_agents.list.append(player)
@@ -496,17 +496,8 @@ func read_csv(path: String, after_backup: bool = false) -> Array[PackedStringArr
 func _player_to_line(player: Player, nation: Nation = null, league: League = null, team: Team = null) -> PackedStringArray:
 	var player_line: PackedStringArray = PackedStringArray()
 	
-	if nation == null:
-		# free agent
-		player_line.append("")
-		player_line.append("")
-		player_line.append("")
-		player_line.append("")
-		player_line.append("")
-		player_line.append("")
-		player_line.append("")
-	
-	else:
+	# check if free agent
+	if nation != null:
 		# team
 		player_line.append(nation.code)
 		player_line.append(league.name)
@@ -572,8 +563,11 @@ func _player_to_line(player: Player, nation: Nation = null, league: League = nul
 func _line_to_player(
 	league_id: int = 0, team_id: int = 0, team_name: String = "", first_time: bool = false
 	) -> Player:
-	# skip stadium section
-	column_index += 4
+	
+	# check if free agent
+	if team_id > 0:
+		# skip stadium section
+		column_index += 4
 	
 	# player
 	var name: String = _get_string_or_default()

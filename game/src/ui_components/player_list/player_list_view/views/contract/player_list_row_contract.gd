@@ -22,3 +22,4 @@ func setup(player: Player, index: int) -> void:
 		is_on_loan.text = tr("Yes")
 	else:
 		is_on_loan.text = tr("No")
+

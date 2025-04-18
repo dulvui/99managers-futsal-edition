@@ -219,7 +219,7 @@ func _generate_players(world: World) -> bool:
 		var player: Player = Player.new()
 		player.set_id()
 		_initialize_player(player)
-		world.free_agents.list.append(player)
+		world.free_agents.append(player)
 	
 	return true
 

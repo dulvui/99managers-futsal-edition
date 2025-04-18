@@ -96,34 +96,34 @@ func save_save_state_data() -> void:
 
 
 func _load_world(save_state: SaveState) -> World:
+	var path: String = save_state.id + "/"
+
 	# load main data from json
 	var world: World = World.new()
-	_load_resource(save_state.id + "/" + DATA_FILE, world)
+	_load_resource(path + DATA_FILE, world)
 
-	# rest is loaded as csv
+	# the rest is loaded as csv
 	var csv_util: CSVUtil = CSVUtil.new()
 
 	# players csv
-	var players_csv_path: String = SAVE_STATES_PATH + save_state.id + "/" + Const.CSV_PLAYERS_FILE
+	var players_csv_path: String = path + Const.CSV_PLAYERS_FILE
 	var players_csv: Array[PackedStringArray] = csv_util.read_csv(players_csv_path)
 	# remove header
 	players_csv.pop_front()
 	csv_util.csv_to_players(players_csv, world)
 
 	# free_agents csv
-	var free_agents_csv_path: String = SAVE_STATES_PATH + save_state.id + "/" + Const.CSV_FREE_AGENTS_FILE
+	var free_agents_csv_path: String = path + Const.CSV_FREE_AGENTS_FILE
 	var free_agents_csv: Array[PackedStringArray] = csv_util.read_csv(free_agents_csv_path)
-	# remove header
-	free_agents_csv.pop_front()
 	csv_util.csv_to_free_agents(free_agents_csv, world)
 
 	# history match days csv, read only
-	var history_matches_path: String = SAVE_STATES_PATH + save_state.id + "/" + Const.CSV_MATCH_HISTORY_FILE
+	var history_matches_path: String = path + Const.CSV_MATCH_HISTORY_FILE
 	var history_matches_csv: Array[PackedStringArray] = csv_util.read_csv(history_matches_path)
 	world.match_list.history_match_days = csv_util.csv_to_match_days(history_matches_csv)
 
 	# match days csv
-	var matches_path: String = SAVE_STATES_PATH + save_state.id + "/" + Const.CSV_MATCH_LIST_FILE
+	var matches_path: String = path + Const.CSV_MATCH_LIST_FILE
 	var matches_csv: Array[PackedStringArray] = csv_util.read_csv(matches_path)
 	var match_days: Array[MatchDays] = csv_util.csv_to_match_days(matches_csv)
 	if match_days.size() == 1:
@@ -138,53 +138,59 @@ func _save_world(save_state: SaveState, world: World) -> void:
 	print("save data...")
 	_save_resource(save_state.id + "/" + DATA_FILE, world)
 
+	var path: String = save_state.id + "/"
+
 	var csv_util: CSVUtil = CSVUtil.new()
 	# players
-	csv_util.save_csv(save_state.id + "/" + Const.CSV_PLAYERS_FILE, csv_util.players_to_csv(world))
+	csv_util.save_csv(
+		path + Const.CSV_PLAYERS_FILE, csv_util.players_to_csv(world)
+	)
 
 	# free agents
-	csv_util.save_csv(save_state.id + "/" + Const.CSV_FREE_AGENTS_FILE, csv_util.free_agents_to_csv(world))
+	csv_util.save_csv(
+		path + Const.CSV_FREE_AGENTS_FILE, csv_util.free_agents_to_csv(world)
+	)
 	
 	# history match days csv
 	# TODO: could be optimized even more by just appending new history,
 	# instead of writing full history
 	if write_match_history:
 		csv_util.save_csv(
-			save_state.id + "/" + Const.CSV_MATCH_HISTORY_FILE,
+			path + Const.CSV_MATCH_HISTORY_FILE,
 			csv_util.match_days_to_csv(world.match_list.history_match_days),
 		)
 		write_match_history = false
 
 	# match days csv
 	csv_util.save_csv(
-		save_state.id + "/" + Const.CSV_MATCH_LIST_FILE,
+		path + Const.CSV_MATCH_LIST_FILE,
 		csv_util.match_days_to_csv([world.match_list.match_days]),
 	)
 
 
 func _load_resource(path: String, resource: JSONResource, after_backup: bool = false) -> void:
 	# make sure path is lower case
-	path = path.to_lower()
-	var full_path: String = SAVE_STATES_PATH + path
+	path = SAVE_STATES_PATH + path.to_lower()
+
 	# open file
 	var file: FileAccess
 	if COMPRESSION_ON:
-		full_path += FILE_SUFFIX_COMPRESS
-		file = FileAccess.open_compressed(full_path, FileAccess.READ, FileAccess.COMPRESSION_GZIP)
+		path += FILE_SUFFIX_COMPRESS
+		file = FileAccess.open_compressed(path, FileAccess.READ, FileAccess.COMPRESSION_GZIP)
 	else:
-		full_path += FILE_SUFFIX
-		file = FileAccess.open(full_path, FileAccess.READ)
+		path += FILE_SUFFIX
+		file = FileAccess.open(path, FileAccess.READ)
 
 	# check errors
 	var err: int = FileAccess.get_open_error()
 	if err != OK:
 		if after_backup:
-			print("opening file %s error with code %d after backup attempt." % [full_path, err])
+			print("opening file %s error with code %d after backup attempt." % [path, err])
 			loading_failed.emit()
 			return
 		else:
-			print("opening file %s error with code %d, restroing backup..." % [full_path, err])
-			var backup_result: bool = backup_util.restore(full_path)
+			print("opening file %s error with code %d, restroing backup..." % [path, err])
+			var backup_result: bool = backup_util.restore(path)
 			if backup_result:
 				# Main.loading_screen.update_message(tr("Restoring from backup"))
 				_load_resource(path, resource, true)
@@ -198,12 +204,12 @@ func _load_resource(path: String, resource: JSONResource, after_backup: bool = f
 	# check for parsing errors
 	if result != OK:
 		if after_backup:
-			print("parsing file %s error with code %d after backup" % [full_path, result])
+			print("parsing file %s error with code %d after backup" % [path, result])
 			loading_failed.emit()
 			return
 		else:
-			print("parsing file %s error with code %d, restoring backup..." % [full_path, result])
-			var backup_result: bool = backup_util.restore(full_path)
+			print("parsing file %s error with code %d, restoring backup..." % [path, result])
+			var backup_result: bool = backup_util.restore(path)
 			if backup_result:
 				_load_resource(path, resource, true)
 		return
@@ -222,9 +228,8 @@ func _save_resource(path: String, resource: JSONResource) -> void:
 
 
 func _save_json(path: String, json: Dictionary) -> void:
-	path = SAVE_STATES_PATH + path
 	# make sure path is lower case
-	path = path.to_lower()
+	path = SAVE_STATES_PATH + path.to_lower()
 	print("saving json %s..." % path)
 
 	# create directory, if not exist yet
