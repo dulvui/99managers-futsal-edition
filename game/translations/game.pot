@@ -11,8 +11,6 @@
 # res://src/ui_components/info/info.tscn
 # res://src/ui_components/base/confirm_dialog/default_confirm_dialog.gd
 # res://src/ui_components/base/confirm_dialog/default_confirm_dialog.tscn
-# res://src/ui_components/base/animations/scene_fade.tscn
-# res://src/ui_components/base/animations/scene_fade.gd
 # res://src/ui_components/base/swtich_option_button/switch_option_button.gd
 # res://src/ui_components/base/swtich_option_button/switch_option_button.tscn
 # res://src/ui_components/base/defaults/default_option_button.gd
@@ -30,10 +28,6 @@
 # res://src/ui_components/visual_competitions/visual_knockout/visual_knockout.tscn
 # res://src/ui_components/visual_competitions/visual_competitions.tscn
 # res://src/ui_components/visual_competitions/visual_competitions.gd
-# res://src/ui_components/transfers/player_offer/player_offer.tscn
-# res://src/ui_components/transfers/player_offer/player_offer.gd
-# res://src/ui_components/transfers/contract_offer/contract_offer.tscn
-# res://src/ui_components/transfers/contract_offer/contract_offer.gd
 # res://src/ui_components/visual_formation/visual_formation.gd
 # res://src/ui_components/visual_formation/players_bar/players_bar.tscn
 # res://src/ui_components/visual_formation/players_bar/players_bar.gd
@@ -70,74 +64,9 @@
 # res://src/ui_components/tree_overviews/competition_tree/competitions_tree.gd
 # res://src/ui_components/tree_overviews/teams_tree/teams_tree.tscn
 # res://src/ui_components/tree_overviews/teams_tree/teams_tree.gd
-# res://src/resources/team/stadium.gd
-# res://src/resources/team/finances.gd
-# res://src/resources/team/sponsor.gd
-# res://src/resources/team/board_requests.gd
-# res://src/resources/team/team.gd
-# res://src/resources/json_resource.gd
-# res://src/resources/calendar/day.gd
-# res://src/resources/calendar/month.gd
-# res://src/resources/calendar/calendar.gd
-# res://src/resources/save_states/save_states.gd
-# res://src/resources/save_states/save_state.gd
-# res://src/resources/competition/competition.gd
-# res://src/resources/competition/cup/knockout.gd
-# res://src/resources/competition/cup/cup.gd
-# res://src/resources/competition/cup/group.gd
-# res://src/resources/competition/league.gd
-# res://src/resources/competition/table/table_values.gd
-# res://src/resources/competition/table/table.gd
-# res://src/resources/match/match.gd
-# res://src/resources/match/match_statistics.gd
-# res://src/resources/formation/position/position.gd
-# res://src/resources/formation/tactic_defense.gd
-# res://src/resources/formation/formation.gd
-# res://src/resources/formation/tactic_offense.gd
-# res://src/resources/transfers/transfer.gd
-# res://src/resources/transfers/transfers.gd
-# res://src/resources/world/nation.gd
-# res://src/resources/world/world.gd
-# res://src/resources/world/continent.gd
-# res://src/resources/theme/theme_configuration.gd
-# res://src/resources/theme/color_variation.gd
-# res://src/resources/person/staff/staff.gd
-# res://src/resources/person/staff/roles/scout.gd
-# res://src/resources/person/staff/roles/president.gd
-# res://src/resources/person/staff/roles/agent.gd
-# res://src/resources/person/staff/roles/medical.gd
-# res://src/resources/person/staff/roles/manager.gd
-# res://src/resources/person/player/history.gd
-# res://src/resources/person/player/statistics.gd
-# res://src/resources/person/player/attributes/goalkeeper.gd
-# res://src/resources/person/player/attributes/physical.gd
-# res://src/resources/person/player/attributes/attributes.gd
-# res://src/resources/person/player/attributes/mental.gd
-# res://src/resources/person/player/attributes/technical.gd
-# res://src/resources/person/player/contract.gd
-# res://src/resources/person/player/player.gd
-# res://src/resources/person/person.gd
-# res://src/resources/email/email_message.gd
-# res://src/resources/email/inbox.gd
 # res://src/const.gd
-# res://src/simulations/administration_simulation.gd
-# res://src/simulations/player_progress.gd
-# res://src/simulations/formation_simulation.gd
-# res://src/utils/id_util.gd
-# res://src/utils/thread_util.gd
-# res://src/utils/logic/rng_util.gd
-# res://src/utils/logic/transfer_util.gd
 # res://src/utils/logic/email_util.gd
-# res://src/utils/logic/player_delevopment_util.gd
 # res://src/utils/input/input_util.gd
-# res://src/utils/input/joypad_axis_util.gd
-# res://src/utils/input/mapping_util.gd
-# res://src/utils/input/joypad_util.gd
-# res://src/utils/debug_util.gd
-# res://src/utils/ui/sound_util.gd
-# res://src/utils/ui/theme_util.gd
-# res://src/utils/ui/format_util.gd
-# res://src/screens/main.gd
 # res://src/screens/settings/settings.gd
 # res://src/screens/settings/settings.tscn
 # res://src/screens/settings/language_picker/language_picker.tscn
@@ -154,7 +83,6 @@
 # res://src/screens/dashboard/dashboard.tscn
 # res://src/screens/loading_screen/loading_screen.tscn
 # res://src/screens/loading_screen/loading_screen.gd
-# res://src/screens/main.tscn
 # res://src/screens/menu/menu.gd
 # res://src/screens/menu/menu.tscn
 # res://src/screens/setup/setup_world/setup_world.tscn
@@ -198,6 +126,17 @@
 # res://src/generators/generator_history.gd
 # res://src/generators/generator_names.gd
 # res://src/generators/generator_world.gd
+# res://src/ui_components/player_profile/transfers/player_offer/player_offer.gd
+# res://src/ui_components/player_profile/transfers/player_offer/player_offer.tscn
+# res://src/ui_components/player_profile/transfers/contract_offer/contract_offer.gd
+# res://src/ui_components/player_profile/transfers/contract_offer/contract_offer.tscn
+# res://src/resources/formation/formation.gd
+# res://src/resources/formation/tactic_defense.gd
+# res://src/resources/formation/tactic_offense.gd
+# res://src/resources/formation/position/position.gd
+# res://src/utils/ui/theme_util.gd
+# res://src/utils/ui/format_util.gd
+# res://src/utils/ui/sound_util.gd
 #
 # FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
 #
@@ -226,7 +165,6 @@ msgid "Stadium"
 msgstr ""
 
 #: src/ui_components/team_profile/team_profile.tscn
-#: src/ui_components/transfers/player_offer/player_offer.tscn
 #: src/screens/dashboard/dashboard.tscn
 msgid "Players"
 msgstr ""
@@ -247,7 +185,7 @@ msgid "Persons"
 msgstr ""
 
 #: src/ui_components/team_profile/team_profile.gd
-#: src/ui_components/transfers/contract_offer/contract_offer.tscn
+#: src/ui_components/player_profile/transfers/contract_offer/contract_offer.tscn
 msgid "Year"
 msgstr ""
 
@@ -279,7 +217,7 @@ msgid "Mental"
 msgstr ""
 
 #: src/ui_components/player_list/player_list.gd
-#: src/ui_components/transfers/contract_offer/contract_offer.tscn
+#: src/ui_components/player_profile/player_profile.tscn
 msgid "Contract"
 msgstr ""
 
@@ -319,8 +257,6 @@ msgid "Ok"
 msgstr ""
 
 #: src/ui_components/base/confirm_dialog/default_confirm_dialog.tscn
-#: src/ui_components/transfers/player_offer/player_offer.tscn
-#: src/ui_components/transfers/contract_offer/contract_offer.tscn
 #: src/screens/setup/setup_world/setup_world.tscn
 msgid "Cancel"
 msgstr ""
@@ -350,8 +286,8 @@ msgid "Reamaining salary budget"
 msgstr ""
 
 #: src/ui_components/visual_finances/visual_finances.tscn
-#: src/ui_components/transfers/contract_offer/contract_offer.tscn
 #: src/ui_components/player_list/player_list_view/views/contract/player_list_view_contract.tscn
+#: src/ui_components/player_profile/transfers/contract_offer/contract_offer.tscn
 msgid "Income"
 msgstr ""
 
@@ -409,7 +345,6 @@ msgstr ""
 
 #: src/ui_components/visual_competitions/visual_table/visual_table.gd
 #: src/ui_components/visual_competitions/visual_competitions.gd
-#: src/resources/competition/league.gd
 msgid "Playoffs"
 msgstr ""
 
@@ -419,7 +354,6 @@ msgstr ""
 
 #: src/ui_components/visual_competitions/visual_table/visual_table.gd
 #: src/ui_components/visual_competitions/visual_competitions.gd
-#: src/resources/competition/league.gd
 msgid "Playouts"
 msgstr ""
 
@@ -463,42 +397,6 @@ msgstr ""
 
 #: src/ui_components/visual_competitions/visual_competitions.gd
 msgid "Group"
-msgstr ""
-
-#: src/ui_components/transfers/player_offer/player_offer.tscn
-msgid "Type"
-msgstr ""
-
-#: src/ui_components/transfers/player_offer/player_offer.tscn
-msgid "Money"
-msgstr ""
-
-#: src/ui_components/transfers/player_offer/player_offer.tscn
-#: src/ui_components/email/list/message_list.tscn
-msgid "Date"
-msgstr ""
-
-#: src/ui_components/transfers/player_offer/player_offer.tscn
-msgid "Player list"
-msgstr ""
-
-#: src/ui_components/transfers/player_offer/player_offer.tscn
-#: src/ui_components/transfers/contract_offer/contract_offer.tscn
-msgid "Confirm"
-msgstr ""
-
-#: src/ui_components/transfers/player_offer/player_offer.gd
-msgid "Transfer"
-msgstr ""
-
-#: src/ui_components/transfers/player_offer/player_offer.gd
-msgid "Loan"
-msgstr ""
-
-#: src/ui_components/transfers/contract_offer/contract_offer.tscn
-#: src/ui_components/player_profile/contract_view/contract_view.tscn
-#: src/ui_components/player_list/player_list_view/views/contract/player_list_view_contract.tscn
-msgid "Buy clause"
 msgstr ""
 
 #: src/ui_components/visual_formation/visual_formation.gd
@@ -556,6 +454,11 @@ msgid "From"
 msgstr ""
 
 #: src/ui_components/email/list/message_list.tscn
+#: src/ui_components/player_profile/transfers/player_offer/player_offer.tscn
+msgid "Date"
+msgstr ""
+
+#: src/ui_components/email/list/message_list.tscn
 msgid "Star"
 msgstr ""
 
@@ -584,6 +487,7 @@ msgid "Action"
 msgstr ""
 
 #: src/ui_components/email/visual_message/visual_message.gd
+#: src/ui_components/player_profile/transfers/contract_offer/contract_offer.tscn
 msgid "Offer contract"
 msgstr ""
 
@@ -741,11 +645,20 @@ msgid "Blocking"
 msgstr ""
 
 #: src/ui_components/player_profile/player_profile.tscn
+#: src/screens/match_screen/match_screen.tscn
+msgid "Overview"
+msgstr ""
+
+#: src/ui_components/player_profile/player_profile.tscn
 msgid "Attributes"
 msgstr ""
 
 #: src/ui_components/player_profile/player_profile.tscn
 msgid "Statistics\n"
+msgstr ""
+
+#: src/ui_components/player_profile/player_profile.tscn
+msgid "Transfers"
 msgstr ""
 
 #: src/ui_components/player_profile/player_profile.tscn
@@ -809,6 +722,12 @@ msgid "End date"
 msgstr ""
 
 #: src/ui_components/player_profile/contract_view/contract_view.tscn
+#: src/ui_components/player_list/player_list_view/views/contract/player_list_view_contract.tscn
+#: src/ui_components/player_profile/transfers/contract_offer/contract_offer.tscn
+msgid "Buy clause"
+msgstr ""
+
+#: src/ui_components/player_profile/contract_view/contract_view.tscn
 msgid "Bonus"
 msgstr ""
 
@@ -834,10 +753,6 @@ msgstr ""
 
 #: src/ui_components/player_profile/contract_view/contract_view.tscn
 msgid "Continental cup"
-msgstr ""
-
-#: src/ui_components/player_profile/contract_view/contract_view.tscn
-msgid "Make offer"
 msgstr ""
 
 #: src/ui_components/player_profile/statistics_view/statistics_view.tscn
@@ -933,55 +848,6 @@ msgstr ""
 msgid "No team found"
 msgstr ""
 
-#: src/resources/formation/position/position.gd
-msgid "G"
-msgstr ""
-
-#: src/resources/formation/position/position.gd
-msgid "DL"
-msgstr ""
-
-#: src/resources/formation/position/position.gd
-msgid "DC"
-msgstr ""
-
-#: src/resources/formation/position/position.gd
-msgid "DR"
-msgstr ""
-
-#: src/resources/formation/position/position.gd
-msgid "C"
-msgstr ""
-
-#: src/resources/formation/position/position.gd
-msgid "WL"
-msgstr ""
-
-#: src/resources/formation/position/position.gd
-msgid "WR"
-msgstr ""
-
-#: src/resources/formation/position/position.gd
-msgid "PL"
-msgstr ""
-
-#: src/resources/formation/position/position.gd
-msgid "PC"
-msgstr ""
-
-#: src/resources/formation/position/position.gd
-msgid "PR"
-msgstr ""
-
-#: src/resources/formation/formation.gd
-msgid "Auto"
-msgstr ""
-
-#: src/resources/formation/formation.gd
-#: src/enum.gd
-msgid "Manual"
-msgstr ""
-
 #. TRANSLATORS: {team_name} gets dynamically filled
 #: src/utils/logic/email_util.gd
 msgid "Next match: {team_name}"
@@ -1010,7 +876,8 @@ msgstr ""
 #: src/utils/logic/email_util.gd
 msgid ""
 "You made an offer for {player_name} from {team_name} at {cost}.\n"
-"{team_name} will consider the offer and respond within a few days."
+"\n"
+"\t\t\t\t{team_name} will consider the offer and respond within a few days."
 msgstr ""
 
 #. TRANSLATORS: {player_name} gets dynamically filled
@@ -1035,39 +902,6 @@ msgstr ""
 msgid ""
 "Your offer for {player_name} from {team_name} at {cost} has been accepted.\n"
 "You can now find a contractual aggreement with {player_name}."
-msgstr ""
-
-#: src/utils/input/joypad_util.gd
-#: src/screens/settings/input/input_settings.tscn
-msgid "No joypad connected"
-msgstr ""
-
-#: src/utils/ui/theme_util.gd
-msgid "Dark"
-msgstr ""
-
-#: src/utils/ui/theme_util.gd
-msgid "Light"
-msgstr ""
-
-#: src/utils/ui/theme_util.gd
-msgid "Solarized light"
-msgstr ""
-
-#: src/utils/ui/theme_util.gd
-msgid "Solarized dark"
-msgstr ""
-
-#: src/utils/ui/theme_util.gd
-msgid "Red"
-msgstr ""
-
-#: src/utils/ui/theme_util.gd
-msgid "Hacker"
-msgstr ""
-
-#: src/utils/ui/theme_util.gd
-msgid "Custom theme"
 msgstr ""
 
 #: src/screens/settings/settings.tscn
@@ -1101,7 +935,19 @@ msgid "Language"
 msgstr ""
 
 #: src/screens/settings/general/general_settings.tscn
-msgid "You can fix errors or add new languages easily on Weblate, just click on the link below."
+msgid "You can fix errors or add new languages on [url]weblate.org[/url]"
+msgstr ""
+
+#: src/screens/settings/general/general_settings.tscn
+msgid "Formats"
+msgstr ""
+
+#: src/screens/settings/general/general_settings.tscn
+msgid "Dates"
+msgstr ""
+
+#: src/screens/settings/general/general_settings.tscn
+msgid "Currencies"
 msgstr ""
 
 #: src/screens/settings/general/general_settings.tscn
@@ -1143,6 +989,10 @@ msgstr ""
 
 #: src/screens/settings/input/input_settings.tscn
 msgid "Joypad status"
+msgstr ""
+
+#: src/screens/settings/input/input_settings.tscn
+msgid "No joypad connected"
 msgstr ""
 
 #: src/screens/settings/input/input_settings.tscn
@@ -1327,11 +1177,6 @@ msgid "Start a new game"
 msgstr ""
 
 #: src/screens/setup/setup_world/setup_world.tscn
-#: src/screens/setup/setup_world/setup_world.gd
-msgid "Name and surname missing"
-msgstr ""
-
-#: src/screens/setup/setup_world/setup_world.tscn
 msgid "Your name"
 msgstr ""
 
@@ -1364,7 +1209,7 @@ msgid "File settings"
 msgstr ""
 
 #: src/screens/setup/setup_world/setup_world.tscn
-msgid "All countries, leagues and team names are defined in a .csv file that can be modified."
+msgid "All starting data are defined in a .csv file that can be modified."
 msgstr ""
 
 #: src/screens/setup/setup_world/setup_world.tscn
@@ -1414,7 +1259,7 @@ msgid ""
 "1) Click \"Save template\" button to save csv template on your machine\n"
 "2) Open with a spreadsheet editor (like LibreOffice Calc or similar)\n"
 "3) Modify data by keeping structure defined in template\n"
-"4) Save file as \"world.csv\" (.ods or .xlsx files are not supported)\n"
+"4) Save file as \".csv\" (.ods or .xlsx files are not supported)\n"
 "5) Click \"Load file\" to import modified data\n"
 "\n"
 "And done! This file can be reused and shared with friends.\n"
@@ -1525,6 +1370,11 @@ msgstr ""
 
 #: src/enum.gd
 msgid "Automatic"
+msgstr ""
+
+#: src/enum.gd
+#: src/resources/formation/formation.gd
+msgid "Manual"
 msgstr ""
 
 #: src/enum.gd
@@ -1640,13 +1490,61 @@ msgstr ""
 msgid "Undefined warning occurred."
 msgstr ""
 
+#: src/enum.gd
+msgid "G"
+msgstr ""
+
+#: src/enum.gd
+msgid "DL"
+msgstr ""
+
+#: src/enum.gd
+msgid "DC"
+msgstr ""
+
+#: src/enum.gd
+msgid "DR"
+msgstr ""
+
+#: src/enum.gd
+msgid "C"
+msgstr ""
+
+#: src/enum.gd
+msgid "WL"
+msgstr ""
+
+#: src/enum.gd
+msgid "WR"
+msgstr ""
+
+#: src/enum.gd
+msgid "PL"
+msgstr ""
+
+#: src/enum.gd
+msgid "PC"
+msgstr ""
+
+#: src/enum.gd
+msgid "PR"
+msgstr ""
+
+#: src/enum.gd
+msgid "Immediate"
+msgstr ""
+
+#: src/enum.gd
+msgid "Next transfer window"
+msgstr ""
+
+#: src/enum.gd
+msgid "End of season"
+msgstr ""
+
 #: src/screens/match_screen/match_screen.gd
 #: src/screens/match_screen/match_screen.tscn
 msgid "Pause"
-msgstr ""
-
-#: src/screens/match_screen/match_screen.tscn
-msgid "Overview"
 msgstr ""
 
 #: src/screens/match_screen/match_screen.tscn
@@ -1756,31 +1654,7 @@ msgid "Birth date"
 msgstr ""
 
 #: src/ui_components/player_list/player_list_view/views/contract/player_list_view_contract.tscn
-msgid "Bonus goals"
-msgstr ""
-
-#: src/ui_components/player_list/player_list_view/views/contract/player_list_view_contract.tscn
-msgid "Bonus clean sheet"
-msgstr ""
-
-#: src/ui_components/player_list/player_list_view/views/contract/player_list_view_contract.tscn
-msgid "Bonus assists"
-msgstr ""
-
-#: src/ui_components/player_list/player_list_view/views/contract/player_list_view_contract.tscn
-msgid "Bonus league"
-msgstr ""
-
-#: src/ui_components/player_list/player_list_view/views/contract/player_list_view_contract.tscn
 msgid "Is on loan"
-msgstr ""
-
-#: src/ui_components/player_list/player_list_view/views/contract/player_list_view_contract.tscn
-msgid "Bonus continental cup"
-msgstr ""
-
-#: src/ui_components/player_list/player_list_view/views/contract/player_list_view_contract.tscn
-msgid "Bonus national cup"
 msgstr ""
 
 #: src/screens/about/about.tscn
@@ -2637,4 +2511,81 @@ msgstr ""
 
 #: src/generators/generator_world.gd
 msgid "Cyprus"
+msgstr ""
+
+#: src/ui_components/player_profile/transfers/player_offer/player_offer.gd
+msgid "Your offer was sent."
+msgstr ""
+
+#: src/ui_components/player_profile/transfers/player_offer/player_offer.tscn
+msgid "Buy"
+msgstr ""
+
+#: src/ui_components/player_profile/transfers/player_offer/player_offer.tscn
+msgid "Make an offer to buy the player."
+msgstr ""
+
+#: src/ui_components/player_profile/transfers/player_offer/player_offer.tscn
+msgid "Money"
+msgstr ""
+
+#: src/ui_components/player_profile/transfers/player_offer/player_offer.tscn
+msgid "Loan"
+msgstr ""
+
+#: src/ui_components/player_profile/transfers/player_offer/player_offer.tscn
+msgid "Make an offer to get the player on loan."
+msgstr ""
+
+#: src/ui_components/player_profile/transfers/player_offer/player_offer.tscn
+msgid "Loan duration"
+msgstr ""
+
+#: src/ui_components/player_profile/transfers/player_offer/player_offer.tscn
+msgid "Salary percentage"
+msgstr ""
+
+#: src/ui_components/player_profile/transfers/player_offer/player_offer.tscn
+msgid "Additional money"
+msgstr ""
+
+#: src/ui_components/player_profile/transfers/player_offer/player_offer.tscn
+#: src/ui_components/player_profile/transfers/contract_offer/contract_offer.tscn
+msgid "Confirm"
+msgstr ""
+
+#: src/ui_components/player_profile/transfers/contract_offer/contract_offer.tscn
+msgid "Offer the player a contract to join your team."
+msgstr ""
+
+#: src/resources/formation/formation.gd
+msgid "Auto"
+msgstr ""
+
+#: src/utils/ui/theme_util.gd
+msgid "Dark"
+msgstr ""
+
+#: src/utils/ui/theme_util.gd
+msgid "Light"
+msgstr ""
+
+#: src/utils/ui/theme_util.gd
+msgid "Solarized light"
+msgstr ""
+
+#: src/utils/ui/theme_util.gd
+msgid "Solarized dark"
+msgstr ""
+
+#: src/utils/ui/theme_util.gd
+msgid "Red"
+msgstr ""
+
+#: src/utils/ui/theme_util.gd
+msgid "Hacker"
+msgstr ""
+
+#: src/utils/ui/theme_util.gd
+msgid "Custom theme"
 msgstr ""
