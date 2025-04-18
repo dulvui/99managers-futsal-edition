@@ -14,7 +14,12 @@ extends PlayerListRow
 
 func setup(player: Player, index: int) -> void:
 	super(player, index)
-	team.text = player.team
+
+	if player.team.is_empty():
+		team.text = tr("Free agent")
+	else:	
+		team.text = player.team
+
 	positionz.text = Enum.get_position_type_text(player.position.main)
 	prestige.text = player.get_prestige_stars()
 	nation.text = tr(player.nation)

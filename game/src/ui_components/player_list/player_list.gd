@@ -352,23 +352,26 @@ func _filter() -> void:
 	var filtered_players: Array[Player] = []
 	var filter_counter: int = 0
 	var value: String
-	var key: String
 
 	for player: Player in all_players:
 		filter_counter = 0
-		for i: int in filters.keys().size():
-			key = filters.keys()[i]
-			filter_counter += 1
+		for key: String in filters.keys():
 			value = str(filters[key])
 
 			if key == Const.POSITION:
-				if not str(player.position.main) == value:
+				if str(player.position.main) == value:
 					filter_counter += 1
-			elif not str(player[key.to_lower()]).to_lower().contains(value.to_lower()):
+				else:
+					break
+
+			elif str(player[key.to_lower()]).to_lower().contains(value.to_lower()):
 				filter_counter += 1
+			else:
+				break
 
 		if filter_counter == filters.size():
 			filtered_players.append(player)
+
 	players = filtered_players
 
 

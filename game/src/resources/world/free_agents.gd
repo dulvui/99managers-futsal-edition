@@ -26,5 +26,6 @@ func append(player: Player) -> void:
 	player.league = ""
 	player.league_id = 0
 	player.team_id = 0
+	player.value = 0
 	list.append(player)
 
