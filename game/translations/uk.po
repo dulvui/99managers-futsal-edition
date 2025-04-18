@@ -282,17 +282,17 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: 99 Managers Futsal Edition\n"
-"PO-Revision-Date: 2025-04-05 06:40+0000\n"
+"PO-Revision-Date: 2025-04-19 11:30+0000\n"
 "Last-Translator: Максим Горпиніч <maksimgorpinic2005a@gmail.com>\n"
-"Language-Team: Ukrainian <https://hosted.weblate.org/projects/99-managers-"
-"futsal-edition/game/uk/>\n"
+"Language-Team: Ukrainian <https://hosted.weblate.org/projects/"
+"99-managers-futsal-edition/game/uk/>\n"
 "Language: uk\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8-bit\n"
 "Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && "
 "n%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2);\n"
-"X-Generator: Weblate 5.11-dev\n"
+"X-Generator: Weblate 5.11.1-dev\n"
 
 #: src/ui_components/team_profile/team_profile.tscn
 #: src/screens/dashboard/dashboard.tscn
@@ -803,10 +803,8 @@ msgid "Statistics\n"
 msgstr "Статистика\n"
 
 #: src/ui_components/player_profile/player_profile.tscn
-#, fuzzy
-#| msgid "Transfer"
 msgid "Transfers"
-msgstr "Трансфер"
+msgstr "Трансфери"
 
 #: src/ui_components/player_profile/player_profile.tscn
 msgid "Contract\n"
@@ -1014,17 +1012,14 @@ msgstr "Пропозиція для {player_name}"
 
 #. TRANSLATORS: {cost}, {player_name}, {team_name} get dynamically filled
 #: src/utils/logic/email_util.gd
-#, fuzzy
-#| msgid ""
-#| "You made an offer for {player_name} from {team_name} at {cost}.\n"
-#| "{team_name} will consider the offer and respond within a few days."
 msgid ""
 "You made an offer for {player_name} from {team_name} at {cost}.\n"
 "\n"
 "\t\t\t\t{team_name} will consider the offer and respond within a few days."
 msgstr ""
 "Ви зробили пропозицію для {player_name} від {team_name} за {cost}.\n"
-"{team_name} розгляне пропозицію та відповість протягом кількох днів."
+"\n"
+"\t\t\t\t{team_name} розгляне пропозицію та відповість протягом кількох днів."
 
 #. TRANSLATORS: {player_name} gets dynamically filled
 #: src/utils/logic/email_util.gd
@@ -1085,30 +1080,21 @@ msgid "Language"
 msgstr "Мова"
 
 #: src/screens/settings/general/general_settings.tscn
-#, fuzzy
-#| msgid ""
-#| "You can fix errors or add new languages easily on Weblate, just click on "
-#| "the link below."
 msgid "You can fix errors or add new languages on [url]weblate.org[/url]"
 msgstr ""
-"Ви можете легко виправити помилки або додати нові мови на Weblate, просто "
-"клацнувши посилання нижче."
+"Ви можете виправити помилки або додати нові мови на [url]weblate.org[/url]"
 
 #: src/screens/settings/general/general_settings.tscn
-#, fuzzy
-#| msgid "Formation"
 msgid "Formats"
-msgstr "Формування"
+msgstr "Формати"
 
 #: src/screens/settings/general/general_settings.tscn
-#, fuzzy
-#| msgid "Date"
 msgid "Dates"
-msgstr "Дата"
+msgstr "Дати"
 
 #: src/screens/settings/general/general_settings.tscn
 msgid "Currencies"
-msgstr ""
+msgstr "Валюти"
 
 #: src/screens/settings/general/general_settings.tscn
 msgid "Audio"
@@ -1376,14 +1362,8 @@ msgid "File settings"
 msgstr "Параметри файлу"
 
 #: src/screens/setup/setup_world/setup_world.tscn
-#, fuzzy
-#| msgid ""
-#| "All countries, leagues and team names are defined in a .csv file that can "
-#| "be modified."
 msgid "All starting data are defined in a .csv file that can be modified."
-msgstr ""
-"Усі країни, ліги та назви команд визначено у файлі .csv, який можна "
-"змінювати."
+msgstr "Усі вихідні дані визначено у файлі .csv, який можна змінювати."
 
 #: src/screens/setup/setup_world/setup_world.tscn
 msgid "Show instructions"
@@ -1438,18 +1418,6 @@ msgstr ""
 "шаблоні."
 
 #: src/screens/setup/setup_world/setup_world.tscn
-#, fuzzy
-#| msgid ""
-#| "1) Click \"Save template\" button to save csv template on your machine\n"
-#| "2) Open with a spreadsheet editor (like LibreOffice Calc or similar)\n"
-#| "3) Modify data by keeping structure defined in template\n"
-#| "4) Save file as \"world.csv\" (.ods or .xlsx files are not supported)\n"
-#| "5) Click \"Load file\" to import modified data\n"
-#| "\n"
-#| "And done! This file can be reused and shared with friends.\n"
-#| "\n"
-#| "Note: The template might change before final release. The loading will "
-#| "fail, if the file has not the correct format."
 msgid ""
 "1) Click \"Save template\" button to save csv template on your machine\n"
 "2) Open with a spreadsheet editor (like LibreOffice Calc or similar)\n"
@@ -1467,7 +1435,7 @@ msgstr ""
 " 2) Відкрийте за допомогою редактора електронних таблиць (наприклад, "
 "LibreOffice Calc або подібного)\n"
 " 3) Змінюйте дані, зберігаючи структуру, визначену в шаблоні\n"
-" 4) Збережіть файл як \"world.csv\" (файли .ods або .xlsx не підтримуються)\n"
+" 4) Збережіть файл як \".csv\" (файли .ods або .xlsx не підтримуються)\n"
 " 5) Натисніть «Завантажити файл», щоб імпортувати змінені дані\n"
 "\n"
 " І готово! Цей файл можна повторно використовувати та ділитися з друзями.\n"
@@ -1739,15 +1707,15 @@ msgstr "PR"
 
 #: src/enum.gd
 msgid "Immediate"
-msgstr ""
+msgstr "негайно"
 
 #: src/enum.gd
 msgid "Next transfer window"
-msgstr ""
+msgstr "Наступне трансферне вікно"
 
 #: src/enum.gd
 msgid "End of season"
-msgstr ""
+msgstr "Кінець сезону"
 
 #: src/screens/match_screen/match_screen.gd
 #: src/screens/match_screen/match_screen.tscn
@@ -2729,15 +2697,15 @@ msgstr "Кіпр"
 
 #: src/ui_components/player_profile/transfers/player_offer/player_offer.gd
 msgid "Your offer was sent."
-msgstr ""
+msgstr "Ваша пропозиція надіслана."
 
 #: src/ui_components/player_profile/transfers/player_offer/player_offer.tscn
 msgid "Buy"
-msgstr ""
+msgstr "Купити"
 
 #: src/ui_components/player_profile/transfers/player_offer/player_offer.tscn
 msgid "Make an offer to buy the player."
-msgstr ""
+msgstr "Зробіть пропозицію про купівлю плеєра."
 
 #: src/ui_components/player_profile/transfers/player_offer/player_offer.tscn
 msgid "Money"
@@ -2749,23 +2717,19 @@ msgstr "Позика"
 
 #: src/ui_components/player_profile/transfers/player_offer/player_offer.tscn
 msgid "Make an offer to get the player on loan."
-msgstr ""
+msgstr "Зробити пропозицію взяти гравця в оренду."
 
 #: src/ui_components/player_profile/transfers/player_offer/player_offer.tscn
-#, fuzzy
-#| msgid "Russian Federation"
 msgid "Loan duration"
-msgstr "Російська Федерація"
+msgstr "Тривалість позики"
 
 #: src/ui_components/player_profile/transfers/player_offer/player_offer.tscn
-#, fuzzy
-#| msgid "Salary budget"
 msgid "Salary percentage"
-msgstr "Бюджет зарплати"
+msgstr "Відсоток зарплати"
 
 #: src/ui_components/player_profile/transfers/player_offer/player_offer.tscn
 msgid "Additional money"
-msgstr ""
+msgstr "Додаткові гроші"
 
 #: src/ui_components/player_profile/transfers/player_offer/player_offer.tscn
 #: src/ui_components/player_profile/transfers/contract_offer/contract_offer.tscn
@@ -2774,7 +2738,7 @@ msgstr "Підтвердити"
 
 #: src/ui_components/player_profile/transfers/contract_offer/contract_offer.tscn
 msgid "Offer the player a contract to join your team."
-msgstr ""
+msgstr "Запропонуйте гравцеві контракт на приєднання до вашої команди."
 
 #: src/resources/formation/formation.gd
 msgid "Auto"
