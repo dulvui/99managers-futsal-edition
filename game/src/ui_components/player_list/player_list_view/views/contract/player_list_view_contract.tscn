@@ -15,43 +15,7 @@ script = ExtResource("2_a08g2")
 sort_key = "income"
 metadata/_custom_type_script = "uid://cha13r617yhur"
 
-[node name="BonusGoals" type="Button" parent="Header/Buttons" index="2"]
-custom_minimum_size = Vector2(94, 0)
-layout_mode = 2
-text = "Bonus goals"
-text_overrun_behavior = 1
-script = ExtResource("2_a08g2")
-sort_key = "bonus_goals"
-metadata/_custom_type_script = "uid://cha13r617yhur"
-
-[node name="BonusCleanSheet" type="Button" parent="Header/Buttons" index="3"]
-custom_minimum_size = Vector2(94, 0)
-layout_mode = 2
-text = "Bonus clean sheet"
-text_overrun_behavior = 1
-script = ExtResource("2_a08g2")
-sort_key = "bonus_clean_sheet"
-metadata/_custom_type_script = "uid://cha13r617yhur"
-
-[node name="BonusAssist" type="Button" parent="Header/Buttons" index="4"]
-custom_minimum_size = Vector2(94, 0)
-layout_mode = 2
-text = "Bonus assists"
-text_overrun_behavior = 1
-script = ExtResource("2_a08g2")
-sort_key = "bonus_assist"
-metadata/_custom_type_script = "uid://cha13r617yhur"
-
-[node name="BonusLeague" type="Button" parent="Header/Buttons" index="5"]
-custom_minimum_size = Vector2(94, 0)
-layout_mode = 2
-text = "Bonus league"
-text_overrun_behavior = 1
-script = ExtResource("2_a08g2")
-sort_key = "bonus_league"
-metadata/_custom_type_script = "uid://cha13r617yhur"
-
-[node name="IsOnLoan" type="Button" parent="Header/Buttons" index="6"]
+[node name="IsOnLoan" type="Button" parent="Header/Buttons" index="2"]
 custom_minimum_size = Vector2(94, 0)
 layout_mode = 2
 text = "Is on loan"
@@ -60,7 +24,7 @@ script = ExtResource("2_a08g2")
 sort_key = "is_on_loan"
 metadata/_custom_type_script = "uid://cha13r617yhur"
 
-[node name="EndDate" type="Button" parent="Header/Buttons" index="7"]
+[node name="EndDate" type="Button" parent="Header/Buttons" index="3"]
 custom_minimum_size = Vector2(94, 0)
 layout_mode = 2
 text = "End date"
@@ -69,7 +33,7 @@ script = ExtResource("2_a08g2")
 sort_key = "end_date"
 metadata/_custom_type_script = "uid://cha13r617yhur"
 
-[node name="StartDate" type="Button" parent="Header/Buttons" index="8"]
+[node name="StartDate" type="Button" parent="Header/Buttons" index="4"]
 custom_minimum_size = Vector2(94, 0)
 layout_mode = 2
 text = "Start date"
@@ -78,7 +42,7 @@ script = ExtResource("2_a08g2")
 sort_key = "start_date"
 metadata/_custom_type_script = "uid://cha13r617yhur"
 
-[node name="BuyClause" type="Button" parent="Header/Buttons" index="9"]
+[node name="BuyClause" type="Button" parent="Header/Buttons" index="5"]
 custom_minimum_size = Vector2(94, 0)
 layout_mode = 2
 text = "Buy clause"
@@ -86,23 +50,6 @@ text_overrun_behavior = 1
 script = ExtResource("2_a08g2")
 sort_key = "buy_clause"
 metadata/_custom_type_script = "uid://cha13r617yhur"
-
-[node name="BonusContinentalCup" type="Button" parent="Header/Buttons" index="10"]
-custom_minimum_size = Vector2(94, 0)
-layout_mode = 2
-text = "Bonus continental cup"
-text_overrun_behavior = 1
-script = ExtResource("2_a08g2")
-sort_key = "bonus_continental_cup"
-metadata/_custom_type_script = "uid://cha13r617yhur"
-
-[node name="BonusNationalCup" type="Button" parent="Header/Buttons" index="11"]
-custom_minimum_size = Vector2(94, 0)
-layout_mode = 2
-text = "Bonus national cup"
-text_overrun_behavior = 1
-script = ExtResource("2_a08g2")
-sort_key = "bonus_national_cup"
 
 [node name="PlayerListRowContract" parent="Rows" index="0" instance=ExtResource("3_xh37x")]
 layout_mode = 2

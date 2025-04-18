@@ -74,7 +74,7 @@ func _on_buy_clause_more_pressed() -> void:
 func _on_confirm_pressed() -> void:
 	# add contract to pendng contracts
 
-	var contract: Contract = Contract.new()
+	var contract: PlayerContract = PlayerContract.new()
 	contract.buy_clause = buy_clause
 	contract.income = income
 

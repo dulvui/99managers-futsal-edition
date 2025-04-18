@@ -21,3 +21,4 @@ func setup(player: Player, index: int) -> void:
 
 	if index % 2 == 1:
 		button.modulate = button.modulate.darkened(0.2)
+

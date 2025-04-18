@@ -751,26 +751,40 @@ func _set_random_person_values(person: Person, nation: Nation) -> void:
 		person.haircolor = RngUtil.pick_random(HAIR_COLORS)
 	if person.eyecolor.is_empty():
 		person.eyecolor = RngUtil.pick_random(EYE_COLORS)
-
+	
 	# contract
-	var contract: Contract = Contract.new()
-	var age: int = person.get_age(start_date)
+	if person.role == Person.Role.PLAYER:
+		_set_random_player_contract(person as Player)
+	else:
+		_set_random_staff_contract(person as StaffMember)
 
 
-	contract.income = (person.prestige + age) * 1000
+func _set_random_player_contract(player: Player) -> void:
+	# contract
+	var contract: PlayerContract = PlayerContract.new()
+	var age: int = player.get_age(start_date)
+
 	contract.start_date = start_date
 	contract.end_date = start_date
-	contract.bonus_goal = 0
-	contract.bonus_clean_sheet = 0
-	contract.bonus_assist = 0
-	contract.bonus_league = 0
-	contract.bonus_national_cup = 0
-	contract.bonus_continental_cup = 0
+
+	contract.income = (player.prestige + age) * 1000
 	contract.buy_clause = 0
 	# TODO: find way to have loan players on start
 	contract.is_on_loan = false
 
-	person.contract = contract
+	player.contract = contract
+
+
+func _set_random_staff_contract(member: StaffMember) -> void:
+	# contract
+	var contract: Contract = Contract.new()
+	var age: int = member.get_age(start_date)
+
+	contract.start_date = start_date
+	contract.end_date = start_date
+	contract.income = (member.prestige + age) * 1000
+
+	member.contract = contract
 
 
 func _set_random_shirt_colors(team: Team) -> void:

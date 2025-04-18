@@ -44,21 +44,21 @@ func date(p_day: int, p_month: int, p_year: int = -1) -> String:
 	# long
 	match Global.config.date:
 		Dates.DMY_SLASH:
-			return "%d/%d/%d" % [p_day, p_month, p_year % 1000]
+			return "%d/%d/%d" % [p_day, p_month, p_year]
 		Dates.DMY_DOT:
-			return "%d.%d.%d" % [p_day, p_month, p_year % 1000]
+			return "%d.%d.%d" % [p_day, p_month, p_year]
 		Dates.DMY_HYPHEN:
-			return "%d-%d-%d" % [p_day, p_month, p_year % 1000]
+			return "%d-%d-%d" % [p_day, p_month, p_year]
 		Dates.MDY_SLASH:
-			return "%d/%d/%d" % [p_month, p_day, p_year % 1000]
+			return "%d/%d/%d" % [p_month, p_day, p_year]
 		Dates.MDY_DOT:
-			return "%d.%d.%d" % [p_month, p_day, p_year % 1000]
+			return "%d.%d.%d" % [p_month, p_day, p_year]
 		Dates.MDY_HYPHEN:
-			return "%d-%d-%d" % [p_month, p_day, p_year % 1000]
+			return "%d-%d-%d" % [p_month, p_day, p_year]
 		Dates.YMD_SLASH:
 			return "%d-%d-%d" % [p_year, p_month, p_day]
 		_:
-			return "%d/%d/%d" % [p_day, p_month, p_year % 1000]
+			return "%d/%d/%d" % [p_day, p_month, p_year]
 
 
 func day_from_string(p_date: String) -> Dictionary:

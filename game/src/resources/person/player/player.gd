@@ -17,6 +17,7 @@ extends Person
 @export var foot_left: int
 @export var foot_right: int
 @export var position: Position
+@export var contract: PlayerContract
 @export var attributes: Attributes
 
 # internal data
@@ -52,7 +53,7 @@ func _init(
 	p_foot_left: int = 0,
 	p_foot_right: int = 0,
 	p_position: Position = Position.new(),
-	p_contract: Contract = Contract.new(),
+	p_contract: PlayerContract = PlayerContract.new(),
 	p_attributes: Attributes = Attributes.new(),
 	p_agent: Agent = Agent.new(),
 ) -> void:

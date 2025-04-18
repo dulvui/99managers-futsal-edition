@@ -264,6 +264,12 @@ func _sort_players(sort_key: String) -> void:
 		Views.CONTRACT:
 			players.sort_custom(
 				func(a: Player, b: Player) -> bool:
+					# start/end date
+					if "date" in sort_key:
+						var date_a: Dictionary = a.contract.get(sort_key)
+						var date_b: Dictionary = a.contract.get(sort_key)
+						return _sort_date(date_a, date_b, sorting[sort_key])
+					# all other properties
 					if sorting[sort_key]:
 						return a.contract.get(sort_key) > b.contract.get(sort_key)
 					else:
@@ -280,6 +286,10 @@ func _sort_players(sort_key: String) -> void:
 		_:
 			players.sort_custom(
 				func(a: Player, b: Player) -> bool:
+					if "date" in sort_key:
+						var date_a: Dictionary = a.get(sort_key)
+						var date_b: Dictionary = b.get(sort_key)
+						return _sort_date(date_a, date_b, sorting[sort_key])
 					if sorting[sort_key]:
 						return _sort_player(a, sort_key) > _sort_player(b, sort_key)
 					else:
@@ -291,14 +301,38 @@ func _sort_player(player: Player, key: String) -> Variant:
 	match key:
 		"position":
 			return player.position.main
-		"birth_date":
-			return Time.get_unix_time_from_datetime_dict(player.birth_date)
 		_:
 			var property: Variant = player.get(key)
 			if property == null or property is Object:
 				print("error while sorting player, key %s not found" % key)
 				return -1
 			return property
+
+
+func _sort_date(a: Dictionary, b: Dictionary, ascending: bool) -> bool:
+	# check year
+	var year_a: int = a.year
+	var year_b: int = b.year
+	if year_a != year_b:
+		if ascending:
+			return year_a > year_b
+		return year_a < year_b
+
+	# check month
+	var month_a: int = a.month
+	var month_b: int = b.month
+	if year_a == year_b and month_b != month_b:
+		if month_a != month_b:
+			if ascending:
+				return month_a > month_b
+			return month_a < month_b
+
+	# check days
+	var day_a: int = a.day
+	var day_b: int = b.day
+	if ascending:
+		return day_a > day_b
+	return day_a < day_b
 
 
 func _set_sorting(sort_key: String) -> void:

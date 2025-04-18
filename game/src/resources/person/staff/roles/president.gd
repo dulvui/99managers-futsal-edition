@@ -3,8 +3,10 @@
 # SPDX-License-Identifier: AGPL-3.0-or-later
 
 class_name President
-extends Person
+extends StaffMember
 
 
-func _init() -> void:
+func _init(
+) -> void:
 	super(Person.Role.PRESIDENT)
+

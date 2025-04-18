@@ -33,7 +33,7 @@ enum State {
 @export var state: State
 @export var type: Type
 @export var cost: int
-@export var contract: Contract
+@export var contract: PlayerContract
 @export var delay_days: int
 # not used for now for simplicity, might be re-introduced later
 @export var exchange_players: Array[int]

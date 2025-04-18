@@ -3,8 +3,9 @@
 # SPDX-License-Identifier: AGPL-3.0-or-later
 
 class_name Medical
-extends Person
+extends StaffMember
 
 
 func _init() -> void:
 	super(Person.Role.MEDICAL)
+
