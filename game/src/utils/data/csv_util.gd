@@ -150,7 +150,7 @@ func csv_to_players(csv: Array[PackedStringArray], world: World, first_time: boo
 			push_warning("team not found in line %d" % line_index)
 			continue
 
-		var player: Player = _line_to_player(league.id, team.id, team.name, first_time)
+		var player: Player = _line_to_player(league.id, league.name, team.id, team.name, first_time)
 
 		if player != null:
 			team.players.append(player)
@@ -557,8 +557,12 @@ func _player_to_line(player: Player, nation: Nation = null, league: League = nul
 
 
 func _line_to_player(
-	league_id: int = 0, team_id: int = 0, team_name: String = "", first_time: bool = false
-	) -> Player:
+	league_id: int = 0,
+	league_name: String = "",
+	team_id: int = 0,
+	team_name: String = "",
+	first_time: bool = false,
+) -> Player:
 	
 	# check if free agent
 	if team_id > 0:
@@ -625,6 +629,7 @@ func _line_to_player(
 
 	player.team_id = team_id
 	player.league_id = league_id
+	player.league = league_name
 
 	if first_time:
 		return player
