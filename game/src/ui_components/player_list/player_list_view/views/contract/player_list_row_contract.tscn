@@ -21,14 +21,14 @@ layout_mode = 2
 text = "20"
 text_overrun_behavior = 1
 
-[node name="EndDate" parent="Items" index="3" instance=ExtResource("3_e2fe0")]
+[node name="StartDate" parent="Items" index="3" instance=ExtResource("3_e2fe0")]
 unique_name_in_owner = true
 custom_minimum_size = Vector2(94, 0)
 layout_mode = 2
 text = "20"
 text_overrun_behavior = 1
 
-[node name="StartDate" parent="Items" index="4" instance=ExtResource("3_e2fe0")]
+[node name="EndDate" parent="Items" index="4" instance=ExtResource("3_e2fe0")]
 unique_name_in_owner = true
 custom_minimum_size = Vector2(94, 0)
 layout_mode = 2

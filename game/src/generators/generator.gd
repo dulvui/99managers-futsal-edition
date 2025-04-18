@@ -764,13 +764,51 @@ func _set_random_player_contract(player: Player) -> void:
 	var contract: PlayerContract = PlayerContract.new()
 	var age: int = player.get_age(start_date)
 
-	contract.start_date = start_date
-	contract.end_date = start_date
-
 	contract.income = (player.prestige + age) * 1000
 	contract.buy_clause = 0
 	# TODO: find way to have loan players on start
 	contract.is_on_loan = false
+
+	# calculate start and end date
+	var duration: int = RngUtil.rng.randi_range(2, Const.CONTRACT_MAX_DURATION)
+
+	# less contract duration for young or old players
+	if age < 20 or age > 32:
+		duration = RngUtil.rng.randi_range(1, int(Const.CONTRACT_MAX_DURATION / 2.0))
+
+	var start: int = 0
+	if duration > 1:
+		# duration - 1 to have at least 1 year of remaining contract
+		start = RngUtil.rng.randi_range(1, duration - 1)
+	
+	var month: int = 0
+
+	# start during summer market probability 80%
+	if RngUtil.rng.randi_range(1, 100) <= 80:
+		month = RngUtil.rng.randi_range(
+			Calendar.MARKET_SUMMER_START_MONTH, Calendar.MARKET_SUMMER_END_MONTH
+		)
+	else:
+		# during winter period
+		month = RngUtil.rng.randi_range(
+			Calendar.MARKET_WINTER_START_MONTH, Calendar.MARKET_WINTER_END_MONTH
+		)
+	
+	# get max day respecting month days and leap years
+	var month_max_days: int = _get_month_max_days(month)
+	var day: int = RngUtil.rng.randi_range(1, month_max_days)
+
+	contract.start_date = {
+		"month": month,
+		"day": day,
+		"year": start_date.year - start,
+	}
+
+	contract.end_date = {
+		"day": Calendar.SEASON_START_DAY,
+		"month": Calendar.SEASON_END_MONTH,
+		"year": start_date.year + duration,
+	}
 
 	player.contract = contract
 
@@ -780,9 +818,30 @@ func _set_random_staff_contract(member: StaffMember) -> void:
 	var contract: Contract = Contract.new()
 	var age: int = member.get_age(start_date)
 
-	contract.start_date = start_date
-	contract.end_date = start_date
 	contract.income = (member.prestige + age) * 1000
+
+	# calculate start and end date
+	var duration: int = RngUtil.rng.randi_range(2, Const.CONTRACT_MAX_DURATION)
+
+	var start: int = 0
+	if duration > 1:
+		# duration - 1 to have at least 1 year of remaining contract
+		start = RngUtil.rng.randi_range(1, duration - 1)
+	
+	var month: int = Calendar.SEASON_START_MONTH
+	var day: int = Calendar.SEASON_START_DAY
+
+	contract.start_date = {
+		"month": month,
+		"day": day,
+		"year": start_date.year - start,
+	}
+
+	contract.end_date = {
+		"day": Calendar.SEASON_START_DAY,
+		"month": Calendar.SEASON_END_MONTH,
+		"year": start_date.year + duration,
+	}
 
 	member.contract = contract
 
@@ -825,4 +884,19 @@ func _in_bounds_random(value: int, max_bound: int = Const.MAX_PRESTIGE) -> int:
 # returns value between 1 and 20
 func _in_bounds(value: int, max_bound: int = Const.MAX_PRESTIGE) -> int:
 	return maxi(mini(value, max_bound), 1)
+
+
+func _get_month_max_days(month: int) -> int:
+	# months with 31 days
+	if month in [1, 3, 5, 7, 8, 10, 12]:
+		return 31
+	
+	# months with 30 days
+	if month in [4, 6, 9, 11]:
+		return 30
+	
+	# february check leap year
+	if (year % 4 == 0 and year % 100 != 0) or (year % 400 == 0):
+		return 29
+	return 28
 

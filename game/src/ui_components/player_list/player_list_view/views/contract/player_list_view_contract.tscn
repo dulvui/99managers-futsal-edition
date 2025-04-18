@@ -24,22 +24,22 @@ script = ExtResource("2_a08g2")
 sort_key = "is_on_loan"
 metadata/_custom_type_script = "uid://cha13r617yhur"
 
-[node name="EndDate" type="Button" parent="Header/Buttons" index="3"]
-custom_minimum_size = Vector2(94, 0)
-layout_mode = 2
-text = "End date"
-text_overrun_behavior = 1
-script = ExtResource("2_a08g2")
-sort_key = "end_date"
-metadata/_custom_type_script = "uid://cha13r617yhur"
-
-[node name="StartDate" type="Button" parent="Header/Buttons" index="4"]
+[node name="StartDate" type="Button" parent="Header/Buttons" index="3"]
 custom_minimum_size = Vector2(94, 0)
 layout_mode = 2
 text = "Start date"
 text_overrun_behavior = 1
 script = ExtResource("2_a08g2")
 sort_key = "start_date"
+metadata/_custom_type_script = "uid://cha13r617yhur"
+
+[node name="EndDate" type="Button" parent="Header/Buttons" index="4"]
+custom_minimum_size = Vector2(94, 0)
+layout_mode = 2
+text = "End date"
+text_overrun_behavior = 1
+script = ExtResource("2_a08g2")
+sort_key = "end_date"
 metadata/_custom_type_script = "uid://cha13r617yhur"
 
 [node name="BuyClause" type="Button" parent="Header/Buttons" index="5"]
