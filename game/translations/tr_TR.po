@@ -313,7 +313,6 @@ msgid "Stadium"
 msgstr "Stadyum"
 
 #: src/ui_components/team_profile/team_profile.tscn
-#: src/ui_components/transfers/player_offer/player_offer.tscn
 #: src/screens/dashboard/dashboard.tscn
 msgid "Players"
 msgstr "Oyuncular"
@@ -334,7 +333,7 @@ msgid "Persons"
 msgstr "Karakterler"
 
 #: src/ui_components/team_profile/team_profile.gd
-#: src/ui_components/transfers/contract_offer/contract_offer.tscn
+#: src/ui_components/player_profile/transfers/contract_offer/contract_offer.tscn
 msgid "Year"
 msgstr "Yıl"
 
@@ -366,7 +365,7 @@ msgid "Mental"
 msgstr "Zihinsel"
 
 #: src/ui_components/player_list/player_list.gd
-#: src/ui_components/transfers/contract_offer/contract_offer.tscn
+#: src/ui_components/player_profile/player_profile.tscn
 msgid "Contract"
 msgstr "Kontrat"
 
@@ -406,8 +405,6 @@ msgid "Ok"
 msgstr "Tamam"
 
 #: src/ui_components/base/confirm_dialog/default_confirm_dialog.tscn
-#: src/ui_components/transfers/player_offer/player_offer.tscn
-#: src/ui_components/transfers/contract_offer/contract_offer.tscn
 #: src/screens/setup/setup_world/setup_world.tscn
 msgid "Cancel"
 msgstr "İptal"
@@ -437,8 +434,8 @@ msgid "Reamaining salary budget"
 msgstr "Kalan maaş bütçesi"
 
 #: src/ui_components/visual_finances/visual_finances.tscn
-#: src/ui_components/transfers/contract_offer/contract_offer.tscn
 #: src/ui_components/player_list/player_list_view/views/contract/player_list_view_contract.tscn
+#: src/ui_components/player_profile/transfers/contract_offer/contract_offer.tscn
 msgid "Income"
 msgstr "Gelir"
 
@@ -498,7 +495,6 @@ msgstr ""
 
 #: src/ui_components/visual_competitions/visual_table/visual_table.gd
 #: src/ui_components/visual_competitions/visual_competitions.gd
-#: src/resources/competition/league.gd
 #, fuzzy
 #| msgid "Players"
 msgid "Playoffs"
@@ -512,7 +508,6 @@ msgstr "Hızlanma"
 
 #: src/ui_components/visual_competitions/visual_table/visual_table.gd
 #: src/ui_components/visual_competitions/visual_competitions.gd
-#: src/resources/competition/league.gd
 #, fuzzy
 #| msgid "Players"
 msgid "Playouts"
@@ -561,42 +556,6 @@ msgstr "Yarışmalar"
 #: src/ui_components/visual_competitions/visual_competitions.gd
 msgid "Group"
 msgstr "Grup"
-
-#: src/ui_components/transfers/player_offer/player_offer.tscn
-msgid "Type"
-msgstr "Tip"
-
-#: src/ui_components/transfers/player_offer/player_offer.tscn
-msgid "Money"
-msgstr "Para"
-
-#: src/ui_components/transfers/player_offer/player_offer.tscn
-#: src/ui_components/email/list/message_list.tscn
-msgid "Date"
-msgstr "Tarih"
-
-#: src/ui_components/transfers/player_offer/player_offer.tscn
-msgid "Player list"
-msgstr "Oyuncu listesi"
-
-#: src/ui_components/transfers/player_offer/player_offer.tscn
-#: src/ui_components/transfers/contract_offer/contract_offer.tscn
-msgid "Confirm"
-msgstr "Onayla"
-
-#: src/ui_components/transfers/player_offer/player_offer.gd
-msgid "Transfer"
-msgstr "Transfer et"
-
-#: src/ui_components/transfers/player_offer/player_offer.gd
-msgid "Loan"
-msgstr "Kredi"
-
-#: src/ui_components/transfers/contract_offer/contract_offer.tscn
-#: src/ui_components/player_profile/contract_view/contract_view.tscn
-#: src/ui_components/player_list/player_list_view/views/contract/player_list_view_contract.tscn
-msgid "Buy clause"
-msgstr "Satın alın"
 
 #: src/ui_components/visual_formation/visual_formation.gd
 msgid "Substitutes"
@@ -653,6 +612,11 @@ msgid "From"
 msgstr "Kimden"
 
 #: src/ui_components/email/list/message_list.tscn
+#: src/ui_components/player_profile/transfers/player_offer/player_offer.tscn
+msgid "Date"
+msgstr "Tarih"
+
+#: src/ui_components/email/list/message_list.tscn
 msgid "Star"
 msgstr "Yıldız"
 
@@ -681,6 +645,7 @@ msgid "Action"
 msgstr "Eylem"
 
 #: src/ui_components/email/visual_message/visual_message.gd
+#: src/ui_components/player_profile/transfers/contract_offer/contract_offer.tscn
 msgid "Offer contract"
 msgstr "Sözleşme öner"
 
@@ -838,12 +803,23 @@ msgid "Blocking"
 msgstr "Engelleme"
 
 #: src/ui_components/player_profile/player_profile.tscn
+#: src/screens/match_screen/match_screen.tscn
+msgid "Overview"
+msgstr "Genel bakış"
+
+#: src/ui_components/player_profile/player_profile.tscn
 msgid "Attributes"
 msgstr "Özellikler"
 
 #: src/ui_components/player_profile/player_profile.tscn
 msgid "Statistics\n"
 msgstr "İstatistikler\n"
+
+#: src/ui_components/player_profile/player_profile.tscn
+#, fuzzy
+#| msgid "Transfer"
+msgid "Transfers"
+msgstr "Transfer et"
 
 #: src/ui_components/player_profile/player_profile.tscn
 msgid "Contract\n"
@@ -906,6 +882,12 @@ msgid "End date"
 msgstr "Bitiş tarihi"
 
 #: src/ui_components/player_profile/contract_view/contract_view.tscn
+#: src/ui_components/player_list/player_list_view/views/contract/player_list_view_contract.tscn
+#: src/ui_components/player_profile/transfers/contract_offer/contract_offer.tscn
+msgid "Buy clause"
+msgstr "Satın alın"
+
+#: src/ui_components/player_profile/contract_view/contract_view.tscn
 msgid "Bonus"
 msgstr "Bonus"
 
@@ -932,10 +914,6 @@ msgstr "Ulusal kupa"
 #: src/ui_components/player_profile/contract_view/contract_view.tscn
 msgid "Continental cup"
 msgstr "Kıtasal kupa"
-
-#: src/ui_components/player_profile/contract_view/contract_view.tscn
-msgid "Make offer"
-msgstr "Teklif yap"
 
 #: src/ui_components/player_profile/statistics_view/statistics_view.tscn
 #: src/ui_components/player_list/player_list_view/views/statistics/player_list_view_statistics.tscn
@@ -1027,54 +1005,6 @@ msgstr "Devam et"
 msgid "No team found"
 msgstr "Hiç mesaj bulunamadı"
 
-#: src/resources/formation/position/position.gd
-msgid "G"
-msgstr "KL"
-
-#: src/resources/formation/position/position.gd
-msgid "DL"
-msgstr "SLB"
-
-#: src/resources/formation/position/position.gd
-msgid "DC"
-msgstr "STP"
-
-#: src/resources/formation/position/position.gd
-msgid "DR"
-msgstr "SĞB"
-
-#: src/resources/formation/position/position.gd
-msgid "C"
-msgstr "MO"
-
-#: src/resources/formation/position/position.gd
-msgid "WL"
-msgstr "SLK"
-
-#: src/resources/formation/position/position.gd
-msgid "WR"
-msgstr "SĞK"
-
-#: src/resources/formation/position/position.gd
-msgid "PL"
-msgstr "SF"
-
-#: src/resources/formation/position/position.gd
-msgid "PC"
-msgstr "CM"
-
-#: src/resources/formation/position/position.gd
-msgid "PR"
-msgstr "ST"
-
-#: src/resources/formation/formation.gd
-msgid "Auto"
-msgstr "Oto"
-
-#: src/resources/formation/formation.gd src/enum.gd
-msgid "Manual"
-msgstr "Manuel"
-
 #. TRANSLATORS: {team_name} gets dynamically filled
 #: src/utils/logic/email_util.gd
 msgid "Next match: {team_name}"
@@ -1101,9 +1031,14 @@ msgstr "{player_name} için teklif ver"
 
 #. TRANSLATORS: {cost}, {player_name}, {team_name} get dynamically filled
 #: src/utils/logic/email_util.gd
+#, fuzzy
+#| msgid ""
+#| "You made an offer for {player_name} from {team_name} at {cost}.\n"
+#| "{team_name} will consider the offer and respond within a few days."
 msgid ""
 "You made an offer for {player_name} from {team_name} at {cost}.\n"
-"{team_name} will consider the offer and respond within a few days."
+"\n"
+"\t\t\t\t{team_name} will consider the offer and respond within a few days."
 msgstr ""
 "{player_name} için {team_name} takımına {cost} kadar teklif yaptın.\n"
 "{team_name} takımı teklifini düşünüp birkaç güne dönüş yapacak."
@@ -1136,39 +1071,6 @@ msgstr ""
 "{player_name} için {team_name} takımına {cost} teklifin kabul edildi\n"
 "{player_name} ile ön sözleşme yapabilirsin."
 
-#: src/utils/input/joypad_util.gd
-#: src/screens/settings/input/input_settings.tscn
-msgid "No joypad connected"
-msgstr "Bağlı joypad bulunmuyor"
-
-#: src/utils/ui/theme_util.gd
-msgid "Dark"
-msgstr "Karanlık"
-
-#: src/utils/ui/theme_util.gd
-msgid "Light"
-msgstr "Aydınlık"
-
-#: src/utils/ui/theme_util.gd
-msgid "Solarized light"
-msgstr "Solarize aydınlık"
-
-#: src/utils/ui/theme_util.gd
-msgid "Solarized dark"
-msgstr "Solarize karanlık"
-
-#: src/utils/ui/theme_util.gd
-msgid "Red"
-msgstr "Kırmızı"
-
-#: src/utils/ui/theme_util.gd
-msgid "Hacker"
-msgstr "Hacker"
-
-#: src/utils/ui/theme_util.gd
-msgid "Custom theme"
-msgstr "Özel tema"
-
 #: src/screens/settings/settings.tscn src/screens/dashboard/dashboard.tscn
 #: src/screens/menu/menu.tscn
 msgid "Settings"
@@ -1198,12 +1100,30 @@ msgid "Language"
 msgstr "Dil"
 
 #: src/screens/settings/general/general_settings.tscn
-msgid ""
-"You can fix errors or add new languages easily on Weblate, just click on the "
-"link below."
+#, fuzzy
+#| msgid ""
+#| "You can fix errors or add new languages easily on Weblate, just click on "
+#| "the link below."
+msgid "You can fix errors or add new languages on [url]weblate.org[/url]"
 msgstr ""
 "Aşağıdaki linke tıklayarak weblate üzerinden hataları düzenleyebilir veya "
 "yeni diller ekleyebilrsin."
+
+#: src/screens/settings/general/general_settings.tscn
+#, fuzzy
+#| msgid "Formation"
+msgid "Formats"
+msgstr "Formasyon"
+
+#: src/screens/settings/general/general_settings.tscn
+#, fuzzy
+#| msgid "Date"
+msgid "Dates"
+msgstr "Tarih"
+
+#: src/screens/settings/general/general_settings.tscn
+msgid "Currencies"
+msgstr ""
 
 #: src/screens/settings/general/general_settings.tscn
 msgid "Audio"
@@ -1245,6 +1165,10 @@ msgstr "Vim modu"
 #: src/screens/settings/input/input_settings.tscn
 msgid "Joypad status"
 msgstr "Joypad durumu"
+
+#: src/screens/settings/input/input_settings.tscn
+msgid "No joypad connected"
+msgstr "Bağlı joypad bulunmuyor"
 
 #: src/screens/settings/input/input_settings.tscn
 msgid "Input detection mode"
@@ -1439,11 +1363,6 @@ msgid "Start a new game"
 msgstr "Başlangıç tarihi"
 
 #: src/screens/setup/setup_world/setup_world.tscn
-#: src/screens/setup/setup_world/setup_world.gd
-msgid "Name and surname missing"
-msgstr ""
-
-#: src/screens/setup/setup_world/setup_world.tscn
 msgid "Your name"
 msgstr "Adınız"
 
@@ -1480,9 +1399,7 @@ msgid "File settings"
 msgstr "Oyun ayarları"
 
 #: src/screens/setup/setup_world/setup_world.tscn
-msgid ""
-"All countries, leagues and team names are defined in a .csv file that can be "
-"modified."
+msgid "All starting data are defined in a .csv file that can be modified."
 msgstr ""
 
 #: src/screens/setup/setup_world/setup_world.tscn
@@ -1548,7 +1465,7 @@ msgid ""
 "1) Click \"Save template\" button to save csv template on your machine\n"
 "2) Open with a spreadsheet editor (like LibreOffice Calc or similar)\n"
 "3) Modify data by keeping structure defined in template\n"
-"4) Save file as \"world.csv\" (.ods or .xlsx files are not supported)\n"
+"4) Save file as \".csv\" (.ods or .xlsx files are not supported)\n"
 "5) Click \"Load file\" to import modified data\n"
 "\n"
 "And done! This file can be reused and shared with friends.\n"
@@ -1667,6 +1584,10 @@ msgstr "Aralık"
 msgid "Automatic"
 msgstr "Otomatik"
 
+#: src/enum.gd src/resources/formation/formation.gd
+msgid "Manual"
+msgstr "Manuel"
+
 #: src/enum.gd
 msgid "Mouse and Keyboard"
 msgstr "Klavye ve fare"
@@ -1780,14 +1701,62 @@ msgstr ""
 msgid "Undefined warning occurred."
 msgstr ""
 
+#: src/enum.gd
+msgid "G"
+msgstr "KL"
+
+#: src/enum.gd
+msgid "DL"
+msgstr "SLB"
+
+#: src/enum.gd
+msgid "DC"
+msgstr "STP"
+
+#: src/enum.gd
+msgid "DR"
+msgstr "SĞB"
+
+#: src/enum.gd
+msgid "C"
+msgstr "MO"
+
+#: src/enum.gd
+msgid "WL"
+msgstr "SLK"
+
+#: src/enum.gd
+msgid "WR"
+msgstr "SĞK"
+
+#: src/enum.gd
+msgid "PL"
+msgstr "SF"
+
+#: src/enum.gd
+msgid "PC"
+msgstr "CM"
+
+#: src/enum.gd
+msgid "PR"
+msgstr "ST"
+
+#: src/enum.gd
+msgid "Immediate"
+msgstr ""
+
+#: src/enum.gd
+msgid "Next transfer window"
+msgstr ""
+
+#: src/enum.gd
+msgid "End of season"
+msgstr ""
+
 #: src/screens/match_screen/match_screen.gd
 #: src/screens/match_screen/match_screen.tscn
 msgid "Pause"
 msgstr "Durdur"
-
-#: src/screens/match_screen/match_screen.tscn
-msgid "Overview"
-msgstr "Genel bakış"
 
 #: src/screens/match_screen/match_screen.tscn
 msgid "Simulate"
@@ -1898,36 +1867,8 @@ msgid "Birth date"
 msgstr "Doğum tarihi"
 
 #: src/ui_components/player_list/player_list_view/views/contract/player_list_view_contract.tscn
-#, fuzzy
-#| msgid "Bonus goal"
-msgid "Bonus goals"
-msgstr "Bonus goller"
-
-#: src/ui_components/player_list/player_list_view/views/contract/player_list_view_contract.tscn
-msgid "Bonus clean sheet"
-msgstr "Bonus temiz sayfa"
-
-#: src/ui_components/player_list/player_list_view/views/contract/player_list_view_contract.tscn
-#, fuzzy
-#| msgid "Bonus assist"
-msgid "Bonus assists"
-msgstr "Bonus asistler"
-
-#: src/ui_components/player_list/player_list_view/views/contract/player_list_view_contract.tscn
-msgid "Bonus league"
-msgstr "Bonus lig"
-
-#: src/ui_components/player_list/player_list_view/views/contract/player_list_view_contract.tscn
 msgid "Is on loan"
 msgstr ""
-
-#: src/ui_components/player_list/player_list_view/views/contract/player_list_view_contract.tscn
-msgid "Bonus continental cup"
-msgstr "Bonus kıtasal kupa"
-
-#: src/ui_components/player_list/player_list_view/views/contract/player_list_view_contract.tscn
-msgid "Bonus national cup"
-msgstr "Bonus ulusal kupa"
 
 #: src/screens/about/about.tscn
 #, fuzzy
@@ -2808,6 +2749,118 @@ msgstr "Orta Afrika Cumhuriyeti"
 msgid "Cyprus"
 msgstr "Kıbrıs"
 
+#: src/ui_components/player_profile/transfers/player_offer/player_offer.gd
+msgid "Your offer was sent."
+msgstr ""
+
+#: src/ui_components/player_profile/transfers/player_offer/player_offer.tscn
+msgid "Buy"
+msgstr ""
+
+#: src/ui_components/player_profile/transfers/player_offer/player_offer.tscn
+msgid "Make an offer to buy the player."
+msgstr ""
+
+#: src/ui_components/player_profile/transfers/player_offer/player_offer.tscn
+msgid "Money"
+msgstr "Para"
+
+#: src/ui_components/player_profile/transfers/player_offer/player_offer.tscn
+msgid "Loan"
+msgstr "Kredi"
+
+#: src/ui_components/player_profile/transfers/player_offer/player_offer.tscn
+msgid "Make an offer to get the player on loan."
+msgstr ""
+
+#: src/ui_components/player_profile/transfers/player_offer/player_offer.tscn
+#, fuzzy
+#| msgid "Russian Federation"
+msgid "Loan duration"
+msgstr "Rusya Federasyonu"
+
+#: src/ui_components/player_profile/transfers/player_offer/player_offer.tscn
+#, fuzzy
+#| msgid "Salary budget"
+msgid "Salary percentage"
+msgstr "Maaş bütçesi"
+
+#: src/ui_components/player_profile/transfers/player_offer/player_offer.tscn
+msgid "Additional money"
+msgstr ""
+
+#: src/ui_components/player_profile/transfers/player_offer/player_offer.tscn
+#: src/ui_components/player_profile/transfers/contract_offer/contract_offer.tscn
+msgid "Confirm"
+msgstr "Onayla"
+
+#: src/ui_components/player_profile/transfers/contract_offer/contract_offer.tscn
+msgid "Offer the player a contract to join your team."
+msgstr ""
+
+#: src/resources/formation/formation.gd
+msgid "Auto"
+msgstr "Oto"
+
+#: src/utils/ui/theme_util.gd
+msgid "Dark"
+msgstr "Karanlık"
+
+#: src/utils/ui/theme_util.gd
+msgid "Light"
+msgstr "Aydınlık"
+
+#: src/utils/ui/theme_util.gd
+msgid "Solarized light"
+msgstr "Solarize aydınlık"
+
+#: src/utils/ui/theme_util.gd
+msgid "Solarized dark"
+msgstr "Solarize karanlık"
+
+#: src/utils/ui/theme_util.gd
+msgid "Red"
+msgstr "Kırmızı"
+
+#: src/utils/ui/theme_util.gd
+msgid "Hacker"
+msgstr "Hacker"
+
+#: src/utils/ui/theme_util.gd
+msgid "Custom theme"
+msgstr "Özel tema"
+
+#~ msgid "Type"
+#~ msgstr "Tip"
+
+#~ msgid "Player list"
+#~ msgstr "Oyuncu listesi"
+
+#~ msgid "Make offer"
+#~ msgstr "Teklif yap"
+
+#, fuzzy
+#~| msgid "Bonus goal"
+#~ msgid "Bonus goals"
+#~ msgstr "Bonus goller"
+
+#~ msgid "Bonus clean sheet"
+#~ msgstr "Bonus temiz sayfa"
+
+#, fuzzy
+#~| msgid "Bonus assist"
+#~ msgid "Bonus assists"
+#~ msgstr "Bonus asistler"
+
+#~ msgid "Bonus league"
+#~ msgstr "Bonus lig"
+
+#~ msgid "Bonus continental cup"
+#~ msgstr "Bonus kıtasal kupa"
+
+#~ msgid "Bonus national cup"
+#~ msgstr "Bonus ulusal kupa"
+
 #~ msgid "Winner A vs Winner B"
 #~ msgstr "Galip A vs Galip B"
 
@@ -2840,9 +2893,6 @@ msgstr "Kıbrıs"
 
 #~ msgid "East Timor"
 #~ msgstr "Doğu Timur"
-
-#~ msgid "Russian Federation"
-#~ msgstr "Rusya Federasyonu"
 
 #, fuzzy
 #~| msgid "Anticipation"

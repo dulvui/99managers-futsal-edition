@@ -284,8 +284,8 @@ msgstr ""
 "Project-Id-Version: 99 Managers Futsal Edition\n"
 "PO-Revision-Date: 2025-04-05 06:40+0000\n"
 "Last-Translator: Максим Горпиніч <maksimgorpinic2005a@gmail.com>\n"
-"Language-Team: Ukrainian <https://hosted.weblate.org/projects/"
-"99-managers-futsal-edition/game/uk/>\n"
+"Language-Team: Ukrainian <https://hosted.weblate.org/projects/99-managers-"
+"futsal-edition/game/uk/>\n"
 "Language: uk\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -310,7 +310,6 @@ msgid "Stadium"
 msgstr "Стадіон"
 
 #: src/ui_components/team_profile/team_profile.tscn
-#: src/ui_components/transfers/player_offer/player_offer.tscn
 #: src/screens/dashboard/dashboard.tscn
 msgid "Players"
 msgstr "Гравці"
@@ -331,7 +330,7 @@ msgid "Persons"
 msgstr "Особи"
 
 #: src/ui_components/team_profile/team_profile.gd
-#: src/ui_components/transfers/contract_offer/contract_offer.tscn
+#: src/ui_components/player_profile/transfers/contract_offer/contract_offer.tscn
 msgid "Year"
 msgstr "рік"
 
@@ -363,7 +362,7 @@ msgid "Mental"
 msgstr "Психічне"
 
 #: src/ui_components/player_list/player_list.gd
-#: src/ui_components/transfers/contract_offer/contract_offer.tscn
+#: src/ui_components/player_profile/player_profile.tscn
 msgid "Contract"
 msgstr "Контракт"
 
@@ -403,8 +402,6 @@ msgid "Ok"
 msgstr "Гаразд"
 
 #: src/ui_components/base/confirm_dialog/default_confirm_dialog.tscn
-#: src/ui_components/transfers/player_offer/player_offer.tscn
-#: src/ui_components/transfers/contract_offer/contract_offer.tscn
 #: src/screens/setup/setup_world/setup_world.tscn
 msgid "Cancel"
 msgstr "Скасувати"
@@ -434,8 +431,8 @@ msgid "Reamaining salary budget"
 msgstr "Залишок бюджету зарплати"
 
 #: src/ui_components/visual_finances/visual_finances.tscn
-#: src/ui_components/transfers/contract_offer/contract_offer.tscn
 #: src/ui_components/player_list/player_list_view/views/contract/player_list_view_contract.tscn
+#: src/ui_components/player_profile/transfers/contract_offer/contract_offer.tscn
 msgid "Income"
 msgstr "Дохід"
 
@@ -493,7 +490,6 @@ msgstr "Пряме просування"
 
 #: src/ui_components/visual_competitions/visual_table/visual_table.gd
 #: src/ui_components/visual_competitions/visual_competitions.gd
-#: src/resources/competition/league.gd
 msgid "Playoffs"
 msgstr "Плей-офф"
 
@@ -503,7 +499,6 @@ msgstr "Пряме виліт"
 
 #: src/ui_components/visual_competitions/visual_table/visual_table.gd
 #: src/ui_components/visual_competitions/visual_competitions.gd
-#: src/resources/competition/league.gd
 msgid "Playouts"
 msgstr "Відтворення"
 
@@ -548,42 +543,6 @@ msgstr "Змагання"
 #: src/ui_components/visual_competitions/visual_competitions.gd
 msgid "Group"
 msgstr "Група"
-
-#: src/ui_components/transfers/player_offer/player_offer.tscn
-msgid "Type"
-msgstr "Тип"
-
-#: src/ui_components/transfers/player_offer/player_offer.tscn
-msgid "Money"
-msgstr "Гроші"
-
-#: src/ui_components/transfers/player_offer/player_offer.tscn
-#: src/ui_components/email/list/message_list.tscn
-msgid "Date"
-msgstr "Дата"
-
-#: src/ui_components/transfers/player_offer/player_offer.tscn
-msgid "Player list"
-msgstr "Список гравців"
-
-#: src/ui_components/transfers/player_offer/player_offer.tscn
-#: src/ui_components/transfers/contract_offer/contract_offer.tscn
-msgid "Confirm"
-msgstr "Підтвердити"
-
-#: src/ui_components/transfers/player_offer/player_offer.gd
-msgid "Transfer"
-msgstr "Трансфер"
-
-#: src/ui_components/transfers/player_offer/player_offer.gd
-msgid "Loan"
-msgstr "Позика"
-
-#: src/ui_components/transfers/contract_offer/contract_offer.tscn
-#: src/ui_components/player_profile/contract_view/contract_view.tscn
-#: src/ui_components/player_list/player_list_view/views/contract/player_list_view_contract.tscn
-msgid "Buy clause"
-msgstr "Положення про купівлю"
 
 #: src/ui_components/visual_formation/visual_formation.gd
 msgid "Substitutes"
@@ -640,6 +599,11 @@ msgid "From"
 msgstr "Від"
 
 #: src/ui_components/email/list/message_list.tscn
+#: src/ui_components/player_profile/transfers/player_offer/player_offer.tscn
+msgid "Date"
+msgstr "Дата"
+
+#: src/ui_components/email/list/message_list.tscn
 msgid "Star"
 msgstr "Обране"
 
@@ -668,6 +632,7 @@ msgid "Action"
 msgstr "Дія"
 
 #: src/ui_components/email/visual_message/visual_message.gd
+#: src/ui_components/player_profile/transfers/contract_offer/contract_offer.tscn
 msgid "Offer contract"
 msgstr "Договір пропозиції"
 
@@ -825,12 +790,23 @@ msgid "Blocking"
 msgstr "Блокування"
 
 #: src/ui_components/player_profile/player_profile.tscn
+#: src/screens/match_screen/match_screen.tscn
+msgid "Overview"
+msgstr "Огляд"
+
+#: src/ui_components/player_profile/player_profile.tscn
 msgid "Attributes"
 msgstr "Атрибути"
 
 #: src/ui_components/player_profile/player_profile.tscn
 msgid "Statistics\n"
 msgstr "Статистика\n"
+
+#: src/ui_components/player_profile/player_profile.tscn
+#, fuzzy
+#| msgid "Transfer"
+msgid "Transfers"
+msgstr "Трансфер"
 
 #: src/ui_components/player_profile/player_profile.tscn
 msgid "Contract\n"
@@ -893,6 +869,12 @@ msgid "End date"
 msgstr "Кінцева дата"
 
 #: src/ui_components/player_profile/contract_view/contract_view.tscn
+#: src/ui_components/player_list/player_list_view/views/contract/player_list_view_contract.tscn
+#: src/ui_components/player_profile/transfers/contract_offer/contract_offer.tscn
+msgid "Buy clause"
+msgstr "Положення про купівлю"
+
+#: src/ui_components/player_profile/contract_view/contract_view.tscn
 msgid "Bonus"
 msgstr "Бонус"
 
@@ -919,10 +901,6 @@ msgstr "Кубок країни"
 #: src/ui_components/player_profile/contract_view/contract_view.tscn
 msgid "Continental cup"
 msgstr "Континентальний кубок"
-
-#: src/ui_components/player_profile/contract_view/contract_view.tscn
-msgid "Make offer"
-msgstr "Зробити пропозицію"
 
 #: src/ui_components/player_profile/statistics_view/statistics_view.tscn
 #: src/ui_components/player_list/player_list_view/views/statistics/player_list_view_statistics.tscn
@@ -1010,54 +988,6 @@ msgstr "Континенти"
 msgid "No team found"
 msgstr "Команда не знайдена"
 
-#: src/resources/formation/position/position.gd
-msgid "G"
-msgstr "G"
-
-#: src/resources/formation/position/position.gd
-msgid "DL"
-msgstr "DL"
-
-#: src/resources/formation/position/position.gd
-msgid "DC"
-msgstr "DC"
-
-#: src/resources/formation/position/position.gd
-msgid "DR"
-msgstr "DR"
-
-#: src/resources/formation/position/position.gd
-msgid "C"
-msgstr "C"
-
-#: src/resources/formation/position/position.gd
-msgid "WL"
-msgstr "WL"
-
-#: src/resources/formation/position/position.gd
-msgid "WR"
-msgstr "WR"
-
-#: src/resources/formation/position/position.gd
-msgid "PL"
-msgstr "PL"
-
-#: src/resources/formation/position/position.gd
-msgid "PC"
-msgstr "PC"
-
-#: src/resources/formation/position/position.gd
-msgid "PR"
-msgstr "PR"
-
-#: src/resources/formation/formation.gd
-msgid "Auto"
-msgstr "Авто"
-
-#: src/resources/formation/formation.gd src/enum.gd
-msgid "Manual"
-msgstr "Інструкція"
-
 #. TRANSLATORS: {team_name} gets dynamically filled
 #: src/utils/logic/email_util.gd
 msgid "Next match: {team_name}"
@@ -1084,9 +1014,14 @@ msgstr "Пропозиція для {player_name}"
 
 #. TRANSLATORS: {cost}, {player_name}, {team_name} get dynamically filled
 #: src/utils/logic/email_util.gd
+#, fuzzy
+#| msgid ""
+#| "You made an offer for {player_name} from {team_name} at {cost}.\n"
+#| "{team_name} will consider the offer and respond within a few days."
 msgid ""
 "You made an offer for {player_name} from {team_name} at {cost}.\n"
-"{team_name} will consider the offer and respond within a few days."
+"\n"
+"\t\t\t\t{team_name} will consider the offer and respond within a few days."
 msgstr ""
 "Ви зробили пропозицію для {player_name} від {team_name} за {cost}.\n"
 "{team_name} розгляне пропозицію та відповість протягом кількох днів."
@@ -1119,39 +1054,6 @@ msgstr ""
 "Вашу пропозицію {player_name} від {team_name} за {cost} прийнято.\n"
 "Тепер ви можете знайти договірну угоду з {player_name}."
 
-#: src/utils/input/joypad_util.gd
-#: src/screens/settings/input/input_settings.tscn
-msgid "No joypad connected"
-msgstr "Геймпад не під'єднано"
-
-#: src/utils/ui/theme_util.gd
-msgid "Dark"
-msgstr "Темний"
-
-#: src/utils/ui/theme_util.gd
-msgid "Light"
-msgstr "Світло"
-
-#: src/utils/ui/theme_util.gd
-msgid "Solarized light"
-msgstr "Соляризоване світло"
-
-#: src/utils/ui/theme_util.gd
-msgid "Solarized dark"
-msgstr "Соляризований темний"
-
-#: src/utils/ui/theme_util.gd
-msgid "Red"
-msgstr "Червоний"
-
-#: src/utils/ui/theme_util.gd
-msgid "Hacker"
-msgstr "Хакер"
-
-#: src/utils/ui/theme_util.gd
-msgid "Custom theme"
-msgstr "Спеціальна тема"
-
 #: src/screens/settings/settings.tscn src/screens/dashboard/dashboard.tscn
 #: src/screens/menu/menu.tscn
 msgid "Settings"
@@ -1183,12 +1085,30 @@ msgid "Language"
 msgstr "Мова"
 
 #: src/screens/settings/general/general_settings.tscn
-msgid ""
-"You can fix errors or add new languages easily on Weblate, just click on the "
-"link below."
+#, fuzzy
+#| msgid ""
+#| "You can fix errors or add new languages easily on Weblate, just click on "
+#| "the link below."
+msgid "You can fix errors or add new languages on [url]weblate.org[/url]"
 msgstr ""
 "Ви можете легко виправити помилки або додати нові мови на Weblate, просто "
 "клацнувши посилання нижче."
+
+#: src/screens/settings/general/general_settings.tscn
+#, fuzzy
+#| msgid "Formation"
+msgid "Formats"
+msgstr "Формування"
+
+#: src/screens/settings/general/general_settings.tscn
+#, fuzzy
+#| msgid "Date"
+msgid "Dates"
+msgstr "Дата"
+
+#: src/screens/settings/general/general_settings.tscn
+msgid "Currencies"
+msgstr ""
 
 #: src/screens/settings/general/general_settings.tscn
 msgid "Audio"
@@ -1230,6 +1150,10 @@ msgstr "Режим Vim"
 #: src/screens/settings/input/input_settings.tscn
 msgid "Joypad status"
 msgstr "Статус джойстика"
+
+#: src/screens/settings/input/input_settings.tscn
+msgid "No joypad connected"
+msgstr "Геймпад не під'єднано"
 
 #: src/screens/settings/input/input_settings.tscn
 msgid "Input detection mode"
@@ -1420,11 +1344,6 @@ msgid "Start a new game"
 msgstr "Почніть нову гру"
 
 #: src/screens/setup/setup_world/setup_world.tscn
-#: src/screens/setup/setup_world/setup_world.gd
-msgid "Name and surname missing"
-msgstr "Ім'я та прізвище відсутні"
-
-#: src/screens/setup/setup_world/setup_world.tscn
 msgid "Your name"
 msgstr "Ваше ім'я"
 
@@ -1457,9 +1376,11 @@ msgid "File settings"
 msgstr "Параметри файлу"
 
 #: src/screens/setup/setup_world/setup_world.tscn
-msgid ""
-"All countries, leagues and team names are defined in a .csv file that can be "
-"modified."
+#, fuzzy
+#| msgid ""
+#| "All countries, leagues and team names are defined in a .csv file that can "
+#| "be modified."
+msgid "All starting data are defined in a .csv file that can be modified."
 msgstr ""
 "Усі країни, ліги та назви команд визначено у файлі .csv, який можна "
 "змінювати."
@@ -1517,11 +1438,23 @@ msgstr ""
 "шаблоні."
 
 #: src/screens/setup/setup_world/setup_world.tscn
+#, fuzzy
+#| msgid ""
+#| "1) Click \"Save template\" button to save csv template on your machine\n"
+#| "2) Open with a spreadsheet editor (like LibreOffice Calc or similar)\n"
+#| "3) Modify data by keeping structure defined in template\n"
+#| "4) Save file as \"world.csv\" (.ods or .xlsx files are not supported)\n"
+#| "5) Click \"Load file\" to import modified data\n"
+#| "\n"
+#| "And done! This file can be reused and shared with friends.\n"
+#| "\n"
+#| "Note: The template might change before final release. The loading will "
+#| "fail, if the file has not the correct format."
 msgid ""
 "1) Click \"Save template\" button to save csv template on your machine\n"
 "2) Open with a spreadsheet editor (like LibreOffice Calc or similar)\n"
 "3) Modify data by keeping structure defined in template\n"
-"4) Save file as \"world.csv\" (.ods or .xlsx files are not supported)\n"
+"4) Save file as \".csv\" (.ods or .xlsx files are not supported)\n"
 "5) Click \"Load file\" to import modified data\n"
 "\n"
 "And done! This file can be reused and shared with friends.\n"
@@ -1646,6 +1579,10 @@ msgstr "Грудень"
 msgid "Automatic"
 msgstr "Автоматичний"
 
+#: src/enum.gd src/resources/formation/formation.gd
+msgid "Manual"
+msgstr "Інструкція"
+
 #: src/enum.gd
 msgid "Mouse and Keyboard"
 msgstr "Миша і клавіатура"
@@ -1760,14 +1697,62 @@ msgstr "Команда без назви в рядку {line_number}"
 msgid "Undefined warning occurred."
 msgstr "Виникло невизначене попередження."
 
+#: src/enum.gd
+msgid "G"
+msgstr "G"
+
+#: src/enum.gd
+msgid "DL"
+msgstr "DL"
+
+#: src/enum.gd
+msgid "DC"
+msgstr "DC"
+
+#: src/enum.gd
+msgid "DR"
+msgstr "DR"
+
+#: src/enum.gd
+msgid "C"
+msgstr "C"
+
+#: src/enum.gd
+msgid "WL"
+msgstr "WL"
+
+#: src/enum.gd
+msgid "WR"
+msgstr "WR"
+
+#: src/enum.gd
+msgid "PL"
+msgstr "PL"
+
+#: src/enum.gd
+msgid "PC"
+msgstr "PC"
+
+#: src/enum.gd
+msgid "PR"
+msgstr "PR"
+
+#: src/enum.gd
+msgid "Immediate"
+msgstr ""
+
+#: src/enum.gd
+msgid "Next transfer window"
+msgstr ""
+
+#: src/enum.gd
+msgid "End of season"
+msgstr ""
+
 #: src/screens/match_screen/match_screen.gd
 #: src/screens/match_screen/match_screen.tscn
 msgid "Pause"
 msgstr "Пауза"
-
-#: src/screens/match_screen/match_screen.tscn
-msgid "Overview"
-msgstr "Огляд"
 
 #: src/screens/match_screen/match_screen.tscn
 msgid "Simulate"
@@ -1876,32 +1861,8 @@ msgid "Birth date"
 msgstr "Дата народження"
 
 #: src/ui_components/player_list/player_list_view/views/contract/player_list_view_contract.tscn
-msgid "Bonus goals"
-msgstr "Бонусні цілі"
-
-#: src/ui_components/player_list/player_list_view/views/contract/player_list_view_contract.tscn
-msgid "Bonus clean sheet"
-msgstr "Бонус чистий лист"
-
-#: src/ui_components/player_list/player_list_view/views/contract/player_list_view_contract.tscn
-msgid "Bonus assists"
-msgstr "Бонусні передачі"
-
-#: src/ui_components/player_list/player_list_view/views/contract/player_list_view_contract.tscn
-msgid "Bonus league"
-msgstr "Бонусна ліга"
-
-#: src/ui_components/player_list/player_list_view/views/contract/player_list_view_contract.tscn
 msgid "Is on loan"
 msgstr "Здається в кредит"
-
-#: src/ui_components/player_list/player_list_view/views/contract/player_list_view_contract.tscn
-msgid "Bonus continental cup"
-msgstr "Бонусний континентальний кубок"
-
-#: src/ui_components/player_list/player_list_view/views/contract/player_list_view_contract.tscn
-msgid "Bonus national cup"
-msgstr "Бонусний національний кубок"
 
 #: src/screens/about/about.tscn
 msgid "Changelog"
@@ -2766,6 +2727,117 @@ msgstr "Центральноафриканська Республіка"
 msgid "Cyprus"
 msgstr "Кіпр"
 
+#: src/ui_components/player_profile/transfers/player_offer/player_offer.gd
+msgid "Your offer was sent."
+msgstr ""
+
+#: src/ui_components/player_profile/transfers/player_offer/player_offer.tscn
+msgid "Buy"
+msgstr ""
+
+#: src/ui_components/player_profile/transfers/player_offer/player_offer.tscn
+msgid "Make an offer to buy the player."
+msgstr ""
+
+#: src/ui_components/player_profile/transfers/player_offer/player_offer.tscn
+msgid "Money"
+msgstr "Гроші"
+
+#: src/ui_components/player_profile/transfers/player_offer/player_offer.tscn
+msgid "Loan"
+msgstr "Позика"
+
+#: src/ui_components/player_profile/transfers/player_offer/player_offer.tscn
+msgid "Make an offer to get the player on loan."
+msgstr ""
+
+#: src/ui_components/player_profile/transfers/player_offer/player_offer.tscn
+#, fuzzy
+#| msgid "Russian Federation"
+msgid "Loan duration"
+msgstr "Російська Федерація"
+
+#: src/ui_components/player_profile/transfers/player_offer/player_offer.tscn
+#, fuzzy
+#| msgid "Salary budget"
+msgid "Salary percentage"
+msgstr "Бюджет зарплати"
+
+#: src/ui_components/player_profile/transfers/player_offer/player_offer.tscn
+msgid "Additional money"
+msgstr ""
+
+#: src/ui_components/player_profile/transfers/player_offer/player_offer.tscn
+#: src/ui_components/player_profile/transfers/contract_offer/contract_offer.tscn
+msgid "Confirm"
+msgstr "Підтвердити"
+
+#: src/ui_components/player_profile/transfers/contract_offer/contract_offer.tscn
+msgid "Offer the player a contract to join your team."
+msgstr ""
+
+#: src/resources/formation/formation.gd
+msgid "Auto"
+msgstr "Авто"
+
+#: src/utils/ui/theme_util.gd
+msgid "Dark"
+msgstr "Темний"
+
+#: src/utils/ui/theme_util.gd
+msgid "Light"
+msgstr "Світло"
+
+#: src/utils/ui/theme_util.gd
+msgid "Solarized light"
+msgstr "Соляризоване світло"
+
+#: src/utils/ui/theme_util.gd
+msgid "Solarized dark"
+msgstr "Соляризований темний"
+
+#: src/utils/ui/theme_util.gd
+msgid "Red"
+msgstr "Червоний"
+
+#: src/utils/ui/theme_util.gd
+msgid "Hacker"
+msgstr "Хакер"
+
+#: src/utils/ui/theme_util.gd
+msgid "Custom theme"
+msgstr "Спеціальна тема"
+
+#~ msgid "Type"
+#~ msgstr "Тип"
+
+#~ msgid "Player list"
+#~ msgstr "Список гравців"
+
+#~ msgid "Make offer"
+#~ msgstr "Зробити пропозицію"
+
+#~ msgid "Name and surname missing"
+#~ msgstr "Ім'я та прізвище відсутні"
+
+#~ msgid "Bonus goals"
+#~ msgstr "Бонусні цілі"
+
+#~ msgid "Bonus clean sheet"
+#~ msgstr "Бонус чистий лист"
+
+#~ msgid "Bonus assists"
+#~ msgstr "Бонусні передачі"
+
+#~ msgid "Bonus league"
+#~ msgstr "Бонусна ліга"
+
+#~ msgid "Bonus continental cup"
+#~ msgstr "Бонусний континентальний кубок"
+
+#~ msgid "Bonus national cup"
+#~ msgstr "Бонусний національний кубок"
+
 #~ msgid "Winner A vs Winner B"
 #~ msgstr "Переможець A проти переможця B"
 
@@ -2798,9 +2870,6 @@ msgstr "Кіпр"
 
 #~ msgid "East Timor"
 #~ msgstr "Східний Тимор"
-
-#~ msgid "Russian Federation"
-#~ msgstr "Російська Федерація"
 
 #~ msgid "Out of lineup"
 #~ msgstr "Поза складом"
