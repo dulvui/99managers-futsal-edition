@@ -170,9 +170,15 @@ func get_competition_by_id(competition_id: int) -> Competition:
 
 func get_all_players() -> Array[Player]:
 	var players: Array[Player] = []
+	
+	# team players
 	for league: League in get_all_leagues():
 		for team: Team in league.teams:
 			players.append_array(team.players)
+
+	# free agents
+	players.append_array(free_agents.list)
+	
 	return players
 
 
