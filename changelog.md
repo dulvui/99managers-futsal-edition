@@ -11,10 +11,10 @@ This tries to follow the [keepachangelog](https://keepachangelog.com/en/1.1.0/) 
 ## [Unreleased]
 
 ## Added
-- Missing player attributes coming from csv get generated
-- Stadium view in dashboard
-- Date and currency format can be changed in settings
-- Free agents
+- Generate missing attributes for players of custom csv file
+- (Simple) Stadium detail view in dashboard
+- Changee date and currency format in settings
+- Free agent players
 
 ## Changed
 - Better data validation when starting new game
