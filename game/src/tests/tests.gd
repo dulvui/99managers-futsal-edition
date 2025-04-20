@@ -10,7 +10,7 @@ extends Node
 @onready var test_match_engine: TestMatchEngine = $TestMatchEngine
 @onready var test_gameloop: TestGameloop = $TestGameloop
 @onready var test_match_util: TestMatchUtil = $TestMatchUtil
-@onready var test_res_util: TestRestUtil = $TestDataUtil
+@onready var test_data_util: TestDataUtil = $TestDataUtil
 @onready var test_csv_util: TestCSVUtil = $TestCSVUtil
 @onready var test_format_util: TestFormatUtil = $TestFormatUtil
 
@@ -27,7 +27,7 @@ func _ready() -> void:
 
 func tests_fast() -> void:
 	print("start tests: fast..")
-	# test_res_util.test()
+	test_data_util.test()
 	test_format_util.test()
 	test_match_util.test()
 	test_calendar.test()

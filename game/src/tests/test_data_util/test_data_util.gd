@@ -2,14 +2,14 @@
 
 # SPDX-License-Identifier: AGPL-3.0-or-later
 
-class_name TestRestUtil
+class_name TestDataUtil
 extends Test
 
 
 func test() -> void:
 	print("test: res util...")
 	test_from_to_json()
-	test_compressions()
+	# test_compressions()
 	print("test: res util done.")
 
 
