@@ -32,7 +32,6 @@ func test_save_world() -> void:
 
 	print("converting players to csv...")
 	var csv: Array[PackedStringArray] = csv_util.players_to_csv(world)
-	csv_util.save_csv("test.csv", csv)
 	print("converting players to csv done.")
 
 	print("converting csv to players...")
