@@ -11,9 +11,15 @@ const CONTRIBUTORS: Array[StringName] = [
 	"Atalanttore",
 	"cyphra",
 	"Ekselius",
+	"maksimgorpinic2005a",
 	"Alkaf.2018",
 	"joaocaruco77",
 	"PizzaParty",
+	"mahmoud",
+	"Alkaf.2018",
+	"ssantos",
+	"Catmayo",
+	"oyekbudin",
 ]
 
 @onready var list: VBoxContainer = %TranslatorsList
