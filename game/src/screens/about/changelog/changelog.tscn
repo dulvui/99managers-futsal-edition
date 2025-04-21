@@ -24,7 +24,22 @@ label_settings = ExtResource("2_mb5ld")
 [node name="Text" type="RichTextLabel" parent="VBoxContainer"]
 layout_mode = 2
 size_flags_vertical = 3
-text = "# [0.3.0]
+text = "
+# [0.3.1]
+
+## Added
+- Player properties and attributes can be defined in custom csv file
+- Backup for csv files
+- Automated shirt number assignment
+
+## Changed
+- Teams are now starting in the league defined in the starting csv file, after history generation
+
+## Contributors
+- Simon Dalvai
+
+# [0.3.0]
+
 ## Added
 - Custom csv files can be used during setup
 - Translations
@@ -36,10 +51,15 @@ text = "# [0.3.0]
         - Free kicks
         - Penalties
         - Penalties (10m) after 6 fouls
+- UI restyling
 
 ## Changed
 - Better match engine
     - Use finite state machines for teams and players
 
 ## Security
-- Use json over custom resources for save state files to prevent [malicious code execution](https://github.com/godotengine/godot-proposals/issues/4925)"
+- Use json over custom resources for save state files to prevent [malicious code execution](https://github.com/godotengine/godot-proposals/issues/4925)
+
+## Contributors
+- Simon Dalvai
+"
