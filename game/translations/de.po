@@ -282,8 +282,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: 99 Managers Futsal Edition\n"
-"PO-Revision-Date: 2025-04-20 14:01+0000\n"
-"Last-Translator: Ettore Atalan <atalanttore@googlemail.com>\n"
+"PO-Revision-Date: 2025-04-22 12:27+0000\n"
+"Last-Translator: Simon Dalvai <info@simondalvai.org>\n"
 "Language-Team: German <https://hosted.weblate.org/projects/"
 "99-managers-futsal-edition/game/de/>\n"
 "Language: de\n"
@@ -2737,10 +2737,8 @@ msgid "Loan duration"
 msgstr "Leihdauer"
 
 #: src/ui_components/player_profile/transfers/player_offer/player_offer.tscn
-#, fuzzy
-#| msgid "Salary budget"
 msgid "Salary percentage"
-msgstr "Gehaltsbudget"
+msgstr "Gehaltsdeckug"
 
 #: src/ui_components/player_profile/transfers/player_offer/player_offer.tscn
 msgid "Additional money"
