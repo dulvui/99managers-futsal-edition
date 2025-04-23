@@ -75,14 +75,14 @@ static func find_next_matchday() -> void:
 		return
 
 	# search next match day
-	while not Global.world.match_list.is_match_day():
-		Global.world.calendar.next_day()
+	while not Global.match_list.is_match_day():
+		Global.calendar.next_day()
 
 
 static func init_empty_mock_world() -> void:
 	Global.start_date = Time.get_date_dict_from_system()
 	Global.world = World.new()
-	Global.world.calendar.initialize()
+	Global.calendar.initialize()
 	Global.transfers = Transfers.new()
 	Global.inbox = Inbox.new()
 

@@ -10,7 +10,7 @@ enum Types {
 	COMPETITION,
 	TEAM,
 	PERSON,
-	TRANSFER,
+	OFFER,
 	EMAIL,
 	MATCH,
 }

@@ -74,7 +74,7 @@ func _generate_world(world_file_path: String = Const.WORLD_CSV_PATH) -> void:
 
 func _random_results() -> void:
 	print("calculating random result in thread...")
-	Global.world.random_results()
+	Global.match_list.random_results()
 	call_deferred("_loading_done")
 
 

@@ -23,8 +23,8 @@ func test_full_season() -> void:
 
 	for season: int in range(50):
 		print("test: season %d..." % [season])
-		while not Global.world.calendar.is_season_finished():
-			Global.world.calendar.next_day()
+		while not Global.calendar.is_season_finished():
+			Global.calendar.next_day()
 			Global.world.random_results()
 
 		Global.next_season(false)

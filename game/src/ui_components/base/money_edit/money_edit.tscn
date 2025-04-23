@@ -1,0 +1,47 @@
+[gd_scene load_steps=3 format=3 uid="uid://c12fh0nafttdk"]
+
+[ext_resource type="Script" uid="uid://dgyg24cs8qoub" path="res://src/ui_components/base/money_edit/money_edit.gd" id="1_qqc27"]
+[ext_resource type="Script" uid="uid://cnyyowwlb04kl" path="res://src/ui_components/base/defaults/default_button.gd" id="2_0lost"]
+
+[node name="MoneyEdit" type="HBoxContainer"]
+custom_minimum_size = Vector2(240, 0)
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -120.0
+offset_top = -11.5
+offset_right = 120.0
+offset_bottom = 11.5
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+script = ExtResource("1_qqc27")
+
+[node name="Less" type="Button" parent="."]
+auto_translate_mode = 2
+layout_mode = 2
+text = "-"
+script = ExtResource("2_0lost")
+metadata/_custom_type_script = "uid://cnyyowwlb04kl"
+
+[node name="Amount" type="LineEdit" parent="."]
+unique_name_in_owner = true
+auto_translate_mode = 2
+layout_mode = 2
+size_flags_horizontal = 3
+text = "15000"
+alignment = 1
+
+[node name="More" type="Button" parent="."]
+auto_translate_mode = 2
+layout_mode = 2
+text = "+"
+script = ExtResource("2_0lost")
+metadata/_custom_type_script = "uid://cnyyowwlb04kl"
+
+[connection signal="pressed" from="Less" to="." method="_on_less_pressed"]
+[connection signal="text_changed" from="Amount" to="." method="_on_amount_text_changed"]
+[connection signal="pressed" from="More" to="." method="_on_more_pressed"]

@@ -66,14 +66,14 @@ func _ready() -> void:
 
 	manager_label.text = Global.manager.get_full_name()
 	team_label.text = Global.team.name
-	date_label.text = FormatUtil.day(Global.world.calendar.date)
+	date_label.text = FormatUtil.day(Global.calendar.date)
 
 	all_players_list.setup()
 	player_list.setup(Global.team.id)
 	formation.setup(false)
 	finances.setup(Global.team)
 
-	if Global.world.match_list.is_match_day():
+	if Global.match_list.is_match_day():
 		continue_button.text = tr("Start match")
 		match_ready = true
 		next_match_button.hide()
@@ -81,7 +81,7 @@ func _ready() -> void:
 		continue_button.text = tr("Next day")
 		match_ready = false
 
-	if Global.world.calendar.is_season_finished():
+	if Global.calendar.is_season_finished():
 		next_season = true
 		continue_button.text = tr("Next season")
 	
@@ -272,16 +272,16 @@ func _next_day() -> void:
 		Global.next_season()
 		Main.change_scene(Const.SCREEN_DASHBOARD)
 		return
-	if Global.world.calendar.is_season_finished():
+	if Global.calendar.is_season_finished():
 		next_season = true
 		continue_button.text = tr("Next season")
 		return
 
 	# general setup
 	email.update_messages()
-	date_label.text = FormatUtil.day(Global.world.calendar.date)
+	date_label.text = FormatUtil.day(Global.calendar.date)
 
-	if not Global.world.match_list.get_matches_by_day().is_empty():
+	if not Global.match_list.get_matches_by_day().is_empty():
 		# threaded simulation
 		# Main.show_loading_screen(tr("Simulating results"))
 		# ThreadUtil.random_results()
@@ -290,7 +290,7 @@ func _next_day() -> void:
 		Global.world.random_results()
 
 	# check matches
-	if Global.world.match_list.is_match_day():
+	if Global.match_list.is_match_day():
 		continue_button.text = tr("Start match")
 		match_ready = true
 		next_match_button.disabled = true

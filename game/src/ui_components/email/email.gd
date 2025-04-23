@@ -15,10 +15,10 @@ signal email_action(message: EmailMessage)
 func _ready() -> void:
 	Tests.setup_mock_world(true)
 
-	message_container.show_message(EmailUtil.latest())
+	message_container.show_message(Global.inbox.latest())
 	update_messages()
 
-	EmailUtil.refresh_inbox.connect(update_messages)
+	Global.inbox.refresh.connect(update_messages)
 
 
 func update_messages() -> void:

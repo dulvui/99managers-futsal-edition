@@ -143,7 +143,7 @@ func create_combinations(competition: Competition, p_teams: Array[TeamBasic]) ->
 func add_matches_to_list(
 	competition: Competition,
 	match_days: MatchDays,
-	date: Dictionary = world.calendar.date,
+	date: Dictionary = Global.calendar.date,
 ) -> void:
 	var month: int = date.month
 	var day: int = date.day
@@ -160,18 +160,18 @@ func add_matches_to_list(
 
 	# start with given weekday of next week
 	for i: int in range(8, 1, -1):
-		if world.calendar.day(month, i).weekday == weekday:
+		if Global.calendar.day(month, i).weekday == weekday:
 			day = i
 			break
 
 	for match_day: MatchDay in match_days.days:
 		# check if next month
-		if day >= world.calendar.month(month).days.size():
+		if day >= Global.calendar.month(month).days.size():
 			month += 1
 			day = 0
 			# start also new month with saturday
 			for i: int in 7:
-				if world.calendar.day(month, i).weekday == weekday:
+				if Global.calendar.day(month, i).weekday == weekday:
 					day = i
 					break
 
@@ -180,7 +180,7 @@ func add_matches_to_list(
 		match_day.month = month as Enum.Months
 
 		# assign matches
-		world.match_list.add_matches(match_day.matches, day, month)
+		Global.match_list.add_matches(match_day.matches, day, month)
 		# restart from same weekday
 		day += 7
 

@@ -67,7 +67,8 @@ func initialize_world(world: World, world_file_path: String = Const.WORLD_CSV_PA
 	all_nations = world.get_all_nations()
 
 	# initialize calendar
-	world.calendar.initialize()
+	Global.calendar = Calendar.new()
+	Global.calendar.initialize()
 
 	# validate custom file first, if custom file is used
 	var custom_file: bool = world_file_path != Const.WORLD_CSV_PATH

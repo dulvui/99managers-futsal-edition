@@ -1,0 +1,15 @@
+# SPDX-FileCopyrightText: 2023 Simon Dalvai <info@simondalvai.org>
+
+# SPDX-License-Identifier: AGPL-3.0-or-later
+
+class_name LoanOffer
+extends Offer
+	
+
+var current_team: TeamBasic
+
+func _init(
+	p_current_team: TeamBasic = TeamBasic.new(),
+) -> void:
+	current_team = p_current_team
+

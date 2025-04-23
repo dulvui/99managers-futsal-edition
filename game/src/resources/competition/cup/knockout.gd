@@ -87,7 +87,7 @@ func is_over() -> bool:
 	if final_ids.is_empty():
 		return false
 	
-	var final: Match = Global.world.match_list.get_match_by_id(final_ids[-1])
+	var final: Match = Global.match_list.get_match_by_id(final_ids[-1])
 	return final.over
 
 
@@ -197,7 +197,7 @@ func prepare_next_round() -> bool:
 
 
 func _prepare_next_round(p_round: KnockoutRound, teams: Array[TeamBasic]) -> bool:
-	var matches: Array[Match] = Global.world.match_list.get_matches_by_ids(p_round.match_ids)
+	var matches: Array[Match] = Global.match_list.get_matches_by_ids(p_round.match_ids)
 
 	for matchz: Match in matches:
 		if not matchz.over:

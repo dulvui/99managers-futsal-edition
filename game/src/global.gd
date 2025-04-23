@@ -23,12 +23,15 @@ var match_paused: bool
 
 # resources
 var world: World
-var transfers: Transfers
-var inbox: Inbox
 # active resources references, from world
 var team: Team
 var league: League
 var manager: Manager
+# csv
+var match_list: MatchList
+var offer_list: OfferList
+var inbox: Inbox
+var calendar: Calendar
 
 # save states
 var save_states: SaveStates
@@ -65,32 +68,34 @@ func initialize_game(testing: bool = false) -> void:
 	if not testing:
 		save_states.new_save_state()
 
-	transfers = world.transfers
-	inbox = world.inbox
+	offer_list = OfferList.new()
+	inbox = Inbox.new()
+	calendar = Calendar.new()
+	match_list = MatchList.new()
 
 	print("matches initialized")
-	EmailUtil.welcome_manager()
+	inbox.welcome_manager()
 
 
 func reset_data() -> void:
 	team = null
 	world = null
 	league = null
-	transfers = null
+	offer_list = null
 	inbox = null
 	manager = null
 
 
 func next_day() -> void:
-	world.calendar.next_day()
+	calendar.next_day()
 
-	if world.match_list.is_match_day():
-		EmailUtil.next_match(world.match_list.get_active_match(Global.world.calendar.day()))
+	if match_list.is_match_day():
+		inbox.next_match(match_list.get_active_match(calendar.day()))
 
-	TransferUtil.update_day()
+	offer_list.update_day()
 
 	# new week starts
-	if world.calendar.day().weekday == Enum.Weekdays.MONDAY:
+	if calendar.day().weekday == Enum.Weekdays.MONDAY:
 		# update finances
 		for t: Team in world.get_all_teams():
 			t.finances.update_week(t)
@@ -116,7 +121,7 @@ func next_season(save_data: bool = true) -> void:
 	# transfer markets
 	# save competition results in history
 
-	if world.calendar.day().weekday == Enum.Weekdays.MONDAY:
+	if calendar.day().weekday == Enum.Weekdays.MONDAY:
 		# update finances
 		for t: Team in world.get_all_teams():
 			t.finances.update_season(t)
@@ -126,10 +131,10 @@ func next_season(save_data: bool = true) -> void:
 	player_util.check_contracts_terminated()
 
 	world.promote_and_relegate_teams()
+	match_list.archive_season()
 
-	world.calendar.initialize(true)
+	calendar.initialize(true)
 
-	world.match_list.archive_season()
 
 	var match_util: MatchUtil = MatchUtil.new(world)
 	match_util.initialize_matches()

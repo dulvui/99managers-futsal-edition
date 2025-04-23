@@ -9,12 +9,7 @@ extends JSONResource
 @export var world_cup: Cup
 @export var active_team_id: int
 
-@export var transfers: Transfers
-@export var calendar: Calendar
-@export var inbox: Inbox
-
-# csv
-var match_list: MatchList
+# only csv resource that makes sense here
 var free_agents: FreeAgents
 
 
@@ -22,29 +17,12 @@ func _init(
 	p_continents: Array[Continent] = [],
 	p_world_cup: Cup = Cup.new(),
 	p_active_team_id: int = -1,
-	p_calendar: Calendar = Calendar.new(),
-	p_transfers: Transfers = Transfers.new(),
-	p_inbox: Inbox = Inbox.new(),
-	p_match_list: MatchList = MatchList.new(),
 	p_free_agents: FreeAgents = FreeAgents.new(),
 ) -> void:
 	continents = p_continents
 	world_cup = p_world_cup
 	active_team_id = p_active_team_id
-	calendar = p_calendar
-	transfers = p_transfers
-	inbox = p_inbox
-	match_list = p_match_list
 	free_agents = p_free_agents
-
-
-func random_results() -> void:
-	var match_engine: MatchEngine = MatchEngine.new()
-	var matches: Array[Match] = match_list.get_matches_by_day()
-	for matchz: Match in matches:
-		if not matchz.has_active_team() and not matchz.over:
-			# set true for fast simulation
-			match_engine.simulate_match(matchz, true)
 
 
 func get_active_team() -> Team:
@@ -312,7 +290,7 @@ func promote_and_relegate_teams() -> void:
 				# assign playouts looser
 				if league.playouts.is_over():
 					var final_id: int = league.playouts.knockout.final_ids[-1]
-					var final_match: Match = Global.world.match_list.get_match_by_id(final_id)
+					var final_match: Match = Global.match_list.get_match_by_id(final_id)
 					var runner_up: TeamBasic = final_match.get_looser()
 					if runner_up != null:
 						var runner_up_team: Team = league.get_team_by_id(runner_up.id)
@@ -331,7 +309,7 @@ func promote_and_relegate_teams() -> void:
 				# assign playoffs winner
 				if league.playoffs.is_over():
 					var final_id: int = league.playoffs.knockout.final_ids[-1]
-					var final_match: Match = Global.world.match_list.get_match_by_id(final_id)
+					var final_match: Match = Global.match_list.get_match_by_id(final_id)
 					var winner: TeamBasic = final_match.get_winner()
 					if winner != null:
 						var winner_team: Team = league.get_team_by_id(winner.id)
@@ -399,6 +377,3 @@ func promote_and_relegate_teams() -> void:
 					league.table.add_team(team)
 					# reassign all league ids
 					team.league_id = league.id
-
-	match_list.archive_season()
-

@@ -3,9 +3,9 @@
 # SPDX-License-Identifier: AGPL-3.0-or-later
 
 class_name MatchList
-extends JSONResource
+extends Resource
 
-@export var match_days: MatchDays
+var match_days: MatchDays
 # history season matches, saved as csv
 var history_match_days: Array[MatchDays]
 
@@ -16,6 +16,15 @@ func _init(
 ) -> void:
 	match_days = p_match_days
 	history_match_days = p_history_match_days
+
+
+func random_results() -> void:
+	var match_engine: MatchEngine = MatchEngine.new()
+	var matches: Array[Match] = get_matches_by_day()
+	for matchz: Match in matches:
+		if not matchz.has_active_team() and not matchz.over:
+			# set true for fast simulation
+			match_engine.simulate_match(matchz, true)
 
 
 func add_matches(matches: Array[Match], day: int, month: Enum.Months) -> void:
@@ -38,14 +47,14 @@ func add_matches(matches: Array[Match], day: int, month: Enum.Months) -> void:
 	)
 
 
-func get_matches_by_day(p_day: Day = Global.world.calendar.day()) -> Array[Match]:
+func get_matches_by_day(p_day: Day = Global.calendar.day()) -> Array[Match]:
 	for match_day: MatchDay in match_days.days:
 		if match_day.is_day(p_day.day, p_day.month):
 			return match_day.matches
 	return []
 
 
-func get_match_day_by_day(p_day: Day = Global.world.calendar.day()) -> MatchDay:
+func get_match_day_by_day(p_day: Day = Global.calendar.day()) -> MatchDay:
 	for match_day: MatchDay in match_days.days:
 		if match_day.is_day(p_day.day, p_day.month):
 			return match_day
@@ -125,7 +134,7 @@ func get_history_match_by_id(match_id: int) -> Match:
 
 
 func is_match_day() -> bool:
-	return get_active_match(Global.world.calendar.day()) != null
+	return get_active_match(Global.calendar.day()) != null
 
 
 func archive_season() -> void:

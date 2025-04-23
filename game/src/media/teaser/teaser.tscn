@@ -1,7 +1,6 @@
 [gd_scene load_steps=9 format=3 uid="uid://dut8wnvcekn5e"]
 
 [ext_resource type="Script" uid="uid://cg40qec0itquu" path="res://src/media/teaser/teaser.gd" id="1_kj7k6"]
-[ext_resource type="Texture2D" uid="uid://b68igf7j3q76v" path="res://icon_dark.png" id="2_8vk6i"]
 [ext_resource type="LabelSettings" uid="uid://1g3edv8x0q6t" path="res://src/media/label_settings_trailer.tres" id="4_angej"]
 [ext_resource type="LabelSettings" uid="uid://cjddrymi21bbr" path="res://src/media/label_settings_trailer_bold.tres" id="4_iohf3"]
 [ext_resource type="Texture2D" uid="uid://b4igo2k8ytmf7" path="res://assets/ball.svg" id="5_c8ruo"]
@@ -115,6 +114,9 @@ _data = {
 &"Teaser": SubResource("Animation_xd2ux")
 }
 
+[sub_resource type="Resource" id="Resource_fxond"]
+metadata/__load_path__ = "res://icon_dark.png"
+
 [node name="Teaser" type="Control"]
 auto_translate_mode = 2
 layout_mode = 3
@@ -155,7 +157,7 @@ offset_right = 682.5
 offset_bottom = 681.0
 grow_horizontal = 2
 grow_vertical = 2
-texture = ExtResource("2_8vk6i")
+texture = SubResource("Resource_fxond")
 expand_mode = 3
 stretch_mode = 5
 

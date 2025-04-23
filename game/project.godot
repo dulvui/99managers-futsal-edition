@@ -30,7 +30,6 @@ Global="*res://src/global.gd"
 ThemeUtil="*res://src/utils/ui/theme_util.gd"
 Main="*res://src/screens/main/main.tscn"
 IdUtil="*res://src/utils/id_util.gd"
-TransferUtil="*res://src/utils/logic/transfer_util.gd"
 FormatUtil="*res://src/utils/ui/format_util.gd"
 RngUtil="*res://src/utils/logic/rng_util.gd"
 ThreadUtil="*res://src/utils/thread_util.gd"
@@ -40,7 +39,6 @@ JoypadAxisUtil="*res://src/utils/input/joypad_axis_util.gd"
 JoypadUtil="*res://src/utils/input/joypad_util.gd"
 DebugUtil="*res://src/utils/debug_util.gd"
 LinkUtil="*res://src/utils/logic/link_util.gd"
-EmailUtil="*res://src/utils/logic/email_util.gd"
 
 [debug]
 

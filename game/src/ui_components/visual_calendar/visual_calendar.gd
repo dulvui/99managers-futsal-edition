@@ -19,15 +19,15 @@ var max_months: int
 
 
 func _ready() -> void:
-	max_months = Global.world.calendar.months.size()
-	current_month = Global.world.calendar.date.month
-	current_year = Global.world.calendar.date.year
+	max_months = Global.calendar.months.size()
+	current_month = Global.calendar.date.month
+	current_year = Global.calendar.date.year
 	setup()
 
 
 func setup() -> void:
 	setup_days()
-	match_list.setup(Global.world.calendar.day())
+	match_list.setup(Global.calendar.day())
 
 
 func setup_days() -> void:
@@ -39,7 +39,7 @@ func setup_days() -> void:
 	# to start with monday, fill other days with placeholders
 	var monday_counter: int = 7
 	while (
-		Global.world.calendar.month(current_month).days[monday_counter].weekday
+		Global.calendar.month(current_month).days[monday_counter].weekday
 		!= Enum.Weekdays.MONDAY
 	):
 		monday_counter -= 1
@@ -50,16 +50,16 @@ func setup_days() -> void:
 		days.add_child(placeholder)
 
 	# add days
-	for day: Day in Global.world.calendar.month(current_month).days:
+	for day: Day in Global.calendar.month(current_month).days:
 		var calendar_day: VisualDay = VisualDayScene.instantiate()
 		days.add_child(calendar_day)
 		# add matches
-		var matchz: Match = Global.world.match_list.get_active_match(day, true)
+		var matchz: Match = Global.match_list.get_active_match(day, true)
 		calendar_day.setup(day, matchz)
 		calendar_day.show_match_list.connect(_on_calendar_day_pressed.bind(day, matchz))
 
 		# make current day active
-		if day == Global.world.calendar.day():
+		if day == Global.calendar.day():
 			calendar_day.select()
 
 	var active_year: String = str(current_year + int(int(current_month - 1) / 12.0))
@@ -90,5 +90,5 @@ func _on_next_pressed() -> void:
 
 
 func _on_today_pressed() -> void:
-	current_month = Global.world.calendar.date.month
+	current_month = Global.calendar.date.month
 	setup()

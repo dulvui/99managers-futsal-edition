@@ -78,10 +78,9 @@ func save_save_state() -> void:
 func load_save_state_data() -> void:
 	var active: SaveState = Global.save_states.get_active()
 	IdUtil.id_by_type = active.id_by_type
-	Global.world = _load_world(active)
 
-	Global.transfers = Global.world.transfers
-	Global.inbox = Global.world.inbox
+	_load_data(active)
+
 	Global.team = Global.world.get_active_team()
 	Global.manager = Global.team.staff.manager
 	Global.league = Global.world.get_league_by_id(Global.team.league_id)
@@ -92,10 +91,10 @@ func save_save_state_data() -> void:
 	if active == null:
 		print("no active save state found to save data")
 		return
-	_save_world(active, Global.world)
+	_save_data(active)
 
 
-func _load_world(save_state: SaveState) -> World:
+func _load_data(save_state: SaveState) -> void:
 	var path: String = save_state.id + "/"
 
 	# load main data from json
@@ -119,38 +118,43 @@ func _load_world(save_state: SaveState) -> World:
 	csv_util.csv_to_free_agents(free_agents_csv, world)
 
 	# history match days csv, read only
+	Global.match_list = MatchList.new()
 	var history_matches_path: String = csv_path + Const.CSV_MATCH_HISTORY_FILE
 	var history_matches_csv: Array[PackedStringArray] = csv_util.read_csv(history_matches_path)
-	world.match_list.history_match_days = csv_util.csv_to_match_days(history_matches_csv)
+	Global.match_list.history_match_days = csv_util.csv_to_match_days(history_matches_csv)
 
 	# match days csv
 	var matches_path: String = csv_path + Const.CSV_MATCH_LIST_FILE
 	var matches_csv: Array[PackedStringArray] = csv_util.read_csv(matches_path)
 	var match_days: Array[MatchDays] = csv_util.csv_to_match_days(matches_csv)
 	if match_days.size() == 1:
-		world.match_list.match_days = match_days[0]
+		Global.match_list.match_days = match_days[0]
 	else:
 		push_error("error while loading matchdays, match days from csv is not 1")
+	
+	# TODO
+	# offers
+	# inbox
 
-	return world
+	Global.world = world
 
 
-func _save_world(save_state: SaveState, world: World) -> void:
+func _save_data(save_state: SaveState) -> void:
 	print("save data...")
 	var path: String = save_state.id + "/"
-	_save_resource(path + DATA_FILE, world)
+	_save_resource(path + DATA_FILE, Global.world)
 
 	var csv_path: String = SAVE_STATES_PATH + save_state.id + "/"
 
 	var csv_util: CSVUtil = CSVUtil.new()
 	# players
 	csv_util.save_csv(
-		csv_path + Const.CSV_PLAYERS_FILE, csv_util.players_to_csv(world)
+		csv_path + Const.CSV_PLAYERS_FILE, csv_util.players_to_csv(Global.world)
 	)
 
 	# free agents
 	csv_util.save_csv(
-		csv_path + Const.CSV_FREE_AGENTS_FILE, csv_util.free_agents_to_csv(world)
+		csv_path + Const.CSV_FREE_AGENTS_FILE, csv_util.free_agents_to_csv(Global.world)
 	)
 	
 	# history match days csv
@@ -159,15 +163,19 @@ func _save_world(save_state: SaveState, world: World) -> void:
 	if write_match_history:
 		csv_util.save_csv(
 			csv_path + Const.CSV_MATCH_HISTORY_FILE,
-			csv_util.match_days_to_csv(world.match_list.history_match_days),
+			csv_util.match_days_to_csv(Global.match_list.history_match_days),
 		)
 		write_match_history = false
 
 	# match days csv
 	csv_util.save_csv(
 		csv_path + Const.CSV_MATCH_LIST_FILE,
-		csv_util.match_days_to_csv([world.match_list.match_days]),
+		csv_util.match_days_to_csv([Global.match_list.match_days]),
 	)
+
+	# TODO
+	# offers
+	# inbox
 
 
 func _load_resource(path: String, resource: JSONResource, after_backup: bool = false) -> void:

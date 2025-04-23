@@ -29,7 +29,7 @@ func setup(player: Player) -> void:
 	)
 	age.text = (
 		"%d - %s"
-		% [player.get_age(Global.world.calendar.date), FormatUtil.day(player.birth_date)]
+		% [player.get_age(Global.calendar.date), FormatUtil.day(player.birth_date)]
 	)
 	foot.text = "%s %d/20 - %s %d/20" % [tr("Left"), player.foot_left, tr("Right"), player.foot_right]
 	nationality.text = tr(player.nation)

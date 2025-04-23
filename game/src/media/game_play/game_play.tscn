@@ -1,10 +1,12 @@
 [gd_scene load_steps=6 format=3 uid="uid://cpl48mxu3fcd4"]
 
 [ext_resource type="Script" uid="uid://f7atpobm0aai" path="res://src/media/game_play/game_play.gd" id="1_d8g5d"]
-[ext_resource type="Texture2D" uid="uid://b68igf7j3q76v" path="res://icon_dark.png" id="2_d5nec"]
 [ext_resource type="LabelSettings" uid="uid://1g3edv8x0q6t" path="res://src/media/label_settings_trailer.tres" id="3_2sq2w"]
 [ext_resource type="LabelSettings" uid="uid://cjddrymi21bbr" path="res://src/media/label_settings_trailer_bold.tres" id="4_ooicg"]
 [ext_resource type="PackedScene" uid="uid://bd4mq2lolalam" path="res://src/media/game_play/mouse_curser/mouse_cursor.tscn" id="5_37f7r"]
+
+[sub_resource type="Resource" id="Resource_2evsi"]
+metadata/__load_path__ = "res://icon_dark.png"
 
 [node name="GamePlay" type="Control"]
 auto_translate_mode = 2
@@ -41,7 +43,7 @@ offset_right = 682.5
 offset_bottom = 681.0
 grow_horizontal = 2
 grow_vertical = 2
-texture = ExtResource("2_d5nec")
+texture = SubResource("Resource_2evsi")
 expand_mode = 3
 stretch_mode = 5
 

@@ -1,0 +1,131 @@
+[gd_scene load_steps=7 format=3 uid="uid://cbijtmv151qg7"]
+
+[ext_resource type="Theme" uid="uid://pt1hrfiuwfpg" path="res://theme_base/theme.tres" id="1_wbo0e"]
+[ext_resource type="Script" uid="uid://b2n3ovynlg2e1" path="res://src/ui_components/player_profile/transfers/visual_buy_offer/visual_buy_offer.gd" id="2_2p6ux"]
+[ext_resource type="Script" uid="uid://bkg838a5hys8o" path="res://src/ui_components/base/defaults/default_tab_container.gd" id="3_vwpvo"]
+[ext_resource type="PackedScene" uid="uid://c12fh0nafttdk" path="res://src/ui_components/base/money_edit/money_edit.tscn" id="4_kmj1m"]
+[ext_resource type="PackedScene" uid="uid://b2mwv4cl5sm6t" path="res://src/ui_components/base/swtich_option_button/switch_option_button.tscn" id="5_5dllx"]
+[ext_resource type="Script" uid="uid://cnyyowwlb04kl" path="res://src/ui_components/base/defaults/default_button.gd" id="6_kbryc"]
+
+[node name="VisualBuyOffer" type="VBoxContainer"]
+custom_minimum_size = Vector2(960, 0)
+anchors_preset = -1
+anchor_right = 0.5
+anchor_bottom = 0.41
+offset_bottom = 0.199982
+size_flags_horizontal = 4
+size_flags_vertical = 4
+theme = ExtResource("1_wbo0e")
+script = ExtResource("2_2p6ux")
+
+[node name="DefaultTabContainer" type="TabContainer" parent="."]
+custom_minimum_size = Vector2(0, 400)
+layout_mode = 2
+current_tab = 0
+script = ExtResource("3_vwpvo")
+metadata/_custom_type_script = "uid://bkg838a5hys8o"
+
+[node name="Buy" type="MarginContainer" parent="DefaultTabContainer"]
+layout_mode = 2
+theme_override_constants/margin_left = 0
+theme_override_constants/margin_right = 0
+metadata/_tab_index = 0
+
+[node name="Buy" type="VBoxContainer" parent="DefaultTabContainer/Buy"]
+layout_mode = 2
+size_flags_vertical = 0
+
+[node name="BuyDescription" type="Label" parent="DefaultTabContainer/Buy/Buy"]
+unique_name_in_owner = true
+layout_mode = 2
+text = "Make an offer to buy the player."
+
+[node name="Money" type="HBoxContainer" parent="DefaultTabContainer/Buy/Buy"]
+layout_mode = 2
+
+[node name="MoneyLabel" type="Label" parent="DefaultTabContainer/Buy/Buy/Money"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "Money"
+
+[node name="BuyMoney" parent="DefaultTabContainer/Buy/Buy/Money" instance=ExtResource("4_kmj1m")]
+unique_name_in_owner = true
+layout_mode = 2
+
+[node name="Date" type="HBoxContainer" parent="DefaultTabContainer/Buy/Buy"]
+layout_mode = 2
+
+[node name="DateLabel" type="Label" parent="DefaultTabContainer/Buy/Buy/Date"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "Date"
+
+[node name="BuyDate" parent="DefaultTabContainer/Buy/Buy/Date" instance=ExtResource("5_5dllx")]
+unique_name_in_owner = true
+layout_mode = 2
+
+[node name="Loan" type="MarginContainer" parent="DefaultTabContainer"]
+visible = false
+layout_mode = 2
+theme_override_constants/margin_left = 0
+theme_override_constants/margin_right = 0
+metadata/_tab_index = 1
+
+[node name="Loan" type="VBoxContainer" parent="DefaultTabContainer/Loan"]
+custom_minimum_size = Vector2(960, 0)
+layout_mode = 2
+size_flags_vertical = 0
+theme = ExtResource("1_wbo0e")
+
+[node name="Description" type="Label" parent="DefaultTabContainer/Loan/Loan"]
+layout_mode = 2
+text = "Make an offer to get the player on loan."
+
+[node name="Duration" type="HBoxContainer" parent="DefaultTabContainer/Loan/Loan"]
+layout_mode = 2
+
+[node name="DurationLabel" type="Label" parent="DefaultTabContainer/Loan/Loan/Duration"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "Loan duration"
+
+[node name="LoanDuration" parent="DefaultTabContainer/Loan/Loan/Duration" instance=ExtResource("5_5dllx")]
+unique_name_in_owner = true
+layout_mode = 2
+
+[node name="Salary" type="HBoxContainer" parent="DefaultTabContainer/Loan/Loan"]
+layout_mode = 2
+
+[node name="SalaryLabel" type="Label" parent="DefaultTabContainer/Loan/Loan/Salary"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "Salary percentage"
+
+[node name="Salary" parent="DefaultTabContainer/Loan/Loan/Salary" instance=ExtResource("5_5dllx")]
+unique_name_in_owner = true
+layout_mode = 2
+
+[node name="Money" type="HBoxContainer" parent="DefaultTabContainer/Loan/Loan"]
+layout_mode = 2
+
+[node name="MoneyLabel" type="Label" parent="DefaultTabContainer/Loan/Loan/Money"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "Additional money"
+
+[node name="LoanMoney" parent="DefaultTabContainer/Loan/Loan/Money" instance=ExtResource("4_kmj1m")]
+unique_name_in_owner = true
+layout_mode = 2
+
+[node name="Confirm" type="Button" parent="."]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(240, 0)
+layout_mode = 2
+size_flags_horizontal = 4
+theme_type_variation = &"ImportantButton"
+text = "Confirm"
+script = ExtResource("6_kbryc")
+metadata/_custom_type_script = "uid://cnyyowwlb04kl"
+
+[connection signal="tab_changed" from="DefaultTabContainer" to="." method="_on_default_tab_container_tab_changed"]
+[connection signal="pressed" from="Confirm" to="." method="_on_confirm_pressed"]

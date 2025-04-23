@@ -13,7 +13,7 @@ var player: Player
 @onready var contract_view: ContractView = %Contract
 # transfers
 @onready var offer: PlayerOffer = %PlayerOffer
-@onready var contract_offer: ContractOffer = %ContractOffer
+@onready var contract_offer: VisualContractOffer = %ContractOffer
 
 
 func _ready() -> void:
@@ -37,7 +37,7 @@ func set_player(p_player: Player) -> void:
 	if player.team_id == Global.team.id:
 		contract_offer.hide()
 	# hide contract offer if contract is not expiring by the next year
-	if player.contract.end_date.year >= Global.world.calendar.date.year + 1:
+	if player.contract.end_date.year >= Global.calendar.date.year + 1:
 		contract_offer.hide()
 	contract_offer.setup(player)
 

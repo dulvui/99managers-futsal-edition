@@ -8,8 +8,8 @@
 [ext_resource type="Script" uid="uid://bkg838a5hys8o" path="res://src/ui_components/base/defaults/default_tab_container.gd" id="3_wt7t7"]
 [ext_resource type="PackedScene" uid="uid://b4oxudl2hadi7" path="res://src/ui_components/player_profile/statistics_view/statistics_view.tscn" id="4_hpiic"]
 [ext_resource type="PackedScene" uid="uid://dmd8ysnepfvi0" path="res://src/ui_components/player_profile/contract_view/contract_view.tscn" id="7_4elh2"]
-[ext_resource type="PackedScene" uid="uid://cbijtmv151qg7" path="res://src/ui_components/player_profile/transfers/player_offer/player_offer.tscn" id="9_frkmc"]
-[ext_resource type="PackedScene" uid="uid://ccipqeqmthtfr" path="res://src/ui_components/player_profile/transfers/contract_offer/contract_offer.tscn" id="10_idrwx"]
+[ext_resource type="PackedScene" uid="uid://cbijtmv151qg7" path="res://src/ui_components/player_profile/transfers/visual_buy_offer/visual_buy_offer.tscn" id="9_frkmc"]
+[ext_resource type="PackedScene" uid="uid://ccipqeqmthtfr" path="res://src/ui_components/player_profile/transfers/visual_contract_offer/visual_contract_offer.tscn" id="10_frkmc"]
 
 [node name="PlayerProfile" type="MarginContainer"]
 anchors_preset = 15
@@ -143,8 +143,6 @@ layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
 
-[node name="ContractOffer" parent="DefaultTabContainer/Contract/Contract" instance=ExtResource("10_idrwx")]
-unique_name_in_owner = true
+[node name="ContractOffer" parent="DefaultTabContainer/Contract" instance=ExtResource("10_frkmc")]
 layout_mode = 2
-size_flags_horizontal = 3
-size_flags_vertical = 0
+script = null

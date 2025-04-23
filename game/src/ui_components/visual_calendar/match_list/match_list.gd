@@ -22,7 +22,7 @@ func setup(day: Day, competition: Competition = Global.league) -> void:
 	all_matches = []
 
 	# get matches by competition
-	var match_day: MatchDay = Global.world.match_list.get_match_day_by_day(day)
+	var match_day: MatchDay = Global.match_list.get_match_day_by_day(day)
 
 	# add to list
 	if match_day != null:

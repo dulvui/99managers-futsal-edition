@@ -2,7 +2,7 @@
 
 # SPDX-License-Identifier: AGPL-3.0-or-later
 
-class_name ContractOffer
+class_name VisualContractOffer
 extends Control
 
 signal cancel
@@ -16,7 +16,6 @@ var buy_clause: int = 0
 
 var team: Team
 var player: Player
-var transfer: Transfer
 
 @onready var income_label: LineEdit = %Income
 @onready var years_label: Label = %Years
@@ -78,9 +77,7 @@ func _on_confirm_pressed() -> void:
 	contract.buy_clause = buy_clause
 	contract.income = income
 
-	transfer.contract = contract
-	transfer.state = Transfer.State.CONTRACT_PENDING
-	EmailUtil.transfer_message(transfer)
+	# Global.inbox.offer_message(transfer)
 	confirm.emit()
 
 

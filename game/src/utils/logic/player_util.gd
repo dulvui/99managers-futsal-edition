@@ -31,7 +31,7 @@ func check_contracts_terminated() -> void:
 	for team: Team in Global.world.get_all_teams():
 		terminated_players = []
 		for player: Player in team.players:
-			if Global.world.calendar.days_difference(player.contract.end_date) < 0:
+			if Global.calendar.days_difference(player.contract.end_date) < 0:
 				terminated_players.append(player)
 
 		# remove players with no contract and add to free agents

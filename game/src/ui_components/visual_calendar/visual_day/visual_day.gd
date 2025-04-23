@@ -38,7 +38,7 @@ func setup(p_date: Day = Day.new(), matchz: Match = null) -> void:
 	else:
 		competition.hide()
 
-	if date.is_same_day(Global.world.calendar.day()):
+	if date.is_same_day(Global.calendar.day()):
 		day_color.color = ThemeUtil.configuration.style_important_color
 
 	# check if market is active

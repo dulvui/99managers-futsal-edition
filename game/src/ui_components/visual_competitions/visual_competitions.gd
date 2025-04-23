@@ -43,7 +43,7 @@ func _ready() -> void:
 	active_continental_cup = Global.world.get_active_continent().cup_clubs
 
 	# history seasons + current season
-	season_amount = Global.world.match_list.history_match_days.size()
+	season_amount = Global.match_list.history_match_days.size()
 	season_index = season_amount
 	
 	active_league_button.text = active_league.name
@@ -136,7 +136,7 @@ func _setup() -> void:
 		knockout.setup(cup.knockout)
 
 	# matches
-	var match_days: Array[MatchDay] = Global.world.match_list.get_match_days_by_competition(competition.id, history_index)
+	var match_days: Array[MatchDay] = Global.match_list.get_match_days_by_competition(competition.id, history_index)
 	for match_day: MatchDay in match_days:
 		var vbox: VBoxContainer = VBoxContainer.new()
 		match_list.add_child(vbox)
@@ -154,8 +154,8 @@ func _setup() -> void:
 
 
 func _setup_seasons() -> void:
-	var current_year: int = Global.world.calendar.date.year
-	var history_year: int = Global.world.calendar.date.year - season_amount
+	var current_year: int = Global.calendar.date.year
+	var history_year: int = Global.calendar.date.year - season_amount
 
 	var season_years: Array[String] = []
 	for year: int in range(history_year, current_year + 1):
