@@ -11,13 +11,14 @@
 
 [node name="General" type="VBoxContainer"]
 anchors_preset = -1
-anchor_right = 0.178
-anchor_bottom = 0.473
+anchor_right = 0.47175
+anchor_bottom = 0.917444
 offset_right = -341.76
 offset_bottom = -510.84
 size_flags_horizontal = 3
 theme_override_constants/separation = 15
 script = ExtResource("1_gl78q")
+metadata/_edit_use_anchors_ = true
 
 [node name="LanguageLabel" type="Label" parent="."]
 layout_mode = 2
@@ -107,8 +108,8 @@ text = "Sfx volume"
 
 [node name="UISfxVolumeSlider" type="HSlider" parent="Audio/UISfx"]
 unique_name_in_owner = true
+custom_minimum_size = Vector2(240, 0)
 layout_mode = 2
-size_flags_horizontal = 3
 min_value = -60.0
 max_value = 0.0
 step = 5.0
