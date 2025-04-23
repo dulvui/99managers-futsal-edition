@@ -137,6 +137,10 @@ func _load_data(save_state: SaveState) -> void:
 	# calendar csv
 	var calendar_path: String = csv_path + Const.CSV_CALENDAR_FILE
 	Global.calendar = csv_util.csv_to_calendar(csv_util.read_csv(calendar_path))
+
+	# inbox csv
+	var inbox_path: String = csv_path + Const.CSV_INBOX_FILE
+	Global.inbox = csv_util.csv_to_inbox(csv_util.read_csv(inbox_path))
 	
 	# TODO
 	# offers
@@ -183,6 +187,11 @@ func _save_data(save_state: SaveState) -> void:
 	# TODO can be optimized by saving only date that changes in first line
 	csv_util.save_csv(
 		csv_path + Const.CSV_CALENDAR_FILE, csv_util.calendar_to_csv(Global.calendar)
+	)
+
+	# inbox
+	csv_util.save_csv(
+		csv_path + Const.CSV_INBOX_FILE, csv_util.inbox_to_csv(Global.inbox)
 	)
 
 	# TODO

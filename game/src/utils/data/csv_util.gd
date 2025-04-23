@@ -372,20 +372,53 @@ func csv_to_calendar(csv: Array[PackedStringArray]) -> Calendar:
 	return calendar
 
 
-func inbox_to_csv(world: World) -> Array[PackedStringArray]:
-	var lines: Array[PackedStringArray] = []
-
-	for player: Player in world.free_agents.list:
-		lines.append(_player_to_line(player))
-
+func inbox_to_csv(inbox: Inbox) -> Array[PackedStringArray]:
 	var csv: Array[PackedStringArray] = []
-	csv.append_array(lines)
+
+	for email: EmailMessage in inbox.list:
+		var line: PackedStringArray = PackedStringArray()
+
+		line.append(str(email.id))
+		line.append(str(email.foreign_id))
+		line.append(str(email.type))
+		line.append(email.subject)
+		line.append(email.text)
+		line.append(email.sender)
+		line.append(email.receiver)
+		line.append(FormatUtil.day(email.date))
+		line.append(str(int(email.read)))
+		line.append(str(int(email.starred)))
+
+		csv.append(line)
 
 	return csv
 
 
-func csv_to_inbox(_csv: Array[PackedStringArray]) -> Inbox:
+func csv_to_inbox(csv: Array[PackedStringArray]) -> Inbox:
 	var inbox: Inbox = Inbox.new()
+
+	for line: PackedStringArray in csv:
+
+		if line.size() < 3:
+			continue
+
+		_set_active_line(line)
+
+		var email: EmailMessage = EmailMessage.new()
+
+		email.id = _get_int_or_default()
+		email.foreign_id = _get_int_or_default()
+		email.type = _get_int_or_default() as EmailMessage.Type
+		email.subject = _get_string_or_default()
+		email.text = _get_string_or_default()
+		email.sender = _get_string_or_default()
+		email.receiver = _get_string_or_default()
+		var date: String = _get_string_or_default()
+		email.date = FormatUtil.day_from_string(date)
+		email.read = _get_bool_or_default()
+		email.starred = _get_bool_or_default()
+
+		inbox.list.append(email)
 	
 	return inbox
 
