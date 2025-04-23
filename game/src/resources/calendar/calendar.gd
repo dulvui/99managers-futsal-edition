@@ -115,9 +115,7 @@ func _add_year(year: int) -> void:
 	var temp_date: Dictionary = Time.get_datetime_dict_from_datetime_string(first_january, true)
 	# create months
 	for month_string: String in Enum.Months:
-		var new_month: Month = Month.new()
-		new_month.name = month_string
-		months.append(new_month)
+		months.append(Month.new())
 
 	var month_shift: int = (year - date.year) * 12
 	while temp_date.year == year:

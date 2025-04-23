@@ -77,7 +77,8 @@ layout_mode = 2
 size_flags_vertical = 0
 theme = ExtResource("1_wbo0e")
 
-[node name="Description" type="Label" parent="DefaultTabContainer/Loan/Loan"]
+[node name="LoanDescription" type="Label" parent="DefaultTabContainer/Loan/Loan"]
+unique_name_in_owner = true
 layout_mode = 2
 text = "Make an offer to get the player on loan."
 

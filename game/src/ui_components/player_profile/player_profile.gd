@@ -42,3 +42,4 @@ func set_player(p_player: Player) -> void:
 
 	# always show info view, when setting new player
 	info_view.show()
+

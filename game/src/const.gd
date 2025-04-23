@@ -101,6 +101,9 @@ const CSV_PLAYERS_FILE: StringName = "players.csv"
 const CSV_FREE_AGENTS_FILE: StringName = "free_agents.csv"
 const CSV_MATCH_LIST_FILE: StringName = "match_list.csv"
 const CSV_MATCH_HISTORY_FILE: StringName = "match_history.csv"
+const CSV_CALENDAR_FILE: StringName = "calendar.csv"
+const CSV_INBOX_FILE: StringName = "inbox.csv"
+const CSV_OFFER_LIST_FILE: StringName = "offer_list.csv"
 
 
 const CSV_HEADERS: PackedStringArray = [

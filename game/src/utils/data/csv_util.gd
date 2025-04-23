@@ -102,6 +102,9 @@ func players_to_csv(world: World) -> Array[PackedStringArray]:
 func csv_to_players(csv: Array[PackedStringArray], world: World, first_time: bool = false) -> void:
 	line_index = 0
 
+	# remove header
+	csv.pop_front()
+
 	# last values found in last line read
 	# can be reused for next line, since lines most likely are grouped by team
 	var nation: Nation = null
@@ -309,6 +312,105 @@ func match_days_to_csv(match_days_list: Array[MatchDays]) -> Array[PackedStringA
 
 	return csv
 
+
+func calendar_to_csv(calendar: Calendar) -> Array[PackedStringArray]:
+	var csv: Array[PackedStringArray] = []
+
+	# first line is calendar.date
+	var date_line: PackedStringArray = PackedStringArray()
+	date_line.append(str(calendar.date.day))
+	date_line.append(str(calendar.date.month))
+	date_line.append(str(calendar.date.year))
+	csv.append(date_line)
+
+	# iterate over single days
+	for	month: Month in calendar.months:
+		for day: Day in month.days:
+			var line: PackedStringArray = PackedStringArray()
+
+			line.append(str(day.day))
+			line.append(str(day.month))
+			line.append(str(day.year))
+			line.append(str(int(day.market)))
+			line.append(str(day.weekday))
+
+			csv.append(line)
+
+	return csv
+
+
+func csv_to_calendar(csv: Array[PackedStringArray]) -> Calendar:
+	var calendar: Calendar = Calendar.new()
+
+	# first line is calendar.date
+	var first_line: PackedStringArray = csv.pop_front()
+	_set_active_line(first_line)
+	calendar.date.day = _get_int_or_default()
+	calendar.date.month = _get_int_or_default()
+	calendar.date.year = _get_int_or_default()
+
+	# iterate over single days
+	for line: PackedStringArray in csv:
+
+		if line.size() < 3:
+			continue
+
+		_set_active_line(line)
+
+		var day: Day = Day.new()
+		day.day = _get_int_or_default()
+		day.month = _get_int_or_default() as Enum.Months
+		day.year = _get_int_or_default()
+		day.weekday = _get_int_or_default() as Enum.Weekdays
+		day.market = _get_bool_or_default()
+
+		if calendar.months.size() < day.month:
+			calendar.months.append(Month.new())
+		
+		calendar.months[-1].days.append(day)
+
+	return calendar
+
+
+func inbox_to_csv(world: World) -> Array[PackedStringArray]:
+	var lines: Array[PackedStringArray] = []
+
+	for player: Player in world.free_agents.list:
+		lines.append(_player_to_line(player))
+
+	var csv: Array[PackedStringArray] = []
+	csv.append_array(lines)
+
+	return csv
+
+
+func csv_to_inbox(_csv: Array[PackedStringArray]) -> Inbox:
+	var inbox: Inbox = Inbox.new()
+	
+	return inbox
+
+
+func offer_list_to_csv(world: World) -> Array[PackedStringArray]:
+	var lines: Array[PackedStringArray] = []
+
+	for player: Player in world.free_agents.list:
+		lines.append(_player_to_line(player))
+
+	var csv: Array[PackedStringArray] = []
+	csv.append_array(lines)
+
+	return csv
+
+
+func csv_to_offer_list(_csv: Array[PackedStringArray]) -> OfferList:
+	var offer_list: OfferList = OfferList.new()
+	
+	return offer_list
+
+
+#
+# helper methods
+#
 
 # use result, since on next call array will be reused for performance
 func res_to_line(resource: Resource, p_headers: PackedStringArray) -> PackedStringArray:

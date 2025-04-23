@@ -107,30 +107,36 @@ func _load_data(save_state: SaveState) -> void:
 
 	# players csv
 	var players_csv_path: String = csv_path + Const.CSV_PLAYERS_FILE
-	var players_csv: Array[PackedStringArray] = csv_util.read_csv(players_csv_path)
-	# remove header
-	players_csv.pop_front()
-	csv_util.csv_to_players(players_csv, world)
+	csv_util.csv_to_players(
+		csv_util.read_csv(players_csv_path), world
+	)
 
 	# free_agents csv
 	var free_agents_csv_path: String = csv_path + Const.CSV_FREE_AGENTS_FILE
-	var free_agents_csv: Array[PackedStringArray] = csv_util.read_csv(free_agents_csv_path)
-	csv_util.csv_to_free_agents(free_agents_csv, world)
+	csv_util.csv_to_free_agents(
+		csv_util.read_csv(free_agents_csv_path), world
+	)
 
 	# history match days csv, read only
 	Global.match_list = MatchList.new()
 	var history_matches_path: String = csv_path + Const.CSV_MATCH_HISTORY_FILE
-	var history_matches_csv: Array[PackedStringArray] = csv_util.read_csv(history_matches_path)
-	Global.match_list.history_match_days = csv_util.csv_to_match_days(history_matches_csv)
+	Global.match_list.history_match_days = csv_util.csv_to_match_days(
+		csv_util.read_csv(history_matches_path)
+	)
 
 	# match days csv
 	var matches_path: String = csv_path + Const.CSV_MATCH_LIST_FILE
-	var matches_csv: Array[PackedStringArray] = csv_util.read_csv(matches_path)
-	var match_days: Array[MatchDays] = csv_util.csv_to_match_days(matches_csv)
+	var match_days: Array[MatchDays] = csv_util.csv_to_match_days(
+		csv_util.read_csv(matches_path)
+	)
 	if match_days.size() == 1:
 		Global.match_list.match_days = match_days[0]
 	else:
 		push_error("error while loading matchdays, match days from csv is not 1")
+	
+	# calendar csv
+	var calendar_path: String = csv_path + Const.CSV_CALENDAR_FILE
+	Global.calendar = csv_util.csv_to_calendar(csv_util.read_csv(calendar_path))
 	
 	# TODO
 	# offers
@@ -171,6 +177,12 @@ func _save_data(save_state: SaveState) -> void:
 	csv_util.save_csv(
 		csv_path + Const.CSV_MATCH_LIST_FILE,
 		csv_util.match_days_to_csv([Global.match_list.match_days]),
+	)
+
+	# calendar
+	# TODO can be optimized by saving only date that changes in first line
+	csv_util.save_csv(
+		csv_path + Const.CSV_CALENDAR_FILE, csv_util.calendar_to_csv(Global.calendar)
 	)
 
 	# TODO

@@ -3,15 +3,13 @@
 # SPDX-License-Identifier: AGPL-3.0-or-later
 
 class_name Month
-extends JSONResource
+extends Resource
 
-@export var days: Array[Day]
-@export var name: String
+var days: Array[Day]
 
 
 func _init(
-	p_name: String = "",
 	p_days: Array[Day] = [],
 ) -> void:
-	name = p_name
 	days = p_days
+

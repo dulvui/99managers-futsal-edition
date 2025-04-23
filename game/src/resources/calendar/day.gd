@@ -3,13 +3,13 @@
 # SPDX-License-Identifier: AGPL-3.0-or-later
 
 class_name Day
-extends JSONResource
+extends Resource
 
-@export var market: bool
-@export var weekday: Enum.Weekdays
-@export var day: int
-@export var month: Enum.Months
-@export var year: int
+var market: bool
+var weekday: Enum.Weekdays
+var day: int
+var month: Enum.Months
+var year: int
 
 
 func _init(

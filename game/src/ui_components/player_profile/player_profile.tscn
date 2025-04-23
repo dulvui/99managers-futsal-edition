@@ -146,4 +146,3 @@ size_flags_vertical = 3
 [node name="ContractOffer" parent="DefaultTabContainer/Contract" instance=ExtResource("10_frkmc")]
 unique_name_in_owner = true
 layout_mode = 2
-script = null
