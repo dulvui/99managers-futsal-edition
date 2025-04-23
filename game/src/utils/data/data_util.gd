@@ -100,6 +100,7 @@ func _load_data(save_state: SaveState) -> void:
 	# load main data from json
 	var world: World = World.new()
 	_load_resource(path + DATA_FILE, world)
+	Global.world = world
 
 	# the rest is loaded as csv
 	var csv_util: CSVUtil = CSVUtil.new()
@@ -141,12 +142,10 @@ func _load_data(save_state: SaveState) -> void:
 	# inbox csv
 	var inbox_path: String = csv_path + Const.CSV_INBOX_FILE
 	Global.inbox = csv_util.csv_to_inbox(csv_util.read_csv(inbox_path))
-	
-	# TODO
-	# offers
-	# inbox
 
-	Global.world = world
+	# offer list csv
+	var offer_list_path: String = csv_path + Const.CSV_OFFER_LIST_FILE
+	Global.offer_list = csv_util.csv_to_offer_list(csv_util.read_csv(offer_list_path))
 
 
 func _save_data(save_state: SaveState) -> void:
@@ -159,12 +158,14 @@ func _save_data(save_state: SaveState) -> void:
 	var csv_util: CSVUtil = CSVUtil.new()
 	# players
 	csv_util.save_csv(
-		csv_path + Const.CSV_PLAYERS_FILE, csv_util.players_to_csv(Global.world)
+		csv_path + Const.CSV_PLAYERS_FILE,
+		csv_util.players_to_csv(Global.world)
 	)
 
 	# free agents
 	csv_util.save_csv(
-		csv_path + Const.CSV_FREE_AGENTS_FILE, csv_util.free_agents_to_csv(Global.world)
+		csv_path + Const.CSV_FREE_AGENTS_FILE,
+		csv_util.free_agents_to_csv(Global.world)
 	)
 	
 	# history match days csv
@@ -186,17 +187,21 @@ func _save_data(save_state: SaveState) -> void:
 	# calendar
 	# TODO can be optimized by saving only date that changes in first line
 	csv_util.save_csv(
-		csv_path + Const.CSV_CALENDAR_FILE, csv_util.calendar_to_csv(Global.calendar)
+		csv_path + Const.CSV_CALENDAR_FILE,
+		csv_util.calendar_to_csv(Global.calendar)
 	)
 
 	# inbox
 	csv_util.save_csv(
-		csv_path + Const.CSV_INBOX_FILE, csv_util.inbox_to_csv(Global.inbox)
+		csv_path + Const.CSV_INBOX_FILE,
+		csv_util.inbox_to_csv(Global.inbox)
 	)
 
-	# TODO
-	# offers
-	# inbox
+	# offer list
+	csv_util.save_csv(
+		csv_path + Const.CSV_OFFER_LIST_FILE,
+		csv_util.offer_list_to_csv(Global.offer_list)
+	)
 
 
 func _load_resource(path: String, resource: JSONResource, after_backup: bool = false) -> void:

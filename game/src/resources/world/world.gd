@@ -377,3 +377,4 @@ func promote_and_relegate_teams() -> void:
 					league.table.add_team(team)
 					# reassign all league ids
 					team.league_id = league.id
+

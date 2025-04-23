@@ -72,8 +72,7 @@ func _ready() -> void:
 	player_list.setup(Global.team.id)
 	formation.setup(false)
 	finances.setup(Global.team)
-
-	_update_email_button()
+	stadium.setup(Global.team.stadium)
 
 	if Global.match_list.is_match_day():
 		continue_button.text = tr("Start match")
@@ -86,11 +85,10 @@ func _ready() -> void:
 	if Global.calendar.is_season_finished():
 		next_season = true
 		continue_button.text = tr("Next season")
-	
-	stadium.setup(Global.team.stadium)
 
 	_show_active_view()
 	email_button.grab_focus()
+	_update_email_button()
 
 	# connect player and team signals
 	LinkUtil.team_link.connect(_on_team_link)

@@ -423,14 +423,13 @@ func csv_to_inbox(csv: Array[PackedStringArray]) -> Inbox:
 	return inbox
 
 
-func offer_list_to_csv(world: World) -> Array[PackedStringArray]:
-	var lines: Array[PackedStringArray] = []
-
-	for player: Player in world.free_agents.list:
-		lines.append(_player_to_line(player))
-
+func offer_list_to_csv(_offer_list: OfferList) -> Array[PackedStringArray]:
 	var csv: Array[PackedStringArray] = []
-	csv.append_array(lines)
+
+	# for offer: Offer in offer_list.buy_clause:
+	# 	var line: PackedStringArray = PackedStringArray()
+	#
+	# 	csv.append_array(line)
 
 	return csv
 

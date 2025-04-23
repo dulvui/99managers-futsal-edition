@@ -5,17 +5,23 @@
 class_name OfferList
 extends Resource
 
-var list: Array[Offer]
+var buy_list: Array[BuyOffer]
+var loan_list: Array[LoanOffer]
+var contract_list: Array[ContractOffer]
 
 
 func _init(
-	p_list: Array[Offer] = [],
+	p_buy_list: Array[BuyOffer] = [],
+	p_loan_list: Array[LoanOffer] = [],
+	p_contract_list: Array[ContractOffer] = [],
 ) -> void:
-	list = p_list
+	buy_list = p_buy_list
+	loan_list = p_loan_list
+	contract_list = p_contract_list
 
 
 func get_by_player_id(player_id: int) -> Offer:
-	for offer: Offer in list:
+	for offer: Offer in buy_list + loan_list + contract_list:
 		if offer.player_id == player_id:
 			return offer
 	return null
