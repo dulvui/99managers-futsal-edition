@@ -68,11 +68,6 @@ func initialize_game(testing: bool = false) -> void:
 	if not testing:
 		save_states.new_save_state()
 
-	offer_list = OfferList.new()
-	inbox = Inbox.new()
-	calendar = Calendar.new()
-	match_list = MatchList.new()
-
 	print("matches initialized")
 	inbox.welcome_manager()
 

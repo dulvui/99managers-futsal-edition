@@ -70,6 +70,11 @@ func initialize_world(world: World, world_file_path: String = Const.WORLD_CSV_PA
 	Global.calendar = Calendar.new()
 	Global.calendar.initialize()
 
+	# other csv resources
+	Global.offer_list = OfferList.new()
+	Global.inbox = Inbox.new()
+	Global.match_list = MatchList.new()
+
 	# validate custom file first, if custom file is used
 	var custom_file: bool = world_file_path != Const.WORLD_CSV_PATH
 	if custom_file:

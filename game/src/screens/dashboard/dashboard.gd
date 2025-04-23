@@ -73,6 +73,8 @@ func _ready() -> void:
 	formation.setup(false)
 	finances.setup(Global.team)
 
+	_update_email_button()
+
 	if Global.match_list.is_match_day():
 		continue_button.text = tr("Start match")
 		match_ready = true
@@ -94,13 +96,8 @@ func _ready() -> void:
 	LinkUtil.team_link.connect(_on_team_link)
 	LinkUtil.player_link.connect(_on_player_link)
 
-
-func _process(_delta: float) -> void:
-	var email_count: int = EmailUtil.count_unread_messages()
-	if email_count > 0:
-		email_button.text = "[" + str(EmailUtil.count_unread_messages()) + "] " + tr("Email")
-	else:
-		email_button.text = tr("Email")
+	# connect inbox refresh sinal
+	Global.inbox.refresh.connect(_update_email_button)
 
 
 func _on_search_action() -> void:
@@ -233,6 +230,14 @@ func _show_active_view(p_active_view: int = -1, from_history: bool = false) -> v
 			view_history_index = view_history.size() - 1
 
 
+func _update_email_button() -> void:
+	var email_count: int = Global.inbox.count_unread_messages()
+	if email_count > 0:
+		email_button.text = "[" + str(Global.inbox.count_unread_messages()) + "] " + tr("Email")
+	else:
+		email_button.text = tr("Email")
+
+
 func _on_continue_button_pressed() -> void:
 	_next_day()
 
@@ -258,7 +263,7 @@ func _next_day() -> void:
 		# ThreadUtil.random_results()
 
 		# non threaded simulation
-		Global.world.random_results()
+		Global.match_list.random_results()
 		print("TODO simulate other matches")
 
 		Main.change_scene(Const.SCREEN_MATCH)
@@ -287,7 +292,7 @@ func _next_day() -> void:
 		# ThreadUtil.random_results()
 
 		# non threaded simulation
-		Global.world.random_results()
+		Global.match_list.random_results()
 
 	# check matches
 	if Global.match_list.is_match_day():

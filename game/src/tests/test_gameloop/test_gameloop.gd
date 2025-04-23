@@ -25,7 +25,7 @@ func test_full_season() -> void:
 		print("test: season %d..." % [season])
 		while not Global.calendar.is_season_finished():
 			Global.calendar.next_day()
-			Global.world.random_results()
+			Global.match_list.random_results()
 
 		Global.next_season(false)
 		print("test: season %d done..." % [season])

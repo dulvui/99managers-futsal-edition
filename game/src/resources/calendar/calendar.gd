@@ -3,7 +3,7 @@
 # SPDX-License-Identifier: AGPL-3.0-or-later
 
 class_name Calendar
-extends JSONResource
+extends Resource
 
 const DAY_IN_SECONDS: int = 86400
 
@@ -25,8 +25,8 @@ const MARKET_SUMMER_START_MONTH: int = 6
 const MARKET_SUMMER_END_DAY: int = 31
 const MARKET_SUMMER_END_MONTH: int = 8
 
-@export var date: Dictionary
-@export var months: Array[Month]
+var date: Dictionary
+var months: Array[Month]
 
 
 func _init(
