@@ -71,7 +71,7 @@ func initialize_world(world: World, world_file_path: String = Const.WORLD_CSV_PA
 	Global.calendar.initialize()
 
 	# other csv resources
-	Global.offer_list = OfferList.new()
+	Global.transfer_list = TransferList.new()
 	Global.inbox = Inbox.new()
 	Global.match_list = MatchList.new()
 

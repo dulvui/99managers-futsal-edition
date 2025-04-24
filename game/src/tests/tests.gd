@@ -83,7 +83,7 @@ static func init_empty_mock_world() -> void:
 	Global.start_date = Time.get_date_dict_from_system()
 	Global.world = World.new()
 	Global.calendar.initialize()
-	Global.offer_list = OfferList.new()
+	Global.transfer_list = TransferList.new()
 	Global.match_list = MatchList.new()
 	Global.inbox = Inbox.new()
 

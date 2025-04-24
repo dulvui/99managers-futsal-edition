@@ -423,10 +423,10 @@ func csv_to_inbox(csv: Array[PackedStringArray]) -> Inbox:
 	return inbox
 
 
-func offer_list_to_csv(_offer_list: OfferList) -> Array[PackedStringArray]:
+func transfer_list_to_csv(_transfer_list: TransferList) -> Array[PackedStringArray]:
 	var csv: Array[PackedStringArray] = []
 
-	# for offer: Offer in offer_list.buy_clause:
+	# for offer: Offer in transfer_list.buy_clause:
 	# 	var line: PackedStringArray = PackedStringArray()
 	#
 	# 	csv.append_array(line)
@@ -434,10 +434,10 @@ func offer_list_to_csv(_offer_list: OfferList) -> Array[PackedStringArray]:
 	return csv
 
 
-func csv_to_offer_list(_csv: Array[PackedStringArray]) -> OfferList:
-	var offer_list: OfferList = OfferList.new()
+func csv_to_transfer_list(_csv: Array[PackedStringArray]) -> TransferList:
+	var transfer_list: TransferList = TransferList.new()
 	
-	return offer_list
+	return transfer_list
 
 
 #

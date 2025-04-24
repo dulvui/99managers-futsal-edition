@@ -144,8 +144,8 @@ func _load_data(save_state: SaveState) -> void:
 	Global.inbox = csv_util.csv_to_inbox(csv_util.read_csv(inbox_path))
 
 	# offer list csv
-	var offer_list_path: String = csv_path + Const.CSV_OFFER_LIST_FILE
-	Global.offer_list = csv_util.csv_to_offer_list(csv_util.read_csv(offer_list_path))
+	var transfer_list_path: String = csv_path + Const.CSV_OFFER_LIST_FILE
+	Global.transfer_list = csv_util.csv_to_transfer_list(csv_util.read_csv(transfer_list_path))
 
 
 func _save_data(save_state: SaveState) -> void:
@@ -200,7 +200,7 @@ func _save_data(save_state: SaveState) -> void:
 	# offer list
 	csv_util.save_csv(
 		csv_path + Const.CSV_OFFER_LIST_FILE,
-		csv_util.offer_list_to_csv(Global.offer_list)
+		csv_util.transfer_list_to_csv(Global.transfer_list)
 	)
 
 

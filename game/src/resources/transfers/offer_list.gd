@@ -2,25 +2,34 @@
 
 # SPDX-License-Identifier: AGPL-3.0-or-later
 
-class_name OfferList
+class_name TransferList
 extends Resource
 
+# lists of active offers
 var buy_list: Array[BuyOffer]
 var loan_list: Array[LoanOffer]
 var contract_list: Array[ContractOffer]
+
+# lists of players that are available for transfer or loan
+var player_buy_list: Array[int]
+var player_loan_list: Array[int]
 
 
 func _init(
 	p_buy_list: Array[BuyOffer] = [],
 	p_loan_list: Array[LoanOffer] = [],
 	p_contract_list: Array[ContractOffer] = [],
+	p_player_buy_list: Array[int] = [],
+	p_player_loan_list: Array[int] = [],
 ) -> void:
 	buy_list = p_buy_list
 	loan_list = p_loan_list
 	contract_list = p_contract_list
+	player_buy_list	= p_player_buy_list
+	player_loan_list	= p_player_loan_list
 
 
-func get_by_player_id(player_id: int) -> Offer:
+func get_offer_by_player_id(player_id: int) -> Offer:
 	for offer: Offer in buy_list + loan_list + contract_list:
 		if offer.player_id == player_id:
 			return offer
