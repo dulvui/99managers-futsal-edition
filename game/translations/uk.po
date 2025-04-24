@@ -282,7 +282,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: 99 Managers Futsal Edition\n"
-"PO-Revision-Date: 2025-04-19 11:30+0000\n"
+"PO-Revision-Date: 2025-04-25 15:58+0000\n"
 "Last-Translator: Максим Горпиніч <maksimgorpinic2005a@gmail.com>\n"
 "Language-Team: Ukrainian <https://hosted.weblate.org/projects/"
 "99-managers-futsal-edition/game/uk/>\n"
@@ -292,7 +292,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8-bit\n"
 "Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && "
 "n%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2);\n"
-"X-Generator: Weblate 5.11.1-dev\n"
+"X-Generator: Weblate 5.12-dev\n"
 
 #: src/ui_components/team_profile/team_profile.tscn
 #: src/screens/dashboard/dashboard.tscn
@@ -332,7 +332,7 @@ msgstr "Особи"
 #: src/ui_components/team_profile/team_profile.gd
 #: src/ui_components/player_profile/transfers/contract_offer/contract_offer.tscn
 msgid "Year"
-msgstr "рік"
+msgstr "Рік"
 
 #: src/ui_components/player_list/player_list.gd
 #: src/ui_components/player_profile/player_profile.tscn
@@ -830,7 +830,7 @@ msgstr "Вік"
 
 #: src/ui_components/player_profile/info_view/info_view.tscn
 msgid "Foot"
-msgstr "стопа"
+msgstr "Стопа"
 
 #: src/ui_components/player_profile/info_view/info_view.tscn
 #: src/screens/setup/setup_world/setup_world.tscn
@@ -1707,7 +1707,7 @@ msgstr "PR"
 
 #: src/enum.gd
 msgid "Immediate"
-msgstr "негайно"
+msgstr "Негайно"
 
 #: src/enum.gd
 msgid "Next transfer window"
