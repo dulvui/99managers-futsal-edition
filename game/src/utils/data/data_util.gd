@@ -4,10 +4,6 @@
 
 extends Node
 
-signal loading_failed
-
-const COMPRESSION_ON: bool = true
-const COMPRESSION_MODE: FileAccess.CompressionMode = FileAccess.CompressionMode.COMPRESSION_GZIP
 
 const USER_PATH: StringName = "user://"
 const SAVE_STATES_PATH: StringName = "user://save_states/"
@@ -17,10 +13,9 @@ const SAVE_STATE_FILE: StringName = "save_state"
 const SAVE_STATES_FILE: StringName = "save_states"
 const DATA_FILE: StringName = "data"
 
-const FILE_SUFFIX: StringName = ".json"
-const FILE_SUFFIX_COMPRESS: StringName = ".save"
-
 var backup_util: BackupUtil
+var json_util: JSONUtil
+var csv_util: CSVUtil
 
 # flag if match list history should be saved
 var write_match_history: bool
@@ -28,16 +23,19 @@ var write_match_history: bool
 
 func _init() -> void:
 	backup_util = BackupUtil.new()
+	json_util = JSONUtil.new()
+	csv_util = CSVUtil.new()
+
 	write_match_history = false
 
 
 func save_config() -> void:
-	_save_resource(CONFIG_FILE, Global.config)
+	json_util.save(CONFIG_FILE, Global.config)
 
 
 func load_config() -> SettingsConfig:
 	var config: SettingsConfig = SettingsConfig.new()
-	_load_resource(CONFIG_FILE, config)
+	json_util.load(CONFIG_FILE, config)
 	if config == null:
 		return SettingsConfig.new()
 	return config
@@ -45,7 +43,7 @@ func load_config() -> SettingsConfig:
 
 func load_save_states() -> SaveStates:
 	var save_states: SaveStates = SaveStates.new()
-	_load_resource(SAVE_STATES_FILE, save_states)
+	json_util.load(SAVE_STATES_FILE, save_states)
 	if save_states == null:
 		return SaveStates.new()
 	# scan for new save states
@@ -54,12 +52,12 @@ func load_save_states() -> SaveStates:
 
 
 func save_save_states() -> void:
-	_save_resource(SAVE_STATES_FILE, Global.save_states)
+	json_util.save(SAVE_STATES_FILE, Global.save_states)
 
 
 func load_save_state(id: String) -> SaveState:
 	var save_state: SaveState = SaveState.new()
-	_load_resource(id + "/" + SAVE_STATE_FILE, save_state)
+	json_util.save(id + "/" + SAVE_STATE_FILE, save_state)
 	if save_state == null:
 		return SaveState.new()
 	return save_state
@@ -72,7 +70,7 @@ func save_save_state() -> void:
 		return
 	# save id by type
 	active.id_by_type = IdUtil.id_by_type
-	_save_resource(active.id + "/" + SAVE_STATE_FILE, active)
+	json_util.save(active.id + "/" + SAVE_STATE_FILE, active)
 
 
 func load_save_state_data() -> void:
@@ -99,11 +97,10 @@ func _load_data(save_state: SaveState) -> void:
 
 	# load main data from json
 	var world: World = World.new()
-	_load_resource(path + DATA_FILE, world)
+	json_util.load(path + DATA_FILE, world)
 	Global.world = world
 
 	# the rest is loaded as csv
-	var csv_util: CSVUtil = CSVUtil.new()
 	var csv_path: String = SAVE_STATES_PATH + save_state.id + "/"
 
 	# players csv
@@ -151,11 +148,11 @@ func _load_data(save_state: SaveState) -> void:
 func _save_data(save_state: SaveState) -> void:
 	print("save data...")
 	var path: String = save_state.id + "/"
-	_save_resource(path + DATA_FILE, Global.world)
+	json_util.save(path + DATA_FILE, Global.world)
+	backup_util.create(path + DATA_FILE)
 
 	var csv_path: String = SAVE_STATES_PATH + save_state.id + "/"
 
-	var csv_util: CSVUtil = CSVUtil.new()
 	# players
 	csv_util.save_csv(
 		csv_path + Const.CSV_PLAYERS_FILE,
@@ -202,114 +199,4 @@ func _save_data(save_state: SaveState) -> void:
 		csv_path + Const.CSV_OFFER_LIST_FILE,
 		csv_util.transfer_list_to_csv(Global.transfer_list)
 	)
-
-
-func _load_resource(path: String, resource: JSONResource, after_backup: bool = false) -> void:
-	# make sure path is lower case
-	path = SAVE_STATES_PATH + path.to_lower()
-
-	# open file
-	var file: FileAccess
-	if COMPRESSION_ON:
-		path += FILE_SUFFIX_COMPRESS
-		file = FileAccess.open_compressed(path, FileAccess.READ, FileAccess.COMPRESSION_GZIP)
-	else:
-		path += FILE_SUFFIX
-		file = FileAccess.open(path, FileAccess.READ)
-
-	# check errors
-	var err: int = FileAccess.get_open_error()
-	if err != OK:
-		if after_backup:
-			print("opening file %s error with code %d after backup attempt." % [path, err])
-			loading_failed.emit()
-			return
-		else:
-			print("opening file %s error with code %d, restroing backup..." % [path, err])
-			var backup_result: bool = backup_util.restore(path)
-			if backup_result:
-				# Main.loading_screen.update_message(tr("Restoring from backup"))
-				_load_resource(path, resource, true)
-		return
-
-	# load and parse file
-	var file_text: String = file.get_as_text()
-	var json: JSON = JSON.new()
-	var result: int = json.parse(file_text)
-
-	# check for parsing errors
-	if result != OK:
-		if after_backup:
-			print("parsing file %s error with code %d after backup" % [path, result])
-			loading_failed.emit()
-			return
-		else:
-			print("parsing file %s error with code %d, restoring backup..." % [path, result])
-			var backup_result: bool = backup_util.restore(path)
-			if backup_result:
-				_load_resource(path, resource, true)
-		return
-
-	# convert to json resource
-	file.close()
-	var parsed_json: Dictionary = json.data
-	resource.from_json(parsed_json)
-
-
-func _save_resource(path: String, resource: JSONResource) -> void:
-	print("converting resurce...")
-	var json: Dictionary = resource.to_json()
-	print("converting resource done.")
-	_save_json(path, json)
-
-
-func _save_json(path: String, json: Dictionary) -> void:
-	# make sure path is lower case
-	path = SAVE_STATES_PATH + path.to_lower()
-	print("saving json %s..." % path)
-
-	# create directory, if not exist yet
-	var dir_path: String = path.get_base_dir()
-	var dir: DirAccess = DirAccess.open(USER_PATH)
-	if not dir.dir_exists(dir_path):
-		print("dir %s not found, creating now..." % dir_path)
-		var err_dir: Error = dir.make_dir_recursive(dir_path)
-		if err_dir != OK:
-			push_error("error while creating directory %s; error with code %d" % [dir_path, err_dir])
-			return
-
-	# print("saving resource...")
-	var file: FileAccess
-	if COMPRESSION_ON:
-		path += FILE_SUFFIX_COMPRESS
-		file = FileAccess.open_compressed(path, FileAccess.WRITE, COMPRESSION_MODE)
-	else:
-		path += FILE_SUFFIX
-		file = FileAccess.open(path, FileAccess.WRITE)
-
-	if file == null:
-		push_error("error while opening file: file is null")
-		return
-
-	# check for file errors
-	var err: int = file.get_error()
-	if err != OK:
-		push_error("error while opening file: error with code %d" % err)
-		return
-
-	# save to file
-	file.store_string(JSON.stringify(json))
-	file.close()
-
-	# check again for file errors
-	err = file.get_error()
-	if err != OK:
-		print("again opening file error with code %d" % err)
-		print(err)
-		return
-
-	# create backup
-	backup_util.create(path)
-
-	print("saving %s done..." % path)
 
