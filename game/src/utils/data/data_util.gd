@@ -9,6 +9,7 @@ const USER_PATH: StringName = "user://"
 const SAVE_STATES_PATH: StringName = "user://save_states/"
 
 const CONFIG_FILE: StringName = "settings_config"
+const CHECKSUM_FILE: StringName = "checksums"
 const SAVE_STATE_FILE: StringName = "save_state"
 const SAVE_STATES_FILE: StringName = "save_states"
 const DATA_FILE: StringName = "data"
@@ -16,6 +17,7 @@ const DATA_FILE: StringName = "data"
 var backup_util: BackupUtil
 var json_util: JSONUtil
 var csv_util: CSVUtil
+var checksum_list: ChecksumList
 
 # flag if match list history should be saved
 var write_match_history: bool
@@ -25,7 +27,11 @@ func _init() -> void:
 	backup_util = BackupUtil.new()
 	json_util = JSONUtil.new()
 	csv_util = CSVUtil.new()
-
+	
+	json_util.load(CHECKSUM_FILE, checksum_list)
+	if checksum_list == null:
+		checksum_list = ChecksumList.new()
+	
 	write_match_history = false
 
 
@@ -71,6 +77,10 @@ func save_save_state() -> void:
 	# save id by type
 	active.id_by_type = IdUtil.id_by_type
 	json_util.save(active.id + "/" + SAVE_STATE_FILE, active)
+
+	# save checksum
+	checksum_list.save(active.id + "/" + SAVE_STATE_FILE)
+	json_util.save(CHECKSUM_FILE, checksum_list)
 
 
 func load_save_state_data() -> void:
@@ -149,7 +159,11 @@ func _save_data(save_state: SaveState) -> void:
 	print("save data...")
 	var path: String = save_state.id + "/"
 	json_util.save(path + DATA_FILE, Global.world)
+
+	# create backup
 	backup_util.create(path + DATA_FILE)
+
+	checksum_list.save(path + DATA_FILE)
 
 	var csv_path: String = SAVE_STATES_PATH + save_state.id + "/"
 
@@ -158,12 +172,14 @@ func _save_data(save_state: SaveState) -> void:
 		csv_path + Const.CSV_PLAYERS_FILE,
 		csv_util.players_to_csv(Global.world)
 	)
+	checksum_list.save(csv_path + Const.CSV_PLAYERS_FILE)
 
 	# free agents
 	csv_util.save_csv(
 		csv_path + Const.CSV_FREE_AGENTS_FILE,
 		csv_util.free_agents_to_csv(Global.world)
 	)
+	checksum_list.save(csv_path + Const.CSV_FREE_AGENTS_FILE)
 	
 	# history match days csv
 	# TODO: could be optimized even more by just appending new history,
@@ -174,12 +190,14 @@ func _save_data(save_state: SaveState) -> void:
 			csv_util.match_days_to_csv(Global.match_list.history_match_days),
 		)
 		write_match_history = false
+		checksum_list.save(csv_path + Const.CSV_MATCH_HISTORY_FILE)
 
 	# match days csv
 	csv_util.save_csv(
 		csv_path + Const.CSV_MATCH_LIST_FILE,
 		csv_util.match_days_to_csv([Global.match_list.match_days]),
 	)
+	checksum_list.save(csv_path + Const.CSV_MATCH_LIST_FILE)
 
 	# calendar
 	# TODO can be optimized by saving only date that changes in first line
@@ -187,16 +205,22 @@ func _save_data(save_state: SaveState) -> void:
 		csv_path + Const.CSV_CALENDAR_FILE,
 		csv_util.calendar_to_csv(Global.calendar)
 	)
+	checksum_list.save(csv_path + Const.CSV_CALENDAR_FILE)
 
 	# inbox
 	csv_util.save_csv(
 		csv_path + Const.CSV_INBOX_FILE,
 		csv_util.inbox_to_csv(Global.inbox)
 	)
+	checksum_list.save(csv_path + Const.CSV_INBOX_FILE)
 
 	# offer list
 	csv_util.save_csv(
 		csv_path + Const.CSV_OFFER_LIST_FILE,
 		csv_util.transfer_list_to_csv(Global.transfer_list)
 	)
+	checksum_list.save(csv_path + Const.CSV_OFFER_LIST_FILE)
+
+	# save checksum list list once at end
+	json_util.save(path + CHECKSUM_FILE, checksum_list)
 

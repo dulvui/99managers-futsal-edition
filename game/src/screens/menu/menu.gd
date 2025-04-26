@@ -30,7 +30,7 @@ func _ready() -> void:
 
 	Main.check_layout_direction()
 
-	DataUtil.loading_failed.connect(_on_res_util_loading_failed)
+	DataUtil.json_util.loading_failed.connect(_on_res_util_loading_failed)
 
 	# always reset data in menu, to clear memory
 	Global.reset_data()
