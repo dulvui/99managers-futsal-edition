@@ -5,32 +5,34 @@
 class_name ChecksumList
 extends JSONResource
 
-@export var list: Dictionary[String, Checksum]
+@export var list: Array[Checksum]
 
 
 func _init(
-	p_list: Dictionary[String, Checksum] = {},
+	p_list: Array[Checksum] = [],
 ) -> void:
 	list = p_list
 
 
 func save(path: StringName) -> void:
-	var checksum: Checksum = list.get(path)
+	for checksum: Checksum in list:
+		if checksum.path == path:
+			checksum.unix_timestamp = int(Time.get_unix_time_from_system())
+			checksum.sha256 = FileAccess.get_sha256(path)
+			return
 
-	if checksum == null:
-		checksum = Checksum.new()
-		checksum.path = path
-		list[path] = checksum
-
+	var checksum: Checksum = Checksum.new()
+	checksum.path = path
 	checksum.unix_timestamp = int(Time.get_unix_time_from_system())
 	checksum.sha256 = FileAccess.get_sha256(path)
+	list.append(checksum)
+
 
 
 func check(path: StringName) -> bool:
-	var checksum: Checksum = list.get(path)
+	for checksum: Checksum in list:
+		if checksum.path == path:
+			return FileAccess.get_sha256(checksum.path) == checksum.sha256
 
-	if checksum == null:
-		return false
-
-	return FileAccess.get_sha256(checksum.path) == checksum.sha256
+	return false
 

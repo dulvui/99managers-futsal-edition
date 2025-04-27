@@ -26,7 +26,7 @@ func _ready() -> void:
 			entry_list.add_child(entry)
 			entry.setup(save_state)
 
-	DataUtil.loading_failed.connect(_on_res_util_loading_failed)
+	DataUtil.json_util.loading_failed.connect(_on_res_util_loading_failed)
 
 	save_states_path.text = ProjectSettings.globalize_path(DataUtil.SAVE_STATES_PATH)
 	trash_notice.visible = not OS.get_name() in "iOS,Web"

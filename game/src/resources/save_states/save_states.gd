@@ -77,3 +77,4 @@ func scan() -> void:
 			if not file in id_list:
 				print("new state id found %s" % file)
 				id_list.append(file)
+

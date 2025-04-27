@@ -536,8 +536,8 @@ func save_csv(path: String, csv: Array[PackedStringArray], append: bool = false)
 
 	# create directory, if not exist yet
 	var dir_path: String = path.get_base_dir()
-	var dir: DirAccess = DirAccess.open(DataUtil.USER_PATH)
-	if not dir.dir_exists(dir_path):
+	var dir: DirAccess = DirAccess.open(dir_path)
+	if not dir.dir_exists(path):
 		print("dir %s not found, creating now..." % dir_path)
 		var err_dir: Error = dir.make_dir_recursive(dir_path)
 		if err_dir != OK:
