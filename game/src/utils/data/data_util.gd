@@ -4,8 +4,8 @@
 
 extends Node
 
-
-const SAVE_STATES_PATH: StringName = "user://save_states/"
+const USER_PATH: StringName = "user://"
+const SAVE_STATES_PATH: StringName = USER_PATH + "save_states/"
 
 const SAVE_STATES_FILE: StringName =  SAVE_STATES_PATH + "save_states.json"
 const CONFIG_FILE: StringName = SAVE_STATES_PATH + "settings_config.json"
@@ -55,7 +55,7 @@ func save_save_states() -> void:
 
 func load_save_state(id: String) -> SaveState:
 	var save_state: SaveState = SaveState.new()
-	json_util.save(id + "/" + SAVE_STATE_FILE, save_state)
+	json_util.load(SAVE_STATES_PATH + id + "/" + SAVE_STATE_FILE, save_state)
 	return save_state
 
 
@@ -64,6 +64,7 @@ func save_save_state() -> void:
 	if active == null:
 		print("no active save state found to save")
 		return
+
 	# save id by type
 	var path: String = SAVE_STATES_PATH + active.id + "/"
 	active.id_by_type = IdUtil.id_by_type
@@ -94,7 +95,7 @@ func save_save_state_data() -> void:
 
 
 func _load_data(save_state: SaveState) -> void:
-	var path: String = save_state.id + "/"
+	var path: String = SAVE_STATES_PATH + save_state.id + "/"
 
 	# load main data from json
 	var world: World = World.new()

@@ -16,6 +16,7 @@ func _ready() -> void:
 
 
 func fade_in(duration: float = DURATION) -> void:
+	# hide scene fade immediatly, if scenefade settings is disabled
 	if not Global.config.scene_fade:
 		hide()
 		return
@@ -25,8 +26,7 @@ func fade_in(duration: float = DURATION) -> void:
 		return
 
 	show()
-	var tween: Tween
-	tween = create_tween()
+	var tween: Tween = create_tween()
 	tween.tween_property(self, "modulate", Color.WHITE, duration)
 	await tween.finished
 
@@ -34,6 +34,7 @@ func fade_in(duration: float = DURATION) -> void:
 
 
 func fade_out(duration: float = DURATION) -> void:
+	# hide scene fade immediatly, if scenefade settings is disabled
 	if not Global.config.scene_fade:
 		hide()
 		return
@@ -42,8 +43,7 @@ func fade_out(duration: float = DURATION) -> void:
 	if not visible:
 		return
 
-	var tween: Tween
-	tween = create_tween()
+	var tween: Tween = create_tween()
 	tween.tween_property(self, "modulate", Color.TRANSPARENT, duration)
 	await tween.finished
 

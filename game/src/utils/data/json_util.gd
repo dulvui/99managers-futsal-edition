@@ -22,7 +22,7 @@ func save(path: String, resource: JSONResource) -> void:
 
 	# create directory, if not exist yet
 	var dir_path: String = path.get_base_dir()
-	var dir: DirAccess = DirAccess.open(dir_path)
+	var dir: DirAccess = DirAccess.open(DataUtil.USER_PATH)
 	if not dir.dir_exists(path):
 		print("dir %s not found, creating now..." % dir_path)
 		var err_dir: Error = dir.make_dir_recursive(dir_path)
@@ -39,6 +39,7 @@ func save(path: String, resource: JSONResource) -> void:
 		file = FileAccess.open(path, FileAccess.WRITE)
 
 	if file == null:
+		breakpoint
 		push_error("error while opening file: file is null")
 		return
 

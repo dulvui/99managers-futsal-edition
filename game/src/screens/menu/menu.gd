@@ -30,7 +30,7 @@ func _ready() -> void:
 
 	Main.check_layout_direction()
 
-	DataUtil.json_util.loading_failed.connect(_on_res_util_loading_failed)
+	DataUtil.json_util.loading_failed.connect(_on_loading_failed)
 
 	# always reset data in menu, to clear memory
 	Global.reset_data()
@@ -58,9 +58,8 @@ func _on_load_game_pressed() -> void:
 	Main.change_scene(Const.SCREEN_SAVE_STATES)
 
 
-func _on_res_util_loading_failed() -> void:
-	print("loading failed...")
-	Main.hide_loading_screen()
+func _on_loading_failed() -> void:
+	print("loading game in menu failed...")
 	Main.change_scene(Const.SCREEN_SAVE_STATES)
 
 
