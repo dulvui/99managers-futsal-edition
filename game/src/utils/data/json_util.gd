@@ -89,9 +89,9 @@ func load(path: String, resource: JSONResource) -> Error:
 		print("parsing file %s error with code %d after backup" % [path, err])
 		return err
 
-	# convert to json resource
 	file.close()
 
+	# convert to json resource
 	var parsed_json: Dictionary = json.data
 	resource.from_json(parsed_json)
 

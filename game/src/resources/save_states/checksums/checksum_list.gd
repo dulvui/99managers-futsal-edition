@@ -33,5 +33,6 @@ func check(path: StringName) -> bool:
 		if checksum.path == path:
 			return FileAccess.get_sha256(checksum.path) == checksum.sha256
 
-	return false
+	# if not found, assume it's correct
+	return true
 

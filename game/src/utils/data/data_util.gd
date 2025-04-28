@@ -91,8 +91,9 @@ func load_data() -> void:
 	Main.call_deferred("update_loading_progress", 0.1)
 
 	# load main data from json
-	if not checksum_list.check(path + DATA_FILE):
-		backup_util.restore(path + DATA_FILE)
+	if not _validate_file(path + DATA_FILE):
+		loading_failed.emit()
+		return
 	err = json_util.load(path + DATA_FILE, world)
 	if err != OK:
 		loading_failed.emit()
@@ -104,8 +105,9 @@ func load_data() -> void:
 
 	# players csv
 	var csv_path: String = path + Const.CSV_PLAYERS_FILE
-	if not checksum_list.check(csv_path):
-		backup_util.restore(csv_path)
+	if not _validate_file(csv_path):
+		loading_failed.emit()
+		return
 	var csv: Array[PackedStringArray] = csv_util.read_csv(csv_path)
 	# check for errors
 	err = csv_util.get_error()
@@ -117,8 +119,9 @@ func load_data() -> void:
 
 	# free_agents csv
 	csv_path = path + Const.CSV_FREE_AGENTS_FILE
-	if not checksum_list.check(csv_path):
-		backup_util.restore(csv_path)
+	if not _validate_file(csv_path):
+		loading_failed.emit()
+		return
 	csv = csv_util.read_csv(csv_path)
 	# check for errors
 	err = csv_util.get_error()
@@ -129,23 +132,25 @@ func load_data() -> void:
 	Main.call_deferred("update_loading_progress", 0.4)
 
 	# history match days csv, read only
-	Global.match_list = MatchList.new()
 	csv_path = path + Const.CSV_MATCH_HISTORY_FILE
-	if not checksum_list.check(csv_path):
-		backup_util.restore(csv_path)
+	if not _validate_file(csv_path):
+		loading_failed.emit()
+		return
 	csv = csv_util.read_csv(csv_path)
 	# check for errors
 	err = csv_util.get_error()
 	if err != OK:
 		loading_failed.emit()
 		return
+	Global.match_list = MatchList.new()
 	Global.match_list.history_match_days = csv_util.csv_to_match_days(csv)
 	Main.call_deferred("update_loading_progress", 0.5)
 
 	# match days csv
 	csv_path = path + Const.CSV_MATCH_LIST_FILE
-	if not checksum_list.check(csv_path):
-		backup_util.restore(csv_path)
+	if not _validate_file(csv_path):
+		loading_failed.emit()
+		return
 	csv = csv_util.read_csv(csv_path)
 	# check for errors
 	err = csv_util.get_error()
@@ -162,8 +167,9 @@ func load_data() -> void:
 	
 	# calendar csv
 	csv_path = path + Const.CSV_CALENDAR_FILE
-	if not checksum_list.check(csv_path):
-		backup_util.restore(csv_path)
+	if not _validate_file(csv_path):
+		loading_failed.emit()
+		return
 	csv = csv_util.read_csv(csv_path)
 	# check for errors
 	err = csv_util.get_error()
@@ -175,8 +181,9 @@ func load_data() -> void:
 
 	# inbox csv
 	csv_path = path + Const.CSV_INBOX_FILE
-	if not checksum_list.check(csv_path):
-		backup_util.restore(csv_path)
+	if not _validate_file(csv_path):
+		loading_failed.emit()
+		return
 	csv = csv_util.read_csv(csv_path)
 	# check for errors
 	err = csv_util.get_error()
@@ -188,17 +195,19 @@ func load_data() -> void:
 
 	# offer list csv
 	csv_path = path + Const.CSV_OFFER_LIST_FILE
-	if not checksum_list.check(csv_path):
-		backup_util.restore(csv_path)
+	if not _validate_file(csv_path):
+		loading_failed.emit()
+		return
 	csv = csv_util.read_csv(csv_path)
 	# check for errors
 	err = csv_util.get_error()
 	if err != OK:
 		loading_failed.emit()
 		return
-
 	Global.transfer_list = csv_util.csv_to_transfer_list(csv)
+	Main.call_deferred("update_loading_progress", 0.9)
 
+	# assign all global references
 	IdUtil.id_by_type = active.id_by_type
 	Global.team = Global.world.get_active_team()
 	Global.manager = Global.team.staff.manager
@@ -301,4 +310,12 @@ func save_data() -> void:
 	checksum_list.save(path + Const.CSV_OFFER_LIST_FILE)
 	backup_util.create(path + Const.CSV_OFFER_LIST_FILE)
 	Main.call_deferred("update_loading_progress", 1.0)
+
+
+func _validate_file(path: String) -> bool:
+	if checksum_list.check(path):
+		return true
+	# validation failed, restore backup and check
+	backup_util.restore(path)
+	return checksum_list.check(path)
 
