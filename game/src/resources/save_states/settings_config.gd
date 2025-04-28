@@ -54,3 +54,4 @@ func set_lang(lang: String) -> void:
 	TranslationServer.set_locale(lang)
 	language = lang
 	DataUtil.save_config()
+

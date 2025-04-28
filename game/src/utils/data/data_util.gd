@@ -202,6 +202,7 @@ func _save_data(save_state: SaveState) -> void:
 	print("save data...")
 	var path: String = SAVE_STATES_PATH + save_state.id + "/"
 	json_util.save(path + DATA_FILE, Global.world)
+	Main.call_deferred("update_loading_progress", 0.2)
 
 	# create backup
 	backup_util.create(path + DATA_FILE)
@@ -213,6 +214,7 @@ func _save_data(save_state: SaveState) -> void:
 		csv_util.players_to_csv(Global.world)
 	)
 	checksum_list.save(path + Const.CSV_PLAYERS_FILE)
+	Main.call_deferred("update_loading_progress", 0.3)
 
 	# free agents
 	csv_util.save_csv(
@@ -220,6 +222,7 @@ func _save_data(save_state: SaveState) -> void:
 		csv_util.free_agents_to_csv(Global.world)
 	)
 	checksum_list.save(path + Const.CSV_FREE_AGENTS_FILE)
+	Main.call_deferred("update_loading_progress", 0.4)
 	
 	# history match days csv
 	# TODO: could be optimized even more by just appending new history,
@@ -238,6 +241,7 @@ func _save_data(save_state: SaveState) -> void:
 		csv_util.match_days_to_csv([Global.match_list.match_days]),
 	)
 	checksum_list.save(path + Const.CSV_MATCH_LIST_FILE)
+	Main.call_deferred("update_loading_progress", 0.6)
 
 	# calendar
 	# TODO can be optimized by saving only date that changes in first line
@@ -246,6 +250,7 @@ func _save_data(save_state: SaveState) -> void:
 		csv_util.calendar_to_csv(Global.calendar)
 	)
 	checksum_list.save(path + Const.CSV_CALENDAR_FILE)
+	Main.call_deferred("update_loading_progress", 0.7)
 
 	# inbox
 	csv_util.save_csv(
@@ -253,6 +258,7 @@ func _save_data(save_state: SaveState) -> void:
 		csv_util.inbox_to_csv(Global.inbox)
 	)
 	checksum_list.save(path + Const.CSV_INBOX_FILE)
+	Main.call_deferred("update_loading_progress", 0.8)
 
 	# offer list
 	csv_util.save_csv(
@@ -260,7 +266,10 @@ func _save_data(save_state: SaveState) -> void:
 		csv_util.transfer_list_to_csv(Global.transfer_list)
 	)
 	checksum_list.save(path + Const.CSV_OFFER_LIST_FILE)
+	Main.call_deferred("update_loading_progress", 0.9)
 
 	# save checksum list list once at end
 	json_util.save(path + CHECKSUM_FILE, checksum_list)
+	Main.call_deferred("update_loading_progress", 1.0)
+
 
