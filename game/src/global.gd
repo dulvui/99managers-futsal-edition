@@ -107,7 +107,7 @@ func next_day() -> void:
 			p_league.playouts.next_stage()
 
 
-func next_season(save_data: bool = true) -> void:
+func next_season() -> void:
 	current_season += 1
 
 	# TODO
@@ -134,9 +134,6 @@ func next_season(save_data: bool = true) -> void:
 	var match_util: MatchUtil = MatchUtil.new(world)
 	match_util.initialize_matches()
 
-	if save_data:
-		ThreadUtil._save_all_data()
-
 
 func load_save_state() -> bool:
 	var save_sate: SaveState = save_states.get_active()
@@ -148,7 +145,6 @@ func load_save_state() -> bool:
 		generation_seed = save_sate.generation_seed
 		generation_state = save_sate.generation_state
 		generation_player_names = save_sate.generation_player_names
-		# DataUtil.load_data()
 		ThreadUtil.load_data()
 		return true
 
