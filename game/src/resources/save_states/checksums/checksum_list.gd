@@ -31,8 +31,8 @@ func save(path: StringName) -> void:
 func check(path: StringName) -> bool:
 	for checksum: Checksum in list:
 		if checksum.path == path:
-			return FileAccess.get_sha256(checksum.path) == checksum.sha256
+			return FileAccess.get_sha256(path) == checksum.sha256
 
-	# if not found, assume it's correct
-	return true
+	push_warning("checksum check failed, path %s not found in list" % path)
+	return false
 

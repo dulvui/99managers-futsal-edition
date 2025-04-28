@@ -76,7 +76,7 @@ func load(path: String, resource: JSONResource) -> Error:
 	# check errors
 	var err: Error = FileAccess.get_open_error()
 	if err != OK:
-		print("opening file %s error with code %d after backup attempt." % [path, err])
+		print("opening file %s error with code %d." % [path, err])
 		return err
 
 	# load and parse file
@@ -86,7 +86,7 @@ func load(path: String, resource: JSONResource) -> Error:
 
 	# check for parsing errors
 	if err != OK:
-		print("parsing file %s error with code %d after backup" % [path, err])
+		print("parsing file %s error with code %d" % [path, err])
 		return err
 
 	file.close()

@@ -234,6 +234,8 @@ func _generate_players(world: World) -> bool:
 					_generate_missing_properties(nation, league, team)
 					players_count += team.players.size()
 
+	Main.call_deferred("update_loading_progress", 0.6)
+
 	# generate free agents, around 10% of total players
 	var free_agents_amount: int = int(players_count * Const.FREE_AGENTS_PERCENTAGE)
 	# make sure minimum is respected

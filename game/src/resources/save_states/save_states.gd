@@ -5,10 +5,10 @@
 class_name SaveStates
 extends JSONResource
 
-var active: SaveState
-
 @export var id_list: Array[String]
 @export var active_id: String
+
+var active: SaveState
 
 
 func _init(

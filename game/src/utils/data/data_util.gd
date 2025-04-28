@@ -28,8 +28,6 @@ func _init() -> void:
 	backup_util = BackupUtil.new()
 	json_util = JSONUtil.new()
 	csv_util = CSVUtil.new()
-	checksum_list = ChecksumList.new()
-	
 	write_match_history = false
 
 
@@ -71,20 +69,23 @@ func save_save_states() -> void:
 
 func load_save_state(id: String) -> SaveState:
 	var save_state: SaveState = SaveState.new()
-	json_util.load(SAVE_STATES_PATH + id + "/" + SAVE_STATE_FILE, save_state)
+	var path: String = SAVE_STATES_PATH + id + "/"
+
+	_load_checksum_list(path)
+
+	# load main data from json
+	if not _validate_file(path + SAVE_STATE_FILE):
+		loading_failed.emit()
+		return null
+	json_util.load(path + SAVE_STATE_FILE, save_state)
 	return save_state
 
 
 func load_data() -> void:
 	var active: SaveState = Global.save_states.get_active()
 	var path: String = SAVE_STATES_PATH + active.id + "/"
-
-	# load checksums
-	checksum_list = ChecksumList.new()
-	var err: Error = json_util.load(path + CHECKSUM_FILE, checksum_list)
-	if err != OK:
-		backup_util.restore(path + CHECKSUM_FILE)
-		json_util.load(path + CHECKSUM_FILE, checksum_list)
+	
+	_load_checksum_list(path)
 
 	var world: World = World.new()
 
@@ -94,7 +95,7 @@ func load_data() -> void:
 	if not _validate_file(path + DATA_FILE):
 		loading_failed.emit()
 		return
-	err = json_util.load(path + DATA_FILE, world)
+	var err: Error = json_util.load(path + DATA_FILE, world)
 	if err != OK:
 		loading_failed.emit()
 		return
@@ -225,19 +226,16 @@ func save_data() -> void:
 		print("no active save state found to save")
 		return
 
-	checksum_list = ChecksumList.new()
-
-	# save id by type
 	var path: String = SAVE_STATES_PATH + active.id + "/"
+	_load_checksum_list(path)
+
+	# save id by type, first
 	active.id_by_type = IdUtil.id_by_type
+	# save save state
 	json_util.save(path + SAVE_STATE_FILE, active)
 
 	# add save state checksum
 	checksum_list.save(path + SAVE_STATE_FILE)
-
-	# save checksum
-	json_util.save(path + CHECKSUM_FILE, checksum_list)
-	backup_util.create(path + CHECKSUM_FILE)
 
 	# save world
 	json_util.save(path + DATA_FILE, Global.world)
@@ -271,8 +269,9 @@ func save_data() -> void:
 			csv_util.match_days_to_csv(Global.match_list.history_match_days),
 		)
 		write_match_history = false
-		checksum_list.save(path + Const.CSV_MATCH_HISTORY_FILE)
 		backup_util.create(path + Const.CSV_MATCH_HISTORY_FILE)
+		checksum_list.save(path + Const.CSV_MATCH_HISTORY_FILE)
+
 
 	# match days csv
 	csv_util.save_csv(
@@ -309,6 +308,11 @@ func save_data() -> void:
 	)
 	checksum_list.save(path + Const.CSV_OFFER_LIST_FILE)
 	backup_util.create(path + Const.CSV_OFFER_LIST_FILE)
+
+	# save checksum
+	json_util.save(path + CHECKSUM_FILE, checksum_list)
+	backup_util.create(path + CHECKSUM_FILE)
+
 	Main.call_deferred("update_loading_progress", 1.0)
 
 
@@ -317,5 +321,17 @@ func _validate_file(path: String) -> bool:
 		return true
 	# validation failed, restore backup and check
 	backup_util.restore(path)
+	breakpoint
 	return checksum_list.check(path)
+
+
+func _load_checksum_list(path: StringName) -> void:
+	checksum_list = ChecksumList.new()
+	var err: Error = json_util.load(path + CHECKSUM_FILE, checksum_list)
+	if err != OK:
+		backup_util.restore(path + CHECKSUM_FILE)
+		err = json_util.load(path + CHECKSUM_FILE, checksum_list)
+		if err != OK:
+			push_error("error while loading checksum list from path %s with code %d" % [path + CHECKSUM_FILE, err])
+
 
