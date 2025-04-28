@@ -321,7 +321,6 @@ func _validate_file(path: String) -> bool:
 		return true
 	# validation failed, restore backup and check
 	backup_util.restore(path)
-	breakpoint
 	return checksum_list.check(path)
 
 

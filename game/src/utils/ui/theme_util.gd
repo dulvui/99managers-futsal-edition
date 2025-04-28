@@ -62,8 +62,8 @@ const FONT_FILE: StringName = BASE_PATH + "label/font.tres"
 const FONT_BOLD_FILE: StringName = BASE_PATH + "label/font_bold.tres"
 
 const THEMES: Dictionary = {
-	"DARK": "theme_dark.tres",
 	"LIGHT": "theme_light.tres",
+	"DARK": "theme_dark.tres",
 	"SOLARIZED_LIGHT": "theme_solarized_light.tres",
 	"SOLARIZED_DARK": "theme_solarized_dark.tres",
 	"RED": "theme_red.tres",
@@ -180,8 +180,8 @@ func is_custom_theme() -> bool:
 func get_theme_names(show_custom: bool = false) -> Array:
 	if show_custom:
 		return [
-			tr("Dark"),
 			tr("Light"),
+			tr("Dark"),
 			tr("Solarized light"),
 			tr("Solarized dark"),
 			tr("Red"),
@@ -189,8 +189,8 @@ func get_theme_names(show_custom: bool = false) -> Array:
 			tr("Custom theme"),
 		]
 	return [
-		tr("Dark"),
 		tr("Light"),
+		tr("Dark"),
 		tr("Solarized light"),
 		tr("Solarized dark"),
 		tr("Red"),
