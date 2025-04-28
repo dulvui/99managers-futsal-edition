@@ -18,8 +18,13 @@ func enter() -> void:
 	wait = 4
 	owner.field.penalty_ready = false
 
-	owner.player.head_look = owner.field.goals.left
-	owner.player.set_destination(owner.field.goals.left)
+	# during penalties, pick always left goal
+	if owner.field.penalties or owner.player.left_half:
+		owner.player.head_look = owner.field.goals.left
+		owner.player.set_destination(owner.field.goals.left)
+	else:
+		owner.player.head_look = owner.field.goals.right
+		owner.player.set_destination(owner.field.goals.right)
 
 	is_saving = false
 	# pick random spot where goalkeeper will try to save
