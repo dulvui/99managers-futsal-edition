@@ -280,3 +280,4 @@ func _set_start_positions() -> void:
 			field.size, players.find(player), left_half
 		)
 		player.start_pos = start_pos
+

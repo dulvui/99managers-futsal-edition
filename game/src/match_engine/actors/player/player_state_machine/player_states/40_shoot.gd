@@ -11,6 +11,11 @@ func _init() -> void:
 
 
 func enter() -> void:
+	# shoot on goal
 	owner.field.ball.shoot_on_goal(owner.player.player_res, owner.team.left_half)
+
+	# set opponent goalkeeper in save state
+	owner.team.team_opponents.players[0].set_state(PlayerStateGoalkeeperSaveShot.new())
+
 	set_state(PlayerStateAttack.new())
-	return
+

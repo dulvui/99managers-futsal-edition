@@ -72,7 +72,8 @@ func dribble(p_destination: Vector2, force: float) -> void:
 
 func shoot_on_goal(player: Player, left_half: bool) -> void:
 	# print("shoot on goal")
-	var power: int = player.attributes.technical.shooting
+	var power: int = rng.randi_range(10, 20)
+	power += player.attributes.technical.shooting
 
 	var random_target: Vector2
 	if left_half:
@@ -82,7 +83,7 @@ func shoot_on_goal(player: Player, left_half: bool) -> void:
 
 	random_target += Vector2(0, rng.randf_range(-field.goals.size, field.goals.size))
 
-	shoot(random_target, power * rng.randi_range(1, 3))
+	shoot(random_target, power)
 
 
 func penalty(player: Player) -> void:

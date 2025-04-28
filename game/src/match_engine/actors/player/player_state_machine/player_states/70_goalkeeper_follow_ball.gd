@@ -11,6 +11,7 @@ func _init() -> void:
 
 
 func execute() -> void:
+	# touching ball
 	if owner.player.is_touching_ball():
 		owner.team.player_control(owner.player)
 		owner.team.gain_possession()
@@ -20,11 +21,6 @@ func execute() -> void:
 	if owner.team.has_ball:
 		owner.player.move_defense_pos()
 		return
-
-	# if close to ball, chase it
-	# if owner.player.pos.distance_squared_to(owner.field.ball.pos) < 5600:
-	# 	set_state(PlayerStateChaseBall.new())
-	# 	return
 
 	# only follow if in own half
 	if owner.player.left_half:
@@ -47,3 +43,4 @@ func execute() -> void:
 			)
 		else:
 			owner.player.set_destination(owner.player.right_base)
+
