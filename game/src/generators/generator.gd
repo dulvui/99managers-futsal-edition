@@ -58,6 +58,7 @@ func initialize_world(world: World, world_file_path: String = Const.WORLD_CSV_PA
 	# reset warnings/errors
 	Global.generation_warnings = []
 	Global.generation_errors = []
+	Main.call_deferred("update_loading_progress", 0.0)
 
 	# set start date/year
 	start_date = Global.start_date
@@ -96,6 +97,8 @@ func initialize_world(world: World, world_file_path: String = Const.WORLD_CSV_PA
 		push_error("world not valid %s" % world_file_path)
 		return false
 
+	Main.call_deferred("update_loading_progress", 0.1)
+
 	# initialize league promotion/relegation amounts
 	for continent: Continent in world.continents:
 		for nation: Nation in continent.nations:
@@ -132,6 +135,8 @@ func initialize_world(world: World, world_file_path: String = Const.WORLD_CSV_PA
 						upper_league.playout_teams = 0
 					league.direct_promotion_teams = upper_league.direct_relegation_teams
 
+	Main.call_deferred("update_loading_progress", 0.2)
+
 	# make world global, needed for matchutil
 	Global.world = world
 
@@ -140,8 +145,12 @@ func initialize_world(world: World, world_file_path: String = Const.WORLD_CSV_PA
 	# first generate clubs history with promotions, delegations, cup wins
 	history.generate_club_history(world)
 
+	Main.call_deferred("update_loading_progress", 0.3)
+
 	# now also read players from, after history generation
 	csv_util.csv_to_players(csv, world, true)
+
+	Main.call_deferred("update_loading_progress", 0.5)
 
 
 	# initialize min/max date ranges for birthdays, contracts ecc
@@ -151,6 +160,8 @@ func initialize_world(world: World, world_file_path: String = Const.WORLD_CSV_PA
 	# because histroy generation swaps team ids and names
 	var success_players: bool = _generate_players(world)
 
+	Main.call_deferred("update_loading_progress", 0.7)
+
 	# go back if players are not valid
 	if not success_players:
 		print("error reading players from file %d errors occurred." % Global.generation_errors.size())
@@ -158,6 +169,8 @@ func initialize_world(world: World, world_file_path: String = Const.WORLD_CSV_PA
 
 	# then generate player histroy with transfers and statistics
 	history.generate_player_history(world)
+
+	Main.call_deferred("update_loading_progress", 0.8)
 
 	# initialize national teams
 	for continent: Continent in world.continents:
@@ -172,9 +185,13 @@ func initialize_world(world: World, world_file_path: String = Const.WORLD_CSV_PA
 			# TODO replace with actual national colors
 			_set_random_shirt_colors(nation.team)
 
+	Main.call_deferred("update_loading_progress", 0.9)
+
 	# create matches for current season
 	var match_util: MatchUtil = MatchUtil.new(world)
 	match_util.initialize_matches()
+
+	Main.call_deferred("update_loading_progress", 1.0)
 	
 	return true
 

@@ -103,7 +103,7 @@ func _load_data(save_state: SaveState) -> Error:
 	var err: Error = OK
 	var path: String = SAVE_STATES_PATH + save_state.id + "/"
 
-	Main.call_deferred("update_loading_progress", 0.0)
+	Main.call_deferred("update_loading_progress", 0.1)
 
 	# load main data from json
 	var world: World = World.new()
@@ -201,8 +201,10 @@ func _load_data(save_state: SaveState) -> Error:
 func _save_data(save_state: SaveState) -> void:
 	print("save data...")
 	var path: String = SAVE_STATES_PATH + save_state.id + "/"
+	Main.call_deferred("update_loading_progress", 0.1)
+
 	json_util.save(path + DATA_FILE, Global.world)
-	Main.call_deferred("update_loading_progress", 0.2)
+
 
 	# create backup
 	backup_util.create(path + DATA_FILE)
