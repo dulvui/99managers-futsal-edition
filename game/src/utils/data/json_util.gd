@@ -4,8 +4,6 @@
 
 class_name JSONUtil
 
-signal loading_failed
-
 const COMPRESSION_ON: bool = false
 const COMPRESSION_MODE: FileAccess.CompressionMode = FileAccess.CompressionMode.COMPRESSION_GZIP
 const FILE_SUFFIX_COMPRESS: StringName = ".save"
@@ -63,7 +61,7 @@ func save(path: String, resource: JSONResource) -> void:
 	print("saving %s done..." % path)
 
 
-func load(path: String, resource: JSONResource) -> void:
+func load(path: String, resource: JSONResource) -> Error:
 	# make sure path is lower case
 	path = path.to_lower()
 
@@ -76,26 +74,26 @@ func load(path: String, resource: JSONResource) -> void:
 		file = FileAccess.open(path, FileAccess.READ)
 
 	# check errors
-	var err: int = FileAccess.get_open_error()
+	var err: Error = FileAccess.get_open_error()
 	if err != OK:
 		print("opening file %s error with code %d after backup attempt." % [path, err])
-		loading_failed.emit()
-		return
+		return err
 
 	# load and parse file
 	var file_text: String = file.get_as_text()
 	var json: JSON = JSON.new()
-	var result: int = json.parse(file_text)
+	err = json.parse(file_text)
 
 	# check for parsing errors
-	if result != OK:
-		print("parsing file %s error with code %d after backup" % [path, result])
-		loading_failed.emit()
-		return
+	if err != OK:
+		print("parsing file %s error with code %d after backup" % [path, err])
+		return err
 
 	# convert to json resource
 	file.close()
 
 	var parsed_json: Dictionary = json.data
 	resource.from_json(parsed_json)
+
+	return OK
 

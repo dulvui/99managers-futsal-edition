@@ -29,6 +29,7 @@ func update(p_progress: float) -> void:
 func update_message(p_message: String) -> void:
 	message = p_message
 	message_label.text = message
+	queue_redraw()
 
 
 func _loaded() -> void:
@@ -42,3 +43,4 @@ func _on_visibility_changed() -> void:
 		loading_progress_bar.indeterminate = indeterminate
 		message_label.text = message
 		loading_progress_bar.value = progress
+

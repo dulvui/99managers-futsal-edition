@@ -30,7 +30,7 @@ func _ready() -> void:
 
 	Main.check_layout_direction()
 
-	DataUtil.json_util.loading_failed.connect(_on_loading_failed)
+	DataUtil.loading_failed.connect(_on_loading_failed)
 
 	# always reset data in menu, to clear memory
 	Global.reset_data()
@@ -41,9 +41,9 @@ func _on_new_game_pressed() -> void:
 
 
 func _on_continue_game_pressed() -> void:
-	if Global.load_save_state():
-		Main.set_scene_on_load(Const.SCREEN_DASHBOARD)
-		Main.show_loading_screen(tr("Loading game"))
+	Main.set_scene_on_load(Const.SCREEN_DASHBOARD)
+	await Main.show_loading_screen(tr("Loading game"))
+	Global.load_save_state()
 
 
 func _on_settings_pressed() -> void:
@@ -59,8 +59,7 @@ func _on_load_game_pressed() -> void:
 
 
 func _on_loading_failed() -> void:
-	print("loading game in menu failed...")
-	Main.change_scene(Const.SCREEN_SAVE_STATES)
+	Main.call_deferred("change_scene", Const.SCREEN_SAVE_STATES)
 
 
 func _on_exit_pressed() -> void:
@@ -69,3 +68,4 @@ func _on_exit_pressed() -> void:
 
 func _on_default_confirm_dialog_confirmed() -> void:
 	get_tree().quit()
+

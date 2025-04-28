@@ -1,6 +1,6 @@
 [gd_scene load_steps=4 format=3 uid="uid://btngec2y1weql"]
 
-[ext_resource type="Script" uid="uid://bfh2q3trewvon" path="res://src/screens/loading_screen/loading_screen.gd" id="2_sfhks"]
+[ext_resource type="Script" uid="uid://bfh2q3trewvon" path="res://src/screens/main/loading_screen/loading_screen.gd" id="2_sfhks"]
 [ext_resource type="LabelSettings" uid="uid://b4gu78rjvdfx4" path="res://theme_base/label/label_settings_title.tres" id="4_jlxu5"]
 [ext_resource type="PackedScene" uid="uid://ck1i6uxkqg3pi" path="res://src/ui_components/player_silhouette/player_silhouette.tscn" id="4_vsrlt"]
 

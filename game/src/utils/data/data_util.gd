@@ -4,6 +4,8 @@
 
 extends Node
 
+signal loading_failed
+
 const USER_PATH: StringName = "user://"
 const SAVE_STATES_PATH: StringName = USER_PATH + "save_states/"
 
@@ -79,7 +81,10 @@ func load_save_state_data() -> void:
 	var active: SaveState = Global.save_states.get_active()
 	IdUtil.id_by_type = active.id_by_type
 
-	_load_data(active)
+	var err: Error = _load_data(active)
+	if err != OK:
+		loading_failed.emit()
+		return
 
 	Global.team = Global.world.get_active_team()
 	Global.manager = Global.team.staff.manager
@@ -94,13 +99,20 @@ func save_save_state_data() -> void:
 	_save_data(active)
 
 
-func _load_data(save_state: SaveState) -> void:
+func _load_data(save_state: SaveState) -> Error:
+	var err: Error = OK
 	var path: String = SAVE_STATES_PATH + save_state.id + "/"
+
+	Main.call_deferred("update_loading_progress", 0.0)
 
 	# load main data from json
 	var world: World = World.new()
-	json_util.load(path + DATA_FILE, world)
+	err = json_util.load(path + DATA_FILE, world)
+	if err != OK:
+		return err
 	Global.world = world
+
+	Main.call_deferred("update_loading_progress", 0.2)
 
 	# the rest is loaded as csv
 	var csv_path: String = SAVE_STATES_PATH + save_state.id + "/"
@@ -110,12 +122,22 @@ func _load_data(save_state: SaveState) -> void:
 	csv_util.csv_to_players(
 		csv_util.read_csv(players_csv_path), world
 	)
+	# check for errors
+	err = csv_util.get_error()
+	if err != OK:
+		return err
+	Main.call_deferred("update_loading_progress", 0.3)
 
 	# free_agents csv
 	var free_agents_csv_path: String = csv_path + Const.CSV_FREE_AGENTS_FILE
 	csv_util.csv_to_free_agents(
 		csv_util.read_csv(free_agents_csv_path), world
 	)
+	# check for errors
+	err = csv_util.get_error()
+	if err != OK:
+		return err
+	Main.call_deferred("update_loading_progress", 0.4)
 
 	# history match days csv, read only
 	Global.match_list = MatchList.new()
@@ -123,12 +145,24 @@ func _load_data(save_state: SaveState) -> void:
 	Global.match_list.history_match_days = csv_util.csv_to_match_days(
 		csv_util.read_csv(history_matches_path)
 	)
+	# check for errors
+	err = csv_util.get_error()
+	if err != OK:
+		return err
+	Main.call_deferred("update_loading_progress", 0.5)
 
 	# match days csv
 	var matches_path: String = csv_path + Const.CSV_MATCH_LIST_FILE
 	var match_days: Array[MatchDays] = csv_util.csv_to_match_days(
 		csv_util.read_csv(matches_path)
 	)
+	# check for errors
+	err = csv_util.get_error()
+	if err != OK:
+		return err
+	Main.call_deferred("update_loading_progress", 0.6)
+
+	# assign match list
 	if match_days.size() == 1:
 		Global.match_list.match_days = match_days[0]
 	else:
@@ -137,14 +171,31 @@ func _load_data(save_state: SaveState) -> void:
 	# calendar csv
 	var calendar_path: String = csv_path + Const.CSV_CALENDAR_FILE
 	Global.calendar = csv_util.csv_to_calendar(csv_util.read_csv(calendar_path))
+	# check for errors
+	err = csv_util.get_error()
+	if err != OK:
+		return err
+	Main.call_deferred("update_loading_progress", 0.7)
 
 	# inbox csv
 	var inbox_path: String = csv_path + Const.CSV_INBOX_FILE
 	Global.inbox = csv_util.csv_to_inbox(csv_util.read_csv(inbox_path))
+	# check for errors
+	err = csv_util.get_error()
+	if err != OK:
+		return err
+	Main.call_deferred("update_loading_progress", 0.8)
 
 	# offer list csv
 	var transfer_list_path: String = csv_path + Const.CSV_OFFER_LIST_FILE
 	Global.transfer_list = csv_util.csv_to_transfer_list(csv_util.read_csv(transfer_list_path))
+	# check for errors
+	err = csv_util.get_error()
+	if err != OK:
+		return err
+	Main.call_deferred("update_loading_progress", 1.0)
+	
+	return err
 
 
 func _save_data(save_state: SaveState) -> void:

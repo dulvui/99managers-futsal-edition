@@ -17,9 +17,12 @@ var active_line: PackedStringArray
 var line_index: int
 var column_index: int
 
+var err: Error
+
 
 func _init() -> void:
 	backup_util = BackupUtil.new()
+	err = OK
 
 	headers = PackedStringArray()
 	headers.append_array(Const.CSV_HEADERS)
@@ -27,6 +30,12 @@ func _init() -> void:
 	headers.append_array(Const.PLAYER_ATTRIBUTES_MENTAL)
 	headers.append_array(Const.PLAYER_ATTRIBUTES_PHYSICAL)
 	headers.append_array(Const.PLAYER_ATTRIBUTES_TECHNICAL)
+
+
+func get_error() -> Error:
+	if err == null:
+		err = OK
+	return err
 
 
 func csv_to_teams(csv: Array[PackedStringArray], world: World) -> void:
@@ -539,9 +548,9 @@ func save_csv(path: String, csv: Array[PackedStringArray], append: bool = false)
 	var dir: DirAccess = DirAccess.open(DataUtil.USER_PATH)
 	if not dir.dir_exists(dir_path):
 		print("dir %s not found, creating now..." % dir_path)
-		var err_dir: Error = dir.make_dir_recursive(dir_path)
-		if err_dir != OK:
-			push_error("error while creating directory %s; error with code %d" % [dir_path, err_dir])
+		err = dir.make_dir_recursive(dir_path)
+		if err != OK:
+			push_error("error while creating directory %s; error with code %d" % [dir_path, err])
 			return
 	var file: FileAccess
 
@@ -563,7 +572,7 @@ func save_csv(path: String, csv: Array[PackedStringArray], append: bool = false)
 		return
 
 	# check for file errors
-	var err: int = file.get_error()
+	err = file.get_error()
 	if err != OK:
 		push_error("error while opening file: error with code %d" % err)
 		return
@@ -589,6 +598,7 @@ func save_csv(path: String, csv: Array[PackedStringArray], append: bool = false)
 
 
 func read_csv(path: String, after_backup: bool = false) -> Array[PackedStringArray]:
+	err = OK
 	path = path.to_lower()
 
 	# open file
@@ -599,7 +609,7 @@ func read_csv(path: String, after_backup: bool = false) -> Array[PackedStringArr
 		file = FileAccess.open(path, FileAccess.READ)
 
 	# check errors
-	var err: int = FileAccess.get_open_error()
+	err = FileAccess.get_open_error()
 	if err != OK:
 		if after_backup:
 			print("opening file %s error with code %d" % [path, err])

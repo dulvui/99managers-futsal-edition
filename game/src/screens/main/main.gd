@@ -66,7 +66,11 @@ func clear_current_scene() -> void:
 	await scene_fade.fade_out()
 
 
-func show_loading_screen(p_message: String, p_indeterminate: bool = true) -> void:
+func update_loading_progress(progress: float) -> void:
+	loading_screen.update(progress)
+
+
+func show_loading_screen(p_message: String, p_indeterminate: bool = false) -> void:
 	_toggle_input(false)
 
 	loading_screen.start(p_message, p_indeterminate)
