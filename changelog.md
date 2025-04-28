@@ -15,12 +15,14 @@ This tries to follow the [keepachangelog](https://keepachangelog.com/en/1.1.0/) 
 - (Simple) Stadium detail view in dashboard
 - Changee date and currency format in settings
 - Free agent players
+- Show player/team generation progress during game setup
+- Create backups of settings config and save states list file
 
 ## Changed
 - Better data validation when starting new game
 - Player profile has now tabs: Overview, Transfers, Contract
 - Realistic contract start and end dates
-- Show loading percentage again on game load and save
+- Show loading progress on game load and save
 
 ## Fixed
 - Fixed issues in seasonal finances calculation

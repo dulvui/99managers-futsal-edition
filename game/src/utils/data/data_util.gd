@@ -35,17 +35,30 @@ func _init() -> void:
 
 func save_config() -> void:
 	json_util.save(CONFIG_FILE, Global.config)
+	backup_util.create(CONFIG_FILE)
 
 
 func load_config() -> SettingsConfig:
 	var config: SettingsConfig = SettingsConfig.new()
-	json_util.load(CONFIG_FILE, config)
+	var err: Error = json_util.load(CONFIG_FILE, config)
+
+	# try backup on failure
+	if err != OK:
+		if backup_util.restore(CONFIG_FILE):
+			json_util.load(CONFIG_FILE, config)
+	
 	return config
 
 
 func load_save_states() -> SaveStates:
 	var save_states: SaveStates = SaveStates.new()
-	json_util.load(SAVE_STATES_FILE, save_states)
+	var err: Error = json_util.load(SAVE_STATES_FILE, save_states)
+
+	# try backup on failure
+	if err != OK:
+		if backup_util.restore(SAVE_STATES_FILE):
+			json_util.load(SAVE_STATES_FILE, save_states)
+
 	# scan for new save states
 	save_states.scan()
 	return save_states
@@ -53,6 +66,7 @@ func load_save_states() -> SaveStates:
 
 func save_save_states() -> void:
 	json_util.save(SAVE_STATES_FILE, Global.save_states)
+	backup_util.create(SAVE_STATES_FILE)
 
 
 func load_save_state(id: String) -> SaveState:

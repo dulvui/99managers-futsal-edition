@@ -552,6 +552,7 @@ func save_csv(path: String, csv: Array[PackedStringArray], append: bool = false)
 		if err != OK:
 			push_error("error while creating directory %s; error with code %d" % [dir_path, err])
 			return
+
 	var file: FileAccess
 
 	if append:

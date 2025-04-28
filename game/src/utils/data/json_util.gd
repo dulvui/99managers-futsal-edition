@@ -21,7 +21,7 @@ func save(path: String, resource: JSONResource) -> void:
 	# create directory, if not exist yet
 	var dir_path: String = path.get_base_dir()
 	var dir: DirAccess = DirAccess.open(DataUtil.USER_PATH)
-	if not dir.dir_exists(path):
+	if not dir.dir_exists(dir_path):
 		print("dir %s not found, creating now..." % dir_path)
 		var err_dir: Error = dir.make_dir_recursive(dir_path)
 		if err_dir != OK:
