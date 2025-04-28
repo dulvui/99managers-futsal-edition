@@ -135,14 +135,7 @@ func next_season(save_data: bool = true) -> void:
 	match_util.initialize_matches()
 
 	if save_data:
-		save_all_data()
-
-
-func save_all_data() -> void:
-	DataUtil.save_config()
-	DataUtil.save_save_states()
-	DataUtil.save_save_state()
-	DataUtil.save_save_state_data()
+		ThreadUtil._save_all_data()
 
 
 func load_save_state() -> bool:
@@ -155,7 +148,7 @@ func load_save_state() -> bool:
 		generation_seed = save_sate.generation_seed
 		generation_state = save_sate.generation_state
 		generation_player_names = save_sate.generation_player_names
-		# DataUtil.load_save_state_data()
+		# DataUtil.load_data()
 		ThreadUtil.load_data()
 		return true
 

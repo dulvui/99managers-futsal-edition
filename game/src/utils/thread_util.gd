@@ -47,13 +47,15 @@ func random_results() -> void:
 
 func _save_all_data() -> void:
 	print("save data in thread...")
-	Global.save_all_data()
+	DataUtil.save_config()
+	DataUtil.save_save_states()
+	DataUtil.save_data()
 	call_deferred("_saving_done")
 
 
 func _load_data() -> void:
 	print("load data in thread...")
-	DataUtil.load_save_state_data()
+	DataUtil.load_data()
 	call_deferred("_loading_done")
 
 

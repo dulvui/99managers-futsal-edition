@@ -28,7 +28,6 @@ func save(path: StringName) -> void:
 	list.append(checksum)
 
 
-
 func check(path: StringName) -> bool:
 	for checksum: Checksum in list:
 		if checksum.path == path:
