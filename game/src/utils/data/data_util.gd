@@ -75,30 +75,6 @@ func load_save_state(id: String) -> SaveState:
 	return save_state
 
 
-func save_data() -> void:
-	var active: SaveState = Global.save_states.get_active()
-	if active == null:
-		print("no active save state found to save")
-		return
-
-	checksum_list = ChecksumList.new()
-
-	# save id by type
-	var path: String = SAVE_STATES_PATH + active.id + "/"
-	active.id_by_type = IdUtil.id_by_type
-	json_util.save(path + SAVE_STATE_FILE, active)
-
-	# add save state checksum
-	checksum_list.save(path + SAVE_STATE_FILE)
-
-	# save data and add checksums
-	_save_data(active)
-
-	# save checksum
-	json_util.save(path + CHECKSUM_FILE, checksum_list)
-	backup_util.create(path + CHECKSUM_FILE)
-
-
 func load_data() -> void:
 	var active: SaveState = Global.save_states.get_active()
 	var path: String = SAVE_STATES_PATH + active.id + "/"
@@ -110,19 +86,6 @@ func load_data() -> void:
 		backup_util.restore(path + CHECKSUM_FILE)
 		json_util.load(path + CHECKSUM_FILE, checksum_list)
 
-	err = _load_data(path)
-	if err != OK:
-		loading_failed.emit()
-		return
-
-	IdUtil.id_by_type = active.id_by_type
-	Global.team = Global.world.get_active_team()
-	Global.manager = Global.team.staff.manager
-	Global.league = Global.world.get_league_by_id(Global.team.league_id)
-
-
-func _load_data(path: String) -> Error:
-	var err: Error = OK
 	var world: World = World.new()
 
 	Main.call_deferred("update_loading_progress", 0.1)
@@ -132,7 +95,8 @@ func _load_data(path: String) -> Error:
 		backup_util.restore(path + DATA_FILE)
 	err = json_util.load(path + DATA_FILE, world)
 	if err != OK:
-		return err
+		loading_failed.emit()
+		return
 
 	Global.world = world
 
@@ -146,7 +110,8 @@ func _load_data(path: String) -> Error:
 	# check for errors
 	err = csv_util.get_error()
 	if err != OK:
-		return err
+		loading_failed.emit()
+		return
 	csv_util.csv_to_players(csv, world)
 	Main.call_deferred("update_loading_progress", 0.3)
 
@@ -158,7 +123,8 @@ func _load_data(path: String) -> Error:
 	# check for errors
 	err = csv_util.get_error()
 	if err != OK:
-		return err
+		loading_failed.emit()
+		return
 	csv_util.csv_to_free_agents(csv, world)
 	Main.call_deferred("update_loading_progress", 0.4)
 
@@ -171,7 +137,8 @@ func _load_data(path: String) -> Error:
 	# check for errors
 	err = csv_util.get_error()
 	if err != OK:
-		return err
+		loading_failed.emit()
+		return
 	Global.match_list.history_match_days = csv_util.csv_to_match_days(csv)
 	Main.call_deferred("update_loading_progress", 0.5)
 
@@ -183,7 +150,8 @@ func _load_data(path: String) -> Error:
 	# check for errors
 	err = csv_util.get_error()
 	if err != OK:
-		return err
+		loading_failed.emit()
+		return
 	var match_days: Array[MatchDays] = csv_util.csv_to_match_days(csv)
 	# assign match list
 	if match_days.size() == 1:
@@ -200,7 +168,8 @@ func _load_data(path: String) -> Error:
 	# check for errors
 	err = csv_util.get_error()
 	if err != OK:
-		return err
+		loading_failed.emit()
+		return
 	Global.calendar = csv_util.csv_to_calendar(csv)
 	Main.call_deferred("update_loading_progress", 0.7)
 
@@ -212,7 +181,8 @@ func _load_data(path: String) -> Error:
 	# check for errors
 	err = csv_util.get_error()
 	if err != OK:
-		return err
+		loading_failed.emit()
+		return
 	Global.inbox = csv_util.csv_to_inbox(csv)
 	Main.call_deferred("update_loading_progress", 0.8)
 
@@ -224,24 +194,45 @@ func _load_data(path: String) -> Error:
 	# check for errors
 	err = csv_util.get_error()
 	if err != OK:
-		return err
+		loading_failed.emit()
+		return
+
 	Global.transfer_list = csv_util.csv_to_transfer_list(csv)
+
+	IdUtil.id_by_type = active.id_by_type
+	Global.team = Global.world.get_active_team()
+	Global.manager = Global.team.staff.manager
+	Global.league = Global.world.get_league_by_id(Global.team.league_id)
+
 	Main.call_deferred("update_loading_progress", 1.0)
-	
-	return err
 
 
-func _save_data(save_state: SaveState) -> void:
+func save_data() -> void:
 	print("save data...")
-	var path: String = SAVE_STATES_PATH + save_state.id + "/"
 	Main.call_deferred("update_loading_progress", 0.1)
 
-	json_util.save(path + DATA_FILE, Global.world)
+	var active: SaveState = Global.save_states.get_active()
+	if active == null:
+		print("no active save state found to save")
+		return
 
-	# create backup
-	backup_util.create(path + DATA_FILE)
+	checksum_list = ChecksumList.new()
+
+	# save id by type
+	var path: String = SAVE_STATES_PATH + active.id + "/"
+	active.id_by_type = IdUtil.id_by_type
+	json_util.save(path + SAVE_STATE_FILE, active)
+
+	# add save state checksum
+	checksum_list.save(path + SAVE_STATE_FILE)
 
 	# save checksum
+	json_util.save(path + CHECKSUM_FILE, checksum_list)
+	backup_util.create(path + CHECKSUM_FILE)
+
+	# save world
+	json_util.save(path + DATA_FILE, Global.world)
+	backup_util.create(path + DATA_FILE)
 	checksum_list.save(path + DATA_FILE)
 
 	# players
@@ -250,6 +241,7 @@ func _save_data(save_state: SaveState) -> void:
 		csv_util.players_to_csv(Global.world)
 	)
 	checksum_list.save(path + Const.CSV_PLAYERS_FILE)
+	backup_util.create(path + Const.CSV_PLAYERS_FILE)
 	Main.call_deferred("update_loading_progress", 0.3)
 
 	# free agents
@@ -258,6 +250,7 @@ func _save_data(save_state: SaveState) -> void:
 		csv_util.free_agents_to_csv(Global.world)
 	)
 	checksum_list.save(path + Const.CSV_FREE_AGENTS_FILE)
+	backup_util.create(path + Const.CSV_FREE_AGENTS_FILE)
 	Main.call_deferred("update_loading_progress", 0.4)
 	
 	# history match days csv
@@ -270,6 +263,7 @@ func _save_data(save_state: SaveState) -> void:
 		)
 		write_match_history = false
 		checksum_list.save(path + Const.CSV_MATCH_HISTORY_FILE)
+		backup_util.create(path + Const.CSV_MATCH_HISTORY_FILE)
 
 	# match days csv
 	csv_util.save_csv(
@@ -277,6 +271,7 @@ func _save_data(save_state: SaveState) -> void:
 		csv_util.match_days_to_csv([Global.match_list.match_days]),
 	)
 	checksum_list.save(path + Const.CSV_MATCH_LIST_FILE)
+	backup_util.create(path + Const.CSV_MATCH_LIST_FILE)
 	Main.call_deferred("update_loading_progress", 0.6)
 
 	# calendar
@@ -286,6 +281,7 @@ func _save_data(save_state: SaveState) -> void:
 		csv_util.calendar_to_csv(Global.calendar)
 	)
 	checksum_list.save(path + Const.CSV_CALENDAR_FILE)
+	backup_util.create(path + Const.CSV_CALENDAR_FILE)
 	Main.call_deferred("update_loading_progress", 0.7)
 
 	# inbox
@@ -294,6 +290,7 @@ func _save_data(save_state: SaveState) -> void:
 		csv_util.inbox_to_csv(Global.inbox)
 	)
 	checksum_list.save(path + Const.CSV_INBOX_FILE)
+	backup_util.create(path + Const.CSV_INBOX_FILE)
 	Main.call_deferred("update_loading_progress", 0.8)
 
 	# offer list
@@ -302,5 +299,6 @@ func _save_data(save_state: SaveState) -> void:
 		csv_util.transfer_list_to_csv(Global.transfer_list)
 	)
 	checksum_list.save(path + Const.CSV_OFFER_LIST_FILE)
+	backup_util.create(path + Const.CSV_OFFER_LIST_FILE)
 	Main.call_deferred("update_loading_progress", 1.0)
 
