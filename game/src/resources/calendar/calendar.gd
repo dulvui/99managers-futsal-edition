@@ -14,7 +14,6 @@ const SEASON_END_DAY: int = 30
 const SEASON_END_MONTH: int = 11
 
 # market dates
-
 const MARKET_WINTER_START_DAY: int = 1
 const MARKET_WINTER_START_MONTH: int = 1
 const MARKET_WINTER_END_DAY: int = 31

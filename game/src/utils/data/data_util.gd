@@ -103,6 +103,7 @@ func load_data() -> void:
 	var active: SaveState = Global.save_states.get_active()
 	var path: String = SAVE_STATES_PATH + active.id + "/"
 
+	# load checksums
 	checksum_list = ChecksumList.new()
 	var err: Error = json_util.load(path + CHECKSUM_FILE, checksum_list)
 	if err != OK:
@@ -127,90 +128,104 @@ func _load_data(path: String) -> Error:
 	Main.call_deferred("update_loading_progress", 0.1)
 
 	# load main data from json
-	# if not checksum_list.check(path + DATA_FILE):
+	if not checksum_list.check(path + DATA_FILE):
+		backup_util.restore(path + DATA_FILE)
 	err = json_util.load(path + DATA_FILE, world)
 	if err != OK:
 		return err
+
 	Global.world = world
 
 	Main.call_deferred("update_loading_progress", 0.2)
 
 	# players csv
-	var players_path: String = path + Const.CSV_PLAYERS_FILE
-	csv_util.csv_to_players(
-		csv_util.read_csv(players_path), world
-	)
+	var csv_path: String = path + Const.CSV_PLAYERS_FILE
+	if not checksum_list.check(csv_path):
+		backup_util.restore(csv_path)
+	var csv: Array[PackedStringArray] = csv_util.read_csv(csv_path)
 	# check for errors
 	err = csv_util.get_error()
 	if err != OK:
 		return err
+	csv_util.csv_to_players(csv, world)
 	Main.call_deferred("update_loading_progress", 0.3)
 
 	# free_agents csv
-	var free_agents_path: String = path + Const.CSV_FREE_AGENTS_FILE
-	csv_util.csv_to_free_agents(
-		csv_util.read_csv(free_agents_path), world
-	)
+	csv_path = path + Const.CSV_FREE_AGENTS_FILE
+	if not checksum_list.check(csv_path):
+		backup_util.restore(csv_path)
+	csv = csv_util.read_csv(csv_path)
 	# check for errors
 	err = csv_util.get_error()
 	if err != OK:
 		return err
+	csv_util.csv_to_free_agents(csv, world)
 	Main.call_deferred("update_loading_progress", 0.4)
 
 	# history match days csv, read only
 	Global.match_list = MatchList.new()
-	var history_matches_path: String = path + Const.CSV_MATCH_HISTORY_FILE
-	Global.match_list.history_match_days = csv_util.csv_to_match_days(
-		csv_util.read_csv(history_matches_path)
-	)
+	csv_path = path + Const.CSV_MATCH_HISTORY_FILE
+	if not checksum_list.check(csv_path):
+		backup_util.restore(csv_path)
+	csv = csv_util.read_csv(csv_path)
 	# check for errors
 	err = csv_util.get_error()
 	if err != OK:
 		return err
+	Global.match_list.history_match_days = csv_util.csv_to_match_days(csv)
 	Main.call_deferred("update_loading_progress", 0.5)
 
 	# match days csv
-	var matches_path: String = path + Const.CSV_MATCH_LIST_FILE
-	var match_days: Array[MatchDays] = csv_util.csv_to_match_days(
-		csv_util.read_csv(matches_path)
-	)
+	csv_path = path + Const.CSV_MATCH_LIST_FILE
+	if not checksum_list.check(csv_path):
+		backup_util.restore(csv_path)
+	csv = csv_util.read_csv(csv_path)
 	# check for errors
 	err = csv_util.get_error()
 	if err != OK:
 		return err
-	Main.call_deferred("update_loading_progress", 0.6)
-
+	var match_days: Array[MatchDays] = csv_util.csv_to_match_days(csv)
 	# assign match list
 	if match_days.size() == 1:
 		Global.match_list.match_days = match_days[0]
 	else:
 		push_error("error while loading matchdays, match days from csv is not 1")
+	Main.call_deferred("update_loading_progress", 0.6)
 	
 	# calendar csv
-	var calendar_path: String = path + Const.CSV_CALENDAR_FILE
-	Global.calendar = csv_util.csv_to_calendar(csv_util.read_csv(calendar_path))
+	csv_path = path + Const.CSV_CALENDAR_FILE
+	if not checksum_list.check(csv_path):
+		backup_util.restore(csv_path)
+	csv = csv_util.read_csv(csv_path)
 	# check for errors
 	err = csv_util.get_error()
 	if err != OK:
 		return err
+	Global.calendar = csv_util.csv_to_calendar(csv)
 	Main.call_deferred("update_loading_progress", 0.7)
 
 	# inbox csv
-	var inbox_path: String = path + Const.CSV_INBOX_FILE
-	Global.inbox = csv_util.csv_to_inbox(csv_util.read_csv(inbox_path))
+	csv_path = path + Const.CSV_INBOX_FILE
+	if not checksum_list.check(csv_path):
+		backup_util.restore(csv_path)
+	csv = csv_util.read_csv(csv_path)
 	# check for errors
 	err = csv_util.get_error()
 	if err != OK:
 		return err
+	Global.inbox = csv_util.csv_to_inbox(csv)
 	Main.call_deferred("update_loading_progress", 0.8)
 
 	# offer list csv
-	var transfer_list_path: String = path + Const.CSV_OFFER_LIST_FILE
-	Global.transfer_list = csv_util.csv_to_transfer_list(csv_util.read_csv(transfer_list_path))
+	csv_path = path + Const.CSV_OFFER_LIST_FILE
+	if not checksum_list.check(csv_path):
+		backup_util.restore(csv_path)
+	csv = csv_util.read_csv(csv_path)
 	# check for errors
 	err = csv_util.get_error()
 	if err != OK:
 		return err
+	Global.transfer_list = csv_util.csv_to_transfer_list(csv)
 	Main.call_deferred("update_loading_progress", 1.0)
 	
 	return err
