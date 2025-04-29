@@ -8,10 +8,17 @@ extends PlayerStateMachineState
 # half field width
 const MAX_SHOOT_DISTANCE_SQUARED: int = int(pow(SimField.WIDTH / 2.0, 2))
 
+var opponent_goal: Vector2
+
+# shooting
 var shot_direction: Vector2
 var shot_force: float
 var shooting_ability: int
-var opponent_goal: Vector2
+
+# passing
+var best_pass_player: SimPlayer
+var pass_direction: Vector2
+var pass_force: float = 20
 
 
 func _init() -> void:
@@ -41,23 +48,24 @@ func execute() -> void:
 	owner.field.ball.stop()
 
 	if should_shoot():
+		owner.team.stats.shots += 1
 		# shoot on goal
 		owner.field.ball.impulse(shot_direction, shot_force)
 		# set opponent goalkeeper in save state
 		owner.team.team_opponents.players[0].set_state(PlayerStateGoalkeeperSaveShot.new())
+		set_state(PlayerStateAttack.new())
 		return
 
-
-	if owner.player.rng.randi() % 2 == 0:
-		pass_ball()
+	if should_pass():
+		owner.team.stats.passes += 1
+		owner.team.player_receive_ball(best_pass_player)
+		owner.field.ball.impulse(pass_direction, pass_force)
+		set_state(PlayerStateAttack.new())
 		return
 
 	# dribble, by slightly kicking ball towards goal
-	if owner.team.left_half:
-		owner.field.ball.impulse(owner.player.pos + Vector2(50, 0), 11)
-	else:
-		owner.field.ball.impulse(owner.player.pos + Vector2(-50, 0), 11)
-	owner.player.follow(owner.field.ball, 10)
+	var dribble_direction: Vector2 = owner.player.pos.direction_to(opponent_goal)
+	owner.field.ball.impulse(dribble_direction, 11)
 
 
 func should_shoot() -> bool:
@@ -69,7 +77,6 @@ func should_shoot() -> bool:
 	# difine force
 	shot_force = owner.rng.randi_range(30, 50)
 	shot_force += owner.player.player_res.attributes.technical.shooting
-
 
 	# define random attempts to aim and see how many players oppose
 	var attempts: int = owner.rng.randi_range(1, shooting_ability)
@@ -85,29 +92,13 @@ func should_shoot() -> bool:
 	return false
 
 
-func pass_ball() -> void:
-	var pass_force: float = 20
-
+func should_pass() -> bool:
 	# find best pass
-	var best_player: SimPlayer
-	var delta: float = SimField.WIDTH * SimField.HEIGHT
-	for player: SimPlayer in owner.team.players:
-		if player != owner.player:
+	best_pass_player = owner.team.find_best_pass(owner.player, pass_force)
 
-			if not owner.team.is_ball_safe_from_opponents(player.pos, pass_force):
-				continue
-
-			var distance: float = player.pos.distance_squared_to(owner.player.pos)
-			if distance < delta:
-				delta = distance
-				best_player = player
+	if best_pass_player != null:
+		pass_direction = owner.field.ball.pos.direction_to(best_pass_player.pos)
+		return true
 	
-	# no player found
-	if	best_player == null:
-		return
-
-	owner.team.player_receive_ball(best_player)
-	owner.field.ball.impulse(owner.team.player_receive_ball().pos, pass_force)
-	owner.team.stats.passes += 1
-
-	set_state(PlayerStateAttack.new())
+	return false
+	

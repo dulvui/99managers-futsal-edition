@@ -51,6 +51,9 @@ func exit() -> void:
 func kickoff_pass() -> void:
 	owner.team.stats.passes += 1
 	var random_player: int = owner.rng.randi_range(1, 3)
+	
+	var player: SimPlayer = owner.team.players[random_player]
+	owner.team.player_receive_ball(player)
+	var direction: Vector2 = owner.field.ball.pos.direction_to(player.pos)
+	owner.field.ball.impulse(direction, 20)
 
-	owner.team.player_receive_ball(owner.team.players[random_player])
-	owner.field.ball.impulse(owner.team.player_receive_ball().pos, 20)

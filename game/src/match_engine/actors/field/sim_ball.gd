@@ -47,8 +47,8 @@ func update() -> void:
 		rotation = 0
 
 
-func impulse(p_destination: Vector2, p_force: float) -> void:
-	super(p_destination, p_force)
+func impulse(p_direction: Vector2, p_force: float) -> void:
+	super(p_direction, p_force)
 	# print("pass")
 	_random_rotation()
 

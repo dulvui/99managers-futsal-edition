@@ -286,6 +286,23 @@ func is_ball_safe_from_opponents(p_destination: Vector2, p_force: float) -> bool
 	return true
 
 
+func find_best_pass(passing_player: SimPlayer, pass_force: float) -> SimPlayer:
+	var best_player: SimPlayer
+	var delta: float = SimField.WIDTH * SimField.HEIGHT
+	for player: SimPlayer in players:
+		if player != passing_player:
+
+			if not is_ball_safe_from_opponents(player.pos, pass_force):
+				continue
+			
+			var distance: float = player.pos.distance_squared_to(passing_player.pos)
+			if distance < delta:
+				delta = distance
+				best_player = player
+
+	return best_player
+
+
 func _set_start_positions() -> void:
 	for player: SimPlayer in players:
 		# start pos

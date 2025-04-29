@@ -5,31 +5,33 @@
 class_name TeamStateGoalkeeper
 extends TeamStateMachineState
 
+var goalkeeper: SimPlayer
+
 
 func _init() -> void:
 	super("TeamStateGoalkeeper")
 
 
 func enter() -> void:
-	owner.field.goalkeeper_ball = true
 	if owner.team.has_ball:
 		for player: SimPlayer in owner.team.players:
 			if player.is_goalkeeper:
-				player.set_state(PlayerStateGoalkeeperBall.new())
+				goalkeeper = player
+				goalkeeper.set_state(PlayerStateFindBestPass.new()) 
 			else:
 				player.move_offense_pos()
-				player.set_state(PlayerStateIdle.new())
 	else:
 		for player: SimPlayer in owner.team.players:
 			if player.is_goalkeeper:
 				player.set_state(PlayerStateGoalkeeperFollowBall.new())
 			else:
 				player.move_defense_pos()
-				player.set_state(PlayerStateIdle.new())
+		set_state(TeamStateIdle.new())
 
 
 func execute() -> void:
-	if owner.field.goalkeeper_ball:
+	# wait until goalkeeper has made the pass
+	if goalkeeper.state_machine.state is PlayerStateFindBestPass:
 		return
 
 	if owner.team.has_ball:

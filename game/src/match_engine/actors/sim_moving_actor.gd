@@ -44,6 +44,9 @@ func move() -> void:
 		if follow_actor	!= null and destination != follow_actor.pos:
 			destination = follow_actor.pos
 			direction = pos.direction_to(destination)
+			if pos.distance_squared_to(destination) < follow_distance_squared:
+				stop()
+				return
 
 		# check destination reached, if set
 		if destination != Vector2.INF:
@@ -86,10 +89,9 @@ func follow(p_follow_actor: MovingActor, p_force: float = 10, p_distance_squared
 	force = p_force
 
 
-func impulse(p_pos: Vector2, p_force: float) -> void:
+func impulse(p_direction: Vector2, p_force: float) -> void:
 	_reset_movents()
-	direction = pos.direction_to(p_pos)
-	# TODO use calc to transform force to speed
+	direction = p_direction
 	force = p_force
 
 

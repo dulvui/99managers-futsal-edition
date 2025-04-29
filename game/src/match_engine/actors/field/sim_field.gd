@@ -43,7 +43,6 @@ var penalty_areas: SimPenaltyAreas
 
 var clock_running: bool
 var kickoff: bool
-var goalkeeper_ball: bool
 var kickin: bool
 var corner: bool
 var penalty: bool
@@ -102,7 +101,6 @@ func _init(rng: RandomNumberGenerator) -> void:
 	# flags
 	clock_running = false
 	kickoff = false
-	goalkeeper_ball = false
 	kickin = false
 	corner = false
 	free_kick = false
@@ -304,9 +302,6 @@ func _check_goal_line_penalties() -> void:
 
 func _check_clock_running() -> void:
 	if kickoff:
-		clock_running = false
-		return
-	if goalkeeper_ball:
 		clock_running = false
 		return
 	if kickin:

@@ -30,5 +30,6 @@ func execute() -> void:
 	if owner.player.is_touching_ball():
 		owner.team.player_control(owner.player)
 		owner.team.gain_possession()
+		owner.team.set_state(TeamStateGoalkeeper.new())
 		return
 

@@ -55,7 +55,9 @@ func execute() -> void:
 
 	random_target += Vector2(0, owner.rng.randf_range(-SimGoals.SIZE * aim, SimGoals.SIZE * aim))
 
-	owner.field.ball.impulse(random_target, power * owner.rng.randi_range(1, 3))
+	var direction: Vector2 = owner.field.ball.pos.direction_to(random_target)
+
+	owner.field.ball.impulse(direction, power * owner.rng.randi_range(1, 3))
 
 
 	# go idle and let team move player back to center, if needed

@@ -24,9 +24,6 @@ func execute() -> void:
 	if not owner.field.clock_running:
 		return
 
-	if owner.field.goalkeeper_ball:
-		return
-
 	if owner.field.kickin:
 		return
 
@@ -35,3 +32,4 @@ func execute() -> void:
 
 func exit() -> void:
 	owner.team.reset_key_players()
+
