@@ -28,6 +28,7 @@ const PENALTY_KICKS: int = 5
 # how many ticks pass per real match second
 # used for ball movents, colissions ecc...
 const TICKS: int = 32
+const FULL_TIME_TICKS: int = FULL_TIME_SECONDS * TICKS
 # used for state machine updates, player movements ecc...
 # is always relative to TICKS
 const TICKS_LOGIC: int = int(TICKS / 4.0)

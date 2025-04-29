@@ -269,20 +269,22 @@ func penalties_shot_taken() -> void:
 	penalties_shot.emit()
 
 
-# func is_ball_safe_from_opponents(from: Vector2, to: Vector2, _force: float) -> bool:
-# 	var distance: float = from.distance_squared_to(to)
-# 	# check if opponent players intercept ball
-# 	for player: SimPlayer in team_opponents.players:
-# 		var closest_point: Vector2 = Geometry2D.get_closest_point_to_segment(
-# 			player.pos, from, to
-# 		)
-# 		var player_distance: float = closest_point.distance_squared_to(player.pos)
-#
-# 		# calculate how much ticks/time ball needs to reach closests point
-#
-# 		# check if player can reach spot in time/ticks
-# 	return true
-#
+func is_ball_safe_from_opponents(p_destination: Vector2, p_force: float) -> bool:
+	for player: SimPlayer in team_opponents.players:
+		var closest_point: Vector2 = Geometry2D.get_closest_point_to_segment(
+			player.pos, field.ball.pos, p_destination
+		)
+		
+		# TODO: take also acceleration into account
+		var force: float = player.player_res.attributes.physical.pace
+		var player_ticks: int = player.get_ticks_to_reach(closest_point, force)
+		var ball_ticks: int = field.ball.get_ticks_to_reach(closest_point, p_force)
+
+		# check if player can reach spot in time/ticks faster than ball
+		if player_ticks < ball_ticks:
+			return false
+	return true
+
 
 func _set_start_positions() -> void:
 	for player: SimPlayer in players:

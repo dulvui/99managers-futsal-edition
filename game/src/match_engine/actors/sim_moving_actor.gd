@@ -4,6 +4,8 @@
 
 class_name MovingActor
 
+const MIN_DISTANCE: int = 100
+
 var pos: Vector2
 var last_pos: Vector2
 var next_pos: Vector2
@@ -91,6 +93,28 @@ func impulse(p_pos: Vector2, p_force: float) -> void:
 	force = p_force
 
 
+# return ticks needed to reach destination with given force
+# returns FULL_TIME_TICKS if cannot be reached in time
+func get_ticks_to_reach(p_destination: Vector2, p_force: float) -> int:
+	var temp_pos: Vector2 = Vector2(pos)
+	var temp_direction: Vector2 = pos.direction_to(p_destination)
+	var temp_force: float = p_force
+
+	var ticks: int = 0
+
+	while temp_pos.distance_squared_to(p_destination) < MIN_DISTANCE:
+		temp_pos += temp_direction * temp_force * Const.SPEED
+		ticks += 1
+		temp_force -= friction
+
+		# will never reach target
+		if temp_force < 0:
+			# simply return biiiiig number
+			return Const.FULL_TIME_TICKS
+	
+	return ticks
+
+
 func is_moving() -> bool:
 	return force > 0
 
@@ -109,12 +133,9 @@ func collides(actor: MovingActor) -> bool:
 
 
 func destination_reached() -> bool:
-	if is_moving():
-		return pos.distance_squared_to(destination) < 100
-	return true
-
-
-# func position_after_ticks() -> bool:
+	if not is_moving():
+		return true
+	return pos.distance_squared_to(destination) < MIN_DISTANCE
 
 
 func _reset_movents() -> void:
