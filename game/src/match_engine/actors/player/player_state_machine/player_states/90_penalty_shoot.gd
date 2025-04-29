@@ -34,7 +34,7 @@ func execute() -> void:
 	if not owner.field.penalty_ready:
 		return
 
-	owner.field.ball.penalty(owner.player.player_res)
+	shoot()
 
 	# set opponent goalkeeper movement to true
 	# so he will start to move towards a random save spot
@@ -50,4 +50,28 @@ func execute() -> void:
 
 func exit() -> void:
 	owner.player.can_collide = true
+
+
+func shoot() -> void:
+	var left_half: bool = owner.field.ball.pos.x < SimField.WIDTH / 2.0
+
+	var power: float = 20 + owner.player.player_res.attributes.technical.shooting
+	power *= owner.rng.randf_range(2.0, 3.0)
+
+	owner.field.ball.colission_timer = 0
+
+	var random_target: Vector2
+	if left_half:
+		random_target = owner.field.goals.left
+	else:
+		random_target = owner.field.goals.right
+
+	# 1.0 best, 0.05 worst
+	var aim_factor: float = 20.0 / owner.player.player_res.attributes.technical.penalty
+	# 0.6 best, 1.55 worst
+	var aim: float = 0.6 + (1.0 - aim_factor)
+
+	random_target += Vector2(0, owner.rng.randf_range(-SimGoals.SIZE * aim, SimGoals.SIZE * aim))
+
+	owner.field.ball.shoot(random_target, power)
 

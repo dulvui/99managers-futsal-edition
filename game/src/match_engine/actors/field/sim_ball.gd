@@ -70,51 +70,6 @@ func dribble(p_destination: Vector2, force: float) -> void:
 	impulse(p_destination, force)
 
 
-func penalty(player: Player) -> void:
-	var left_half: bool = pos.x < field.size.x / 2.0
-
-	var power: float = 20 + player.attributes.technical.shooting
-	power *= rng.randf_range(2.0, 3.0)
-
-	colission_timer = 0
-
-	var random_target: Vector2
-	if left_half:
-		random_target = field.goals.left
-	else:
-		random_target = field.goals.right
-
-	# 1.0 best, 0.05 worst
-	var aim_factor: float = 20.0 / player.attributes.technical.penalty
-	# 0.6 best, 1.55 worst
-	var aim: float = 0.6 + (1.0 - aim_factor)
-
-	random_target += Vector2(0, rng.randf_range(-SimGoals.SIZE * aim, SimGoals.SIZE * aim))
-
-	shoot(random_target, power)
-
-
-func free_kick(player: SimPlayer) -> void:
-	var power: int = player.player_res.attributes.technical.shooting
-
-	colission_timer = 1
-
-	var random_target: Vector2
-	if player.left_half:
-		random_target = field.goals.right
-	else:
-		random_target = field.goals.left
-
-	# 1.0 best, 0.05 worst
-	var aim_factor: float = 20.0 / player.player_res.attributes.technical.free_kick
-	# 0.6 best, 1.55 worst
-	var aim: float = 0.6 + (1.0 - aim_factor)
-
-	random_target += Vector2(0, rng.randf_range(-SimGoals.SIZE * aim, SimGoals.SIZE * aim))
-
-	shoot(random_target, power * rng.randi_range(1, 3))
-
-
 func stop() -> void:
 	super()
 	colission_timer = PLAYER_COLISSION_TIME

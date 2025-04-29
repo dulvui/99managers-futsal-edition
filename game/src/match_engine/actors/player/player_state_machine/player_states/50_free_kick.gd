@@ -40,9 +40,24 @@ func execute() -> void:
 	# TODO decicde if shooting or passing
 
 	# shoot
-	owner.field.ball.free_kick(owner.player)
+	var power: int = owner.player.player_res.attributes.technical.shooting
+	owner.field.ball.colission_timer = 1
+	var random_target: Vector2
+	if owner.player.left_half:
+		random_target = owner.field.goals.right
+	else:
+		random_target = owner.field.goals.left
+
+	# 1.0 best, 0.05 worst
+	var aim_factor: float = 20.0 / owner.player.player_res.attributes.technical.free_kick
+	# 0.6 best, 1.55 worst
+	var aim: float = 0.6 + (1.0 - aim_factor)
+
+	random_target += Vector2(0, owner.rng.randf_range(-SimGoals.SIZE * aim, SimGoals.SIZE * aim))
+
+	owner.field.ball.shoot(random_target, power * owner.rng.randi_range(1, 3))
+
 
 	# go idle and let team move player back to center, if needed
 	owner.player.set_state(PlayerStateIdle.new())
-
 
