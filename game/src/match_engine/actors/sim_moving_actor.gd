@@ -12,8 +12,8 @@ var height: float
 var direction: Vector2
 var destination: Vector2
 var follow_actor: MovingActor
-# to keep distance to following object
-var follow_distance: float
+# to keep distance to following object, squared for performance
+var follow_distance_squared: float
 
 var collision_radius: float
 var speed: float
@@ -48,10 +48,10 @@ func set_destination(p_pos: Vector2, p_speed: float = 10) -> void:
 	speed = p_speed
 
 
-func follow(p_follow_actor: MovingActor, p_speed: float = 10, p_distance: float = 0) -> void:
+func follow(p_follow_actor: MovingActor, p_speed: float = 10, p_distance_squared: float = 0) -> void:
 	_reset_movents()
 	follow_actor = p_follow_actor
-	follow_distance = pow(p_distance, 2)
+	follow_distance_squared = p_distance_squared
 	speed = p_speed
 
 
@@ -94,7 +94,8 @@ func move() -> void:
 		elif destination != Vector2.INF:
 			next_pos = pos.move_toward(destination, speed * Const.SPEED)
 		elif follow_actor != null:
-			if follow_distance < 0.1 or pos.distance_squared_to(follow_actor.pos) > follow_distance:
+			if follow_distance_squared < 1 or \
+					pos.distance_squared_to(follow_actor.pos) > follow_distance_squared:
 				next_pos = pos.move_toward(follow_actor.pos, speed * Const.SPEED)
 	else:
 		stop()

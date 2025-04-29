@@ -5,15 +5,33 @@
 class_name PlayerStateControl
 extends PlayerStateMachineState
 
-# 80 squared
-const PERFECT_SHOOT_DISTANCE_SQUARED: int = 5600
-# 120 squared
-const PERFECT_PASS_DISTANCE_SQUARED: int = 19600
+# half field width
+const MAX_SHOOT_DISTANCE_SQUARED: int = int(pow(SimField.WIDTH / 2.0, 2))
+# half field height
+const PERFECT_PASS_DISTANCE_SQUARED: int = int(pow(SimField.HEIGHT / 2.0, 2))
+const BLOCK_DISTANCE_SQUARED: int = int(pow(SimField.WIDTH / 20.0, 2))
+
+var shoot_direction: Vector2
+var shooting_ability: int
+var opponent_goal: Vector2
 
 
 func _init() -> void:
 	super("PlayerStateControl")
 
+
+func enter() -> void:
+	# use players shooting attributes, to players with better shooging
+	# make more and better attempts
+	# how many aim attempts the player takes
+	shooting_ability = owner.player.player_res.attributes.technical.shooting
+
+	# save opponent goal
+	if owner.player.left_half:
+		opponent_goal = owner.field.goals.right
+	else:
+		opponent_goal = owner.field.goals.left
+	
 
 func execute() -> void:
 	# if player doesn't touch balls, follow it
@@ -24,51 +42,70 @@ func execute() -> void:
 	owner.player.stop()
 	owner.field.ball.stop()
 
-	# player is touching ball
-	# try to shoot, dribble and pass
-
 	if should_shoot():
-		set_state(PlayerStateShoot.new())
+		# print("shoot on goal")
+		var power: int = owner.rng.randi_range(30, 50)
+		power += owner.player.player_res.attributes.technical.shooting
+
+		# shoot on goal
+		owner.field.ball.shoot(shoot_direction, power)
+		# set opponent goalkeeper in save state
+		owner.team.team_opponents.players[0].set_state(PlayerStateGoalkeeperSaveShot.new())
 		return
 
 	# if should_dribble():
-	# 	set_state(PlayerStateDribble.new())
+	# 	# slightly kick ball towards goal
+	# 	if owner.team.left_half:
+	# 		owner.field.ball.dribble(owner.player.pos + Vector2(50, 0), 11)
+	# 	else:
+	# 		owner.field.ball.dribble(owner.player.pos + Vector2(-50, 0), 11)
+	# 	owner.player.follow(owner.field.ball, 10)
 	# 	return
 
 	if owner.player.rng.randi() % 2 == 0:
 		pass_ball()
+		set_state(PlayerStateAttack.new())
 	else:
 		pass_ball_random()
-	set_state(PlayerStateAttack.new())
+		set_state(PlayerStateAttack.new())
 
 
 func should_shoot() -> bool:
-	if owner.team.left_half:
-		var distance_squared: float = owner.player.pos.distance_squared_to(owner.field.goals.right)
-		if distance_squared < PERFECT_SHOOT_DISTANCE_SQUARED:
-			return owner.rng.randi() % 100 < 80
-	return owner.rng.randi() % 100 < 5
+	# check if player is close enough to shoot
+	var distance_squared: float = owner.player.pos.distance_squared_to(opponent_goal)
+	if distance_squared > MAX_SHOOT_DISTANCE_SQUARED:
+		return false
 
+	# define random attempts to aim and see how many players oppose
+	var attempts: int = owner.rng.randi_range(1, shooting_ability)
+	for i: int in attempts:
+		var y: int = owner.rng.randi_range(owner.field.goals.post_top, owner.field.goals.post_bottom)
+		var shot_attempt: Vector2 = Vector2(opponent_goal.x, y)
 
-func should_dribble() -> bool:
-	# check opposite players between player and goal
-	var opposing_player_count: int = 0
-	if owner.team.left_half:
+		# check if opponent players block shot
+		var gets_blocked: bool = false
 		for player: SimPlayer in owner.team.team_opponents.players:
-			if player.pos.x > owner.player.pos.x:
-				opposing_player_count += 1
-	else:
-		for player: SimPlayer in owner.team.team_opponents.players:
-			if player.pos.x < owner.player.pos.x:
-				opposing_player_count += 1
+			var closest_point_to_trajectory: Vector2 = Geometry2D.get_closest_point_to_segment(
+				player.pos,
+				owner.field.ball.pos,
+				shot_attempt
+			)
+			var distance: float = closest_point_to_trajectory.distance_squared_to(player.pos)
+			if distance < BLOCK_DISTANCE_SQUARED:
+				gets_blocked = true
+				break
 
-	return owner.rng.randi() % 100 < 100 - (opposing_player_count * 20)
+		if not gets_blocked:
+			shoot_direction = owner.field.ball.pos.direction_to(shot_attempt)
+			return true
+
+	return false
 
 
 func pass_ball() -> void:
 	# find best pass
 	var best_player: SimPlayer
-	var delta: float = 1.79769e308  # max float
+	var delta: float = owner.field.WIDTH * owner.field.HEIGHT
 	for player: SimPlayer in owner.team.players:
 		if player != owner.player:
 			var distance: float = player.pos.distance_squared_to(owner.player.pos)

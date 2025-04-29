@@ -477,3 +477,4 @@ func _on_penalties_goal() -> void:
 		left_team.stats.penalty_shootout_goals += 1
 	else:
 		right_team.stats.penalty_shootout_goals += 1
+

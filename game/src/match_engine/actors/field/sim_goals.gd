@@ -7,7 +7,8 @@ class_name SimGoals
 signal post_hit_left
 signal post_hit_right
 
-var size: float
+const SIZE: int = 3 * SimField.PIXEL_FACTOR
+
 var left: Vector2
 var right: Vector2
 
@@ -40,13 +41,12 @@ var post_bottom_right_bottom: CollidingActor
 
 
 func _init(field: SimField) -> void:
-	size = 3 * field.PIXEL_FACTOR
 
 	left = Vector2(field.line_left, field.size.y / 2)
 	right = Vector2(field.line_right, field.size.y / 2)
 
-	post_bottom = int(field.size.y / 2.0) + int(size / 2.0)
-	post_top = int(field.size.y / 2.0) - int(size / 2.0)
+	post_bottom = int(field.size.y / 2.0) + int(SIZE / 2.0)
+	post_top = int(field.size.y / 2.0) - int(SIZE / 2.0)
 
 	post_top_left = Vector2(field.line_left, post_top)
 	post_bottom_left = Vector2(field.line_left, post_bottom)
@@ -54,7 +54,7 @@ func _init(field: SimField) -> void:
 	post_bottom_right = Vector2(field.line_right, post_bottom)
 
 	# colissions
-	var post_size: float = 1.0 * field.PIXEL_FACTOR
+	var post_size: float = 1.0 * SimField.PIXEL_FACTOR
 
 	# top left
 	post_top_left_top = (
@@ -244,3 +244,4 @@ func check_post_colissions(ball: SimBall) -> void:
 				ball.direction = colission
 				post_hit_right.emit()
 				return
+

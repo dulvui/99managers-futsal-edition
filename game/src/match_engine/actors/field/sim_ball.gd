@@ -70,22 +70,6 @@ func dribble(p_destination: Vector2, force: float) -> void:
 	impulse(p_destination, force)
 
 
-func shoot_on_goal(player: Player, left_half: bool) -> void:
-	# print("shoot on goal")
-	var power: int = rng.randi_range(10, 20)
-	power += player.attributes.technical.shooting
-
-	var random_target: Vector2
-	if left_half:
-		random_target = field.goals.right
-	else:
-		random_target = field.goals.left
-
-	random_target += Vector2(0, rng.randf_range(-field.goals.size, field.goals.size))
-
-	shoot(random_target, power)
-
-
 func penalty(player: Player) -> void:
 	var left_half: bool = pos.x < field.size.x / 2.0
 
@@ -105,7 +89,7 @@ func penalty(player: Player) -> void:
 	# 0.6 best, 1.55 worst
 	var aim: float = 0.6 + (1.0 - aim_factor)
 
-	random_target += Vector2(0, rng.randf_range(-field.goals.size * aim, field.goals.size * aim))
+	random_target += Vector2(0, rng.randf_range(-SimGoals.SIZE * aim, SimGoals.SIZE * aim))
 
 	shoot(random_target, power)
 
@@ -126,7 +110,7 @@ func free_kick(player: SimPlayer) -> void:
 	# 0.6 best, 1.55 worst
 	var aim: float = 0.6 + (1.0 - aim_factor)
 
-	random_target += Vector2(0, rng.randf_range(-field.goals.size * aim, field.goals.size * aim))
+	random_target += Vector2(0, rng.randf_range(-SimGoals.SIZE * aim, SimGoals.SIZE * aim))
 
 	shoot(random_target, power * rng.randi_range(1, 3))
 

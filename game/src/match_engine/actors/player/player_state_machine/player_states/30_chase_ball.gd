@@ -11,10 +11,18 @@ func _init() -> void:
 
 
 func enter() -> void:
-	owner.player.follow(owner.field.ball, 10, 40)
+	owner.player.follow(owner.field.ball)
 
 
 func execute() -> void:
+	# update follow distance, depending on how close ball is to own goal
+	if owner.player.left_half:
+		var distance_to_goal: float = owner.field.goals.left.distance_squared_to(owner.field.ball.pos)
+		owner.player.follow_distance_squared = distance_to_goal / 20
+	else:
+		var distance_to_goal: float = owner.field.goals.right.distance_squared_to(owner.field.ball.pos)
+		owner.player.follow_distance_squared = distance_to_goal / 20
+
 	# check for foul
 	var controlling_player: SimPlayer = owner.team.team_opponents.player_control()
 	if owner.player.collides(controlling_player):

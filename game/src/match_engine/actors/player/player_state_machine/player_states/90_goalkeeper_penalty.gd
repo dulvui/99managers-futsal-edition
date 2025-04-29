@@ -30,7 +30,7 @@ func enter() -> void:
 	# pick random spot where goalkeeper will try to save
 	# deviation on y axis from current pos
 	var save_attempt_spot_y: int = owner.player.rng.randi_range(
-		int(-owner.field.goals.size / 2), int(owner.field.goals.size / 2)
+		int(-SimGoals.SIZE / 2.0), int(SimGoals.SIZE / 2.0)
 	)
 	var save_attempt_spot_x: int = owner.player.rng.randi_range(0, 20)
 	save_attempt_spot = owner.player.destination + Vector2(save_attempt_spot_x, save_attempt_spot_y)
