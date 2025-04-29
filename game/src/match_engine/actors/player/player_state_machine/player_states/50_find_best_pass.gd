@@ -31,7 +31,7 @@ func execute() -> void:
 		return
 
 	# find best pass
-	var pass_force: float = 40
+	var pass_force: float = 15
 	var best_player: SimPlayer = owner.team.find_best_pass(owner.player, pass_force)
 	if best_player == null:
 		pass_search_attempts += 1
@@ -44,8 +44,12 @@ func execute() -> void:
 		best_player = owner.team.players[-1]
 
 	owner.team.player_receive_ball(best_player)
-	owner.field.ball.impulse(owner.team.player_receive_ball().pos, pass_force)
+	var pass_direction: Vector2 = owner.field.ball.pos.direction_to(best_player.pos)
+	owner.field.ball.impulse(pass_direction, pass_force)
 	owner.team.stats.passes += 1
 
-	set_state(PlayerStateIdle.new())
+	if owner.player.is_goalkeeper:
+		set_state(PlayerStateGoalkeeperFollowBall.new())
+	else:
+		set_state(PlayerStateAttack.new())
 
