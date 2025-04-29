@@ -11,7 +11,7 @@ func _init() -> void:
 
 
 func enter() -> void:
-	owner.player.follow(owner.field.ball)
+	owner.player.follow(owner.field.ball, 10, 40)
 
 
 func execute() -> void:
@@ -20,7 +20,7 @@ func execute() -> void:
 	if owner.player.collides(controlling_player):
 		# TODO take aggressivity and other attributes into account
 		owner.team.stats.tackles += 1
-		if owner.player.rng.randi_range(0, 100) > 80:
+		if owner.player.rng.randi_range(0, 100) > 95:
 			# TODO check yellow/red card
 			owner.team.foul.emit(controlling_player.pos)
 			return
