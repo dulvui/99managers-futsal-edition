@@ -73,5 +73,5 @@ func shoot() -> void:
 
 	random_target += Vector2(0, owner.rng.randf_range(-SimGoals.SIZE * aim, SimGoals.SIZE * aim))
 
-	owner.field.ball.shoot(random_target, power)
+	owner.field.ball.impulse(random_target, power)
 

@@ -32,7 +32,7 @@ var ticks_in_field: int
 
 
 func _init(p_rng: RandomNumberGenerator, p_radius: float = 9) -> void:
-	super(p_radius)
+	super(p_radius, 0.0)
 	rng = p_rng
 	# initial test values
 	has_ball = false
@@ -66,8 +66,8 @@ func update() -> void:
 
 	state_machine.execute()
 
-	if speed > 0:
-		player_res.consume_stamina(speed)
+	if is_moving():
+		player_res.consume_stamina(force)
 
 
 func change_player_res(p_player_res: Player) -> void:

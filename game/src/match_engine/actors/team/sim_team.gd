@@ -264,14 +264,25 @@ func find_nearest_player_to(position: Vector2, exclude: Array[SimPlayer] = []) -
 #
 # HELPER FUNCTIONS
 #
-func shoot_on_goal(_player: Player) -> void:
-	stats.shots += 1
-
-
 func penalties_shot_taken() -> void:
 	stats.penalty_shootout_shots += 1
 	penalties_shot.emit()
 
+
+# func is_ball_safe_from_opponents(from: Vector2, to: Vector2, _force: float) -> bool:
+# 	var distance: float = from.distance_squared_to(to)
+# 	# check if opponent players intercept ball
+# 	for player: SimPlayer in team_opponents.players:
+# 		var closest_point: Vector2 = Geometry2D.get_closest_point_to_segment(
+# 			player.pos, from, to
+# 		)
+# 		var player_distance: float = closest_point.distance_squared_to(player.pos)
+#
+# 		# calculate how much ticks/time ball needs to reach closests point
+#
+# 		# check if player can reach spot in time/ticks
+# 	return true
+#
 
 func _set_start_positions() -> void:
 	for player: SimPlayer in players:

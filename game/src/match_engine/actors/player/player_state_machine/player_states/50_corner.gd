@@ -60,5 +60,5 @@ func corner_kick() -> void:
 	for player: SimPlayer in owner.team.players:
 		if player != owner.player and not player.is_goalkeeper:
 			owner.team.player_receive_ball(player)
-			owner.field.ball.short_pass(player.pos, 20)
+			owner.field.ball.impulse(player.pos, 20)
 			return

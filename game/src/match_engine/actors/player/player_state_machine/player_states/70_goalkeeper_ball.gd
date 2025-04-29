@@ -38,7 +38,7 @@ func execute() -> void:
 				best_player = player
 
 	owner.team.player_receive_ball(best_player)
-	owner.field.ball.short_pass(owner.team.player_receive_ball().pos, 40)
+	owner.field.ball.impulse(owner.team.player_receive_ball().pos, 40)
 	owner.team.stats.passes += 1
 
 	set_state(PlayerStateIdle.new())

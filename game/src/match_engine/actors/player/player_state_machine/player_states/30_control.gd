@@ -48,7 +48,7 @@ func execute() -> void:
 		power += owner.player.player_res.attributes.technical.shooting
 
 		# shoot on goal
-		owner.field.ball.shoot(shoot_direction, power)
+		owner.field.ball.impulse(shoot_direction, power)
 		# set opponent goalkeeper in save state
 		owner.team.team_opponents.players[0].set_state(PlayerStateGoalkeeperSaveShot.new())
 		return
@@ -56,9 +56,9 @@ func execute() -> void:
 	# if should_dribble():
 	# 	# slightly kick ball towards goal
 	# 	if owner.team.left_half:
-	# 		owner.field.ball.dribble(owner.player.pos + Vector2(50, 0), 11)
+	# 		owner.field.ball.impulse(owner.player.pos + Vector2(50, 0), 11)
 	# 	else:
-	# 		owner.field.ball.dribble(owner.player.pos + Vector2(-50, 0), 11)
+	# 		owner.field.ball.impulse(owner.player.pos + Vector2(-50, 0), 11)
 	# 	owner.player.follow(owner.field.ball, 10)
 	# 	return
 
@@ -114,7 +114,7 @@ func pass_ball() -> void:
 				best_player = player
 
 	owner.team.player_receive_ball(best_player)
-	owner.field.ball.short_pass(owner.team.player_receive_ball().pos, 20)
+	owner.field.ball.impulse(owner.team.player_receive_ball().pos, 20)
 	owner.team.stats.passes += 1
 
 
@@ -129,5 +129,5 @@ func pass_ball_random() -> void:
 	random_player = owner.team.players[random_index]
 
 	owner.team.player_receive_ball(random_player)
-	owner.field.ball.short_pass(owner.team.player_receive_ball().pos, 20)
+	owner.field.ball.impulse(owner.team.player_receive_ball().pos, 20)
 	owner.team.stats.passes += 1

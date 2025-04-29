@@ -5,8 +5,6 @@
 class_name SimBall
 extends MovingActor
 
-const DECELERATION: float = 0.05
-
 # ball players collision timer
 # 1 so that ball doesn't collide after just started moving
 const PLAYER_COLISSION_TIME: int = 2
@@ -21,7 +19,7 @@ var rng: RandomNumberGenerator
 
 
 func _init(p_rng: RandomNumberGenerator) -> void:
-	super(2)
+	super(2, 0.05)
 	rng = p_rng
 
 
@@ -36,11 +34,8 @@ func setup(p_field: SimField) -> void:
 func update() -> void:
 	move()
 
-	if speed > 0:
-		speed -= DECELERATION
-
 	# rotation
-	if speed > 0:
+	if is_moving():
 		if abs(rotation) > 0.1:
 			if rotation > 0.1:
 				rotation -= 0.05
@@ -52,22 +47,10 @@ func update() -> void:
 		rotation = 0
 
 
-func short_pass(p_destination: Vector2, force: float) -> void:
+func impulse(p_destination: Vector2, p_force: float) -> void:
+	super(p_destination, p_force)
 	# print("pass")
 	_random_rotation()
-	impulse(p_destination, force)
-
-
-func shoot(p_destination: Vector2, force: float) -> void:
-	# print("shoot")
-	_random_rotation()
-	impulse(p_destination, force)
-
-
-func dribble(p_destination: Vector2, force: float) -> void:
-	# print("dribble")
-	_random_rotation()
-	impulse(p_destination, force)
 
 
 func stop() -> void:
