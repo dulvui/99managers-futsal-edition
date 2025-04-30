@@ -9,25 +9,47 @@ var player_info: String
 var head_look: Vector2
 var ball: VisualBall
 
-@onready var sprites: Node2D = $Sprites
-@onready var name_label: Label = $Info/NameLabel
+@onready var sprites: Node2D = %Sprites
+@onready var name_label: Label = %NameLabel
 
-@onready var body: Sprite2D = $Sprites/Body
-@onready var head: Sprite2D = $Sprites/Head
-@onready var hair: Sprite2D = $Sprites/Hair
-@onready var eyes: Sprite2D = $Sprites/Eyes
+@onready var body: Sprite2D = %Body
+@onready var arm_right: Sprite2D = %ArmLeft
+@onready var arm_left: Sprite2D = %ArmRight
+@onready var leg_right: Sprite2D = %LegLeft
+@onready var leg_left: Sprite2D = %LegRight
 
+@onready var head: Sprite2D = %Head
+@onready var hair: Sprite2D = %Hair
+@onready var eyes: Sprite2D = %Eyes
+
+@onready var animation_player: AnimationPlayer = %AnimationPlayer
 
 func _physics_process(delta: float) -> void:
 	super._physics_process(delta)
 
-	if not Global.match_paused:
-		if head_look == Vector2.ZERO:
-			sprites.look_at(ball.position)
-		else:
-			sprites.look_at(head_look)
-
 	name_label.text = player_info
+
+	var speed: float = last_pos.distance_squared_to(pos)
+	speed /= 10
+	animation_player.speed_scale = speed
+
+	if not Global.match_paused:
+		if last_pos != pos:
+			animation_player.play("run")
+			if head_look != Vector2.ZERO:
+				sprites.look_at(head_look)
+			else:
+				sprites.look_at(pos + (last_pos.direction_to(pos) * 2))
+		else:
+			animation_player.stop()
+			sprites.look_at(ball.position)
+	else:
+		animation_player.pause()
+
+
+# draw simple circle
+# func _draw() -> void:
+# 	draw_circle(Vector2.ZERO, 18, body.modulate)
 
 
 func setup(
@@ -48,6 +70,12 @@ func setup(
 	head.modulate = Color(skintone)
 	hair.modulate = Color(haircolor)
 	eyes.modulate = Color(eyecolor)
+
+	leg_right.modulate = Color(skintone)
+	leg_left.modulate = Color(skintone)
+	arm_right.modulate = Color(skintone)
+	arm_left.modulate = Color(skintone)
+	
 
 
 func update(

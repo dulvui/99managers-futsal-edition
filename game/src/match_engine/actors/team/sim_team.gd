@@ -271,12 +271,17 @@ func penalties_shot_taken() -> void:
 
 func is_ball_safe_from_opponents(p_destination: Vector2, p_force: float) -> bool:
 	for player: SimPlayer in team_opponents.players:
+
+		# don't check for goalkeepers
+		if player.is_goalkeeper:
+			continue
+
 		var closest_point: Vector2 = Geometry2D.get_closest_point_to_segment(
 			player.pos, field.ball.pos, p_destination
 		)
 		
 		# TODO: take also acceleration into account
-		var force: float = player.player_res.attributes.physical.pace
+		var force: float = player.player_res.attributes.physical.pace / 2.0
 		var player_ticks: int = player.get_ticks_to_reach(closest_point, force)
 		var ball_ticks: int = field.ball.get_ticks_to_reach(closest_point, p_force)
 
@@ -287,20 +292,18 @@ func is_ball_safe_from_opponents(p_destination: Vector2, p_force: float) -> bool
 
 
 func find_best_pass(passing_player: SimPlayer, pass_force: float) -> SimPlayer:
-	var best_player: SimPlayer
-	var delta: float = SimField.WIDTH * SimField.HEIGHT
+	var possible_players: Array[SimPlayer] = []
+
 	for player: SimPlayer in players:
 		if player != passing_player:
 
-			if not is_ball_safe_from_opponents(player.pos, pass_force):
-				continue
-			
-			var distance: float = player.pos.distance_squared_to(passing_player.pos)
-			if distance < delta:
-				delta = distance
-				best_player = player
+			if is_ball_safe_from_opponents(player.pos, pass_force):
+				possible_players.append(player)
+	
+	if possible_players.is_empty():
+		return null
 
-	return best_player
+	return possible_players[rng.randi() % possible_players.size()]
 
 
 func _set_start_positions() -> void:

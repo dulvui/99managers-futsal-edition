@@ -44,14 +44,11 @@ func execute() -> void:
 		owner.player.follow(owner.field.ball)
 		return
 
-	owner.player.stop()
-	owner.field.ball.stop()
-
 	if should_shoot():
 		owner.team.stats.shots += 1
 		# shoot on goal
 		owner.field.ball.impulse(shot_direction, shot_force)
-		# set opponent goalkeeper in save state
+		# set opponent goalkeeper to save state
 		owner.team.team_opponents.players[0].set_state(PlayerStateGoalkeeperSaveShot.new())
 		set_state(PlayerStateAttack.new())
 		return
@@ -65,7 +62,7 @@ func execute() -> void:
 
 	# dribble, by slightly kicking ball towards goal
 	var dribble_direction: Vector2 = owner.player.pos.direction_to(opponent_goal)
-	owner.field.ball.impulse(dribble_direction, 11)
+	owner.field.ball.impulse(dribble_direction, 5)
 
 
 func should_shoot() -> bool:
@@ -74,7 +71,7 @@ func should_shoot() -> bool:
 	if distance_squared > MAX_SHOOT_DISTANCE_SQUARED:
 		return false
 
-	# difine force
+	# define force
 	shot_force = owner.rng.randi_range(30, 50)
 	shot_force += owner.player.player_res.attributes.technical.shooting
 

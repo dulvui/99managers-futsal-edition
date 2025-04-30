@@ -12,6 +12,7 @@ script = ExtResource("1_moskm")
 [node name="VisualField" parent="." instance=ExtResource("4_jqh82")]
 
 [node name="VisualBall" parent="." instance=ExtResource("5_g1vg2")]
+scale = Vector2(0.015, 0.015)
 
 [node name="VisualTeamHome" parent="." instance=ExtResource("3_cl68t")]
 
