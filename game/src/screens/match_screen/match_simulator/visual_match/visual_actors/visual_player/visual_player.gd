@@ -73,8 +73,8 @@ func setup(
 
 	leg_right.modulate = Color(skintone)
 	leg_left.modulate = Color(skintone)
-	arm_right.modulate = Color(skintone)
-	arm_left.modulate = Color(skintone)
+	arm_right.modulate = Color(shirt_color)
+	arm_left.modulate = Color(shirt_color)
 	
 
 
