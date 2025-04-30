@@ -16,19 +16,23 @@ This tries to follow the [keepachangelog](https://keepachangelog.com/en/1.1.0/) 
 - Changee date and currency format in settings
 - Free agent players
 - Show player/team generation progress during game setup
-- Create backups of settings config and save states list file
+- Create better backups and use checksums to verify save states and configs
+- Goalkeeper has own save ball state and moves to best interposing position
+- Walking animation
 
 ## Changed
 - Better data validation when starting new game
 - Player profile has now tabs: Overview, Transfers, Contract
 - Realistic contract start and end dates
 - Show loading progress on game load and save
+- Make light theme default
 
 ## Fixed
 - Fixed issues in seasonal finances calculation
 - Faster loading/saving of game data by saving matches as csv
 - Show player's hair, eye and skin color again
 - Save and load all players data like contract and statistics
+- Goalkeeper stays in position during penalty and doesn't always go left
 
 ## Contributors
 - Simon Dalvai
