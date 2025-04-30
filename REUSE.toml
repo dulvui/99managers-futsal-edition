@@ -61,9 +61,7 @@ SPDX-License-Identifier = "CC0-1.0"
 # city names taken from https://en.wikipedia.org/wiki/Lists_of_cities_by_country
 [[annotations]]
 path = [
-    "game/data/world/world.csv",
-    "game/data/world/test_world.csv",
-    "game/data/world/test_world_with_errors.csv",
+    "game/data/world/*.csv",
 ]
 precedence = "aggregate"
 SPDX-FileCopyrightText = "Wikipedia"
