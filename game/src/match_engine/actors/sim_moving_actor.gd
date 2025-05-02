@@ -104,15 +104,18 @@ func get_ticks_to_reach(p_destination: Vector2, p_force: float) -> int:
 
 	var ticks: int = 0
 
-	while temp_pos.distance_squared_to(p_destination) < MIN_DISTANCE:
+	var distance: float = temp_pos.distance_squared_to(p_destination)
+	while distance < MIN_DISTANCE and distance > 0:
 		temp_pos += temp_direction * temp_force * Const.SPEED
 		ticks += 1
 		temp_force -= friction
 
 		# will never reach target
-		if temp_force < 0:
+		if temp_force < 0.0:
 			# simply return biiiiig number
 			return Const.FULL_TIME_TICKS
+
+		distance = temp_pos.distance_squared_to(p_destination)
 	
 	return ticks
 

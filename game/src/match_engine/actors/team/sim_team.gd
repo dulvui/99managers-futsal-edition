@@ -279,10 +279,10 @@ func is_ball_safe_from_opponents(p_destination: Vector2, p_force: float) -> bool
 		var closest_point: Vector2 = Geometry2D.get_closest_point_to_segment(
 			player.pos, field.ball.pos, p_destination
 		)
-		
+
 		# TODO: take also acceleration into account
-		var force: float = player.player_res.attributes.physical.pace / 2.0
-		var player_ticks: int = player.get_ticks_to_reach(closest_point, force)
+		var player_force: float = player.player_res.attributes.physical.pace
+		var player_ticks: int = player.get_ticks_to_reach(closest_point, player_force)
 		var ball_ticks: int = field.ball.get_ticks_to_reach(closest_point, p_force)
 
 		# check if player can reach spot in time/ticks faster than ball
