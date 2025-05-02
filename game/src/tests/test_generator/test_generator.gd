@@ -11,9 +11,9 @@ const TEST_WORLD_CSV_WITH_ERRORS: String = "res://data/world/test-data-with-erro
 
 func test() -> void:
 	print("test: generator...")
-	test_history()
 	test_required_properties()
 	test_determenistic_generation()
+	test_history()
 	print("test: generator done.")
 
 
@@ -24,7 +24,7 @@ func test_required_properties() -> void:
 	var world_generator: GeneratorWorld = GeneratorWorld.new()
 	var world: World = world_generator.init_world()
 	# generate players
-	var generator: Generator = Generator.new()
+	var generator: Generator = Generator.new("TestSeed", Enum.PlayerNames.MIXED)
 	var success: bool = generator.initialize_world(world)
 	assert(success)
 
@@ -53,20 +53,22 @@ func test_determenistic_generation() -> void:
 	var world_generator: GeneratorWorld = GeneratorWorld.new()
 	var world: World = world_generator.init_world()
 	# generate teams
-	var generator: Generator = Generator.new("TestSeed")
+	var generator: Generator = Generator.new("TestSeed", Enum.PlayerNames.MIXED)
 	var success: bool = generator.initialize_world(world)
 	assert(success)
 
 	# test deterministic generations x time
-	for i: int in range(2):
+	for i: int in range(3):
 		print("test: deterministic run " + str(i + 1))
 
 		# create test_world
 		var test_world_generator: GeneratorWorld = GeneratorWorld.new()
 		var test_world: World = test_world_generator.init_world()
+
 		# generate teams
-		var test_generator: Generator = Generator.new("TestSeed")
+		var test_generator: Generator = Generator.new("TestSeed", Enum.PlayerNames.MIXED)
 		var test_success: bool = test_generator.initialize_world(test_world)
+
 		assert(test_success)
 
 		# continents
@@ -112,15 +114,32 @@ func test_determenistic_generation() -> void:
 
 						assert(player_size == test_player_size)
 
-						# player names
 						for o: int in team.players.size():
 							var player: Player = team.players[o]
-							var player_name: String = player.get_full_name()
-
 							var test_player: Player = test_team.players[o]
-							var test_player_name: String = test_player.get_full_name()
 
+							# player ids
+							assert(player.id == test_player.id)
+							assert(player.team_id == test_player.team_id)
+							assert(player.league_id == test_player.league_id)
+
+							# player attributes
+							assert(player.attributes.physical.pace == test_player.attributes.physical.pace)
+							assert(player.attributes.technical.shooting == test_player.attributes.technical.shooting)
+							assert(player.attributes.mental.aggression == test_player.attributes.mental.aggression)
+							assert(player.attributes.goalkeeper.reflexes == test_player.attributes.goalkeeper.reflexes)
+
+							# player colors
+							assert(player.haircolor == test_player.haircolor)
+							assert(player.skintone == test_player.skintone)
+							assert(player.eyecolor == test_player.eyecolor)
+
+							# player names
+							var test_player_name: String = test_player.get_full_name()
+							var player_name: String = player.get_full_name()
 							assert(player_name == test_player_name)
+
+
 	print("test: deterministic generation done.")
 
 
@@ -134,7 +153,7 @@ func test_history() -> void:
 	var world: World = world_generator.init_world()
 
 	# generate teams
-	var generator: Generator = Generator.new()
+	var generator: Generator = Generator.new("TestSeed", Enum.PlayerNames.MIXED)
 	var success: bool = generator.initialize_world(world)
 	assert(success)
 
@@ -165,7 +184,7 @@ func test_errors_and_warnings() -> void:
 	var world_generator: GeneratorWorld = GeneratorWorld.new()
 	var world: World = world_generator.init_world()
 	# generate teams
-	var generator: Generator = Generator.new()
+	var generator: Generator = Generator.new("TestSeed", Enum.PlayerNames.MIXED)
 	var success: bool = generator.initialize_world(world, TEST_WORLD_CSV_WITH_ERRORS)
 	assert(not success)
 

@@ -1,7 +1,8 @@
-[gd_scene load_steps=10 format=3 uid="uid://dauiul27o5t72"]
+[gd_scene load_steps=11 format=3 uid="uid://dauiul27o5t72"]
 
 [ext_resource type="PackedScene" uid="uid://wf8y8myqy8o1" path="res://src/tests/test_generator/test_generator.tscn" id="1_dyknh"]
 [ext_resource type="Script" uid="uid://imkgdies7mn1" path="res://src/tests/tests.gd" id="1_t2lbh"]
+[ext_resource type="PackedScene" uid="uid://c55we60gysc3h" path="res://src/tests/test_rng_util/test_rng_util.tscn" id="2_d7bnj"]
 [ext_resource type="PackedScene" uid="uid://b746ub8qrebs0" path="res://src/tests/test_match_util/test_match_util.tscn" id="4_ldc2r"]
 [ext_resource type="PackedScene" uid="uid://cx53uix2kysys" path="res://src/tests/test_match_engine/test_match_engine.tscn" id="4_p5e07"]
 [ext_resource type="PackedScene" uid="uid://b4be7fe8k03ed" path="res://src/tests/test_calendar/test_calendar.tscn" id="5_d4v01"]
@@ -12,6 +13,8 @@
 
 [node name="Tests" type="Node"]
 script = ExtResource("1_t2lbh")
+
+[node name="TestRngUtil" parent="." instance=ExtResource("2_d7bnj")]
 
 [node name="TestCalendar" parent="." instance=ExtResource("5_d4v01")]
 

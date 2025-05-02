@@ -10,7 +10,6 @@ extends JSONResource
 @export var config_version_history: Dictionary
 @export var start_date: Dictionary
 @export var generation_seed: String
-@export var generation_state: int
 @export var generation_player_names: Enum.PlayerNames
 @export var current_season: int
 @export var match_speed: Enum.MatchSpeed
@@ -27,7 +26,6 @@ extends JSONResource
 
 func _init(
 	p_generation_seed: String = "SuchDefaultSeed",
-	p_generation_state: int = 0,
 	p_generation_player_names: Enum.PlayerNames = Enum.PlayerNames.MALE,
 	p_current_season: int = 0,
 	p_match_speed: Enum.MatchSpeed = Enum.MatchSpeed.KEY_ACTIONS,
@@ -46,7 +44,6 @@ func _init(
 	config_version = p_config_version
 	start_date = p_start_date
 	generation_seed = p_generation_seed
-	generation_state = p_generation_state
 	generation_player_names = p_generation_player_names
 	current_season = p_current_season
 	match_speed = p_match_speed

@@ -27,7 +27,6 @@ func new_save_state() -> void:
 	new_state.id_by_type = IdUtil.id_by_type
 	new_state.current_season = 0
 	new_state.generation_seed = Global.generation_seed
-	new_state.generation_state = Global.generation_state
 	new_state.generation_player_names = Global.generation_player_names
 
 	new_state.initialize()

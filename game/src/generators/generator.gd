@@ -52,11 +52,16 @@ var contract_min_year: int
 var names: GeneratorNames
 var all_nations: Array[Nation]
 
+var player_names: Enum.PlayerNames
 var rng_util: RngUtil
 
 
-func _init(generation_seed: String = "") -> void:
-	rng_util = RngUtil.new(generation_seed)
+func _init(
+	generation_seed: String,
+	p_player_names: Enum.PlayerNames
+) -> void:
+	rng_util = RngUtil.new(generation_seed, p_player_names)
+	player_names = p_player_names
 
 
 func initialize_world(world: World, world_file_path: String = Const.WORLD_CSV_PATH) -> bool:
@@ -159,6 +164,9 @@ func initialize_world(world: World, world_file_path: String = Const.WORLD_CSV_PA
 	# initialize min/max date ranges for birthdays, contracts ecc
 	_init_date_ranges()
 
+	# load player names
+	names = GeneratorNames.new(world, player_names, rng_util)
+
 	# initialize players and other custom team properties after club history
 	# because histroy generation swaps team ids and names
 	var success_players: bool = _generate_players(world)
@@ -225,9 +233,6 @@ func _init_date_ranges() -> void:
 
 
 func _generate_players(world: World) -> bool:
-	# load player names
-	names = GeneratorNames.new(world, rng_util)
-
 	# generate missing players
 	var players_count: int = 0
 	for continent: Continent in world.continents:

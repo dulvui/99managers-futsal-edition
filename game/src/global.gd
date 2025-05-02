@@ -11,7 +11,6 @@ var config: SettingsConfig
 # generator config
 var start_date: Dictionary
 var generation_seed: String
-var generation_state: int
 var generation_player_names: Enum.PlayerNames
 # saves which season this is, starting from 0
 var current_season: int
@@ -141,7 +140,6 @@ func load_save_state() -> bool:
 		current_season = save_sate.current_season
 		match_speed = save_sate.match_speed
 		generation_seed = save_sate.generation_seed
-		generation_state = save_sate.generation_state
 		generation_player_names = save_sate.generation_player_names
 		ThreadUtil.load_data()
 		return true

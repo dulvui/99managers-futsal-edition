@@ -34,13 +34,11 @@ var match_over: bool
 
 # make private, because _rng shoud never be accessed outside match engine
 # state would be changed and no longer matches future/past engine state
-var _rng: RandomNumberGenerator
+var _rng: RngUtil
 
 
 func setup(p_matchz: Match, p_home_team: Team = null, p_away_team: Team = null) -> void:
-	_rng = RandomNumberGenerator.new()
-	_rng.seed = p_matchz.id
-	_rng.state = 0
+	_rng = RngUtil.new(str(p_matchz.id))
 
 	no_draw = p_matchz.no_draw
 	over_time = false
@@ -174,8 +172,7 @@ func simulate(end_time: int = -1) -> void:
 
 func simulate_match(matchz: Match, fast: bool = false) -> void:
 	if fast:
-		_rng = RandomNumberGenerator.new()
-		_rng.seed = matchz.id
+		_rng = RngUtil.new(str(matchz.id))
 
 		var home_goals: int = _rng.randi() % 10
 		var away_goals: int = _rng.randi() % 10

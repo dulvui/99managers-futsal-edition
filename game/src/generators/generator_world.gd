@@ -6,6 +6,9 @@ class_name GeneratorWorld
 
 
 func init_world() -> World:
+	# always reset IdUtil, when new world is created
+	IdUtil.reset()
+
 	var world: World = World.new()
 
 	# continents

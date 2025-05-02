@@ -10,28 +10,13 @@ const FEMALE_NAMES: StringName = "female_names"
 const MALE_NAMES: StringName = "male_names"
 const SURNAMES: StringName = "surnames"
 
+var player_names: Enum.PlayerNames
 var names: Dictionary = {}
 var rng_util: RngUtil
 
 
-# TODO: add names for key Futsal Regions
-# South America
-# Brazil, Argentina, Paraguay, Colombia
-#
-# Europe
-# Spain, Italy, Portugal, Russia, Ukraine
-#
-# North America
-# USA, Canada
-#
-# Asia
-# Japan, Iran, Thailand, Indonesia, Vietnam, Malaysia, Australia
-#
-# Africa
-# Morocco, Egypt, Mozambique, Angola
-
-
-func _init(world: World, p_rng_util: RngUtil) -> void:
+func _init(world: World, p_player_names: Enum.PlayerNames, p_rng_util: RngUtil) -> void:
+	player_names = p_player_names
 	rng_util = p_rng_util
 
 	for nation: Nation in world.get_all_nations():
@@ -72,16 +57,14 @@ func get_random_name(nation: Nation) -> String:
 	if not names.has(code):
 		code = rng_util.pick_random(names.keys())
 
-	# male
-	if Global.generation_player_names == Enum.PlayerNames.MALE:
-		var names_array: Array[String] = names[code][MALE_NAMES]
-		var size: int = names_array.size()
-		return names_array[rng_util.randi() % size]
-	# female
-	elif Global.generation_player_names == Enum.PlayerNames.FEMALE:
-		var names_array: Array[String] = names[code][FEMALE_NAMES]
-		var size: int = names_array.size()
-		return names_array[rng_util.randi() % size]
+	# # male
+	# if player_names == Enum.PlayerNames.MALE:
+	# 	var names_array: Array[String] = names[code][MALE_NAMES]
+	# 	return rng_util.pick_random(names_array)
+	# # female
+	# elif player_names == Enum.PlayerNames.FEMALE:
+	# 	var names_array: Array[String] = names[code][FEMALE_NAMES]
+	# 	return rng_util.pick_random(names_array)
 
 	# mixed
 	var female_names: Array = names[code][FEMALE_NAMES]
@@ -90,7 +73,7 @@ func get_random_name(nation: Nation) -> String:
 	mixed_names.append_array(female_names)
 	mixed_names.append_array(male_names)
 
-	return mixed_names[rng_util.randi() % mixed_names.size()]
+	return rng_util.pick_random(mixed_names)
 
 
 func get_random_surnname(nation: Nation) -> String:
@@ -110,8 +93,7 @@ func get_random_surnname(nation: Nation) -> String:
 		code = rng_util.pick_random(names.keys())
 
 	var names_array: Array[String] = names[code][SURNAMES]
-	var size: int = names_array.size()
-	return names_array[rng_util.randi() % size]
+	return rng_util.pick_random(names_array)
 
 
 func _read_name_csv_file(path: String) -> Array[String]:

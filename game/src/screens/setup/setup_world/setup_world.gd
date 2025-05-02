@@ -166,20 +166,23 @@ func _on_continue_pressed() -> void:
 	)
 	Global.start_date = Time.get_datetime_dict_from_datetime_string(start_date_str, true)
 	# also set Global.start_date, so functions like person.get_age work
-	Global.generation_seed = DEFAULT_SEED
-	Global.generation_player_names = player_names
+	var final_seed: String = DEFAULT_SEED
 
 	if advanced_settings:
-		Global.generation_seed = generation_seed
+		final_seed = generation_seed
+	
+	# save seed and player names globally, to later assign it to save state
+	Global.generation_seed = final_seed
+	Global.generation_player_names = player_names
 
 	Main.manual_hide_loading_screen()
 	# await and make sure loading screen is visible, before it can be hidden on error
 	await Main.show_loading_screen(tr("Generating teams and players"))
 
 	if not advanced_settings or default_file_button.button_pressed or custom_file_path.is_empty():
-		ThreadUtil.generate_world()
+		ThreadUtil.generate_world(final_seed, player_names)
 	else:
-		ThreadUtil.generate_world(custom_file_path)
+		ThreadUtil.generate_world(final_seed, player_names, custom_file_path)
 
 
 func _on_world_generated() -> void:

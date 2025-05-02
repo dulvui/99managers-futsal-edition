@@ -5,6 +5,7 @@
 class_name Tests
 extends Node
 
+@onready var test_rng_util: TestRngUtil = $TestRngUtil
 @onready var test_calendar: TestCalendar = $TestCalendar
 @onready var test_generator: TestGenerator = $TestGenerator
 @onready var test_match_engine: TestMatchEngine = $TestMatchEngine
@@ -27,6 +28,7 @@ func _ready() -> void:
 
 func tests_fast() -> void:
 	print("start tests: fast..")
+	test_rng_util.test()
 	test_data_util.test()
 	test_format_util.test()
 	test_match_util.test()

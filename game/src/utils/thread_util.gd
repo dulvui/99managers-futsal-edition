@@ -31,11 +31,18 @@ func load_data() -> void:
 	thread.start(_load_data)
 
 
-func generate_world(world_file_path: String = Const.WORLD_CSV_PATH) -> void:
+func generate_world(
+	generation_seed: String,
+	player_names: Enum.PlayerNames,
+	world_file_path: String = Const.WORLD_CSV_PATH
+) -> void:
 	if thread and thread.is_started():
 		print("thread is already running")
 		return
-	thread.start(_generate_world.bind(world_file_path), Thread.Priority.PRIORITY_HIGH)
+	thread.start(
+		_generate_world.bind(generation_seed, player_names, world_file_path),
+		Thread.Priority.PRIORITY_HIGH
+	)
 
 
 func random_results() -> void:
@@ -59,9 +66,13 @@ func _load_data() -> void:
 	call_deferred("_loading_done")
 
 
-func _generate_world(world_file_path: String = Const.WORLD_CSV_PATH) -> void:
+func _generate_world(
+	generation_seed: String,
+	player_names: Enum.PlayerNames,
+	world_file_path: String = Const.WORLD_CSV_PATH
+) -> void:
 	print("generating world in thread...")
-	var generator: Generator = Generator.new()
+	var generator: Generator = Generator.new(generation_seed, player_names)
 
 	var generator_world: GeneratorWorld = GeneratorWorld.new()
 	var world: World = generator_world.init_world()
