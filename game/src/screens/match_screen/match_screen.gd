@@ -19,6 +19,9 @@ var matchz: Match
 var home_stats: MatchStatistics
 var away_stats: MatchStatistics
 
+var minutes: int
+var seconds: int
+
 # views
 @onready var match_simulator: MatchSimulator = $MatchSimulator
 @onready var views: MarginContainer = %Views
@@ -57,9 +60,6 @@ var away_stats: MatchStatistics
 @onready var penalties_bar: PenaltiesBar = %PenaltiesBar
 
 @onready var simulation_dialog: DefaultConfirmDialog = %SimulationDialog
-
-var minutes: int
-var seconds: int
 
 
 func _ready() -> void:

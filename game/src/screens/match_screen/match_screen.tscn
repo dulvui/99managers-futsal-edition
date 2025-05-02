@@ -192,9 +192,11 @@ script = ExtResource("4_fwmog")
 
 [node name="SpeedFactor" type="Label" parent="Main/Content/TopBar/Right/PanelContainer/Speed"]
 unique_name_in_owner = true
+custom_minimum_size = Vector2(200, 0)
 layout_mode = 2
 size_flags_horizontal = 3
 text = "Full game"
+horizontal_alignment = 1
 
 [node name="FasterButton" type="Button" parent="Main/Content/TopBar/Right/PanelContainer/Speed"]
 unique_name_in_owner = true
