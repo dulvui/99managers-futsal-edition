@@ -330,7 +330,7 @@ msgid "Persons"
 msgstr "Orang-orang"
 
 #: src/ui_components/team_profile/team_profile.gd
-#: src/ui_components/player_profile/transfers/contract_offer/contract_offer.tscn
+#: src/ui_components/player_profile/transfers/visual_contract_offer/visual_contract_offer.tscn
 msgid "Year"
 msgstr "Tahun"
 
@@ -432,7 +432,7 @@ msgstr "Sisa anggaran gaji"
 
 #: src/ui_components/visual_finances/visual_finances.tscn
 #: src/ui_components/player_list/player_list_view/views/contract/player_list_view_contract.tscn
-#: src/ui_components/player_profile/transfers/contract_offer/contract_offer.tscn
+#: src/ui_components/player_profile/transfers/visual_contract_offer/visual_contract_offer.tscn
 msgid "Income"
 msgstr "Pendapatan"
 
@@ -605,7 +605,7 @@ msgid "From"
 msgstr "Dari"
 
 #: src/ui_components/email/list/message_list.tscn
-#: src/ui_components/player_profile/transfers/player_offer/player_offer.tscn
+#: src/ui_components/player_profile/transfers/visual_buy_offer/visual_buy_offer.tscn
 msgid "Date"
 msgstr "Tanggal"
 
@@ -638,7 +638,7 @@ msgid "Action"
 msgstr "Action"
 
 #: src/ui_components/email/visual_message/visual_message.gd
-#: src/ui_components/player_profile/transfers/contract_offer/contract_offer.tscn
+#: src/ui_components/player_profile/transfers/visual_contract_offer/visual_contract_offer.tscn
 msgid "Offer contract"
 msgstr "Tawarkan kontrak"
 
@@ -880,7 +880,7 @@ msgstr "Tanggal berakhir"
 
 #: src/ui_components/player_profile/contract_view/contract_view.tscn
 #: src/ui_components/player_list/player_list_view/views/contract/player_list_view_contract.tscn
-#: src/ui_components/player_profile/transfers/contract_offer/contract_offer.tscn
+#: src/ui_components/player_profile/transfers/visual_contract_offer/visual_contract_offer.tscn
 msgid "Buy clause"
 msgstr "Klausul pembelian"
 
@@ -1002,62 +1002,6 @@ msgstr "Lanjutkan"
 
 #: src/ui_components/tree_overviews/teams_tree/teams_tree.gd
 msgid "No team found"
-msgstr ""
-
-#. TRANSLATORS: {team_name} gets dynamically filled
-#: src/utils/logic/email_util.gd
-msgid "Next match: {team_name}"
-msgstr ""
-
-#. TRANSLATORS: {team_name} gets dynamically filled
-#: src/utils/logic/email_util.gd
-msgid "The next match is against {team_name}."
-msgstr ""
-
-#: src/utils/logic/email_util.gd
-msgid "Welcome {manager_name}"
-msgstr ""
-
-#. TRANSLATORS: {team_name} gets dynamically filled
-#: src/utils/logic/email_util.gd
-msgid "{team_name} welcomes you to a new journey."
-msgstr ""
-
-#. TRANSLATORS: {player_name} gets dynamically filled
-#: src/utils/logic/email_util.gd
-msgid "Offer for {player_name}"
-msgstr ""
-
-#. TRANSLATORS: {cost}, {player_name}, {team_name} get dynamically filled
-#: src/utils/logic/email_util.gd
-msgid ""
-"You made an offer for {player_name} from {team_name} at {cost}.\n"
-"\n"
-"\t\t\t\t{team_name} will consider the offer and respond within a few days."
-msgstr ""
-
-#. TRANSLATORS: {player_name} gets dynamically filled
-#: src/utils/logic/email_util.gd
-msgid "Offer for {player_name} declined"
-msgstr ""
-
-#. TRANSLATORS: {player_name}, {team_name} get dynamically filled
-#: src/utils/logic/email_util.gd
-msgid ""
-"Your offer for {player_name} from {team_name} at {cost} has been declined.\n"
-"Increasing the transfer value could make them reconsider."
-msgstr ""
-
-#. TRANSLATORS: {player_name} gets dynamically filled
-#: src/utils/logic/email_util.gd
-msgid "Offer for {player_name} accepted"
-msgstr ""
-
-#. TRANSLATORS: {player_name}, {team_name} get dynamically filled
-#: src/utils/logic/email_util.gd
-msgid ""
-"Your offer for {player_name} from {team_name} at {cost} has been accepted.\n"
-"You can now find a contractual aggreement with {player_name}."
 msgstr ""
 
 #: src/screens/settings/settings.tscn src/screens/dashboard/dashboard.tscn
@@ -1279,10 +1223,6 @@ msgid "Scouts"
 msgstr ""
 
 #: src/screens/dashboard/dashboard.tscn
-msgid "Watchlist"
-msgstr ""
-
-#: src/screens/dashboard/dashboard.tscn
 msgid "Transferlist"
 msgstr ""
 
@@ -1293,10 +1233,6 @@ msgstr "Pekerjaan"
 #: src/screens/dashboard/dashboard.tscn
 msgid "Hall of fame"
 msgstr ""
-
-#: src/screens/dashboard/dashboard.tscn
-msgid "Notes"
-msgstr "Catatan"
 
 #: src/screens/dashboard/dashboard.tscn
 msgid "Next match"
@@ -1311,10 +1247,6 @@ msgstr "Lanjutkan"
 #: src/screens/dashboard/dashboard.tscn
 msgid "Save the game before exiting?"
 msgstr ""
-
-#: src/screens/loading_screen/loading_screen.tscn
-msgid "Loading"
-msgstr "Memuat"
 
 #: src/screens/menu/menu.tscn
 msgid "New game"
@@ -1715,10 +1647,6 @@ msgstr ""
 
 #: src/enum.gd
 msgid "Next transfer window"
-msgstr ""
-
-#: src/enum.gd
-msgid "End of season"
 msgstr ""
 
 #: src/screens/match_screen/match_screen.gd
@@ -2711,65 +2639,16 @@ msgstr "Republik Afrika Tengah"
 msgid "Cyprus"
 msgstr "Siprus"
 
-#: src/ui_components/player_profile/transfers/player_offer/player_offer.gd
-msgid "Your offer was sent."
-msgstr ""
-
-#: src/ui_components/player_profile/transfers/player_offer/player_offer.tscn
-msgid "Buy"
-msgstr ""
-
-#: src/ui_components/player_profile/transfers/player_offer/player_offer.tscn
-msgid "Make an offer to buy the player."
-msgstr ""
-
-#: src/ui_components/player_profile/transfers/player_offer/player_offer.tscn
-msgid "Money"
-msgstr "Uang"
-
-#: src/ui_components/player_profile/transfers/player_offer/player_offer.tscn
-msgid "Loan"
-msgstr "Pinjaman"
-
-#: src/ui_components/player_profile/transfers/player_offer/player_offer.tscn
-msgid "Make an offer to get the player on loan."
-msgstr ""
-
-#: src/ui_components/player_profile/transfers/player_offer/player_offer.tscn
-#, fuzzy
-#| msgid "Russian Federation"
-msgid "Loan duration"
-msgstr "Federasi Rusia"
-
-#: src/ui_components/player_profile/transfers/player_offer/player_offer.tscn
-#, fuzzy
-#| msgid "Salary budget"
-msgid "Salary percentage"
-msgstr "Anggaran gaji"
-
-#: src/ui_components/player_profile/transfers/player_offer/player_offer.tscn
-msgid "Additional money"
-msgstr ""
-
-#: src/ui_components/player_profile/transfers/player_offer/player_offer.tscn
-#: src/ui_components/player_profile/transfers/contract_offer/contract_offer.tscn
-msgid "Confirm"
-msgstr "Konfirmasikan"
-
-#: src/ui_components/player_profile/transfers/contract_offer/contract_offer.tscn
-msgid "Offer the player a contract to join your team."
-msgstr ""
-
 #: src/resources/formation/formation.gd
 msgid "Auto"
 msgstr ""
 
 #: src/utils/ui/theme_util.gd
-msgid "Dark"
+msgid "Light"
 msgstr ""
 
 #: src/utils/ui/theme_util.gd
-msgid "Light"
+msgid "Dark"
 msgstr ""
 
 #: src/utils/ui/theme_util.gd
@@ -2791,6 +2670,58 @@ msgstr ""
 #: src/utils/ui/theme_util.gd
 msgid "Custom theme"
 msgstr ""
+
+#: src/screens/main/loading_screen/loading_screen.tscn
+msgid "Loading"
+msgstr "Memuat"
+
+#: src/ui_components/player_profile/transfers/visual_contract_offer/visual_contract_offer.tscn
+msgid "Offer the player a contract to join your team."
+msgstr ""
+
+#: src/ui_components/player_profile/transfers/visual_contract_offer/visual_contract_offer.tscn
+#: src/ui_components/player_profile/transfers/visual_buy_offer/visual_buy_offer.tscn
+msgid "Confirm"
+msgstr "Konfirmasikan"
+
+#: src/ui_components/player_profile/transfers/visual_buy_offer/visual_buy_offer.tscn
+msgid "Buy"
+msgstr ""
+
+#: src/ui_components/player_profile/transfers/visual_buy_offer/visual_buy_offer.tscn
+msgid "Make an offer to buy the player."
+msgstr ""
+
+#: src/ui_components/player_profile/transfers/visual_buy_offer/visual_buy_offer.tscn
+msgid "Money"
+msgstr "Uang"
+
+#: src/ui_components/player_profile/transfers/visual_buy_offer/visual_buy_offer.tscn
+msgid "Loan"
+msgstr "Pinjaman"
+
+#: src/ui_components/player_profile/transfers/visual_buy_offer/visual_buy_offer.tscn
+msgid "Make an offer to get the player on loan."
+msgstr ""
+
+#: src/ui_components/player_profile/transfers/visual_buy_offer/visual_buy_offer.tscn
+#, fuzzy
+#| msgid "Russian Federation"
+msgid "Loan duration"
+msgstr "Federasi Rusia"
+
+#: src/ui_components/player_profile/transfers/visual_buy_offer/visual_buy_offer.tscn
+#, fuzzy
+#| msgid "Salary budget"
+msgid "Salary percentage"
+msgstr "Anggaran gaji"
+
+#: src/ui_components/player_profile/transfers/visual_buy_offer/visual_buy_offer.tscn
+msgid "Additional money"
+msgstr ""
+
+#~ msgid "Notes"
+#~ msgstr "Catatan"
 
 #~ msgid "Type"
 #~ msgstr "Tipe"
