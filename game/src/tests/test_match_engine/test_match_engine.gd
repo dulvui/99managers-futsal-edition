@@ -30,10 +30,10 @@ func test_deterministic_simulations() -> void:
 			var home_team: Team = Tests.create_mock_team()
 			var away_team: Team = Tests.create_mock_team()
 
-			# use always same match id/seed
-			matchz.id = i
 			matches.append(matchz)
 			matchz.setup(home_team, away_team, 1, "test")
+			# use always same match id/seed
+			matchz.id = i
 			match_engine.setup(matchz, home_team, away_team)
 			match_engine.simulate()
 
@@ -48,7 +48,6 @@ func test_deterministic_simulations() -> void:
 		# check results
 		for j: int in MATCH_AMOUNT:
 			print("check %d - %d" % [matches[j].home_goals, matches[j - 1].home_goals])
-
 			assert(matches[j].home_goals == matches[j - 1].home_goals)
 			assert(matches[j].away_goals == matches[j - 1].away_goals)
 
