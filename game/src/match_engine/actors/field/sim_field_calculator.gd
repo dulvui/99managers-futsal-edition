@@ -4,6 +4,7 @@
 
 class_name SimFieldCalculator
 
+
 # can later made dynamic by team tactics long/short pass
 const PERFECT_PASS_DISTANCE: int = 30
 const BEST_SECTOR_UPDATE_FREQUENCY: int = Const.TICKS * 4
@@ -107,12 +108,11 @@ func _calc_players_in_pass_trajectory(position: Vector2) -> int:
 		players = field.left_team.players
 
 	for player: SimPlayer in players:
-		if (
-			Geometry2D.segment_intersects_circle(
+		var intersection: float = Geometry2D.segment_intersects_circle(
 				field.ball.pos, position, player.pos, player.collision_radius
 			)
-			> -1
-		):
+		if intersection	> -1:
 			players_in_trajectory += 1
 
 	return players_in_trajectory
+

@@ -59,6 +59,8 @@ func setup(
 	competition_name = p_competition_name
 	first_leg = p_first_leg
 
+	id = IdUtil.next_id(IdUtil.Types.MATCH)
+
 	# make sure teams are basic
 	if p_home is Team:
 		home = (p_home as Team).get_basic()
@@ -69,7 +71,6 @@ func setup(
 	else:
 		away = p_away
 
-	id = IdUtil.next_id(IdUtil.Types.MATCH)
 
 
 func set_result(

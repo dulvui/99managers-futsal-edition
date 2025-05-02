@@ -132,8 +132,9 @@ func _init() -> void:
 
 
 func update() -> void:
-	calculator.update()
 	ball.update()
+
+	calculator.update()
 
 	_check_clock_running()
 

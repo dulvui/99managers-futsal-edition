@@ -84,7 +84,7 @@ func setup(
 	# set goalkeeper flag
 	players[0].make_goalkeeper()
 
-	_set_start_positions()
+	set_start_positions()
 
 	state_machine = TeamStateMachine.new(rng, field, self)
 
@@ -306,7 +306,7 @@ func find_best_pass(passing_player: SimPlayer, pass_force: float) -> SimPlayer:
 	return possible_players[rng.randi() % possible_players.size()]
 
 
-func _set_start_positions() -> void:
+func set_start_positions() -> void:
 	for player: SimPlayer in players:
 		# start pos
 		var start_pos: Vector2 = team_res.formation.get_start_pos(

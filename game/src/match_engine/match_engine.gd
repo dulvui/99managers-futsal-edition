@@ -28,7 +28,7 @@ var ticks_clock_not_running: int
 # stats
 var possession_counter: float
 
-# flag if match goes to overtime and penalties, if finish in draw
+# flags
 var no_draw: bool
 var over_time: bool
 var penalties: bool
@@ -101,12 +101,14 @@ func setup(p_matchz: Match, p_home_team: Team = null, p_away_team: Team = null) 
 func update() -> void:
 	ticks += 1
 
+	# players movements
+	# before field update, to detect colissions on tick earlier
+	left_team.move()
+	right_team.move()
+
 	# field/ball updates more frequently on every tick
 	# for better colission detections
 	field.update()
-	# players movements
-	left_team.move()
-	right_team.move()
 
 	# teams/players instead update less frequent
 	# state machines don't require high frequency
@@ -356,23 +358,27 @@ func _teams_switch_sides() -> void:
 	home_team.stats.fouls_count = 0
 	away_team.stats.fouls_count = 0
 
+	# invert team references
 	if home_team.left_half:
 		left_team = away_team
 		right_team = home_team
 	else:
 		left_team = home_team
 		right_team = away_team
-
 	field.left_team = away_team
 	field.right_team = home_team
 
+	# set all left_half flag
 	left_team.left_half = true
 	right_team.left_half = false
-
 	for player: SimPlayer in left_team.players:
 		player.left_half = true
 	for player: SimPlayer in right_team.players:
 		player.left_half = false
+
+	# update starting positions
+	left_team.set_start_positions()
+	right_team.set_start_positions()
 
 
 func _recover_stamina(minutes: int) -> void:
