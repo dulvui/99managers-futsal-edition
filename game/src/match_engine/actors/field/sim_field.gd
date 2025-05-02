@@ -70,7 +70,7 @@ var wall_left: CollidingActor
 var wall_right: CollidingActor
 
 
-func _init(rng: RngUtil) -> void:
+func _init() -> void:
 	#size = sprite.texture.get_size()
 	size = Vector2(WIDTH + BORDER_SIZE * 2, HEIGHT + BORDER_SIZE * 2)
 
@@ -95,7 +95,7 @@ func _init(rng: RngUtil) -> void:
 	penalty_areas = SimPenaltyAreas.new(self, goals)
 
 	# ball
-	ball = SimBall.new(rng)
+	ball = SimBall.new()
 	ball.setup(self)
 
 	# flags

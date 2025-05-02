@@ -15,12 +15,9 @@ var colission_timer: int
 
 var field: SimField
 
-var rng: RngUtil
 
-
-func _init(p_rng: RngUtil) -> void:
+func _init() -> void:
 	super(2, 0.05)
-	rng = p_rng
 
 
 func setup(p_field: SimField) -> void:
@@ -59,5 +56,5 @@ func stop() -> void:
 
 
 func _random_rotation() -> void:
-	rotation = rng.randf_range(-0.8, 0.8)
+	rotation = randf_range(-0.8, 0.8)
 

@@ -32,20 +32,18 @@ var over_time: bool
 var penalties: bool
 var match_over: bool
 
-# make private, because _rng shoud never be accessed outside match engine
-# state would be changed and no longer matches future/past engine state
-var _rng: RngUtil
+var rng: RngUtil
 
 
 func setup(p_matchz: Match, p_home_team: Team = null, p_away_team: Team = null) -> void:
-	_rng = RngUtil.new(str(p_matchz.id))
+	rng = RngUtil.new(str(p_matchz.id))
 
 	no_draw = p_matchz.no_draw
 	over_time = false
 	penalties = false
 	match_over = false
 
-	field = SimField.new(_rng)
+	field = SimField.new()
 
 	field.touch_line_out.connect(_on_touch_line_out)
 	field.goal_line_out_left.connect(_on_goal_line_out_left)
@@ -58,9 +56,9 @@ func setup(p_matchz: Match, p_home_team: Team = null, p_away_team: Team = null) 
 	time = 0
 	possession_counter = 0.0
 
-	# var left_plays_left: bool = _rng.randi_range(0, 1) == 0
+	# var left_plays_left: bool = rng.randi_range(0, 1) == 0
 	var home_plays_left: bool = true
-	var home_has_ball: bool = _rng.randi_range(0, 1) == 0
+	var home_has_ball: bool = rng.randi_range(0, 1) == 0
 
 	# set up home/away team
 	var home_team_res: Team = p_home_team
@@ -70,8 +68,8 @@ func setup(p_matchz: Match, p_home_team: Team = null, p_away_team: Team = null) 
 	if away_team_res == null:
 		away_team_res = Global.world.get_team_by_id(p_matchz.away.id, p_matchz.competition_id)
 
-	home_team = SimTeam.new(_rng)
-	away_team = SimTeam.new(_rng)
+	home_team = SimTeam.new(rng)
+	away_team = SimTeam.new(rng)
 	home_team.setup(home_team_res, field, home_plays_left, home_has_ball)
 	away_team.setup(away_team_res, field, not home_plays_left, not home_has_ball)
 
@@ -172,10 +170,12 @@ func simulate(end_time: int = -1) -> void:
 
 func simulate_match(matchz: Match, fast: bool = false) -> void:
 	if fast:
-		_rng = RngUtil.new(str(matchz.id))
 
-		var home_goals: int = _rng.randi() % 10
-		var away_goals: int = _rng.randi() % 10
+		if rng == null:
+			rng = RngUtil.new(str(matchz.id))
+
+		var home_goals: int = rng.randi() % 10
+		var away_goals: int = rng.randi() % 10
 		var home_penalties_goals: int = 0
 		var away_penalties_goals: int = 0
 
@@ -194,7 +194,7 @@ func simulate_match(matchz: Match, fast: bool = false) -> void:
 			# fast and easy...
 			home_penalties_goals = 4
 			away_penalties_goals = 4
-			if _rng.randi() % 2 == 0:
+			if rng.randi() % 2 == 0:
 				home_penalties_goals += 1
 			else:
 				away_penalties_goals += 1

@@ -18,7 +18,7 @@ func enter() -> void:
 	owner.player.set_destination(owner.field.ball.pos)
 
 	wait = 3
-	wait_after_shot = owner.player.rng.randi_range(2, 7)
+	wait_after_shot = owner.rng.randi_range(2, 7)
 
 	owner.player.can_collide = false
 

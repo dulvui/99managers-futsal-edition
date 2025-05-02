@@ -22,7 +22,7 @@ func enter() -> void:
 		destination += destination.direction_to(owner.field.goals.right) * owner.field.PIXEL_FACTOR * 1
 	owner.player.set_destination(destination)
 
-	wait = owner.player.rng.randi_range(3, 7)
+	wait = owner.rng.randi_range(3, 7)
 
 
 func execute() -> void:

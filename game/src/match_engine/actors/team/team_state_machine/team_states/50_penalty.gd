@@ -26,9 +26,9 @@ func enter() -> void:
 			# start from min 5m distance
 			var deviation: int = owner.field.PIXEL_FACTOR * 5
 			# add random 0 to 10 meters
-			deviation += player.rng.randi_range(0, owner.field.PIXEL_FACTOR * 10)
+			deviation += owner.rng.randi_range(0, owner.field.PIXEL_FACTOR * 10)
 			# randomly make deviation negative
-			if player.rng.randi() % 2 == 0:
+			if owner.rng.randi() % 2 == 0:
 				deviation = -deviation
 			player.set_destination(Vector2(penalty_spot.x, penalty_spot.y + deviation))
 			player.set_state(PlayerStateIdle.new())

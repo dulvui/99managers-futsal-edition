@@ -77,7 +77,7 @@ func setup(
 
 	for player: Player in team_res.get_starting_players():
 		# setup
-		var sim_player: SimPlayer = SimPlayer.new(rng)
+		var sim_player: SimPlayer = SimPlayer.new()
 		sim_player.setup(player, self, field, left_half)
 		players.append(sim_player)
 

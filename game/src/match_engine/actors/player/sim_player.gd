@@ -10,8 +10,6 @@ var player_res: Player
 var field: SimField
 var state_machine: PlayerStateMachine
 
-var rng: RngUtil
-
 # positions
 var start_pos: Vector2
 # movements
@@ -31,9 +29,8 @@ var has_ball: bool
 var ticks_in_field: int
 
 
-func _init(p_rng: RngUtil, p_radius: float = 20) -> void:
+func _init(p_radius: float = 20) -> void:
 	super(p_radius, 0.0)
-	rng = p_rng
 	# initial test values
 	has_ball = false
 
@@ -93,19 +90,14 @@ func move_offense_pos() -> void:
 	if not left_half:
 		offense_pos.x = -offense_pos.x
 
-	set_destination(start_pos + offense_pos + _next_deviation())
+	set_destination(start_pos + offense_pos)
 
 
 func move_defense_pos() -> void:
-	set_destination(start_pos + _next_deviation())
+	set_destination(start_pos)
 
 
 func look_towards_destination() -> void:
 	if destination != null:
 		head_look = destination
 
-
-func _next_deviation() -> Vector2:
-	deviation.x = rng.randi_range(-5, 5)
-	deviation.y = rng.randi_range(-5, 5)
-	return deviation
