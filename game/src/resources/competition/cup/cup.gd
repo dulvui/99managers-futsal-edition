@@ -63,7 +63,7 @@ func setup(p_teams: Array[TeamBasic]) -> void:
 	for i: int in p_teams.size():
 		groups[i % group_amount].add_team(p_teams[i])
 
-	var match_util: MatchUtil = MatchUtil.new(Global.world)
+	var match_util: MatchUtil = MatchUtil.new()
 	match_util.add_matches_to_list(self, create_match_days())
 
 
@@ -84,7 +84,7 @@ func setup_knockout(
 
 	knockout.setup(teams, legs_semi_finals, legs_final)
 
-	var match_util: MatchUtil = MatchUtil.new(Global.world)
+	var match_util: MatchUtil = MatchUtil.new()
 	match_util.add_matches_to_list(self, create_match_days())
 
 
@@ -115,7 +115,7 @@ func next_stage() -> void:
 			# group stage is over
 			setup_knockout()
 	elif knockout.prepare_next_round():
-		var match_util: MatchUtil = MatchUtil.new(Global.world)
+		var match_util: MatchUtil = MatchUtil.new()
 		match_util.add_matches_to_list(self, create_match_days())
 
 
@@ -151,10 +151,11 @@ func _create_group_match_days() -> MatchDays:
 	var match_days: MatchDays = MatchDays.new()
 	var group_match_day_list: Array[MatchDays] = []
 
-	var match_util: MatchUtil = MatchUtil.new(Global.world)
+	var match_util: MatchUtil = MatchUtil.new()
 
 	for group: Group in groups:
-		group_match_day_list.append(match_util.create_combinations(self, group.teams))
+		var group_match_days: MatchDays = match_util.create_combinations(self, group.teams)
+		group_match_day_list.append(group_match_days)
 	
 	if group_match_day_list.size() == 0:
 		return match_days

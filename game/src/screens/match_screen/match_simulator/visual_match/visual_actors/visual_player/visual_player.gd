@@ -29,6 +29,7 @@ func _physics_process(delta: float) -> void:
 
 	name_label.text = player_info
 
+	# walking speed
 	var speed: float = last_pos.distance_squared_to(pos)
 	speed /= 10
 	animation_player.speed_scale = speed
@@ -39,8 +40,10 @@ func _physics_process(delta: float) -> void:
 			if head_look != Vector2.ZERO:
 				sprites.look_at(head_look)
 			else:
+				# look towards walking direction
 				sprites.look_at(pos + (last_pos.direction_to(pos) * 2))
 		else:
+			# not walking
 			animation_player.stop()
 			sprites.look_at(ball.position)
 	else:

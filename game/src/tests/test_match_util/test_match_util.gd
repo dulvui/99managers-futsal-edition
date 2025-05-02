@@ -17,7 +17,7 @@ func test() -> void:
 
 func test_combinations(league: League) -> void:
 	print("test: combinations...")
-	var match_util: MatchUtil = MatchUtil.new(null)
+	var match_util: MatchUtil = MatchUtil.new()
 	var match_days: MatchDays =  match_util.create_combinations(league, league.get_teams_basic())
 
 	# match amount

@@ -19,7 +19,6 @@ func test() -> void:
 
 func test_required_properties() -> void:
 	Global.start_date = Time.get_date_dict_from_system()
-	RngUtil.reset_seed("TestSeed", 0)
 
 	# create world
 	var world_generator: GeneratorWorld = GeneratorWorld.new()
@@ -49,13 +48,12 @@ func test_determenistic_generation() -> void:
 	print("test: deterministic generation...")
 
 	Global.start_date = Time.get_date_dict_from_system()
-	RngUtil.reset_seed("TestSeed", 0)
 
 	# create world
 	var world_generator: GeneratorWorld = GeneratorWorld.new()
 	var world: World = world_generator.init_world()
 	# generate teams
-	var generator: Generator = Generator.new()
+	var generator: Generator = Generator.new("TestSeed")
 	var success: bool = generator.initialize_world(world)
 	assert(success)
 
@@ -63,13 +61,11 @@ func test_determenistic_generation() -> void:
 	for i: int in range(2):
 		print("test: deterministic run " + str(i + 1))
 
-		RngUtil.reset_seed("TestSeed", 0)
-
 		# create test_world
 		var test_world_generator: GeneratorWorld = GeneratorWorld.new()
 		var test_world: World = test_world_generator.init_world()
 		# generate teams
-		var test_generator: Generator = Generator.new()
+		var test_generator: Generator = Generator.new("TestSeed")
 		var test_success: bool = test_generator.initialize_world(test_world)
 		assert(test_success)
 
@@ -132,12 +128,10 @@ func test_history() -> void:
 	print("test: history...")
 
 	Global.start_date = Time.get_date_dict_from_system()
-	RngUtil.reset_seed("TestSeed", 0)
 
 	# create world
 	var world_generator: GeneratorWorld = GeneratorWorld.new()
 	var world: World = world_generator.init_world()
-	Global.world = world
 
 	# generate teams
 	var generator: Generator = Generator.new()

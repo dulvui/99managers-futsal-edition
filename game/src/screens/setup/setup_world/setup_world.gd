@@ -76,7 +76,7 @@ func _on_generated_seed_line_edit_text_changed(new_text: String) -> void:
 
 
 func _on_genearate_seed_button_pressed() -> void:
-	generation_seed = RngUtil.uuid()
+	generation_seed = UUID.new_uuid()
 	generation_seed_edit.text = generation_seed
 
 
@@ -171,8 +171,6 @@ func _on_continue_pressed() -> void:
 
 	if advanced_settings:
 		Global.generation_seed = generation_seed
-
-	RngUtil.reset_seed(generation_seed, player_names_option.option_button.selected)
 
 	Main.manual_hide_loading_screen()
 	# await and make sure loading screen is visible, before it can be hidden on error

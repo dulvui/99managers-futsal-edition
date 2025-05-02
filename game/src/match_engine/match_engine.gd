@@ -32,7 +32,7 @@ var over_time: bool
 var penalties: bool
 var match_over: bool
 
-# make private, because _rng shoud never be accessed outside engine
+# make private, because _rng shoud never be accessed outside match engine
 # state would be changed and no longer matches future/past engine state
 var _rng: RandomNumberGenerator
 

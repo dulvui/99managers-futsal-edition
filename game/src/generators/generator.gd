@@ -52,6 +52,12 @@ var contract_min_year: int
 var names: GeneratorNames
 var all_nations: Array[Nation]
 
+var rng_util: RngUtil
+
+
+func _init(generation_seed: String = "") -> void:
+	rng_util = RngUtil.new(generation_seed)
+
 
 func initialize_world(world: World, world_file_path: String = Const.WORLD_CSV_PATH) -> bool:
 	var csv_util: CSVUtil = CSVUtil.new()
@@ -137,11 +143,8 @@ func initialize_world(world: World, world_file_path: String = Const.WORLD_CSV_PA
 
 	Main.call_deferred("update_loading_progress", 0.2)
 
-	# make world global, needed for matchutil
-	Global.world = world
-
 	# history
-	var history: GeneratorHistory = GeneratorHistory.new()
+	var history: GeneratorHistory = GeneratorHistory.new(rng_util)
 	# first generate clubs history with promotions, delegations, cup wins
 	history.generate_club_history(world)
 
@@ -188,8 +191,8 @@ func initialize_world(world: World, world_file_path: String = Const.WORLD_CSV_PA
 	Main.call_deferred("update_loading_progress", 0.9)
 
 	# create matches for current season
-	var match_util: MatchUtil = MatchUtil.new(world)
-	match_util.initialize_matches()
+	var match_util: MatchUtil = MatchUtil.new()
+	match_util.initialize_matches(world)
 
 	Main.call_deferred("update_loading_progress", 1.0)
 	
@@ -223,7 +226,7 @@ func _init_date_ranges() -> void:
 
 func _generate_players(world: World) -> bool:
 	# load player names
-	names = GeneratorNames.new(world)
+	names = GeneratorNames.new(world, rng_util)
 
 	# generate missing players
 	var players_count: int = 0
@@ -303,7 +306,7 @@ func _assign_players_to_team(
 
 		# bench and rest
 		for position_type: int in Position.Type.values().size() - 1: # -1, last is undefined
-			var amount: int = RngUtil.rng.randi_range(1, 2)
+			var amount: int = rng_util.randi_range(1, 2)
 			if position_type == Position.Type.G:
 				amount = 3
 
@@ -321,15 +324,15 @@ func _assign_players_to_team(
 
 
 func _get_random_defense_position_type() -> Position.Type:
-	return RngUtil.pick_random(Position.defense_types)
+	return rng_util.pick_random(Position.defense_types)
 
 
 func _get_random_center_position_type() -> Position.Type:
-	return RngUtil.pick_random(Position.center_types)
+	return rng_util.pick_random(Position.center_types)
 
 
 func _get_random_attack_position_type() -> Position.Type:
-	return RngUtil.pick_random(Position.attack_types)
+	return rng_util.pick_random(Position.attack_types)
 
 
 func _get_random_position_type() -> Position.Type:
@@ -340,7 +343,7 @@ func _get_random_position_type() -> Position.Type:
 	all_positions.append_array(Position.center_types)
 	all_positions.append_array(Position.attack_types)
 
-	return RngUtil.pick_random(all_positions)
+	return rng_util.pick_random(all_positions)
 
 
 func _set_goalkeeper_attributes(attributes: Goalkeeper, age: int, prestige: int, position: Position) -> void:
@@ -470,16 +473,16 @@ func _set_mental_attributes(attribtues: Mental, age: int, prestige: int) -> void
 func _get_physical_age_factor(age: int) -> int:
 	# for  24 +- _noise <  age factor is negative
 	if age < 24 + _noise():
-		return RngUtil.rng.randi_range(-5, 3)
-	return RngUtil.rng.randi_range(1, 7)
+		return rng_util.randi_range(-5, 3)
+	return rng_util.randi_range(1, 7)
 
 
 func _get_age_factor(age: int) -> int:
 	# for  34 +- _noise < age < 18 +- _noise age factor is negative
 	if age > 34 + _noise() or age < 18 + _noise():
-		return RngUtil.rng.randi_range(-5, 1)
+		return rng_util.randi_range(-5, 1)
 	# else age factor is positive
-	return RngUtil.rng.randi_range(-1, 5)
+	return rng_util.randi_range(-1, 5)
 
 
 func _get_value(age: int, prestige: int, position: Position) -> int:
@@ -500,27 +503,27 @@ func _get_value(age: int, prestige: int, position: Position) -> int:
 
 	var total_factor: int = age_factor + pos_factor + prestige
 
-	return RngUtil.rng.randi_range(maxi(total_factor - 20, 0), total_factor) * 1000
+	return rng_util.randi_range(maxi(total_factor - 20, 0), total_factor) * 1000
 
 
 func _get_random_foot_left() -> int:
-	var random: int = RngUtil.rng.randi_range(1, 100)
+	var random: int = rng_util.randi_range(1, 100)
 	# 35% have good left foot
 	if random < 35:
-		return RngUtil.rng.randi_range(10, 20)
-	return RngUtil.rng.randi_range(1, 10)
+		return rng_util.randi_range(10, 20)
+	return rng_util.randi_range(1, 10)
 
 
 func _get_random_foot_right() -> int:
-	var random: int = RngUtil.rng.randi_range(1, 100)
+	var random: int = rng_util.randi_range(1, 100)
 	# 65% have good right foot
 	if random < 65:
-		return RngUtil.rng.randi_range(10, 20)
-	return RngUtil.rng.randi_range(1, 10)
+		return rng_util.randi_range(10, 20)
+	return rng_util.randi_range(1, 10)
 
 
 func _get_random_form() -> Enum.Form:
-	var random: int = RngUtil.rng.randi_range(1, 100)
+	var random: int = rng_util.randi_range(1, 100)
 	if random < 5:
 		return Enum.Form.INJURED
 	if random < 15:
@@ -531,7 +534,7 @@ func _get_random_form() -> Enum.Form:
 
 
 func _get_random_morality() -> Enum.Morality:
-	var random: int = RngUtil.rng.randi_range(1, 100)
+	var random: int = rng_util.randi_range(1, 100)
 	if random < 5:
 		return Enum.Morality.WORST
 	if random < 15:
@@ -564,12 +567,12 @@ func _create_manager(
 	manager.nation = nation.name
 
 	# create random preferred tactics
-	var variation: Formation.Variations = RngUtil.pick_random(Formation.Variations.values())
+	var variation: Formation.Variations = rng_util.pick_random(Formation.Variations.values())
 	manager.formation.set_variation(variation)
-	manager.formation.tactic_offense.intensity = RngUtil.rng.randf()
-	manager.formation.tactic_offense.tactic = RngUtil.pick_random(TacticOffense.Tactics.values())
-	manager.formation.tactic_defense.marking = RngUtil.pick_random(TacticDefense.Marking.values())
-	manager.formation.tactic_defense.pressing = RngUtil.pick_random(TacticDefense.Pressing.values())
+	manager.formation.tactic_offense.intensity = rng_util.randf()
+	manager.formation.tactic_offense.tactic = rng_util.pick_random(TacticOffense.Tactics.values())
+	manager.formation.tactic_defense.marking = rng_util.pick_random(TacticDefense.Marking.values())
+	manager.formation.tactic_defense.pressing = rng_util.pick_random(TacticDefense.Pressing.values())
 
 	return manager
 
@@ -636,11 +639,11 @@ func _initialize_player(
 	player.form = _get_random_form()
 	player.prestige = prestige
 	if player.injury_factor == 0:
-		player.injury_factor = RngUtil.rng.randi_range(1, 20)
+		player.injury_factor = rng_util.randi_range(1, 20)
 	# if player is loyal, he doesnt want to leave the club,
 	# otherwise he leaves esaily, also on its own
 	if player.loyality == 0:
-		player.loyality = RngUtil.rng.randi_range(1, 20)
+		player.loyality = rng_util.randi_range(1, 20)
 	
 	var age: int = year - birth_date_year
 	_set_goalkeeper_attributes(player.attributes.goalkeeper, age, prestige, player.position)
@@ -656,9 +659,9 @@ func _random_alt_positions(player: Player) -> void:
 	var alt_positions: Array[Variant] = Position.Type.values()
 	# remove Position.Type.UNDEFINED
 	alt_positions.pop_back()
-	RngUtil.shuffle(alt_positions)
+	rng_util.shuffle(alt_positions)
 
-	for i: int in RngUtil.rng.randi_range(0, alt_positions.size() - 1):
+	for i: int in rng_util.randi_range(0, alt_positions.size() - 1):
 		var alt_type: Position.Type = alt_positions[i]
 		player.position.alternatives.append(alt_type)
 
@@ -669,21 +672,21 @@ func _get_player_prestige(team_prestige: int) -> int:
 
 
 func _get_team_prestige(pyramid_level: int) -> int:
-	var minp: int = Const.MAX_PRESTIGE - pyramid_level * ((RngUtil.rng.randi() % 5) + 1)
+	var minp: int = Const.MAX_PRESTIGE - pyramid_level * ((rng_util.randi() % 5) + 1)
 	var maxp: int = Const.MAX_PRESTIGE - ((pyramid_level - 1) * 3)
-	return _in_bounds(RngUtil.rng.randi_range(minp, maxp))
+	return _in_bounds(rng_util.randi_range(minp, maxp))
 
 
 func _get_random_nationality(
 	nation: Nation = null, prestige: int = -1, pyramid_level: int = -1
 ) -> Nation:
 	if nation == null:
-		return RngUtil.pick_random(all_nations)
+		return rng_util.pick_random(all_nations)
 
 	# (100 - prestige)% given nation, prestige% random nation
 	# with prestige, lower division teams have less players from other nations
-	if RngUtil.rng.randi_range(1, 100) > 100 - (prestige * 2.0 / pyramid_level):
-		return RngUtil.pick_random(all_nations)
+	if rng_util.randi_range(1, 100) > 100 - (prestige * 2.0 / pyramid_level):
+		return rng_util.pick_random(all_nations)
 	return nation
 
 
@@ -713,18 +716,18 @@ func _generate_missing_properties(
 		team.stadium.name = team.name + " " + tr("Stadium")
 	if team.stadium.capacity == 0:
 		# range from 200 to 20.000
-		team.stadium.capacity = RngUtil.rng.randi_range(
+		team.stadium.capacity = rng_util.randi_range(
 			temp_team_prestige * 200, temp_team_prestige * 1_000
 		)
 	var	year_built: int = team.stadium.year_built
 	if year_built == 0:
-		year_built = RngUtil.rng.randi_range(year - 70, year - 1)
+		year_built = rng_util.randi_range(year - 70, year - 1)
 		team.stadium.year_built = year_built
 	if team.stadium.year_renewed < year_built:
 		var stadium_age: int = year - year_built
 		# only if stadium is at least 5 years old
 		if stadium_age >= 5:
-			team.stadium.year_renewed = year_built + RngUtil.rng.randi_range(0, year - stadium_age)
+			team.stadium.year_renewed = year_built + rng_util.randi_range(0, year - stadium_age)
 		else:
 			team.stadium.year_renewed = year_built
 
@@ -739,7 +742,7 @@ func _generate_missing_properties(
 	# calulate balance
 	team.finances.balance[-1] = team.finances.expenses[-1]
 	# add random bonus depending on team prestige
-	team.finances.balance[-1] += RngUtil.rng.randi_range(
+	team.finances.balance[-1] += rng_util.randi_range(
 		temp_team_prestige * 10_000, temp_team_prestige * 100_000
 	)
 
@@ -763,19 +766,19 @@ func _set_random_person_values(person: Person, nation: Nation) -> void:
 	# random birthday
 	if person.birth_date.is_empty():
 		if person.role == Person.Role.PLAYER:
-			var unix_time: int = RngUtil.rng.randi_range(player_min_timestamp, player_max_timestamp)
+			var unix_time: int = rng_util.randi_range(player_min_timestamp, player_max_timestamp)
 			person.birth_date = Time.get_date_dict_from_unix_time(unix_time)
 		else:
-			var unix_time: int = RngUtil.rng.randi_range(staff_min_timestamp, staff_max_timestamp)
+			var unix_time: int = rng_util.randi_range(staff_min_timestamp, staff_max_timestamp)
 			person.birth_date = Time.get_date_dict_from_unix_time(unix_time)
 
 	# colors
 	if person.skintone.is_empty():
-		person.skintone = RngUtil.pick_random(SKINTONE)
+		person.skintone = rng_util.pick_random(SKINTONE)
 	if person.haircolor.is_empty():
-		person.haircolor = RngUtil.pick_random(HAIR_COLORS)
+		person.haircolor = rng_util.pick_random(HAIR_COLORS)
 	if person.eyecolor.is_empty():
-		person.eyecolor = RngUtil.pick_random(EYE_COLORS)
+		person.eyecolor = rng_util.pick_random(EYE_COLORS)
 	
 	# contract
 	if person.role == Person.Role.PLAYER:
@@ -795,33 +798,33 @@ func _set_random_player_contract(player: Player) -> void:
 	contract.is_on_loan = false
 
 	# calculate start and end date
-	var duration: int = RngUtil.rng.randi_range(2, Const.CONTRACT_MAX_DURATION)
+	var duration: int = rng_util.randi_range(2, Const.CONTRACT_MAX_DURATION)
 
 	# less contract duration for young or old players
 	if age < 20 or age > 32:
-		duration = RngUtil.rng.randi_range(1, int(Const.CONTRACT_MAX_DURATION / 2.0))
+		duration = rng_util.randi_range(1, int(Const.CONTRACT_MAX_DURATION / 2.0))
 
 	var start: int = 0
 	if duration > 1:
 		# duration - 1 to have at least 1 year of remaining contract
-		start = RngUtil.rng.randi_range(1, duration - 1)
+		start = rng_util.randi_range(1, duration - 1)
 	
 	var month: int = 0
 
 	# start during summer market probability 80%
-	if RngUtil.rng.randi_range(1, 100) <= 80:
-		month = RngUtil.rng.randi_range(
+	if rng_util.randi_range(1, 100) <= 80:
+		month = rng_util.randi_range(
 			Calendar.MARKET_SUMMER_START_MONTH, Calendar.MARKET_SUMMER_END_MONTH
 		)
 	else:
 		# during winter period
-		month = RngUtil.rng.randi_range(
+		month = rng_util.randi_range(
 			Calendar.MARKET_WINTER_START_MONTH, Calendar.MARKET_WINTER_END_MONTH
 		)
 	
 	# get max day respecting month days and leap years
 	var month_max_days: int = _get_month_max_days(month)
-	var day: int = RngUtil.rng.randi_range(1, month_max_days)
+	var day: int = rng_util.randi_range(1, month_max_days)
 
 	contract.start_date = {
 		"month": month,
@@ -846,12 +849,12 @@ func _set_random_staff_contract(member: StaffMember) -> void:
 	contract.income = (member.prestige + age) * 1000
 
 	# calculate start and end date
-	var duration: int = RngUtil.rng.randi_range(2, Const.CONTRACT_MAX_DURATION)
+	var duration: int = rng_util.randi_range(2, Const.CONTRACT_MAX_DURATION)
 
 	var start: int = 0
 	if duration > 1:
 		# duration - 1 to have at least 1 year of remaining contract
-		start = RngUtil.rng.randi_range(1, duration - 1)
+		start = rng_util.randi_range(1, duration - 1)
 	
 	var month: int = Calendar.SEASON_START_MONTH
 	var day: int = Calendar.SEASON_START_DAY
@@ -874,16 +877,16 @@ func _set_random_staff_contract(member: StaffMember) -> void:
 func _set_random_shirt_colors(team: Team) -> void:
 	team.colors = []
 	var main_color: Color = Color(
-		RngUtil.rng.randf_range(0, 1), RngUtil.rng.randf_range(0, 1), RngUtil.rng.randf_range(0, 1)
+		rng_util.randf_range(0, 1), rng_util.randf_range(0, 1), rng_util.randf_range(0, 1)
 	)
 	team.colors.append(main_color.to_html(true))
 	team.colors.append(main_color.inverted().to_html(true))
 	team.colors.append(
 		(
 			Color(
-				RngUtil.rng.randf_range(0, 1),
-				RngUtil.rng.randf_range(0, 1),
-				RngUtil.rng.randf_range(0, 1)
+				rng_util.randf_range(0, 1),
+				rng_util.randf_range(0, 1),
+				rng_util.randf_range(0, 1)
 			)
 			. to_html(true)
 		)
@@ -894,11 +897,11 @@ func _set_random_shirt_colors(team: Team) -> void:
 # helper methods
 #
 func _noise(factor: int = NOISE) -> int:
-	return RngUtil.rng.randi_range(-factor, factor)
+	return rng_util.randi_range(-factor, factor)
 
 
 func _abs_noise(factor: int = NOISE) -> int:
-	return RngUtil.rng.randi_range(0, factor)
+	return rng_util.randi_range(0, factor)
 
 
 func _in_bounds_random(value: int, max_bound: int = Const.MAX_PRESTIGE) -> int:

@@ -159,9 +159,10 @@ static func create_mock_player(nr: int = randi_range(1, 99)) -> Player:
 	player.contract.start_date = Time.get_date_dict_from_system()
 	player.contract.end_date = Time.get_date_dict_from_system()
 
-	player.skintone = RngUtil.pick_random(Generator.SKINTONE)
-	player.haircolor = RngUtil.pick_random(Generator.HAIR_COLORS)
-	player.eyecolor = RngUtil.pick_random(Generator.EYE_COLORS)
+	var rng_util: RngUtil = RngUtil.new()
+	player.skintone = rng_util.pick_random(Generator.SKINTONE)
+	player.haircolor = rng_util.pick_random(Generator.HAIR_COLORS)
+	player.eyecolor = rng_util.pick_random(Generator.EYE_COLORS)
 
 	# attributes
 	for attribute: String in Const.PLAYER_ATTRIBUTES_GOALKEEPER:

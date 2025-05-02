@@ -51,7 +51,6 @@ func _ready() -> void:
 	get_tree().root.content_scale_factor = config.theme_scale
 
 	save_states = DataUtil.load_save_states()
-	RngUtil.setup_rngs()
 
 	generation_warnings = []
 	generation_errors = []
@@ -130,9 +129,8 @@ func next_season() -> void:
 
 	calendar.initialize(true)
 
-
-	var match_util: MatchUtil = MatchUtil.new(world)
-	match_util.initialize_matches()
+	var match_util: MatchUtil = MatchUtil.new()
+	match_util.initialize_matches(world)
 
 
 func load_save_state() -> bool:

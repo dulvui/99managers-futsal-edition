@@ -7,11 +7,17 @@ class_name GeneratorHistory
 # defines year, when history starts
 const HISTORY_YEARS: int = 5
 
+var rng_util: RngUtil
+
+
+func _init(p_rng_util: RngUtil) -> void:
+	rng_util = p_rng_util
+
 
 func generate_club_history(world: World) -> void:
 	# TODO world cup history (once national teams exist)
 	# TODO continental national teams cup
-	var match_util: MatchUtil = MatchUtil.new(world)
+	var match_util: MatchUtil = MatchUtil.new(rng_util)
 	var match_engine: MatchEngine = MatchEngine.new()
 
 	# save initial leagues by team

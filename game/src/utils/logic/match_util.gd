@@ -4,14 +4,14 @@
 
 class_name MatchUtil
 
-var world: World
+var rng_util: RngUtil
 
 
-func _init(p_world: World) -> void:
-	world = p_world
+func _init(p_rng_util: RngUtil = RngUtil.new()) -> void:
+	rng_util = p_rng_util
 
 
-func initialize_matches() -> void:
+func initialize_matches(world: World) -> void:
 	for continent: Continent in world.continents:
 		for nation: Nation in continent.nations:
 			if nation.is_competitive():
@@ -29,6 +29,7 @@ func initialize_matches() -> void:
 			_initialize_nations_continental_cup(continent)
 
 	# last, initialize world cup
+	# _initialize_world_cup(world)
 
 
 func initialize_playoffs(league: League) -> void:
@@ -79,12 +80,15 @@ func initialize_playouts(league: League) -> void:
 	league.playouts.setup_knockout(teams)
 
 
-func create_combinations(competition: Competition, p_teams: Array[TeamBasic]) -> MatchDays:
+func create_combinations(
+	competition: Competition,
+	p_teams: Array[TeamBasic],
+) -> MatchDays:
 	var match_days: MatchDays = MatchDays.new()
 	var teams: Array = p_teams.duplicate(true)
 
 	var random_teams: Array[TeamBasic] = teams.duplicate(true)
-	RngUtil.shuffle(random_teams)
+	rng_util.shuffle(random_teams)
 
 	var last_team: TeamBasic = random_teams.pop_front()
 
@@ -241,7 +245,7 @@ func _initialize_nations_continental_cup(p_continent: Continent) -> void:
 	p_continent.cup_nations.setup(teams)
 
 
-func _initialize_world_cup() -> void:
+func _initialize_world_cup(world: World) -> void:
 	# setup cup
 	world.world_cup.set_id()
 	world.world_cup.name = tr("World cup")

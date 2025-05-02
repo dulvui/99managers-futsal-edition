@@ -20,7 +20,7 @@ func _init(
 
 
 func new_save_state() -> void:
-	var new_id: String = RngUtil.uuid()
+	var new_id: String = UUID.new_uuid()
 	var new_state: SaveState = SaveState.new()
 	new_state.id = new_id
 	new_state.start_date = Global.start_date

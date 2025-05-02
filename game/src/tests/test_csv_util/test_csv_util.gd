@@ -16,14 +16,13 @@ func test_save_world() -> void:
 	print("test: save world...")
 
 	Global.start_date = Time.get_date_dict_from_system()
-	RngUtil.reset_seed("TestSeed", 0)
 
 	# create world
 	print("generating world...")
 	var world_generator: GeneratorWorld = GeneratorWorld.new()
 	var world: World = world_generator.init_world()
 	# generate teams
-	var generator: Generator = Generator.new()
+	var generator: Generator = Generator.new("TestSeed")
 	var success: bool = generator.initialize_world(world)
 	assert(success)
 	print("generating world done...")

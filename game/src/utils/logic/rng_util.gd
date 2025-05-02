@@ -2,30 +2,26 @@
 
 # SPDX-License-Identifier: AGPL-3.0-or-later
 
-extends Node
-
-var rng: RandomNumberGenerator
-
-
-func setup_rngs() -> void:
-	rng = RandomNumberGenerator.new()
-	rng.seed = hash(Global.generation_seed) + Global.generation_player_names
-	rng.state = Global.generation_state
+class_name RngUtil
+extends RandomNumberGenerator
 
 
-func reset_seed(p_generation_seed: String, p_generation_player_names: int) -> void:
-	Global.generation_seed = p_generation_seed
-	Global.generation_player_names = p_generation_player_names as Enum.PlayerNames
+func _init(
+	p_generation_seed: String = "",
+	p_generation_player_names: Enum.PlayerNames = Enum.PlayerNames.MIXED,
+) -> void:
+	if p_generation_seed.is_empty():
+		seed = hash(Global.generation_seed) + Global.generation_player_names
+	else:
+		seed = hash(p_generation_seed) + p_generation_player_names
 
-	rng = RandomNumberGenerator.new()
-	rng.seed = hash(Global.generation_seed + str(Global.generation_player_names))
-	Global.generation_state = rng.state
+	state = Global.generation_state
 
 
 # shuffle array using global RuandomNumberGenerator
 func shuffle(array: Array[Variant]) -> void:
 	for i: int in array.size():
-		var index: int = rng.randi_range(0, array.size() - 1)
+		var index: int = randi_range(0, array.size() - 1)
 		if index != i:
 			var temp: Variant = array[index]
 			array[index] = array[i]
@@ -36,15 +32,5 @@ func shuffle(array: Array[Variant]) -> void:
 func pick_random(array: Array[Variant]) -> Variant:
 	if array.is_empty():
 		return null
-	return array[rng.randi() % array.size() - 1]
+	return array[randi() % array.size() - 1]
 
-
-func uuid() -> String:
-	# generate random seed like 26374-28372-887463
-	return (
-		str(randi_range(100000, 999999))
-		+ "-"
-		+ str(randi_range(100000, 999999))
-		+ "-"
-		+ str(randi_range(100000, 999999))
-	)
