@@ -58,3 +58,4 @@ func _buffer_append() -> void:
 
 	if buffer.size() > BUFFER_SIZE:
 		buffer.pop_front()
+

@@ -22,6 +22,8 @@ var right_team: SimTeam
 var ticks: int
 var time_ticks: int
 var time: int
+# to debug and prevent endless simulation/games
+var ticks_clock_not_running: int
 
 # stats
 var possession_counter: float
@@ -55,6 +57,7 @@ func setup(p_matchz: Match, p_home_team: Team = null, p_away_team: Team = null) 
 	time_ticks = 0
 	time = 0
 	possession_counter = 0.0
+	ticks_clock_not_running = 0
 
 	# var left_plays_left: bool = rng.randi_range(0, 1) == 0
 	var home_plays_left: bool = true
@@ -113,6 +116,7 @@ func update() -> void:
 
 	# time related code
 	if field.clock_running:
+		ticks_clock_not_running = 0
 		# update real time in seconds
 		time_ticks += 1
 		if time_ticks % Const.TICKS == 0:
@@ -134,6 +138,12 @@ func update() -> void:
 					_on_over_time()
 				elif time == Const.FULL_OVER_TIME_SECONDS:
 					_on_full_over_time()
+	else:
+		# for debugging and match stuck diagnosis
+		ticks_clock_not_running += 1
+		if ticks_clock_not_running > 100 * Const.TICKS:
+			push_error("clock not running for over 100 seconds...")
+			breakpoint
 
 
 func simulate(end_time: int = -1) -> void:
@@ -171,8 +181,7 @@ func simulate(end_time: int = -1) -> void:
 func simulate_match(matchz: Match, fast: bool = false) -> void:
 	if fast:
 
-		if rng == null:
-			rng = RngUtil.new(str(matchz.id))
+		rng = RngUtil.new(str(matchz.id))
 
 		var home_goals: int = rng.randi() % 10
 		var away_goals: int = rng.randi() % 10
