@@ -9,4 +9,4 @@ extends Node3D
 
 
 func _ready() -> void:
-	field.setup(SimField.new(RandomNumberGenerator.new()))
+	field.setup(SimField.new(RngUtil.new()))

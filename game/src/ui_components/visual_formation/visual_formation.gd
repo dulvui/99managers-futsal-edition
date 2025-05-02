@@ -42,7 +42,7 @@ func _ready() -> void:
 	change_players = []
 	camera.zoom = Vector2(1.5 / Global.config.theme_scale, 1.5 / Global.config.theme_scale)
 
-	field.setup(SimField.new(RandomNumberGenerator.new()))
+	field.setup(SimField.new(RngUtil.new()))
 
 
 func setup(p_only_lineup: bool, p_team: Team = Global.team) -> void:

@@ -18,7 +18,7 @@ var engine: MatchEngine
 
 # used for randomizations like visual goal delay
 # use this to not alter engines rng
-var visual_rng: RandomNumberGenerator
+var visual_rng: RngUtil
 
 # buffer from where visual match acesses positions, info etc...
 var ball_buffer: MatchBufferBall
@@ -95,7 +95,7 @@ func setup(matchz: Match, p_home_team: Team = null, p_away_team: Team = null) ->
 	Global.match_paused = false
 
 	# visual rng
-	visual_rng = RandomNumberGenerator.new()
+	visual_rng = RngUtil.new()
 	visual_rng.seed = matchz.id
 
 	# buffers

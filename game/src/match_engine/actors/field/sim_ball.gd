@@ -15,10 +15,10 @@ var colission_timer: int
 
 var field: SimField
 
-var rng: RandomNumberGenerator
+var rng: RngUtil
 
 
-func _init(p_rng: RandomNumberGenerator) -> void:
+func _init(p_rng: RngUtil) -> void:
 	super(2, 0.05)
 	rng = p_rng
 

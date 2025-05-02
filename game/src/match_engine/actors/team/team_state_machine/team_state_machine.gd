@@ -9,7 +9,7 @@ var team: SimTeam
 var players: Array[SimPlayer]
 
 
-func _init(p_rng: RandomNumberGenerator, p_field: SimField, p_team: SimTeam) -> void:
+func _init(p_rng: RngUtil, p_field: SimField, p_team: SimTeam) -> void:
 	super(p_rng, p_field)
 	team = p_team
 	players = team.players

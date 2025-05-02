@@ -97,7 +97,7 @@ static func create_mock_world(use_test_file: bool) -> World:
 	var world_generator: GeneratorWorld = GeneratorWorld.new()
 	var world: World = world_generator.init_world()
 
-	var generator: Generator = Generator.new()
+	var generator: Generator = Generator.new("TestSeed", Enum.PlayerNames.MIXED)
 
 	if use_test_file:
 		var test_success: bool = generator.initialize_world(world, Const.TEST_WORLD_CSV_PATH)

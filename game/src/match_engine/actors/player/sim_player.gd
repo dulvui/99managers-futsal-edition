@@ -10,7 +10,7 @@ var player_res: Player
 var field: SimField
 var state_machine: PlayerStateMachine
 
-var rng: RandomNumberGenerator
+var rng: RngUtil
 
 # positions
 var start_pos: Vector2
@@ -31,7 +31,7 @@ var has_ball: bool
 var ticks_in_field: int
 
 
-func _init(p_rng: RandomNumberGenerator, p_radius: float = 20) -> void:
+func _init(p_rng: RngUtil, p_radius: float = 20) -> void:
 	super(p_radius, 0.0)
 	rng = p_rng
 	# initial test values

@@ -19,7 +19,7 @@ var field: SimField
 
 var state_machine: TeamStateMachine
 
-var rng: RandomNumberGenerator
+var rng: RngUtil
 
 var change_request: bool
 var has_ball: bool
@@ -46,7 +46,7 @@ var low_stamina_players: Array[SimPlayer]
 var do_change: bool
 
 
-func _init(p_rng: RandomNumberGenerator) -> void:
+func _init(p_rng: RngUtil) -> void:
 	rng = p_rng
 
 

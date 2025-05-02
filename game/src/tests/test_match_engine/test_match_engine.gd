@@ -20,12 +20,11 @@ func test_deterministic_simulations() -> void:
 	const MATCH_AMOUNT: int = 2
 	const SEED_AMOUNT: int = 9
 
-	var match_engine: MatchEngine = MatchEngine.new()
-
 	# simulate matches
 	for i: int in SEED_AMOUNT:
 		matches = []
 		for j: int in MATCH_AMOUNT:
+			var match_engine: MatchEngine = MatchEngine.new()
 			var matchz: Match = Match.new()
 
 			var home_team: Team = Tests.create_mock_team()

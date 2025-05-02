@@ -70,7 +70,7 @@ var wall_left: CollidingActor
 var wall_right: CollidingActor
 
 
-func _init(rng: RandomNumberGenerator) -> void:
+func _init(rng: RngUtil) -> void:
 	#size = sprite.texture.get_size()
 	size = Vector2(WIDTH + BORDER_SIZE * 2, HEIGHT + BORDER_SIZE * 2)
 

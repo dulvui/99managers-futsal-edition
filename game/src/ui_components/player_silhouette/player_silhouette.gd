@@ -24,11 +24,11 @@ const SILHOUETTE_PATHS: Array[StringName] = [
 	"res://assets/player_silhouettes/silhouette-football-32.svg",
 ]
 
-var rng: RandomNumberGenerator
+var rng: RngUtil
 
 
 func _ready() -> void:
-	rng = RandomNumberGenerator.new()
+	rng = RngUtil.new()
 	rng.randomize()
 
 	# load image
