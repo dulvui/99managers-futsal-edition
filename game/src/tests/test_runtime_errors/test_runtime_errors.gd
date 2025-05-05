@@ -9,7 +9,6 @@ extends Test
 func test() -> void:
 	print("test: runtime errors...")
 
-
 	print("test: load all scenes...")
 	var scene_paths: Array[String] = find_files("res://src/", ".tscn")
 	# load scripts and check for possibe runtime errors while loading
@@ -30,6 +29,10 @@ func test() -> void:
 		assert(TestScript.get_method_list() != null)
 		assert(TestScript.get_property_list() != null)
 		assert(TestScript.get_signal_list() != null)
+		# TODO check in method list if _init has all default parameters
+		# if yes, try to create instance
+		# var instance: Object = TestScript.new()
+		# assert(instance != null)
 	print("test: load all scripts done.")
 
 	print("test: runtime errors done.")
