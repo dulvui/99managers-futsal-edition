@@ -6,7 +6,8 @@ class_name SimFieldCalculator
 
 
 # can later made dynamic by team tactics long/short pass
-const PERFECT_PASS_DISTANCE: int = 30
+# use squared for better performance
+const PERFECT_PASS_DISTANCE: int = 900
 const BEST_SECTOR_UPDATE_FREQUENCY: int = Const.TICKS * 4
 
 var field: SimField
@@ -46,13 +47,13 @@ func update(force: bool = false) -> void:
 
 
 func _best_supporting_sector() -> void:
-	best_sector.score = 0
+	best_sector.score = 0.0
 
 	for sector: SimFieldSector in sectors:
-		sector.score = 0
+		sector.score = 0.0
 
 		# check pass distance
-		var distance_to_ball: float = _distance_to(field.ball.pos, sector.position)
+		var distance_to_ball: float = field.ball.pos.distance_squared_to(sector.position)
 		sector.score += 100.0 / (abs(distance_to_ball - PERFECT_PASS_DISTANCE) + 1)
 
 		# check opposite players in pass trajectory
@@ -69,12 +70,8 @@ func _best_supporting_sector() -> void:
 
 func _distance_to_goal(position: Vector2, left_half: bool) -> void:
 	if left_half:
-		return _distance_to(position, field.goals.right)
-	return _distance_to(position, field.goals.left)
-
-
-func _distance_to(from: Vector2, to: Vector2) -> float:
-	return from.distance_squared_to(to)
+		return position.distance_squared_to(field.goals.right)
+	return position.distance_squared_to(field.goals.left)
 
 
 func _is_safe_shoot_trajectory(position: Vector2) -> bool:
