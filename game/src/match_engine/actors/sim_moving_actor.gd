@@ -22,12 +22,10 @@ var force: float
 var friction: float
 
 var can_move: bool
-var can_collide: bool
 
 
 func _init(p_collision_radius: float, p_friction: float) -> void:
 	can_move = true
-	can_collide = true
 	# collision_radius = pow(p_collision_radius, 2)
 	collision_radius = p_collision_radius
 	friction = p_friction
@@ -133,6 +131,10 @@ func stop() -> void:
 
 func collides(actor: MovingActor) -> bool:
 	if actor == null:
+		return false
+	# can't collide, if actor is behind
+	# dot product of direction and directon from actor to self
+	if direction.dot(actor.pos.direction_to(pos)) > 0.0:
 		return false
 	return actor.pos.distance_to(pos) < actor.collision_radius + collision_radius
 

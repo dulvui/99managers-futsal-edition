@@ -267,23 +267,8 @@ func _check_ball_players_colissions() -> void:
 	if not ball.is_moving():
 		return
 
-	if ball.colission_timer > 0:
-		ball.colission_timer -= 1
-		return
-
-	for player: SimPlayer in left_team.players:
-		if not player.can_collide:
-			continue
-
-		if player.collides(ball):
-			ball.stop()
-			return
-
-	for player: SimPlayer in right_team.players:
-		if not player.can_collide:
-			continue
-
-		if player.collides(ball):
+	for player: SimPlayer in right_team.players + left_team.players:
+		if ball.collides(player):
 			ball.stop()
 			return
 

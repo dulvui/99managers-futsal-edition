@@ -31,13 +31,9 @@ var ticks_in_field: int
 
 func _init(p_radius: float = 20) -> void:
 	super(p_radius, 0.0)
-	# initial test values
 	has_ball = false
-
 	head_look = Vector2.ZERO
-
 	is_goalkeeper = false
-
 	ticks_in_field = 0
 
 

@@ -11,7 +11,6 @@ const PLAYER_COLISSION_TIME: int = 2
 
 # left -1, right 1, no roatation 0
 var rotation: float
-var colission_timer: int
 
 var field: SimField
 
@@ -24,8 +23,6 @@ func setup(p_field: SimField) -> void:
 	field = p_field
 	pos = field.center
 	rotation = 0
-	# start with timer to prevent colission at kickoff
-	colission_timer = PLAYER_COLISSION_TIME
 
 
 func update() -> void:
@@ -48,11 +45,6 @@ func impulse(p_direction: Vector2, p_force: float) -> void:
 	super(p_direction, p_force)
 	# print("pass")
 	_random_rotation()
-
-
-func stop() -> void:
-	super()
-	colission_timer = PLAYER_COLISSION_TIME
 
 
 func _random_rotation() -> void:

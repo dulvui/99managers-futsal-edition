@@ -41,7 +41,6 @@ func execute() -> void:
 
 	# shoot
 	var power: int = owner.player.player_res.attributes.technical.shooting
-	owner.field.ball.colission_timer = 1
 	var random_target: Vector2
 	if owner.player.left_half:
 		random_target = owner.field.goals.right

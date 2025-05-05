@@ -20,8 +20,6 @@ func enter() -> void:
 	wait = 3
 	wait_after_shot = owner.rng.randi_range(2, 7)
 
-	owner.player.can_collide = false
-
 
 func execute() -> void:
 	# wait for player to reach spot
@@ -48,17 +46,11 @@ func execute() -> void:
 	owner.player.set_state(PlayerStateIdle.new())
 
 
-func exit() -> void:
-	owner.player.can_collide = true
-
-
 func shoot() -> void:
 	var left_half: bool = owner.field.ball.pos.x < SimField.WIDTH / 2.0
 
 	var power: float = 20 + owner.player.player_res.attributes.technical.shooting
 	power *= owner.rng.randf_range(2.0, 3.0)
-
-	owner.field.ball.colission_timer = 0
 
 	var random_target: Vector2
 	if left_half:
