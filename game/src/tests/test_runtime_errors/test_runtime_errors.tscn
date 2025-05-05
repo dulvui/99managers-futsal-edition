@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://haqshd51cx35"]
+
+[ext_resource type="Script" uid="uid://blakqlbu6h3wv" path="res://src/tests/test_runtime_errors/test_runtime_errors.gd" id="1_j64em"]
+
+[node name="TestRuntimeErrors" type="Node"]
+script = ExtResource("1_j64em")

@@ -5,6 +5,7 @@
 class_name Tests
 extends Node
 
+@onready var test_runtime_errors: TestRuntimeErrors = $TestRuntimeErrors
 @onready var test_rng_util: TestRngUtil = $TestRngUtil
 @onready var test_calendar: TestCalendar = $TestCalendar
 @onready var test_generator: TestGenerator = $TestGenerator
@@ -18,6 +19,8 @@ extends Node
 
 func _ready() -> void:
 	print("Start test suite")
+	
+	test_runtime_errors.test()
 
 	tests_fast()
 	tests_intensive()
