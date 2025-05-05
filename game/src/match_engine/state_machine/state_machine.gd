@@ -10,6 +10,7 @@ var buffer: Array[StateMachineState]
 var same_state_count: int
 
 var field: SimField
+var ball: SimBall
 
 var state: StateMachineState
 var previous_state: StateMachineState
@@ -20,6 +21,7 @@ var rng: RngUtil
 func _init(p_rng: RngUtil, p_field: SimField) -> void:
 	rng = p_rng
 	field = p_field
+	ball = field.ball
 
 	# initialize buffer
 	buffer = []

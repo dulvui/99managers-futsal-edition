@@ -18,7 +18,7 @@ func enter() -> void:
 
 	# assume ball has already been set to penalty spot
 	# this works for penalties and penatlies 10m
-	var penalty_spot: Vector2 = owner.field.ball.pos
+	var penalty_spot: Vector2 = owner.ball.pos
 	
 	# move players to above penalty spot line and min 5m away from spot
 	for player: SimPlayer in owner.team.players:

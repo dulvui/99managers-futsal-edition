@@ -12,13 +12,13 @@ func _init() -> void:
 
 func enter() -> void:
 	# theoretical ball ray/destination
-	var ball_destination: Vector2 = owner.field.ball.pos
-	ball_destination += owner.field.ball.direction * SimField.WIDTH
+	var ball_destination: Vector2 = owner.ball.pos
+	ball_destination += owner.ball.direction * SimField.WIDTH
 
 	# use ball destination to get best saving point
 	var save_spot: Vector2 = Geometry2D.get_closest_point_to_segment(
 		owner.player.pos,
-		owner.field.ball.pos,
+		owner.ball.pos,
 		ball_destination
 	)
 

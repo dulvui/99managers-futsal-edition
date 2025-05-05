@@ -23,7 +23,8 @@ func enter() -> void:
 	# check if player kicks corner
 	if owner.team.has_ball and owner.team.player_control() == owner.player:
 		wait = owner.rng.randi_range(2, 5)
-		owner.player.set_destination(owner.field.ball.pos)
+		# set destiation 15px away from corner spot
+		owner.player.set_destination(owner.ball.pos, 20, 15)
 		return
 
 	# move player into the area
@@ -60,7 +61,7 @@ func corner_kick() -> void:
 	for player: SimPlayer in owner.team.players:
 		if player != owner.player and not player.is_goalkeeper:
 			owner.team.player_receive_ball(player)
-			var direction: Vector2 = owner.field.ball.pos.direction_to(player.pos)
-			owner.field.ball.impulse(direction, 20)
+			var direction: Vector2 = owner.ball.pos.direction_to(player.pos)
+			owner.ball.impulse(direction, 20)
 			return
 	

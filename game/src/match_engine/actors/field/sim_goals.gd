@@ -22,7 +22,7 @@ var post_top_right: Vector2
 var post_bottom_left: Vector2
 var post_bottom_right: Vector2
 
-# colission only on 3 sides, since ball can't hot post from behind
+# collision only on 3 sides, since ball can't hot post from behind
 var post_top_left_top: CollidingActor
 var post_top_left_right: CollidingActor
 var post_top_left_bottom: CollidingActor
@@ -53,7 +53,7 @@ func _init(field: SimField) -> void:
 	post_top_right = Vector2(field.line_right, post_top)
 	post_bottom_right = Vector2(field.line_right, post_bottom)
 
-	# colissions
+	# collisions
 	var post_size: float = 1.0 * SimField.PIXEL_FACTOR
 
 	# top left
@@ -167,7 +167,7 @@ func is_goal_left(ball: SimBall) -> bool:
 	return false
 
 
-func check_post_colissions(ball: SimBall) -> void:
+func check_post_collisions(ball: SimBall) -> void:
 	var reflection: Variant
 
 	# left

@@ -22,7 +22,8 @@ func enter() -> void:
 				player.move_offense_pos()
 
 		kicking_player = owner.team.player_nearest_to_ball([owner.team.players[0]])
-		kicking_player.set_destination(owner.field.ball.pos)
+		# move 15px overrun
+		kicking_player.set_destination(owner.ball.pos, 20, 15)
 	else:
 		for player: SimPlayer in owner.team.players:
 			player.set_state(PlayerStateIdle.new())
@@ -54,6 +55,6 @@ func pass_ball() -> void:
 				best_player = player
 
 	owner.team.player_receive_ball(best_player)
-	owner.field.ball.impulse(owner.team.player_receive_ball().pos, 20)
+	owner.ball.impulse(owner.team.player_receive_ball().pos, 20)
 	owner.team.stats.passes += 1
 

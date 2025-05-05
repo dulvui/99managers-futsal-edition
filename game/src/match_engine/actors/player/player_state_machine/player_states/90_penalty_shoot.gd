@@ -14,8 +14,8 @@ func _init() -> void:
 
 
 func enter() -> void:
-	owner.player.head_look = owner.field.ball.pos
-	owner.player.set_destination(owner.field.ball.pos)
+	owner.player.head_look = owner.ball.pos
+	owner.player.set_destination(owner.ball.pos)
 
 	wait = 3
 	wait_after_shot = owner.rng.randi_range(2, 7)
@@ -47,7 +47,7 @@ func execute() -> void:
 
 
 func shoot() -> void:
-	var left_half: bool = owner.field.ball.pos.x < SimField.WIDTH / 2.0
+	var left_half: bool = owner.ball.pos.x < SimField.WIDTH / 2.0
 
 	var power: float = 20 + owner.player.player_res.attributes.technical.shooting
 	power *= owner.rng.randf_range(2.0, 3.0)
@@ -65,6 +65,6 @@ func shoot() -> void:
 
 	random_target += Vector2(0, owner.rng.randf_range(-SimGoals.SIZE * aim, SimGoals.SIZE * aim))
 
-	var direction: Vector2 = owner.field.ball.pos.direction_to(random_target)
-	owner.field.ball.impulse(direction, power)
+	var direction: Vector2 = owner.ball.pos.direction_to(random_target)
+	owner.ball.impulse(direction, power)
 

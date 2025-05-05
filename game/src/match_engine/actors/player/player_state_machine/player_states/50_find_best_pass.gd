@@ -19,7 +19,7 @@ func _init() -> void:
 
 
 func enter() -> void:
-	owner.player.set_destination(owner.field.ball.pos)
+	owner.player.set_destination(owner.ball.pos)
 
 
 func execute() -> void:
@@ -44,9 +44,10 @@ func execute() -> void:
 		best_player = owner.team.players[-1]
 
 	owner.team.player_receive_ball(best_player)
-	var pass_direction: Vector2 = owner.field.ball.pos.direction_to(best_player.pos)
-	owner.field.ball.impulse(pass_direction, pass_force)
+	var pass_direction: Vector2 = owner.ball.pos.direction_to(best_player.pos)
+	owner.ball.impulse(pass_direction, pass_force)
 	owner.team.stats.passes += 1
+	owner.player.collision_timer = Const.TICKS * 2
 
 	if owner.player.is_goalkeeper:
 		set_state(PlayerStateGoalkeeperFollowBall.new())

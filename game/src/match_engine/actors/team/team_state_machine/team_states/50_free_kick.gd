@@ -46,7 +46,7 @@ func enter() -> void:
 		var players_in_wall: int = 1
 
 		# move wall 5m away and between ball and goal
-		var wall_position: Vector2 = owner.field.ball.pos
+		var wall_position: Vector2 = owner.ball.pos
 		if owner.team.left_half:
 			wall_position += wall_position.direction_to(owner.field.goals.left) * owner.field.PIXEL_FACTOR * 5
 		else:

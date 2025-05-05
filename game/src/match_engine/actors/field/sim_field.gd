@@ -142,17 +142,17 @@ func update() -> void:
 	if clock_running:
 		# TODO save post reflection and
 		# check if directon goes still towards goal
-		goals.check_post_colissions(ball)
+		goals.check_post_collisions(ball)
 		if not _check_goal_line():
 			_check_touch_line()
 
-		# _check_ball_wall_colissions()
-		_check_ball_players_colissions()
+		# _check_ball_wall_collisions()
+		_check_ball_players_collisions()
 	elif penalties:
-		goals.check_post_colissions(ball)
-		# _check_ball_wall_colissions()
+		goals.check_post_collisions(ball)
+		# _check_ball_wall_collisions()
 		_check_goal_line_penalties()
-		_check_ball_players_colissions()
+		_check_ball_players_collisions()
 
 
 func force_update_calculator() -> void:
@@ -240,7 +240,7 @@ func _on_goals_post_hit_right() -> void:
 	left_team.stats.shots_hit_post += 1
 
 
-func _check_ball_wall_colissions() -> void:
+func _check_ball_wall_collisions() -> void:
 	var reflection: Variant
 
 	# up, check top wall
@@ -270,13 +270,14 @@ func _check_ball_wall_colissions() -> void:
 			return
 
 
-func _check_ball_players_colissions() -> void:
+func _check_ball_players_collisions() -> void:
 	if not ball.is_moving():
 		return
 
 	for player: SimPlayer in right_team.players + left_team.players:
 		if ball.collides(player):
-			ball.stop()
+			# stop at radius of player
+			ball.set_pos(player.pos)
 			return
 
 

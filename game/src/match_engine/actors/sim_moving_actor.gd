@@ -18,6 +18,7 @@ var follow_actor: MovingActor
 # use squared for performance
 var follow_distance_squared: float
 
+var collision_radius: float
 var collision_radius_squared: float
 var force: float
 var friction: float
@@ -28,11 +29,12 @@ var can_move: bool
 var collision_timer: int
 
 
-func _init(p_collision_radius_squared: float, p_friction: float) -> void:
+func _init(p_collision_radius: float, p_friction: float) -> void:
 	can_move = true
 	collision_timer = 0
+	collision_radius = p_collision_radius
 	# make square of radius, because colission detection uses distance_squared_to
-	collision_radius_squared = pow(p_collision_radius_squared, 2)
+	collision_radius_squared = pow(p_collision_radius, 2)
 	friction = p_friction
 
 	_reset_movents()
@@ -81,11 +83,14 @@ func set_pos_xy(x: float, y: float) -> void:
 	stop()
 
 
-func set_destination(p_pos: Vector2, p_force: float = 10) -> void:
+func set_destination(p_pos: Vector2, p_force: float = 10, p_overrun: float = 0.0) -> void:
 	_reset_movents()
-	destination = p_pos
 	force = p_force
+	destination = p_pos
 	direction = pos.direction_to(destination)
+
+	if p_overrun > 0.0:
+		destination += direction * p_overrun
 
 
 func follow(p_follow_actor: MovingActor, p_force: float = 10, p_distance_squared: float = 0) -> void:
@@ -156,6 +161,7 @@ func collides(actor: MovingActor) -> bool:
 	var radius_sum: float = collision_radius_squared
 	radius_sum += actor.collision_radius_squared
 	return actor.pos.distance_squared_to(pos) <= radius_sum
+
 
 func destination_reached() -> bool:
 	if not is_moving():

@@ -13,9 +13,9 @@ func _init() -> void:
 
 
 func enter() -> void:
-	owner.player.head_look = owner.field.ball.pos
+	owner.player.head_look = owner.ball.pos
 	# move player 1m behind ball
-	var destination: Vector2 = owner.field.ball.pos
+	var destination: Vector2 = owner.ball.pos
 	if owner.player.left_half:
 		destination += destination.direction_to(owner.field.goals.left) * owner.field.PIXEL_FACTOR * 1
 	else:
@@ -54,9 +54,9 @@ func execute() -> void:
 
 	random_target += Vector2(0, owner.rng.randf_range(-SimGoals.SIZE * aim, SimGoals.SIZE * aim))
 
-	var direction: Vector2 = owner.field.ball.pos.direction_to(random_target)
+	var direction: Vector2 = owner.ball.pos.direction_to(random_target)
 
-	owner.field.ball.impulse(direction, power * owner.rng.randi_range(1, 3))
+	owner.ball.impulse(direction, power * owner.rng.randi_range(1, 3))
 
 
 	# go idle and let team move player back to center, if needed

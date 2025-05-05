@@ -41,7 +41,7 @@ func enter() -> void:
 func execute() -> void:
 	# if player doesn't touch balls, follow it
 	if not owner.player.is_touching_ball():
-		owner.player.set_destination(owner.field.ball.pos)
+		owner.player.set_destination(owner.ball.pos)
 		# print("%d follow ball" % owner.player.player_res.nr)
 		return
 	
@@ -51,7 +51,7 @@ func execute() -> void:
 		# print("%d shoot" % owner.player.player_res.nr)
 		owner.team.stats.shots += 1
 		# shoot on goal
-		owner.field.ball.impulse(shot_direction, shot_force)
+		owner.ball.impulse(shot_direction, shot_force)
 		# set opponent goalkeeper to save state
 		owner.team.team_opponents.players[0].set_state(
 			PlayerStateGoalkeeperSaveShot.new()
@@ -66,14 +66,14 @@ func execute() -> void:
 		# ])
 		owner.team.stats.passes += 1
 		owner.team.player_receive_ball(best_pass_player)
-		owner.field.ball.impulse(pass_direction, pass_force)
+		owner.ball.impulse(pass_direction, pass_force)
 		owner.player.collision_timer = Const.TICKS * 2
 		set_state(PlayerStateAttack.new())
 		return
 
 	# dribble, by slightly kicking ball towards goal
 	var dribble_direction: Vector2 = owner.player.pos.direction_to(opponent_goal)
-	owner.field.ball.impulse(dribble_direction, 10)
+	owner.ball.impulse(dribble_direction, 10)
 	# print("dribble")
 
 
@@ -97,7 +97,7 @@ func should_shoot() -> bool:
 
 		# check if opponent players block shot
 		if owner.team.is_ball_safe_from_opponents(shot_attempt, shot_force):
-			shot_direction = owner.field.ball.pos.direction_to(shot_attempt)
+			shot_direction = owner.ball.pos.direction_to(shot_attempt)
 			return true
 
 	return false
@@ -108,7 +108,7 @@ func should_pass() -> bool:
 	best_pass_player = owner.team.find_best_pass(owner.player, pass_force)
 
 	if best_pass_player != null:
-		pass_direction = owner.field.ball.pos.direction_to(best_pass_player.pos)
+		pass_direction = owner.ball.pos.direction_to(best_pass_player.pos)
 		return true
 	
 	return false
