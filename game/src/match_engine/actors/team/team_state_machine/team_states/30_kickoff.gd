@@ -19,9 +19,17 @@ func enter() -> void:
 		# move ball to center
 		owner.field.ball.set_pos(owner.field.center)
 		# move control player to kick off position
-		owner.team.player_control(owner.team.players[-1])
-		owner.team.player_control().set_destination(owner.field.ball.pos, 20)
-		owner.team.player_control().set_state(PlayerStateIdle.new())
+		var player: SimPlayer = owner.team.players[-1]
+		owner.team.player_control(player)
+
+		# set destination a bit afer the centre
+		# so player looks towards his team and can pass the ball
+		var destination: Vector2 = owner.field.ball.pos
+		var direction: Vector2 = player.pos.direction_to(owner.field.ball.pos)
+		destination += (direction * 15)
+		player.set_destination(destination, 20)
+
+		player.set_state(PlayerStateIdle.new())
 
 
 func execute() -> void:
