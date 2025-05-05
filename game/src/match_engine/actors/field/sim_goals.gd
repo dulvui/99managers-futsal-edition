@@ -168,80 +168,80 @@ func is_goal_left(ball: SimBall) -> bool:
 
 
 func check_post_colissions(ball: SimBall) -> void:
-	var colission: Variant
+	var reflection: Variant
 
 	# left
 	if ball.direction.x < 0:
 		# can always hit right side of post
-		colission = post_top_left_right.collides(ball.last_pos, ball.pos)
-		if colission != null:
-			ball.direction = colission
+		reflection = post_top_left_right.collides(ball.last_pos, ball.pos)
+		if reflection != null:
+			ball.direction = reflection
 			post_hit_left.emit()
 			return
-		colission = post_bottom_left_right.collides(ball.last_pos, ball.pos)
-		if colission != null:
-			ball.direction = colission
+		reflection = post_bottom_left_right.collides(ball.last_pos, ball.pos)
+		if reflection != null:
+			ball.direction = reflection
 			post_hit_left.emit()
 			return
 		# up
 		if ball.direction.y < 0:
-			colission = post_top_left_bottom.collides(ball.last_pos, ball.pos)
-			if colission != null:
-				ball.direction = colission
+			reflection = post_top_left_bottom.collides(ball.last_pos, ball.pos)
+			if reflection != null:
+				ball.direction = reflection
 				post_hit_left.emit()
 				return
-			colission = post_bottom_left_bottom.collides(ball.last_pos, ball.pos)
-			if colission != null:
-				ball.direction = colission
+			reflection = post_bottom_left_bottom.collides(ball.last_pos, ball.pos)
+			if reflection != null:
+				ball.direction = reflection
 				post_hit_left.emit()
 				return
 		# down
 		else:
-			colission = post_top_left_top.collides(ball.last_pos, ball.pos)
-			if colission != null:
-				ball.direction = colission
+			reflection = post_top_left_top.collides(ball.last_pos, ball.pos)
+			if reflection != null:
+				ball.direction = reflection
 				post_hit_left.emit()
 				return
-			colission = post_bottom_left_top.collides(ball.last_pos, ball.pos)
-			if colission != null:
-				ball.direction = colission
+			reflection = post_bottom_left_top.collides(ball.last_pos, ball.pos)
+			if reflection != null:
+				ball.direction = reflection
 				post_hit_left.emit()
 				return
 	# right
 	else:
 		# can always hit left side of post
-		colission = post_top_right_left.collides(ball.last_pos, ball.pos)
-		if colission != null:
-			ball.direction = colission
+		reflection = post_top_right_left.collides(ball.last_pos, ball.pos)
+		if reflection != null:
+			ball.direction = reflection
 			post_hit_right.emit()
 			return
-		colission = post_bottom_right_left.collides(ball.last_pos, ball.pos)
-		if colission != null:
-			ball.direction = colission
+		reflection = post_bottom_right_left.collides(ball.last_pos, ball.pos)
+		if reflection != null:
+			ball.direction = reflection
 			post_hit_right.emit()
 			return
 		# up
 		if ball.direction.y < 0:
-			colission = post_top_right_bottom.collides(ball.last_pos, ball.pos)
-			if colission != null:
-				ball.direction = colission
+			reflection = post_top_right_bottom.collides(ball.last_pos, ball.pos)
+			if reflection != null:
+				ball.direction = reflection
 				post_hit_right.emit()
 				return
-			colission = post_bottom_right_bottom.collides(ball.last_pos, ball.pos)
-			if colission != null:
-				ball.direction = colission
+			reflection = post_bottom_right_bottom.collides(ball.last_pos, ball.pos)
+			if reflection != null:
+				ball.direction = reflection
 				post_hit_right.emit()
 				return
 		# down
 		else:
-			colission = post_top_right_top.collides(ball.last_pos, ball.pos)
-			if colission != null:
-				ball.direction = colission
+			reflection = post_top_right_top.collides(ball.last_pos, ball.pos)
+			if reflection != null:
+				ball.direction = reflection
 				post_hit_right.emit()
 				return
-			colission = post_bottom_right_top.collides(ball.last_pos, ball.pos)
-			if colission != null:
-				ball.direction = colission
+			reflection = post_bottom_right_top.collides(ball.last_pos, ball.pos)
+			if reflection != null:
+				ball.direction = reflection
 				post_hit_right.emit()
 				return
 

@@ -104,6 +104,7 @@ func update() -> void:
 
 	# player changes
 	if not field.clock_running:
+
 		auto_change()
 		if change_request:
 			change_players()

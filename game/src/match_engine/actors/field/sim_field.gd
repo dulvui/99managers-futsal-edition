@@ -144,11 +144,11 @@ func update() -> void:
 		if not _check_goal_line():
 			_check_touch_line()
 
-		_check_ball_wall_colissions()
+		# _check_ball_wall_colissions()
 		_check_ball_players_colissions()
 	elif penalties:
 		goals.check_post_colissions(ball)
-		_check_ball_wall_colissions()
+		# _check_ball_wall_colissions()
 		_check_goal_line_penalties()
 		_check_ball_players_colissions()
 
@@ -164,7 +164,7 @@ func bound(pos: Vector2) -> Vector2:
 
 
 func _check_touch_line() -> void:
-	# kick in / y axis
+	# left
 	if ball.pos.y < line_top:
 		var intersection: Variant = Geometry2D.segment_intersects_segment(
 			ball.last_pos, ball.pos, top_left, top_right
@@ -175,6 +175,7 @@ func _check_touch_line() -> void:
 			ball.set_pos(vector)
 			touch_line_out.emit()
 			return
+	# right
 	if ball.pos.y > line_bottom:
 		var intersection: Variant = Geometry2D.segment_intersects_segment(
 			ball.last_pos, ball.pos, bottom_left, bottom_right
@@ -238,28 +239,32 @@ func _on_goals_post_hit_right() -> void:
 
 
 func _check_ball_wall_colissions() -> void:
-	var colission: Variant
+	var reflection: Variant
 
+	# up, check top wall
 	if ball.direction.y < 0:
-		colission = wall_top.collides(ball.last_pos, ball.pos)
-		if colission != null:
-			ball.direction = colission
+		reflection = wall_top.collides(ball.last_pos, ball.pos)
+		if reflection != null:
+			ball.direction = reflection
 			return
 	else:
-		colission = wall_bottom.collides(ball.last_pos, ball.pos)
-		if colission != null:
-			ball.direction = colission
+	# down, check bottom wall
+		reflection = wall_bottom.collides(ball.last_pos, ball.pos)
+		if reflection != null:
+			ball.direction = reflection
 			return
 
+	# left, check left wall
 	if ball.direction.x < 0:
-		colission = wall_left.collides(ball.last_pos, ball.pos)
-		if colission != null:
-			ball.direction = colission
+		reflection = wall_left.collides(ball.last_pos, ball.pos)
+		if reflection != null:
+			ball.direction = reflection
 			return
 	else:
-		colission = wall_right.collides(ball.last_pos, ball.pos)
-		if colission != null:
-			ball.direction = colission
+	# right, check right wall
+		reflection = wall_right.collides(ball.last_pos, ball.pos)
+		if reflection != null:
+			ball.direction = reflection
 			return
 
 

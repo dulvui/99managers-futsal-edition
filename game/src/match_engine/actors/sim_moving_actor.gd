@@ -14,20 +14,21 @@ var direction: Vector2
 var destination: Vector2
 
 var follow_actor: MovingActor
-# to keep distance to following object, squared for performance
+# to keep distance to following object
+# use squared for performance
 var follow_distance_squared: float
 
-var collision_radius: float
+var collision_radius_squared: float
 var force: float
 var friction: float
 
 var can_move: bool
 
 
-func _init(p_collision_radius: float, p_friction: float) -> void:
+func _init(p_collision_radius_squared: float, p_friction: float) -> void:
 	can_move = true
-	# collision_radius = pow(p_collision_radius, 2)
-	collision_radius = p_collision_radius
+	# make square of radius, because colission detection uses distance_squared_to
+	collision_radius_squared = pow(p_collision_radius_squared, 2)
 	friction = p_friction
 
 	_reset_movents()
@@ -83,7 +84,8 @@ func set_destination(p_pos: Vector2, p_force: float = 10) -> void:
 func follow(p_follow_actor: MovingActor, p_force: float = 10, p_distance_squared: float = 0) -> void:
 	_reset_movents()
 	follow_actor = p_follow_actor
-	follow_distance_squared = p_distance_squared
+	# min distance should be colission radius
+	follow_distance_squared = max(collision_radius_squared - 2, p_distance_squared)
 	force = p_force
 
 
@@ -132,11 +134,13 @@ func stop() -> void:
 func collides(actor: MovingActor) -> bool:
 	if actor == null:
 		return false
-	# can't collide, if actor is behind
+
+	# can't collide, if actor is behind self
 	# dot product of direction and directon from actor to self
 	if direction.dot(actor.pos.direction_to(pos)) > 0.0:
 		return false
-	return actor.pos.distance_to(pos) < actor.collision_radius + collision_radius
+	
+	return actor.pos.distance_squared_to(pos) < actor.collision_radius_squared + collision_radius_squared
 
 
 func destination_reached() -> bool:

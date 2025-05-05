@@ -42,77 +42,49 @@ func update(force: bool = false) -> void:
 	ticks += 1
 	if ticks == BEST_SECTOR_UPDATE_FREQUENCY or force:
 		ticks = 0
-		_calc_best_supporting_sector()
+		_best_supporting_sector()
 
 
-func _calc_best_supporting_sector() -> void:
+func _best_supporting_sector() -> void:
 	best_sector.score = 0
 
 	for sector: SimFieldSector in sectors:
 		sector.score = 0
 
 		# check pass distance
-		var distance_to_ball: float = _calc_distance_to(field.ball.pos, sector.position)
+		var distance_to_ball: float = _distance_to(field.ball.pos, sector.position)
 		sector.score += 100.0 / (abs(distance_to_ball - PERFECT_PASS_DISTANCE) + 1)
 
 		# check opposite players in pass trajectory
-		var players_in_pass_trajectory: int = _calc_players_in_pass_trajectory(sector.position)
-		sector.score += 100.0 / (players_in_pass_trajectory + 1)
+		if _is_safe_pass_trajectory(sector.position):
+			sector.score += 50.0
 
 		# check opposite players in shoot trajectory
-		var players_in_shoot_trajectory: int = _calc_players_in_shoot_trajectory(sector.position)
-		sector.score += 100.0 / (players_in_shoot_trajectory + 1)
+		if _is_safe_shoot_trajectory(sector.position):
+			sector.score += 100.0
 
 		if sector.score > best_sector.score:
 			best_sector = sector
 
 
-func _calc_distance_to_goal(position: Vector2, left_half: bool) -> void:
+func _distance_to_goal(position: Vector2, left_half: bool) -> void:
 	if left_half:
-		return _calc_distance_to(position, field.goals.right)
-	return _calc_distance_to(position, field.goals.left)
+		return _distance_to(position, field.goals.right)
+	return _distance_to(position, field.goals.left)
 
 
-func _calc_distance_to(from: Vector2, to: Vector2) -> float:
+func _distance_to(from: Vector2, to: Vector2) -> float:
 	return from.distance_squared_to(to)
 
 
-func _calc_players_in_shoot_trajectory(position: Vector2) -> int:
-	var players_in_trajectory: int = 0
-
+func _is_safe_shoot_trajectory(position: Vector2) -> bool:
 	if field.left_team.has_ball:
-		post_top = field.goals.post_top_right
-		post_bottom = field.goals.post_bottom_right
-	else:
-		post_top = field.goals.post_top_left
-		post_bottom = field.goals.post_bottom_left
+		return field.right_team.is_ball_safe_from_opponents(position, 40)
+	return field.left_team.is_ball_safe_from_opponents(position, 40)
 
+
+func _is_safe_pass_trajectory(position: Vector2) -> bool:
 	if field.left_team.has_ball:
-		players = field.right_team.players
-	else:
-		players = field.left_team.players
-
-	for player: SimPlayer in players:
-		if Geometry2D.point_is_inside_triangle(player.pos, position, post_top, post_bottom):
-			players_in_trajectory += 1
-
-	return players_in_trajectory
-
-
-func _calc_players_in_pass_trajectory(position: Vector2) -> int:
-	var players_in_trajectory: int = 0
-
-	if field.left_team.has_ball:
-		players = field.right_team.players
-	else:
-		players = field.left_team.players
-
-	for player: SimPlayer in players:
-		var intersection: float = Geometry2D.segment_intersects_circle(
-				field.ball.pos, position, player.pos, player.collision_radius
-			)
-		if intersection	> -1:
-			players_in_trajectory += 1
-
-	return players_in_trajectory
+		return field.right_team.is_ball_safe_from_opponents(position, 20)
+	return field.left_team.is_ball_safe_from_opponents(position, 20)
 
