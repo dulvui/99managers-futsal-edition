@@ -26,7 +26,7 @@ func enter() -> void:
 		# so player looks towards his team and can pass the ball
 		var destination: Vector2 = owner.field.ball.pos
 		var direction: Vector2 = player.pos.direction_to(owner.field.ball.pos)
-		destination += (direction * 15)
+		destination += (direction * 18)
 		player.set_destination(destination, 20)
 
 		player.set_state(PlayerStateIdle.new())

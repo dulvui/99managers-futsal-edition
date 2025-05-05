@@ -101,14 +101,14 @@ func setup(p_matchz: Match, p_home_team: Team = null, p_away_team: Team = null) 
 func update() -> void:
 	ticks += 1
 
+	# field/ball updates more frequently on every tick
+	# for better colission detections
+	field.update()
+
 	# players movements
 	# before field update, to detect colissions on tick earlier
 	left_team.move()
 	right_team.move()
-
-	# field/ball updates more frequently on every tick
-	# for better colission detections
-	field.update()
 
 	# teams/players instead update less frequent
 	# state machines don't require high frequency

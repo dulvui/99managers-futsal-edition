@@ -29,7 +29,7 @@ var has_ball: bool
 var ticks_in_field: int
 
 
-func _init(p_radius: float = 20) -> void:
+func _init(p_radius: float = 24) -> void:
 	super(p_radius, 0.0)
 	has_ball = false
 	head_look = Vector2.ZERO

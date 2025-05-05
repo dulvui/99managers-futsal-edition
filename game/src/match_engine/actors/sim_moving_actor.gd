@@ -23,10 +23,14 @@ var force: float
 var friction: float
 
 var can_move: bool
+# timer to make actor immune to collisons
+# makes passing/shooting easier
+var collision_timer: int
 
 
 func _init(p_collision_radius_squared: float, p_friction: float) -> void:
 	can_move = true
+	collision_timer = 0
 	# make square of radius, because colission detection uses distance_squared_to
 	collision_radius_squared = pow(p_collision_radius_squared, 2)
 	friction = p_friction
@@ -35,6 +39,9 @@ func _init(p_collision_radius_squared: float, p_friction: float) -> void:
 
 
 func move() -> void:
+	if collision_timer > 0:
+		collision_timer =- 1
+
 	if force > 0:
 		last_pos = pos
 		pos = next_pos
@@ -42,10 +49,10 @@ func move() -> void:
 		# set destination to following actor, if set
 		if follow_actor	!= null and destination != follow_actor.pos:
 			destination = follow_actor.pos
-			direction = pos.direction_to(destination)
-			if pos.distance_squared_to(destination) < follow_distance_squared:
+			if pos.distance_squared_to(destination) <= follow_distance_squared:
 				stop()
 				return
+			direction = pos.direction_to(destination)
 
 		# check destination reached, if set
 		if destination != Vector2.INF:
@@ -85,7 +92,7 @@ func follow(p_follow_actor: MovingActor, p_force: float = 10, p_distance_squared
 	_reset_movents()
 	follow_actor = p_follow_actor
 	# min distance should be colission radius
-	follow_distance_squared = max(collision_radius_squared - 2, p_distance_squared)
+	follow_distance_squared = p_distance_squared
 	force = p_force
 
 
@@ -131,17 +138,25 @@ func stop() -> void:
 	next_pos = pos
 
 
+# check collision with actor, by comparing colission radius distances
+# delta_squared can be used to reduce/increase colission radius
+# makes check if player touches ball easier
 func collides(actor: MovingActor) -> bool:
 	if actor == null:
 		return false
 
-	# can't collide, if actor is behind self
-	# dot product of direction and directon from actor to self
-	if direction.dot(actor.pos.direction_to(pos)) > 0.0:
+	if actor.collision_timer > 0:
+		print("collision timer at work")
 		return false
-	
-	return actor.pos.distance_squared_to(pos) < actor.collision_radius_squared + collision_radius_squared
 
+	# if can't collide, if actor is behind self
+	# dot product of direction and directon from actor to self
+	if self is SimBall and is_moving() and direction.dot(actor.pos.direction_to(pos)) > 0.0:
+		return false
+
+	var radius_sum: float = collision_radius_squared
+	radius_sum += actor.collision_radius_squared
+	return actor.pos.distance_squared_to(pos) <= radius_sum
 
 func destination_reached() -> bool:
 	if not is_moving():

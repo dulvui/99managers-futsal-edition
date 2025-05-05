@@ -140,6 +140,8 @@ func update() -> void:
 
 	# check field bounds
 	if clock_running:
+		# TODO save post reflection and
+		# check if directon goes still towards goal
 		goals.check_post_colissions(ball)
 		if not _check_goal_line():
 			_check_touch_line()

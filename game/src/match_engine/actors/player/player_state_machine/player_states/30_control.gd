@@ -41,28 +41,40 @@ func enter() -> void:
 func execute() -> void:
 	# if player doesn't touch balls, follow it
 	if not owner.player.is_touching_ball():
-		owner.player.follow(owner.field.ball)
+		owner.player.set_destination(owner.field.ball.pos)
+		print("%d follow ball" % owner.player.player_res.nr)
 		return
+	
+	print("%d touching ball" % owner.player.player_res.nr)
 
 	if should_shoot():
+		print("%d shoot" % owner.player.player_res.nr)
 		owner.team.stats.shots += 1
 		# shoot on goal
 		owner.field.ball.impulse(shot_direction, shot_force)
 		# set opponent goalkeeper to save state
-		owner.team.team_opponents.players[0].set_state(PlayerStateGoalkeeperSaveShot.new())
+		owner.team.team_opponents.players[0].set_state(
+			PlayerStateGoalkeeperSaveShot.new()
+		)
+		owner.player.collision_timer = Const.TICKS * 2
 		set_state(PlayerStateAttack.new())
 		return
 
 	if should_pass():
+		print("%d pass to %d" % [
+			owner.player.player_res.nr, best_pass_player.player_res.nr
+		])
 		owner.team.stats.passes += 1
 		owner.team.player_receive_ball(best_pass_player)
 		owner.field.ball.impulse(pass_direction, pass_force)
+		owner.player.collision_timer = Const.TICKS * 2
 		set_state(PlayerStateAttack.new())
 		return
 
 	# dribble, by slightly kicking ball towards goal
 	var dribble_direction: Vector2 = owner.player.pos.direction_to(opponent_goal)
-	owner.field.ball.impulse(dribble_direction, 5)
+	owner.field.ball.impulse(dribble_direction, 10)
+	print("dribble")
 
 
 func should_shoot() -> bool:
@@ -78,7 +90,9 @@ func should_shoot() -> bool:
 	# define random attempts to aim and see how many players oppose
 	var attempts: int = owner.rng.randi_range(1, shooting_ability)
 	for i: int in attempts:
-		var y: int = owner.rng.randi_range(owner.field.goals.post_top, owner.field.goals.post_bottom)
+		var y: int = owner.rng.randi_range(
+			owner.field.goals.post_top, owner.field.goals.post_bottom
+		)
 		var shot_attempt: Vector2 = Vector2(opponent_goal.x, y)
 
 		# check if opponent players block shot
