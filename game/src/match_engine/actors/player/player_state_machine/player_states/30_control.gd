@@ -42,13 +42,13 @@ func execute() -> void:
 	# if player doesn't touch balls, follow it
 	if not owner.player.is_touching_ball():
 		owner.player.set_destination(owner.field.ball.pos)
-		print("%d follow ball" % owner.player.player_res.nr)
+		# print("%d follow ball" % owner.player.player_res.nr)
 		return
 	
-	print("%d touching ball" % owner.player.player_res.nr)
+	# print("%d touching ball" % owner.player.player_res.nr)
 
 	if should_shoot():
-		print("%d shoot" % owner.player.player_res.nr)
+		# print("%d shoot" % owner.player.player_res.nr)
 		owner.team.stats.shots += 1
 		# shoot on goal
 		owner.field.ball.impulse(shot_direction, shot_force)
@@ -61,9 +61,9 @@ func execute() -> void:
 		return
 
 	if should_pass():
-		print("%d pass to %d" % [
-			owner.player.player_res.nr, best_pass_player.player_res.nr
-		])
+		# print("%d pass to %d" % [
+		# 	owner.player.player_res.nr, best_pass_player.player_res.nr
+		# ])
 		owner.team.stats.passes += 1
 		owner.team.player_receive_ball(best_pass_player)
 		owner.field.ball.impulse(pass_direction, pass_force)
@@ -74,7 +74,7 @@ func execute() -> void:
 	# dribble, by slightly kicking ball towards goal
 	var dribble_direction: Vector2 = owner.player.pos.direction_to(opponent_goal)
 	owner.field.ball.impulse(dribble_direction, 10)
-	print("dribble")
+	# print("dribble")
 
 
 func should_shoot() -> bool:

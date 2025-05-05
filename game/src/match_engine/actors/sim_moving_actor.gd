@@ -146,7 +146,6 @@ func collides(actor: MovingActor) -> bool:
 		return false
 
 	if actor.collision_timer > 0:
-		print("collision timer at work")
 		return false
 
 	# if can't collide, if actor is behind self
