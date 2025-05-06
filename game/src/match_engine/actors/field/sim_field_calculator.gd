@@ -7,8 +7,8 @@ class_name SimFieldCalculator
 
 # can later made dynamic by team tactics long/short pass
 # use squared for better performance
-const PERFECT_PASS_DISTANCE_SQUARED: int = 900
-const PERFECT_SHOOT_DISTANCE_SQUARED: int = 1200
+const PERFECT_PASS_DISTANCE_SQUARED: int = 1200
+const PERFECT_SHOOT_DISTANCE_SQUARED: int = 1800
 const BEST_SECTOR_UPDATE_FREQUENCY: int = Const.TICKS * 4
 
 var field: SimField
@@ -36,6 +36,9 @@ func _init(p_field: SimField) -> void:
 			var sector: SimFieldSector = SimFieldSector.new()
 			sector.setup(x, y)
 			sectors.append(sector)
+	
+	best_pass_sector = sectors[0]
+	best_shoot_sector = sectors[0]
 
 
 func update(force: bool = false) -> void:

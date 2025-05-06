@@ -27,7 +27,7 @@ func enter() -> void:
 	# and move it there
 	var sector_position: Vector2 = owner.field.calculator.best_shoot_sector.position
 	var player: SimPlayer = owner.team.find_nearest_player_to(
-		sector_position, [owner.team.player_control()]
+		sector_position, [owner.team.player_control(), owner.team.player_receive_ball()]
 	)
 	# TODO: use tactics to define supporging players amount
 	# and if picking best shoot or best bass sector
