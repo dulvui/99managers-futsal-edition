@@ -77,6 +77,8 @@ func make_goalkeeper() -> void:
 
 
 func gain_control() -> void:
+	stop()
+
 	state_machine.team.gain_possession()
 	state_machine.team.player_control(self)
 

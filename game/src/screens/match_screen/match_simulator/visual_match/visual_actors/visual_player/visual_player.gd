@@ -69,16 +69,15 @@ func setup(
 	ball = p_ball
 
 	# set colors
-	body.modulate = Color(shirt_color)
-	head.modulate = Color(skintone)
-	hair.modulate = Color(haircolor)
-	eyes.modulate = Color(eyecolor)
-
-	leg_right.modulate = Color(skintone)
-	leg_left.modulate = Color(skintone)
-	arm_right.modulate = Color(shirt_color)
-	arm_left.modulate = Color(shirt_color)
-	
+	body.modulate = Color(shirt_color, 1.0)
+	# arms could have secondary color
+	# arm_right.modulate = Color(shirt_color, 1.0)
+	# arm_left.modulate = Color(shirt_color, 1.0)
+	head.modulate = Color(skintone, 1.0)
+	leg_right.modulate = Color(skintone, 1.0)
+	leg_left.modulate = Color(skintone, 1.0)
+	hair.modulate = Color(haircolor, 1.0)
+	eyes.modulate = Color(eyecolor, 1.0)
 
 
 func update(

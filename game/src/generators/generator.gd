@@ -884,6 +884,9 @@ func _set_random_shirt_colors(team: Team) -> void:
 	var main_color: Color = Color(
 		rng_util.randf_range(0, 1), rng_util.randf_range(0, 1), rng_util.randf_range(0, 1)
 	)
+	# set transparency to 0
+	main_color.a = 1.0
+
 	team.colors.append(main_color.to_html(true))
 	team.colors.append(main_color.inverted().to_html(true))
 	team.colors.append(
