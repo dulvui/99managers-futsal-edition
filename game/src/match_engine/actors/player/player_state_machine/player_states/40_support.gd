@@ -9,6 +9,3 @@ extends PlayerStateMachineState
 func _init() -> void:
 	super("PlayerStateSupport")
 
-
-func execute() -> void:
-	pass

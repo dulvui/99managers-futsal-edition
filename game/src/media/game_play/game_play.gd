@@ -16,7 +16,11 @@ extends Control
 
 
 func _ready() -> void:
+	# apply dark theme
+	Main.apply_theme(1)
+	Global.config.theme_index = 1
 	theme = ThemeUtil.get_active_theme()
+
 	Tests.setup_mock_world(true)
 
 	# search next match day, to have real team and player names
@@ -67,8 +71,6 @@ func _ready() -> void:
 	dashboard_screen._on_calendar_button_pressed()
 	await show_screen(6, dashboard_screen)
 
-	await show_teaser(2, "The world's first\nFutsal Manager game")
-
 	# match
 	match_screen.match_simulator.engine.simulate(456)
 	await show_screen(4, match_screen)
@@ -76,6 +78,9 @@ func _ready() -> void:
 	await fade_in(icon)
 	await wait(1)
 	# await fade_out(icon)
+
+	await show_teaser(2, "Get the beta version on 99managers.org")
+	await show_teaser(2, "Add to your wishlist now!")
 
 	# quit scene to finish registration
 	get_tree().quit()

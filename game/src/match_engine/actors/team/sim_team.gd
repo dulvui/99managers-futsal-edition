@@ -270,7 +270,12 @@ func penalties_shot_taken() -> void:
 	penalties_shot.emit()
 
 
-func is_ball_safe_from_opponents(p_destination: Vector2, p_force: float) -> bool:
+# checks if ball trajectory is safe from opponents
+func is_ball_safe(
+	from: Vector2,
+	to: Vector2,
+	force: float,
+) -> bool:
 	for player: SimPlayer in team_opponents.players:
 
 		# don't check for goalkeepers
@@ -278,17 +283,23 @@ func is_ball_safe_from_opponents(p_destination: Vector2, p_force: float) -> bool
 			continue
 
 		var closest_point: Vector2 = Geometry2D.get_closest_point_to_segment(
-			player.pos, field.ball.pos, p_destination
+			player.pos, from, to
 		)
 
 		# TODO: take also acceleration into account
 		var player_force: float = player.player_res.attributes.physical.pace
-		var player_ticks: int = player.get_ticks_to_reach(closest_point, player_force)
-		var ball_ticks: int = field.ball.get_ticks_to_reach(closest_point, p_force)
+		var player_ticks: int = field.get_ticks_to_reach(
+			player.pos, closest_point, player_force, player.friction
+		)
+
+		var ball_ticks: int = field.get_ticks_to_reach(
+			from, closest_point, force, field.ball.friction
+		)
 
 		# check if player can reach spot in time/ticks faster than ball
 		if player_ticks < ball_ticks:
 			return false
+
 	return true
 
 
@@ -298,7 +309,7 @@ func find_best_pass(passing_player: SimPlayer, pass_force: float) -> SimPlayer:
 	for player: SimPlayer in players:
 		if player != passing_player:
 
-			if is_ball_safe_from_opponents(player.pos, pass_force):
+			if is_ball_safe(passing_player.pos, player.pos, pass_force):
 				possible_players.append(player)
 	
 	if possible_players.is_empty():

@@ -129,8 +129,9 @@ func apply_theme(index: int) -> void:
 	# short delay before reloading previous scene after theme change, brings big speed increase
 	await get_tree().create_timer(0.05).timeout
 
-	var scene: PackedScene = load(previous_scenes[-1])
-	content.add_child(scene.instantiate())
+	if not previous_scenes.is_empty():
+		var scene: PackedScene = load(previous_scenes[-1])
+		content.add_child(scene.instantiate())
 
 
 func _append_scene_to_buffer(scene_path: String) -> void:

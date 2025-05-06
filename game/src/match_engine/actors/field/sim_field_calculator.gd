@@ -7,18 +7,19 @@ class_name SimFieldCalculator
 
 # can later made dynamic by team tactics long/short pass
 # use squared for better performance
-const PERFECT_PASS_DISTANCE: int = 900
+const PERFECT_PASS_DISTANCE_SQUARED: int = 900
+const PERFECT_SHOOT_DISTANCE_SQUARED: int = 1200
 const BEST_SECTOR_UPDATE_FREQUENCY: int = Const.TICKS * 4
 
 var field: SimField
 
 var sectors: Array[SimFieldSector]
-var best_sector: SimFieldSector
+var best_pass_sector: SimFieldSector
+var best_shoot_sector: SimFieldSector
 
 # to not create new vars on every update
 var post_bottom: Vector2
 var post_top: Vector2
-var players: Array[SimPlayer]
 
 var ticks: int
 
@@ -36,52 +37,52 @@ func _init(p_field: SimField) -> void:
 			sector.setup(x, y)
 			sectors.append(sector)
 
-	best_sector = sectors[0]
-
 
 func update(force: bool = false) -> void:
 	ticks += 1
 	if ticks == BEST_SECTOR_UPDATE_FREQUENCY or force:
 		ticks = 0
-		_best_supporting_sector()
+		_find_best_pass_sector()
+		_find_best_shoot_sector()
 
 
-func _best_supporting_sector() -> void:
-	best_sector.score = 0.0
+func _find_best_pass_sector() -> void:
+	best_pass_sector.score = 0.0
+
+	var team: SimTeam = field.active_team()
 
 	for sector: SimFieldSector in sectors:
 		sector.score = 0.0
 
 		# check pass distance
-		var distance_to_ball: float = field.ball.pos.distance_squared_to(sector.position)
-		sector.score += 100.0 / (abs(distance_to_ball - PERFECT_PASS_DISTANCE) + 1)
+		var distance: float = field.ball.pos.distance_squared_to(sector.position)
+		sector.score += 100.0 / (abs(distance - PERFECT_SHOOT_DISTANCE_SQUARED) + 1)
 
 		# check opposite players in pass trajectory
-		if _is_safe_pass_trajectory(sector.position):
+		if team.is_ball_safe(field.ball.pos, sector.position, 20):
 			sector.score += 50.0
 
+		if sector.score > best_pass_sector.score:
+			best_pass_sector = sector
+
+
+func _find_best_shoot_sector() -> void:
+	best_shoot_sector.score = 0.0
+	
+	var goal: Vector2 = field.active_goal()
+	var team: SimTeam = field.active_team()
+
+	for sector: SimFieldSector in sectors:
+		sector.score = 0.0
+
+		# check shoot distance
+		var distance: float = sector.position.distance_squared_to(goal)
+		sector.score += 100.0 / (abs(distance - PERFECT_PASS_DISTANCE_SQUARED) + 1)
+
 		# check opposite players in shoot trajectory
-		if _is_safe_shoot_trajectory(sector.position):
-			sector.score += 100.0
+		if team.is_ball_safe(sector.position, goal, 40):
+			sector.score += 60.0
 
-		if sector.score > best_sector.score:
-			best_sector = sector
-
-
-func _distance_to_goal(position: Vector2, left_half: bool) -> void:
-	if left_half:
-		return position.distance_squared_to(field.goals.right)
-	return position.distance_squared_to(field.goals.left)
-
-
-func _is_safe_shoot_trajectory(position: Vector2) -> bool:
-	if field.left_team.has_ball:
-		return field.right_team.is_ball_safe_from_opponents(position, 40)
-	return field.left_team.is_ball_safe_from_opponents(position, 40)
-
-
-func _is_safe_pass_trajectory(position: Vector2) -> bool:
-	if field.left_team.has_ball:
-		return field.right_team.is_ball_safe_from_opponents(position, 20)
-	return field.left_team.is_ball_safe_from_opponents(position, 20)
+		if sector.score > best_shoot_sector.score:
+			best_shoot_sector = sector
 

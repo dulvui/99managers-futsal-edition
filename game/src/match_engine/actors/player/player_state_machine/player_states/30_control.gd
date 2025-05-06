@@ -89,7 +89,7 @@ func should_shoot() -> bool:
 		var shot_attempt: Vector2 = Vector2(opponent_goal.x, y)
 
 		# check if opponent players block shot
-		if owner.team.is_ball_safe_from_opponents(shot_attempt, shot_force):
+		if owner.team.is_ball_safe(owner.ball.pos, shot_attempt, shot_force):
 			shot_direction = owner.ball.pos.direction_to(shot_attempt)
 			return true
 

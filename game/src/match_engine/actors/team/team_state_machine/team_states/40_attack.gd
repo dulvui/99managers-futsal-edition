@@ -23,23 +23,16 @@ func enter() -> void:
 			continue
 		player.set_state(PlayerStateAttack.new())
 
-
-func execute() -> void:
-	# make sure team still doesn't have the ball
-	if not owner.team.has_ball:
-		set_state(TeamStateDefend.new())
-		return
-
 	# make player closest to best supporting position supporting player
 	# and move it there
-	if owner.team.player_support == null or owner.team.player_support == owner.team.player_control:
-		# find nearest player to best supporting sector
-		var sector_position: Vector2 = owner.field.calculator.best_sector.position
-		var player: SimPlayer = owner.team.find_nearest_player_to(
-			sector_position, [owner.team.player_control()]
-		)
-		player.set_destination(sector_position)
-		owner.team.player_support(player)
+	var sector_position: Vector2 = owner.field.calculator.best_shoot_sector.position
+	var player: SimPlayer = owner.team.find_nearest_player_to(
+		sector_position, [owner.team.player_control()]
+	)
+	# TODO: use tactics to define supporging players amount
+	# and if picking best shoot or best bass sector
+	player.set_destination(sector_position)
+	owner.team.player_support(player)
 
 
 func exit() -> void:

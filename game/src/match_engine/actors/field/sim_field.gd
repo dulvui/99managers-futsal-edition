@@ -61,6 +61,7 @@ var ball: SimBall
 var left_team: SimTeam
 var right_team: SimTeam
 
+# only once instance is needed, because only on team is attacking at the time
 var calculator: SimFieldCalculator
 
 # walls to limit ball space
@@ -163,6 +164,41 @@ func bound(pos: Vector2) -> Vector2:
 	pos.x = maxi(mini(int(pos.x), int(line_right)), 1)
 	pos.y = maxi(mini(int(pos.y), int(line_bottom)), 1)
 	return pos
+
+
+func active_goal() -> Vector2:
+	if left_team.has_ball:
+		return goals.right
+	return goals.left
+
+
+func active_team() -> SimTeam:
+	if left_team.has_ball:
+		return left_team
+	return right_team
+
+
+# return ticks needed to reach destination with given force
+# returns FULL_TIME_TICKS if cannot be reached in time
+func get_ticks_to_reach(from: Vector2, to: Vector2, force: float, friction: float) -> int:
+	var direction: Vector2 = from.direction_to(to)
+	var ticks: int = 0
+	var distance: float = from.distance_squared_to(to)
+
+	# use 10px squared as min distance, for performance
+	while distance > 100:
+		from += direction * force * Const.SPEED
+		ticks += 1
+		force -= friction
+
+		# will never reach target
+		if force < 0.0:
+			# simply return biiiiig number
+			return Const.FULL_TIME_TICKS
+
+		distance = from.distance_squared_to(to)
+	
+	return ticks
 
 
 func _check_touch_line() -> void:
