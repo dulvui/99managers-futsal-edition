@@ -7,32 +7,51 @@ SPDX-License-Identifier: CC0-1.0
 # Changelog
 Features/issues that are added/solved in specific versions.  
 This tries to follow the [keepachangelog](https://keepachangelog.com/en/1.1.0/) guideline.
+
+The single changes are separated in the following section for better visibility  
+**Match Engine** changes from UI to logic during matches  
+**UI** changes to the UI outside of the Match Engine
+**Data** changes to data related topics like saving/loading or player attributes
+**Logic** changes to game logic outside of the Match Engine
+
 # [0.3.2]
 ## [Unreleased]
 
 ## Added
-- Generate missing attributes for players of custom csv file
-- (Simple) Stadium detail view in dashboard
-- Changee date and currency format in settings
-- Free agent players
-- Show player/team generation progress during game setup
-- Create better backups and use checksums to verify save states and configs
-- Goalkeeper has own save ball state and moves to best interposing position
-- Walking animation
+- Match Engine
+    - Goalkeeper has own save ball state and moves to best interposing position
+    - Walking animation
+- UI
+    - (Simple) Stadium detail view in dashboard
+    - Change date and currency format in settings
+    - Show player/team generation progress during game setup
+- Data
+    - Generate missing attributes for players of custom csv file
+    - Free agent players
+    - Create better backups and use check-sums to verify save state and setting files
 
 ## Changed
-- Better data validation when starting new game
-- Player profile has now tabs: Overview, Transfers, Contract
-- Realistic contract start and end dates
-- Show loading progress on game load and save
-- Make light theme default
+- Match Engine
+    - Better collision detection
+    - Better pass/shoot trajectory detection
+- UI
+    - Player profile has now tabs: Overview, Transfers, Contract
+    - Show loading progress on game load and save
+    - Make light theme default
+- Data
+    - Realistic contract start and end dates
+- Logic
+    - Better data validation when starting new game
 
 ## Fixed
-- Fixed issues in seasonal finances calculation
-- Faster loading/saving of game data by saving matches as csv
-- Show player's hair, eye and skin color again
-- Save and load all players data like contract and statistics
-- Goalkeeper stays in position during penalty and doesn't always go left
+- Match Engine
+    - Goalkeeper stays in position during penalty and doesn't always go left
+    - Show player's hair, eye and skin color again
+- Data
+    - Faster loading/saving of game data by saving matches as csv
+    - Save and load all players data like contract and statistics
+- Logic
+    - Fixed issues in seasonal finances calculation
 
 ## Contributors
 - Simon Dalvai
