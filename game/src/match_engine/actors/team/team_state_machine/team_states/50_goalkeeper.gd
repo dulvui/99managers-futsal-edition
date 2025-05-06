@@ -20,7 +20,7 @@ func enter() -> void:
 				owner.team.player_control(goalkeeper)
 				goalkeeper.set_state(PlayerStateFindBestPass.new()) 
 			else:
-				player.move_offense_pos()
+				player.move_defense_pos()
 				player.set_state(PlayerStateIdle.new())
 	else:
 		for player: SimPlayer in owner.team.players:
