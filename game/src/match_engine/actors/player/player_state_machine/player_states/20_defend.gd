@@ -15,3 +15,4 @@ func execute() -> void:
 		set_state(PlayerStateGoalkeeperFollowBall.new())
 	else:
 		owner.player.move_defense_pos()
+

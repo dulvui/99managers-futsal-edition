@@ -143,19 +143,10 @@ func stop() -> void:
 	next_pos = pos
 
 
-# check collision with actor, by comparing colission radius distances
-# delta_squared can be used to reduce/increase colission radius
-# makes check if player touches ball easier
+# check collision with other actor
+# by comparing colission radius distances
 func collides(actor: MovingActor) -> bool:
 	if actor == null:
-		return false
-
-	if actor.collision_timer > 0:
-		return false
-
-	# if can't collide, if actor is behind self
-	# dot product of direction and directon from actor to self
-	if self is SimBall and is_moving() and direction.dot(actor.pos.direction_to(pos)) > 0.0:
 		return false
 
 	var radius_sum: float = collision_radius_squared

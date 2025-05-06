@@ -16,12 +16,13 @@ func enter() -> void:
 
 func execute() -> void:
 	# update follow distance, depending on how close ball is to own goal
-	if owner.player.left_half:
-		var distance_to_goal: float = owner.field.goals.left.distance_squared_to(owner.ball.pos)
-		owner.player.follow_distance_squared = distance_to_goal / 100.0
-	else:
-		var distance_to_goal: float = owner.field.goals.right.distance_squared_to(owner.ball.pos)
-		owner.player.follow_distance_squared = distance_to_goal / 100.0
+	if not owner.team.has_ball:
+		if owner.player.left_half:
+			var distance_to_goal: float = owner.field.goals.left.distance_squared_to(owner.ball.pos)
+			owner.player.follow_distance_squared = distance_to_goal / 100.0
+		else:
+			var distance_to_goal: float = owner.field.goals.right.distance_squared_to(owner.ball.pos)
+			owner.player.follow_distance_squared = distance_to_goal / 100.0
 
 	# check for foul
 	var controlling_player: SimPlayer = owner.team.team_opponents.player_control()
@@ -35,12 +36,6 @@ func execute() -> void:
 		else:
 			owner.team.stats.tackles_success += 1
 	
-	# check if ball can be taken
-	if owner.player.is_touching_ball():
-		owner.team.gain_possession()
-		owner.team.player_control(owner.player)
-		return
-
 	# make sure goalkeeper doesn't follow ball too far away from penalty area
 	if owner.player.is_goalkeeper:
 		if owner.player.left_half:

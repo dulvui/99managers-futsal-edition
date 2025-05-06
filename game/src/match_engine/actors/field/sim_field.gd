@@ -275,7 +275,7 @@ func _check_ball_players_collisions() -> void:
 		return
 
 	for player: SimPlayer in right_team.players + left_team.players:
-		if ball.collides(player):
+		if ball.collides_with_player(player):
 			# stop at radius of player
 			ball.set_pos(player.pos)
 			return

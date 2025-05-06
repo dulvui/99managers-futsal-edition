@@ -101,10 +101,6 @@ func setup(p_matchz: Match, p_home_team: Team = null, p_away_team: Team = null) 
 func update() -> void:
 	ticks += 1
 
-	# field/ball updates more frequently on every tick
-	# for better colission detections
-	field.update()
-
 	# players movements
 	# before field update, to detect colissions on tick earlier
 	left_team.move()
@@ -115,6 +111,10 @@ func update() -> void:
 	if ticks % Const.TICKS_LOGIC == 0:
 		left_team.update()
 		right_team.update()
+
+	# field/ball updates more frequently on every tick
+	# for better colission detections
+	field.update()
 
 	# time related code
 	if field.clock_running:

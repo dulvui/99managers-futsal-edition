@@ -5,10 +5,6 @@
 class_name SimBall
 extends MovingActor
 
-# ball players collision timer
-# 1 so that ball doesn't collide after just started moving
-const PLAYER_COLISSION_TIME: int = 2
-
 # left -1, right 1, no roatation 0
 var rotation: float
 
@@ -45,6 +41,33 @@ func impulse(p_direction: Vector2, p_force: float) -> void:
 	super(p_direction, p_force)
 	# print("pass")
 	_random_rotation()
+
+
+# check collision with actor, by comparing colission radius distances
+# delta_squared can be used to reduce/increase colission radius
+# makes check if player touches ball easier
+func collides_with_player(player: SimPlayer) -> bool:
+	if player == null:
+		return false
+
+	# check if player has collision disabled
+	if player.collision_timer > 0:
+		return false
+
+	# if can't collide, if ball is moving and player is behind ball
+	# dot product of direction and directon from actor to self
+	if is_moving() and direction.dot(player.pos.direction_to(pos)) > 0.0:
+		return false
+	
+	if collides(player):
+		# player gains control, except for penalties
+		if not field.penalties:
+			player.gain_control()
+
+		stop()
+		return true
+
+	return false
 
 
 func _random_rotation() -> void:

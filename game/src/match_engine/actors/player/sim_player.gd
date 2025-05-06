@@ -76,8 +76,13 @@ func make_goalkeeper() -> void:
 	is_goalkeeper = true
 
 
-func is_touching_ball() -> bool:
-	return collides(field.ball)
+func gain_control() -> void:
+	state_machine.team.gain_possession()
+	state_machine.team.player_control(self)
+
+	if is_goalkeeper:
+		state_machine.team.set_state(TeamStateGoalkeeper.new())
+		state_machine.team.team_opponents.set_state(TeamStateGoalkeeper.new())
 
 
 func move_offense_pos() -> void:

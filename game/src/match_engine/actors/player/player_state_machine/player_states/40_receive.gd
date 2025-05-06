@@ -14,10 +14,3 @@ func enter() -> void:
 	# move slowly towards ball
 	owner.player.follow(owner.ball, 10)
 
-
-func execute() -> void:
-	# try to control ball
-	if owner.player.is_touching_ball():
-		owner.team.stats.passes_success += 1
-		owner.team.player_control(owner.player)
-		return
