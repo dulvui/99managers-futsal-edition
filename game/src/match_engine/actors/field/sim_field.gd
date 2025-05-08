@@ -314,6 +314,11 @@ func _check_ball_players_collisions() -> void:
 		if ball.collides_with_player(player):
 			# stop at radius of player
 			ball.set_pos(player.pos)
+
+			# player gains control, except for penalties
+			if not penalties:
+				player.gain_control()
+
 			return
 
 

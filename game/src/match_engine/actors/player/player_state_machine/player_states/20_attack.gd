@@ -10,7 +10,7 @@ func _init() -> void:
 	super("PlayerStateAttack")
 
 
-func execute() -> void:
+func enter() -> void:
 	if owner.player.is_goalkeeper:
 		set_state(PlayerStateGoalkeeperFollowBall.new())
 	else:

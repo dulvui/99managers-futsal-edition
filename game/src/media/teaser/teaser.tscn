@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=3 uid="uid://dut8wnvcekn5e"]
+[gd_scene load_steps=8 format=3 uid="uid://dut8wnvcekn5e"]
 
 [ext_resource type="Script" uid="uid://cg40qec0itquu" path="res://src/media/teaser/teaser.gd" id="1_kj7k6"]
 [ext_resource type="LabelSettings" uid="uid://1g3edv8x0q6t" path="res://src/media/label_settings_trailer.tres" id="4_angej"]
@@ -114,9 +114,6 @@ _data = {
 &"Teaser": SubResource("Animation_xd2ux")
 }
 
-[sub_resource type="Resource" id="Resource_fxond"]
-metadata/__load_path__ = "res://icon_dark.png"
-
 [node name="Teaser" type="Control"]
 auto_translate_mode = 2
 layout_mode = 3
@@ -131,7 +128,7 @@ metadata/movie_file = "teaser.avi"
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 unique_name_in_owner = true
 libraries = {
-"": SubResource("AnimationLibrary_mtfew")
+&"": SubResource("AnimationLibrary_mtfew")
 }
 movie_quit_on_finish = true
 
@@ -157,7 +154,6 @@ offset_right = 682.5
 offset_bottom = 681.0
 grow_horizontal = 2
 grow_vertical = 2
-texture = SubResource("Resource_fxond")
 expand_mode = 3
 stretch_mode = 5
 
@@ -232,12 +228,12 @@ horizontal_alignment = 1
 position = Vector2(967, 1397)
 emitting = false
 amount = 42
+texture = ExtResource("5_c8ruo")
 lifetime = 5.0
 one_shot = true
 speed_scale = 2.0
 explosiveness = 0.8
 fixed_fps = 60
-texture = ExtResource("5_c8ruo")
 direction = Vector2(0, -1)
 initial_velocity_min = 1500.0
 initial_velocity_max = 2000.0

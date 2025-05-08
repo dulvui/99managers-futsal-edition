@@ -82,7 +82,8 @@ func gain_control() -> void:
 	state_machine.team.gain_possession()
 	state_machine.team.player_control(self)
 
-	if is_goalkeeper:
+	# set goalkeeper ball, but only if team doesn't control ball
+	if is_goalkeeper and not state_machine.team.has_ball:
 		state_machine.team.set_state(TeamStateGoalkeeper.new())
 		state_machine.team.team_opponents.set_state(TeamStateGoalkeeper.new())
 

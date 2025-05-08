@@ -27,8 +27,8 @@ func execute() -> void:
 		return
 
 	ticks += 1
-	if ticks < WAIT:
-		return
+	# if ticks < WAIT:
+	# 	return
 
 	# find best pass
 	var pass_force: float = 15

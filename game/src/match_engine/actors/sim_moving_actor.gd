@@ -106,12 +106,12 @@ func impulse(p_direction: Vector2, p_force: float) -> void:
 
 
 func is_moving() -> bool:
-	return force > 0
+	return force > 0.0
 
 
 func stop() -> void:
 	_reset_movents()
-	force = 0
+	force = 0.0
 	last_pos = pos
 	next_pos = pos
 

@@ -26,6 +26,11 @@ func _init() -> void:
 
 
 func enter() -> void:
+	# goal keeper should immediatly pass ball
+	if owner.player.is_goalkeeper:
+		set_state(PlayerStateFindBestPass.new())
+		return
+
 	# use players shooting attributes, to players with better shooging
 	# make more and better attempts
 	# how many aim attempts the player takes
@@ -40,7 +45,7 @@ func enter() -> void:
 
 func execute() -> void:
 	if should_shoot():
-		# print("%d shoot" % owner.player.player_res.nr)
+		print("%d shoot" % owner.player.player_res.nr)
 		owner.team.stats.shots += 1
 		# shoot on goal
 		owner.ball.impulse(shot_direction, shot_force)
@@ -53,9 +58,9 @@ func execute() -> void:
 		return
 
 	if should_pass():
-		# print("%d pass to %d" % [
-		# 	owner.player.player_res.nr, best_pass_player.player_res.nr
-		# ])
+		print("%d pass to %d" % [
+			owner.player.player_res.nr, best_pass_player.player_res.nr
+		])
 		owner.team.stats.passes += 1
 		owner.team.player_receive_ball(best_pass_player)
 		owner.ball.impulse(pass_direction, pass_force)
@@ -64,9 +69,10 @@ func execute() -> void:
 		return
 
 	# dribble, by slightly kicking ball towards goal
-	# print("dribble")
+	print("dribble")
 	var dribble_direction: Vector2 = owner.player.pos.direction_to(opponent_goal)
-	owner.ball.impulse(dribble_direction, 10)
+	owner.player.collision_timer = Const.TICKS * 2
+	owner.ball.impulse(dribble_direction, 8)
 	owner.set_state(PlayerStateChaseBall.new())
 
 
@@ -89,7 +95,7 @@ func should_shoot() -> bool:
 		var shot_attempt: Vector2 = Vector2(opponent_goal.x, y)
 
 		# check if opponent players block shot
-		if owner.team.is_ball_safe(owner.ball.pos, shot_attempt, shot_force):
+		if owner.team.is_ball_safe(owner.ball.pos, shot_attempt, shot_force) > 0.6:
 			shot_direction = owner.ball.pos.direction_to(shot_attempt)
 			return true
 

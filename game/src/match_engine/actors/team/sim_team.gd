@@ -271,17 +271,16 @@ func penalties_shot_taken() -> void:
 
 
 # checks if ball trajectory is safe from opponents
+# returns value between 0.0 not safe and 1.0 safe
 func is_ball_safe(
 	from: Vector2,
 	to: Vector2,
 	force: float,
-) -> bool:
+) -> float:
+	var value: float = 1.0
 	for player: SimPlayer in team_opponents.players:
 
-		# don't check for goalkeepers
-		if player.is_goalkeeper:
-			continue
-
+		# get closest point for player to reach ball trajectory
 		var closest_point: Vector2 = Geometry2D.get_closest_point_to_segment(
 			player.pos, from, to
 		)
@@ -297,10 +296,16 @@ func is_ball_safe(
 		)
 
 		# check if player can reach spot in time/ticks faster than ball
-		if player_ticks < ball_ticks:
-			return false
+		var delta: int = player_ticks - ball_ticks
+		if delta > 0:
+			value -= 0.1 * delta
+ 
+		# if value already negative, return 0
+		if value <= 0.0:
+			return 0.0
 
-	return true
+	print("is safe with value %f" % value)
+	return value
 
 
 func find_best_pass(passing_player: SimPlayer, pass_force: float) -> SimPlayer:

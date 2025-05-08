@@ -60,10 +60,6 @@ func collides_with_player(player: SimPlayer) -> bool:
 		return false
 	
 	if collides(player):
-		# player gains control, except for penalties
-		if not field.penalties:
-			player.gain_control()
-
 		stop()
 		return true
 
