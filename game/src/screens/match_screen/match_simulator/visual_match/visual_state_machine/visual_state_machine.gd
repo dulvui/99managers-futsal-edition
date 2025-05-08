@@ -34,7 +34,7 @@ func _process(_delta: float) -> void:
 		var home_player: SimPlayer = home_team.players[i]
 		var home_label: Label = home_player_states[i]
 		# set last x states
-		home_label.text = home_player.player_res.surname + "\n"
+		home_label.text = home_player.res.surname + "\n"
 		var max_states: int = min(MAX_STATES, home_player.state_machine.buffer.size())
 		for j: int in range(max_states, 1, -1):
 			home_label.text += home_player.state_machine.buffer[-j].name + "\n"
@@ -43,7 +43,7 @@ func _process(_delta: float) -> void:
 		var away_player: SimPlayer = away_team.players[i]
 		var away_label: Label = away_player_states[i]
 		# set last x states
-		away_label.text = away_player.player_res.surname + "\n"
+		away_label.text = away_player.res.surname + "\n"
 		max_states = min(MAX_STATES, away_player.state_machine.buffer.size() - 1)
 		for j: int in range(max_states, 1, -1):
 			away_label.text += away_player.state_machine.buffer[-j].name + "\n"

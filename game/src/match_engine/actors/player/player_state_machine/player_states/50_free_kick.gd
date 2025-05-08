@@ -40,7 +40,7 @@ func execute() -> void:
 	# TODO decicde if shooting or passing
 
 	# shoot
-	var power: int = owner.player.player_res.attributes.technical.shooting
+	var power: int = owner.player.res.attributes.technical.shooting
 	var random_target: Vector2
 	if owner.player.left_half:
 		random_target = owner.field.goals.right
@@ -48,7 +48,7 @@ func execute() -> void:
 		random_target = owner.field.goals.left
 
 	# 1.0 best, 0.05 worst
-	var aim_factor: float = 20.0 / owner.player.player_res.attributes.technical.free_kick
+	var aim_factor: float = 20.0 / owner.player.res.attributes.technical.free_kick
 	# 0.6 best, 1.55 worst
 	var aim: float = 0.6 + (1.0 - aim_factor)
 

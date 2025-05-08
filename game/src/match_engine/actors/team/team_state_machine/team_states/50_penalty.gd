@@ -39,8 +39,8 @@ func enter() -> void:
 		for player: SimPlayer in owner.team.players:
 			if player.is_goalkeeper:
 				continue
-			if player.player_res.attributes.technical.penalty > \
-					shooting_player.player_res.attributes.technical.penalty:
+			if player.res.attributes.technical.penalty > \
+					shooting_player.res.attributes.technical.penalty:
 				shooting_player = player
 		shooting_player.set_state(PlayerStatePenaltyShoot.new())
 	else:

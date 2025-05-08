@@ -36,7 +36,7 @@ func enter() -> void:
 	# use players shooting attributes, to players with better shooging
 	# make more and better attempts
 	# how many aim attempts the player takes
-	shooting_ability = owner.player.player_res.attributes.technical.shooting
+	shooting_ability = owner.player.res.attributes.technical.shooting
 
 	# save opponent goal
 	if owner.player.left_half:
@@ -47,7 +47,7 @@ func enter() -> void:
 
 func execute() -> void:
 	if should_shoot():
-		print("%d shoot" % owner.player.player_res.nr)
+		# print("%d shoot" % owner.player.res.nr)
 		owner.team.stats.shots += 1
 		# shoot on goal
 		owner.ball.impulse(shot_direction, shot_force)
@@ -60,9 +60,9 @@ func execute() -> void:
 		return
 
 	if should_pass():
-		print("%d pass to %d" % [
-			owner.player.player_res.nr, best_pass_player.player_res.nr
-		])
+		# print("%d pass to %d" % [
+		# 	owner.player.res.nr, best_pass_player.res.nr
+		# ])
 		owner.team.stats.passes += 1
 		owner.team.player_receive_ball(best_pass_player)
 		owner.player.collision_timer = Const.TICKS
@@ -71,7 +71,7 @@ func execute() -> void:
 		return
 
 	# dribble, by slightly kicking ball towards goal
-	print("dribble")
+	# print("dribble")
 	var dribble_direction: Vector2 = owner.player.pos.direction_to(opponent_goal)
 	owner.player.collision_timer = Const.TICKS
 	owner.ball.impulse(dribble_direction, 8)
@@ -86,7 +86,7 @@ func should_shoot() -> bool:
 
 	# define force
 	shot_force = owner.rng.randi_range(30, 50)
-	shot_force += owner.player.player_res.attributes.technical.shooting
+	shot_force += owner.player.res.attributes.technical.shooting
 
 	# define random attempts to aim and see how many players oppose
 	var attempts: int = owner.rng.randi_range(1, shooting_ability)

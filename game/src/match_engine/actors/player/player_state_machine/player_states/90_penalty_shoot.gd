@@ -49,7 +49,7 @@ func execute() -> void:
 func shoot() -> void:
 	var left_half: bool = owner.ball.pos.x < SimField.WIDTH / 2.0
 
-	var power: float = 20 + owner.player.player_res.attributes.technical.shooting
+	var power: float = 20 + owner.player.res.attributes.technical.shooting
 	power *= owner.rng.randf_range(2.0, 3.0)
 
 	var random_target: Vector2
@@ -59,7 +59,7 @@ func shoot() -> void:
 		random_target = owner.field.goals.right
 
 	# 1.0 best, 0.05 worst
-	var aim_factor: float = 20.0 / owner.player.player_res.attributes.technical.penalty
+	var aim_factor: float = 20.0 / owner.player.res.attributes.technical.penalty
 	# 0.6 best, 1.55 worst
 	var aim: float = 0.6 + (1.0 - aim_factor)
 

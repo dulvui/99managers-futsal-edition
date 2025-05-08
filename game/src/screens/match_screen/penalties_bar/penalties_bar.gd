@@ -44,8 +44,8 @@ func setup(home_team: SimTeam, away_team: SimTeam) -> void:
 		number_labels.append(label)
 
 	# team labels
-	first_label.text = first_team.team_res.name
-	second_label.text = second_team.team_res.name
+	first_label.text = first_team.res.name
+	second_label.text = second_team.res.name
 
 	# result color rects
 	first_result = []

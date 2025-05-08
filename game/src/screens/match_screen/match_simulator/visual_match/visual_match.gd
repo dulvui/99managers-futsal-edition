@@ -17,8 +17,8 @@ func setup(simulator: MatchSimulator) -> void:
 	goals.setup(simulator.engine.field)
 	ball.setup(simulator.engine.field.ball.pos)
 
-	var home_color: String = simulator.engine.home_team.team_res.get_home_color()
-	var away_color: String = simulator.engine.away_team.team_res.get_away_color(home_color)
+	var home_color: String = simulator.engine.home_team.res.get_home_color()
+	var away_color: String = simulator.engine.away_team.res.get_away_color(home_color)
 
 	var home_pos: Array[Vector2] = []
 	var home_info: Array[String] = []
@@ -27,10 +27,10 @@ func setup(simulator: MatchSimulator) -> void:
 	var home_eye_colors: Array[String] = []
 	for player: SimPlayer in simulator.engine.home_team.players:
 		home_pos.append(player.pos)
-		home_info.append(str(player.player_res.nr) + " " + player.player_res.surname)
-		home_skintones.append(player.player_res.skintone)
-		home_hair_colors.append(player.player_res.haircolor)
-		home_eye_colors.append(player.player_res.eyecolor)
+		home_info.append(str(player.res.nr) + " " + player.res.surname)
+		home_skintones.append(player.res.skintone)
+		home_hair_colors.append(player.res.haircolor)
+		home_eye_colors.append(player.res.eyecolor)
 	home_team.setup(
 		home_pos, home_info, home_skintones, home_hair_colors, home_eye_colors, home_color, ball
 	)
@@ -42,10 +42,10 @@ func setup(simulator: MatchSimulator) -> void:
 	var away_eye_colors: Array[String] = []
 	for player: SimPlayer in simulator.engine.away_team.players:
 		away_pos.append(player.pos)
-		away_info.append(str(player.player_res.nr) + " " + player.player_res.surname)
-		away_skintones.append(player.player_res.skintone)
-		away_hair_colors.append(player.player_res.haircolor)
-		away_eye_colors.append(player.player_res.eyecolor)
+		away_info.append(str(player.res.nr) + " " + player.res.surname)
+		away_skintones.append(player.res.skintone)
+		away_hair_colors.append(player.res.haircolor)
+		away_eye_colors.append(player.res.eyecolor)
 	away_team.setup(
 		away_pos, away_info, away_skintones, away_hair_colors, away_eye_colors, away_color, ball
 	)

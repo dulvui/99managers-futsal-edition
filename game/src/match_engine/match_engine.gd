@@ -64,17 +64,17 @@ func setup(p_matchz: Match, p_home_team: Team = null, p_away_team: Team = null) 
 	var home_has_ball: bool = rng.randi_range(0, 1) == 0
 
 	# set up home/away team
-	var home_team_res: Team = p_home_team
-	var away_team_res: Team = p_away_team
-	if home_team_res == null:
-		home_team_res = Global.world.get_team_by_id(p_matchz.home.id, p_matchz.competition_id)
-	if away_team_res == null:
-		away_team_res = Global.world.get_team_by_id(p_matchz.away.id, p_matchz.competition_id)
+	var home_res: Team = p_home_team
+	var away_res: Team = p_away_team
+	if home_res == null:
+		home_res = Global.world.get_team_by_id(p_matchz.home.id, p_matchz.competition_id)
+	if away_res == null:
+		away_res = Global.world.get_team_by_id(p_matchz.away.id, p_matchz.competition_id)
 
 	home_team = SimTeam.new(rng)
 	away_team = SimTeam.new(rng)
-	home_team.setup(home_team_res, field, home_plays_left, home_has_ball)
-	away_team.setup(away_team_res, field, not home_plays_left, not home_has_ball)
+	home_team.setup(home_res, field, home_plays_left, home_has_ball)
+	away_team.setup(away_res, field, not home_plays_left, not home_has_ball)
 
 	home_team.team_opponents = away_team
 	away_team.team_opponents = home_team
@@ -383,9 +383,9 @@ func _teams_switch_sides() -> void:
 func _recover_stamina(minutes: int) -> void:
 	var recovery: int = minutes * Const.TICKS_LOGIC * 60
 	for player: SimPlayer in left_team.players:
-		player.player_res.recover_stamina(recovery)
+		player.res.recover_stamina(recovery)
 	for player: SimPlayer in right_team.players:
-		player.player_res.recover_stamina(recovery)
+		player.res.recover_stamina(recovery)
 
 
 func _on_half_time() -> void:

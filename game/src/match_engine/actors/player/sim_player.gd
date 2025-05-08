@@ -6,7 +6,7 @@ class_name SimPlayer
 extends MovingActor
 
 # resources
-var player_res: Player
+var res: Player
 var field: SimField
 var state_machine: PlayerStateMachine
 
@@ -38,12 +38,12 @@ func _init(p_radius: float = 18) -> void:
 
 
 func setup(
-	p_player_res: Player,
+	p_res: Player,
 	p_team: SimTeam,
 	p_field: SimField,
 	p_left_half: bool,
 ) -> void:
-	player_res = p_player_res
+	res = p_res
 	field = p_field
 	left_half = p_left_half
 
@@ -60,11 +60,11 @@ func update() -> void:
 	state_machine.execute()
 
 	if is_moving():
-		player_res.consume_stamina(force)
+		res.consume_stamina(force)
 
 
-func change_player_res(p_player_res: Player) -> void:
-	player_res = p_player_res
+func change_res(p_res: Player) -> void:
+	res = p_res
 	ticks_in_field = 0
 
 

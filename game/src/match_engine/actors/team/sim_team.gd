@@ -11,7 +11,7 @@ signal penalties_shot
 # player should stay at least 2 minutes in field before he can be changed
 const PLAYER_MIN_TICKS_IN_FIELD: int = Const.TICKS_LOGIC * 120
 
-var team_res: Team
+var res: Team
 var stats: MatchStatistics
 
 var players: Array[SimPlayer]
@@ -51,13 +51,13 @@ func _init(p_rng: RngUtil) -> void:
 
 
 func setup(
-	p_team_res: Team,
+	p_res: Team,
 	p_field: SimField,
 	p_left_half: bool,
 	p_has_ball: bool,
 	p_simulated: bool = false,
 ) -> void:
-	team_res = p_team_res
+	res = p_res
 	field = p_field
 	left_half = p_left_half
 	has_ball = p_has_ball
@@ -71,11 +71,11 @@ func setup(
 	low_stamina_players = []
 
 	# check if team is player's team
-	simulated = Global.team and Global.team.id != team_res.id
+	simulated = Global.team and Global.team.id != res.id
 
 	stats = MatchStatistics.new()
 
-	for player: Player in team_res.get_starting_players():
+	for player: Player in res.get_starting_players():
 		# setup
 		var sim_player: SimPlayer = SimPlayer.new()
 		sim_player.setup(player, self, field, left_half)
@@ -94,7 +94,7 @@ func update() -> void:
 		player.update()
 
 	# recover bench players stamina
-	for player: Player in team_res.players.slice(5):
+	for player: Player in res.players.slice(5):
 		player.recover_stamina()
 
 	state_machine.execute()
@@ -130,15 +130,15 @@ func gain_possession() -> void:
 func change_players_request() -> void:
 	# compare sim players and team players order
 	# if different, set change request flag
-	for i: int in team_res.get_starting_players().size():
-		if players[i].player_res.id != team_res.players[i].id:
+	for i: int in res.get_starting_players().size():
+		if players[i].res.id != res.players[i].id:
 			change_request = true
 			return
 
 
 func auto_change() -> void:
 	# auto change players, if no change request already pending
-	do_change = simulated or team_res.formation.change_strategy == Formation.ChangeStrategy.AUTO
+	do_change = simulated or res.formation.change_strategy == Formation.ChangeStrategy.AUTO
 	if do_change and not change_request:
 		# reset vars
 		auto_change_request = false
@@ -147,7 +147,7 @@ func auto_change() -> void:
 		# get tired players
 		for sim_player: SimPlayer in players:
 			if (
-				sim_player.player_res.stamina < 0.5
+				sim_player.res.stamina < 0.5
 				and sim_player.ticks_in_field > PLAYER_MIN_TICKS_IN_FIELD
 			):
 				low_stamina_players.append(sim_player)
@@ -157,7 +157,7 @@ func auto_change() -> void:
 			return
 
 		# sort bench per stamina
-		var bench: Array[Player] = team_res.get_sub_players()
+		var bench: Array[Player] = res.get_sub_players()
 		bench.sort_custom(func(a: Player, b: Player) -> bool: return a.stamina > b.stamina)
 
 		# TODO take real positions in field, not player pos
@@ -168,13 +168,13 @@ func auto_change() -> void:
 		for sim_player: SimPlayer in low_stamina_players:
 			var possible_sub_players: Array[Player] = bench.filter(
 				func(p: Player) -> bool: return (
-					p.position.match_factor(sim_player.player_res.position.main) >= 0.5
+					p.position.match_factor(sim_player.res.position.main) >= 0.5
 				)
 			)
 			if possible_sub_players.size() > 0:
 				var sub_player: Player = possible_sub_players.pop_front()
 				bench.erase(sub_player)
-				team_res.change_players(sim_player.player_res, sub_player)
+				res.change_players(sim_player.res, sub_player)
 				auto_change_request = true
 			else:
 				no_matching_sim_players.append(sim_player)
@@ -184,7 +184,7 @@ func auto_change() -> void:
 			var sub_player: Player = bench.pop_front()
 			# check if bench has still players
 			if sub_player:
-				team_res.change_players(sim_player.player_res, sub_player)
+				res.change_players(sim_player.res, sub_player)
 				auto_change_request = true
 
 		# trigger change player request only once
@@ -193,14 +193,14 @@ func auto_change() -> void:
 
 
 func change_players() -> void:
-	# adjust starting_players order to team_res players order
-	var starting_players: Array[Player] = team_res.get_starting_players()
+	# adjust starting_players order to res players order
+	var starting_players: Array[Player] = res.get_starting_players()
 
 	for i: int in starting_players.size():
 		var player: Player = starting_players[i]
 		var sim_player: SimPlayer = players[i]
-		if sim_player.player_res.id != player.id:
-			sim_player.change_player_res(player)
+		if sim_player.res.id != player.id:
+			sim_player.change_res(player)
 
 	player_changed.emit()
 	change_request = false
@@ -286,7 +286,7 @@ func is_ball_safe(
 		)
 
 		# TODO: take also acceleration into account
-		# var player_force: float = player.player_res.attributes.physical.pace
+		# var player_force: float = player.res.attributes.physical.pace
 		var player_force: float = 10
 		var player_ticks: int = field.get_ticks_to_reach(
 			player.pos, closest_point, player_force, player.friction
@@ -300,7 +300,7 @@ func is_ball_safe(
 		var delta: int = player_ticks - ball_ticks
 
 		 # at least 1 second as reaction time
-		if delta > Const.TICKS:
+		if delta > Const.TICKS * 3:
 			value -= 0.1 * delta
  
 		# if value already negative, return 0
@@ -328,7 +328,7 @@ func find_best_pass(passing_player: SimPlayer, pass_force: float) -> SimPlayer:
 func set_start_positions() -> void:
 	for player: SimPlayer in players:
 		# start pos
-		var start_pos: Vector2 = team_res.formation.get_start_pos(
+		var start_pos: Vector2 = res.formation.get_start_pos(
 			field.size, players.find(player), left_half
 		)
 		player.start_pos = start_pos

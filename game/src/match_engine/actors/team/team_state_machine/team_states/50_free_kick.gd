@@ -21,8 +21,8 @@ func enter() -> void:
 			player.set_state(PlayerStateIdle.new())
 			if player.is_goalkeeper:
 				continue
-			if player.player_res.attributes.technical.free_kick > \
-					shooting_player.player_res.attributes.technical.free_kick:
+			if player.res.attributes.technical.free_kick > \
+					shooting_player.res.attributes.technical.free_kick:
 				shooting_player = player
 
 		# move other players forward, except one defender in the back

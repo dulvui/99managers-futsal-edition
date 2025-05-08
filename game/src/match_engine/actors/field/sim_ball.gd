@@ -60,7 +60,7 @@ func collides_with_player(player: SimPlayer) -> bool:
 		return false
 	
 	if collides(player):
-		print("ball collides with player %d" % player.player_res.nr)
+		# print("ball collides with player %d" % player.res.nr)
 		stop()
 		return true
 
