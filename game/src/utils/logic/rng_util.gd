@@ -31,3 +31,7 @@ func pick_random(array: Array[Variant]) -> Variant:
 		return null
 	return array[self.randi() % array.size() - 1]
 
+
+func rand100(probability: int) -> bool:
+	return randi_range(0, 100) < probability
+
