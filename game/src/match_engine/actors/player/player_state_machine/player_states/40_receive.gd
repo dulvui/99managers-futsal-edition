@@ -12,5 +12,5 @@ func _init() -> void:
 
 func enter() -> void:
 	# move slowly towards ball
-	owner.player.follow(owner.ball, 10)
+	owner.player.set_destination(owner.ball.pos, 5)
 

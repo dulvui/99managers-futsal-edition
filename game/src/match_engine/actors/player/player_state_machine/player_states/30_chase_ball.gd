@@ -11,7 +11,7 @@ func _init() -> void:
 
 
 func execute() -> void:
-	owner.player.follow(owner.ball, 10)
+	owner.player.set_destination(owner.ball.pos, 10)
 
 	# check foul
 	if not owner.team.has_ball:

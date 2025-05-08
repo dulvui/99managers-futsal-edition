@@ -11,11 +11,6 @@ var next_pos: Vector2
 var direction: Vector2
 var destination: Vector2
 
-var follow_actor: MovingActor
-# to keep distance to following object
-# use squared for performance
-var follow_distance_squared: float
-
 var collision_radius: float
 var collision_radius_squared: float
 var force: float
@@ -40,20 +35,11 @@ func _init(p_collision_radius: float, p_friction: float) -> void:
 
 func move() -> void:
 	if collision_timer > 0:
-		print("colission timer %d" % collision_timer)
 		collision_timer = collision_timer - 1
 
 	if force > 0:
 		last_pos = pos
 		pos = next_pos
-
-		# set destination to following actor, if set
-		if follow_actor	!= null and destination != follow_actor.pos:
-			destination = follow_actor.pos
-			if pos.distance_squared_to(destination) <= follow_distance_squared:
-				stop()
-				return
-			direction = pos.direction_to(destination)
 
 		# check destination reached, if set
 		if destination != Vector2.INF:
@@ -90,14 +76,6 @@ func set_destination(p_pos: Vector2, p_force: float = 10, p_overrun: float = 0.0
 
 	if p_overrun > 0.0:
 		destination += direction * p_overrun
-
-
-func follow(p_follow_actor: MovingActor, p_force: float = 10, p_distance_squared: float = 0) -> void:
-	_reset_movents()
-	follow_actor = p_follow_actor
-	# min distance should be colission radius
-	follow_distance_squared = p_distance_squared
-	force = p_force
 
 
 func impulse(p_direction: Vector2, p_force: float) -> void:
@@ -139,5 +117,4 @@ func destination_reached() -> bool:
 func _reset_movents() -> void:
 	direction = Vector2.INF
 	destination = Vector2.INF
-	follow_actor = null
 
