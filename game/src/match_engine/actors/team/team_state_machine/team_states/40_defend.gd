@@ -27,7 +27,7 @@ func execute() -> void:
 	if owner.field.kickin:
 		return
 
-	owner.team.player_chase(owner.team.player_nearest_to_ball([owner.team.players[0]]))
+	# owner.team.player_chase(owner.team.player_nearest_to_ball([owner.team.players[0]]))
 
 
 func exit() -> void:

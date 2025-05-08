@@ -310,10 +310,8 @@ func _check_ball_players_collisions() -> void:
 	if not ball.is_moving():
 		return
 
-	for player: SimPlayer in right_team.players + left_team.players:
+	for player: SimPlayer in left_team.players + right_team.players:
 		if ball.collides_with_player(player):
-			# stop at radius of player
-			ball.set_pos(player.pos)
 
 			# player gains control, except for penalties
 			if not penalties:

@@ -26,6 +26,8 @@ func _init() -> void:
 
 
 func enter() -> void:
+	owner.player.collision_timer = 0
+
 	# goal keeper should immediatly pass ball
 	if owner.player.is_goalkeeper:
 		set_state(PlayerStateFindBestPass.new())
@@ -53,7 +55,7 @@ func execute() -> void:
 		owner.team.team_opponents.players[0].set_state(
 			PlayerStateGoalkeeperSaveShot.new()
 		)
-		owner.player.collision_timer = Const.TICKS * 2
+		owner.player.collision_timer = Const.TICKS
 		set_state(PlayerStateAttack.new())
 		return
 
@@ -63,15 +65,15 @@ func execute() -> void:
 		])
 		owner.team.stats.passes += 1
 		owner.team.player_receive_ball(best_pass_player)
+		owner.player.collision_timer = Const.TICKS
 		owner.ball.impulse(pass_direction, pass_force)
-		owner.player.collision_timer = Const.TICKS * 2
 		set_state(PlayerStateAttack.new())
 		return
 
 	# dribble, by slightly kicking ball towards goal
 	print("dribble")
 	var dribble_direction: Vector2 = owner.player.pos.direction_to(opponent_goal)
-	owner.player.collision_timer = Const.TICKS * 2
+	owner.player.collision_timer = Const.TICKS
 	owner.ball.impulse(dribble_direction, 8)
 	owner.set_state(PlayerStateChaseBall.new())
 

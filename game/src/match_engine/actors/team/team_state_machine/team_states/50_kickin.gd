@@ -23,7 +23,7 @@ func enter() -> void:
 
 		kicking_player = owner.team.player_nearest_to_ball([owner.team.players[0]])
 		# move 15px overrun
-		kicking_player.set_destination(owner.ball.pos, 20, 15)
+		kicking_player.set_destination(owner.ball.pos, 10, 15)
 	else:
 		for player: SimPlayer in owner.team.players:
 			player.set_state(PlayerStateIdle.new())

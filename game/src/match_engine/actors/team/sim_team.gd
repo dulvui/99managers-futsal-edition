@@ -271,7 +271,7 @@ func penalties_shot_taken() -> void:
 
 
 # checks if ball trajectory is safe from opponents
-# returns value between 0.0 not safe and 1.0 safe
+# returns value between 0.0 (not safe) and 1.0 (safe)
 func is_ball_safe(
 	from: Vector2,
 	to: Vector2,
@@ -286,7 +286,8 @@ func is_ball_safe(
 		)
 
 		# TODO: take also acceleration into account
-		var player_force: float = player.player_res.attributes.physical.pace
+		# var player_force: float = player.player_res.attributes.physical.pace
+		var player_force: float = 10
 		var player_ticks: int = field.get_ticks_to_reach(
 			player.pos, closest_point, player_force, player.friction
 		)
@@ -297,14 +298,16 @@ func is_ball_safe(
 
 		# check if player can reach spot in time/ticks faster than ball
 		var delta: int = player_ticks - ball_ticks
-		if delta > 0:
+
+		 # at least 1 second as reaction time
+		if delta > Const.TICKS:
 			value -= 0.1 * delta
  
 		# if value already negative, return 0
 		if value <= 0.0:
 			return 0.0
 
-	print("is safe with value %f" % value)
+	# print("is safe with value %f" % value)
 	return value
 
 
@@ -313,14 +316,13 @@ func find_best_pass(passing_player: SimPlayer, pass_force: float) -> SimPlayer:
 
 	for player: SimPlayer in players:
 		if player != passing_player:
-
-			if is_ball_safe(passing_player.pos, player.pos, pass_force):
+			if is_ball_safe(passing_player.pos, player.pos, pass_force) > 0.5:
 				possible_players.append(player)
 	
 	if possible_players.is_empty():
 		return null
 
-	return possible_players[rng.randi() % possible_players.size()]
+	return rng.pick_random(possible_players)
 
 
 func set_start_positions() -> void:

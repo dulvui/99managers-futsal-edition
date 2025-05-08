@@ -101,21 +101,20 @@ func setup(p_matchz: Match, p_home_team: Team = null, p_away_team: Team = null) 
 func update() -> void:
 	ticks += 1
 
+	# teams/players state machines update less frequent
+	if ticks % Const.TICKS_LOGIC == 0:
+		left_team.update()
+		right_team.update()
+
 	# players movements
 	# before field update, to detect colissions on tick earlier
 	left_team.move()
 	right_team.move()
 
-	# teams/players instead update less frequent
-	# state machines don't require high frequency
-	if ticks % Const.TICKS_LOGIC == 0:
-		left_team.update()
-		right_team.update()
-
 	# field/ball updates more frequently on every tick
 	# for better colission detections
 	field.update()
-
+	
 	# time related code
 	if field.clock_running:
 		ticks_clock_not_running = 0
@@ -143,8 +142,8 @@ func update() -> void:
 	else:
 		# for debugging and match stuck diagnosis
 		ticks_clock_not_running += 1
-		if ticks_clock_not_running > 100 * Const.TICKS:
-			push_error("clock not running for over 100 seconds...")
+		if ticks_clock_not_running > 20 * Const.TICKS:
+			push_error("clock not running for over 20 seconds...")
 			breakpoint
 
 

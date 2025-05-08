@@ -40,7 +40,8 @@ func _init(p_collision_radius: float, p_friction: float) -> void:
 
 func move() -> void:
 	if collision_timer > 0:
-		collision_timer =- 1
+		print("colission timer %d" % collision_timer)
+		collision_timer = collision_timer - 1
 
 	if force > 0:
 		last_pos = pos

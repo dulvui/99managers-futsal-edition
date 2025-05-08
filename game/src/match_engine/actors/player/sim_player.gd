@@ -29,7 +29,7 @@ var has_ball: bool
 var ticks_in_field: int
 
 
-func _init(p_radius: float = 24) -> void:
+func _init(p_radius: float = 18) -> void:
 	super(p_radius, 0.0)
 	has_ball = false
 	head_look = Vector2.ZERO
@@ -76,6 +76,10 @@ func make_goalkeeper() -> void:
 	is_goalkeeper = true
 
 
+func is_touching_ball() -> bool:
+	return collides(field.ball)
+
+
 func gain_control() -> void:
 	stop()
 
@@ -86,6 +90,9 @@ func gain_control() -> void:
 	if is_goalkeeper and not state_machine.team.has_ball:
 		state_machine.team.set_state(TeamStateGoalkeeper.new())
 		state_machine.team.team_opponents.set_state(TeamStateGoalkeeper.new())
+	else:
+		state_machine.team.set_state(TeamStateAttack.new())
+		state_machine.team.team_opponents.set_state(TeamStateDefend.new())
 
 
 func move_offense_pos() -> void:

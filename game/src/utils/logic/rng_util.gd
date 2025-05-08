@@ -33,5 +33,5 @@ func pick_random(array: Array[Variant]) -> Variant:
 
 
 func rand100(probability: int) -> bool:
-	return randi_range(0, 100) < probability
+	return randi_range(0, 100) > probability
 

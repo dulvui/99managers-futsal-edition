@@ -11,6 +11,10 @@ func _init() -> void:
 
 
 func execute() -> void:
+	if owner.player.is_touching_ball():
+		owner.player.gain_control()
+		return
+
 	# if own team has ball, just move to defense position
 	if owner.team.has_ball:
 		owner.player.move_defense_pos()
