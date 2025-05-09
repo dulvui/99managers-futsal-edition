@@ -116,9 +116,11 @@ func simulate() -> void:
 
 
 func is_match_visible() -> bool:
-	return (
-		Global.match_speed == Enum.MatchSpeed.FULL_GAME or engine.penalties or show_action_ticks > 0
-	)
+	if Global.match_speed == Enum.MatchSpeed.FULL_GAME:
+		return true
+	if engine.field.penalties or show_action_ticks > 0:
+		return true
+	return false
 
 
 func pause_toggle() -> bool:

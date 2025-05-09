@@ -9,7 +9,7 @@ extends MatchBuffer
 func save(engine: MatchEngine) -> void:
 	var entry: MatchBufferEntryStats = MatchBufferEntryStats.new()
 	entry.ticks = engine.ticks
-	entry.time = engine.time
+	entry.seconds = engine.seconds
 	entry.home_stats = engine.home_team.stats.duplicate()
 	entry.away_stats = engine.away_team.stats.duplicate()
 	append(entry)
@@ -17,3 +17,4 @@ func save(engine: MatchEngine) -> void:
 
 func get_entry() -> MatchBufferEntryStats:
 	return super() as MatchBufferEntryStats
+

@@ -5,6 +5,6 @@
 class_name MatchBufferEntryStats
 extends MatchBufferEntry
 
-var time: int
+var seconds: int
 var home_stats: MatchStatistics
 var away_stats: MatchStatistics

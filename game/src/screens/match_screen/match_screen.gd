@@ -147,12 +147,12 @@ func _physics_process(_delta: float) -> void:
 		stats.update_stats(stats_entry.home_stats, stats_entry.away_stats)
 
 		# update time
-		minutes = int(stats_entry.time / 60.0)
-		seconds = int(stats_entry.time) % 60
+		minutes = int(stats_entry.seconds / 60.0)
+		seconds = int(stats_entry.seconds) % 60
 		time_label.text = "%02d:%02d" % [minutes, seconds]
 
 		# update bars
-		time_bar.value = stats_entry.time
+		time_bar.value = stats_entry.seconds
 		possess_bar.value = stats_entry.home_stats.possession
 
 		# update labels
