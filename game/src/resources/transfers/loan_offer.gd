@@ -8,6 +8,7 @@ extends Offer
 
 var current_team: TeamBasic
 
+
 func _init(
 	p_current_team: TeamBasic = TeamBasic.new(),
 ) -> void:

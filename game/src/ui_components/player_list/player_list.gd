@@ -208,7 +208,6 @@ func _show_active_view(sort_key: String = "") -> void:
 	last.text = str(page_max + 1)
 
 
-
 func _show_view(view_scene: PackedScene, row_scene: PackedScene) -> void:
 	for child: Node in players_view.get_children():
 		child.queue_free()
@@ -218,7 +217,6 @@ func _show_view(view_scene: PackedScene, row_scene: PackedScene) -> void:
 	view.setup(visible_players, row_scene)
 	view.sort.connect(_show_active_view)
 	view.selected.connect(func(p: Player) -> void: select_player.emit(p))
-
 
 #
 # sorting
@@ -425,7 +423,6 @@ func _on_team_select_item_selected(index: int) -> void:
 		filters.erase("team")
 
 	_show_active_view()
-
 
 #
 # paginator footer

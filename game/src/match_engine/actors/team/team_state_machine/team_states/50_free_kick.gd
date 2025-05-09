@@ -7,6 +7,7 @@ extends TeamStateMachineState
 
 var shooting_player: SimPlayer
 
+
 func _init() -> void:
 	super("TeamStateFreeKick")
 

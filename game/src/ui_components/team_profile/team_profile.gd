@@ -38,3 +38,4 @@ func _set_labels(team: Team) -> void:
 	stadium_name_label.text = team.stadium.name
 	stadium_capacity_label.text = str(team.stadium.capacity) + " " + tr("Persons")
 	stadium_year_label.text = tr("Year") + " " + str(team.stadium.year_built)
+

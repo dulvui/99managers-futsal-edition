@@ -14,6 +14,7 @@ enum Tactics {
 # between 0.0 - 1.0
 @export var intensity: float
 
+
 func _init(
 	p_tactic: Tactics = Tactics.ROTATION,
 	p_intensity: float = 1.0,

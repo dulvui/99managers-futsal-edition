@@ -24,6 +24,7 @@ var ball: VisualBall
 
 @onready var animation_player: AnimationPlayer = %AnimationPlayer
 
+
 func _physics_process(delta: float) -> void:
 	super._physics_process(delta)
 

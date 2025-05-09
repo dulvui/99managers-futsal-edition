@@ -10,6 +10,7 @@ extends VBoxContainer
 @onready var end_date: Label = %EndDate
 @onready var buy_clause: Label = %BuyClause
 
+
 func setup(player: Player) -> void:
 	income.text = FormatUtil.currency(player.contract.income)
 	buy_clause.text = FormatUtil.currency(player.contract.buy_clause)

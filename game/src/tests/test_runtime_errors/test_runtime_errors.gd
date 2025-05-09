@@ -23,25 +23,35 @@ func test() -> void:
 	var script_paths: Array[String] = find_files("res://src/", ".gd")
 	# load scripts and check for possibe runtime errors while loading
 	for path: String in script_paths:
-		var TestScript: GDScript = load(path)
-		assert(TestScript != null)
-		assert(TestScript.can_instantiate())
+		var script: GDScript = load(path)
+		assert(script != null)
+		assert(script.can_instantiate())
 
 		# lint checks
 		# skip linting for this file
 		if "test_runtime_errors.gd" in path:
 			continue
 
-		# =- instead of -=
-		assert(not "=-" in TestScript.source_code)
-		# =+ instead of +=
-		assert(not "=+" in TestScript.source_code)
-		# double space
-		assert(not "  " in TestScript.source_code)
+		var lines: PackedStringArray = script.source_code.split("\n")
+		for i: int in lines.size():
+			var line: String = lines[i]
+
+			# double empty line between func
+			if line.begins_with("func"):
+				assert(lines[i - 1].is_empty() or lines[i - 1].begins_with("#"))
+				assert(lines[i - 2].is_empty() or lines[i - 2].begins_with("#"))
+				assert(not lines[i - 3].is_empty() or not lines[i - 3].begins_with("#"))
+
+			# =- instead of -=
+			assert(not "=-" in line)
+			# =+ instead of +=
+			assert(not "=+" in line)
+			# double space
+			assert(not "  " in line)
 
 		# TODO check in method list if _init has all default parameters
 		# if yes, try to create instance
-		# var instance: Object = TestScript.new()
+		# var instance: Object = script.new()
 		# assert(instance != null)
 	print("test: load all scripts done.")
 

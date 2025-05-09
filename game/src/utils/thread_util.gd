@@ -9,6 +9,7 @@ signal loading_done
 var thread: Thread
 var locale: String
 
+
 func _ready() -> void:
 	thread = Thread.new()
 
