@@ -22,7 +22,7 @@ func _ready() -> void:
 func setup(knockout: Knockout, history_index: int = -1, title: String = "") -> void:
 	if not title.is_empty():
 		title_label.text = title
-	
+
 	# group a
 	if knockout.rounds_a.size() == 0:
 		group_a_label.hide()

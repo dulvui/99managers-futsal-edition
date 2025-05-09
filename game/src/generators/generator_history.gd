@@ -52,7 +52,7 @@ func generate_club_history(world: World) -> void:
 					for match_day: MatchDay in match_days.days:
 						for matchz: Match in match_day.matches:
 							match_engine.simulate_match(matchz, true)
-					
+
 					# create playoffs/playouts
 					match_util.initialize_playoffs(league)
 					match_util.initialize_playouts(league)
@@ -83,7 +83,7 @@ func generate_club_history(world: World) -> void:
 
 		world.promote_and_relegate_teams()
 		Global.match_list.archive_season()
-	
+
 	# save team swaps
 	for continent: Continent in world.continents:
 		for nation: Nation in continent.nations:

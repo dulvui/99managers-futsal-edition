@@ -4,7 +4,7 @@
 
 class_name LoanOffer
 extends Offer
-	
+
 
 var current_team: TeamBasic
 

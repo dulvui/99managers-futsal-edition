@@ -197,7 +197,7 @@ func get_ticks_to_reach(from: Vector2, to: Vector2, force: float, friction: floa
 			return Const.FULL_TIME_TICKS
 
 		distance = from.distance_squared_to(to)
-	
+
 	return ticks
 
 

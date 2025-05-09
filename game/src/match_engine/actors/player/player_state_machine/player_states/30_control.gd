@@ -43,7 +43,7 @@ func enter() -> void:
 		opponent_goal = owner.field.goals.right
 	else:
 		opponent_goal = owner.field.goals.left
-	
+
 
 func execute() -> void:
 	if should_shoot():
@@ -111,6 +111,6 @@ func should_pass() -> bool:
 	if best_pass_player != null:
 		pass_direction = owner.ball.pos.direction_to(best_pass_player.pos)
 		return true
-	
+
 	return false
-	
+

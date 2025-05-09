@@ -48,6 +48,6 @@ func fade_out(duration: float = DURATION) -> void:
 	await tween.finished
 
 	await get_tree().create_timer(DELAY).timeout
-	
+
 	hide()
 

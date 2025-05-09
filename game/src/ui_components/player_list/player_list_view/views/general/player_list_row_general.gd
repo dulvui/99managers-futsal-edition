@@ -17,7 +17,7 @@ func setup(player: Player, index: int) -> void:
 
 	if player.team.is_empty():
 		team.text = tr("Free agent")
-	else:	
+	else:
 		team.text = player.team
 
 	positionz.text = Enum.get_position_type_text(player.position.main)

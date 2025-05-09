@@ -46,7 +46,7 @@ func initialize(next_season: bool = false) -> void:
 	# set start date
 	date.day = SEASON_START_DAY
 	date.month = SEASON_START_MONTH
-	
+
 	# clear previous season, if exists
 	months = []
 

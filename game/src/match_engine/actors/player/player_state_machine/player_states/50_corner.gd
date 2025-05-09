@@ -64,4 +64,4 @@ func corner_kick() -> void:
 			var direction: Vector2 = owner.ball.pos.direction_to(player.pos)
 			owner.ball.impulse(direction, 20)
 			return
-	
+

@@ -18,7 +18,7 @@ func enter() -> void:
 			if player.is_goalkeeper:
 				goalkeeper = player
 				owner.team.player_control(goalkeeper)
-				goalkeeper.set_state(PlayerStateFindBestPass.new()) 
+				goalkeeper.set_state(PlayerStateFindBestPass.new())
 			else:
 				player.move_defense_pos()
 				player.set_state(PlayerStateIdle.new())

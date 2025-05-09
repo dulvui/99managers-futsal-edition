@@ -148,7 +148,7 @@ func get_competition_by_id(competition_id: int) -> Competition:
 
 func get_all_players() -> Array[Player]:
 	var players: Array[Player] = []
-	
+
 	# team players
 	for league: League in get_all_leagues():
 		for team: Team in league.teams:
@@ -156,7 +156,7 @@ func get_all_players() -> Array[Player]:
 
 	# free agents
 	players.append_array(free_agents.list)
-	
+
 	return players
 
 
@@ -222,7 +222,7 @@ func get_all_nations(sorted_alphabetically: bool = false) -> Array[Nation]:
 
 	if sorted_alphabetically:
 		all_nations.sort_custom(func(a: Nation, b: Nation) -> bool: return a.name < b.name)
-	
+
 	return all_nations
 
 
@@ -372,7 +372,7 @@ func promote_and_relegate_teams() -> void:
 			for league: League in nation.leagues:
 				# save to history and create new competitions
 				league.archive_season()
-				
+
 				for team: Team in league.teams:
 					league.table.add_team(team)
 					# reassign all league ids

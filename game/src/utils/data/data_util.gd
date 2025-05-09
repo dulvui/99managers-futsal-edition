@@ -44,7 +44,7 @@ func load_config() -> SettingsConfig:
 	if err != OK:
 		if backup_util.restore(CONFIG_FILE):
 			json_util.load(CONFIG_FILE, config)
-	
+
 	return config
 
 
@@ -84,7 +84,7 @@ func load_save_state(id: String) -> SaveState:
 func load_data() -> void:
 	var active: SaveState = Global.save_states.get_active()
 	var path: String = SAVE_STATES_PATH + active.id + "/"
-	
+
 	_load_checksum_list(path)
 
 	var world: World = World.new()
@@ -165,7 +165,7 @@ func load_data() -> void:
 	else:
 		push_error("error while loading matchdays, match days from csv is not 1")
 	Main.call_deferred("update_loading_progress", 0.6)
-	
+
 	# calendar csv
 	csv_path = path + Const.CSV_CALENDAR_FILE
 	if not _validate_file(csv_path):
@@ -259,7 +259,7 @@ func save_data() -> void:
 	checksum_list.save(path + Const.CSV_FREE_AGENTS_FILE)
 	backup_util.create(path + Const.CSV_FREE_AGENTS_FILE)
 	Main.call_deferred("update_loading_progress", 0.4)
-	
+
 	# history match days csv
 	# TODO: could be optimized even more by just appending new history,
 	# instead of writing full history

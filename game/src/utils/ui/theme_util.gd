@@ -250,7 +250,7 @@ func apply_theme(theme_index: int) -> void:
 		configuration = ResourceLoader.load(THEMES_PATH + theme_file)
 		configuration.setup()
 		_apply_configuration(configuration)
-	
+
 	theme_changed.emit()
 
 
@@ -328,7 +328,7 @@ func _apply_configuration(p_configuration: ThemeConfiguration) -> void:
 	theme.set_color("icon_hover_color", "Button", configuration.font_color_variation.hover)
 	theme.set_color("icon_pressed_color", "Button", configuration.font_color_variation.pressed)
 	theme.set_color("icon_disabled_color", "Button", configuration.font_color_variation.disabled)
-	
+
 	# check button font colors
 	theme.set_color("font_color", "CheckButton", configuration.font_color)
 	theme.set_color("font_focus_color", "CheckButton", configuration.font_color_variation.focus)

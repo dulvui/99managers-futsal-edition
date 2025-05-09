@@ -1,0 +1,15 @@
+# EditorConfig is awesome: https://editorconfig.org
+
+# top-most EditorConfig file
+root = true
+
+# https://github.com/godotengine/godot/blob/master/.editorconfig
+[*.gd]
+charset = utf-8
+end_of_line = lf
+indent_size = 4
+indent_style = tab
+insert_final_newline = true
+# max_line_length = 120
+trim_trailing_whitespace = true
+

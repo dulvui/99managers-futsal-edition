@@ -97,7 +97,7 @@ func archive_season() -> void:
 		history_playoffs.append(playoffs.duplicate(true))
 	if playout_teams > 0:
 		history_playouts.append(playouts.duplicate(true))
-	
+
 	# new season
 	table = Table.new()
 	playoffs = Cup.new()

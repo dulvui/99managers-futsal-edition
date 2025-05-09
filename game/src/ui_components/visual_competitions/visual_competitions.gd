@@ -37,7 +37,7 @@ var active_continental_cup: Cup
 
 func _ready() -> void:
 	Tests.setup_mock_world(true)
-	
+
 	active_league = Global.league
 	active_national_cup = Global.world.get_active_nation().cup
 	active_continental_cup = Global.world.get_active_continent().cup_clubs
@@ -45,7 +45,7 @@ func _ready() -> void:
 	# history seasons + current season
 	season_amount = Global.match_list.history_match_days.size()
 	season_index = season_amount
-	
+
 	active_league_button.text = active_league.name
 	active_national_cup_button.text = active_national_cup.name
 	active_continental_cup_button.text = active_continental_cup.name
@@ -63,16 +63,16 @@ func _setup() -> void:
 	# clean match list
 	for child: Node in match_list.get_children():
 		child.queue_free()
-	
+
 	# reset scroll position
 	match_scroll.scroll_horizontal = 0
 	match_scroll.scroll_vertical = 0
 	overview_scroll.scroll_horizontal = 0
 	overview_scroll.scroll_vertical = 0
-	
+
 	# index to see if history matches or active season matches
 	var history_index: int = season_index
-	
+
 	# overview
 	competition_name.text = competition.name
 	if competition is League:
@@ -112,7 +112,7 @@ func _setup() -> void:
 				var visual_playouts: VisualKnockout = VisualKnockoutScene.instantiate()
 				overview.add_child(visual_playouts)
 				visual_playouts.setup(playouts.knockout, history_index, tr("Playouts"))
-		
+
 	else:
 		var cup: Cup = competition as Cup
 

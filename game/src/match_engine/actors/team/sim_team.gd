@@ -31,6 +31,11 @@ var simulated: bool
 
 var team_opponents: SimTeam
 
+# changes variables
+var auto_change_request: bool
+var low_stamina_players: Array[SimPlayer]
+var do_change: bool
+
 # key players attack
 var _player_control: SimPlayer
 var _player_support: SimPlayer
@@ -39,11 +44,6 @@ var _player_receive_ball: SimPlayer
 var _player_chase: SimPlayer
 # key players generic
 var _player_nearest_to_ball: SimPlayer
-
-# changes variables
-var auto_change_request: bool
-var low_stamina_players: Array[SimPlayer]
-var do_change: bool
 
 
 func _init(p_rng: RngUtil) -> void:
@@ -299,10 +299,10 @@ func is_ball_safe(
 		# check if player can reach spot in time/ticks faster than ball
 		var delta: int = player_ticks - ball_ticks
 
-		 # at least 1 second as reaction time
+		# at least 1 second as reaction time
 		if delta > Const.TICKS * 3:
 			value -= 0.1 * delta
- 
+
 		# if value already negative, return 0
 		if value <= 0.0:
 			return 0.0
@@ -318,7 +318,7 @@ func find_best_pass(passing_player: SimPlayer, pass_force: float) -> SimPlayer:
 		if player != passing_player:
 			if is_ball_safe(passing_player.pos, player.pos, pass_force) > 0.5:
 				possible_players.append(player)
-	
+
 	if possible_players.is_empty():
 		return null
 

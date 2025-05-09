@@ -104,7 +104,7 @@ func _ready() -> void:
 				players_bar.update_players()
 				formation.set_players()
 	)
-	
+
 	# name labels
 	home_name.text = home_team.name
 	away_name.text = away_team.name
@@ -118,7 +118,7 @@ func _ready() -> void:
 	# to easier access stats
 	home_stats = match_simulator.engine.home_team.stats
 	away_stats = match_simulator.engine.away_team.stats
-	
+
 	last_active_view = overview
 	_hide_views()
 
@@ -129,7 +129,7 @@ func _ready() -> void:
 	match_simulator.engine.penalties_start.connect(_on_engine_penalties_start)
 	match_simulator.engine.home_team.penalties_shot.connect(func() -> void: penalties_bar.update())
 	match_simulator.engine.away_team.penalties_shot.connect(func() -> void: penalties_bar.update())
-	
+
 	# show goals of first leg in events
 	if matchz.first_leg != null:
 		events.start(matchz.first_leg.home_goals, matchz.first_leg.away_goals)
@@ -210,13 +210,13 @@ func _on_dashboard_button_pressed() -> void:
 
 func _on_faster_button_pressed() -> void:
 	if Global.match_speed < Enum.MatchSpeed.values().size() - 1:
-		Global.match_speed = (Global.match_speed + 1) as Enum.MatchSpeed 
+		Global.match_speed = (Global.match_speed + 1) as Enum.MatchSpeed
 	match_speed_label.text = Enum.get_match_speed_text()
 
 
 func _on_slower_button_pressed() -> void:
 	if Global.match_speed > 0:
-		Global.match_speed = (Global.match_speed - 1) as Enum.MatchSpeed 
+		Global.match_speed = (Global.match_speed - 1) as Enum.MatchSpeed
 	match_speed_label.text = Enum.get_match_speed_text()
 
 

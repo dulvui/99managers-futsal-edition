@@ -70,6 +70,7 @@ const WORLD_CSV_PATH: String = "res://data/world/data.csv"
 const WORLD_CSV_PATH_WITH_PLAYERS: String = "res://data/world/test-data-with-players.csv"
 
 # screens
+const SCREENS: String = "res://src/screens/"
 const SCREEN_MENU: String = "res://src/screens/menu/menu.tscn"
 const SCREEN_SETTINGS: String = "res://src/screens/settings/settings.tscn"
 const SCREEN_ABOUT: String = "res://src/screens/about/about.tscn"
@@ -81,11 +82,14 @@ const SCREEN_SETUP_THEME: String = "res://src/screens/setup/setup_theme/setup_th
 const SCREEN_MATCH: String = "res://src/screens/match_screen/match_screen.tscn"
 const SCREEN_SAVE_STATES: String = "res://src/screens/save_states_screen/save_states_screen.tscn"
 # scenes
-const SCENE_SAVE_STATE_ENTRY: String = "res://src/screens/save_states_screen/save_state_entry/save_state_entry.tscn"
+const SCENE_SAVE_STATE_ENTRY: String = \
+		"save_states_screen/save_state_entry/save_state_entry.tscn"
 # ui components
 const SCENE_COLOR_LABEL: String = "res://src/ui_components/base/color_label/color_label.tscn"
-const SCENE_FORMATION_PLAYER: String = "res://src/ui_components/visual_formation/player/formation_player.tscn"
-const SCENE_MATCH_INFO: String = "res://src/ui_components/visual_calendar/match_list/match_info/match_info.tscn"
+const SCENE_FORMATION_PLAYER: String = \
+		"res://src/ui_components/visual_formation/player/formation_player.tscn"
+const SCENE_MATCH_INFO: String = \
+		"res://src/ui_components/visual_calendar/match_list/match_info/match_info.tscn"
 
 #
 # Property access

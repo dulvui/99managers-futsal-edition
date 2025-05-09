@@ -28,7 +28,7 @@ func setup(
 	step = p_step
 	min_amount = p_min_amount
 	max_amount = p_max_amount
-	
+
 	_update_amount()
 
 

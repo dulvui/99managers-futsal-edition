@@ -19,7 +19,7 @@ extends Node
 
 func _ready() -> void:
 	print("Start test suite")
-	
+
 	test_runtime_errors.test()
 
 	tests_fast()
@@ -106,7 +106,7 @@ static func create_mock_world(use_test_file: bool) -> World:
 		var test_success: bool = generator.initialize_world(world, Const.TEST_WORLD_CSV_PATH)
 		assert(test_success)
 		return world
-	
+
 	var success: bool = generator.initialize_world(world)
 	assert(success)
 

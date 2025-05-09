@@ -18,7 +18,7 @@ func setup(day: Day, competition: Competition = Global.league) -> void:
 	# remove children
 	for child: Node in matches_list.get_children():
 		child.queue_free()
-	
+
 	all_matches = []
 
 	# get matches by competition

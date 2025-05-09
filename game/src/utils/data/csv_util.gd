@@ -278,7 +278,7 @@ func csv_to_match_days(csv: Array[PackedStringArray]) -> Array[MatchDays]:
 				push_error("first leg with id %d not found" % first_leg_id)
 		else:
 			quick_access[id] = matchz
-		
+
 		match_day.matches.append(matchz)
 
 	return list
@@ -375,7 +375,7 @@ func csv_to_calendar(csv: Array[PackedStringArray]) -> Calendar:
 
 		if calendar.months.size() < day.month:
 			calendar.months.append(Month.new())
-		
+
 		calendar.months[-1].days.append(day)
 
 	return calendar
@@ -428,7 +428,7 @@ func csv_to_inbox(csv: Array[PackedStringArray]) -> Inbox:
 		email.starred = _get_bool_or_default()
 
 		inbox.list.append(email)
-	
+
 	return inbox
 
 
@@ -445,7 +445,7 @@ func transfer_list_to_csv(_transfer_list: TransferList) -> Array[PackedStringArr
 
 func csv_to_transfer_list(_csv: Array[PackedStringArray]) -> TransferList:
 	var transfer_list: TransferList = TransferList.new()
-	
+
 	return transfer_list
 
 
@@ -524,7 +524,7 @@ func validate_csv_file(file_path: String) -> bool:
 			push_error("error while reading lines from csv with code %d" % error)
 			Global.generation_errors.append(Enum.GenerationError.ERR_READ_FILE)
 			return false
-	
+
 		# check columns size same as headers
 		if line.size() > headers.size() or line.size() == 0:
 			push_error("wrong column size in row %d" % error)
@@ -585,7 +585,7 @@ func save_csv(path: String, csv: Array[PackedStringArray], append: bool = false)
 	# save to file
 	for line: PackedStringArray in csv:
 		file.store_csv_line(line)
-	
+
 	file.close()
 
 	# check again for file errors
@@ -636,7 +636,7 @@ func read_csv(path: String, after_backup: bool = false) -> Array[PackedStringArr
 
 func _player_to_line(player: Player, nation: Nation = null, league: League = null, team: Team = null) -> PackedStringArray:
 	var player_line: PackedStringArray = PackedStringArray()
-	
+
 	# check if free agent
 	if nation != null:
 		# team
@@ -647,7 +647,7 @@ func _player_to_line(player: Player, nation: Nation = null, league: League = nul
 		player_line.append(team.stadium.name)
 		player_line.append(str(team.stadium.capacity))
 		player_line.append(str(team.stadium.year_built))
-	
+
 	# player
 	player_line.append(player.name)
 	player_line.append(player.surname)
@@ -708,12 +708,12 @@ func _line_to_player(
 	team_name: String = "",
 	first_time: bool = false,
 ) -> Player:
-	
+
 	# check if free agent
 	if team_id > 0:
 		# skip stadium section
 		column_index += 4
-	
+
 	# player
 	var name: String = _get_string_or_default()
 	var surname: String = _get_string_or_default()
@@ -733,7 +733,7 @@ func _line_to_player(
 	# player
 	if name.is_empty() or surname.is_empty():
 		return null
-	
+
 	var player: Player = Player.new()
 	if first_time:
 		player.set_id()

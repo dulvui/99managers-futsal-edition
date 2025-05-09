@@ -6,14 +6,14 @@ extends Control
 
 signal loaded
 
+var previous_scenes: Array[String]
+var scene_name_on_load: String
+var manual_hide: bool
+
 @onready var version: Label = %Version
 @onready var content: Control = %Content
 @onready var scene_fade: SceneFade = %SceneFade
 @onready var loading_screen: LoadingScreen = $LoadingScreen
-
-var previous_scenes: Array[String]
-var scene_name_on_load: String
-var manual_hide: bool
 
 
 func _ready() -> void:
@@ -33,7 +33,7 @@ func _ready() -> void:
 
 func change_scene(scene_path: String, keep_current_scene: bool = false) -> void:
 	await scene_fade.fade_in()
-	
+
 	if not keep_current_scene:
 		_clear_content()
 	_append_scene_to_buffer(scene_path)
@@ -62,7 +62,7 @@ func clear_current_scene() -> void:
 	if child != null:
 		content.remove_child(child)
 		child.queue_free()
-	
+
 	await scene_fade.fade_out()
 
 

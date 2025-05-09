@@ -114,7 +114,7 @@ func _ready() -> void:
 
 	active_view_option_button.setup(views_text)
 	active_view = Views.GENERAL
-	
+
 	# page size scale
 	match Global.config.theme_scale:
 		Const.SCALE_1:
@@ -123,7 +123,7 @@ func _ready() -> void:
 			page_size = PAGE_SIZE_2
 		Const.SCALE_3:
 			page_size = PAGE_SIZE_3
-	
+
 	# setup automatically, if run in editor and is run by 'Run current scene'
 	if Tests.is_run_as_current_scene(self):
 		setup()
@@ -393,7 +393,7 @@ func _on_position_select_item_selected(index: int) -> void:
 		filters[Const.POSITION] = str(Position.Type.values()[index - 1])
 	else:
 		filters.erase(Const.POSITION)
-	
+
 	_show_active_view()
 
 
@@ -414,7 +414,7 @@ func _on_league_select_item_selected(index: int) -> void:
 			for team: Team in league.teams:
 				if team == null or team.name != Global.team.name:
 					team_select.add_item(team.name)
-	
+
 	_show_active_view()
 
 

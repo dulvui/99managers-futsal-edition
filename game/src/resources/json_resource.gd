@@ -56,7 +56,7 @@ func from_json(dict: Dictionary) -> void:
 
 		if property == null:
 			continue
-		
+
 		# Arrays
 		if property is Array:
 			var array: Array[Variant] = property

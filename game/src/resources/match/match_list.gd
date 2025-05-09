@@ -32,7 +32,7 @@ func add_matches(matches: Array[Match], day: int, month: Enum.Months) -> void:
 		if match_day.is_day(day, month):
 			match_day.matches.append_array(matches)
 			return
-	
+
 	# no matchday with day/month found, append new
 	match_days.append(MatchDay.new(matches, day, month))
 
@@ -86,7 +86,7 @@ func get_match_days_by_competition(competition_id: int, history_index: int = -1)
 				func(m: Match) -> bool: return m.competition_id == competition_id
 			):
 				match_days_by_competition.append(match_day)
-	
+
 	return match_days_by_competition
 
 
@@ -99,7 +99,7 @@ func get_matches_by_competition(competition_id: int, history_index: int = -1) ->
 				func(m: Match) -> bool: return m.competition_id == competition_id
 			)
 		)
-	
+
 	return matches
 
 
@@ -119,7 +119,7 @@ func get_matches_by_ids(match_ids: Array[int], history_index: int = -1) -> Array
 		for matchz: Match in match_day.matches:
 			if matchz.id in match_ids:
 				matches.append(matchz)
-	
+
 	return matches
 
 

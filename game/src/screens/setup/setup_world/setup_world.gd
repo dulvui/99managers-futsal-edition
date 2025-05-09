@@ -37,7 +37,7 @@ func _ready() -> void:
 	InputUtil.start_focus(self)
 
 	Main.loaded.connect(_on_world_generated)
-	
+
 	# setup ui components
 	advanced_settings_box.hide()
 	advanced_settings = false
@@ -170,7 +170,7 @@ func _on_continue_pressed() -> void:
 
 	if advanced_settings:
 		final_seed = generation_seed
-	
+
 	# save seed and player names globally, to later assign it to save state
 	Global.generation_seed = final_seed
 	Global.generation_player_names = player_names
@@ -200,7 +200,7 @@ func _on_world_generated() -> void:
 		file_error_dialog.append_text(tr("Warnings"))
 		for warning: Enum.GenerationWarning in Global.generation_warnings:
 			file_error_dialog.append_text(Enum.get_generation_warning_text(warning))
-			
+
 		file_error_dialog.popup_centered()
 
 

@@ -31,7 +31,7 @@ func is_day(p_day: int, p_month: int) -> bool:
 
 func get_matches_by_competition(competition_id: int) -> Array[Match]:
 	var matches_by_competition: Array[Match] = []
-	
+
 	for matchz: Match in matches:
 		if matchz.competition_id == competition_id:
 			matches_by_competition.append(matchz)

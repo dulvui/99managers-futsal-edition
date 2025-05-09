@@ -100,13 +100,13 @@ func _read_name_csv_file(path: String) -> Array[String]:
 	var names_in_csv: Array[String] = []
 	if not FileAccess.file_exists(path):
 		return []
-	
+
 	var file: FileAccess = FileAccess.open(path, FileAccess.READ)
 	var error: Error = file.get_error()
 	if error != OK:
 		print("error while opening name csv file " + path)
 		return []
-	
+
 	while not file.eof_reached():
 		# get_csv_line not needed for now, since every name has it's own line
 		var line: String = file.get_line()
@@ -120,12 +120,12 @@ func _read_name_csv_file(path: String) -> Array[String]:
 			print("error while reading lines from name csv file %s with code %d" % [path, error])
 			# returning what found so far
 			return names_in_csv
-		
+
 		# skip lines starting with #, they are comments like source url's
 		if "#" in line:
 			continue
 
 		names_in_csv.append(line)
-	
+
 	return names_in_csv
 

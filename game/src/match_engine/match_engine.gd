@@ -114,7 +114,7 @@ func update() -> void:
 	# field/ball updates more frequently on every tick
 	# for better colission detections
 	field.update()
-	
+
 	# time related code
 	if field.clock_running:
 		ticks_clock_not_running = 0

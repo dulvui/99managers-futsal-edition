@@ -58,7 +58,7 @@ func collides_with_player(player: SimPlayer) -> bool:
 	# dot product of direction and directon from actor to self
 	if is_moving() and direction.dot(player.pos.direction_to(pos)) > 0.0:
 		return false
-	
+
 	if collides(player):
 		# print("ball collides with player %d" % player.res.nr)
 		stop()

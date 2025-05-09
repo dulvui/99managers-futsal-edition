@@ -86,7 +86,7 @@ func setup(
 func is_over() -> bool:
 	if final_ids.is_empty():
 		return false
-	
+
 	var final: Match = Global.match_list.get_match_by_id(final_ids[-1])
 	return final.over
 
@@ -106,7 +106,7 @@ func create_match_days(cup: Cup) -> MatchDays:
 
 		var round_matches_a: Array[Match] = []
 		var round_matches_b: Array[Match] = []
-		
+
 		# group a
 		for i: int in teams_a.size() / 2.0:
 			# assign first vs last, first + 1 vs last - 1 etc...

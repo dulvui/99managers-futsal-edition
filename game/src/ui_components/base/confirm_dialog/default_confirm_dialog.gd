@@ -35,7 +35,7 @@ func _ready() -> void:
 		cancel_button.text = tr("Ok")
 		no_button.hide()
 		yes_button.hide()
-	
+
 	# labels
 	rich_text_label.text = custom_text
 	title_label.text = custom_title

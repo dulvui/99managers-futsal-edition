@@ -58,7 +58,7 @@ func setup(p_teams: Array[TeamBasic]) -> void:
 	for i: int in group_amount:
 		var group: Group = Group.new()
 		groups.append(group)
-	
+
 	# split teams in groups, according to prestige
 	for i: int in p_teams.size():
 		groups[i % group_amount].add_team(p_teams[i])
@@ -156,7 +156,7 @@ func _create_group_match_days() -> MatchDays:
 	for group: Group in groups:
 		var group_match_days: MatchDays = match_util.create_combinations(self, group.teams)
 		group_match_day_list.append(group_match_days)
-	
+
 	if group_match_day_list.size() == 0:
 		return match_days
 

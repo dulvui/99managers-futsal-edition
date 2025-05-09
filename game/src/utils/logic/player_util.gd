@@ -10,7 +10,7 @@ const AGE_PHYSICAL_DEGARDE: int = 30
 
 var rng_util: RngUtil
 
-	
+
 func _init() -> void:
 	rng_util = RngUtil.new()
 
@@ -33,7 +33,7 @@ func check_contracts_terminated() -> void:
 	# check if team wants to renew: compare prestiges and consider age and value
 	# let player go if contract doesn't get renewed => add to free agents
 	var terminated_players: Array[Player]
-	
+
 	for team: Team in Global.world.get_all_teams():
 		terminated_players = []
 		for player: Player in team.players:

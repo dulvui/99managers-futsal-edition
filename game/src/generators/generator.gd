@@ -94,13 +94,13 @@ func initialize_world(world: World, world_file_path: String = Const.WORLD_CSV_PA
 		if not is_valid_csv:
 			push_error("csv file not valid %s" % world_file_path)
 			return false
-	
+
 	# read csv and create teams, without players
 	var csv: Array[PackedStringArray] = csv_util.read_csv(world_file_path)
 	# remove header
 	csv.pop_front()
 	csv_util.csv_to_teams(csv, world)
-	
+
 	# validate world
 	var validator: GeneratorValidator = GeneratorValidator.new()
 	var is_valid_world: bool = validator.validate_world(world)
@@ -203,7 +203,7 @@ func initialize_world(world: World, world_file_path: String = Const.WORLD_CSV_PA
 	match_util.initialize_matches(world)
 
 	Main.call_deferred("update_loading_progress", 1.0)
-	
+
 	return true
 
 
@@ -253,7 +253,7 @@ func _generate_players(world: World) -> bool:
 		player.set_id()
 		_initialize_player(player)
 		world.free_agents.append(player)
-	
+
 	return true
 
 
@@ -649,7 +649,7 @@ func _initialize_player(
 	# otherwise he leaves esaily, also on its own
 	if player.loyality == 0:
 		player.loyality = rng_util.randi_range(1, 20)
-	
+
 	var age: int = year - birth_date_year
 	_set_goalkeeper_attributes(player.attributes.goalkeeper, age, prestige, player.position)
 	_set_mental_attributes(player.attributes.mental, age, prestige)
@@ -754,7 +754,7 @@ func _generate_missing_properties(
 	# assign missing properties to existing players coming from csv
 	for player: Player in team.players:
 		_initialize_player(player, league, team, nation, temp_team_prestige)
-	
+
 	# generate missing players
 	# after formation has been choosen, to assign correct players positions
 	_assign_players_to_team(league, team, nation, temp_team_prestige)
@@ -784,7 +784,7 @@ func _set_random_person_values(person: Person, nation: Nation) -> void:
 		person.haircolor = rng_util.pick_random(HAIR_COLORS)
 	if person.eyecolor.is_empty():
 		person.eyecolor = rng_util.pick_random(EYE_COLORS)
-	
+
 	# contract
 	if person.role == Person.Role.PLAYER:
 		_set_random_player_contract(person as Player)
@@ -813,7 +813,7 @@ func _set_random_player_contract(player: Player) -> void:
 	if duration > 1:
 		# duration - 1 to have at least 1 year of remaining contract
 		start = rng_util.randi_range(1, duration - 1)
-	
+
 	var month: int = 0
 
 	# start during summer market probability 80%
@@ -826,7 +826,7 @@ func _set_random_player_contract(player: Player) -> void:
 		month = rng_util.randi_range(
 			Calendar.MARKET_WINTER_START_MONTH, Calendar.MARKET_WINTER_END_MONTH
 		)
-	
+
 	# get max day respecting month days and leap years
 	var month_max_days: int = _get_month_max_days(month)
 	var day: int = rng_util.randi_range(1, month_max_days)
@@ -860,7 +860,7 @@ func _set_random_staff_contract(member: StaffMember) -> void:
 	if duration > 1:
 		# duration - 1 to have at least 1 year of remaining contract
 		start = rng_util.randi_range(1, duration - 1)
-	
+
 	var month: int = Calendar.SEASON_START_MONTH
 	var day: int = Calendar.SEASON_START_DAY
 
@@ -926,11 +926,11 @@ func _get_month_max_days(month: int) -> int:
 	# months with 31 days
 	if month in [1, 3, 5, 7, 8, 10, 12]:
 		return 31
-	
+
 	# months with 30 days
 	if month in [4, 6, 9, 11]:
 		return 30
-	
+
 	# february check leap year
 	if (year % 4 == 0 and year % 100 != 0) or (year % 400 == 0):
 		return 29

@@ -102,7 +102,7 @@ func setup(
 		_style_label(team.team.id, points_label)
 		points_label.text = str(team.points)
 		dynamic_content.append(points_label)
-	
+
 	# add to grid
 	for content: Control in dynamic_content:
 		add_child(content)
@@ -154,5 +154,5 @@ func _form_row(team_id: int, forms: Array[TableValues.Form]) -> HBoxContainer:
 			label.text = "?" # NO_TRANSLATE
 			label.tooltip_text = tr("To be played")
 			box.add_child(label)
-	
+
 	return box

@@ -101,7 +101,7 @@ func _saving_done() -> void:
 	if thread.is_started():
 		thread.wait_to_finish()
 	loading_done.emit()
-	
+
 	# reset locale
 	TranslationServer.set_locale(locale)
 	print("thread done.")

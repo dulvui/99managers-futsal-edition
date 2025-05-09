@@ -169,9 +169,9 @@ func test_history() -> void:
 		for nation: Nation in continent.nations:
 			for league: League in nation.leagues:
 				assert(league_sizes[league.name] == league.teams.size())
-	
+
 	# check that teams are actually in the league they where initially placed
-	
+
 	# TODO test player history
 	# history.generate_player_history(world)
 

@@ -36,7 +36,7 @@ func _init(p_field: SimField) -> void:
 			var sector: SimFieldSector = SimFieldSector.new()
 			sector.setup(x, y)
 			sectors.append(sector)
-	
+
 	best_pass_sector = sectors[0]
 	best_shoot_sector = sectors[0]
 
@@ -70,7 +70,7 @@ func _find_best_pass_sector() -> void:
 
 func _find_best_shoot_sector() -> void:
 	best_shoot_sector.score = 0.0
-	
+
 	var goal: Vector2 = field.active_goal()
 	var team: SimTeam = field.active_team()
 

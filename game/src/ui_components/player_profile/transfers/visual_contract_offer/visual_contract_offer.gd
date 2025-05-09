@@ -28,7 +28,7 @@ func _ready() -> void:
 
 func setup(p_player: Player) -> void:
 	player = p_player
-	
+
 	if player.contract != null:
 		income = player.contract.income
 		income_label.text = FormatUtil.currency(income)

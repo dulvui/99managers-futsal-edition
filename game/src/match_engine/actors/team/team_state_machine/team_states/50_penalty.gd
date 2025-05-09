@@ -19,7 +19,7 @@ func enter() -> void:
 	# assume ball has already been set to penalty spot
 	# this works for penalties and penatlies 10m
 	var penalty_spot: Vector2 = owner.ball.pos
-	
+
 	# move players to above penalty spot line and min 5m away from spot
 	for player: SimPlayer in owner.team.players:
 		if not player.is_goalkeeper:
@@ -32,7 +32,7 @@ func enter() -> void:
 				deviation = -deviation
 			player.set_destination(Vector2(penalty_spot.x, penalty_spot.y + deviation))
 			player.set_state(PlayerStateIdle.new())
-	
+
 	if owner.team.has_ball:
 		shooting_player = owner.team.players[-1]
 		# find best penalty taker currently on field
