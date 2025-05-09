@@ -29,6 +29,19 @@ func test() -> void:
 		assert(TestScript.get_method_list() != null)
 		assert(TestScript.get_property_list() != null)
 		assert(TestScript.get_signal_list() != null)
+
+		#
+		# linting
+		#
+		# skip linting for this file
+		if "test_runtime_errors.gd" in path:
+			continue
+
+		# =- instead of -=
+		assert(not "=-" in TestScript.source_code)
+		# =+ instead of +=
+		assert(not "=+" in TestScript.source_code)
+
 		# TODO check in method list if _init has all default parameters
 		# if yes, try to create instance
 		# var instance: Object = TestScript.new()

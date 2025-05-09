@@ -38,7 +38,8 @@ const SPEED: float = 0.5
 # stamina range [0, 1]
 # this factor makes sure a player with attribute stamina 20
 # can play a full game running all the time
-const STAMINA_FACTOR: float = 1.0 / (FULL_TIME_SECONDS * TICKS_LOGIC * 20)  # 20 = max player speed
+# 20 = max player speed
+const STAMINA_FACTOR: float = 1.0 / (FULL_TIME_SECONDS * TICKS_LOGIC * 20)
 
 #
 # Generator
@@ -82,14 +83,11 @@ const SCREEN_SETUP_THEME: String = "res://src/screens/setup/setup_theme/setup_th
 const SCREEN_MATCH: String = "res://src/screens/match_screen/match_screen.tscn"
 const SCREEN_SAVE_STATES: String = "res://src/screens/save_states_screen/save_states_screen.tscn"
 # scenes
-const SCENE_SAVE_STATE_ENTRY: String = \
-		"save_states_screen/save_state_entry/save_state_entry.tscn"
+const SCENE_SAVE_STATE_ENTRY: String = "res://src/screens/save_states_screen/save_state_entry/save_state_entry.tscn"
 # ui components
 const SCENE_COLOR_LABEL: String = "res://src/ui_components/base/color_label/color_label.tscn"
-const SCENE_FORMATION_PLAYER: String = \
-		"res://src/ui_components/visual_formation/player/formation_player.tscn"
-const SCENE_MATCH_INFO: String = \
-		"res://src/ui_components/visual_calendar/match_list/match_info/match_info.tscn"
+const SCENE_FORMATION_PLAYER: String = "res://src/ui_components/visual_formation/player/formation_player.tscn"
+const SCENE_MATCH_INFO: String = "res://src/ui_components/visual_calendar/match_list/match_info/match_info.tscn"
 
 #
 # Property access
@@ -97,7 +95,6 @@ const SCENE_MATCH_INFO: String = \
 const CUSTOM_PROPERTY: int = 4096
 const CUSTOM_PROPERTY_EXPORT: int = 4102
 const CUSTOM_PROPERTY_EXPORT_ENUM: int = 69638
-
 
 #
 # csv stuff
@@ -109,7 +106,6 @@ const CSV_MATCH_HISTORY_FILE: StringName = "match_history.csv"
 const CSV_CALENDAR_FILE: StringName = "calendar.csv"
 const CSV_INBOX_FILE: StringName = "inbox.csv"
 const CSV_OFFER_LIST_FILE: StringName = "transfer_list.csv"
-
 
 const CSV_HEADERS: PackedStringArray = [
 	"nation [iso code]",
