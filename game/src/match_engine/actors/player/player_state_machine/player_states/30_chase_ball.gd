@@ -23,8 +23,8 @@ func execute() -> void:
 				# TODO check yellow/red card
 				owner.team.foul.emit(controlling_player.pos)
 				return
-			else:
-				owner.team.stats.tackles_success += 1
+
+			owner.team.stats.tackles_success += 1
 
 	if owner.player.is_touching_ball():
 		owner.player.gain_control()

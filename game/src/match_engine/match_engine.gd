@@ -275,12 +275,12 @@ func _check_foul_result(commiting_team: SimTeam, foul_position: Vector2) -> void
 			home_team.set_state(TeamStatePenalty.new())
 			away_team.set_state(TeamStatePenalty.new())
 			return
-		else:
-			commiting_team.team_opponents.stats.penalties_10m += 1
-			field.ball.set_pos(field.penalty_areas.spot_10m_right)
-			home_team.set_state(TeamStatePenalty.new())
-			away_team.set_state(TeamStatePenalty.new())
-			return
+
+		commiting_team.team_opponents.stats.penalties_10m += 1
+		field.ball.set_pos(field.penalty_areas.spot_10m_right)
+		home_team.set_state(TeamStatePenalty.new())
+		away_team.set_state(TeamStatePenalty.new())
+		return
 
 	# free kick
 	commiting_team.team_opponents.stats.free_kicks += 1

@@ -46,7 +46,9 @@ func init_world() -> World:
 	af.code = "AF"
 	asia.nations.append(af)
 	af.locales = [
-		Locale.new("Pashto", "ps"), Locale.new("Uzbek", "uz"), Locale.new("Turkmen", "tk")
+		Locale.new("Pashto", "ps"),
+		Locale.new("Uzbek", "uz"),
+		Locale.new("Turkmen", "tk")
 	]
 	af.borders = [
 		"IR", "PK", "TM", "UZ", "TJ", "CN"
@@ -127,7 +129,10 @@ func init_world() -> World:
 	gq.code = "GQ"
 	africa.nations.append(gq)
 	gq.locales = [
-		Locale.new("Spanish", "es"), Locale.new("French", "fr"), Locale.new("Portuguese", "pt"), Locale.new("Fang", "")
+		Locale.new("Spanish", "es"),
+		Locale.new("French", "fr"),
+		Locale.new("Portuguese", "pt"),
+		Locale.new("Fang", "")
 	]
 	gq.borders = [
 		"CM", "GA"
@@ -139,7 +144,8 @@ func init_world() -> World:
 	ar.code = "AR"
 	south_america.nations.append(ar)
 	ar.locales = [
-		Locale.new("Spanish", "es"), Locale.new("Guaraní", "gn")
+		Locale.new("Spanish", "es"),
+		Locale.new("Guaraní", "gn")
 	]
 	ar.borders = [
 		"BO", "BR", "CL", "PY", "UY"
@@ -235,7 +241,8 @@ func init_world() -> World:
 	by.code = "BY"
 	europe.nations.append(by)
 	by.locales = [
-		Locale.new("Belarusian", "be"), Locale.new("Russian", "ru")
+		Locale.new("Belarusian", "be"),
+		Locale.new("Russian", "ru")
 	]
 	by.borders = [
 		"LV", "LT", "PL", "RU", "UA"
@@ -247,7 +254,9 @@ func init_world() -> World:
 	be.code = "BE"
 	europe.nations.append(be)
 	be.locales = [
-		Locale.new("Dutch", "nl"), Locale.new("French", "fr"), Locale.new("German", "de")
+		Locale.new("Dutch", "nl"),
+		Locale.new("French", "fr"),
+		Locale.new("German", "de")
 	]
 	be.borders = [
 		"FR", "DE", "LU", "NL"
@@ -259,7 +268,8 @@ func init_world() -> World:
 	bz.code = "BZ"
 	north_america.nations.append(bz)
 	bz.locales = [
-		Locale.new("English", "en"), Locale.new("Spanish", "es")
+		Locale.new("English", "en"),
+		Locale.new("Spanish", "es")
 	]
 	bz.borders = [
 		"GT", "MX"
@@ -295,7 +305,9 @@ func init_world() -> World:
 	bo.code = "BO"
 	south_america.nations.append(bo)
 	bo.locales = [
-		Locale.new("Spanish", "es"), Locale.new("Aymara", "ay"), Locale.new("Quechua", "qu")
+		Locale.new("Spanish", "es"),
+		Locale.new("Aymara", "ay"),
+		Locale.new("Quechua", "qu")
 	]
 	bo.borders = [
 		"AR", "BR", "CL", "PY", "PE"
@@ -307,7 +319,9 @@ func init_world() -> World:
 	ba.code = "BA"
 	europe.nations.append(ba)
 	ba.locales = [
-		Locale.new("Bosnian", "bs"), Locale.new("Croatian", "hr"), Locale.new("Serbian", "sr")
+		Locale.new("Bosnian", "bs"),
+		Locale.new("Croatian", "hr"),
+		Locale.new("Serbian", "sr")
 	]
 	ba.borders = [
 		"HR", "ME", "RS"
@@ -319,7 +333,8 @@ func init_world() -> World:
 	bw.code = "BW"
 	africa.nations.append(bw)
 	bw.locales = [
-		Locale.new("English", "en"), Locale.new("Tswana", "tn")
+		Locale.new("English", "en"),
+		Locale.new("Tswana", "tn")
 	]
 	bw.borders = [
 		"NA", "ZA", "ZM", "ZW"
@@ -367,7 +382,8 @@ func init_world() -> World:
 	bf.code = "BF"
 	africa.nations.append(bf)
 	bf.locales = [
-		Locale.new("French", "fr"), Locale.new("Fula", "ff")
+		Locale.new("French", "fr"),
+		Locale.new("Fula", "ff")
 	]
 	bf.borders = [
 		"BJ", "CI", "GH", "ML", "NE", "TG"
@@ -379,7 +395,8 @@ func init_world() -> World:
 	bi.code = "BI"
 	africa.nations.append(bi)
 	bi.locales = [
-		Locale.new("French", "fr"), Locale.new("Kirundi", "rn")
+		Locale.new("French", "fr"),
+		Locale.new("Kirundi", "rn")
 	]
 	bi.borders = [
 		"CD", "RW", "TZ"
@@ -406,7 +423,22 @@ func init_world() -> World:
 		Locale.new("Chinese", "zh")
 	]
 	cn.borders = [
-		"AF", "BT", "MM", "HK", "IN", "KZ", "NP", "KP", "KG", "LA", "MO", "MN", "PK", "RU", "TJ", "VN"
+		"AF",
+		"BT",
+		"MM",
+		"HK",
+		"IN",
+		"KZ",
+		"NP",
+		"KP",
+		"KG",
+		"LA",
+		"MO",
+		"MN",
+		"PK",
+		"RU",
+		"TJ",
+		"VN"
 	]
 
 	# Costa Rica
@@ -439,7 +471,11 @@ func init_world() -> World:
 	cd.code = "CD"
 	africa.nations.append(cd)
 	cd.locales = [
-		Locale.new("French", "fr"), Locale.new("Lingala", "ln"), Locale.new("Kongo", "kg"), Locale.new("Swahili", "sw"), Locale.new("Luba-Katanga", "lu")
+		Locale.new("French", "fr"),
+		Locale.new("Lingala", "ln"),
+		Locale.new("Kongo", "kg"),
+		Locale.new("Swahili", "sw"),
+		Locale.new("Luba-Katanga", "lu")
 	]
 	cd.borders = [
 		"AO", "BI", "CF", "CG", "RW", "SS", "TZ", "UG", "ZM"
@@ -484,7 +520,8 @@ func init_world() -> World:
 	dj.code = "DJ"
 	africa.nations.append(dj)
 	dj.locales = [
-		Locale.new("French", "fr"), Locale.new("Arabic", "ar")
+		Locale.new("French", "fr"),
+		Locale.new("Arabic", "ar")
 	]
 	dj.borders = [
 		"ER", "ET", "SO"
@@ -532,7 +569,15 @@ func init_world() -> World:
 	er.code = "ER"
 	africa.nations.append(er)
 	er.locales = [
-		Locale.new("Tigrinya", "ti"), Locale.new("Arabic", "ar"), Locale.new("English", "en"), Locale.new("Tigre", ""), Locale.new("Kunama", ""), Locale.new("Saho", ""), Locale.new("Bilen", ""), Locale.new("Nara", ""), Locale.new("Afar", "aa")
+		Locale.new("Tigrinya", "ti"),
+		Locale.new("Arabic", "ar"),
+		Locale.new("English", "en"),
+		Locale.new("Tigre", ""),
+		Locale.new("Kunama", ""),
+		Locale.new("Saho", ""),
+		Locale.new("Bilen", ""),
+		Locale.new("Nara", ""),
+		Locale.new("Afar", "aa")
 	]
 	er.borders = [
 		"DJ", "ET", "SD"
@@ -556,7 +601,8 @@ func init_world() -> World:
 	sz.code = "SZ"
 	africa.nations.append(sz)
 	sz.locales = [
-		Locale.new("English", "en"), Locale.new("Swati", "ss")
+		Locale.new("English", "en"),
+		Locale.new("Swati", "ss")
 	]
 	sz.borders = [
 		"MZ", "ZA"
@@ -568,7 +614,10 @@ func init_world() -> World:
 	fj.code = "FJ"
 	oceania.nations.append(fj)
 	fj.locales = [
-		Locale.new("English", "en"), Locale.new("Fijian", "fj"), Locale.new("Fiji Hindi", ""), Locale.new("Rotuman", "")
+		Locale.new("English", "en"),
+		Locale.new("Fijian", "fj"),
+		Locale.new("Fiji Hindi", ""),
+		Locale.new("Rotuman", "")
 	]
 
 	# Finland
@@ -577,7 +626,8 @@ func init_world() -> World:
 	fi.code = "FI"
 	europe.nations.append(fi)
 	fi.locales = [
-		Locale.new("Finnish", "fi"), Locale.new("Swedish", "sv")
+		Locale.new("Finnish", "fi"),
+		Locale.new("Swedish", "sv")
 	]
 	fi.borders = [
 		"NO", "SE", "RU"
@@ -703,7 +753,8 @@ func init_world() -> World:
 	gn.code = "GN"
 	africa.nations.append(gn)
 	gn.locales = [
-		Locale.new("French", "fr"), Locale.new("Fula", "ff")
+		Locale.new("French", "fr"),
+		Locale.new("Fula", "ff")
 	]
 	gn.borders = [
 		"CI", "GW", "LR", "ML", "SN", "SL"
@@ -739,7 +790,8 @@ func init_world() -> World:
 	ht.code = "HT"
 	north_america.nations.append(ht)
 	ht.locales = [
-		Locale.new("French", "fr"), Locale.new("Haitian", "ht")
+		Locale.new("French", "fr"),
+		Locale.new("Haitian", "ht")
 	]
 	ht.borders = [
 		"DO"
@@ -763,7 +815,8 @@ func init_world() -> World:
 	ind.code = "IN"
 	asia.nations.append(ind)
 	ind.locales = [
-		Locale.new("Hindi", "hi"), Locale.new("English", "en")
+		Locale.new("Hindi", "hi"),
+		Locale.new("English", "en")
 	]
 	ind.borders = [
 		"BD", "BT", "MM", "CN", "NP", "PK"
@@ -787,7 +840,8 @@ func init_world() -> World:
 	iq.code = "IQ"
 	asia.nations.append(iq)
 	iq.locales = [
-		Locale.new("Arabic", "ar"), Locale.new("Kurdish", "ku")
+		Locale.new("Arabic", "ar"),
+		Locale.new("Kurdish", "ku")
 	]
 	iq.borders = [
 		"IR", "JO", "KW", "SA", "SY", "TR"
@@ -811,7 +865,8 @@ func init_world() -> World:
 	ie.code = "IE"
 	europe.nations.append(ie)
 	ie.locales = [
-		Locale.new("Irish", "ga"), Locale.new("English", "en")
+		Locale.new("Irish", "ga"),
+		Locale.new("English", "en")
 	]
 	ie.borders = [
 		"GB"
@@ -832,7 +887,8 @@ func init_world() -> World:
 	il.code = "IL"
 	asia.nations.append(il)
 	il.locales = [
-		Locale.new("Hebrew", "he"), Locale.new("Arabic", "ar")
+		Locale.new("Hebrew", "he"),
+		Locale.new("Arabic", "ar")
 	]
 	il.borders = [
 		"EG", "JO", "LB", "PS", "SY"
@@ -910,7 +966,8 @@ func init_world() -> World:
 	cm.code = "CM"
 	africa.nations.append(cm)
 	cm.locales = [
-		Locale.new("English", "en"), Locale.new("French", "fr")
+		Locale.new("English", "en"),
+		Locale.new("French", "fr")
 	]
 	cm.borders = [
 		"CF", "TD", "CG", "GQ", "GA", "NG"
@@ -922,7 +979,8 @@ func init_world() -> World:
 	ca.code = "CA"
 	north_america.nations.append(ca)
 	ca.locales = [
-		Locale.new("English", "en"), Locale.new("French", "fr")
+		Locale.new("English", "en"),
+		Locale.new("French", "fr")
 	]
 	ca.borders = [
 		"US"
@@ -943,7 +1001,8 @@ func init_world() -> World:
 	kz.code = "KZ"
 	asia.nations.append(kz)
 	kz.locales = [
-		Locale.new("Kazakh", "kk"), Locale.new("Russian", "ru")
+		Locale.new("Kazakh", "kk"),
+		Locale.new("Russian", "ru")
 	]
 	kz.borders = [
 		"CN", "KG", "RU", "TM", "UZ"
@@ -967,7 +1026,8 @@ func init_world() -> World:
 	ke.code = "KE"
 	africa.nations.append(ke)
 	ke.locales = [
-		Locale.new("English", "en"), Locale.new("Swahili", "sw")
+		Locale.new("English", "en"),
+		Locale.new("Swahili", "sw")
 	]
 	ke.borders = [
 		"ET", "SO", "SS", "TZ", "UG"
@@ -979,7 +1039,8 @@ func init_world() -> World:
 	kg.code = "KG"
 	asia.nations.append(kg)
 	kg.locales = [
-		Locale.new("Kyrgyz", "ky"), Locale.new("Russian", "ru")
+		Locale.new("Kyrgyz", "ky"),
+		Locale.new("Russian", "ru")
 	]
 	kg.borders = [
 		"CN", "KZ", "TJ", "UZ"
@@ -1012,7 +1073,8 @@ func init_world() -> World:
 	km.code = "KM"
 	africa.nations.append(km)
 	km.locales = [
-		Locale.new("Arabic", "ar"), Locale.new("French", "fr")
+		Locale.new("Arabic", "ar"),
+		Locale.new("French", "fr")
 	]
 
 	# Kosovo
@@ -1021,7 +1083,8 @@ func init_world() -> World:
 	xk.code = "XK"
 	europe.nations.append(xk)
 	xk.locales = [
-		Locale.new("Albanian", "sq"), Locale.new("Serbian", "sr")
+		Locale.new("Albanian", "sq"),
+		Locale.new("Serbian", "sr")
 	]
 	xk.borders = [
 		"AL", "MK", "ME", "RS"
@@ -1078,7 +1141,8 @@ func init_world() -> World:
 	ls.code = "LS"
 	africa.nations.append(ls)
 	ls.locales = [
-		Locale.new("English", "en"), Locale.new("Southern Sotho", "st")
+		Locale.new("English", "en"),
+		Locale.new("Southern Sotho", "st")
 	]
 	ls.borders = [
 		"ZA"
@@ -1102,7 +1166,8 @@ func init_world() -> World:
 	lb.code = "LB"
 	asia.nations.append(lb)
 	lb.locales = [
-		Locale.new("Arabic", "ar"), Locale.new("French", "fr")
+		Locale.new("Arabic", "ar"),
+		Locale.new("French", "fr")
 	]
 	lb.borders = [
 		"IL", "SY"
@@ -1162,7 +1227,9 @@ func init_world() -> World:
 	lu.code = "LU"
 	europe.nations.append(lu)
 	lu.locales = [
-		Locale.new("French", "fr"), Locale.new("German", "de"), Locale.new("Luxembourgish", "lb")
+		Locale.new("French", "fr"),
+		Locale.new("German", "de"),
+		Locale.new("Luxembourgish", "lb")
 	]
 	lu.borders = [
 		"BE", "FR", "DE"
@@ -1174,7 +1241,8 @@ func init_world() -> World:
 	mg.code = "MG"
 	africa.nations.append(mg)
 	mg.locales = [
-		Locale.new("French", "fr"), Locale.new("Malagasy", "mg")
+		Locale.new("French", "fr"),
+		Locale.new("Malagasy", "mg")
 	]
 
 	# Malawi
@@ -1183,7 +1251,8 @@ func init_world() -> World:
 	mw.code = "MW"
 	africa.nations.append(mw)
 	mw.locales = [
-		Locale.new("English", "en"), Locale.new("Chichewa", "ny")
+		Locale.new("English", "en"),
+		Locale.new("Chichewa", "ny")
 	]
 	mw.borders = [
 		"MZ", "TZ", "ZM"
@@ -1228,7 +1297,8 @@ func init_world() -> World:
 	mt.code = "MT"
 	europe.nations.append(mt)
 	mt.locales = [
-		Locale.new("Maltese", "mt"), Locale.new("English", "en")
+		Locale.new("Maltese", "mt"),
+		Locale.new("English", "en")
 	]
 
 	# Morocco
@@ -1249,7 +1319,8 @@ func init_world() -> World:
 	mh.code = "MH"
 	oceania.nations.append(mh)
 	mh.locales = [
-		Locale.new("English", "en"), Locale.new("Marshallese", "mh")
+		Locale.new("English", "en"),
+		Locale.new("Marshallese", "mh")
 	]
 
 	# Mauritania
@@ -1315,7 +1386,10 @@ func init_world() -> World:
 	me.code = "ME"
 	europe.nations.append(me)
 	me.locales = [
-		Locale.new("Serbian", "sr"), Locale.new("Bosnian", "bs"), Locale.new("Albanian", "sq"), Locale.new("Croatian", "hr")
+		Locale.new("Serbian", "sr"),
+		Locale.new("Bosnian", "bs"),
+		Locale.new("Albanian", "sq"),
+		Locale.new("Croatian", "hr")
 	]
 	me.borders = [
 		"AL", "BA", "HR", "XK", "RS"
@@ -1351,7 +1425,8 @@ func init_world() -> World:
 	na.code = "NA"
 	africa.nations.append(na)
 	na.locales = [
-		Locale.new("English", "en"), Locale.new("Afrikaans", "af")
+		Locale.new("English", "en"),
+		Locale.new("Afrikaans", "af")
 	]
 	na.borders = [
 		"AO", "BW", "ZA", "ZM"
@@ -1363,7 +1438,8 @@ func init_world() -> World:
 	nr.code = "NR"
 	oceania.nations.append(nr)
 	nr.locales = [
-		Locale.new("English", "en"), Locale.new("Nauruan", "na")
+		Locale.new("English", "en"),
+		Locale.new("Nauruan", "na")
 	]
 
 	# Nepal
@@ -1384,7 +1460,8 @@ func init_world() -> World:
 	nz.code = "NZ"
 	oceania.nations.append(nz)
 	nz.locales = [
-		Locale.new("English", "en"), Locale.new("Māori", "mi")
+		Locale.new("English", "en"),
+		Locale.new("Māori", "mi")
 	]
 
 	# Nicaragua
@@ -1465,7 +1542,9 @@ func init_world() -> World:
 	no.code = "NO"
 	europe.nations.append(no)
 	no.locales = [
-		Locale.new("Norwegian", "no"), Locale.new("Norwegian Bokmål", "nb"), Locale.new("Norwegian Nynorsk", "nn")
+		Locale.new("Norwegian", "no"),
+		Locale.new("Norwegian Bokmål", "nb"),
+		Locale.new("Norwegian Nynorsk", "nn")
 	]
 	no.borders = [
 		"FI", "SE", "RU"
@@ -1513,7 +1592,8 @@ func init_world() -> World:
 	pk.code = "PK"
 	asia.nations.append(pk)
 	pk.locales = [
-		Locale.new("Urdu", "ur"), Locale.new("English", "en")
+		Locale.new("Urdu", "ur"),
+		Locale.new("English", "en")
 	]
 	pk.borders = [
 		"AF", "CN", "IN", "IR"
@@ -1570,7 +1650,8 @@ func init_world() -> World:
 	py.code = "PY"
 	south_america.nations.append(py)
 	py.locales = [
-		Locale.new("Spanish", "es"), Locale.new("Guaraní", "gn")
+		Locale.new("Spanish", "es"),
+		Locale.new("Guaraní", "gn")
 	]
 	py.borders = [
 		"AR", "BO", "BR"
@@ -1627,7 +1708,8 @@ func init_world() -> World:
 	cg.code = "CG"
 	africa.nations.append(cg)
 	cg.locales = [
-		Locale.new("French", "fr"), Locale.new("Lingala", "ln")
+		Locale.new("French", "fr"),
+		Locale.new("Lingala", "ln")
 	]
 	cg.borders = [
 		"AO", "CM", "CF", "CD", "GA"
@@ -1639,7 +1721,9 @@ func init_world() -> World:
 	rw.code = "RW"
 	africa.nations.append(rw)
 	rw.locales = [
-		Locale.new("Kinyarwanda", "rw"), Locale.new("English", "en"), Locale.new("French", "fr")
+		Locale.new("Kinyarwanda", "rw"),
+		Locale.new("English", "en"),
+		Locale.new("French", "fr")
 	]
 	rw.borders = [
 		"BI", "CD", "TZ", "UG"
@@ -1696,7 +1780,8 @@ func init_world() -> World:
 	ws.code = "WS"
 	oceania.nations.append(ws)
 	ws.locales = [
-		Locale.new("Samoan", "sm"), Locale.new("English", "en")
+		Locale.new("Samoan", "sm"),
+		Locale.new("English", "en")
 	]
 
 	# San Marino
@@ -1750,7 +1835,10 @@ func init_world() -> World:
 	ch.code = "CH"
 	europe.nations.append(ch)
 	ch.locales = [
-		Locale.new("German", "de"), Locale.new("French", "fr"), Locale.new("Italian", "it"), Locale.new("Romansh", "rm")
+		Locale.new("German", "de"),
+		Locale.new("French", "fr"),
+		Locale.new("Italian", "it"),
+		Locale.new("Romansh", "rm")
 	]
 	ch.borders = [
 		"AT", "FR", "IT", "LI", "DE"
@@ -1786,7 +1874,8 @@ func init_world() -> World:
 	sc.code = "SC"
 	africa.nations.append(sc)
 	sc.locales = [
-		Locale.new("French", "fr"), Locale.new("English", "en")
+		Locale.new("French", "fr"),
+		Locale.new("English", "en")
 	]
 
 	# Sierra Leone
@@ -1807,7 +1896,9 @@ func init_world() -> World:
 	zw.code = "ZW"
 	africa.nations.append(zw)
 	zw.locales = [
-		Locale.new("English", "en"), Locale.new("Shona", "sn"), Locale.new("Northern Ndebele", "nd")
+		Locale.new("English", "en"),
+		Locale.new("Shona", "sn"),
+		Locale.new("Northern Ndebele", "nd")
 	]
 	zw.borders = [
 		"BW", "MZ", "ZA", "ZM"
@@ -1819,7 +1910,10 @@ func init_world() -> World:
 	sg.code = "SG"
 	asia.nations.append(sg)
 	sg.locales = [
-		Locale.new("English", "en"), Locale.new("Malay", "ms"), Locale.new("Tamil", "ta"), Locale.new("Chinese", "zh")
+		Locale.new("English", "en"),
+		Locale.new("Malay", "ms"),
+		Locale.new("Tamil", "ta"),
+		Locale.new("Chinese", "zh")
 	]
 
 	# Slovakia
@@ -1852,7 +1946,8 @@ func init_world() -> World:
 	so.code = "SO"
 	africa.nations.append(so)
 	so.locales = [
-		Locale.new("Somali", "so"), Locale.new("Arabic", "ar")
+		Locale.new("Somali", "so"),
+		Locale.new("Arabic", "ar")
 	]
 	so.borders = [
 		"DJ", "ET", "KE"
@@ -1876,7 +1971,8 @@ func init_world() -> World:
 	lk.code = "LK"
 	asia.nations.append(lk)
 	lk.locales = [
-		Locale.new("Sinhalese", "si"), Locale.new("Tamil", "ta")
+		Locale.new("Sinhalese", "si"),
+		Locale.new("Tamil", "ta")
 	]
 	lk.borders = [
 		"IN"
@@ -1915,7 +2011,16 @@ func init_world() -> World:
 	za.code = "ZA"
 	africa.nations.append(za)
 	za.locales = [
-		Locale.new("Afrikaans", "af"), Locale.new("English", "en"), Locale.new("Southern Ndebele", "nr"), Locale.new("Southern Sotho", "st"), Locale.new("Swati", "ss"), Locale.new("Tswana", "tn"), Locale.new("Tsonga", "ts"), Locale.new("Venda", "ve"), Locale.new("Xhosa", "xh"), Locale.new("Zulu", "zu")
+		Locale.new("Afrikaans", "af"),
+		Locale.new("English", "en"),
+		Locale.new("Southern Ndebele", "nr"),
+		Locale.new("Southern Sotho", "st"),
+		Locale.new("Swati", "ss"),
+		Locale.new("Tswana", "tn"),
+		Locale.new("Tsonga", "ts"),
+		Locale.new("Venda", "ve"),
+		Locale.new("Xhosa", "xh"),
+		Locale.new("Zulu", "zu")
 	]
 	za.borders = [
 		"BW", "LS", "MZ", "NA", "SZ", "ZW"
@@ -1927,7 +2032,8 @@ func init_world() -> World:
 	sd.code = "SD"
 	africa.nations.append(sd)
 	sd.locales = [
-		Locale.new("Arabic", "ar"), Locale.new("English", "en")
+		Locale.new("Arabic", "ar"),
+		Locale.new("English", "en")
 	]
 	sd.borders = [
 		"CF", "TD", "EG", "ER", "ET", "LY", "SS"
@@ -1987,7 +2093,8 @@ func init_world() -> World:
 	tj.code = "TJ"
 	asia.nations.append(tj)
 	tj.locales = [
-		Locale.new("Tajik", "tg"), Locale.new("Russian", "ru")
+		Locale.new("Tajik", "tg"),
+		Locale.new("Russian", "ru")
 	]
 	tj.borders = [
 		"AF", "CN", "KG", "UZ"
@@ -2008,7 +2115,8 @@ func init_world() -> World:
 	tz.code = "TZ"
 	africa.nations.append(tz)
 	tz.locales = [
-		Locale.new("Swahili", "sw"), Locale.new("English", "en")
+		Locale.new("Swahili", "sw"),
+		Locale.new("English", "en")
 	]
 	tz.borders = [
 		"BI", "CD", "KE", "MW", "MZ", "RW", "UG", "ZM"
@@ -2044,7 +2152,8 @@ func init_world() -> World:
 	to.code = "TO"
 	oceania.nations.append(to)
 	to.locales = [
-		Locale.new("English", "en"), Locale.new("Tonga (Tonga Islands)", "to")
+		Locale.new("English", "en"),
+		Locale.new("Tonga (Tonga Islands)", "to")
 	]
 
 	# Trinidad and Tobago
@@ -2062,7 +2171,8 @@ func init_world() -> World:
 	td.code = "TD"
 	africa.nations.append(td)
 	td.locales = [
-		Locale.new("French", "fr"), Locale.new("Arabic", "ar")
+		Locale.new("French", "fr"),
+		Locale.new("Arabic", "ar")
 	]
 	td.borders = [
 		"CM", "CF", "LY", "NE", "NG", "SD"
@@ -2074,7 +2184,8 @@ func init_world() -> World:
 	cz.code = "CZ"
 	europe.nations.append(cz)
 	cz.locales = [
-		Locale.new("Czech", "cs"), Locale.new("Slovak", "sk")
+		Locale.new("Czech", "cs"),
+		Locale.new("Slovak", "sk")
 	]
 	cz.borders = [
 		"AT", "DE", "PL", "SK"
@@ -2110,7 +2221,8 @@ func init_world() -> World:
 	tm.code = "TM"
 	asia.nations.append(tm)
 	tm.locales = [
-		Locale.new("Turkmen", "tk"), Locale.new("Russian", "ru")
+		Locale.new("Turkmen", "tk"),
+		Locale.new("Russian", "ru")
 	]
 	tm.borders = [
 		"AF", "IR", "KZ", "UZ"
@@ -2131,7 +2243,8 @@ func init_world() -> World:
 	ug.code = "UG"
 	africa.nations.append(ug)
 	ug.locales = [
-		Locale.new("English", "en"), Locale.new("Swahili", "sw")
+		Locale.new("English", "en"),
+		Locale.new("Swahili", "sw")
 	]
 	ug.borders = [
 		"CD", "KE", "RW", "SS", "TZ"
@@ -2179,7 +2292,8 @@ func init_world() -> World:
 	uz.code = "UZ"
 	asia.nations.append(uz)
 	uz.locales = [
-		Locale.new("Uzbek", "uz"), Locale.new("Russian", "ru")
+		Locale.new("Uzbek", "uz"),
+		Locale.new("Russian", "ru")
 	]
 	uz.borders = [
 		"AF", "KZ", "KG", "TJ", "TM"
@@ -2191,7 +2305,9 @@ func init_world() -> World:
 	vu.code = "VU"
 	oceania.nations.append(vu)
 	vu.locales = [
-		Locale.new("Bislama", "bi"), Locale.new("English", "en"), Locale.new("French", "fr")
+		Locale.new("Bislama", "bi"),
+		Locale.new("English", "en"),
+		Locale.new("French", "fr")
 	]
 
 	# Vatican City
@@ -2200,7 +2316,10 @@ func init_world() -> World:
 	va.code = "VA"
 	europe.nations.append(va)
 	va.locales = [
-		Locale.new("Latin", "la"), Locale.new("Italian", "it"), Locale.new("French", "fr"), Locale.new("German", "de")
+		Locale.new("Latin", "la"),
+		Locale.new("Italian", "it"),
+		Locale.new("French", "fr"),
+		Locale.new("German", "de")
 	]
 	va.borders = [
 		"IT"
@@ -2273,7 +2392,8 @@ func init_world() -> World:
 	cf.code = "CF"
 	africa.nations.append(cf)
 	cf.locales = [
-		Locale.new("French", "fr"), Locale.new("Sango", "sg")
+		Locale.new("French", "fr"),
+		Locale.new("Sango", "sg")
 	]
 	cf.borders = [
 		"CM", "TD", "CD", "CG", "SS", "SD"
@@ -2285,12 +2405,18 @@ func init_world() -> World:
 	cy.code = "CY"
 	asia.nations.append(cy)
 	cy.locales = [
-		Locale.new("Greek", "el"), Locale.new("Turkish", "tr"), Locale.new("Armenian", "hy")
+		Locale.new("Greek", "el"),
+		Locale.new("Turkish", "tr"),
+		Locale.new("Armenian", "hy")
 	]
 
-	# sort continents, nations alphabetically
-	world.continents.sort_custom(func(a: Continent, b: Continent) -> bool: return a.name < b.name)
+	# sort continents alphabetically
+	world.continents.sort_custom(func(a: Continent, b: Continent) -> bool:
+		return a.name < b.name)
+
+	# sort nations alphabetically
 	for continent: Continent in world.continents:
-		continent.nations.sort_custom(func(a: Nation, b: Nation) -> bool: return a.name < b.name)
+		continent.nations.sort_custom(func(a: Nation, b: Nation) -> bool:
+			return a.name < b.name)
 
 	return world

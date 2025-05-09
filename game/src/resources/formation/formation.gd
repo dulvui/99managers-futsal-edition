@@ -16,6 +16,14 @@ enum Variations {
 	F1400,
 }
 
+# defines if automated changes and strategy
+enum ChangeStrategy {
+	# change players if stamina is low
+	AUTO,
+	# manual change
+	MANUAL,
+}
+
 const VARIATIONS_TEXT: Array[String] = [
 	"2-2",
 	"1-2-1",
@@ -25,14 +33,6 @@ const VARIATIONS_TEXT: Array[String] = [
 	"3-1",
 	"4-0",
 ]
-
-# defines if automated changes and strategy
-enum ChangeStrategy {
-	# change players if stamina is low
-	AUTO,
-	# manual change
-	MANUAL,
-}
 
 const CHANGE_STRATEGY_TEXT: Array[String] = [
 	"Auto",

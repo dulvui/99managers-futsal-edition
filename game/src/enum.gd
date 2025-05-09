@@ -16,8 +16,6 @@ enum PlayerNames {
 	MIXED,
 }
 
-var player_names: Array[String] = ["Male", "Female","Mixed"]
-
 enum GenerationError {
 	ERR_READ_FILE,
 	ERR_FILE_TOO_BIG,
@@ -89,7 +87,6 @@ enum InputDetectionMode {
 	AUTO,
 	MANUAL,
 }
-var input_detection_mode: Array[String] = ["Automatic", "Manual"]
 
 enum InputType {
 	JOYPAD,
@@ -97,13 +94,14 @@ enum InputType {
 	TOUCHSCREEN,
 }
 
-var input_type: Array[String] = ["Joypad", "Mouse and keybaord","Touchscreen"]
 
 #
-# offers
+# text vars
 #
-
 var offer_timings: Array[String] = ["Immediate", "Next transfer window"]
+var player_names: Array[String] = ["Male", "Female","Mixed"]
+var input_detection_mode: Array[String] = ["Automatic", "Manual"]
+var input_type: Array[String] = ["Joypad", "Mouse and keybaord","Touchscreen"]
 
 
 #

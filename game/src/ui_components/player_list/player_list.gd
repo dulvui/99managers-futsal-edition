@@ -228,70 +228,63 @@ func _sort_players(sort_key: String) -> void:
 	_set_sorting(sort_key)
 	match active_view:
 		Views.MENTAL:
-			players.sort_custom(
-				func(a: Player, b: Player) -> bool:
-					if sorting[sort_key]:
-						return a.attributes.mental.get(sort_key) > b.attributes.mental.get(sort_key)
-					else:
-						return a.attributes.mental.get(sort_key) < b.attributes.mental.get(sort_key)
+			players.sort_custom(func(a: Player, b: Player) -> bool:
+				if sorting[sort_key]:
+					return a.attributes.mental.get(sort_key) > b.attributes.mental.get(sort_key)
+				else:
+					return a.attributes.mental.get(sort_key) < b.attributes.mental.get(sort_key)
 			)
 		Views.PHYSICAL:
-			players.sort_custom(
-				func(a: Player, b: Player) -> bool:
-					if sorting[sort_key]:
-						return a.attributes.physical.get(sort_key) > b.attributes.physical.get(sort_key)
-					else:
-						return a.attributes.physical.get(sort_key) < b.attributes.physical.get(sort_key)
+			players.sort_custom(func(a: Player, b: Player) -> bool:
+				if sorting[sort_key]:
+					return a.attributes.physical.get(sort_key) > b.attributes.physical.get(sort_key)
+				else:
+					return a.attributes.physical.get(sort_key) < b.attributes.physical.get(sort_key)
 			)
 		Views.TECHNICAL:
-			players.sort_custom(
-				func(a: Player, b: Player) -> bool:
-					if sorting[sort_key]:
-						return a.attributes.technical.get(sort_key) > b.attributes.technical.get(sort_key)
-					else:
-						return a.attributes.technical.get(sort_key) < b.attributes.technical.get(sort_key)
+			players.sort_custom(func(a: Player, b: Player) -> bool:
+				if sorting[sort_key]:
+					return a.attributes.technical.get(sort_key) > b.attributes.technical.get(sort_key)
+				else:
+					return a.attributes.technical.get(sort_key) < b.attributes.technical.get(sort_key)
 			)
 		Views.GOALKEEPER:
-			players.sort_custom(
-				func(a: Player, b: Player) -> bool:
-					if sorting[sort_key]:
-						return a.attributes.goalkeeper.get(sort_key) > b.attributes.goalkeeper.get(sort_key)
-					else:
-						return a.attributes.goalkeeper.get(sort_key) < b.attributes.goalkeeper.get(sort_key)
+			players.sort_custom(func(a: Player, b: Player) -> bool:
+				if sorting[sort_key]:
+					return a.attributes.goalkeeper.get(sort_key) > b.attributes.goalkeeper.get(sort_key)
+				else:
+					return a.attributes.goalkeeper.get(sort_key) < b.attributes.goalkeeper.get(sort_key)
 			)
 		Views.CONTRACT:
-			players.sort_custom(
-				func(a: Player, b: Player) -> bool:
-					# start/end date
-					if "date" in sort_key:
-						var date_a: Dictionary = a.contract.get(sort_key)
-						var date_b: Dictionary = a.contract.get(sort_key)
-						return _sort_date(date_a, date_b, sorting[sort_key])
-					# all other properties
-					if sorting[sort_key]:
-						return a.contract.get(sort_key) > b.contract.get(sort_key)
-					else:
-						return a.contract.get(sort_key) < b.contract.get(sort_key)
+			players.sort_custom(func(a: Player, b: Player) -> bool:
+				# start/end date
+				if "date" in sort_key:
+					var date_a: Dictionary = a.contract.get(sort_key)
+					var date_b: Dictionary = a.contract.get(sort_key)
+					return _sort_date(date_a, date_b, sorting[sort_key])
+				# all other properties
+				if sorting[sort_key]:
+					return a.contract.get(sort_key) > b.contract.get(sort_key)
+				else:
+					return a.contract.get(sort_key) < b.contract.get(sort_key)
 			)
 		Views.STATS:
-			players.sort_custom(
-				func(a: Player, b: Player) -> bool:
-					if sorting[sort_key]:
-						return a.statistics.get(sort_key) > b.statistics.get(sort_key)
-					else:
-						return a.statistics.get(sort_key) < b.statistics.get(sort_key)
+			players.sort_custom(func(a: Player, b: Player) -> bool:
+				if sorting[sort_key]:
+					return a.statistics.get(sort_key) > b.statistics.get(sort_key)
+				else:
+					return a.statistics.get(sort_key) < b.statistics.get(sort_key)
 			)
 		_:
-			players.sort_custom(
-				func(a: Player, b: Player) -> bool:
-					if "date" in sort_key:
-						var date_a: Dictionary = a.get(sort_key)
-						var date_b: Dictionary = b.get(sort_key)
-						return _sort_date(date_a, date_b, sorting[sort_key])
-					if sorting[sort_key]:
-						return _sort_player(a, sort_key) > _sort_player(b, sort_key)
-					else:
-						return _sort_player(a, sort_key) < _sort_player(b, sort_key)
+			players.sort_custom(func(a: Player, b: Player) -> bool:
+				if "date" in sort_key:
+					var date_a: Dictionary = a.get(sort_key)
+					var date_b: Dictionary = b.get(sort_key)
+					return _sort_date(date_a, date_b, sorting[sort_key])
+				if sorting[sort_key]:
+					return _sort_player(a, sort_key) > _sort_player(b, sort_key)
+				else:
+					return _sort_player(a, sort_key) < _sort_player(b, sort_key)
 			)
 
 

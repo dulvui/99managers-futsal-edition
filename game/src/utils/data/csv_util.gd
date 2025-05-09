@@ -615,14 +615,14 @@ func read_csv(path: String, after_backup: bool = false) -> Array[PackedStringArr
 		if after_backup:
 			print("opening file %s error with code %d" % [path, err])
 			return []
-		else:
-			print("opening file %s error with code %d, restoring backup..." % [path, err])
-			var backup_result: bool = backup_util.restore(path)
-			if backup_result:
-				return read_csv(path, true)
-			else:
-				print("error while restoring backup")
-				return []
+
+		print("opening file %s error with code %d, restoring backup..." % [path, err])
+		var backup_result: bool = backup_util.restore(path)
+		if backup_result:
+			return read_csv(path, true)
+
+		print("error while restoring backup")
+		return []
 
 	var csv: Array[PackedStringArray] = []
 	while not file.eof_reached():
@@ -634,7 +634,9 @@ func read_csv(path: String, after_backup: bool = false) -> Array[PackedStringArr
 	return csv
 
 
-func _player_to_line(player: Player, nation: Nation = null, league: League = null, team: Team = null) -> PackedStringArray:
+func _player_to_line(
+	player: Player, nation: Nation = null, league: League = null, team: Team = null
+) -> PackedStringArray:
 	var player_line: PackedStringArray = PackedStringArray()
 
 	# check if free agent
