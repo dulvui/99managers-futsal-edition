@@ -184,14 +184,6 @@ func _on_match_finsh() -> void:
 
 	events.full_time(home_stats.goals, away_stats.goals)
 
-	# assign result
-	matchz.set_result(
-		home_stats.goals,
-		away_stats.goals,
-		home_stats.penalty_shootout_goals,
-		away_stats.penalty_shootout_shots,
-	)
-
 #
 # button pressed signals
 #

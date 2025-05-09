@@ -35,14 +35,17 @@ func test_deterministic_simulations() -> void:
 			# use always same match id/seed
 			matchz.id = i
 			match_engine.setup(matchz, home_team, away_team)
+
+			print("test: simulating match...")
+			var start_time: int = Time.get_ticks_msec()
+
 			match_engine.simulate()
 
-			matchz.set_result(
-				match_engine.home_team.stats.goals,
-				match_engine.away_team.stats.goals,
-				match_engine.home_team.stats.penalty_shootout_goals,
-				match_engine.away_team.stats.penalty_shootout_goals,
-			)
+			# print milliseconds passed for simulation
+			var load_time: int = Time.get_ticks_msec() - start_time
+			print("test: simulated in: " + str(load_time) + " ms")
+			print("test: result: %d - %d" % [matchz.home_goals, matchz.away_goals])
+
 			print("test: match %d with seed %d calculated" % [j + 1, i])
 
 		# check results

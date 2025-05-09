@@ -47,8 +47,8 @@ var kickin: bool
 var corner: bool
 var penalty: bool
 var free_kick: bool
-
 var penalties: bool
+
 # flag to see if during penalties goalkeeper and player are ready
 # could potentially be replaced with referree
 var penalty_ready: bool

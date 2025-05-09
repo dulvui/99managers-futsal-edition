@@ -12,37 +12,41 @@ signal match_finish
 signal goal
 signal key_action
 
+var matchz: Match
+
 var field: SimField
 var home_team: SimTeam
 var away_team: SimTeam
-
 var left_team: SimTeam
 var right_team: SimTeam
 
+# all ticks, when clock is running and not running
 var ticks: int
-var time_ticks: int
-var time: int
+# ticks only when clock is running
+var ticks_clock: int
+# real time seconds every Const.TICKS
+var seconds: int
 # to debug and prevent endless simulation/games
 var ticks_clock_not_running: int
 
 # stats
 var possession_counter: float
 
-# flags
+# time flags
 var no_draw: bool
-var over_time: bool
-var penalties: bool
+var overtime: bool
 var match_over: bool
 
 var rng: RngUtil
 
 
 func setup(p_matchz: Match, p_home_team: Team = null, p_away_team: Team = null) -> void:
-	rng = RngUtil.new(str(p_matchz.id))
+	matchz = p_matchz
 
-	no_draw = p_matchz.no_draw
-	over_time = false
-	penalties = false
+	rng = RngUtil.new(str(matchz.id))
+
+	no_draw = matchz.no_draw
+	overtime = false
 	match_over = false
 
 	field = SimField.new()
@@ -54,8 +58,8 @@ func setup(p_matchz: Match, p_home_team: Team = null, p_away_team: Team = null) 
 	field.goal_right.connect(_on_goal_right)
 
 	ticks = 0
-	time_ticks = 0
-	time = 0
+	ticks_clock = 0
+	seconds = 0
 	possession_counter = 0.0
 	ticks_clock_not_running = 0
 
@@ -67,9 +71,9 @@ func setup(p_matchz: Match, p_home_team: Team = null, p_away_team: Team = null) 
 	var home_res: Team = p_home_team
 	var away_res: Team = p_away_team
 	if home_res == null:
-		home_res = Global.world.get_team_by_id(p_matchz.home.id, p_matchz.competition_id)
+		home_res = Global.world.get_team_by_id(matchz.home.id, matchz.competition_id)
 	if away_res == null:
-		away_res = Global.world.get_team_by_id(p_matchz.away.id, p_matchz.competition_id)
+		away_res = Global.world.get_team_by_id(matchz.away.id, matchz.competition_id)
 
 	home_team = SimTeam.new(rng)
 	away_team = SimTeam.new(rng)
@@ -94,131 +98,131 @@ func setup(p_matchz: Match, p_home_team: Team = null, p_away_team: Team = null) 
 		no_draw = true
 		_on_half_time()
 		_on_full_time()
-		_on_over_time()
-		_on_full_over_time()
+		_on_overtime()
+		_on_full_overtime()
 
 
 func update() -> void:
 	ticks += 1
 
-	# teams/players state machines update less frequent
+	# teams/players logic/state machine updates
 	if ticks % Const.TICKS_LOGIC == 0:
 		left_team.update()
 		right_team.update()
 
 	# players movements
-	# before field update, to detect colissions on tick earlier
+	# before field update, to detect collisions on tick earlier
 	left_team.move()
 	right_team.move()
 
 	# field/ball updates more frequently on every tick
-	# for better colission detections
+	# for better collision detection
 	field.update()
 
-	# time related code
-	if field.clock_running:
-		ticks_clock_not_running = 0
-		# update real time in seconds
-		time_ticks += 1
-		if time_ticks % Const.TICKS == 0:
-			time += 1
-
-			# update posession stats
-			if home_team.has_ball:
-				possession_counter += 1
-			home_team.stats.possession = int(possession_counter / time * 100.0)
-			away_team.stats.possession = 100 - home_team.stats.possession
-
-			# time control
-			if time == Const.HALF_TIME_SECONDS:
-				_on_half_time()
-			elif time == Const.FULL_TIME_SECONDS:
-				_on_full_time()
-			elif over_time:
-				if time == Const.OVER_TIME_SECONDS:
-					_on_over_time()
-				elif time == Const.FULL_OVER_TIME_SECONDS:
-					_on_full_over_time()
-	else:
+	# clock not running
+	if not field.clock_running:
 		# for debugging and match stuck diagnosis
 		ticks_clock_not_running += 1
 		if ticks_clock_not_running > 20 * Const.TICKS:
 			push_error("clock not running for over 20 seconds...")
 			breakpoint
+		return
+
+	# clock running
+	ticks_clock += 1
+	ticks_clock_not_running = 0
+
+	# wait to reach needed ticks for one second
+	if ticks_clock % Const.TICKS != 0:
+		return
+
+	# update real time in seconds
+	seconds += 1
+
+	# update possession stats
+	if home_team.has_ball:
+		possession_counter += 1
+	home_team.stats.possession = int(possession_counter / seconds * 100.0)
+	away_team.stats.possession = 100 - home_team.stats.possession
+
+	# break or over checks
+	match seconds:
+		Const.HALF_TIME_SECONDS:
+			_on_half_time()
+		Const.FULL_TIME_SECONDS:
+			_on_full_time()
+		Const.OVER_TIME_SECONDS:
+			_on_overtime()
+		Const.FULL_OVER_TIME_SECONDS:
+			_on_full_overtime()
 
 
-func simulate(end_time: int = -1) -> void:
-	print("simulating match...")
-	var start_time: int = Time.get_ticks_msec()
-
-	# save simulated flags, to restore if endtime < FULL_TIME_SECONDS
+func simulate(end_seconds: int = -1) -> void:
+	# save simulated flags, to restore if end_seconds < FULL_TIME_SECONDS
 	var home_simulated: bool = home_team.simulated
 	var away_simulated: bool = away_team.simulated
 	# set simulation flags to activate auto changes ecc
 	home_team.simulated = true
 	away_team.simulated = true
 
-	# simulate game to given end time
-	if end_time > 0:
-		while time < end_time:
+	# simulate until match is over
+	if end_seconds < 0:
+		while not match_over:
 			update()
+	# simulate only until end_seconds, not until match is over
+	else:
+		while seconds < end_seconds:
+			update()
+
 		# restore simulation flags
 		home_team.simulated = home_simulated
 		away_team.simulated = away_simulated
-	# simulate until match is over
-	else:
-		while not match_over:
-			update()
-
-	# print time passed for simulation
-	var load_time: int = Time.get_ticks_msec() - start_time
-	print("benchmark in: " + str(load_time) + " ms")
-
-	print("result: %d - %d" % [home_team.stats.goals, away_team.stats.goals])
-	print("shots: %d - %d" % [home_team.stats.shots, away_team.stats.shots])
-	print("simulating match done.")
 
 
-func simulate_match(matchz: Match, fast: bool = false) -> void:
-	if fast:
+func simulate_match(p_matchz: Match, fast: bool = false) -> void:
+	matchz = p_matchz
 
-		rng = RngUtil.new(str(matchz.id))
-
-		var home_goals: int = rng.randi() % 10
-		var away_goals: int = rng.randi() % 10
-		var home_penalties_goals: int = 0
-		var away_penalties_goals: int = 0
-
-		# combination of all goals of first and second match
-		var total_home_goals: int = home_goals
-		var total_away_goals: int = away_goals
-
-
-		# add inverted goals from first match
-		if matchz.first_leg != null:
-			total_home_goals += matchz.first_leg.away_goals
-			total_away_goals += matchz.first_leg.home_goals
-
-		# penalties
-		if matchz.no_draw and total_home_goals == total_away_goals:
-			# fast and easy...
-			home_penalties_goals = 4
-			away_penalties_goals = 4
-			if rng.randi() % 2 == 0:
-				home_penalties_goals += 1
-			else:
-				away_penalties_goals += 1
-
-		matchz.set_result(
-			home_goals,
-			away_goals,
-			home_penalties_goals,
-			away_penalties_goals,
-		)
+	# full engine simulation
+	if not fast:
+		setup(matchz)
+		simulate()
 		return
 
-	setup(matchz)
-	simulate()
+	# fast match simulation with simple random numbers
+	rng = RngUtil.new(str(matchz.id))
+
+	var home_goals: int = rng.randi() % 10
+	var away_goals: int = rng.randi() % 10
+	var home_penalties_goals: int = 0
+	var away_penalties_goals: int = 0
+
+	# combination of all goals of first and second match
+	var total_home_goals: int = home_goals
+	var total_away_goals: int = away_goals
+
+	# add goals from first match
+	if matchz.first_leg != null:
+		# home/away sides need to be inverted
+		total_home_goals += matchz.first_leg.away_goals
+		total_away_goals += matchz.first_leg.home_goals
+
+	# check if penalties are needed
+	if matchz.no_draw and total_home_goals == total_away_goals:
+		# fast and easy
+		# just score 4 goals and assign 5th goal to winner
+		home_penalties_goals = 4
+		away_penalties_goals = 4
+		if rng.randi() % 2 == 0:
+			home_penalties_goals += 1
+		else:
+			away_penalties_goals += 1
+
+	matchz.set_result(
+		home_goals,
+		away_goals,
+		home_penalties_goals,
+		away_penalties_goals,
+	)
 
 
 func left_possess() -> void:
@@ -399,28 +403,28 @@ func _on_half_time() -> void:
 
 
 func _on_full_time() -> void:
-	over_time = no_draw and home_team.stats.goals == away_team.stats.goals
-	if over_time:
+	overtime = no_draw and home_team.stats.goals == away_team.stats.goals
+
+	if overtime:
 		field.ball.set_pos(field.center)
 		_teams_switch_sides()
 		_recover_stamina(5)
 	else:
-		match_over = true
-		field.clock_running = false
-		match_finish.emit()
+		_match_over()
+
 	full_time.emit()
 
 
-func _on_over_time() -> void:
+func _on_overtime() -> void:
 	field.ball.set_pos(field.center)
 	_teams_switch_sides()
 	_recover_stamina(5)
 
 
-func _on_full_over_time() -> void:
-	penalties = home_team.stats.goals == away_team.stats.goals
-	if penalties:
-		over_time = false
+func _on_full_overtime() -> void:
+	field.penalties = home_team.stats.goals == away_team.stats.goals
+	if field.penalties:
+		overtime = false
 		_recover_stamina(5)
 		# disconnect goal signals
 		field.touch_line_out.disconnect(_on_touch_line_out)
@@ -439,13 +443,10 @@ func _on_full_over_time() -> void:
 
 		# TODO show player order selection, and add ALL players
 		# for now, simply 5 players shot in array order
-		field.penalties = true
 		left_team.set_state(TeamStatePenalties.new())
 		right_team.set_state(TeamStatePenalties.new())
 	else:
-		match_over = true
-		field.clock_running = false
-		match_finish.emit()
+		_match_over()
 
 
 func _check_penalties_over() -> void:
@@ -461,25 +462,16 @@ func _check_penalties_over() -> void:
 		var away_goals_max: int = away_goals + Const.PENALTY_KICKS - away_shots
 		# check if home made more goals than away has made and away still can make
 		if home_goals > away_goals_max:
-			match_over = true
-			penalties = false
-			field.clock_running = false
-			match_finish.emit()
+			_match_over()
 			return
 		# check if away made more goals than home has made and home still can make
 		if away_goals > home_goals_max:
-			match_over = true
-			penalties = false
-			field.clock_running = false
-			match_finish.emit()
+			_match_over()
 			return
 	# check if one team missed and the other made goal
 	elif home_shots == away_shots:
 		if home_goals != away_goals:
-			match_over = true
-			penalties = false
-			field.clock_running = false
-			match_finish.emit()
+			_match_over()
 			return
 
 
@@ -488,4 +480,19 @@ func _on_penalties_goal() -> void:
 		left_team.stats.penalty_shootout_goals += 1
 	else:
 		right_team.stats.penalty_shootout_goals += 1
+
+
+func _match_over() -> void:
+	match_over = true
+	field.clock_running = false
+
+	# assign result
+	matchz.set_result(
+		home_team.stats.goals,
+		away_team.stats.goals,
+		home_team.stats.penalty_shootout_goals,
+		away_team.stats.penalty_shootout_shots,
+	)
+
+	match_finish.emit()
 
