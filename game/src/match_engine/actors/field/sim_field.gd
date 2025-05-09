@@ -19,13 +19,13 @@ const BORDER_SIZE: int = 2 * PIXEL_FACTOR
 const WIDTH: int = 42 * PIXEL_FACTOR
 const HEIGHT: int = 25 * PIXEL_FACTOR
 const CENTER_CIRCLE_RADIUS: int = 3 * PIXEL_FACTOR
-const LINE_WIDTH: float = 0.10 * PIXEL_FACTOR  # in cm
+const LINE_WIDTH: float = 0.10 * PIXEL_FACTOR # in cm
 
 # distance between wall and line
 const WALL_DISTANCE: int = 5 * PIXEL_FACTOR
 
 # Note: don't use Rect2, to keep simple and human-readable names for coordinates
-var size: Vector2  # with borders
+var size: Vector2 # with borders
 var center: Vector2
 # corners
 var top_left: Vector2

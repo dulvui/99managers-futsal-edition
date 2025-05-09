@@ -20,7 +20,7 @@ enum Role {
 @export var name: String
 @export var surname: String
 @export var birth_date: Dictionary
-@export var prestige: int  # 1-20
+@export var prestige: int
 @export var role: Role
 @export var skintone: String
 @export var haircolor: String

@@ -51,7 +51,7 @@ func setup(day: Day, competition: Competition = Global.league) -> void:
 
 		# add leagues
 		var leagues: Array[League] = Global.world.get_all_leagues(true)
-		# add  leagues with same nation as active first
+		# add leagues with same nation as active first
 		for league: League in leagues:
 			if league.id != active_league.id and league.nation_name == active_league.nation_name:
 				_add_matches(match_day, league)

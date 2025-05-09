@@ -179,7 +179,7 @@ func test_history() -> void:
 
 
 func test_errors_and_warnings() -> void:
-	print("test: errors and  warnings...")
+	print("test: errors and warnings...")
 
 	var world_generator: GeneratorWorld = GeneratorWorld.new()
 	var world: World = world_generator.init_world()
@@ -192,5 +192,5 @@ func test_errors_and_warnings() -> void:
 	assert(Global.generation_errors.size() > 0)
 	assert(Global.generation_warnings.size() > 0)
 
-	print("test: errors and  warnings done.")
+	print("test: errors and warnings done.")
 

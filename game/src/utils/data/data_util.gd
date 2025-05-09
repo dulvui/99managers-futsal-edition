@@ -9,7 +9,7 @@ signal loading_failed
 const USER_PATH: StringName = "user://"
 const SAVE_STATES_PATH: StringName = USER_PATH + "save_states/"
 
-const SAVE_STATES_FILE: StringName =  SAVE_STATES_PATH + "save_states.json"
+const SAVE_STATES_FILE: StringName = SAVE_STATES_PATH + "save_states.json"
 const CONFIG_FILE: StringName = SAVE_STATES_PATH + "settings_config.json"
 const CHECKSUM_FILE: StringName = "checksums.json"
 const SAVE_STATE_FILE: StringName = "save_state.json"

@@ -26,13 +26,8 @@ func test() -> void:
 		var TestScript: GDScript = load(path)
 		assert(TestScript != null)
 		assert(TestScript.can_instantiate())
-		assert(TestScript.get_method_list() != null)
-		assert(TestScript.get_property_list() != null)
-		assert(TestScript.get_signal_list() != null)
 
-		#
-		# linting
-		#
+		# lint checks
 		# skip linting for this file
 		if "test_runtime_errors.gd" in path:
 			continue
@@ -41,6 +36,8 @@ func test() -> void:
 		assert(not "=-" in TestScript.source_code)
 		# =+ instead of +=
 		assert(not "=+" in TestScript.source_code)
+		# double space
+		assert(not "  " in TestScript.source_code)
 
 		# TODO check in method list if _init has all default parameters
 		# if yes, try to create instance

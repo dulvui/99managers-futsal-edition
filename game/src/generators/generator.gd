@@ -476,14 +476,14 @@ func _set_mental_attributes(attribtues: Mental, age: int, prestige: int) -> void
 
 
 func _get_physical_age_factor(age: int) -> int:
-	# for  24 +- _noise <  age factor is negative
+	# for 24 +- _noise < age factor is negative
 	if age < 24 + _noise():
 		return rng_util.randi_range(-5, 3)
 	return rng_util.randi_range(1, 7)
 
 
 func _get_age_factor(age: int) -> int:
-	# for  34 +- _noise < age < 18 +- _noise age factor is negative
+	# for 34 +- _noise < age < 18 +- _noise age factor is negative
 	if age > 34 + _noise() or age < 18 + _noise():
 		return rng_util.randi_range(-5, 1)
 	# else age factor is positive
@@ -619,7 +619,7 @@ func _initialize_player(
 	_set_random_person_values(player, nation)
 
 	if player.position.main == Position.Type.UNDEFINED:
-		player.position.main =  p_position
+		player.position.main = p_position
 
 	if player.position.alternatives.is_empty():
 		_random_alt_positions(player)
@@ -660,7 +660,7 @@ func _initialize_player(
 func _random_alt_positions(player: Player) -> void:
 	# TODO should goalkeeper have alt positions?
 	# TODO adapt to make alteratinos more cohereant
-	#      to attributes, like defender should have good defense stats
+	# to attributes, like defender should have good defense stats
 	var alt_positions: Array[Variant] = Position.Type.values()
 	# remove Position.Type.UNDEFINED
 	alt_positions.pop_back()

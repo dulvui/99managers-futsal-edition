@@ -6,7 +6,7 @@ class_name Contract
 extends JSONResource
 
 @export var income: int
-@export var start_date: Dictionary  # unixtimestamp
+@export var start_date: Dictionary
 @export var end_date: Dictionary
 
 

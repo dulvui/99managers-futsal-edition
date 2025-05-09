@@ -20,7 +20,8 @@ enum Type {
 }
 
 @export var id: int
-@export var foreign_id: int  # used to connect email to resource like a transfer
+# used to connect email to resource like a transfer
+@export var foreign_id: int
 @export var type: Type
 @export var subject: String
 @export var text: String

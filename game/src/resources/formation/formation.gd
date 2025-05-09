@@ -72,8 +72,9 @@ func _init(
 func set_variation(p_variation: Variations) -> void:
 	variation = p_variation
 	var string_values: PackedStringArray = str(Variations.keys()[variation]).split()
-	string_values.remove_at(0)  # remove F character from Variations key string
 
+	# remove F character from Variations key string
+	string_values.remove_at(0)
 	# extract int values
 	var int_values: Array[int] = []
 	for value: String in string_values:

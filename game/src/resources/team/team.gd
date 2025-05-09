@@ -138,8 +138,8 @@ func get_prestige_stars() -> String:
 	var star_factor: float = Const.MAX_PRESTIGE / float(relation)
 	var stars: int = max(1, get_prestige() / star_factor)
 	var spaces: int = 5 - stars
-	# creates right padding example: '***  '
-	return "*".repeat(stars) + "  ".repeat(spaces)
+	# creates right padding example: '*** '
+	return "*".repeat(stars) + " ".repeat(spaces)
 
 
 func get_basic() -> TeamBasic:

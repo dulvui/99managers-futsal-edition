@@ -31,8 +31,8 @@ func count_unread_messages() -> int:
 
 
 func next_match(p_match: Match) -> void:
-	var subject: String = tr("Next match: {team_name}")  # TRANSLATORS: {team_name} gets dynamically filled
-	var text: String = tr("The next match is against {team_name}.")  # TRANSLATORS: {team_name} gets dynamically filled
+	var subject: String = tr("Next match: {team_name}") # TRANSLATORS: {team_name} gets dynamically filled
+	var text: String = tr("The next match is against {team_name}.") # TRANSLATORS: {team_name} gets dynamically filled
 
 	var team_id: int = p_match.home.id
 
@@ -54,7 +54,7 @@ func next_match(p_match: Match) -> void:
 
 func welcome_manager() -> void:
 	var subject: String = tr("Welcome {manager_name}")
-	var text: String = tr("{team_name} welcomes you to a new journey.")  # TRANSLATORS: {team_name} gets dynamically filled
+	var text: String = tr("{team_name} welcomes you to a new journey.") # TRANSLATORS: {team_name} gets dynamically filled
 
 	subject = subject.format({"manager_name": Global.manager.get_full_name()})
 	text = text.format({"team_name": Global.team.name})

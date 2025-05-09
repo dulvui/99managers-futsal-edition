@@ -16,7 +16,8 @@ var passes_success: int = 0
 var kick_ins: int = 0
 var free_kicks: int = 0
 var penalties: int = 0
-var penalties_10m: int = 0  # from 10 meters, after 6 fouls
+ # from 10 meters, after 6 fouls
+var penalties_10m: int = 0
 var fouls: int = 0
 # to count fouls per half and give
 var fouls_count: int = 0

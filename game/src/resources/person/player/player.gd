@@ -6,7 +6,7 @@ class_name Player
 extends Person
 
 @export var value: int
-@export var nr: int  # shirt number
+@export var nr: int
 @export var loyality: int
 @export var injury_factor: int
 # for easier filtering
@@ -99,8 +99,8 @@ func get_prestige_stars() -> String:
 	var star_factor: float = Const.MAX_PRESTIGE / relation
 	var stars: int = max(1, prestige / star_factor)
 	var spaces: int = 5 - stars
-	# creates right padding ex: "***  "
-	return "*".repeat(stars) + "  ".repeat(spaces)
+	# creates right padding ex: "*** "
+	return "*".repeat(stars) + " ".repeat(spaces)
 
 
 func recover_stamina(factor: int = 1) -> void:
@@ -108,7 +108,7 @@ func recover_stamina(factor: int = 1) -> void:
 
 
 func consume_stamina(speed: float) -> void:
-	# consume stamina with  calc 21 - [20,1]
+	# consume stamina with calc 21 - [20,1]
 	# best case Const.MAX_PRESTIGE * 1
 	# worst case Const.MAX_PRESTIGE * 20
 	var consumation: float = (

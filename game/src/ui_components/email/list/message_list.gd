@@ -47,9 +47,11 @@ func update() -> void:
 		label.text = tr("No message found")
 		list.add_child(label)
 	else:
-		# to test perfomrance of email view
+		# to test performanec of email view
 		#for j in range(1000):
-		for i: int in range(inbox_list.size() - 1, -1, -1):  # reverse list
+
+		# reverse list
+		for i: int in range(inbox_list.size() - 1, -1, -1):
 			var message: EmailMessage = inbox_list[i]
 			var row: MessageRow = MessageRowScene.instantiate()
 			list.add_child(row)

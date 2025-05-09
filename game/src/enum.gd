@@ -216,31 +216,31 @@ func get_input_type_text() -> String:
 func get_morality_text(player: Player) -> String:
 	match player.morality:
 		Morality.WORST:
-			return tr("Worst")  # TRANSLATORS: Player morality
+			return tr("Worst") # TRANSLATORS: Player morality
 		Morality.BAD:
-			return tr("Bad")  # TRANSLATORS: Player morality
+			return tr("Bad") # TRANSLATORS: Player morality
 		Morality.NEUTRAL:
-			return tr("Neutral")  # TRANSLATORS: Player morality
+			return tr("Neutral") # TRANSLATORS: Player morality
 		Morality.GOOD:
-			return tr("Good")  # TRANSLATORS: Player morality
+			return tr("Good") # TRANSLATORS: Player morality
 		Morality.BEST:
-			return tr("Best")  # TRANSLATORS: Player morality
+			return tr("Best") # TRANSLATORS: Player morality
 		_:
-			return tr("Neutral")  # TRANSLATORS: Player morality
+			return tr("Neutral") # TRANSLATORS: Player morality
 
 
 func get_form_text(player: Player) -> String:
 	match player.form:
 		Form.INJURED:
-			return tr("Injured")  # TRANSLATORS: Player physical form
+			return tr("Injured") # TRANSLATORS: Player physical form
 		Form.RECOVER:
-			return tr("Recover")  # TRANSLATORS: Player physical form
+			return tr("Recover") # TRANSLATORS: Player physical form
 		Form.GOOD:
-			return tr("Good")  # TRANSLATORS: Player physical form
+			return tr("Good") # TRANSLATORS: Player physical form
 		Form.BEST:
-			return tr("Best")  # TRANSLATORS: Player physical form
+			return tr("Best") # TRANSLATORS: Player physical form
 		_:
-			return tr("Good")  # TRANSLATORS: Player physical form
+			return tr("Good") # TRANSLATORS: Player physical form
 
 
 func get_generation_error_text(error: GenerationError) -> String:

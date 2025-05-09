@@ -175,7 +175,7 @@ func simulate(end_time: int = -1) -> void:
 	print("benchmark in: " + str(load_time) + " ms")
 
 	print("result: %d - %d" % [home_team.stats.goals, away_team.stats.goals])
-	print("shots:  %d - %d" % [home_team.stats.shots, away_team.stats.shots])
+	print("shots: %d - %d" % [home_team.stats.shots, away_team.stats.shots])
 	print("simulating match done.")
 
 
