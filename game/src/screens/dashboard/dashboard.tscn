@@ -1,8 +1,7 @@
-[gd_scene load_steps=21 format=3 uid="uid://c8mhb22bae1my"]
+[gd_scene load_steps=20 format=3 uid="uid://c8mhb22bae1my"]
 
 [ext_resource type="Script" uid="uid://isdkorclbxno" path="res://src/screens/dashboard/dashboard.gd" id="2"]
 [ext_resource type="PackedScene" uid="uid://c51vyn54bk7q4" path="res://src/ui_components/visual_calendar/visual_calendar.tscn" id="3"]
-[ext_resource type="StyleBox" uid="uid://p2i8146lydw5" path="res://theme_base/styles/box/box_background_secondary.tres" id="3_718t5"]
 [ext_resource type="Script" uid="uid://cnyyowwlb04kl" path="res://src/ui_components/base/defaults/default_button.gd" id="3_kbasy"]
 [ext_resource type="PackedScene" uid="uid://ck1i6uxkqg3pi" path="res://src/ui_components/player_silhouette/player_silhouette.tscn" id="3_ua0am"]
 [ext_resource type="PackedScene" uid="uid://i4nnwgwck615" path="res://src/ui_components/visual_formation/visual_formation.tscn" id="5"]
@@ -72,23 +71,19 @@ grow_horizontal = 2
 grow_vertical = 2
 theme_override_constants/separation = 0
 
-[node name="PanelContainer" type="PanelContainer" parent="HBoxContainer"]
-layout_mode = 2
-theme_override_styles/panel = ExtResource("3_718t5")
-
-[node name="MarginContainer" type="MarginContainer" parent="HBoxContainer/PanelContainer"]
+[node name="ButtonsContainer" type="MarginContainer" parent="HBoxContainer"]
 layout_mode = 2
 theme_override_constants/margin_left = 15
 theme_override_constants/margin_top = 15
 theme_override_constants/margin_right = 15
 theme_override_constants/margin_bottom = 15
 
-[node name="Buttons" type="VBoxContainer" parent="HBoxContainer/PanelContainer/MarginContainer"]
+[node name="Buttons" type="VBoxContainer" parent="HBoxContainer/ButtonsContainer"]
 custom_minimum_size = Vector2(200, 0)
 layout_mode = 2
 theme_override_constants/separation = 10
 
-[node name="EmailButton" type="Button" parent="HBoxContainer/PanelContainer/MarginContainer/Buttons"]
+[node name="EmailButton" type="Button" parent="HBoxContainer/ButtonsContainer/Buttons"]
 unique_name_in_owner = true
 custom_minimum_size = Vector2(180, 0)
 layout_mode = 2
@@ -97,7 +92,7 @@ text = "Email"
 alignment = 0
 script = ExtResource("3_kbasy")
 
-[node name="CalendarButton" type="Button" parent="HBoxContainer/PanelContainer/MarginContainer/Buttons"]
+[node name="CalendarButton" type="Button" parent="HBoxContainer/ButtonsContainer/Buttons"]
 unique_name_in_owner = true
 custom_minimum_size = Vector2(180, 0)
 layout_mode = 2
@@ -106,7 +101,7 @@ text = "Calendar"
 alignment = 0
 script = ExtResource("3_kbasy")
 
-[node name="CompetitionsButton" type="Button" parent="HBoxContainer/PanelContainer/MarginContainer/Buttons"]
+[node name="CompetitionsButton" type="Button" parent="HBoxContainer/ButtonsContainer/Buttons"]
 unique_name_in_owner = true
 custom_minimum_size = Vector2(180, 0)
 layout_mode = 2
@@ -115,11 +110,11 @@ text = "Competitions"
 alignment = 0
 script = ExtResource("3_kbasy")
 
-[node name="HSeparator6" type="HSeparator" parent="HBoxContainer/PanelContainer/MarginContainer/Buttons"]
+[node name="HSeparator6" type="HSeparator" parent="HBoxContainer/ButtonsContainer/Buttons"]
 modulate = Color(1, 1, 1, 0)
 layout_mode = 2
 
-[node name="FinancesButton" type="Button" parent="HBoxContainer/PanelContainer/MarginContainer/Buttons"]
+[node name="FinancesButton" type="Button" parent="HBoxContainer/ButtonsContainer/Buttons"]
 unique_name_in_owner = true
 custom_minimum_size = Vector2(180, 0)
 layout_mode = 2
@@ -128,7 +123,7 @@ text = "Finances"
 alignment = 0
 script = ExtResource("3_kbasy")
 
-[node name="StadiumButton" type="Button" parent="HBoxContainer/PanelContainer/MarginContainer/Buttons"]
+[node name="StadiumButton" type="Button" parent="HBoxContainer/ButtonsContainer/Buttons"]
 unique_name_in_owner = true
 custom_minimum_size = Vector2(180, 0)
 layout_mode = 2
@@ -138,11 +133,11 @@ text = "Stadium"
 alignment = 0
 script = ExtResource("3_kbasy")
 
-[node name="HSeparator2" type="HSeparator" parent="HBoxContainer/PanelContainer/MarginContainer/Buttons"]
+[node name="HSeparator2" type="HSeparator" parent="HBoxContainer/ButtonsContainer/Buttons"]
 modulate = Color(1, 1, 1, 0)
 layout_mode = 2
 
-[node name="FormationButton" type="Button" parent="HBoxContainer/PanelContainer/MarginContainer/Buttons"]
+[node name="FormationButton" type="Button" parent="HBoxContainer/ButtonsContainer/Buttons"]
 unique_name_in_owner = true
 custom_minimum_size = Vector2(180, 0)
 layout_mode = 2
@@ -151,7 +146,7 @@ text = "Formation"
 alignment = 0
 script = ExtResource("3_kbasy")
 
-[node name="PlayersButton" type="Button" parent="HBoxContainer/PanelContainer/MarginContainer/Buttons"]
+[node name="PlayersButton" type="Button" parent="HBoxContainer/ButtonsContainer/Buttons"]
 unique_name_in_owner = true
 custom_minimum_size = Vector2(180, 0)
 layout_mode = 2
@@ -160,11 +155,11 @@ text = "Players"
 alignment = 0
 script = ExtResource("3_kbasy")
 
-[node name="HSeparator3" type="HSeparator" parent="HBoxContainer/PanelContainer/MarginContainer/Buttons"]
+[node name="HSeparator3" type="HSeparator" parent="HBoxContainer/ButtonsContainer/Buttons"]
 modulate = Color(1, 1, 1, 0)
 layout_mode = 2
 
-[node name="SearchPlayerButton" type="Button" parent="HBoxContainer/PanelContainer/MarginContainer/Buttons"]
+[node name="SearchPlayerButton" type="Button" parent="HBoxContainer/ButtonsContainer/Buttons"]
 unique_name_in_owner = true
 custom_minimum_size = Vector2(180, 0)
 layout_mode = 2
@@ -173,7 +168,7 @@ text = "Search player"
 alignment = 0
 script = ExtResource("3_kbasy")
 
-[node name="ScoutsButton" type="Button" parent="HBoxContainer/PanelContainer/MarginContainer/Buttons"]
+[node name="ScoutsButton" type="Button" parent="HBoxContainer/ButtonsContainer/Buttons"]
 unique_name_in_owner = true
 custom_minimum_size = Vector2(180, 0)
 layout_mode = 2
@@ -184,7 +179,7 @@ text = "Scouts"
 alignment = 0
 script = ExtResource("3_kbasy")
 
-[node name="TransferListButton" type="Button" parent="HBoxContainer/PanelContainer/MarginContainer/Buttons"]
+[node name="TransferListButton" type="Button" parent="HBoxContainer/ButtonsContainer/Buttons"]
 unique_name_in_owner = true
 custom_minimum_size = Vector2(180, 0)
 layout_mode = 2
@@ -195,7 +190,7 @@ text = "Transferlist"
 alignment = 0
 script = ExtResource("3_kbasy")
 
-[node name="TransfersButton" type="Button" parent="HBoxContainer/PanelContainer/MarginContainer/Buttons"]
+[node name="TransfersButton" type="Button" parent="HBoxContainer/ButtonsContainer/Buttons"]
 unique_name_in_owner = true
 custom_minimum_size = Vector2(180, 0)
 layout_mode = 2
@@ -206,11 +201,11 @@ text = "Transfermarket"
 alignment = 0
 script = ExtResource("3_kbasy")
 
-[node name="HSeparator5" type="HSeparator" parent="HBoxContainer/PanelContainer/MarginContainer/Buttons"]
+[node name="HSeparator5" type="HSeparator" parent="HBoxContainer/ButtonsContainer/Buttons"]
 modulate = Color(1, 1, 1, 0)
 layout_mode = 2
 
-[node name="JobsButton" type="Button" parent="HBoxContainer/PanelContainer/MarginContainer/Buttons"]
+[node name="JobsButton" type="Button" parent="HBoxContainer/ButtonsContainer/Buttons"]
 unique_name_in_owner = true
 custom_minimum_size = Vector2(180, 0)
 layout_mode = 2
@@ -221,7 +216,7 @@ text = "Jobs"
 alignment = 0
 script = ExtResource("3_kbasy")
 
-[node name="HallOfFameButton" type="Button" parent="HBoxContainer/PanelContainer/MarginContainer/Buttons"]
+[node name="HallOfFameButton" type="Button" parent="HBoxContainer/ButtonsContainer/Buttons"]
 unique_name_in_owner = true
 custom_minimum_size = Vector2(180, 0)
 layout_mode = 2
@@ -232,12 +227,12 @@ text = "Hall of fame"
 alignment = 0
 script = ExtResource("3_kbasy")
 
-[node name="HSeparator4" type="HSeparator" parent="HBoxContainer/PanelContainer/MarginContainer/Buttons"]
+[node name="HSeparator4" type="HSeparator" parent="HBoxContainer/ButtonsContainer/Buttons"]
 modulate = Color(1, 1, 1, 0)
 layout_mode = 2
 size_flags_vertical = 3
 
-[node name="InfoButton" type="Button" parent="HBoxContainer/PanelContainer/MarginContainer/Buttons"]
+[node name="InfoButton" type="Button" parent="HBoxContainer/ButtonsContainer/Buttons"]
 unique_name_in_owner = true
 custom_minimum_size = Vector2(180, 0)
 layout_mode = 2
@@ -247,7 +242,7 @@ text = "Info"
 alignment = 0
 script = ExtResource("3_kbasy")
 
-[node name="SettingsButton" type="Button" parent="HBoxContainer/PanelContainer/MarginContainer/Buttons"]
+[node name="SettingsButton" type="Button" parent="HBoxContainer/ButtonsContainer/Buttons"]
 unique_name_in_owner = true
 custom_minimum_size = Vector2(180, 0)
 layout_mode = 2
@@ -257,7 +252,7 @@ text = "Settings"
 alignment = 0
 script = ExtResource("3_kbasy")
 
-[node name="MenuButton" type="Button" parent="HBoxContainer/PanelContainer/MarginContainer/Buttons"]
+[node name="MenuButton" type="Button" parent="HBoxContainer/ButtonsContainer/Buttons"]
 unique_name_in_owner = true
 custom_minimum_size = Vector2(180, 0)
 layout_mode = 2
@@ -273,22 +268,18 @@ layout_mode = 2
 size_flags_horizontal = 3
 theme_override_constants/separation = 0
 
-[node name="PanelContainer" type="PanelContainer" parent="HBoxContainer/MainContainer"]
-layout_mode = 2
-theme_override_styles/panel = ExtResource("3_718t5")
-
-[node name="Top" type="MarginContainer" parent="HBoxContainer/MainContainer/PanelContainer"]
+[node name="Top" type="MarginContainer" parent="HBoxContainer/MainContainer"]
 layout_mode = 2
 theme_override_constants/margin_left = 15
 theme_override_constants/margin_top = 15
 theme_override_constants/margin_right = 15
 theme_override_constants/margin_bottom = 15
 
-[node name="TopBar" type="HBoxContainer" parent="HBoxContainer/MainContainer/PanelContainer/Top"]
+[node name="TopBar" type="HBoxContainer" parent="HBoxContainer/MainContainer/Top"]
 layout_mode = 2
 theme_override_constants/separation = 20
 
-[node name="PrevViewButton" type="Button" parent="HBoxContainer/MainContainer/PanelContainer/Top/TopBar"]
+[node name="PrevViewButton" type="Button" parent="HBoxContainer/MainContainer/Top/TopBar"]
 unique_name_in_owner = true
 auto_translate_mode = 2
 custom_minimum_size = Vector2(50, 0)
@@ -298,7 +289,7 @@ text = "<"
 script = ExtResource("3_kbasy")
 joypad_button_event = SubResource("InputEventJoypadButton_3gkim")
 
-[node name="NextViewButton" type="Button" parent="HBoxContainer/MainContainer/PanelContainer/Top/TopBar"]
+[node name="NextViewButton" type="Button" parent="HBoxContainer/MainContainer/Top/TopBar"]
 unique_name_in_owner = true
 auto_translate_mode = 2
 custom_minimum_size = Vector2(50, 0)
@@ -308,33 +299,33 @@ text = ">"
 script = ExtResource("3_kbasy")
 joypad_button_event = SubResource("InputEventJoypadButton_btuom")
 
-[node name="ManagerName" type="Label" parent="HBoxContainer/MainContainer/PanelContainer/Top/TopBar"]
+[node name="ManagerName" type="Label" parent="HBoxContainer/MainContainer/Top/TopBar"]
 unique_name_in_owner = true
 auto_translate_mode = 2
 layout_mode = 2
 text = "Simon Dalvai"
 label_settings = ExtResource("5_jjvpr")
 
-[node name="TeamName" type="Label" parent="HBoxContainer/MainContainer/PanelContainer/Top/TopBar"]
+[node name="TeamName" type="Label" parent="HBoxContainer/MainContainer/Top/TopBar"]
 unique_name_in_owner = true
 auto_translate_mode = 2
 layout_mode = 2
 text = "Bolzano Futsal"
 label_settings = ExtResource("5_jjvpr")
 
-[node name="VSeparator" type="VSeparator" parent="HBoxContainer/MainContainer/PanelContainer/Top/TopBar"]
+[node name="VSeparator" type="VSeparator" parent="HBoxContainer/MainContainer/Top/TopBar"]
 self_modulate = Color(1, 1, 1, 0)
 layout_mode = 2
 size_flags_horizontal = 3
 
-[node name="Date" type="Label" parent="HBoxContainer/MainContainer/PanelContainer/Top/TopBar"]
+[node name="Date" type="Label" parent="HBoxContainer/MainContainer/Top/TopBar"]
 unique_name_in_owner = true
 auto_translate_mode = 2
 layout_mode = 2
 text = "24/08/2002"
 label_settings = ExtResource("5_jjvpr")
 
-[node name="NextMatchButton" type="Button" parent="HBoxContainer/MainContainer/PanelContainer/Top/TopBar"]
+[node name="NextMatchButton" type="Button" parent="HBoxContainer/MainContainer/Top/TopBar"]
 unique_name_in_owner = true
 visible = false
 custom_minimum_size = Vector2(180, 0)
@@ -345,7 +336,7 @@ theme_type_variation = &"ImportantButton"
 text = "Next match"
 script = ExtResource("3_kbasy")
 
-[node name="ContinueButton" type="Button" parent="HBoxContainer/MainContainer/PanelContainer/Top/TopBar"]
+[node name="ContinueButton" type="Button" parent="HBoxContainer/MainContainer/Top/TopBar"]
 unique_name_in_owner = true
 custom_minimum_size = Vector2(180, 0)
 layout_mode = 2
@@ -429,21 +420,21 @@ unique_name_in_owner = true
 visible = false
 custom_text = "Save the game before exiting?"
 
-[connection signal="pressed" from="HBoxContainer/PanelContainer/MarginContainer/Buttons/EmailButton" to="." method="_on_email_button_pressed"]
-[connection signal="pressed" from="HBoxContainer/PanelContainer/MarginContainer/Buttons/CalendarButton" to="." method="_on_calendar_button_pressed"]
-[connection signal="pressed" from="HBoxContainer/PanelContainer/MarginContainer/Buttons/CompetitionsButton" to="." method="_on_competitions_button_pressed"]
-[connection signal="pressed" from="HBoxContainer/PanelContainer/MarginContainer/Buttons/FinancesButton" to="." method="_on_finances_button_pressed"]
-[connection signal="pressed" from="HBoxContainer/PanelContainer/MarginContainer/Buttons/StadiumButton" to="." method="_on_stadium_button_pressed"]
-[connection signal="pressed" from="HBoxContainer/PanelContainer/MarginContainer/Buttons/FormationButton" to="." method="_on_formation_button_pressed"]
-[connection signal="pressed" from="HBoxContainer/PanelContainer/MarginContainer/Buttons/PlayersButton" to="." method="_on_players_button_pressed"]
-[connection signal="pressed" from="HBoxContainer/PanelContainer/MarginContainer/Buttons/SearchPlayerButton" to="." method="_on_search_player_button_pressed"]
-[connection signal="pressed" from="HBoxContainer/PanelContainer/MarginContainer/Buttons/InfoButton" to="." method="_on_info_button_pressed"]
-[connection signal="pressed" from="HBoxContainer/PanelContainer/MarginContainer/Buttons/SettingsButton" to="." method="_on_settings_button_pressed"]
-[connection signal="pressed" from="HBoxContainer/PanelContainer/MarginContainer/Buttons/MenuButton" to="." method="_on_menu_button_pressed"]
-[connection signal="pressed" from="HBoxContainer/MainContainer/PanelContainer/Top/TopBar/PrevViewButton" to="." method="_on_prev_view_button_pressed"]
-[connection signal="pressed" from="HBoxContainer/MainContainer/PanelContainer/Top/TopBar/NextViewButton" to="." method="_on_next_view_button_pressed"]
-[connection signal="pressed" from="HBoxContainer/MainContainer/PanelContainer/Top/TopBar/NextMatchButton" to="." method="_on_next_match_button_pressed"]
-[connection signal="pressed" from="HBoxContainer/MainContainer/PanelContainer/Top/TopBar/ContinueButton" to="." method="_on_continue_button_pressed"]
+[connection signal="pressed" from="HBoxContainer/ButtonsContainer/Buttons/EmailButton" to="." method="_on_email_button_pressed"]
+[connection signal="pressed" from="HBoxContainer/ButtonsContainer/Buttons/CalendarButton" to="." method="_on_calendar_button_pressed"]
+[connection signal="pressed" from="HBoxContainer/ButtonsContainer/Buttons/CompetitionsButton" to="." method="_on_competitions_button_pressed"]
+[connection signal="pressed" from="HBoxContainer/ButtonsContainer/Buttons/FinancesButton" to="." method="_on_finances_button_pressed"]
+[connection signal="pressed" from="HBoxContainer/ButtonsContainer/Buttons/StadiumButton" to="." method="_on_stadium_button_pressed"]
+[connection signal="pressed" from="HBoxContainer/ButtonsContainer/Buttons/FormationButton" to="." method="_on_formation_button_pressed"]
+[connection signal="pressed" from="HBoxContainer/ButtonsContainer/Buttons/PlayersButton" to="." method="_on_players_button_pressed"]
+[connection signal="pressed" from="HBoxContainer/ButtonsContainer/Buttons/SearchPlayerButton" to="." method="_on_search_player_button_pressed"]
+[connection signal="pressed" from="HBoxContainer/ButtonsContainer/Buttons/InfoButton" to="." method="_on_info_button_pressed"]
+[connection signal="pressed" from="HBoxContainer/ButtonsContainer/Buttons/SettingsButton" to="." method="_on_settings_button_pressed"]
+[connection signal="pressed" from="HBoxContainer/ButtonsContainer/Buttons/MenuButton" to="." method="_on_menu_button_pressed"]
+[connection signal="pressed" from="HBoxContainer/MainContainer/Top/TopBar/PrevViewButton" to="." method="_on_prev_view_button_pressed"]
+[connection signal="pressed" from="HBoxContainer/MainContainer/Top/TopBar/NextViewButton" to="." method="_on_next_view_button_pressed"]
+[connection signal="pressed" from="HBoxContainer/MainContainer/Top/TopBar/NextMatchButton" to="." method="_on_next_match_button_pressed"]
+[connection signal="pressed" from="HBoxContainer/MainContainer/Top/TopBar/ContinueButton" to="." method="_on_continue_button_pressed"]
 [connection signal="select_player" from="HBoxContainer/MainContainer/Main/Content/AllPlayerList" to="." method="_on_all_player_list_select_player"]
 [connection signal="select_player" from="HBoxContainer/MainContainer/Main/Content/PlayerList" to="." method="_on_player_list_select_player"]
 [connection signal="confirmed" from="SaveConfirmDialog" to="." method="_on_save_confirm_dialog_confirmed"]

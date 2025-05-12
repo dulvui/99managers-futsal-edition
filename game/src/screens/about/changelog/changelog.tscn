@@ -1,6 +1,4 @@
-[gd_scene load_steps=2 format=3 uid="uid://chd8dbtexyv5j"]
-
-[ext_resource type="LabelSettings" uid="uid://b4gu78rjvdfx4" path="res://theme_base/label/label_settings_title.tres" id="2_mb5ld"]
+[gd_scene format=3 uid="uid://chd8dbtexyv5j"]
 
 [node name="Changelog" type="MarginContainer"]
 auto_translate_mode = 2
@@ -14,12 +12,6 @@ theme_override_constants/margin_right = 0
 
 [node name="VBoxContainer" type="VBoxContainer" parent="."]
 layout_mode = 2
-
-[node name="Tilte" type="Label" parent="VBoxContainer"]
-auto_translate_mode = 2
-layout_mode = 2
-text = "Changelog"
-label_settings = ExtResource("2_mb5ld")
 
 [node name="Text" type="RichTextLabel" parent="VBoxContainer"]
 layout_mode = 2
