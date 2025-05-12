@@ -6,61 +6,74 @@ extends VBoxContainer
 class_name CustomTabContainer
 
 var active_tab: int
-var tab_count: int
+var max_tab: int
+var buttons: Array[DefaultButton]
+var views: Array[Control]
 
-@onready var content: Control = %Content
-@onready var buttons: HBoxContainer = %Buttons
-
+@onready var buttons_container: HBoxContainer = %Buttons
+@onready var buttons_bar: HBoxContainer = %ButtonsBar
 
 
 func _ready() -> void:
 	active_tab = 0
-	tab_count = content.get_child_count()
+	max_tab = get_child_count() - 1
 
 	# setup tab button bar
-	for child: Control in content.get_children():
+	var button_group: ButtonGroup = ButtonGroup.new()
+	for child: Control in get_children():
+		if child == buttons_bar:
+			continue
 		var tab_name: String = child.name
 		var button: DefaultButton = DefaultButton.new()
 		button.text = tr(tab_name)
-		button.pressed.connect(_on_tab_clicked.bind(child))
-		buttons.add_child(button)
-		child.hide()
+		button.pressed.connect(_on_button_pressed.bind(views.size()))
+		button.button_group = button_group
+		button.toggle_mode = true
 
-	# show first child
-	var child: Control = content.get_child(0)
-	if child != null:
-		child.show()
+		buttons_container.add_child(button)
+		buttons.append(button)
+
+		child.hide()
+		views.append(child)
 
 	# first button grab focus
-	var first_button: DefaultButton = buttons.get_children()[active_tab]
-	first_button.grab_focus()
+	if buttons.size() > 0:
+		var first_button: DefaultButton = buttons[active_tab]
+		first_button.grab_focus()
+		first_button.pressed.emit()
 
 
-func _on_tab_clicked(p_child: Control) -> void:
-	var children: Array[Node] = content.get_children()
-	for child: Control in children:
-		child.visible = child == p_child
-
-	active_tab = children.find(p_child)
+func _on_button_pressed(index: int = active_tab) -> void:
+	active_tab = index
+	_show_active()
 
 
 func _on_next_pressed() -> void:
 	active_tab += 1
+	_check_bounds()
 	_show_active()
 
 
 func _on_prev_pressed() -> void:
 	active_tab -= 1
+	_check_bounds()
 	_show_active()
 
 
-func _show_active() -> void:
-	if active_tab > tab_count - 1:
-		active_tab = 1
-	if active_tab < 0:
-		active_tab = tab_count - 1
+func _check_bounds() -> void:
+	if active_tab >= max_tab:
+		active_tab = 0
+	elif active_tab < 0:
+		active_tab = max_tab - 1
 
-	var button: DefaultButton = buttons.get_children()[active_tab]
-	button.grab_focus()
-	button.pressed.emit()
+
+func _show_active() -> void:
+	if views.is_empty():
+		return
+
+	for view: Control in views:
+		view.hide()
+
+	views[active_tab].show()
+	buttons[active_tab].grab_focus()
 

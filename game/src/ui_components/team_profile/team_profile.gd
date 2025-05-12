@@ -3,7 +3,7 @@
 # SPDX-License-Identifier: AGPL-3.0-or-later
 
 class_name TeamProfile
-extends DefaultTabContainer
+extends MarginContainer
 
 @onready var player_list: PlayerList = %Players
 
@@ -15,6 +15,12 @@ extends DefaultTabContainer
 @onready var stadium_name_label: Label = %StadiumName
 @onready var stadium_capacity_label: Label = %StadiumCapacity
 @onready var stadium_year_label: Label = %StadiumYearBuilt
+
+
+func _ready() -> void:
+	if Tests.is_run_as_current_scene(self):
+		Tests.setup_mock_world()
+		setup(Global.team)
 
 
 func setup(team: Team) -> void:

@@ -97,21 +97,31 @@ var page_size: int
 func _ready() -> void:
 	if Tests.is_run_as_current_scene(self):
 		Tests.setup_mock_world()
+		setup(Global.team.id)
 
-	# filter and view buttons
-	team_select.add_item(tr("All Teams"))
-	for league: League in Global.world.get_all_leagues():
-		for team: Team in league.teams:
-			if team == null or Global.team == null or team.name != Global.team.name:
-				team_select.add_item(team.name)
+
+func setup(p_active_team_id: int = -1) -> void:
+	active_team_id = p_active_team_id
+
+	if active_team_id != -1:
+		team_select.hide()
+		league_select.hide()
+	else:
+		# hide team select
+		team_select.add_item(tr("All Teams"))
+		for league: League in Global.world.get_all_leagues():
+			for team: Team in league.teams:
+				if team == null or Global.team == null or team.name != Global.team.name:
+					team_select.add_item(team.name)
+
+		# hide league select
+		league_select.add_item(tr("All Leagues"))
+		for league: League in Global.world.get_all_leagues():
+			league_select.add_item(league.name)
 
 	pos_select.add_item(tr("All positions"))
 	for pos: String in Position.Type.keys():
 		pos_select.add_item(pos)
-
-	league_select.add_item(tr("All Leagues"))
-	for league: League in Global.world.get_all_leagues():
-		league_select.add_item(league.name)
 
 	active_view_option_button.setup(views_text)
 	active_view = Views.GENERAL
@@ -124,18 +134,6 @@ func _ready() -> void:
 			page_size = PAGE_SIZE_2
 		Const.SCALE_3:
 			page_size = PAGE_SIZE_3
-
-	# setup automatically, if run in editor and is run by 'Run current scene'
-	if Tests.is_run_as_current_scene(self):
-		setup()
-
-
-func setup(p_active_team_id: int = -1) -> void:
-	active_team_id = p_active_team_id
-
-	if active_team_id != -1:
-		team_select.hide()
-		league_select.hide()
 
 	_setup_players()
 	_show_active_view()
@@ -153,7 +151,7 @@ func _setup_players(p_reset_options: bool = true) -> void:
 
 	all_players = []
 
-	# uncomment to stresstest
+	# remove comment to stress test
 	#for i in range(10):
 	if active_team_id == -1:
 		all_players.append_array(Global.world.get_all_players())

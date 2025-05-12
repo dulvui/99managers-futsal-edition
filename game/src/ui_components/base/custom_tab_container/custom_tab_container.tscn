@@ -20,6 +20,7 @@ grow_vertical = 2
 script = ExtResource("1_d7sa5")
 
 [node name="ButtonsBar" type="HBoxContainer" parent="."]
+unique_name_in_owner = true
 layout_mode = 2
 
 [node name="Prev" type="Button" parent="ButtonsBar"]
@@ -39,65 +40,6 @@ text = ">"
 script = ExtResource("2_kx3tm")
 joypad_button_event = SubResource("InputEventJoypadButton_qfq5t")
 metadata/_custom_type_script = "uid://cnyyowwlb04kl"
-
-[node name="Content" type="Control" parent="."]
-unique_name_in_owner = true
-layout_mode = 2
-size_flags_vertical = 3
-
-[node name="Test1" type="Label" parent="Content"]
-layout_mode = 0
-offset_right = 40.0
-offset_bottom = 23.0
-text = "1"
-
-[node name="Test2" type="Label" parent="Content"]
-layout_mode = 0
-offset_right = 40.0
-offset_bottom = 23.0
-text = "2"
-
-[node name="Test3" type="Label" parent="Content"]
-layout_mode = 0
-offset_right = 40.0
-offset_bottom = 23.0
-text = "v"
-
-[node name="Test4" type="Label" parent="Content"]
-layout_mode = 0
-offset_right = 40.0
-offset_bottom = 23.0
-text = "arstrast"
-
-[node name="Test5" type="Label" parent="Content"]
-layout_mode = 0
-offset_right = 40.0
-offset_bottom = 23.0
-text = "cd"
-
-[node name="Test6" type="Label" parent="Content"]
-layout_mode = 0
-offset_right = 40.0
-offset_bottom = 23.0
-text = "1"
-
-[node name="Test7" type="Label" parent="Content"]
-layout_mode = 0
-offset_right = 40.0
-offset_bottom = 23.0
-text = "rad"
-
-[node name="Test8" type="Label" parent="Content"]
-layout_mode = 0
-offset_right = 40.0
-offset_bottom = 23.0
-text = "arcd"
-
-[node name="Test9" type="Label" parent="Content"]
-layout_mode = 0
-offset_right = 40.0
-offset_bottom = 23.0
-text = "1"
 
 [connection signal="pressed" from="ButtonsBar/Prev" to="." method="_on_prev_pressed"]
 [connection signal="pressed" from="ButtonsBar/Next" to="." method="_on_next_pressed"]

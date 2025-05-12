@@ -1,10 +1,11 @@
-[gd_scene load_steps=4 format=3 uid="uid://cdrmqgiuv6wf3"]
+[gd_scene load_steps=5 format=3 uid="uid://cdrmqgiuv6wf3"]
 
 [ext_resource type="Script" uid="uid://blc348hncqk3b" path="res://src/ui_components/team_profile/team_profile.gd" id="1_2kt4b"]
 [ext_resource type="LabelSettings" uid="uid://cc2vi4onhgmnw" path="res://theme_base/label/label_settings_bold.tres" id="2_e0wm0"]
+[ext_resource type="PackedScene" uid="uid://bheddn7ywomo6" path="res://src/ui_components/base/custom_tab_container/custom_tab_container.tscn" id="2_gcsl0"]
 [ext_resource type="PackedScene" uid="uid://mvca6wjq0pv6" path="res://src/ui_components/player_list/player_list.tscn" id="3_mnl3l"]
 
-[node name="TeamProfile" type="TabContainer"]
+[node name="TeamProfile" type="MarginContainer"]
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
@@ -12,71 +13,75 @@ grow_horizontal = 2
 grow_vertical = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
-current_tab = 0
+theme_override_constants/margin_left = 0
+theme_override_constants/margin_top = 0
+theme_override_constants/margin_right = 0
+theme_override_constants/margin_bottom = 0
 script = ExtResource("1_2kt4b")
 
-[node name="Info" type="MarginContainer" parent="."]
+[node name="CustomTabContainer" parent="." instance=ExtResource("2_gcsl0")]
+layout_mode = 2
+
+[node name="Info" type="MarginContainer" parent="CustomTabContainer"]
 layout_mode = 2
 theme_override_constants/margin_left = 0
 theme_override_constants/margin_right = 0
-metadata/_tab_index = 0
 
-[node name="Info" type="VBoxContainer" parent="Info"]
+[node name="Info" type="VBoxContainer" parent="CustomTabContainer/Info"]
 custom_minimum_size = Vector2(300, 0)
 layout_mode = 2
 
-[node name="Name" type="Label" parent="Info/Info"]
+[node name="Name" type="Label" parent="CustomTabContainer/Info/Info"]
 unique_name_in_owner = true
 layout_mode = 2
 label_settings = ExtResource("2_e0wm0")
 
-[node name="PresitgeStars" type="Label" parent="Info/Info"]
+[node name="PresitgeStars" type="Label" parent="CustomTabContainer/Info/Info"]
 unique_name_in_owner = true
 layout_mode = 2
 
-[node name="Presitge" type="Label" parent="Info/Info"]
+[node name="Presitge" type="Label" parent="CustomTabContainer/Info/Info"]
 unique_name_in_owner = true
 layout_mode = 2
 
-[node name="BudgetTitle" type="Label" parent="Info/Info"]
+[node name="BudgetTitle" type="Label" parent="CustomTabContainer/Info/Info"]
 unique_name_in_owner = true
 layout_mode = 2
 text = "Budget"
 label_settings = ExtResource("2_e0wm0")
 
-[node name="Budget" type="Label" parent="Info/Info"]
+[node name="Budget" type="Label" parent="CustomTabContainer/Info/Info"]
 unique_name_in_owner = true
 layout_mode = 2
 
-[node name="SalaryBudget" type="Label" parent="Info/Info"]
+[node name="SalaryBudget" type="Label" parent="CustomTabContainer/Info/Info"]
 unique_name_in_owner = true
 layout_mode = 2
 
-[node name="StadiumTitle" type="Label" parent="Info/Info"]
+[node name="StadiumTitle" type="Label" parent="CustomTabContainer/Info/Info"]
 unique_name_in_owner = true
 layout_mode = 2
 text = "Stadium"
 label_settings = ExtResource("2_e0wm0")
 
-[node name="StadiumName" type="Label" parent="Info/Info"]
+[node name="StadiumName" type="Label" parent="CustomTabContainer/Info/Info"]
 unique_name_in_owner = true
 layout_mode = 2
 
-[node name="StadiumCapacity" type="Label" parent="Info/Info"]
+[node name="StadiumCapacity" type="Label" parent="CustomTabContainer/Info/Info"]
 unique_name_in_owner = true
 layout_mode = 2
 
-[node name="StadiumYearBuilt" type="Label" parent="Info/Info"]
+[node name="StadiumYearBuilt" type="Label" parent="CustomTabContainer/Info/Info"]
 unique_name_in_owner = true
 layout_mode = 2
 
-[node name="Players" type="MarginContainer" parent="."]
+[node name="Players" type="MarginContainer" parent="CustomTabContainer"]
 visible = false
 layout_mode = 2
 theme_override_constants/margin_left = 0
 theme_override_constants/margin_right = 0
-metadata/_tab_index = 1
 
-[node name="Players" parent="Players" instance=ExtResource("3_mnl3l")]
+[node name="Players" parent="CustomTabContainer/Players" instance=ExtResource("3_mnl3l")]
 unique_name_in_owner = true
 layout_mode = 2
