@@ -22,9 +22,6 @@ var player: Player
 
 
 func _ready() -> void:
-
-	team = Global.team
-
 	buy_date.setup(Enum.offer_timings)
 
 	# loan_date.setup()
@@ -44,7 +41,7 @@ func setup(p_player: Player) -> void:
 	#
 	# 	return
 	#
-	buy_money.setup(player.value, 0, team.finances.balance[-1])
+	buy_money.setup(player.value, 0, Global.team.finances.balance[-1])
 
 
 func _on_default_tab_container_tab_changed(tab: int) -> void:

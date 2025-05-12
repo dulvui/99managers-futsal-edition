@@ -88,6 +88,7 @@ static func find_next_matchday() -> void:
 static func init_empty_mock_world() -> void:
 	Global.start_date = Time.get_date_dict_from_system()
 	Global.world = World.new()
+	Global.calendar = Calendar.new()
 	Global.calendar.initialize()
 	Global.transfer_list = TransferList.new()
 	Global.match_list = MatchList.new()

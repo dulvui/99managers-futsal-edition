@@ -28,79 +28,79 @@ theme_override_constants/margin_bottom = 0
 script = ExtResource("2")
 metadata/_edit_use_anchors_ = true
 
-[node name="DefaultTabContainer" type="TabContainer" parent="."]
+[node name="TabContainer" type="TabContainer" parent="."]
 layout_mode = 2
 current_tab = 0
 script = ExtResource("3_wt7t7")
 metadata/_custom_type_script = "uid://bkg838a5hys8o"
 
-[node name="Overview" type="MarginContainer" parent="DefaultTabContainer"]
+[node name="Overview" type="MarginContainer" parent="TabContainer"]
 layout_mode = 2
 theme_override_constants/margin_left = 0
 theme_override_constants/margin_right = 0
 theme_override_constants/margin_bottom = 0
 metadata/_tab_index = 0
 
-[node name="Overview" type="GridContainer" parent="DefaultTabContainer/Overview"]
+[node name="Overview" type="GridContainer" parent="TabContainer/Overview"]
 layout_mode = 2
 columns = 2
 
-[node name="InfoContainer" type="VBoxContainer" parent="DefaultTabContainer/Overview/Overview"]
+[node name="InfoContainer" type="VBoxContainer" parent="TabContainer/Overview/Overview"]
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
 theme_override_constants/separation = 15
 
-[node name="Label" type="Label" parent="DefaultTabContainer/Overview/Overview/InfoContainer"]
+[node name="Label" type="Label" parent="TabContainer/Overview/Overview/InfoContainer"]
 layout_mode = 2
 text = "General"
 label_settings = ExtResource("3_uqqup")
 
-[node name="Info" parent="DefaultTabContainer/Overview/Overview/InfoContainer" instance=ExtResource("3_rkqc7")]
+[node name="Info" parent="TabContainer/Overview/Overview/InfoContainer" instance=ExtResource("3_rkqc7")]
 unique_name_in_owner = true
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
 
-[node name="AttributesContainer" type="VBoxContainer" parent="DefaultTabContainer/Overview/Overview"]
+[node name="AttributesContainer" type="VBoxContainer" parent="TabContainer/Overview/Overview"]
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
 theme_override_constants/separation = 15
 
-[node name="Label" type="Label" parent="DefaultTabContainer/Overview/Overview/AttributesContainer"]
+[node name="Label" type="Label" parent="TabContainer/Overview/Overview/AttributesContainer"]
 layout_mode = 2
 text = "Attributes"
 label_settings = ExtResource("3_uqqup")
 
-[node name="Attributes" parent="DefaultTabContainer/Overview/Overview/AttributesContainer" instance=ExtResource("3_whctl")]
+[node name="Attributes" parent="TabContainer/Overview/Overview/AttributesContainer" instance=ExtResource("3_whctl")]
 unique_name_in_owner = true
 layout_mode = 2
 
-[node name="Statistics" type="VBoxContainer" parent="DefaultTabContainer/Overview/Overview"]
+[node name="Statistics" type="VBoxContainer" parent="TabContainer/Overview/Overview"]
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
 theme_override_constants/separation = 15
 
-[node name="Label" type="Label" parent="DefaultTabContainer/Overview/Overview/Statistics"]
+[node name="Label" type="Label" parent="TabContainer/Overview/Overview/Statistics"]
 layout_mode = 2
 text = "Statistics
 "
 label_settings = ExtResource("3_uqqup")
 
-[node name="ScrollContainer" type="ScrollContainer" parent="DefaultTabContainer/Overview/Overview/Statistics"]
+[node name="ScrollContainer" type="ScrollContainer" parent="TabContainer/Overview/Overview/Statistics"]
 layout_mode = 2
 size_flags_vertical = 3
 horizontal_scroll_mode = 0
 
-[node name="Statistics" parent="DefaultTabContainer/Overview/Overview/Statistics/ScrollContainer" instance=ExtResource("4_hpiic")]
+[node name="Statistics" parent="TabContainer/Overview/Overview/Statistics/ScrollContainer" instance=ExtResource("4_hpiic")]
 unique_name_in_owner = true
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
 
-[node name="Transfers" type="MarginContainer" parent="DefaultTabContainer"]
+[node name="Transfers" type="MarginContainer" parent="TabContainer"]
 visible = false
 layout_mode = 2
 theme_override_constants/margin_left = 0
@@ -108,13 +108,13 @@ theme_override_constants/margin_right = 0
 theme_override_constants/margin_bottom = 0
 metadata/_tab_index = 1
 
-[node name="BuyOffer" parent="DefaultTabContainer/Transfers" instance=ExtResource("9_frkmc")]
+[node name="BuyOffer" parent="TabContainer/Transfers" instance=ExtResource("9_frkmc")]
 unique_name_in_owner = true
 layout_mode = 2
 size_flags_horizontal = 0
 size_flags_vertical = 1
 
-[node name="Contract" type="MarginContainer" parent="DefaultTabContainer"]
+[node name="Contract" type="MarginContainer" parent="TabContainer"]
 visible = false
 layout_mode = 2
 theme_override_constants/margin_left = 0
@@ -122,27 +122,27 @@ theme_override_constants/margin_right = 0
 theme_override_constants/margin_bottom = 0
 metadata/_tab_index = 2
 
-[node name="Contract" type="HBoxContainer" parent="DefaultTabContainer/Contract"]
+[node name="Contract" type="HBoxContainer" parent="TabContainer/Contract"]
 layout_mode = 2
 
-[node name="Contract" type="VBoxContainer" parent="DefaultTabContainer/Contract/Contract"]
+[node name="Contract" type="VBoxContainer" parent="TabContainer/Contract/Contract"]
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 0
 theme_override_constants/separation = 15
 
-[node name="Label" type="Label" parent="DefaultTabContainer/Contract/Contract/Contract"]
+[node name="Label" type="Label" parent="TabContainer/Contract/Contract/Contract"]
 layout_mode = 2
 text = "Contract
 "
 label_settings = ExtResource("3_uqqup")
 
-[node name="Contract" parent="DefaultTabContainer/Contract/Contract/Contract" instance=ExtResource("7_4elh2")]
+[node name="Contract" parent="TabContainer/Contract/Contract/Contract" instance=ExtResource("7_4elh2")]
 unique_name_in_owner = true
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
 
-[node name="ContractOffer" parent="DefaultTabContainer/Contract" instance=ExtResource("10_frkmc")]
+[node name="ContractOffer" parent="TabContainer/Contract" instance=ExtResource("10_frkmc")]
 unique_name_in_owner = true
 layout_mode = 2
