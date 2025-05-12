@@ -16,6 +16,7 @@ theme_override_constants/margin_right = 0
 script = ExtResource("1_kjp2a")
 
 [node name="VBoxContainer" type="VBoxContainer" parent="."]
+custom_minimum_size = Vector2(800, 0)
 layout_mode = 2
 theme_override_constants/separation = 15
 
@@ -25,8 +26,10 @@ text = "Game license"
 label_settings = ExtResource("2_tu352")
 
 [node name="LicenseDescription" type="Label" parent="VBoxContainer"]
+custom_minimum_size = Vector2(800, 0)
 layout_mode = 2
 text = "This game is Open Source and released under the AGPL v3 or later license."
+autowrap_mode = 2
 
 [node name="LicenseButton" type="Button" parent="VBoxContainer"]
 layout_mode = 2
@@ -40,8 +43,10 @@ text = "Source code"
 label_settings = ExtResource("2_tu352")
 
 [node name="SourceCodeDescription" type="Label" parent="VBoxContainer"]
+custom_minimum_size = Vector2(800, 0)
 layout_mode = 2
 text = "The full source code of the game is available on the websites below."
+autowrap_mode = 2
 
 [node name="SourceCodeLinks" type="HBoxContainer" parent="VBoxContainer"]
 auto_translate_mode = 2
@@ -64,8 +69,10 @@ text = "Third party licenses"
 label_settings = ExtResource("2_tu352")
 
 [node name="ThirdPartyLicenseDescription" type="Label" parent="VBoxContainer"]
+custom_minimum_size = Vector2(800, 0)
 layout_mode = 2
 text = "This game was built using the Godot Engine, that is released under the MIT license."
+autowrap_mode = 2
 
 [node name="ThirdPartyLicenseButton" type="Button" parent="VBoxContainer"]
 layout_mode = 2
