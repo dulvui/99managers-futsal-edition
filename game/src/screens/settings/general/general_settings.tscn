@@ -20,6 +20,22 @@ theme_override_constants/separation = 15
 script = ExtResource("1_gl78q")
 metadata/_edit_use_anchors_ = true
 
+[node name="Version" type="HBoxContainer" parent="."]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="Version"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "Version"
+
+[node name="VersionLabel" type="Label" parent="Version"]
+unique_name_in_owner = true
+auto_translate_mode = 2
+layout_mode = 2
+size_flags_horizontal = 3
+text = "v1.0.0"
+horizontal_alignment = 2
+
 [node name="LanguageLabel" type="Label" parent="."]
 layout_mode = 2
 text = "Language"
@@ -148,6 +164,11 @@ size_flags_vertical = 4
 text = "Default"
 script = ExtResource("3_n2piq")
 
+[node name="ThemePicker" parent="Interface" instance=ExtResource("6_ryj47")]
+unique_name_in_owner = true
+layout_mode = 2
+show_custom = false
+
 [node name="Scale" type="HBoxContainer" parent="Interface"]
 layout_mode = 2
 
@@ -207,28 +228,6 @@ text = "Screen fade animation"
 [node name="ScreenFadeButton" type="CheckButton" parent="Interface/ScreenFade"]
 unique_name_in_owner = true
 layout_mode = 2
-
-[node name="ThemePicker" parent="." instance=ExtResource("6_ryj47")]
-unique_name_in_owner = true
-layout_mode = 2
-show_custom = false
-
-[node name="Version" type="HBoxContainer" parent="."]
-layout_mode = 2
-
-[node name="Label" type="Label" parent="Version"]
-layout_mode = 2
-size_flags_horizontal = 3
-text = "Version"
-label_settings = ExtResource("1_6o6h0")
-
-[node name="VersionLabel" type="Label" parent="Version"]
-unique_name_in_owner = true
-auto_translate_mode = 2
-layout_mode = 2
-size_flags_horizontal = 3
-text = "v1.0.0"
-horizontal_alignment = 2
 
 [connection signal="meta_clicked" from="Langauge/TranslationsLink" to="." method="_on_translations_link_meta_clicked"]
 [connection signal="item_selected" from="Formats/Dates/DatesOptionsButton" to="." method="_on_dates_options_button_item_selected"]

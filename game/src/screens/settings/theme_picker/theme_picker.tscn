@@ -1,6 +1,5 @@
-[gd_scene load_steps=5 format=3 uid="uid://can4wvc3g3b84"]
+[gd_scene load_steps=4 format=3 uid="uid://can4wvc3g3b84"]
 
-[ext_resource type="LabelSettings" uid="uid://cc2vi4onhgmnw" path="res://theme_base/label/label_settings_bold.tres" id="1_haxqt"]
 [ext_resource type="Script" uid="uid://b8mouc7d1l74i" path="res://src/screens/settings/theme_picker/theme_picker.gd" id="1_io0vq"]
 [ext_resource type="Script" uid="uid://cnyyowwlb04kl" path="res://src/ui_components/base/defaults/default_button.gd" id="2_2ccni"]
 [ext_resource type="PackedScene" uid="uid://b2mwv4cl5sm6t" path="res://src/ui_components/base/swtich_option_button/switch_option_button.tscn" id="3_ykm8n"]
@@ -20,7 +19,6 @@ layout_mode = 2
 layout_mode = 2
 size_flags_horizontal = 3
 text = "Themes"
-label_settings = ExtResource("1_haxqt")
 
 [node name="OptionButton" parent="Defaut" instance=ExtResource("3_ykm8n")]
 unique_name_in_owner = true

@@ -5,8 +5,9 @@
 class_name GeneralSettings
 extends VBoxContainer
 
+# audio
 @onready var ui_sfx_volume: HSlider = %UISfxVolumeSlider
-@onready var version_label: Label = %VersionLabel
+# ui
 @onready var font_size_spinbox: SpinBox = %FontSizeSpinBox
 @onready var screen_fade_button: CheckButton = %ScreenFadeButton
 @onready var theme_picker: ThemePicker = %ThemePicker
@@ -18,26 +19,30 @@ extends VBoxContainer
 @onready var date_button: SwitchOptionButton = %DatesOptionsButton
 @onready var currency_button: SwitchOptionButton = %CurrenciesOptionsButton
 @onready var formats_example_label: Label = %FormatsExample
+# generic
+@onready var version_label: Label = %VersionLabel
 
 
 func _ready() -> void:
+	# audio
+	ui_sfx_volume.value = SoundUtil.get_bus_volume(SoundUtil.AudioBus.UI_SFX)
+	# ui
 	font_size_spinbox.value = Global.config.theme_font_size
 	font_size_spinbox.min_value = Const.FONT_SIZE_MIN
 	font_size_spinbox.max_value = Const.FONT_SIZE_MAX
-
-	version_label.text = "v" + Global.version
-
-	ui_sfx_volume.value = SoundUtil.get_bus_volume(SoundUtil.AudioBus.UI_SFX)
 	screen_fade_button.button_pressed = Global.config.scene_fade
-
+	# scale
 	scale_button_1.button_pressed = Global.config.theme_scale == Const.SCALE_1
 	scale_button_2.button_pressed = Global.config.theme_scale == Const.SCALE_2
 	scale_button_3.button_pressed = Global.config.theme_scale == Const.SCALE_3
-
+	# formats
 	date_button.setup(FormatUtil.DATES_EXAMPLES, Global.config.date)
 	currency_button.setup(FormatUtil.SIGNS_TEXT, Global.config.currency)
-
-	formats_example_label.text = "%s %s" % [FormatUtil.date(31, 12, 2000), FormatUtil.currency(1234)]
+	formats_example_label.text = "%s %s" % [
+		FormatUtil.date(31, 12, 2000), FormatUtil.currency(1234)
+	]
+	# generic
+	version_label.text = "v" + Global.version
 
 
 func restore_defaults() -> void:
@@ -111,12 +116,16 @@ func _on_translations_link_meta_clicked(_meta: Variant) -> void:
 
 func _on_currencies_options_button_item_selected(index: int) -> void:
 	Global.config.currency = index as FormatUtil.Currencies
-	formats_example_label.text = "%s %s" % [FormatUtil.date(31, 12, 2000), FormatUtil.currency(1234)]
+	formats_example_label.text = "%s %s" % [
+		FormatUtil.date(31, 12, 2000), FormatUtil.currency(1234)
+	]
 	DataUtil.save_config()
 
 
 func _on_dates_options_button_item_selected(index: int) -> void:
 	Global.config.date = index as FormatUtil.Dates
-	formats_example_label.text = "%s %s" % [FormatUtil.date(31, 12, 2000), FormatUtil.currency(1234)]
+	formats_example_label.text = "%s %s" % [
+		FormatUtil.date(31, 12, 2000), FormatUtil.currency(1234)
+	]
 	DataUtil.save_config()
 

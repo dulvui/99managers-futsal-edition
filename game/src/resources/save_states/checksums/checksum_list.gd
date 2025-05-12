@@ -34,5 +34,6 @@ func check(path: StringName) -> bool:
 			return FileAccess.get_sha256(path) == checksum.sha256
 
 	push_warning("checksum check failed, path %s not found in list" % path)
-	return false
+	# return true anyways, to be able to open imported files
+	return true
 

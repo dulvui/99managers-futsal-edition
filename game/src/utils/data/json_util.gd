@@ -4,55 +4,33 @@
 
 class_name JSONUtil
 
-const COMPRESSION_ON: bool = false
-const COMPRESSION_MODE: FileAccess.CompressionMode = FileAccess.CompressionMode.COMPRESSION_GZIP
-const COMPRESSION_SUFFIX: StringName = ".gz"
+
+var json: JSON
+var file_util: FileUtil
+
+
+func _init() -> void:
+	file_util = FileUtil.new()
+	json = JSON.new()
 
 
 func save(path: String, resource: JSONResource) -> void:
 	print("converting resurce...")
-	var json: Dictionary = resource.to_json()
+	var json_dict: Dictionary = resource.to_json()
 	print("converting resource done.")
 
-	# make sure path is lower case
-	path = path.to_lower()
-	print("saving json %s..." % path)
-
-	# create directory, if not exist yet
-	var dir_path: String = path.get_base_dir()
-	var dir: DirAccess = DirAccess.open(DataUtil.USER_PATH)
-	if not dir.dir_exists(dir_path):
-		print("dir %s not found, creating now..." % dir_path)
-		var err_dir: Error = dir.make_dir_recursive(dir_path)
-		if err_dir != OK:
-			push_error("error while creating directory %s; error with code %d" % [dir_path, err_dir])
-			return
-
-	# print("saving resource...")
-	var file: FileAccess
-	if COMPRESSION_ON:
-		path += COMPRESSION_SUFFIX
-		file = FileAccess.open_compressed(path, FileAccess.WRITE, COMPRESSION_MODE)
-	else:
-		file = FileAccess.open(path, FileAccess.WRITE)
+	var file: FileAccess = file_util.write(path)
 
 	if file == null:
-		breakpoint
-		push_error("error while opening file: file is null")
-		return
-
-	# check for file errors
-	var err: int = file.get_error()
-	if err != OK:
-		push_error("error while opening file: error with code %d" % err)
+		push_error("error while opening json file %s" % path)
 		return
 
 	# save to file
-	file.store_string(JSON.stringify(json))
+	file.store_string(JSON.stringify(json_dict))
 	file.close()
 
 	# check again for file errors
-	err = file.get_error()
+	var err: Error = file.get_error()
 	if err != OK:
 		print("again opening file error with code %d" % err)
 		print(err)
@@ -62,27 +40,15 @@ func save(path: String, resource: JSONResource) -> void:
 
 
 func load(path: String, resource: JSONResource) -> Error:
-	# make sure path is lower case
-	path = path.to_lower()
+	var file: FileAccess = file_util.read(path)
 
-	# open file
-	var file: FileAccess
-	if COMPRESSION_ON:
-		path += COMPRESSION_SUFFIX
-		file = FileAccess.open_compressed(path, FileAccess.READ, FileAccess.COMPRESSION_GZIP)
-	else:
-		file = FileAccess.open(path, FileAccess.READ)
+	if file == null:
+		push_error("error while opening json file %s with error %d" % [path, file_util.err])
+		return file_util.err
 
-	# check errors
-	var err: Error = FileAccess.get_open_error()
-	if err != OK:
-		print("opening file %s error with code %d." % [path, err])
-		return err
-
-	# load and parse file
+	# parse file to json
 	var file_text: String = file.get_as_text()
-	var json: JSON = JSON.new()
-	err = json.parse(file_text)
+	var err: Error = json.parse(file_text)
 
 	# check for parsing errors
 	if err != OK:

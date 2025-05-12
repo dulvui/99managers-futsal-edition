@@ -25,7 +25,7 @@ func restore(path: String) -> bool:
 	# check first, if file exists
 	var file: FileAccess = FileAccess.open(path, FileAccess.READ)
 	if file == null:
-		print("backup file %s does not exist" % path)
+		push_error("backup file %s does not exist" % path)
 		return false
 
 	print("restoring backup for %s..." % path)
@@ -37,6 +37,6 @@ func restore(path: String) -> bool:
 		print("restoring backup for %s done." % path)
 		return true
 
-	print("restoring backup for %s gone wrong." % path)
+	push_error("restoring backup for %s gone wrong." % path)
 	return false
 

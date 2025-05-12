@@ -9,6 +9,7 @@ const COMPRESSION_MODE: FileAccess.CompressionMode = FileAccess.CompressionMode.
 const COMPRESSION_SUFFIX: StringName = ".gz"
 const MAX_FILE_SIZE: int = 1_000_000 # 100MB
 
+var file_util: FileUtil
 var backup_util: BackupUtil
 
 # headers
@@ -18,12 +19,10 @@ var active_line: PackedStringArray
 var line_index: int
 var column_index: int
 
-var err: Error
-
 
 func _init() -> void:
+	file_util = FileUtil.new()
 	backup_util = BackupUtil.new()
-	err = OK
 
 	headers = PackedStringArray()
 	headers.append_array(Const.CSV_HEADERS)
@@ -31,12 +30,6 @@ func _init() -> void:
 	headers.append_array(Const.PLAYER_ATTRIBUTES_MENTAL)
 	headers.append_array(Const.PLAYER_ATTRIBUTES_PHYSICAL)
 	headers.append_array(Const.PLAYER_ATTRIBUTES_TECHNICAL)
-
-
-func get_error() -> Error:
-	if err == null:
-		err = OK
-	return err
 
 
 func csv_to_teams(csv: Array[PackedStringArray], world: World) -> void:
@@ -541,45 +534,14 @@ func validate_csv_file(file_path: String) -> bool:
 	return true
 
 
-func save_csv(path: String, csv: Array[PackedStringArray], append: bool = false) -> void:
-	path = path.to_lower()
-
-	# create directory, if not exist yet
-	var dir_path: String = path.get_base_dir()
-	var dir: DirAccess = DirAccess.open(DataUtil.USER_PATH)
-	if not dir.dir_exists(dir_path):
-		print("dir %s not found, creating now..." % dir_path)
-		err = dir.make_dir_recursive(dir_path)
-		if err != OK:
-			push_error("error while creating directory %s; error with code %d" % [dir_path, err])
-			return
-
+func save_csv(path: String, csv: Array[PackedStringArray], append: bool = false) -> String:
 	var file: FileAccess
 
-	if append:
-		# READ_WRITE is needed to append
-		if COMPRESSION_ON:
-			path += COMPRESSION_SUFFIX
-			file = FileAccess.open_compressed(path, FileAccess.READ_WRITE, COMPRESSION_MODE)
-		else:
-			file = FileAccess.open(path, FileAccess.READ_WRITE)
-
-	if file == null:
-		if COMPRESSION_ON:
-			path += COMPRESSION_SUFFIX
-			file = FileAccess.open_compressed(path, FileAccess.WRITE, COMPRESSION_MODE)
-		else:
-			file = FileAccess.open(path, FileAccess.WRITE)
+	file = file_util.write(path, append)
 
 	if file == null:
 		push_error("error while opening file: file is null")
-		return
-
-	# check for file errors
-	err = file.get_error()
-	if err != OK:
-		push_error("error while opening file: error with code %d" % err)
-		return
+		return ""
 
 	# go to end of file to append
 	if append:
@@ -591,41 +553,18 @@ func save_csv(path: String, csv: Array[PackedStringArray], append: bool = false)
 
 	file.close()
 
-	# check again for file errors
-	err = file.get_error()
-	if err != OK:
-		print("again opening file error with code %d" % err)
-		print(err)
-		return
-
+	# get
+	path = file.get_path()
 	backup_util.create(path)
+	return path
 
 
-func read_csv(path: String, after_backup: bool = false) -> Array[PackedStringArray]:
-	err = OK
-	path = path.to_lower()
 
-	# open file
-	var file: FileAccess
-	if COMPRESSION_ON:
-		path += COMPRESSION_SUFFIX
-		file = FileAccess.open_compressed(path, FileAccess.READ, FileAccess.COMPRESSION_GZIP)
-	else:
-		file = FileAccess.open(path, FileAccess.READ)
+func read_csv(path: String) -> Array[PackedStringArray]:
+	var file: FileAccess = file_util.read(path)
 
-	# check errors
-	err = FileAccess.get_open_error()
-	if err != OK:
-		if after_backup:
-			print("opening file %s error with code %d" % [path, err])
-			return []
-
-		print("opening file %s error with code %d, restoring backup..." % [path, err])
-		var backup_result: bool = backup_util.restore(path)
-		if backup_result:
-			return read_csv(path, true)
-
-		print("error while restoring backup")
+	if file == null:
+		push_error("error while reading csv file %s" % path)
 		return []
 
 	var csv: Array[PackedStringArray] = []
@@ -636,6 +575,10 @@ func read_csv(path: String, after_backup: bool = false) -> Array[PackedStringArr
 
 	file.close()
 	return csv
+
+
+func get_error() -> Error:
+	return file_util.err
 
 
 func _player_to_line(

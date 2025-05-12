@@ -103,7 +103,7 @@ func _ready() -> void:
 			func() -> void:
 				players_bar.update_players()
 				formation.set_players()
-	)
+		)
 
 	# name labels
 	home_name.text = home_team.name
