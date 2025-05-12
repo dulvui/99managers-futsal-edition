@@ -9,7 +9,7 @@ extends JSONResource
 @export var currency: FormatUtil.Currencies
 @export var date: FormatUtil.Dates
 @export var audio: Dictionary
-@export var input_detection_mode: Enum.InputDetectionMode
+@export var input_automatic_detection: bool
 @export var input_type: Enum.InputType
 @export var theme_index: int
 @export var theme_scale: float
@@ -25,7 +25,7 @@ func _init(
 	p_currency: FormatUtil.Currencies = FormatUtil.Currencies.EURO,
 	p_date: FormatUtil.Dates = FormatUtil.Dates.DMY_SLASH,
 	p_audio: Dictionary = {},
-	p_input_detection_mode: Enum.InputDetectionMode = Enum.InputDetectionMode.AUTO,
+	p_input_automatic_detection: bool = true,
 	p_input_type: Enum.InputType = Enum.InputType.MOUSE_AND_KEYBOARD,
 	p_theme_index: int = 0,
 	p_theme_scale: float = ThemeUtil.get_default_scale(),
@@ -39,7 +39,7 @@ func _init(
 	currency = p_currency
 	date = p_date
 	audio = p_audio
-	input_detection_mode = p_input_detection_mode
+	input_automatic_detection = p_input_automatic_detection
 	input_type = p_input_type
 	theme_index = p_theme_index
 	theme_scale = p_theme_scale

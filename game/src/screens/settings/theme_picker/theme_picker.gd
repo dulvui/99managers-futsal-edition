@@ -22,14 +22,17 @@ var active_color_type: ColorType
 
 
 func _ready() -> void:
-	options.setup(ThemeUtil.get_theme_names(show_custom), Global.config.theme_index)
+	setup()
 
+
+func setup() -> void:
+	options.setup(ThemeUtil.get_theme_names(show_custom), Global.config.theme_index)
 	custom.visible = show_custom
 
 
 func _on_option_button_item_selected(index: int) -> void:
-	Main.apply_theme(index)
 	Global.config.theme_index = index
+	Main.apply_theme(index)
 	DataUtil.save_config()
 
 

@@ -94,7 +94,7 @@ func _verify_focus() -> void:
 
 
 func _verify_type(event: InputEvent) -> void:
-	if Global.config.input_detection_mode == Enum.InputDetectionMode.MANUAL:
+	if not Global.config.input_automatic_detection:
 		return
 
 	if timer.time_left > 0.5:
@@ -110,3 +110,4 @@ func _verify_type(event: InputEvent) -> void:
 
 func _on_gui_focus_change(node: Control) -> void:
 	last_focus = node
+

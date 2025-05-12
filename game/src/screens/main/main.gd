@@ -119,7 +119,7 @@ func check_layout_direction() -> void:
 
 
 func apply_theme(index: int) -> void:
-	# remove all scenes, because changing theme is much faster with low amound of Nodes
+	# remove all scenes, because changing theme is much faster with low amount of Nodes
 	for child: Node in content.get_children():
 		content.remove_child(child)
 		child.queue_free()
@@ -127,6 +127,7 @@ func apply_theme(index: int) -> void:
 	ThemeUtil.apply_theme(index)
 
 	# short delay before reloading previous scene after theme change, brings big speed increase
+	# no idea why...
 	await get_tree().create_timer(0.05).timeout
 
 	if not previous_scenes.is_empty():

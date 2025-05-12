@@ -80,17 +80,10 @@ enum Weekdays {
 	SATURDAY,
 }
 
-#
-# Input
-#
-enum InputDetectionMode {
-	AUTO,
-	MANUAL,
-}
 
 enum InputType {
-	JOYPAD,
 	MOUSE_AND_KEYBOARD,
+	JOYPAD,
 	TOUCHSCREEN,
 }
 
@@ -100,8 +93,7 @@ enum InputType {
 #
 var offer_timings: Array[String] = ["Immediate", "Next transfer window"]
 var player_names: Array[String] = ["Male", "Female","Mixed"]
-var input_detection_mode: Array[String] = ["Automatic", "Manual"]
-var input_type: Array[String] = ["Joypad", "Mouse and keybaord","Touchscreen"]
+var input_type: Array[String] = ["Mouse and keyboard", "Joypad", "Touchscreen"]
 
 
 #
@@ -187,16 +179,6 @@ func get_weekday_text(weekday: Weekdays, short: bool = false) -> String:
 	if short:
 		return weekday_text.substr(0, 3)
 	return weekday_text
-
-
-func get_input_detection_type_text() -> String:
-	match Global.config.input_detection_mode:
-		InputDetectionMode.AUTO:
-			return tr("Automatic")
-		InputDetectionMode.MANUAL:
-			return tr("Manual")
-		_:
-			return tr("Automatic")
 
 
 func get_input_type_text() -> String:

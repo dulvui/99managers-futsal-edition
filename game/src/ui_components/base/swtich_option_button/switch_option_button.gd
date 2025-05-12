@@ -33,6 +33,14 @@ func setup(items: Array[Variant], selected: int = 0) -> void:
 		option_button.tooltip_text = option_button.text
 
 
+func set_disabled(p_disabled: bool) -> void:
+	disabled = p_disabled
+
+	option_button.disabled = disabled
+	prev_button.disabled = disabled
+	next_button.disabled = disabled
+
+
 func _on_next_pressed() -> void:
 	if option_button.selected < option_button.item_count - 1:
 		option_button.selected += 1

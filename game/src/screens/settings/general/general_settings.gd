@@ -24,6 +24,14 @@ extends VBoxContainer
 
 
 func _ready() -> void:
+	setup()
+
+
+func setup() -> void:
+	# scale
+	scale_button_1.button_pressed = Global.config.theme_scale == Const.SCALE_1
+	scale_button_2.button_pressed = Global.config.theme_scale == Const.SCALE_2
+	scale_button_3.button_pressed = Global.config.theme_scale == Const.SCALE_3
 	# audio
 	ui_sfx_volume.value = SoundUtil.get_bus_volume(SoundUtil.AudioBus.UI_SFX)
 	# ui
@@ -31,36 +39,42 @@ func _ready() -> void:
 	font_size_spinbox.min_value = Const.FONT_SIZE_MIN
 	font_size_spinbox.max_value = Const.FONT_SIZE_MAX
 	screen_fade_button.button_pressed = Global.config.scene_fade
-	# scale
-	scale_button_1.button_pressed = Global.config.theme_scale == Const.SCALE_1
-	scale_button_2.button_pressed = Global.config.theme_scale == Const.SCALE_2
-	scale_button_3.button_pressed = Global.config.theme_scale == Const.SCALE_3
 	# formats
 	date_button.setup(FormatUtil.DATES_EXAMPLES, Global.config.date)
 	currency_button.setup(FormatUtil.SIGNS_TEXT, Global.config.currency)
 	formats_example_label.text = "%s %s" % [
 		FormatUtil.date(31, 12, 2000), FormatUtil.currency(1234)
 	]
+	# theme
+	theme_picker.setup()
 	# generic
 	version_label.text = "v" + Global.version
 
 
 func restore_defaults() -> void:
+	# scale, as first, to make sure root node is accessible
+	Global.config.theme_scale = ThemeUtil.get_default_scale()
+	get_tree().root.content_scale_factor = Global.config.theme_scale
+
 	# font size
 	Global.config.theme_font_size = Const.FONT_SIZE_DEFAULT
 	font_size_spinbox.value = Global.config.theme_font_size
 	# theme
-	ThemeUtil.reset_to_default()
-	theme_picker.options.option_button.selected = 0
-	#scale
-	Global.config.theme_scale = ThemeUtil.get_default_scale()
-	get_tree().root.content_scale_factor = Global.config.theme_scale
-	# audio
-	SoundUtil.restore_default()
-	ui_sfx_volume.value = SoundUtil.get_bus_volume(SoundUtil.AudioBus.UI_SFX)
+	Global.config.theme_index = 0
+	Main.apply_theme(0)
+	theme_picker.setup()
 	# scene fade
 	Global.config.scene_fade = true
 	screen_fade_button.button_pressed = true
+	# audio
+	SoundUtil.restore_default()
+	ui_sfx_volume.value = SoundUtil.get_bus_volume(SoundUtil.AudioBus.UI_SFX)
+	# formats
+	Global.config.date = 0 as FormatUtil.Dates
+	Global.config.currency = 0 as FormatUtil.Currencies
+
+	# reset values of all elements
+	setup()
 
 
 func _on_font_default_button_pressed() -> void:

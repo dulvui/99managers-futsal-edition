@@ -38,8 +38,12 @@ The single changes are separated in the following section for better visibility
     - Player profile has now tabs: Overview, Transfers, Contract
     - Show loading progress on game load and save
     - Make light theme default
+    - Remove secondary backgrounds in dashboard and other ui elements
+    - Hide vim mode in settings, until implemented correctly
+    - Make automatic input type detection a check button, instead of a option button
 - Data
     - Realistic contract start and end dates
+    - Remove data compression ability, all data is readable json/csv files now
 - Logic
     - Better data validation when starting new game
 
@@ -52,6 +56,7 @@ The single changes are separated in the following section for better visibility
     - Save and load all players data like contract and statistics
 - Logic
     - Fixed issues in seasonal finances calculation
+    - Reset default settings resets all possible settings
 
 ## Contributors
 - Simon Dalvai

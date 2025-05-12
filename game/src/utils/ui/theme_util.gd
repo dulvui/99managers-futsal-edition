@@ -198,11 +198,6 @@ func get_theme_names(show_custom: bool = false) -> Array:
 	]
 
 
-func reset_to_default() -> void:
-	Global.config.theme_index = 0
-	apply_theme(0)
-
-
 func title(label: Label, condition: bool = true) -> void:
 	if condition:
 		label.label_settings = label_settings_title

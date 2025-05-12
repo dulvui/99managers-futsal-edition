@@ -14,6 +14,7 @@ size_flags_horizontal = 3
 script = ExtResource("1_e4wd1")
 
 [node name="VimMode" type="HBoxContainer" parent="."]
+visible = false
 layout_mode = 2
 theme_override_constants/separation = 20
 
@@ -40,18 +41,17 @@ layout_mode = 2
 text = "No joypad connected"
 label_settings = ExtResource("1_cunc8")
 
-[node name="DetectionMode" type="HBoxContainer" parent="."]
+[node name="AutomaticDetection" type="HBoxContainer" parent="."]
 layout_mode = 2
 theme_override_constants/separation = 20
 
-[node name="DetectionModeLabel" type="Label" parent="DetectionMode"]
+[node name="AutomaticDetectionLabel" type="Label" parent="AutomaticDetection"]
 layout_mode = 2
 size_flags_horizontal = 3
-text = "Input detection mode"
+text = "Automatic Input detection"
 
-[node name="DetectionModeButton" parent="DetectionMode" instance=ExtResource("3_g1iho")]
+[node name="AutomaticDetectionButton" type="CheckButton" parent="AutomaticDetection"]
 unique_name_in_owner = true
-custom_minimum_size = Vector2(320, 30)
 layout_mode = 2
 
 [node name="Type" type="HBoxContainer" parent="."]
@@ -68,5 +68,5 @@ unique_name_in_owner = true
 custom_minimum_size = Vector2(320, 30)
 layout_mode = 2
 
-[connection signal="item_selected" from="DetectionMode/DetectionModeButton" to="." method="_on_detection_mode_button_item_selected"]
+[connection signal="toggled" from="AutomaticDetection/AutomaticDetectionButton" to="." method="_on_automatic_detection_button_toggled"]
 [connection signal="item_selected" from="Type/TypeButton" to="." method="_on_type_button_item_selected"]
