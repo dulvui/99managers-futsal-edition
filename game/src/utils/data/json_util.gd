@@ -4,7 +4,6 @@
 
 class_name JSONUtil
 
-
 var json: JSON
 var file_util: FileUtil
 

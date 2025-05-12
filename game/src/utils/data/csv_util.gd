@@ -4,9 +4,6 @@
 
 class_name CSVUtil
 
-const COMPRESSION_ON: bool = false
-const COMPRESSION_MODE: FileAccess.CompressionMode = FileAccess.CompressionMode.COMPRESSION_GZIP
-const COMPRESSION_SUFFIX: StringName = ".gz"
 const MAX_FILE_SIZE: int = 1_000_000 # 100MB
 
 var file_util: FileUtil
