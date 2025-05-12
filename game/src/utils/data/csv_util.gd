@@ -6,6 +6,7 @@ class_name CSVUtil
 
 const COMPRESSION_ON: bool = false
 const COMPRESSION_MODE: FileAccess.CompressionMode = FileAccess.CompressionMode.COMPRESSION_GZIP
+const COMPRESSION_SUFFIX: StringName = ".gz"
 const MAX_FILE_SIZE: int = 1_000_000 # 100MB
 
 var backup_util: BackupUtil
@@ -558,12 +559,14 @@ func save_csv(path: String, csv: Array[PackedStringArray], append: bool = false)
 	if append:
 		# READ_WRITE is needed to append
 		if COMPRESSION_ON:
+			path += COMPRESSION_SUFFIX
 			file = FileAccess.open_compressed(path, FileAccess.READ_WRITE, COMPRESSION_MODE)
 		else:
 			file = FileAccess.open(path, FileAccess.READ_WRITE)
 
 	if file == null:
 		if COMPRESSION_ON:
+			path += COMPRESSION_SUFFIX
 			file = FileAccess.open_compressed(path, FileAccess.WRITE, COMPRESSION_MODE)
 		else:
 			file = FileAccess.open(path, FileAccess.WRITE)
@@ -605,6 +608,7 @@ func read_csv(path: String, after_backup: bool = false) -> Array[PackedStringArr
 	# open file
 	var file: FileAccess
 	if COMPRESSION_ON:
+		path += COMPRESSION_SUFFIX
 		file = FileAccess.open_compressed(path, FileAccess.READ, FileAccess.COMPRESSION_GZIP)
 	else:
 		file = FileAccess.open(path, FileAccess.READ)

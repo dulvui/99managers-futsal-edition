@@ -6,7 +6,7 @@ class_name JSONUtil
 
 const COMPRESSION_ON: bool = false
 const COMPRESSION_MODE: FileAccess.CompressionMode = FileAccess.CompressionMode.COMPRESSION_GZIP
-const FILE_SUFFIX_COMPRESS: StringName = ".save"
+const COMPRESSION_SUFFIX: StringName = ".gz"
 
 
 func save(path: String, resource: JSONResource) -> void:
@@ -31,7 +31,7 @@ func save(path: String, resource: JSONResource) -> void:
 	# print("saving resource...")
 	var file: FileAccess
 	if COMPRESSION_ON:
-		path += FILE_SUFFIX_COMPRESS
+		path += COMPRESSION_SUFFIX
 		file = FileAccess.open_compressed(path, FileAccess.WRITE, COMPRESSION_MODE)
 	else:
 		file = FileAccess.open(path, FileAccess.WRITE)
@@ -68,7 +68,7 @@ func load(path: String, resource: JSONResource) -> Error:
 	# open file
 	var file: FileAccess
 	if COMPRESSION_ON:
-		path += FILE_SUFFIX_COMPRESS
+		path += COMPRESSION_SUFFIX
 		file = FileAccess.open_compressed(path, FileAccess.READ, FileAccess.COMPRESSION_GZIP)
 	else:
 		file = FileAccess.open(path, FileAccess.READ)
