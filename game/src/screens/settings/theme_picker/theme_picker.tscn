@@ -6,21 +6,13 @@
 
 [node name="ThemePicker" type="VBoxContainer"]
 anchors_preset = -1
-anchor_right = 0.178
-anchor_bottom = 0.107
-offset_right = -341.76
-offset_bottom = -115.56
+anchor_right = 0.125
+anchor_bottom = 0.028
+offset_right = -240.0
+offset_bottom = -30.24
 script = ExtResource("1_io0vq")
 
-[node name="Defaut" type="HBoxContainer" parent="."]
-layout_mode = 2
-
-[node name="Label" type="Label" parent="Defaut"]
-layout_mode = 2
-size_flags_horizontal = 3
-text = "Themes"
-
-[node name="OptionButton" parent="Defaut" instance=ExtResource("3_ykm8n")]
+[node name="OptionButton" parent="." instance=ExtResource("3_ykm8n")]
 unique_name_in_owner = true
 custom_minimum_size = Vector2(240, 30)
 layout_mode = 2
@@ -106,7 +98,7 @@ color_modes_visible = false
 presets_visible = false
 metadata/_edit_use_anchors_ = true
 
-[connection signal="item_selected" from="Defaut/OptionButton" to="." method="_on_option_button_item_selected"]
+[connection signal="item_selected" from="OptionButton" to="." method="_on_option_button_item_selected"]
 [connection signal="pressed" from="Custom/Font/FontColorButton" to="." method="_on_font_color_button_pressed"]
 [connection signal="pressed" from="Custom/Style/StyleColorButton" to="." method="_on_style_color_button_pressed"]
 [connection signal="pressed" from="Custom/Background/BackgroundColorButton" to="." method="_on_background_color_button_pressed"]

@@ -12,7 +12,8 @@ var dynamic_content: Array[Control]
 
 
 func _ready() -> void:
-	Tests.setup_mock_world(true)
+	if Tests.is_run_as_current_scene(self):
+		Tests.setup_mock_world(true)
 
 	dynamic_content = []
 

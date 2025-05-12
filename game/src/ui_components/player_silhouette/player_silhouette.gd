@@ -48,3 +48,4 @@ func _ready() -> void:
 
 func _set_color() -> void:
 	modulate = ThemeUtil.configuration.background_secondary_color
+

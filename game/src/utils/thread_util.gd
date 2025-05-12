@@ -83,6 +83,8 @@ func _generate_world(
 		call_deferred("_loading_done")
 		return
 
+	Global.world = world
+
 	call_deferred("_loading_done")
 
 

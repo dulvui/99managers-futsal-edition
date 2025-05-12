@@ -1,0 +1,94 @@
+[gd_scene load_steps=7 format=3 uid="uid://ch6gf8p07gkdl"]
+
+[ext_resource type="Script" uid="uid://cx228wbagobp3" path="res://src/screens/setup/setup_initial/setup_initial.gd" id="1_e7vsn"]
+[ext_resource type="PackedScene" uid="uid://ck1i6uxkqg3pi" path="res://src/ui_components/player_silhouette/player_silhouette.tscn" id="2_5wdpp"]
+[ext_resource type="LabelSettings" uid="uid://b4gu78rjvdfx4" path="res://theme_base/label/label_settings_title.tres" id="3_5eu05"]
+[ext_resource type="Script" uid="uid://cnyyowwlb04kl" path="res://src/ui_components/base/defaults/default_button.gd" id="4_022cw"]
+[ext_resource type="PackedScene" uid="uid://djrvl8pvkr7aa" path="res://src/screens/settings/language_picker/language_picker.tscn" id="5_q3moo"]
+[ext_resource type="PackedScene" uid="uid://can4wvc3g3b84" path="res://src/screens/settings/theme_picker/theme_picker.tscn" id="6_jw7dd"]
+
+[node name="InitlalSetup" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_e7vsn")
+
+[node name="Panel" type="Panel" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="PlayerSilhouette" parent="." instance=ExtResource("2_5wdpp")]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.867708
+anchor_top = 0.691667
+anchor_right = 0.867708
+anchor_bottom = 0.691667
+offset_left = -300.0
+offset_right = 300.0
+grow_horizontal = 1
+grow_vertical = 1
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer"]
+layout_mode = 2
+theme_override_constants/separation = 25
+
+[node name="TopBar" type="HBoxContainer" parent="MarginContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="Title" type="Label" parent="MarginContainer/VBoxContainer/TopBar"]
+auto_translate_mode = 2
+layout_mode = 2
+size_flags_horizontal = 3
+text = "99 Managers Futsal Edition"
+label_settings = ExtResource("3_5eu05")
+
+[node name="ContinueButton" type="Button" parent="MarginContainer/VBoxContainer/TopBar"]
+custom_minimum_size = Vector2(150, 0)
+layout_mode = 2
+size_flags_horizontal = 4
+theme_type_variation = &"ImportantButton"
+text = "Continue"
+script = ExtResource("4_022cw")
+metadata/_custom_type_script = "uid://cnyyowwlb04kl"
+
+[node name="WelcomeLabel" type="Label" parent="MarginContainer/VBoxContainer"]
+layout_mode = 2
+text = "Hello! Choose a language"
+label_settings = ExtResource("3_5eu05")
+horizontal_alignment = 1
+
+[node name="LanguagePicker" parent="MarginContainer/VBoxContainer" instance=ExtResource("5_q3moo")]
+custom_minimum_size = Vector2(400, 0)
+layout_mode = 2
+size_flags_horizontal = 4
+
+[node name="ThemeDescription" type="Label" parent="MarginContainer/VBoxContainer"]
+custom_minimum_size = Vector2(400, 0)
+layout_mode = 2
+text = "and pick a theme"
+label_settings = ExtResource("3_5eu05")
+horizontal_alignment = 1
+autowrap_mode = 2
+
+[node name="ThemePicker" parent="MarginContainer/VBoxContainer" instance=ExtResource("6_jw7dd")]
+layout_mode = 2
+size_flags_horizontal = 4
+show_custom = false
+
+[connection signal="pressed" from="MarginContainer/VBoxContainer/TopBar/ContinueButton" to="." method="_on_continue_button_pressed"]

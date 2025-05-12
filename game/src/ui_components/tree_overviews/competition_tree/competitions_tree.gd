@@ -17,7 +17,8 @@ var items: Array[TreeItem]
 
 
 func _ready() -> void:
-	if Tests.setup_mock_world(true):
+	if Tests.is_run_as_current_scene(self):
+		Tests.setup_mock_world(true)
 		setup()
 
 

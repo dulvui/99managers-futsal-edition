@@ -13,7 +13,8 @@ signal email_action(message: EmailMessage)
 
 
 func _ready() -> void:
-	Tests.setup_mock_world(true)
+	if Tests.is_run_as_current_scene(self):
+		Tests.setup_mock_world(true)
 
 	message_container.show_message(Global.inbox.latest())
 	update_messages()

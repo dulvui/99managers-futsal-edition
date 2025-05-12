@@ -95,7 +95,8 @@ var page_size: int
 
 
 func _ready() -> void:
-	Tests.setup_mock_world()
+	if Tests.is_run_as_current_scene(self):
+		Tests.setup_mock_world()
 
 	# filter and view buttons
 	team_select.add_item(tr("All Teams"))

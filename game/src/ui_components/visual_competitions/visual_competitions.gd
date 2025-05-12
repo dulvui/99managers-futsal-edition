@@ -36,7 +36,8 @@ var active_continental_cup: Cup
 
 
 func _ready() -> void:
-	Tests.setup_mock_world(true)
+	if Tests.is_run_as_current_scene(self):
+		Tests.setup_mock_world(true)
 
 	active_league = Global.league
 	active_national_cup = Global.world.get_active_nation().cup

@@ -25,7 +25,7 @@ func _ready() -> void:
 	if Global.config.language:
 		Main.change_scene(Const.SCREEN_MENU)
 	else:
-		Main.change_scene(Const.SCREEN_SETUP_LANGUAGE)
+		Main.change_scene(Const.SCREEN_SETUP_INITIAL)
 
 	queue_free()
 

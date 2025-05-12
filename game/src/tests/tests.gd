@@ -52,27 +52,28 @@ func tests_intensive() -> void:
 # static testing helper methods
 #
 static func setup_mock_world(use_test_file: bool = false) -> bool:
-	if Global.world == null:
-		print("setting up mock world...")
-		Global.start_date = Time.get_date_dict_from_system()
-		Global.manager = create_mock_manager()
-		Global.world = create_mock_world(use_test_file)
+	if Global.world != null:
+		return false
 
-		var team: Team
-		for continent: Continent in Global.world.continents:
-			if continent.is_competitive():
-				for nation: Nation in continent.nations:
-					if nation.is_competitive():
-						team = nation.leagues[0].teams[0]
-						break
-				break
+	print("setting up mock world...")
+	Global.start_date = Time.get_date_dict_from_system()
+	Global.manager = create_mock_manager()
+	Global.world = create_mock_world(use_test_file)
 
-		Global.select_team(team)
-		Global.initialize_game(true)
-		Global.start_date = Time.get_date_dict_from_system()
-		print("setting up mock world done.")
-		return true
-	return false
+	var team: Team
+	for continent: Continent in Global.world.continents:
+		if continent.is_competitive():
+			for nation: Nation in continent.nations:
+				if nation.is_competitive():
+					team = nation.leagues[0].teams[0]
+					break
+			break
+
+	Global.select_team(team)
+	Global.initialize_game(true)
+	Global.start_date = Time.get_date_dict_from_system()
+	print("setting up mock world done.")
+	return true
 
 
 static func find_next_matchday() -> void:
@@ -193,3 +194,4 @@ static func create_mock_manager() -> Manager:
 static func is_run_as_current_scene(node: Node) -> bool:
 	# setup automatically, if run in editor and is run by 'Run current scene'
 	return OS.has_feature("editor") and node.get_parent() == node.get_tree().root
+

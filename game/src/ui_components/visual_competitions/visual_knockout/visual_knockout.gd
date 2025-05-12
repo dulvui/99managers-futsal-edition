@@ -16,7 +16,8 @@ const MatchInfoScene: PackedScene = preload(Const.SCENE_MATCH_INFO)
 
 
 func _ready() -> void:
-	Tests.setup_mock_world(true)
+	if Tests.is_run_as_current_scene(self):
+		Tests.setup_mock_world(true)
 
 
 func setup(knockout: Knockout, history_index: int = -1, title: String = "") -> void:

@@ -9,5 +9,6 @@ func _ready() -> void:
 	InputUtil.start_focus(self)
 
 
-func _on_language_picker_language_change() -> void:
-	Main.change_scene(Const.SCREEN_SETUP_THEME)
+func _on_continue_button_pressed() -> void:
+	Main.change_scene(Const.SCREEN_MENU)
+

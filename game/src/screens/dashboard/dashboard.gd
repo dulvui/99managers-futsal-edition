@@ -60,7 +60,8 @@ var active_view: ContentViews = ContentViews.EMAIL
 
 
 func _ready() -> void:
-	Tests.setup_mock_world(true)
+	if Tests.is_run_as_current_scene(self):
+		Tests.setup_mock_world(true)
 
 	team = Global.team
 

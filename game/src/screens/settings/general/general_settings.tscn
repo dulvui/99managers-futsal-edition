@@ -164,7 +164,15 @@ size_flags_vertical = 4
 text = "Default"
 script = ExtResource("3_n2piq")
 
-[node name="ThemePicker" parent="Interface" instance=ExtResource("6_ryj47")]
+[node name="Theme" type="HBoxContainer" parent="Interface"]
+layout_mode = 2
+
+[node name="ThemeLabel" type="Label" parent="Interface/Theme"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "Themes"
+
+[node name="ThemePicker" parent="Interface/Theme" instance=ExtResource("6_ryj47")]
 unique_name_in_owner = true
 layout_mode = 2
 show_custom = false
