@@ -1,7 +1,8 @@
-[gd_scene load_steps=3 format=3 uid="uid://bj7f2r54xkpt1"]
+[gd_scene load_steps=4 format=3 uid="uid://bj7f2r54xkpt1"]
 
 [ext_resource type="Script" uid="uid://b5pvq51i14y4i" path="res://src/ui_components/visual_formation/players_bar/players_bar.gd" id="1_ehtta"]
 [ext_resource type="Script" uid="uid://cnyyowwlb04kl" path="res://src/ui_components/base/defaults/default_button.gd" id="2_cjbpv"]
+[ext_resource type="Script" uid="uid://b7ipi7vefbgps" path="res://src/ui_components/base/defaults/default_check_button.gd" id="3_n3553"]
 
 [node name="PlayersBar" type="HBoxContainer"]
 anchors_preset = -1
@@ -30,6 +31,8 @@ size_flags_horizontal = 4
 size_flags_vertical = 4
 tooltip_text = "Players with low stamina will be changed automatically."
 text = "Auto change"
+script = ExtResource("3_n3553")
+metadata/_custom_type_script = "uid://b7ipi7vefbgps"
 
 [node name="VSeparator" type="VSeparator" parent="."]
 modulate = Color(1, 1, 1, 0)

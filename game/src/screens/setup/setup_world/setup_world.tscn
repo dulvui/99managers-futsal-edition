@@ -1,10 +1,11 @@
-[gd_scene load_steps=8 format=3 uid="uid://fc3gida5rdd"]
+[gd_scene load_steps=9 format=3 uid="uid://fc3gida5rdd"]
 
 [ext_resource type="Theme" uid="uid://pt1hrfiuwfpg" path="res://theme_base/theme.tres" id="1_lar05"]
 [ext_resource type="Script" uid="uid://j8ooryeon21g" path="res://src/screens/setup/setup_world/setup_world.gd" id="2_s01se"]
 [ext_resource type="Script" uid="uid://cnyyowwlb04kl" path="res://src/ui_components/base/defaults/default_button.gd" id="3_g76wv"]
 [ext_resource type="LabelSettings" uid="uid://b4gu78rjvdfx4" path="res://theme_base/label/label_settings_title.tres" id="3_mfpia"]
 [ext_resource type="PackedScene" uid="uid://ck1i6uxkqg3pi" path="res://src/ui_components/player_silhouette/player_silhouette.tscn" id="3_ntf8b"]
+[ext_resource type="Script" uid="uid://b7ipi7vefbgps" path="res://src/ui_components/base/defaults/default_check_button.gd" id="7_0r2ot"]
 [ext_resource type="PackedScene" uid="uid://b2mwv4cl5sm6t" path="res://src/ui_components/base/swtich_option_button/switch_option_button.tscn" id="7_jd2a7"]
 [ext_resource type="PackedScene" uid="uid://bpvg2vhxml3a1" path="res://src/ui_components/base/confirm_dialog/default_confirm_dialog.tscn" id="7_ntf8b"]
 
@@ -169,6 +170,8 @@ layout_mode = 2
 layout_mode = 2
 size_flags_horizontal = 0
 text = "Advanced settings"
+script = ExtResource("7_0r2ot")
+metadata/_custom_type_script = "uid://b7ipi7vefbgps"
 
 [node name="AdvancedSettings" type="VBoxContainer" parent="MarginContainer/VBoxContainer/Main"]
 unique_name_in_owner = true

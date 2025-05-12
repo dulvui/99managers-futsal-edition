@@ -12,15 +12,12 @@ const FormationPlayer: PackedScene = preload(Const.SCENE_FORMATION_PLAYER)
 
 var change_players: Array[Player]
 var team: Team
-# flag to prevent that button sound plays while setup
-var play_sound: bool
 
 @onready var players: HBoxContainer = %Players
 @onready var change_button: CheckButton = %ChangeButton
 
 
 func _ready() -> void:
-	play_sound = false
 	change_players = []
 
 
@@ -29,7 +26,6 @@ func setup(p_team: Team) -> void:
 
 	# change button
 	change_button.button_pressed = Formation.ChangeStrategy.AUTO == team.formation.change_strategy
-	play_sound = true
 
 	for player: Player in team.get_starting_players():
 		var formation_player: VisualFormationPlayer = FormationPlayer.instantiate()
@@ -86,8 +82,6 @@ func _on_formation_player_select(player: Player) -> void:
 
 
 func _on_change_button_toggled(toggled_on: bool) -> void:
-	if play_sound:
-		SoundUtil.play_button_sfx()
 	if toggled_on:
 		team.formation.change_strategy = Formation.ChangeStrategy.AUTO
 	else:
