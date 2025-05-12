@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=3 uid="uid://cywaob6jab2pj"]
+[gd_scene load_steps=9 format=3 uid="uid://cywaob6jab2pj"]
 
 [ext_resource type="LabelSettings" uid="uid://cc2vi4onhgmnw" path="res://theme_base/label/label_settings_bold.tres" id="1_6o6h0"]
 [ext_resource type="Script" uid="uid://ciy03xjqjdkwp" path="res://src/screens/settings/general/general_settings.gd" id="1_gl78q"]
@@ -6,6 +6,7 @@
 [ext_resource type="Script" uid="uid://cnyyowwlb04kl" path="res://src/ui_components/base/defaults/default_button.gd" id="3_n2piq"]
 [ext_resource type="PackedScene" uid="uid://b2mwv4cl5sm6t" path="res://src/ui_components/base/swtich_option_button/switch_option_button.tscn" id="4_1qk6n"]
 [ext_resource type="PackedScene" uid="uid://can4wvc3g3b84" path="res://src/screens/settings/theme_picker/theme_picker.tscn" id="6_ryj47"]
+[ext_resource type="Script" uid="uid://b7ipi7vefbgps" path="res://src/ui_components/base/defaults/default_check_button.gd" id="7_yomby"]
 
 [sub_resource type="ButtonGroup" id="ButtonGroup_1qk6n"]
 
@@ -236,6 +237,8 @@ text = "Screen fade animation"
 [node name="ScreenFadeButton" type="CheckButton" parent="Interface/ScreenFade"]
 unique_name_in_owner = true
 layout_mode = 2
+script = ExtResource("7_yomby")
+metadata/_custom_type_script = "uid://b7ipi7vefbgps"
 
 [connection signal="meta_clicked" from="Langauge/TranslationsLink" to="." method="_on_translations_link_meta_clicked"]
 [connection signal="item_selected" from="Formats/Dates/DatesOptionsButton" to="." method="_on_dates_options_button_item_selected"]

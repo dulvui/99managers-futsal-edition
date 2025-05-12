@@ -1,7 +1,8 @@
-[gd_scene load_steps=4 format=3 uid="uid://bw4rsu0jiwjj0"]
+[gd_scene load_steps=5 format=3 uid="uid://bw4rsu0jiwjj0"]
 
 [ext_resource type="LabelSettings" uid="uid://cc2vi4onhgmnw" path="res://theme_base/label/label_settings_bold.tres" id="1_cunc8"]
 [ext_resource type="Script" uid="uid://dj7c6cbebadhy" path="res://src/screens/settings/input/input_settings.gd" id="1_e4wd1"]
+[ext_resource type="Script" uid="uid://b7ipi7vefbgps" path="res://src/ui_components/base/defaults/default_check_button.gd" id="2_f5g1b"]
 [ext_resource type="PackedScene" uid="uid://b2mwv4cl5sm6t" path="res://src/ui_components/base/swtich_option_button/switch_option_button.tscn" id="3_g1iho"]
 
 [node name="Input" type="VBoxContainer"]
@@ -25,6 +26,8 @@ text = "Vim mode"
 
 [node name="VimModeButton" type="CheckButton" parent="VimMode"]
 layout_mode = 2
+script = ExtResource("2_f5g1b")
+metadata/_custom_type_script = "uid://b7ipi7vefbgps"
 
 [node name="Joypad" type="HBoxContainer" parent="."]
 layout_mode = 2
@@ -53,6 +56,8 @@ text = "Automatic Input detection"
 [node name="AutomaticDetectionButton" type="CheckButton" parent="AutomaticDetection"]
 unique_name_in_owner = true
 layout_mode = 2
+script = ExtResource("2_f5g1b")
+metadata/_custom_type_script = "uid://b7ipi7vefbgps"
 
 [node name="Type" type="HBoxContainer" parent="."]
 layout_mode = 2
