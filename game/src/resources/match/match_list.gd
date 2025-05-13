@@ -27,14 +27,14 @@ func random_results() -> void:
 			match_engine.simulate_match(matchz, true)
 
 
-func add_matches(matches: Array[Match], day: int, month: Enum.Months) -> void:
+func add_matches(matches: Array[Match], day: int, month: int, year: int) -> void:
 	for match_day: MatchDay in match_days.days:
-		if match_day.is_day(day, month):
+		if match_day.is_day(day, month, year):
 			match_day.matches.append_array(matches)
 			return
 
 	# no matchday with day/month found, append new
-	match_days.append(MatchDay.new(matches, day, month))
+	match_days.append(MatchDay.new(matches, day, month, year))
 
 	# sort match days
 	match_days.days.sort_custom(
@@ -49,14 +49,14 @@ func add_matches(matches: Array[Match], day: int, month: Enum.Months) -> void:
 
 func get_matches_by_day(p_day: Day = Global.calendar.day()) -> Array[Match]:
 	for match_day: MatchDay in match_days.days:
-		if match_day.is_day(p_day.day, p_day.month):
+		if match_day.is_day(p_day.day, p_day.month, p_day.year):
 			return match_day.matches
 	return []
 
 
 func get_match_day_by_day(p_day: Day = Global.calendar.day()) -> MatchDay:
 	for match_day: MatchDay in match_days.days:
-		if match_day.is_day(p_day.day, p_day.month):
+		if match_day.is_day(p_day.day, p_day.month, p_day.year):
 			return match_day
 	return null
 

@@ -113,7 +113,7 @@ func _add_year(year: int) -> void:
 	var first_january: String = str(year) + "-01-01T00:00:00"
 	var temp_date: Dictionary = Time.get_datetime_dict_from_datetime_string(first_january, true)
 	# create months
-	for month_string: String in Enum.Months:
+	for i: int in 12:
 		months.append(Month.new())
 
 	var month_shift: int = (year - date.year) * 12
@@ -124,7 +124,8 @@ func _add_year(year: int) -> void:
 		new_day.day = temp_date.day
 		new_day.month = temp_date.month
 		new_day.year = temp_date.year
-		months[temp_date.month - 1 + month_shift].days.append(new_day)
+
+		months[new_day.month - 1 + month_shift].days.append(new_day)
 
 		temp_date = _get_next_day(temp_date)
 

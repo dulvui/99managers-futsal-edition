@@ -8,7 +8,7 @@ extends Resource
 var market: bool
 var weekday: Enum.Weekdays
 var day: int
-var month: Enum.Months
+var month: int
 var year: int
 
 
@@ -16,7 +16,7 @@ func _init(
 	p_market: bool = false,
 	p_weekday: Enum.Weekdays = Enum.Weekdays.THURSDAY,
 	p_day: int = 1,
-	p_month: Enum.Months = Enum.Months.JANUARY,
+	p_month: int = 1,
 	p_year: int = 1970,
 ) -> void:
 	market = p_market
@@ -33,14 +33,14 @@ func to_format_string(long: bool = false) -> String:
 			+ " "
 			+ str(day)
 			+ " "
-			+ Enum.get_month_text(month - 1)
+			+ Enum.get_month_text(month)
 			+ " "
 			+ str(year)
 		)
 	return (
 		str(day)
 		+ " "
-		+ Enum.get_month_text(month - 1)
+		+ Enum.get_month_text(month)
 		+ " "
 		+ str(year)
 	)
@@ -54,3 +54,4 @@ func is_same_day(p_day: Day) -> bool:
 	if year != p_day.year:
 		return false
 	return true
+

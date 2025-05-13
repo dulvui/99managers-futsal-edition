@@ -55,21 +55,6 @@ enum MatchSpeed {
 #
 # Calendar
 #
-enum Months {
-	JANUARY,
-	FEBRUARY,
-	MARCH,
-	APRPIL,
-	MAY,
-	JUNE,
-	JULY,
-	AUGUST,
-	SEPTEMBER,
-	OCTOBER,
-	NOVEMBER,
-	DECEMBER,
-}
-
 enum Weekdays {
 	SUNDAY,
 	MONDAY,
@@ -122,35 +107,44 @@ func get_player_names_text(p_player_names: PlayerNames = Global.generation_playe
 		_:
 			return tr("Mixed")
 
-
-func get_month_text(month: Months, short: bool = false) -> String:
+# keep here, even if no enum, for now...
+func get_month_text(p_month: int, short: bool = false) -> String:
 	var month_text: String
 
-	match month:
-		Months.JANUARY:
+	while p_month > 12:
+		if p_month % 12 == 0:
+			p_month = 12
+		else:
+			p_month = p_month % 12
+
+	match p_month:
+		1:
 			month_text = tr("January")
-		Months.FEBRUARY:
+		2:
 			month_text = tr("February")
-		Months.MARCH:
+		3:
 			month_text = tr("March")
-		Months.APRPIL:
+		4:
 			month_text = tr("April")
-		Months.MAY:
+		5:
 			month_text = tr("May")
-		Months.JUNE:
+		6:
 			month_text = tr("June")
-		Months.JULY:
+		7:
 			month_text = tr("July")
-		Months.AUGUST:
+		8:
 			month_text = tr("August")
-		Months.SEPTEMBER:
+		9:
 			month_text = tr("September")
-		Months.OCTOBER:
+		10:
 			month_text = tr("October")
-		Months.NOVEMBER:
+		11:
 			month_text = tr("November")
-		Months.DECEMBER:
+		12:
 			month_text = tr("December")
+		_:
+			push_error("error while getting month text for month %d" % p_month)
+			month_text = "ERROR"
 
 	if short:
 		return month_text.substr(0, 3)

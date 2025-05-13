@@ -19,6 +19,9 @@ var max_months: int
 
 
 func _ready() -> void:
+	if Tests.is_run_as_current_scene(self):
+		Tests.init_empty_mock_world()
+
 	max_months = Global.calendar.months.size()
 	current_month = Global.calendar.date.month
 	current_year = Global.calendar.date.year
@@ -36,18 +39,18 @@ func setup_days() -> void:
 		if not child is Label:
 			child.queue_free()
 
-	# to start with monday, fill other days with placeholders
+	# to start with Monday, fill other days with placeholders
 	var monday_counter: int = 7
-	while (
-		Global.calendar.month(current_month).days[monday_counter].weekday
-		!= Enum.Weekdays.MONDAY
-	):
+	var weekday: Enum.Weekdays = Global.calendar.month(current_month).days[monday_counter].weekday
+	while weekday != Enum.Weekdays.MONDAY:
 		monday_counter -= 1
 
 		var placeholder: Control = Control.new()
 		placeholder.size_flags_horizontal = Control.SIZE_EXPAND_FILL
 		placeholder.size_flags_vertical = Control.SIZE_EXPAND_FILL
 		days.add_child(placeholder)
+
+		weekday = Global.calendar.month(current_month).days[monday_counter].weekday
 
 	# add days
 	for day: Day in Global.calendar.month(current_month).days:
@@ -62,8 +65,8 @@ func setup_days() -> void:
 		if day == Global.calendar.day():
 			calendar_day.select()
 
-	var active_year: String = str(current_year + int(int(current_month - 1) / 12.0))
-	var active_month: String = Enum.get_month_text((current_month - 1) % 12)
+	var active_year: String = str(current_year + int((current_month - 1) / 12.0))
+	var active_month: String = Enum.get_month_text(current_month)
 	page_label.text = active_month + " " + active_year
 
 
@@ -92,3 +95,4 @@ func _on_next_pressed() -> void:
 func _on_today_pressed() -> void:
 	current_month = Global.calendar.date.month
 	setup()
+

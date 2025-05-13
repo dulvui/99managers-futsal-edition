@@ -6,25 +6,30 @@ class_name MatchDay
 extends JSONResource
 
 @export var day: int
-@export var month: Enum.Months
+@export var month: int
+@export var year: int
 
 @export var matches: Array[Match]
 
 
 func _init(
 	p_matches: Array[Match] = [],
-	p_day: int = 0,
-	p_month: Enum.Months = Enum.Months.JANUARY,
+	p_day: int = 1,
+	p_month: int = 1,
+	p_year: int = 1,
 ) -> void:
 	matches = p_matches
 	day = p_day
 	month = p_month
+	year = p_year
 
 
-func is_day(p_day: int, p_month: int) -> bool:
+func is_day(p_day: int, p_month: int, p_year: int) -> bool:
 	if day != p_day:
 		return false
 	if month != p_month:
+		return false
+	if year != p_year:
 		return false
 	return true
 
@@ -52,5 +57,4 @@ func append_array(p_matches: Array[Match]) -> void:
 
 func size() -> int:
 	return matches.size()
-
 

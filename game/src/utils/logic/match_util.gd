@@ -151,13 +151,14 @@ func add_matches_to_list(
 ) -> void:
 	var month: int = date.month
 	var day: int = date.day
+	var year: int = date.year
 
-	# league machtes are always saturday
+	# league matches are always Saturday
 	var weekday: Enum.Weekdays = Enum.Weekdays.SATURDAY
-	# cup matches wednesday
+	# cup matches Wednesday
 	if competition is Cup:
 		weekday = Enum.Weekdays.WEDNESDAY
-		# except finals, are sundays
+		# except finals, are Sundays
 		var cup: Cup = competition as Cup
 		if cup.is_final():
 			weekday = Enum.Weekdays.SUNDAY
@@ -172,8 +173,8 @@ func add_matches_to_list(
 		# check if next month
 		if day >= Global.calendar.month(month).days.size():
 			month += 1
-			day = 0
-			# start also new month with saturday
+			day = 1
+			# start also new month with Saturday
 			for i: int in 7:
 				if Global.calendar.day(month, i).weekday == weekday:
 					day = i
@@ -181,10 +182,10 @@ func add_matches_to_list(
 
 		# set day/month on match day
 		match_day.day = day
-		match_day.month = month as Enum.Months
+		match_day.month = month
 
 		# assign matches
-		Global.match_list.add_matches(match_day.matches, day, month)
+		Global.match_list.add_matches(match_day.matches, day, month, year)
 		# restart from same weekday
 		day += 7
 
