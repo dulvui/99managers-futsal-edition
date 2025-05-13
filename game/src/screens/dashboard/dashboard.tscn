@@ -88,6 +88,7 @@ unique_name_in_owner = true
 custom_minimum_size = Vector2(180, 0)
 layout_mode = 2
 size_flags_vertical = 4
+focus_neighbor_top = NodePath("../MenuButton")
 text = "Email"
 alignment = 0
 script = ExtResource("3_kbasy")
@@ -258,6 +259,7 @@ custom_minimum_size = Vector2(180, 0)
 layout_mode = 2
 size_flags_vertical = 4
 tooltip_text = "Coming soon"
+focus_neighbor_bottom = NodePath("../EmailButton")
 theme_type_variation = &"ImportantButton"
 text = "Menu"
 alignment = 0
@@ -283,6 +285,10 @@ theme_override_constants/separation = 20
 unique_name_in_owner = true
 custom_minimum_size = Vector2(50, 0)
 layout_mode = 2
+focus_neighbor_left = NodePath("../../../../ButtonsContainer/Buttons/EmailButton")
+focus_neighbor_right = NodePath("../NextViewButton")
+focus_next = NodePath("../NextViewButton")
+focus_previous = NodePath("../../../../ButtonsContainer/Buttons/EmailButton")
 text = "<"
 script = ExtResource("3_kbasy")
 joypad_button_event = SubResource("InputEventJoypadButton_aex81")
@@ -293,6 +299,10 @@ metadata/_custom_type_script = "uid://cnyyowwlb04kl"
 unique_name_in_owner = true
 custom_minimum_size = Vector2(50, 0)
 layout_mode = 2
+focus_neighbor_left = NodePath("../PrevViewButton")
+focus_neighbor_right = NodePath("../ContinueButton")
+focus_next = NodePath("../ContinueButton")
+focus_previous = NodePath("../PrevViewButton")
 text = ">"
 script = ExtResource("3_kbasy")
 joypad_button_event = SubResource("InputEventJoypadButton_rbkg6")
@@ -324,17 +334,6 @@ auto_translate_mode = 2
 layout_mode = 2
 text = "24/08/2002"
 label_settings = ExtResource("5_jjvpr")
-
-[node name="NextMatchButton" type="Button" parent="HBoxContainer/MainContainer/Top/TopBar"]
-unique_name_in_owner = true
-visible = false
-custom_minimum_size = Vector2(180, 0)
-layout_mode = 2
-size_flags_horizontal = 4
-size_flags_vertical = 4
-theme_type_variation = &"ImportantButton"
-text = "Next match"
-script = ExtResource("3_kbasy")
 
 [node name="ContinueButton" type="Button" parent="HBoxContainer/MainContainer/Top/TopBar"]
 unique_name_in_owner = true
@@ -433,7 +432,6 @@ custom_text = "Save the game before exiting?"
 [connection signal="pressed" from="HBoxContainer/ButtonsContainer/Buttons/MenuButton" to="." method="_on_menu_button_pressed"]
 [connection signal="pressed" from="HBoxContainer/MainContainer/Top/TopBar/PrevViewButton" to="." method="_on_prev_view_button_pressed"]
 [connection signal="pressed" from="HBoxContainer/MainContainer/Top/TopBar/NextViewButton" to="." method="_on_next_view_button_pressed"]
-[connection signal="pressed" from="HBoxContainer/MainContainer/Top/TopBar/NextMatchButton" to="." method="_on_next_match_button_pressed"]
 [connection signal="pressed" from="HBoxContainer/MainContainer/Top/TopBar/ContinueButton" to="." method="_on_continue_button_pressed"]
 [connection signal="select_player" from="HBoxContainer/MainContainer/Main/Content/AllPlayerList" to="." method="_on_all_player_list_select_player"]
 [connection signal="select_player" from="HBoxContainer/MainContainer/Main/Content/PlayerList" to="." method="_on_player_list_select_player"]

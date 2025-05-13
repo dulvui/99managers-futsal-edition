@@ -32,7 +32,6 @@ var active_view: ContentViews = ContentViews.EMAIL
 
 # top bar
 @onready var continue_button: Button = %ContinueButton
-@onready var next_match_button: Button = %NextMatchButton
 @onready var date_label: Label = %Date
 @onready var manager_label: Label = %ManagerName
 @onready var team_label: Label = %TeamName
@@ -78,7 +77,6 @@ func _ready() -> void:
 	if Global.match_list.is_match_day():
 		continue_button.text = tr("Start match")
 		match_ready = true
-		next_match_button.hide()
 	else:
 		continue_button.text = tr("Next day")
 		match_ready = false
@@ -241,21 +239,6 @@ func _on_continue_button_pressed() -> void:
 	_next_day()
 
 
-func _on_next_match_button_pressed() -> void:
-	next_match_button.disabled = true
-	continue_button.disabled = true
-
-	while not match_ready:
-		_next_day()
-		var timer: Timer = Timer.new()
-		add_child(timer)
-		timer.start(DASHBOARD_DAY_DELAY)
-		await timer.timeout
-
-	next_match_button.disabled = false
-	continue_button.disabled = false
-
-
 func _next_day() -> void:
 	if match_ready:
 		# thread simulation
@@ -297,8 +280,6 @@ func _next_day() -> void:
 	if Global.match_list.is_match_day():
 		continue_button.text = tr("Start match")
 		match_ready = true
-		next_match_button.disabled = true
-		next_match_button.hide()
 
 	visual_calendar.setup()
 

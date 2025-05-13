@@ -130,6 +130,8 @@ unique_name_in_owner = true
 layout_mode = 2
 size_flags_horizontal = 5
 size_flags_vertical = 4
+focus_neighbor_left = NodePath("../../Links/Website")
+focus_neighbor_bottom = NodePath("../../Links/WishlistSteam")
 text = "Exit"
 script = ExtResource("4_nkxl6")
 joypad_button_event = SubResource("InputEventJoypadButton_x3xqw")
@@ -144,54 +146,79 @@ metadata/_edit_use_anchors_ = true
 [node name="Mastodon" type="LinkButton" parent="MarginContainer/VBoxContainer/Links"]
 visible = false
 layout_mode = 2
+focus_neighbor_top = NodePath("../../Buttons/Exit")
+focus_neighbor_bottom = NodePath("../../Buttons/ContinueGame")
+focus_mode = 2
 text = "Mastodon"
 uri = "https://mastodon.social/@dulvui"
 
 [node name="Bsky" type="LinkButton" parent="MarginContainer/VBoxContainer/Links"]
 visible = false
 layout_mode = 2
+focus_neighbor_top = NodePath("../../Buttons/Exit")
+focus_neighbor_bottom = NodePath("../../Buttons/ContinueGame")
+focus_mode = 2
 text = "Bluesky"
 uri = "https://bsky.app/profile/s9i.org"
 
 [node name="Matrix" type="LinkButton" parent="MarginContainer/VBoxContainer/Links"]
 visible = false
 layout_mode = 2
+focus_neighbor_top = NodePath("../../Buttons/Exit")
+focus_neighbor_bottom = NodePath("../../Buttons/ContinueGame")
+focus_mode = 2
 text = "Matrix"
 uri = "https://matrix.to/#/%23s9i.org:matrix.org"
 
 [node name="Codeberg" type="LinkButton" parent="MarginContainer/VBoxContainer/Links"]
 layout_mode = 2
+focus_neighbor_top = NodePath("../../Buttons/Exit")
+focus_neighbor_bottom = NodePath("../../Buttons/ContinueGame")
+focus_mode = 2
 text = "Codeberg"
 uri = "https://codeberg.org/dulvui/99managers-futsal-edition"
 
 [node name="Github" type="LinkButton" parent="MarginContainer/VBoxContainer/Links"]
 layout_mode = 2
+focus_neighbor_top = NodePath("../../Buttons/Exit")
+focus_neighbor_bottom = NodePath("../../Buttons/ContinueGame")
+focus_mode = 2
 text = "Github [Mirror]"
 uri = "https://github.com/dulvui/99managers-futsal-edition"
 
 [node name="Discord" type="LinkButton" parent="MarginContainer/VBoxContainer/Links"]
 layout_mode = 2
+focus_neighbor_top = NodePath("../../Buttons/Exit")
+focus_neighbor_bottom = NodePath("../../Buttons/ContinueGame")
+focus_mode = 2
 text = "Discord"
 uri = "https://discord.gg/a5DSHZKkA8"
 
 [node name="Reddit" type="LinkButton" parent="MarginContainer/VBoxContainer/Links"]
 layout_mode = 2
+focus_neighbor_top = NodePath("../../Buttons/Exit")
+focus_neighbor_bottom = NodePath("../../Buttons/ContinueGame")
+focus_mode = 2
 text = "Reddit"
 uri = "https://www.reddit.com/r/99Managers/"
 
 [node name="Website" type="LinkButton" parent="MarginContainer/VBoxContainer/Links"]
 auto_translate_mode = 2
-visible = false
 layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 4
+focus_neighbor_left = NodePath("../Reddit")
+focus_neighbor_top = NodePath("../../Buttons/Exit")
+focus_neighbor_right = NodePath("../WishlistSteam")
+focus_neighbor_bottom = NodePath("../../Buttons/ContinueGame")
 focus_mode = 2
-text = "simondalvai.org"
-uri = "https://simondalvai.org"
+text = "99managers.org"
+uri = "https://99managers.org"
 
 [node name="WishlistSteam" type="LinkButton" parent="MarginContainer/VBoxContainer/Links"]
 auto_translate_mode = 2
 layout_mode = 2
+focus_neighbor_bottom = NodePath("../../Buttons/ContinueGame")
 focus_mode = 2
 text = "Wishlist on Steam!"
 uri = "https://store.steampowered.com/app/3334770"
@@ -201,6 +228,7 @@ unique_name_in_owner = true
 size = Vector2i(400, 180)
 custom_title = "Exit game"
 custom_text = "You are exiting the game. Proceed?"
+type = 0
 
 [connection signal="pressed" from="MarginContainer/VBoxContainer/Buttons/ContinueGame" to="." method="_on_continue_game_pressed"]
 [connection signal="pressed" from="MarginContainer/VBoxContainer/Buttons/NewGame" to="." method="_on_new_game_pressed"]
