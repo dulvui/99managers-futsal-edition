@@ -8,13 +8,21 @@ extends Button
 @export var key_event: InputEventKey
 @export var joypad_button_event: InputEventJoypadButton
 @export var joypad_motion_event: InputEventJoypadMotion
+@export var replace_text_with_icon: bool = false
+
+var text_backup: String
 
 
 func _ready() -> void:
+	text_backup = text
+
 	if tooltip_text.is_empty() and text.length() > 1:
 		tooltip_text = text
 
-	icon_alignment = HORIZONTAL_ALIGNMENT_RIGHT
+	if replace_text_with_icon:
+		icon_alignment = HORIZONTAL_ALIGNMENT_CENTER
+	else:
+		icon_alignment = HORIZONTAL_ALIGNMENT_RIGHT
 	expand_icon = true
 	shortcut_in_tooltip = false
 
@@ -45,14 +53,25 @@ func _setup_shortcuts() -> void:
 func _set_shortcut_glyph() -> void:
 	if InputUtil.type == Enum.InputType.JOYPAD and joypad_button_event:
 		icon = JoypadUtil.get_button_icon(joypad_button_event.button_index)
+		if replace_text_with_icon:
+			text = ""
 	elif InputUtil.type == Enum.InputType.JOYPAD and joypad_motion_event:
 		icon = JoypadUtil.get_axis_icon(joypad_motion_event.axis)
 
 		# workaround until not fixed https://github.com/godotengine/godot/issues/99331
 		if joypad_motion_event.axis == JOY_AXIS_TRIGGER_LEFT:
-			JoypadAxisUtil.l2.connect(func() -> void: pressed.emit())
+			JoypadAxisUtil.l2.connect(func() -> void:
+				pressed.emit()
+				SoundUtil.play_button_sfx()
+			)
 		if joypad_motion_event.axis == JOY_AXIS_TRIGGER_RIGHT:
-			JoypadAxisUtil.r2.connect(func() -> void: pressed.emit())
+			JoypadAxisUtil.r2.connect(func() -> void:
+				pressed.emit()
+				SoundUtil.play_button_sfx()
+			)
+
+		if replace_text_with_icon:
+			text = ""
 	elif InputUtil.type == Enum.InputType.MOUSE_AND_KEYBOARD and key_event:
 		# workaround for /
 		if key_event.as_text() == "Slash":
@@ -63,6 +82,7 @@ func _set_shortcut_glyph() -> void:
 		icon = null
 	else:
 		icon = null
+		text = text_backup
 
 
 func _set_alignment() -> void:
@@ -76,3 +96,4 @@ func _set_alignment() -> void:
 func _on_input_type_changed(_type: Enum.InputType) -> void:
 	_set_shortcut_glyph()
 	_set_alignment()
+

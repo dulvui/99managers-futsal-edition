@@ -36,10 +36,9 @@ func _ready() -> void:
 		child.hide()
 		views.append(child)
 
-	# first button grab focus
+	# press first button
 	if buttons.size() > 0:
 		var first_button: DefaultButton = buttons[active_tab]
-		first_button.grab_focus()
 		first_button.pressed.emit()
 
 

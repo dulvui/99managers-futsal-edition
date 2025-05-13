@@ -16,11 +16,11 @@
 [ext_resource type="PackedScene" uid="uid://dwyn5mtdb3qra" path="res://src/ui_components/visual_finances/visual_finances.tscn" id="15_jfh6w"]
 [ext_resource type="PackedScene" uid="uid://dpfdl6oojbr15" path="res://src/ui_components/visual_stadium/visual_stadium.tscn" id="17_ua0am"]
 
-[sub_resource type="InputEventJoypadButton" id="InputEventJoypadButton_3gkim"]
+[sub_resource type="InputEventJoypadButton" id="InputEventJoypadButton_aex81"]
 button_index = 9
 pressed = true
 
-[sub_resource type="InputEventJoypadButton" id="InputEventJoypadButton_btuom"]
+[sub_resource type="InputEventJoypadButton" id="InputEventJoypadButton_rbkg6"]
 button_index = 10
 pressed = true
 
@@ -281,23 +281,23 @@ theme_override_constants/separation = 20
 
 [node name="PrevViewButton" type="Button" parent="HBoxContainer/MainContainer/Top/TopBar"]
 unique_name_in_owner = true
-auto_translate_mode = 2
 custom_minimum_size = Vector2(50, 0)
 layout_mode = 2
-size_flags_vertical = 0
 text = "<"
 script = ExtResource("3_kbasy")
-joypad_button_event = SubResource("InputEventJoypadButton_3gkim")
+joypad_button_event = SubResource("InputEventJoypadButton_aex81")
+replace_text_with_icon = true
+metadata/_custom_type_script = "uid://cnyyowwlb04kl"
 
 [node name="NextViewButton" type="Button" parent="HBoxContainer/MainContainer/Top/TopBar"]
 unique_name_in_owner = true
-auto_translate_mode = 2
 custom_minimum_size = Vector2(50, 0)
 layout_mode = 2
-size_flags_vertical = 0
 text = ">"
 script = ExtResource("3_kbasy")
-joypad_button_event = SubResource("InputEventJoypadButton_btuom")
+joypad_button_event = SubResource("InputEventJoypadButton_rbkg6")
+replace_text_with_icon = true
+metadata/_custom_type_script = "uid://cnyyowwlb04kl"
 
 [node name="ManagerName" type="Label" parent="HBoxContainer/MainContainer/Top/TopBar"]
 unique_name_in_owner = true

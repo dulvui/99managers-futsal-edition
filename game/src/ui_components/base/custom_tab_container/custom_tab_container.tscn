@@ -24,10 +24,12 @@ unique_name_in_owner = true
 layout_mode = 2
 
 [node name="Prev" type="Button" parent="ButtonsBar"]
+custom_minimum_size = Vector2(50, 0)
 layout_mode = 2
 text = "<"
 script = ExtResource("2_kx3tm")
 joypad_button_event = SubResource("InputEventJoypadButton_vhcpw")
+replace_text_with_icon = true
 metadata/_custom_type_script = "uid://cnyyowwlb04kl"
 
 [node name="Buttons" type="HBoxContainer" parent="ButtonsBar"]
@@ -35,10 +37,12 @@ unique_name_in_owner = true
 layout_mode = 2
 
 [node name="Next" type="Button" parent="ButtonsBar"]
+custom_minimum_size = Vector2(50, 0)
 layout_mode = 2
 text = ">"
 script = ExtResource("2_kx3tm")
 joypad_button_event = SubResource("InputEventJoypadButton_qfq5t")
+replace_text_with_icon = true
 metadata/_custom_type_script = "uid://cnyyowwlb04kl"
 
 [connection signal="pressed" from="ButtonsBar/Prev" to="." method="_on_prev_pressed"]

@@ -1,8 +1,20 @@
-[gd_scene load_steps=4 format=3 uid="uid://c51vyn54bk7q4"]
+[gd_scene load_steps=7 format=3 uid="uid://c51vyn54bk7q4"]
 
 [ext_resource type="Script" uid="uid://7lhmiodk6pqu" path="res://src/ui_components/visual_calendar/visual_calendar.gd" id="2_7vx37"]
 [ext_resource type="Script" uid="uid://cnyyowwlb04kl" path="res://src/ui_components/base/defaults/default_button.gd" id="2_nyqm0"]
 [ext_resource type="PackedScene" uid="uid://dv6e6h4lw1bqy" path="res://src/ui_components/visual_calendar/match_list/match_list.tscn" id="3_cy82g"]
+
+[sub_resource type="InputEventJoypadMotion" id="InputEventJoypadMotion_ogukf"]
+axis = 4
+axis_value = 1.0
+
+[sub_resource type="InputEventJoypadMotion" id="InputEventJoypadMotion_1gkpm"]
+axis = 5
+axis_value = 1.0
+
+[sub_resource type="InputEventJoypadButton" id="InputEventJoypadButton_ogukf"]
+button_index = 3
+pressed = true
 
 [node name="VisualCalendar" type="HBoxContainer"]
 anchors_preset = 15
@@ -35,6 +47,8 @@ custom_minimum_size = Vector2(50, 0)
 layout_mode = 2
 text = "<"
 script = ExtResource("2_nyqm0")
+joypad_motion_event = SubResource("InputEventJoypadMotion_ogukf")
+replace_text_with_icon = true
 
 [node name="Page" type="Label" parent="Calendar/Paginator"]
 unique_name_in_owner = true
@@ -48,12 +62,15 @@ custom_minimum_size = Vector2(50, 0)
 layout_mode = 2
 text = ">"
 script = ExtResource("2_nyqm0")
+joypad_motion_event = SubResource("InputEventJoypadMotion_1gkpm")
+replace_text_with_icon = true
 
 [node name="Today" type="Button" parent="Calendar/Paginator"]
 custom_minimum_size = Vector2(100, 0)
 layout_mode = 2
 text = "Today"
 script = ExtResource("2_nyqm0")
+joypad_button_event = SubResource("InputEventJoypadButton_ogukf")
 
 [node name="Days" type="GridContainer" parent="Calendar"]
 unique_name_in_owner = true

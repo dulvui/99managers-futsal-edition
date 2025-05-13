@@ -7,9 +7,9 @@
 [ext_resource type="PackedScene" uid="uid://bpvg2vhxml3a1" path="res://src/ui_components/base/confirm_dialog/default_confirm_dialog.tscn" id="6_1a2kt"]
 [ext_resource type="PackedScene" uid="uid://ck1i6uxkqg3pi" path="res://src/ui_components/player_silhouette/player_silhouette.tscn" id="6_06x5w"]
 
-[sub_resource type="InputEventJoypadMotion" id="InputEventJoypadMotion_eu77x"]
-axis = 5
-axis_value = 1.0
+[sub_resource type="InputEventJoypadButton" id="InputEventJoypadButton_itbqv"]
+button_index = 6
+pressed = true
 
 [sub_resource type="InputEventJoypadButton" id="InputEventJoypadButton_x3xqw"]
 button_index = 1
@@ -91,7 +91,7 @@ size_flags_vertical = 4
 theme_type_variation = &"ImportantButton"
 text = "Continue"
 script = ExtResource("4_nkxl6")
-joypad_motion_event = SubResource("InputEventJoypadMotion_eu77x")
+joypad_button_event = SubResource("InputEventJoypadButton_itbqv")
 
 [node name="NewGame" type="Button" parent="MarginContainer/VBoxContainer/Buttons"]
 unique_name_in_owner = true
