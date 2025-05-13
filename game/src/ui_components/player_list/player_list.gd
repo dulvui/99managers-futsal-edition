@@ -139,12 +139,6 @@ func setup(p_active_team_id: int = -1) -> void:
 	_show_active_view()
 
 
-func update_team(p_active_team_id: int) -> void:
-	active_team_id = p_active_team_id
-	_setup_players()
-	_show_active_view()
-
-
 func _setup_players(p_reset_options: bool = true) -> void:
 	if p_reset_options:
 		_reset_options()
@@ -455,3 +449,4 @@ func _on_last_pressed() -> void:
 func _on_first_pressed() -> void:
 	page = 0
 	_show_active_view()
+

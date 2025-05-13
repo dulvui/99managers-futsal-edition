@@ -28,11 +28,6 @@ func setup(team: Team) -> void:
 	_set_labels(team)
 
 
-func set_team(team: Team) -> void:
-	player_list.update_team(team.id)
-	_set_labels(team)
-
-
 func _set_labels(team: Team) -> void:
 	name_label.text = team.name
 	prestige_stars_label.text = tr("Prestige") + " " + team.get_prestige_stars()

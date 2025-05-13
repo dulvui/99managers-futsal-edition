@@ -24,6 +24,7 @@ layout_mode = 2
 
 [node name="Info" type="MarginContainer" parent="CustomTabContainer"]
 layout_mode = 2
+size_flags_vertical = 3
 theme_override_constants/margin_left = 0
 theme_override_constants/margin_right = 0
 
@@ -79,6 +80,7 @@ layout_mode = 2
 [node name="Players" type="MarginContainer" parent="CustomTabContainer"]
 visible = false
 layout_mode = 2
+size_flags_vertical = 3
 theme_override_constants/margin_left = 0
 theme_override_constants/margin_right = 0
 

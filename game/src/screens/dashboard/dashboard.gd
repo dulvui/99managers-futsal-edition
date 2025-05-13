@@ -160,7 +160,7 @@ func _on_player_list_select_player(player: Player) -> void:
 
 
 func _on_team_link(p_team: Team) -> void:
-	team_profile.set_team(p_team)
+	team_profile.setup(p_team)
 	_show_active_view(ContentViews.TEAM_PROFILE)
 
 

@@ -23,7 +23,7 @@ func _ready() -> void:
 
 func show_team(team: Team) -> void:
 	active_team = team
-	team_profile.set_team(active_team)
+	team_profile.setup(active_team)
 
 
 func _on_teams_tree_team_selected(team: Team) -> void:
