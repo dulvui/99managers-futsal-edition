@@ -75,5 +75,5 @@ func _show_active() -> void:
 		view.hide()
 
 	views[active_tab].show()
-	buttons[active_tab].grab_focus()
+	buttons[active_tab].button_pressed = true
 
