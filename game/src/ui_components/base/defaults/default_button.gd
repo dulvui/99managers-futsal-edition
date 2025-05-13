@@ -53,8 +53,7 @@ func _setup_shortcuts() -> void:
 func _set_shortcut_glyph() -> void:
 	if InputUtil.type == Enum.InputType.JOYPAD and joypad_button_event:
 		icon = JoypadUtil.get_button_icon(joypad_button_event.button_index)
-		if replace_text_with_icon:
-			text = ""
+
 	elif InputUtil.type == Enum.InputType.JOYPAD and joypad_motion_event:
 		icon = JoypadUtil.get_axis_icon(joypad_motion_event.axis)
 
@@ -70,18 +69,20 @@ func _set_shortcut_glyph() -> void:
 				SoundUtil.play_button_sfx()
 			)
 
-		if replace_text_with_icon:
-			text = ""
 	elif InputUtil.type == Enum.InputType.MOUSE_AND_KEYBOARD and key_event:
 		# workaround for /
 		if key_event.as_text() == "Slash":
 			text = "/" # NO_TRANSLATE
 		else:
 			text = key_event.as_text()
-
 		icon = null
 	else:
 		icon = null
+		text = text_backup
+
+	if icon != null and replace_text_with_icon:
+		text = ""
+	else:
 		text = text_backup
 
 
