@@ -194,5 +194,5 @@ static func create_mock_manager() -> Manager:
 
 static func is_run_as_current_scene(node: Node) -> bool:
 	# setup automatically, if run in editor and is run by 'Run current scene'
-	return Engine.is_editor_hint() and node.get_parent() == node.get_tree().root
+	return OS.has_feature("editor") and node.get_parent() == node.get_tree().root
 

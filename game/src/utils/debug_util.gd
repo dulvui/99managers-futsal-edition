@@ -16,7 +16,7 @@ func _ready() -> void:
 	penalties_test = false
 
 	# always reset flags, if not open in editor
-	if Engine.is_editor_hint():
+	if OS.has_feature("editor"):
 		visual_state_machine = false
 		match_engine = false
 
