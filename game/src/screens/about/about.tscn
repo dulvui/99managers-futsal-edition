@@ -84,13 +84,16 @@ size_flags_vertical = 3
 
 [node name="Changelog" parent="MarginContainer/Main/CustomTabContainer" instance=ExtResource("5_o2iga")]
 layout_mode = 2
+size_flags_vertical = 3
 
 [node name="Contributors" parent="MarginContainer/Main/CustomTabContainer" instance=ExtResource("5_81vyk")]
 visible = false
 layout_mode = 2
+size_flags_vertical = 3
 
 [node name="Licenses" parent="MarginContainer/Main/CustomTabContainer" instance=ExtResource("6_o2iga")]
 visible = false
 layout_mode = 2
+size_flags_vertical = 3
 
 [connection signal="pressed" from="MarginContainer/Main/TopBar/Back" to="." method="_on_back_pressed"]
