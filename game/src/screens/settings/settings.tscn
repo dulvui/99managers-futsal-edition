@@ -1,13 +1,13 @@
-[gd_scene load_steps=10 format=3 uid="uid://b82qxvb5mq33j"]
+[gd_scene load_steps=10 format=3 uid="uid://ds6pnkuwtjvic"]
 
-[ext_resource type="Script" uid="uid://be7krtp1w1jf7" path="res://src/screens/settings/settings.gd" id="1_sjk38"]
-[ext_resource type="PackedScene" uid="uid://ck1i6uxkqg3pi" path="res://src/ui_components/player_silhouette/player_silhouette.tscn" id="2_a4sot"]
-[ext_resource type="LabelSettings" uid="uid://b4gu78rjvdfx4" path="res://theme_base/label/label_settings_title.tres" id="4_bv6c3"]
-[ext_resource type="Script" uid="uid://cnyyowwlb04kl" path="res://src/ui_components/base/defaults/default_button.gd" id="5_8fx33"]
-[ext_resource type="Script" uid="uid://bkg838a5hys8o" path="res://src/ui_components/base/defaults/default_tab_container.gd" id="6_tetks"]
-[ext_resource type="PackedScene" uid="uid://cywaob6jab2pj" path="res://src/screens/settings/general/general_settings.tscn" id="7_jwsgv"]
-[ext_resource type="PackedScene" uid="uid://bw4rsu0jiwjj0" path="res://src/screens/settings/input/input_settings.tscn" id="8_qxx7e"]
-[ext_resource type="PackedScene" uid="uid://bpvg2vhxml3a1" path="res://src/ui_components/base/confirm_dialog/default_confirm_dialog.tscn" id="9_udugt"]
+[ext_resource type="Script" uid="uid://be7krtp1w1jf7" path="res://src/screens/settings/settings.gd" id="1_ry50u"]
+[ext_resource type="PackedScene" uid="uid://ck1i6uxkqg3pi" path="res://src/ui_components/player_silhouette/player_silhouette.tscn" id="2_vo3xj"]
+[ext_resource type="LabelSettings" uid="uid://b4gu78rjvdfx4" path="res://theme_base/label/label_settings_title.tres" id="3_qgpuj"]
+[ext_resource type="Script" uid="uid://cnyyowwlb04kl" path="res://src/ui_components/base/defaults/default_button.gd" id="4_ss020"]
+[ext_resource type="PackedScene" uid="uid://bheddn7ywomo6" path="res://src/ui_components/base/custom_tab_container/custom_tab_container.tscn" id="5_tww0x"]
+[ext_resource type="PackedScene" uid="uid://cywaob6jab2pj" path="res://src/screens/settings/general/general_settings.tscn" id="6_ncaym"]
+[ext_resource type="PackedScene" uid="uid://bw4rsu0jiwjj0" path="res://src/screens/settings/input/input_settings.tscn" id="7_4kh8n"]
+[ext_resource type="PackedScene" uid="uid://bpvg2vhxml3a1" path="res://src/ui_components/base/confirm_dialog/default_confirm_dialog.tscn" id="8_bm5uu"]
 
 [sub_resource type="InputEventJoypadButton" id="InputEventJoypadButton_nppw4"]
 button_index = 1
@@ -20,7 +20,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-script = ExtResource("1_sjk38")
+script = ExtResource("1_ry50u")
 
 [node name="Panel" type="Panel" parent="."]
 layout_mode = 1
@@ -30,7 +30,7 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="PlayerSilhouette" parent="." instance=ExtResource("2_a4sot")]
+[node name="PlayerSilhouette" parent="." instance=ExtResource("2_vo3xj")]
 layout_mode = 1
 anchors_preset = -1
 anchor_left = 0.887
@@ -62,7 +62,7 @@ theme_override_constants/separation = 15
 layout_mode = 2
 size_flags_horizontal = 3
 text = "Settings"
-label_settings = ExtResource("4_bv6c3")
+label_settings = ExtResource("3_qgpuj")
 
 [node name="Defaults" type="Button" parent="MarginContainer/Main/TopBar"]
 custom_minimum_size = Vector2(180, 0)
@@ -70,7 +70,7 @@ layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 4
 text = "Default settings"
-script = ExtResource("5_8fx33")
+script = ExtResource("4_ss020")
 
 [node name="Back" type="Button" parent="MarginContainer/Main/TopBar"]
 custom_minimum_size = Vector2(180, 0)
@@ -79,39 +79,37 @@ size_flags_horizontal = 4
 size_flags_vertical = 4
 theme_type_variation = &"ImportantButton"
 text = "Back"
-script = ExtResource("5_8fx33")
+script = ExtResource("4_ss020")
 joypad_button_event = SubResource("InputEventJoypadButton_nppw4")
 
-[node name="TabContainer" type="TabContainer" parent="MarginContainer/Main"]
+[node name="CustomTabContainer" parent="MarginContainer/Main" instance=ExtResource("5_tww0x")]
 custom_minimum_size = Vector2(800, 0)
 layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 3
-current_tab = 0
-script = ExtResource("6_tetks")
 
-[node name="General" type="MarginContainer" parent="MarginContainer/Main/TabContainer"]
+[node name="General" type="MarginContainer" parent="MarginContainer/Main/CustomTabContainer"]
 layout_mode = 2
+size_flags_vertical = 3
 theme_override_constants/margin_left = 0
 theme_override_constants/margin_right = 0
-metadata/_tab_index = 0
 
-[node name="General" parent="MarginContainer/Main/TabContainer/General" instance=ExtResource("7_jwsgv")]
+[node name="General" parent="MarginContainer/Main/CustomTabContainer/General" instance=ExtResource("6_ncaym")]
 unique_name_in_owner = true
 layout_mode = 2
 
-[node name="Input" type="MarginContainer" parent="MarginContainer/Main/TabContainer"]
+[node name="Input" type="MarginContainer" parent="MarginContainer/Main/CustomTabContainer"]
 visible = false
 layout_mode = 2
+size_flags_vertical = 3
 theme_override_constants/margin_left = 0
 theme_override_constants/margin_right = 0
-metadata/_tab_index = 1
 
-[node name="Input" parent="MarginContainer/Main/TabContainer/Input" instance=ExtResource("8_qxx7e")]
+[node name="Input" parent="MarginContainer/Main/CustomTabContainer/Input" instance=ExtResource("7_4kh8n")]
 unique_name_in_owner = true
 layout_mode = 2
 
-[node name="DefaultDialog" parent="." instance=ExtResource("9_udugt")]
+[node name="DefaultDialog" parent="." instance=ExtResource("8_bm5uu")]
 unique_name_in_owner = true
 size = Vector2i(530, 200)
 visible = false
