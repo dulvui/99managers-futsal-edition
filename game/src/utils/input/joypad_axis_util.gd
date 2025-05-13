@@ -77,3 +77,4 @@ func handle_event(event: InputEvent) -> void:
 				Input.parse_input_event(ui_up_event)
 			elif motion_event.axis_value >= THRESHOLD:
 				Input.parse_input_event(ui_down_event)
+

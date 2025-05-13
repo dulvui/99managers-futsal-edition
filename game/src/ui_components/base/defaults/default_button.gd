@@ -46,16 +46,6 @@ func _setup_shortcuts() -> void:
 		shortcut.events.append(joypad_button_event)
 	if joypad_motion_event:
 		shortcut.events.append(joypad_motion_event)
-	if key_event:
-		shortcut.events.append(key_event)
-
-
-func _set_shortcut_glyph() -> void:
-	if InputUtil.type == Enum.InputType.JOYPAD and joypad_button_event:
-		icon = JoypadUtil.get_button_icon(joypad_button_event.button_index)
-
-	elif InputUtil.type == Enum.InputType.JOYPAD and joypad_motion_event:
-		icon = JoypadUtil.get_axis_icon(joypad_motion_event.axis)
 
 		# workaround until not fixed https://github.com/godotengine/godot/issues/99331
 		if joypad_motion_event.axis == JOY_AXIS_TRIGGER_LEFT:
@@ -69,6 +59,29 @@ func _set_shortcut_glyph() -> void:
 				SoundUtil.play_button_sfx()
 			)
 
+	if key_event:
+		shortcut.events.append(key_event)
+
+
+func _set_shortcut_glyph() -> void:
+	if InputUtil.type == Enum.InputType.JOYPAD and joypad_button_event:
+		icon = JoypadUtil.get_button_icon(joypad_button_event.button_index)
+
+		# always fallback to text, if no icon set
+		if icon != null and replace_text_with_icon:
+			text = ""
+		else:
+			text = text_backup
+
+	elif InputUtil.type == Enum.InputType.JOYPAD and joypad_motion_event:
+		icon = JoypadUtil.get_axis_icon(joypad_motion_event.axis)
+
+		# always fallback to text, if no icon set
+		if icon != null and replace_text_with_icon:
+			text = ""
+		else:
+			text = text_backup
+
 	elif InputUtil.type == Enum.InputType.MOUSE_AND_KEYBOARD and key_event:
 		# workaround for /
 		if key_event.as_text() == "Slash":
@@ -78,11 +91,6 @@ func _set_shortcut_glyph() -> void:
 		icon = null
 	else:
 		icon = null
-		text = text_backup
-
-	if icon != null and replace_text_with_icon:
-		text = ""
-	else:
 		text = text_backup
 
 
