@@ -234,7 +234,7 @@ func left_possess() -> void:
 func right_possess() -> void:
 	left_team.has_ball = false
 	right_team.has_ball = true
-	# recacluate best sector, after flags change
+	# recalculate best sector, after flags change
 	field.force_update_calculator()
 
 

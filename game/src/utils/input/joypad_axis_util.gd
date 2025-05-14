@@ -5,9 +5,8 @@
 extends Node
 
 # workaround until not fixed https://github.com/godotengine/godot/issues/99331
-
-# and in Tree analogical sticks also dont work correclty
-# once this is fixes, ui left/right etc... can be readded on default input map
+# and in Tree Node, analogical sticks also don't work correctly
+# once this is fixes, ui left/right etc, it can be re-added on default input map
 
 signal r2
 signal l2

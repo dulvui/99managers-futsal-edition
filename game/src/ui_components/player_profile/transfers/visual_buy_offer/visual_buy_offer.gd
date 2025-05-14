@@ -44,10 +44,6 @@ func setup(p_player: Player) -> void:
 	buy_money.setup(player.value, 0, Global.team.finances.balance[-1])
 
 
-func _on_default_tab_container_tab_changed(tab: int) -> void:
-	print(tab)
-
-
 func _on_confirm_pressed() -> void:
 	# var transfer: Transfer = Transfer.new()
 	# transfer.type = Transfer.Type.BUY

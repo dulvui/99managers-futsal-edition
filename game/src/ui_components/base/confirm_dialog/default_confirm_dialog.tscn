@@ -13,8 +13,7 @@ button_index = 2
 pressed = true
 
 [sub_resource type="InputEventJoypadButton" id="InputEventJoypadButton_vnokf"]
-button_index = 2
-pressed = true
+button_index = 3
 
 [node name="DefaultConfirmDialog" type="PopupPanel"]
 initial_position = 1

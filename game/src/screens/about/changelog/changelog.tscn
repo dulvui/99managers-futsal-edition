@@ -16,6 +16,7 @@ layout_mode = 2
 [node name="Text" type="RichTextLabel" parent="VBoxContainer"]
 layout_mode = 2
 size_flags_vertical = 3
+focus_mode = 2
 text = "
 # [0.3.1]
 

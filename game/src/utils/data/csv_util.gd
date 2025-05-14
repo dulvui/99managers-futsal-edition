@@ -236,7 +236,7 @@ func csv_to_match_days(csv: Array[PackedStringArray]) -> Array[MatchDays]:
 		if match_day == null or match_day_day != match_day.day or match_day_month != match_day.month:
 			match_day = MatchDay.new()
 			match_day.day = match_day_day
-			match_day.month = match_day_month as Enum.Months
+			match_day.month = match_day_month
 			match_days.days.append(match_day)
 
 		var matchz: Match = Match.new()
@@ -331,8 +331,8 @@ func calendar_to_csv(calendar: Calendar) -> Array[PackedStringArray]:
 			line.append(str(day.day))
 			line.append(str(day.month))
 			line.append(str(day.year))
-			line.append(str(int(day.market)))
 			line.append(str(day.weekday))
+			line.append(str(int(day.market)))
 
 			csv.append(line)
 
@@ -349,6 +349,10 @@ func csv_to_calendar(csv: Array[PackedStringArray]) -> Calendar:
 	calendar.date.month = _get_int_or_default()
 	calendar.date.year = _get_int_or_default()
 
+	# save active month, to append new month when month changes
+	var active_month: int = 1
+	calendar.months.append(Month.new())
+
 	# iterate over single days
 	for line: PackedStringArray in csv:
 
@@ -359,12 +363,13 @@ func csv_to_calendar(csv: Array[PackedStringArray]) -> Calendar:
 
 		var day: Day = Day.new()
 		day.day = _get_int_or_default()
-		day.month = _get_int_or_default() as Enum.Months
+		day.month = _get_int_or_default()
 		day.year = _get_int_or_default()
 		day.weekday = _get_int_or_default() as Enum.Weekdays
 		day.market = _get_bool_or_default()
 
-		if calendar.months.size() < day.month:
+		if active_month != day.month:
+			active_month = day.month
 			calendar.months.append(Month.new())
 
 		calendar.months[-1].days.append(day)
