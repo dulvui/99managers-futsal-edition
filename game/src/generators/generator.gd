@@ -69,6 +69,9 @@ func initialize_world(world: World, world_file_path: String = Const.WORLD_CSV_PA
 	# reset warnings/errors
 	Global.generation_warnings = []
 	Global.generation_errors = []
+
+	Global.world = world
+
 	Main.call_deferred("update_loading_progress", 0.0)
 
 	# set start date/year

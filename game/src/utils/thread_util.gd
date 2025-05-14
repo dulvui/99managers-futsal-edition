@@ -77,13 +77,11 @@ func _generate_world(
 
 	var generator_world: GeneratorWorld = GeneratorWorld.new()
 	var world: World = generator_world.init_world()
-
 	var success: bool = generator.initialize_world(world, world_file_path)
+
 	if not success:
 		call_deferred("_loading_done")
 		return
-
-	Global.world = world
 
 	call_deferred("_loading_done")
 

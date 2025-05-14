@@ -227,7 +227,7 @@ func simulate_match(p_matchz: Match, fast: bool = false) -> void:
 func left_possess() -> void:
 	left_team.has_ball = true
 	right_team.has_ball = false
-	# recacluate best sector, after flags change
+	# recalculate best sector, after flags change
 	field.force_update_calculator()
 
 

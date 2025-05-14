@@ -131,7 +131,10 @@ func csv_to_players(csv: Array[PackedStringArray], world: World, first_time: boo
 			nation = world.get_nation_by_code(nation_code)
 
 		if nation == null:
-			push_error("no nation with code \"%s\" found in line %d \n %s" % [nation_code, line_index, active_line])
+			push_error(
+				"no nation with code \"%s\" found in line %d \n %s"
+				 % [nation_code, line_index, active_line]
+			)
 			continue
 
 		# league
@@ -154,7 +157,9 @@ func csv_to_players(csv: Array[PackedStringArray], world: World, first_time: boo
 			push_warning("team not found in line %d" % line_index)
 			continue
 
-		var player: Player = _line_to_player(league.id, league.name, team.id, team.name, first_time)
+		var player: Player = _line_to_player(
+			league.id, league.name, team.id, team.name, first_time
+		)
 
 		if player != null:
 			team.players.append(player)
@@ -208,8 +213,8 @@ func csv_to_match_days(csv: Array[PackedStringArray]) -> Array[MatchDays]:
 		_set_active_line(line)
 
 		var match_days_index: int =_get_int_or_default()
-		var match_day_day: int =_get_int_or_default()
-		var match_day_month: int =_get_int_or_default()
+		var day: int =_get_int_or_default()
+		var month: int =_get_int_or_default()
 		var id: int = _get_int_or_default()
 		var home_id: int = _get_int_or_default()
 		var home_name: String = _get_string_or_default()
@@ -234,10 +239,10 @@ func csv_to_match_days(csv: Array[PackedStringArray]) -> Array[MatchDays]:
 			list.append(match_days)
 
 		# check active match day
-		if match_day == null or match_day_day != match_day.day or match_day_month != match_day.month:
+		if match_day == null or day != match_day.day or month != match_day.month:
 			match_day = MatchDay.new()
-			match_day.day = match_day_day
-			match_day.month = match_day_month
+			match_day.day = day
+			match_day.month = month
 			match_days.days.append(match_day)
 
 		var matchz: Match = Match.new()
@@ -503,7 +508,9 @@ func validate_csv_file(file_path: String) -> bool:
 		header = header.to_lower()
 		header = header.strip_edges()
 		if header != headers[i].to_lower():
-			push_error("error csv header wrong format. expecetd %s but found %s" % [headers[i], header])
+			push_error(
+				"error csv header wrong format. expecetd %s but found %s" % [headers[i], header]
+			)
 			Global.generation_errors.append(Enum.GenerationError.ERR_CSV_HEADER_FORMAT)
 			return false
 
@@ -560,7 +567,6 @@ func save_csv(path: String, csv: Array[PackedStringArray], append: bool = false)
 	path = file.get_path()
 	backup_util.create(path)
 	return path
-
 
 
 func read_csv(path: String) -> Array[PackedStringArray]:
@@ -621,11 +627,18 @@ func _player_to_line(
 	player_line.append("\"%s\"" % player.skintone)
 
 	# attributes
-	player_line.append_array(res_to_line(player.attributes.goalkeeper, Const.PLAYER_ATTRIBUTES_GOALKEEPER))
-	player_line.append_array(res_to_line(player.attributes.mental, Const.PLAYER_ATTRIBUTES_MENTAL))
-	player_line.append_array(res_to_line(player.attributes.physical, Const.PLAYER_ATTRIBUTES_PHYSICAL))
-	player_line.append_array(res_to_line(player.attributes.technical, Const.PLAYER_ATTRIBUTES_TECHNICAL))
-
+	player_line.append_array(
+		res_to_line(player.attributes.goalkeeper, Const.PLAYER_ATTRIBUTES_GOALKEEPER)
+	)
+	player_line.append_array(
+		res_to_line(player.attributes.mental, Const.PLAYER_ATTRIBUTES_MENTAL)
+	)
+	player_line.append_array(
+		res_to_line(player.attributes.physical, Const.PLAYER_ATTRIBUTES_PHYSICAL)
+	)
+	player_line.append_array(
+		res_to_line(player.attributes.technical, Const.PLAYER_ATTRIBUTES_TECHNICAL)
+	)
 
 	#
 	# now internal data, not coming from user at setup
@@ -710,7 +723,9 @@ func _line_to_player(
 	var alt_positions_array: PackedStringArray = alt_positions.split(",")
 	for alt_position_string: String in alt_positions_array:
 		alt_position_string = alt_position_string.strip_edges()
-		player.position.alternatives.append(Enum.get_position_type_from_string(alt_position_string))
+		player.position.alternatives.append(
+			Enum.get_position_type_from_string(alt_position_string)
+		)
 
 	# next values are attributes
 	# attributes get set by iterating over attribute name arrays/headers
