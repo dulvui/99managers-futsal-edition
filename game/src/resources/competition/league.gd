@@ -13,7 +13,7 @@ extends Competition
 @export var playouts: Cup
 
 # in highest league, playoffs define final winner and continental cup participants
-# total promotion and total reletations teams from leagues must be the same
+# total promotion and total relegation teams from leagues must be the same
 # total promotion = direct_promotion_teams + playoffs winner
 # total delegation = direct_relegation_teams + playouts looser
 @export var direct_promotion_teams: int
@@ -61,7 +61,7 @@ func _init(
 
 func add_team(team: Team) -> void:
 	teams.append(team)
-	table.add_team(team)
+	table.add_team(team.to_basic())
 
 	# sort alphabetically
 	teams.sort_custom(func(a: Team, b: Team) -> bool: return a.name < b.name)
@@ -86,7 +86,7 @@ func get_team_by_name(team_name: String) -> Team:
 func get_teams_basic() -> Array[TeamBasic]:
 	var teams_basic: Array[TeamBasic] = []
 	for team: Team in teams:
-		teams_basic.append(team.get_basic())
+		teams_basic.append(team.to_basic())
 	return teams_basic
 
 

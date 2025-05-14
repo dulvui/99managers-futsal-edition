@@ -35,3 +35,4 @@ func next_id(type: Types) -> int:
 
 	id_by_type[type_key] += 1
 	return id_by_type[type_key]
+

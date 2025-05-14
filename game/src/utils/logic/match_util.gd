@@ -236,7 +236,7 @@ func _initialize_nations_continental_cup(p_continent: Continent) -> void:
 
 	# get qualified teams from every nation
 	for nation: Nation in p_continent.nations:
-		teams.append(nation.team.get_basic())
+		teams.append(nation.team.to_basic())
 
 	# limit teams for now
 	# TODO choose best teams
@@ -254,7 +254,7 @@ func _initialize_world_cup(world: World) -> void:
 	var teams: Array[TeamBasic]
 	for continent: Continent in world.continents:
 		for nation: Nation in continent.nations:
-			teams.append(nation.team.get_basic())
+			teams.append(nation.team.to_basic())
 
 	# limit teams for now
 	# TODO choose best teams

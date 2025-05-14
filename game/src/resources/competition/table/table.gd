@@ -16,7 +16,8 @@ func _init(
 
 func add_team(team: TeamBasic) -> void:
 	var values: TableValues = TableValues.new()
-	values.team = team
+	# make sure team is basic
+	values.team = TeamBasic.new(team.id, team.name, team.league_id)
 	teams.append(values)
 
 
@@ -30,8 +31,8 @@ func add_result(
 ) -> void:
 	var home: TableValues = _find_by_id(home_id)
 	var away: TableValues = _find_by_id(away_id)
-	home.setup(home_goals, away_goals, home_penalties_goals, away_penalties_goals)
-	away.setup(away_goals, home_goals, away_penalties_goals, home_penalties_goals)
+	home.save_result(home_goals, away_goals, home_penalties_goals, away_penalties_goals)
+	away.save_result(away_goals, home_goals, away_penalties_goals, home_penalties_goals)
 
 
 func get_position(team_id: int = Global.team.id) -> int:

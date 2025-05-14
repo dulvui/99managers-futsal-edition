@@ -31,7 +31,7 @@ func test_deterministic_simulations() -> void:
 			var away_team: Team = Tests.create_mock_team()
 
 			matches.append(matchz)
-			matchz.setup(home_team, away_team, 1, "test")
+			matchz.setup(home_team.to_basic(), away_team.to_basic(), 1, "test")
 			# use always same match id/seed
 			matchz.id = i
 			match_engine.setup(matchz, home_team, away_team)
@@ -62,7 +62,7 @@ func test_benchmark() -> void:
 	var matchz: Match = Match.new()
 	var home_team: Team = Tests.create_mock_team()
 	var away_team: Team = Tests.create_mock_team()
-	matchz.setup(home_team, away_team, 1, "test")
+	matchz.setup(home_team.to_basic(), away_team.to_basic(), 1, "test")
 
 	var match_engine: MatchEngine = MatchEngine.new()
 	match_engine.setup(matchz, home_team, away_team)

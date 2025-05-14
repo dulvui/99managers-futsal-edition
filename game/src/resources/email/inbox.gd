@@ -182,7 +182,7 @@ func welcome_manager() -> void:
 # 	new_message(subject, text, sender_team)
 
 
-func new_message(subject: String, text: String, sender_team: TeamBasic = Global.team) -> void:
+func new_message(subject: String, text: String, sender_team: Team = Global.team) -> void:
 	var message: EmailMessage = EmailMessage.new()
 	message.set_id()
 	message.subject = subject
@@ -208,7 +208,7 @@ func _get_manager_email_address(team: Team = Global.team) -> String:
 	return email
 
 
-func _get_team_email_address(team: TeamBasic = Global.team) -> String:
+func _get_team_email_address(team: Team = Global.team) -> String:
 	var email: String = "info"
 	email += "@" + team.name.replace(" ", "") + ".com"
 	email = email.to_lower()

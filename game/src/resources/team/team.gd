@@ -3,7 +3,11 @@
 # SPDX-License-Identifier: AGPL-3.0-or-later
 
 class_name Team
-extends TeamBasic
+extends JSONResource
+
+@export var id: int
+@export var name: String
+@export var league_id: int
 
 @export var formation: Formation
 @export var finances: Finances
@@ -21,6 +25,9 @@ var players: Array[Player]
 
 
 func _init(
+	p_id: int = -1,
+	p_name: String = "",
+	p_league_id: int = -1,
 	p_players: Array[Player] = [],
 	p_finances: Finances = Finances.new(),
 	p_formation: Formation = Formation.new(),
@@ -29,6 +36,9 @@ func _init(
 	p_board_requests: BoardRequests = BoardRequests.new(),
 	p_colors: Array[String] = [],
 ) -> void:
+	id = p_id
+	name = p_name
+	league_id = p_league_id
 	finances = p_finances
 	players = p_players
 	staff = p_staff
@@ -142,12 +152,8 @@ func get_prestige_stars() -> String:
 	return "*".repeat(stars) + " ".repeat(spaces)
 
 
-func get_basic() -> TeamBasic:
-	var basic: TeamBasic = TeamBasic.new()
-	basic.id = id
-	basic.name = name
-	basic.league_id = league_id
-	return basic
+func to_basic() -> TeamBasic:
+	return TeamBasic.new(id, name, league_id)
 
 
 func duplicate_real_deep() -> Team:

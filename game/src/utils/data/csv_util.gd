@@ -73,6 +73,7 @@ func csv_to_teams(csv: Array[PackedStringArray], world: World) -> void:
 		if team == null or team.name != team_name:
 			team = Team.new()
 			team.set_id()
+			team.league_id = league.id
 			team.name = team_name
 			team.finances.balance[-1] = team_budget
 			team.stadium.name = stadium_name

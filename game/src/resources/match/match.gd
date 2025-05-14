@@ -55,22 +55,13 @@ func setup(
 	p_competition_name: String,
 	p_first_leg: Match = null
 ) -> void:
+	home = p_home
+	away = p_away
 	competition_id = p_competition_id
 	competition_name = p_competition_name
 	first_leg = p_first_leg
 
 	id = IdUtil.next_id(IdUtil.Types.MATCH)
-
-	# make sure teams are basic
-	if p_home is Team:
-		home = (p_home as Team).get_basic()
-	else:
-		home = p_home
-	if p_away is Team:
-		away = (p_away as Team).get_basic()
-	else:
-		away = p_away
-
 
 
 func set_result(

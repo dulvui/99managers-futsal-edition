@@ -95,3 +95,128 @@ func get_all_teams(include_national_team: bool = false) -> Array[Team]:
 # to check if nation has competitions
 func is_competitive() -> bool:
 	return leagues.size() > 0
+
+
+
+func promote_and_relegate() -> void:
+	if leagues.size() == 0:
+		return
+
+	# d - relegated
+	# p - promoted
+	var teams_buffer: Dictionary[String, Dictionary] = {}
+	teams_buffer["r"] = {}
+	teams_buffer["p"] = {}
+
+	# get teams that will relegate/promote
+	for league: League in leagues:
+		# last/first x teams will be promoted relegated
+		var sorted_table: Array[TableValues] = league.table.to_sorted_array()
+
+		# assign direct relegated
+		var relegated: Array[Team] = league.teams.filter(
+			func(t: Team) -> bool:
+				for i: int in range(-1, -league.direct_relegation_teams -1, -1):
+					if t.id == sorted_table[i].team.id:
+						return true
+				return false
+		)
+		# assign playouts looser
+		if league.playouts.is_over():
+			var final_id: int = league.playouts.knockout.final_ids[-1]
+			var final_match: Match = Global.match_list.get_match_by_id(final_id)
+			var runner_up: TeamBasic = final_match.get_looser()
+			if runner_up != null:
+				var runner_up_team: Team = league.get_team_by_id(runner_up.id)
+				relegated.append(runner_up_team)
+
+		teams_buffer["r"][league.pyramid_level] = relegated
+
+		# assign direct promoted
+		var promoted: Array[Team] = league.teams.filter(
+			func(t: Team) -> bool:
+				for i: int in league.direct_promotion_teams:
+					if t.id == sorted_table[i].team.id:
+						return true
+				return false
+		)
+		# assign playoffs winner
+		if league.playoffs.is_over():
+			var final_id: int = league.playoffs.knockout.final_ids[-1]
+			var final_match: Match = Global.match_list.get_match_by_id(final_id)
+			var winner: TeamBasic = final_match.get_winner()
+			if winner != null:
+				var winner_team: Team = league.get_team_by_id(winner.id)
+				promoted.append(winner_team)
+		teams_buffer["p"][league.pyramid_level] = promoted
+
+	# relegate/promote
+	for league: League in leagues:
+		var promoted: Array[Team] = teams_buffer["p"][league.pyramid_level]
+		var relegated: Array[Team] = teams_buffer["r"][league.pyramid_level]
+
+		# last league
+		# only promote to upper league
+		if league.pyramid_level == leagues.size():
+			if leagues.size() > 1:
+				# promote
+				get_league_by_pyramid_level(
+					league.pyramid_level - 1
+				).teams.append_array(
+					promoted
+				)
+				# remove promoted teams from league
+				for p_team: Team in promoted:
+					league.teams.erase(p_team)
+
+		# intermediate leagues
+		# relegate to lower league, promote to upper league
+		elif league.pyramid_level > 1 and league.pyramid_level < leagues.size():
+			# promote
+			get_league_by_pyramid_level(
+				league.pyramid_level - 1
+			).teams.append_array(
+				promoted
+			)
+			# remove promoted teams from league
+			for p_team: Team in promoted:
+				league.teams.erase(p_team)
+
+			# relegate
+			get_league_by_pyramid_level(
+				league.pyramid_level + 1
+			).teams.append_array(
+				relegated
+			)
+			# remove relegated teams
+			for r_team: Team in relegated:
+				league.teams.erase(r_team)
+
+		# best league
+		# relegate to lower league, assign winners to cups
+		else:
+			# first teams go to cup
+			# TODO add to continental cup
+			#continental_cup_teams.append_array(promoted_teams)
+
+			# add relegated teams to lower league
+			get_league_by_pyramid_level(
+				league.pyramid_level + 1
+			).teams.append_array(
+				relegated
+			)
+
+			# remove relegated teams
+			for r_team: Team in relegated:
+				league.teams.erase(r_team)
+
+	# add new seasons table
+	for league: League in leagues:
+		# save to history and create new competitions
+		league.archive_season()
+
+		for p_team: TeamBasic in league.get_teams_basic():
+			league.table.add_team(p_team)
+			# reassign all league ids
+			p_team.league_id = league.id
+

@@ -44,13 +44,12 @@ func _init(
 	form = p_form
 
 
-func setup(
+func save_result(
 	goals: int,
 	opponent_goals: int,
 	penalties_goals: int = 0,
 	opponent_penalties_goals: int = 0,
-	) -> void:
-
+) -> void:
 	games_played += 1
 	goals_made += goals
 	goals_conceded += opponent_goals
@@ -69,3 +68,4 @@ func setup(
 	else:
 		lost += 1
 		form.append(Form.LOST)
+

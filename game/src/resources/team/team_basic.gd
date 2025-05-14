@@ -18,3 +18,4 @@ func _init(
 	id = p_id
 	name = p_name
 	league_id = p_league_id
+

@@ -61,7 +61,8 @@ func generate_club_history(world: World) -> void:
 					if league.playoffs.is_started():
 						while not league.playoffs.is_over():
 							# generate random results for every match
-							var matches: Array[Match] = Global.match_list.get_matches_by_competition(league.playoffs.id)
+							var matches: Array[Match] = Global.match_list.\
+									get_matches_by_competition(league.playoffs.id)
 							for matchz: Match in matches:
 								if matchz.over:
 									continue
@@ -73,7 +74,8 @@ func generate_club_history(world: World) -> void:
 					if league.playouts.is_started():
 						while not league.playouts.is_over():
 							# generate random results for every match
-							var matches: Array[Match] = Global.match_list.get_matches_by_competition(league.playouts.id)
+							var matches: Array[Match] = Global.match_list.\
+									get_matches_by_competition(league.playouts.id)
 							for matchz: Match in matches:
 								if matchz.over:
 									continue
@@ -81,7 +83,10 @@ func generate_club_history(world: World) -> void:
 
 							league.playouts.next_stage()
 
-		world.promote_and_relegate_teams()
+		for continent: Continent in world.continents:
+			for nation: Nation in continent.nations:
+				nation.promote_and_relegate()
+
 		Global.match_list.archive_season()
 
 	# save team swaps

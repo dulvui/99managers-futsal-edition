@@ -123,7 +123,10 @@ func next_season() -> void:
 	player_util.players_progress_season()
 	player_util.check_contracts_terminated()
 
-	world.promote_and_relegate_teams()
+	for continent: Continent in world.continents:
+		for nation: Nation in continent.nations:
+			nation.promote_and_relegate()
+
 	match_list.archive_season()
 
 	calendar.initialize(true)
