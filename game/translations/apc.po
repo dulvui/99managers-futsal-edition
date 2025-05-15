@@ -295,11 +295,6 @@ msgstr ""
 "X-Generator: Weblate 5.10.3-dev\n"
 
 #: src/ui_components/team_profile/team_profile.tscn
-#: src/screens/dashboard/dashboard.tscn
-msgid "Info"
-msgstr "معلومات"
-
-#: src/ui_components/team_profile/team_profile.tscn
 #: src/ui_components/team_profile/team_profile.gd
 msgid "Budget"
 msgstr "ميزانيّة"
@@ -308,11 +303,6 @@ msgstr "ميزانيّة"
 #: src/screens/dashboard/dashboard.tscn src/generators/generator.gd
 msgid "Stadium"
 msgstr "ملعب"
-
-#: src/ui_components/team_profile/team_profile.tscn
-#: src/screens/dashboard/dashboard.tscn
-msgid "Players"
-msgstr "اللاعيبه"
 
 #: src/ui_components/team_profile/team_profile.gd
 #: src/ui_components/player_profile/info_view/info_view.tscn
@@ -337,7 +327,6 @@ msgstr "سنة"
 #: src/ui_components/player_list/player_list.gd
 #: src/ui_components/player_profile/player_profile.tscn
 #: src/ui_components/player_profile/contract_view/contract_view.tscn
-#: src/screens/settings/settings.tscn
 msgid "General"
 msgstr "عام"
 
@@ -362,7 +351,6 @@ msgid "Mental"
 msgstr "ذهنية"
 
 #: src/ui_components/player_list/player_list.gd
-#: src/ui_components/player_profile/player_profile.tscn
 msgid "Contract"
 msgstr "كونترا"
 
@@ -375,12 +363,12 @@ msgid "All Teams"
 msgstr ""
 
 #: src/ui_components/player_list/player_list.gd
-msgid "All positions"
-msgstr "كل الپوزيسيونات"
-
-#: src/ui_components/player_list/player_list.gd
 msgid "All Leagues"
 msgstr ""
+
+#: src/ui_components/player_list/player_list.gd
+msgid "All positions"
+msgstr "كل الپوزيسيونات"
 
 #: src/ui_components/info/info.tscn
 #: src/screens/setup/setup_world/setup_world.tscn
@@ -810,11 +798,6 @@ msgid "Blocking"
 msgstr "بلوك"
 
 #: src/ui_components/player_profile/player_profile.tscn
-#: src/screens/match_screen/match_screen.tscn
-msgid "Overview"
-msgstr ""
-
-#: src/ui_components/player_profile/player_profile.tscn
 msgid "Attributes"
 msgstr "خصائص"
 
@@ -823,12 +806,6 @@ msgstr "خصائص"
 #| msgid "Stats"
 msgid "Statistics\n"
 msgstr "ستات"
-
-#: src/ui_components/player_profile/player_profile.tscn
-#, fuzzy
-#| msgid "Transferlist"
-msgid "Transfers"
-msgstr "ليستة الانتقالات"
 
 #: src/ui_components/player_profile/player_profile.tscn
 #, fuzzy
@@ -956,14 +933,14 @@ msgid "Average vote"
 msgstr ""
 
 #: src/ui_components/visual_calendar/visual_day/visual_day.gd
-#: src/ui_components/visual_calendar/match_list/match_info/match_info.tscn
 #: src/screens/match_screen/match_screen.tscn
+#: src/ui_components/visual_calendar/visual_match_list/match_info/match_info.tscn
 msgid "Home"
 msgstr "الداخل"
 
 #: src/ui_components/visual_calendar/visual_day/visual_day.gd
-#: src/ui_components/visual_calendar/match_list/match_info/match_info.tscn
 #: src/screens/match_screen/match_screen.tscn
+#: src/ui_components/visual_calendar/visual_match_list/match_info/match_info.tscn
 msgid "Away"
 msgstr "الخارج"
 
@@ -971,14 +948,6 @@ msgstr "الخارج"
 #: src/screens/dashboard/dashboard.tscn
 msgid "Transfermarket"
 msgstr "سوق التحويل"
-
-#: src/ui_components/visual_calendar/match_list/match_info/match_info.tscn
-msgid "vs"
-msgstr ""
-
-#: src/ui_components/visual_calendar/match_list/match_list.gd
-msgid "No match"
-msgstr "مش موجود"
 
 #: src/ui_components/visual_calendar/visual_calendar.tscn
 msgid "Today"
@@ -1037,14 +1006,14 @@ msgid "Back"
 msgstr "رجاع"
 
 #: src/screens/settings/settings.tscn
-msgid "Input"
-msgstr "إن-پوت"
-
-#: src/screens/settings/settings.tscn
 msgid ""
 "All changed settings will be restored to the default value.\n"
 "Are you sure?"
 msgstr ""
+
+#: src/screens/settings/general/general_settings.tscn
+msgid "Version"
+msgstr "نسخة"
 
 #: src/screens/settings/general/general_settings.tscn
 msgid "Language"
@@ -1098,16 +1067,16 @@ msgid "Default"
 msgstr "افتراضي"
 
 #: src/screens/settings/general/general_settings.tscn
+msgid "Themes"
+msgstr "ألوان"
+
+#: src/screens/settings/general/general_settings.tscn
 msgid "Scale"
 msgstr "مقياس"
 
 #: src/screens/settings/general/general_settings.tscn
 msgid "Screen fade animation"
 msgstr "أنيمايشن لتلاشي الشاشة"
-
-#: src/screens/settings/general/general_settings.tscn
-msgid "Version"
-msgstr "نسخة"
 
 #: src/screens/settings/input/input_settings.tscn
 msgid "Vim mode"
@@ -1122,7 +1091,9 @@ msgid "No joypad connected"
 msgstr "مش موصول دجوي-پاد"
 
 #: src/screens/settings/input/input_settings.tscn
-msgid "Input detection mode"
+#, fuzzy
+#| msgid "Input detection mode"
+msgid "Automatic Input detection"
 msgstr "Input detection mode"
 
 #: src/screens/settings/input/input_settings.tscn
@@ -1239,6 +1210,10 @@ msgid "Coming soon"
 msgstr ""
 
 #: src/screens/dashboard/dashboard.tscn
+msgid "Players"
+msgstr "اللاعيبه"
+
+#: src/screens/dashboard/dashboard.tscn
 msgid "Search player"
 msgstr "نبش اللاعب"
 
@@ -1259,12 +1234,13 @@ msgid "Hall of fame"
 msgstr "قاعة المشاهير"
 
 #: src/screens/dashboard/dashboard.tscn
-msgid "Next match"
-msgstr "الماتش اللي بعده"
+msgid "Info"
+msgstr "معلومات"
 
 #: src/screens/dashboard/dashboard.tscn src/screens/menu/menu.tscn
 #: src/screens/setup/setup_world/setup_world.tscn
 #: src/screens/match_screen/match_screen.gd
+#: src/screens/setup/setup_initial/setup_initial.tscn
 msgid "Continue"
 msgstr "كفّي"
 
@@ -1309,6 +1285,12 @@ msgid "Your surname"
 msgstr "عيلتك"
 
 #: src/screens/setup/setup_world/setup_world.tscn
+#, fuzzy
+#| msgid "Game settings"
+msgid "Advanced settings"
+msgstr "سَتِنگز اللعبة"
+
+#: src/screens/setup/setup_world/setup_world.tscn
 msgid "Game settings"
 msgstr "سَتِنگز اللعبة"
 
@@ -1319,12 +1301,6 @@ msgstr "اسامي اللعيبة"
 #: src/screens/setup/setup_world/setup_world.tscn
 msgid "Start year"
 msgstr ""
-
-#: src/screens/setup/setup_world/setup_world.tscn
-#, fuzzy
-#| msgid "Game settings"
-msgid "Advanced settings"
-msgstr "سَتِنگز اللعبة"
 
 #: src/screens/setup/setup_world/setup_world.tscn
 #, fuzzy
@@ -1507,14 +1483,6 @@ msgid "December"
 msgstr "كانون الأول"
 
 #: src/enum.gd
-msgid "Automatic"
-msgstr "أوتوماتيكي"
-
-#: src/enum.gd src/resources/formation/formation.gd
-msgid "Manual"
-msgstr "يدوي"
-
-#: src/enum.gd
 msgid "Mouse and Keyboard"
 msgstr ""
 
@@ -1681,6 +1649,10 @@ msgid "Pause"
 msgstr "پوز"
 
 #: src/screens/match_screen/match_screen.tscn
+msgid "Overview"
+msgstr ""
+
+#: src/screens/match_screen/match_screen.tscn
 msgid "Simulate"
 msgstr "سيميولايت"
 
@@ -1745,10 +1717,6 @@ msgid "Corners"
 msgstr ""
 
 #: src/screens/settings/theme_picker/theme_picker.tscn
-msgid "Themes"
-msgstr "ألوان"
-
-#: src/screens/settings/theme_picker/theme_picker.tscn
 msgid "Font color"
 msgstr "لون الكلمات"
 
@@ -1792,20 +1760,6 @@ msgstr "تاريخ الولادة"
 
 #: src/ui_components/player_list/player_list_view/views/contract/player_list_view_contract.tscn
 msgid "Is on loan"
-msgstr ""
-
-#: src/screens/about/about.tscn
-#, fuzzy
-#| msgid "Change"
-msgid "Changelog"
-msgstr "غَيّر"
-
-#: src/screens/about/about.tscn
-msgid "Contributors"
-msgstr ""
-
-#: src/screens/about/about.tscn
-msgid "Licenses"
 msgstr ""
 
 #: src/screens/about/license/license.tscn
@@ -2677,6 +2631,10 @@ msgstr "Cyprus"
 msgid "Auto"
 msgstr "أوتوماتيكي"
 
+#: src/resources/formation/formation.gd
+msgid "Manual"
+msgstr "يدوي"
+
 #: src/utils/ui/theme_util.gd
 msgid "Light"
 msgstr "فاتح"
@@ -2719,19 +2677,11 @@ msgid "Confirm"
 msgstr "أكّد"
 
 #: src/ui_components/player_profile/transfers/visual_buy_offer/visual_buy_offer.tscn
-msgid "Buy"
-msgstr ""
-
-#: src/ui_components/player_profile/transfers/visual_buy_offer/visual_buy_offer.tscn
 msgid "Make an offer to buy the player."
 msgstr ""
 
 #: src/ui_components/player_profile/transfers/visual_buy_offer/visual_buy_offer.tscn
 msgid "Money"
-msgstr ""
-
-#: src/ui_components/player_profile/transfers/visual_buy_offer/visual_buy_offer.tscn
-msgid "Loan"
 msgstr ""
 
 #: src/ui_components/player_profile/transfers/visual_buy_offer/visual_buy_offer.tscn
@@ -2753,6 +2703,41 @@ msgstr "ميزانية الرواتب"
 #: src/ui_components/player_profile/transfers/visual_buy_offer/visual_buy_offer.tscn
 msgid "Additional money"
 msgstr ""
+
+#: src/ui_components/visual_calendar/visual_match_list/visual_match_list.gd
+msgid "No match"
+msgstr "مش موجود"
+
+#: src/ui_components/visual_calendar/visual_match_list/match_info/match_info.tscn
+msgid "vs"
+msgstr ""
+
+#: src/screens/setup/setup_initial/setup_initial.tscn
+msgid "Hello! Choose a language"
+msgstr ""
+
+#: src/screens/setup/setup_initial/setup_initial.tscn
+msgid "and pick a theme"
+msgstr ""
+
+#, fuzzy
+#~| msgid "Transferlist"
+#~ msgid "Transfers"
+#~ msgstr "ليستة الانتقالات"
+
+#~ msgid "Input"
+#~ msgstr "إن-پوت"
+
+#~ msgid "Next match"
+#~ msgstr "الماتش اللي بعده"
+
+#~ msgid "Automatic"
+#~ msgstr "أوتوماتيكي"
+
+#, fuzzy
+#~| msgid "Change"
+#~ msgid "Changelog"
+#~ msgstr "غَيّر"
 
 #~ msgid "Watchlist"
 #~ msgstr "ليستة المراقبة"

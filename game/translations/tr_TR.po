@@ -298,11 +298,6 @@ msgstr ""
 "X-Generator: Weblate 5.10.3-dev\n"
 
 #: src/ui_components/team_profile/team_profile.tscn
-#: src/screens/dashboard/dashboard.tscn
-msgid "Info"
-msgstr "Bilgi"
-
-#: src/ui_components/team_profile/team_profile.tscn
 #: src/ui_components/team_profile/team_profile.gd
 msgid "Budget"
 msgstr "Bütçe"
@@ -311,11 +306,6 @@ msgstr "Bütçe"
 #: src/screens/dashboard/dashboard.tscn src/generators/generator.gd
 msgid "Stadium"
 msgstr "Stadyum"
-
-#: src/ui_components/team_profile/team_profile.tscn
-#: src/screens/dashboard/dashboard.tscn
-msgid "Players"
-msgstr "Oyuncular"
 
 #: src/ui_components/team_profile/team_profile.gd
 #: src/ui_components/player_profile/info_view/info_view.tscn
@@ -340,7 +330,6 @@ msgstr "Yıl"
 #: src/ui_components/player_list/player_list.gd
 #: src/ui_components/player_profile/player_profile.tscn
 #: src/ui_components/player_profile/contract_view/contract_view.tscn
-#: src/screens/settings/settings.tscn
 msgid "General"
 msgstr "Genel"
 
@@ -365,7 +354,6 @@ msgid "Mental"
 msgstr "Zihinsel"
 
 #: src/ui_components/player_list/player_list.gd
-#: src/ui_components/player_profile/player_profile.tscn
 msgid "Contract"
 msgstr "Kontrat"
 
@@ -378,12 +366,12 @@ msgid "All Teams"
 msgstr "Bütün takımlar"
 
 #: src/ui_components/player_list/player_list.gd
-msgid "All positions"
-msgstr "Bütün pozisyonlar"
-
-#: src/ui_components/player_list/player_list.gd
 msgid "All Leagues"
 msgstr "Bütün Ligler"
+
+#: src/ui_components/player_list/player_list.gd
+msgid "All positions"
+msgstr "Bütün pozisyonlar"
 
 #: src/ui_components/info/info.tscn
 #: src/screens/setup/setup_world/setup_world.tscn
@@ -803,23 +791,12 @@ msgid "Blocking"
 msgstr "Engelleme"
 
 #: src/ui_components/player_profile/player_profile.tscn
-#: src/screens/match_screen/match_screen.tscn
-msgid "Overview"
-msgstr "Genel bakış"
-
-#: src/ui_components/player_profile/player_profile.tscn
 msgid "Attributes"
 msgstr "Özellikler"
 
 #: src/ui_components/player_profile/player_profile.tscn
 msgid "Statistics\n"
 msgstr "İstatistikler\n"
-
-#: src/ui_components/player_profile/player_profile.tscn
-#, fuzzy
-#| msgid "Transfer"
-msgid "Transfers"
-msgstr "Transfer et"
 
 #: src/ui_components/player_profile/player_profile.tscn
 msgid "Contract\n"
@@ -937,14 +914,14 @@ msgid "Average vote"
 msgstr "Ortalama oy"
 
 #: src/ui_components/visual_calendar/visual_day/visual_day.gd
-#: src/ui_components/visual_calendar/match_list/match_info/match_info.tscn
 #: src/screens/match_screen/match_screen.tscn
+#: src/ui_components/visual_calendar/visual_match_list/match_info/match_info.tscn
 msgid "Home"
 msgstr "Başlangıç"
 
 #: src/ui_components/visual_calendar/visual_day/visual_day.gd
-#: src/ui_components/visual_calendar/match_list/match_info/match_info.tscn
 #: src/screens/match_screen/match_screen.tscn
+#: src/ui_components/visual_calendar/visual_match_list/match_info/match_info.tscn
 msgid "Away"
 msgstr "Deplasman"
 
@@ -952,14 +929,6 @@ msgstr "Deplasman"
 #: src/screens/dashboard/dashboard.tscn
 msgid "Transfermarket"
 msgstr "Transfer alanı"
-
-#: src/ui_components/visual_calendar/match_list/match_info/match_info.tscn
-msgid "vs"
-msgstr "vs"
-
-#: src/ui_components/visual_calendar/match_list/match_list.gd
-msgid "No match"
-msgstr "Maç yok"
 
 #: src/ui_components/visual_calendar/visual_calendar.tscn
 msgid "Today"
@@ -1020,14 +989,14 @@ msgid "Back"
 msgstr "Geri"
 
 #: src/screens/settings/settings.tscn
-msgid "Input"
-msgstr "Girdi"
-
-#: src/screens/settings/settings.tscn
 msgid ""
 "All changed settings will be restored to the default value.\n"
 "Are you sure?"
 msgstr ""
+
+#: src/screens/settings/general/general_settings.tscn
+msgid "Version"
+msgstr "Versiyon"
 
 #: src/screens/settings/general/general_settings.tscn
 msgid "Language"
@@ -1081,16 +1050,16 @@ msgid "Default"
 msgstr "Varsayılan"
 
 #: src/screens/settings/general/general_settings.tscn
+msgid "Themes"
+msgstr "Temalar"
+
+#: src/screens/settings/general/general_settings.tscn
 msgid "Scale"
 msgstr "Ölçek"
 
 #: src/screens/settings/general/general_settings.tscn
 msgid "Screen fade animation"
 msgstr "Ekran solma animasyonu"
-
-#: src/screens/settings/general/general_settings.tscn
-msgid "Version"
-msgstr "Versiyon"
 
 #: src/screens/settings/input/input_settings.tscn
 msgid "Vim mode"
@@ -1105,7 +1074,9 @@ msgid "No joypad connected"
 msgstr "Bağlı joypad bulunmuyor"
 
 #: src/screens/settings/input/input_settings.tscn
-msgid "Input detection mode"
+#, fuzzy
+#| msgid "Input detection mode"
+msgid "Automatic Input detection"
 msgstr "Girdi algılama modu"
 
 #: src/screens/settings/input/input_settings.tscn
@@ -1227,6 +1198,10 @@ msgid "Coming soon"
 msgstr "Yakında"
 
 #: src/screens/dashboard/dashboard.tscn
+msgid "Players"
+msgstr "Oyuncular"
+
+#: src/screens/dashboard/dashboard.tscn
 msgid "Search player"
 msgstr "Oyuncu ara"
 
@@ -1247,12 +1222,13 @@ msgid "Hall of fame"
 msgstr "Onur listesi"
 
 #: src/screens/dashboard/dashboard.tscn
-msgid "Next match"
-msgstr "Sıradaki maç"
+msgid "Info"
+msgstr "Bilgi"
 
 #: src/screens/dashboard/dashboard.tscn src/screens/menu/menu.tscn
 #: src/screens/setup/setup_world/setup_world.tscn
 #: src/screens/match_screen/match_screen.gd
+#: src/screens/setup/setup_initial/setup_initial.tscn
 msgid "Continue"
 msgstr "Devam et"
 
@@ -1297,6 +1273,12 @@ msgid "Your surname"
 msgstr "Sizin soyadınız"
 
 #: src/screens/setup/setup_world/setup_world.tscn
+#, fuzzy
+#| msgid "Game settings"
+msgid "Advanced settings"
+msgstr "Oyun ayarları"
+
+#: src/screens/setup/setup_world/setup_world.tscn
 msgid "Game settings"
 msgstr "Oyun ayarları"
 
@@ -1307,12 +1289,6 @@ msgstr "Oyuncu isimleri"
 #: src/screens/setup/setup_world/setup_world.tscn
 msgid "Start year"
 msgstr "Başlangıç yılı"
-
-#: src/screens/setup/setup_world/setup_world.tscn
-#, fuzzy
-#| msgid "Game settings"
-msgid "Advanced settings"
-msgstr "Oyun ayarları"
 
 #: src/screens/setup/setup_world/setup_world.tscn
 #, fuzzy
@@ -1503,14 +1479,6 @@ msgid "December"
 msgstr "Aralık"
 
 #: src/enum.gd
-msgid "Automatic"
-msgstr "Otomatik"
-
-#: src/enum.gd src/resources/formation/formation.gd
-msgid "Manual"
-msgstr "Manuel"
-
-#: src/enum.gd
 msgid "Mouse and Keyboard"
 msgstr "Klavye ve fare"
 
@@ -1677,6 +1645,10 @@ msgid "Pause"
 msgstr "Durdur"
 
 #: src/screens/match_screen/match_screen.tscn
+msgid "Overview"
+msgstr "Genel bakış"
+
+#: src/screens/match_screen/match_screen.tscn
 msgid "Simulate"
 msgstr "Simule et"
 
@@ -1739,10 +1711,6 @@ msgid "Corners"
 msgstr "Köşe vuruşları"
 
 #: src/screens/settings/theme_picker/theme_picker.tscn
-msgid "Themes"
-msgstr "Temalar"
-
-#: src/screens/settings/theme_picker/theme_picker.tscn
 msgid "Font color"
 msgstr "Yazı tipi rengi"
 
@@ -1787,20 +1755,6 @@ msgstr "Doğum tarihi"
 #: src/ui_components/player_list/player_list_view/views/contract/player_list_view_contract.tscn
 msgid "Is on loan"
 msgstr ""
-
-#: src/screens/about/about.tscn
-#, fuzzy
-#| msgid "Change"
-msgid "Changelog"
-msgstr "Değiştir"
-
-#: src/screens/about/about.tscn
-msgid "Contributors"
-msgstr "Katkıda bulunanlar"
-
-#: src/screens/about/about.tscn
-msgid "Licenses"
-msgstr "Lisanslar"
 
 #: src/screens/about/license/license.tscn
 msgid "Game license"
@@ -2671,6 +2625,10 @@ msgstr "Kıbrıs"
 msgid "Auto"
 msgstr "Oto"
 
+#: src/resources/formation/formation.gd
+msgid "Manual"
+msgstr "Manuel"
+
 #: src/utils/ui/theme_util.gd
 msgid "Light"
 msgstr "Aydınlık"
@@ -2713,20 +2671,12 @@ msgid "Confirm"
 msgstr "Onayla"
 
 #: src/ui_components/player_profile/transfers/visual_buy_offer/visual_buy_offer.tscn
-msgid "Buy"
-msgstr ""
-
-#: src/ui_components/player_profile/transfers/visual_buy_offer/visual_buy_offer.tscn
 msgid "Make an offer to buy the player."
 msgstr ""
 
 #: src/ui_components/player_profile/transfers/visual_buy_offer/visual_buy_offer.tscn
 msgid "Money"
 msgstr "Para"
-
-#: src/ui_components/player_profile/transfers/visual_buy_offer/visual_buy_offer.tscn
-msgid "Loan"
-msgstr "Kredi"
 
 #: src/ui_components/player_profile/transfers/visual_buy_offer/visual_buy_offer.tscn
 msgid "Make an offer to get the player on loan."
@@ -2747,6 +2697,50 @@ msgstr "Maaş bütçesi"
 #: src/ui_components/player_profile/transfers/visual_buy_offer/visual_buy_offer.tscn
 msgid "Additional money"
 msgstr ""
+
+#: src/ui_components/visual_calendar/visual_match_list/visual_match_list.gd
+msgid "No match"
+msgstr "Maç yok"
+
+#: src/ui_components/visual_calendar/visual_match_list/match_info/match_info.tscn
+msgid "vs"
+msgstr "vs"
+
+#: src/screens/setup/setup_initial/setup_initial.tscn
+msgid "Hello! Choose a language"
+msgstr ""
+
+#: src/screens/setup/setup_initial/setup_initial.tscn
+msgid "and pick a theme"
+msgstr ""
+
+#, fuzzy
+#~| msgid "Transfer"
+#~ msgid "Transfers"
+#~ msgstr "Transfer et"
+
+#~ msgid "Input"
+#~ msgstr "Girdi"
+
+#~ msgid "Next match"
+#~ msgstr "Sıradaki maç"
+
+#~ msgid "Automatic"
+#~ msgstr "Otomatik"
+
+#, fuzzy
+#~| msgid "Change"
+#~ msgid "Changelog"
+#~ msgstr "Değiştir"
+
+#~ msgid "Contributors"
+#~ msgstr "Katkıda bulunanlar"
+
+#~ msgid "Licenses"
+#~ msgstr "Lisanslar"
+
+#~ msgid "Loan"
+#~ msgstr "Kredi"
 
 #~ msgid "Next match: {team_name}"
 #~ msgstr "Sıradaki maç: {team_name}"

@@ -295,11 +295,6 @@ msgstr ""
 "X-Generator: Weblate 5.12-dev\n"
 
 #: src/ui_components/team_profile/team_profile.tscn
-#: src/screens/dashboard/dashboard.tscn
-msgid "Info"
-msgstr "Відомості"
-
-#: src/ui_components/team_profile/team_profile.tscn
 #: src/ui_components/team_profile/team_profile.gd
 msgid "Budget"
 msgstr "Бюджет"
@@ -308,11 +303,6 @@ msgstr "Бюджет"
 #: src/screens/dashboard/dashboard.tscn src/generators/generator.gd
 msgid "Stadium"
 msgstr "Стадіон"
-
-#: src/ui_components/team_profile/team_profile.tscn
-#: src/screens/dashboard/dashboard.tscn
-msgid "Players"
-msgstr "Гравці"
 
 #: src/ui_components/team_profile/team_profile.gd
 #: src/ui_components/player_profile/info_view/info_view.tscn
@@ -337,7 +327,6 @@ msgstr "Рік"
 #: src/ui_components/player_list/player_list.gd
 #: src/ui_components/player_profile/player_profile.tscn
 #: src/ui_components/player_profile/contract_view/contract_view.tscn
-#: src/screens/settings/settings.tscn
 msgid "General"
 msgstr "Загальні"
 
@@ -362,7 +351,6 @@ msgid "Mental"
 msgstr "Психічне"
 
 #: src/ui_components/player_list/player_list.gd
-#: src/ui_components/player_profile/player_profile.tscn
 msgid "Contract"
 msgstr "Контракт"
 
@@ -375,12 +363,12 @@ msgid "All Teams"
 msgstr "Усі команди"
 
 #: src/ui_components/player_list/player_list.gd
-msgid "All positions"
-msgstr "Усі позиції"
-
-#: src/ui_components/player_list/player_list.gd
 msgid "All Leagues"
 msgstr "Усі Ліги"
+
+#: src/ui_components/player_list/player_list.gd
+msgid "All positions"
+msgstr "Усі позиції"
 
 #: src/ui_components/info/info.tscn
 #: src/screens/setup/setup_world/setup_world.tscn
@@ -790,21 +778,12 @@ msgid "Blocking"
 msgstr "Блокування"
 
 #: src/ui_components/player_profile/player_profile.tscn
-#: src/screens/match_screen/match_screen.tscn
-msgid "Overview"
-msgstr "Огляд"
-
-#: src/ui_components/player_profile/player_profile.tscn
 msgid "Attributes"
 msgstr "Атрибути"
 
 #: src/ui_components/player_profile/player_profile.tscn
 msgid "Statistics\n"
 msgstr "Статистика\n"
-
-#: src/ui_components/player_profile/player_profile.tscn
-msgid "Transfers"
-msgstr "Трансфери"
 
 #: src/ui_components/player_profile/player_profile.tscn
 msgid "Contract\n"
@@ -922,14 +901,14 @@ msgid "Average vote"
 msgstr "Середній голос"
 
 #: src/ui_components/visual_calendar/visual_day/visual_day.gd
-#: src/ui_components/visual_calendar/match_list/match_info/match_info.tscn
 #: src/screens/match_screen/match_screen.tscn
+#: src/ui_components/visual_calendar/visual_match_list/match_info/match_info.tscn
 msgid "Home"
 msgstr "Головна"
 
 #: src/ui_components/visual_calendar/visual_day/visual_day.gd
-#: src/ui_components/visual_calendar/match_list/match_info/match_info.tscn
 #: src/screens/match_screen/match_screen.tscn
+#: src/ui_components/visual_calendar/visual_match_list/match_info/match_info.tscn
 msgid "Away"
 msgstr "Не у домі"
 
@@ -937,14 +916,6 @@ msgstr "Не у домі"
 #: src/screens/dashboard/dashboard.tscn
 msgid "Transfermarket"
 msgstr "Ринок гравців"
-
-#: src/ui_components/visual_calendar/match_list/match_info/match_info.tscn
-msgid "vs"
-msgstr "проти"
-
-#: src/ui_components/visual_calendar/match_list/match_list.gd
-msgid "No match"
-msgstr "Немає матчів"
 
 #: src/ui_components/visual_calendar/visual_calendar.tscn
 msgid "Today"
@@ -1001,16 +972,16 @@ msgid "Back"
 msgstr "Назад"
 
 #: src/screens/settings/settings.tscn
-msgid "Input"
-msgstr "Пристрій введення"
-
-#: src/screens/settings/settings.tscn
 msgid ""
 "All changed settings will be restored to the default value.\n"
 "Are you sure?"
 msgstr ""
 "Усі змінені налаштування буде відновлено до значень за замовчуванням.\n"
 "Ви впевнені?"
+
+#: src/screens/settings/general/general_settings.tscn
+msgid "Version"
+msgstr "Версія"
 
 #: src/screens/settings/general/general_settings.tscn
 msgid "Language"
@@ -1055,16 +1026,16 @@ msgid "Default"
 msgstr "За замовчанням"
 
 #: src/screens/settings/general/general_settings.tscn
+msgid "Themes"
+msgstr "Теми"
+
+#: src/screens/settings/general/general_settings.tscn
 msgid "Scale"
 msgstr "Масштаб"
 
 #: src/screens/settings/general/general_settings.tscn
 msgid "Screen fade animation"
 msgstr "Анімація згасання екрана"
-
-#: src/screens/settings/general/general_settings.tscn
-msgid "Version"
-msgstr "Версія"
 
 #: src/screens/settings/input/input_settings.tscn
 msgid "Vim mode"
@@ -1079,7 +1050,9 @@ msgid "No joypad connected"
 msgstr "Геймпад не під'єднано"
 
 #: src/screens/settings/input/input_settings.tscn
-msgid "Input detection mode"
+#, fuzzy
+#| msgid "Input detection mode"
+msgid "Automatic Input detection"
 msgstr "Режим виявлення входу"
 
 #: src/screens/settings/input/input_settings.tscn
@@ -1201,6 +1174,10 @@ msgid "Coming soon"
 msgstr "Незабаром"
 
 #: src/screens/dashboard/dashboard.tscn
+msgid "Players"
+msgstr "Гравці"
+
+#: src/screens/dashboard/dashboard.tscn
 msgid "Search player"
 msgstr "Знайти гравця"
 
@@ -1221,12 +1198,13 @@ msgid "Hall of fame"
 msgstr "Зал слави"
 
 #: src/screens/dashboard/dashboard.tscn
-msgid "Next match"
-msgstr "Наступний матч"
+msgid "Info"
+msgstr "Відомості"
 
 #: src/screens/dashboard/dashboard.tscn src/screens/menu/menu.tscn
 #: src/screens/setup/setup_world/setup_world.tscn
 #: src/screens/match_screen/match_screen.gd
+#: src/screens/setup/setup_initial/setup_initial.tscn
 msgid "Continue"
 msgstr "Продовжити"
 
@@ -1267,6 +1245,10 @@ msgid "Your surname"
 msgstr "Ваше прізвище"
 
 #: src/screens/setup/setup_world/setup_world.tscn
+msgid "Advanced settings"
+msgstr "Розширені налаштування"
+
+#: src/screens/setup/setup_world/setup_world.tscn
 msgid "Game settings"
 msgstr "Налаштування гри"
 
@@ -1277,10 +1259,6 @@ msgstr "Імена гравців"
 #: src/screens/setup/setup_world/setup_world.tscn
 msgid "Start year"
 msgstr "Початковий рік"
-
-#: src/screens/setup/setup_world/setup_world.tscn
-msgid "Advanced settings"
-msgstr "Розширені налаштування"
 
 #: src/screens/setup/setup_world/setup_world.tscn
 msgid "File settings"
@@ -1469,14 +1447,6 @@ msgid "December"
 msgstr "Грудень"
 
 #: src/enum.gd
-msgid "Automatic"
-msgstr "Автоматичний"
-
-#: src/enum.gd src/resources/formation/formation.gd
-msgid "Manual"
-msgstr "Інструкція"
-
-#: src/enum.gd
 msgid "Mouse and Keyboard"
 msgstr "Миша і клавіатура"
 
@@ -1644,6 +1614,10 @@ msgid "Pause"
 msgstr "Пауза"
 
 #: src/screens/match_screen/match_screen.tscn
+msgid "Overview"
+msgstr "Огляд"
+
+#: src/screens/match_screen/match_screen.tscn
 msgid "Simulate"
 msgstr "Імітувати"
 
@@ -1706,10 +1680,6 @@ msgid "Corners"
 msgstr "Кути"
 
 #: src/screens/settings/theme_picker/theme_picker.tscn
-msgid "Themes"
-msgstr "Теми"
-
-#: src/screens/settings/theme_picker/theme_picker.tscn
 msgid "Font color"
 msgstr "Колір шрифту"
 
@@ -1752,18 +1722,6 @@ msgstr "Дата народження"
 #: src/ui_components/player_list/player_list_view/views/contract/player_list_view_contract.tscn
 msgid "Is on loan"
 msgstr "Здається в кредит"
-
-#: src/screens/about/about.tscn
-msgid "Changelog"
-msgstr "Журнал змін"
-
-#: src/screens/about/about.tscn
-msgid "Contributors"
-msgstr "Учасники"
-
-#: src/screens/about/about.tscn
-msgid "Licenses"
-msgstr "Ліцензії"
 
 #: src/screens/about/license/license.tscn
 msgid "Game license"
@@ -2620,6 +2578,10 @@ msgstr "Кіпр"
 msgid "Auto"
 msgstr "Авто"
 
+#: src/resources/formation/formation.gd
+msgid "Manual"
+msgstr "Інструкція"
+
 #: src/utils/ui/theme_util.gd
 msgid "Light"
 msgstr "Світло"
@@ -2662,20 +2624,12 @@ msgid "Confirm"
 msgstr "Підтвердити"
 
 #: src/ui_components/player_profile/transfers/visual_buy_offer/visual_buy_offer.tscn
-msgid "Buy"
-msgstr "Купити"
-
-#: src/ui_components/player_profile/transfers/visual_buy_offer/visual_buy_offer.tscn
 msgid "Make an offer to buy the player."
 msgstr "Зробіть пропозицію про купівлю плеєра."
 
 #: src/ui_components/player_profile/transfers/visual_buy_offer/visual_buy_offer.tscn
 msgid "Money"
 msgstr "Гроші"
-
-#: src/ui_components/player_profile/transfers/visual_buy_offer/visual_buy_offer.tscn
-msgid "Loan"
-msgstr "Позика"
 
 #: src/ui_components/player_profile/transfers/visual_buy_offer/visual_buy_offer.tscn
 msgid "Make an offer to get the player on loan."
@@ -2692,6 +2646,49 @@ msgstr "Відсоток зарплати"
 #: src/ui_components/player_profile/transfers/visual_buy_offer/visual_buy_offer.tscn
 msgid "Additional money"
 msgstr "Додаткові гроші"
+
+#: src/ui_components/visual_calendar/visual_match_list/visual_match_list.gd
+msgid "No match"
+msgstr "Немає матчів"
+
+#: src/ui_components/visual_calendar/visual_match_list/match_info/match_info.tscn
+msgid "vs"
+msgstr "проти"
+
+#: src/screens/setup/setup_initial/setup_initial.tscn
+msgid "Hello! Choose a language"
+msgstr ""
+
+#: src/screens/setup/setup_initial/setup_initial.tscn
+msgid "and pick a theme"
+msgstr ""
+
+#~ msgid "Transfers"
+#~ msgstr "Трансфери"
+
+#~ msgid "Input"
+#~ msgstr "Пристрій введення"
+
+#~ msgid "Next match"
+#~ msgstr "Наступний матч"
+
+#~ msgid "Automatic"
+#~ msgstr "Автоматичний"
+
+#~ msgid "Changelog"
+#~ msgstr "Журнал змін"
+
+#~ msgid "Contributors"
+#~ msgstr "Учасники"
+
+#~ msgid "Licenses"
+#~ msgstr "Ліцензії"
+
+#~ msgid "Buy"
+#~ msgstr "Купити"
+
+#~ msgid "Loan"
+#~ msgstr "Позика"
 
 #~ msgid "Next match: {team_name}"
 #~ msgstr "Наступний матч: {team_name}"

@@ -294,11 +294,6 @@ msgstr ""
 "X-Generator: Weblate 5.11.1-dev\n"
 
 #: src/ui_components/team_profile/team_profile.tscn
-#: src/screens/dashboard/dashboard.tscn
-msgid "Info"
-msgstr "Info"
-
-#: src/ui_components/team_profile/team_profile.tscn
 #: src/ui_components/team_profile/team_profile.gd
 msgid "Budget"
 msgstr "Budget"
@@ -307,11 +302,6 @@ msgstr "Budget"
 #: src/screens/dashboard/dashboard.tscn src/generators/generator.gd
 msgid "Stadium"
 msgstr "Stadion"
-
-#: src/ui_components/team_profile/team_profile.tscn
-#: src/screens/dashboard/dashboard.tscn
-msgid "Players"
-msgstr "Spieler"
 
 #: src/ui_components/team_profile/team_profile.gd
 #: src/ui_components/player_profile/info_view/info_view.tscn
@@ -336,7 +326,6 @@ msgstr "Jahr"
 #: src/ui_components/player_list/player_list.gd
 #: src/ui_components/player_profile/player_profile.tscn
 #: src/ui_components/player_profile/contract_view/contract_view.tscn
-#: src/screens/settings/settings.tscn
 msgid "General"
 msgstr "Allgemein"
 
@@ -361,7 +350,6 @@ msgid "Mental"
 msgstr "Mental"
 
 #: src/ui_components/player_list/player_list.gd
-#: src/ui_components/player_profile/player_profile.tscn
 msgid "Contract"
 msgstr "Vetrag"
 
@@ -374,12 +362,12 @@ msgid "All Teams"
 msgstr "Alle Mannschaften"
 
 #: src/ui_components/player_list/player_list.gd
-msgid "All positions"
-msgstr "Alle Positionen"
-
-#: src/ui_components/player_list/player_list.gd
 msgid "All Leagues"
 msgstr "Alle Ligen"
+
+#: src/ui_components/player_list/player_list.gd
+msgid "All positions"
+msgstr "Alle Positionen"
 
 #: src/ui_components/info/info.tscn
 #: src/screens/setup/setup_world/setup_world.tscn
@@ -789,21 +777,12 @@ msgid "Blocking"
 msgstr "Blockieren"
 
 #: src/ui_components/player_profile/player_profile.tscn
-#: src/screens/match_screen/match_screen.tscn
-msgid "Overview"
-msgstr "Übersicht"
-
-#: src/ui_components/player_profile/player_profile.tscn
 msgid "Attributes"
 msgstr "Attribute"
 
 #: src/ui_components/player_profile/player_profile.tscn
 msgid "Statistics\n"
 msgstr "Statistik\n"
-
-#: src/ui_components/player_profile/player_profile.tscn
-msgid "Transfers"
-msgstr "Transfers"
 
 #: src/ui_components/player_profile/player_profile.tscn
 msgid "Contract\n"
@@ -921,14 +900,14 @@ msgid "Average vote"
 msgstr "Durchschnittliche Bewertung"
 
 #: src/ui_components/visual_calendar/visual_day/visual_day.gd
-#: src/ui_components/visual_calendar/match_list/match_info/match_info.tscn
 #: src/screens/match_screen/match_screen.tscn
+#: src/ui_components/visual_calendar/visual_match_list/match_info/match_info.tscn
 msgid "Home"
 msgstr "Daheim"
 
 #: src/ui_components/visual_calendar/visual_day/visual_day.gd
-#: src/ui_components/visual_calendar/match_list/match_info/match_info.tscn
 #: src/screens/match_screen/match_screen.tscn
+#: src/ui_components/visual_calendar/visual_match_list/match_info/match_info.tscn
 msgid "Away"
 msgstr "Ausärts"
 
@@ -936,14 +915,6 @@ msgstr "Ausärts"
 #: src/screens/dashboard/dashboard.tscn
 msgid "Transfermarket"
 msgstr "Transfermarkt"
-
-#: src/ui_components/visual_calendar/match_list/match_info/match_info.tscn
-msgid "vs"
-msgstr "gegen"
-
-#: src/ui_components/visual_calendar/match_list/match_list.gd
-msgid "No match"
-msgstr "Kein Spiel"
 
 #: src/ui_components/visual_calendar/visual_calendar.tscn
 msgid "Today"
@@ -1000,16 +971,16 @@ msgid "Back"
 msgstr "Zurück"
 
 #: src/screens/settings/settings.tscn
-msgid "Input"
-msgstr "Eingabe"
-
-#: src/screens/settings/settings.tscn
 msgid ""
 "All changed settings will be restored to the default value.\n"
 "Are you sure?"
 msgstr ""
 "Alle geänderten Einstellungen werden auf den Standardwert zurückgesetzt.\n"
 "Bist du sicher?"
+
+#: src/screens/settings/general/general_settings.tscn
+msgid "Version"
+msgstr "Version"
 
 #: src/screens/settings/general/general_settings.tscn
 msgid "Language"
@@ -1055,16 +1026,16 @@ msgid "Default"
 msgstr "Standard"
 
 #: src/screens/settings/general/general_settings.tscn
+msgid "Themes"
+msgstr "Themen"
+
+#: src/screens/settings/general/general_settings.tscn
 msgid "Scale"
 msgstr "Skala"
 
 #: src/screens/settings/general/general_settings.tscn
 msgid "Screen fade animation"
 msgstr "Ansichtswechsel Animation"
-
-#: src/screens/settings/general/general_settings.tscn
-msgid "Version"
-msgstr "Version"
 
 #: src/screens/settings/input/input_settings.tscn
 msgid "Vim mode"
@@ -1079,7 +1050,9 @@ msgid "No joypad connected"
 msgstr "Kein Joypad verbunden"
 
 #: src/screens/settings/input/input_settings.tscn
-msgid "Input detection mode"
+#, fuzzy
+#| msgid "Input detection mode"
+msgid "Automatic Input detection"
 msgstr "Eingangserkennungsmodus"
 
 #: src/screens/settings/input/input_settings.tscn
@@ -1203,6 +1176,10 @@ msgid "Coming soon"
 msgstr "Demnächst verfügbar"
 
 #: src/screens/dashboard/dashboard.tscn
+msgid "Players"
+msgstr "Spieler"
+
+#: src/screens/dashboard/dashboard.tscn
 msgid "Search player"
 msgstr "Spieler suchen"
 
@@ -1223,12 +1200,13 @@ msgid "Hall of fame"
 msgstr "Ehrenhalle"
 
 #: src/screens/dashboard/dashboard.tscn
-msgid "Next match"
-msgstr "Nächstes Spiel"
+msgid "Info"
+msgstr "Info"
 
 #: src/screens/dashboard/dashboard.tscn src/screens/menu/menu.tscn
 #: src/screens/setup/setup_world/setup_world.tscn
 #: src/screens/match_screen/match_screen.gd
+#: src/screens/setup/setup_initial/setup_initial.tscn
 msgid "Continue"
 msgstr "Weiter"
 
@@ -1269,6 +1247,10 @@ msgid "Your surname"
 msgstr "Dein Nachname"
 
 #: src/screens/setup/setup_world/setup_world.tscn
+msgid "Advanced settings"
+msgstr "Erweiterte Einstellungen"
+
+#: src/screens/setup/setup_world/setup_world.tscn
 msgid "Game settings"
 msgstr "Spieleinstellungen"
 
@@ -1279,10 +1261,6 @@ msgstr "Spieler Namen"
 #: src/screens/setup/setup_world/setup_world.tscn
 msgid "Start year"
 msgstr "Jahresbeginn"
-
-#: src/screens/setup/setup_world/setup_world.tscn
-msgid "Advanced settings"
-msgstr "Erweiterte Einstellungen"
 
 #: src/screens/setup/setup_world/setup_world.tscn
 msgid "File settings"
@@ -1476,14 +1454,6 @@ msgid "December"
 msgstr "Dezember"
 
 #: src/enum.gd
-msgid "Automatic"
-msgstr "Automatisch"
-
-#: src/enum.gd src/resources/formation/formation.gd
-msgid "Manual"
-msgstr "Manuell"
-
-#: src/enum.gd
 msgid "Mouse and Keyboard"
 msgstr "Maus und Tastatur"
 
@@ -1651,6 +1621,10 @@ msgid "Pause"
 msgstr "Pause"
 
 #: src/screens/match_screen/match_screen.tscn
+msgid "Overview"
+msgstr "Übersicht"
+
+#: src/screens/match_screen/match_screen.tscn
 msgid "Simulate"
 msgstr "Simulieren"
 
@@ -1713,10 +1687,6 @@ msgid "Corners"
 msgstr "Ecken"
 
 #: src/screens/settings/theme_picker/theme_picker.tscn
-msgid "Themes"
-msgstr "Themen"
-
-#: src/screens/settings/theme_picker/theme_picker.tscn
 msgid "Font color"
 msgstr "Schriftfarbe"
 
@@ -1759,18 +1729,6 @@ msgstr "Geburtstag"
 #: src/ui_components/player_list/player_list_view/views/contract/player_list_view_contract.tscn
 msgid "Is on loan"
 msgstr "Ist ausgeliehen"
-
-#: src/screens/about/about.tscn
-msgid "Changelog"
-msgstr "Änderungsprotokoll"
-
-#: src/screens/about/about.tscn
-msgid "Contributors"
-msgstr "Mitwirkende"
-
-#: src/screens/about/about.tscn
-msgid "Licenses"
-msgstr "Lizenzen"
 
 #: src/screens/about/license/license.tscn
 msgid "Game license"
@@ -2629,6 +2587,10 @@ msgstr "Zypern"
 msgid "Auto"
 msgstr "Automatisch"
 
+#: src/resources/formation/formation.gd
+msgid "Manual"
+msgstr "Manuell"
+
 #: src/utils/ui/theme_util.gd
 msgid "Light"
 msgstr "Hell"
@@ -2671,20 +2633,12 @@ msgid "Confirm"
 msgstr "Bestätigen"
 
 #: src/ui_components/player_profile/transfers/visual_buy_offer/visual_buy_offer.tscn
-msgid "Buy"
-msgstr "Kaufen"
-
-#: src/ui_components/player_profile/transfers/visual_buy_offer/visual_buy_offer.tscn
 msgid "Make an offer to buy the player."
 msgstr "Mache ein Kaufangebot für den Spieler."
 
 #: src/ui_components/player_profile/transfers/visual_buy_offer/visual_buy_offer.tscn
 msgid "Money"
 msgstr "Geld"
-
-#: src/ui_components/player_profile/transfers/visual_buy_offer/visual_buy_offer.tscn
-msgid "Loan"
-msgstr "Leihe"
 
 #: src/ui_components/player_profile/transfers/visual_buy_offer/visual_buy_offer.tscn
 msgid "Make an offer to get the player on loan."
@@ -2701,6 +2655,49 @@ msgstr "Gehaltsdeckug"
 #: src/ui_components/player_profile/transfers/visual_buy_offer/visual_buy_offer.tscn
 msgid "Additional money"
 msgstr "Zusätzliches Geld"
+
+#: src/ui_components/visual_calendar/visual_match_list/visual_match_list.gd
+msgid "No match"
+msgstr "Kein Spiel"
+
+#: src/ui_components/visual_calendar/visual_match_list/match_info/match_info.tscn
+msgid "vs"
+msgstr "gegen"
+
+#: src/screens/setup/setup_initial/setup_initial.tscn
+msgid "Hello! Choose a language"
+msgstr ""
+
+#: src/screens/setup/setup_initial/setup_initial.tscn
+msgid "and pick a theme"
+msgstr ""
+
+#~ msgid "Transfers"
+#~ msgstr "Transfers"
+
+#~ msgid "Input"
+#~ msgstr "Eingabe"
+
+#~ msgid "Next match"
+#~ msgstr "Nächstes Spiel"
+
+#~ msgid "Automatic"
+#~ msgstr "Automatisch"
+
+#~ msgid "Changelog"
+#~ msgstr "Änderungsprotokoll"
+
+#~ msgid "Contributors"
+#~ msgstr "Mitwirkende"
+
+#~ msgid "Licenses"
+#~ msgstr "Lizenzen"
+
+#~ msgid "Buy"
+#~ msgstr "Kaufen"
+
+#~ msgid "Loan"
+#~ msgstr "Leihe"
 
 #~ msgid "Next match: {team_name}"
 #~ msgstr "Nächstes Spiel: {team_name}"

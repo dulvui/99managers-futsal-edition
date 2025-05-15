@@ -295,11 +295,6 @@ msgstr ""
 "X-Generator: Weblate 5.11-dev\n"
 
 #: src/ui_components/team_profile/team_profile.tscn
-#: src/screens/dashboard/dashboard.tscn
-msgid "Info"
-msgstr "Info"
-
-#: src/ui_components/team_profile/team_profile.tscn
 #: src/ui_components/team_profile/team_profile.gd
 msgid "Budget"
 msgstr "Anggaran"
@@ -308,11 +303,6 @@ msgstr "Anggaran"
 #: src/screens/dashboard/dashboard.tscn src/generators/generator.gd
 msgid "Stadium"
 msgstr "Stadion"
-
-#: src/ui_components/team_profile/team_profile.tscn
-#: src/screens/dashboard/dashboard.tscn
-msgid "Players"
-msgstr "Para pemain"
 
 #: src/ui_components/team_profile/team_profile.gd
 #: src/ui_components/player_profile/info_view/info_view.tscn
@@ -337,7 +327,6 @@ msgstr "Tahun"
 #: src/ui_components/player_list/player_list.gd
 #: src/ui_components/player_profile/player_profile.tscn
 #: src/ui_components/player_profile/contract_view/contract_view.tscn
-#: src/screens/settings/settings.tscn
 msgid "General"
 msgstr "Umum"
 
@@ -362,7 +351,6 @@ msgid "Mental"
 msgstr "Jiwa"
 
 #: src/ui_components/player_list/player_list.gd
-#: src/ui_components/player_profile/player_profile.tscn
 msgid "Contract"
 msgstr "Perjanjian"
 
@@ -375,12 +363,12 @@ msgid "All Teams"
 msgstr "Semua Tim"
 
 #: src/ui_components/player_list/player_list.gd
-msgid "All positions"
-msgstr "Semua posisi"
-
-#: src/ui_components/player_list/player_list.gd
 msgid "All Leagues"
 msgstr "Semua Liga"
+
+#: src/ui_components/player_list/player_list.gd
+msgid "All positions"
+msgstr "Semua posisi"
 
 #: src/ui_components/info/info.tscn
 #: src/screens/setup/setup_world/setup_world.tscn
@@ -796,11 +784,6 @@ msgid "Blocking"
 msgstr ""
 
 #: src/ui_components/player_profile/player_profile.tscn
-#: src/screens/match_screen/match_screen.tscn
-msgid "Overview"
-msgstr ""
-
-#: src/ui_components/player_profile/player_profile.tscn
 msgid "Attributes"
 msgstr "Atribut"
 
@@ -809,12 +792,6 @@ msgstr "Atribut"
 #| msgid "Statistics"
 msgid "Statistics\n"
 msgstr "Statistika"
-
-#: src/ui_components/player_profile/player_profile.tscn
-#, fuzzy
-#| msgid "Transfer"
-msgid "Transfers"
-msgstr "Transfer"
 
 #: src/ui_components/player_profile/player_profile.tscn
 #, fuzzy
@@ -938,28 +915,20 @@ msgid "Average vote"
 msgstr ""
 
 #: src/ui_components/visual_calendar/visual_day/visual_day.gd
-#: src/ui_components/visual_calendar/match_list/match_info/match_info.tscn
 #: src/screens/match_screen/match_screen.tscn
+#: src/ui_components/visual_calendar/visual_match_list/match_info/match_info.tscn
 msgid "Home"
 msgstr "Rumah"
 
 #: src/ui_components/visual_calendar/visual_day/visual_day.gd
-#: src/ui_components/visual_calendar/match_list/match_info/match_info.tscn
 #: src/screens/match_screen/match_screen.tscn
+#: src/ui_components/visual_calendar/visual_match_list/match_info/match_info.tscn
 msgid "Away"
 msgstr "Tidak di tempat"
 
 #: src/ui_components/visual_calendar/visual_day/visual_day.gd
 #: src/screens/dashboard/dashboard.tscn
 msgid "Transfermarket"
-msgstr ""
-
-#: src/ui_components/visual_calendar/match_list/match_info/match_info.tscn
-msgid "vs"
-msgstr ""
-
-#: src/ui_components/visual_calendar/match_list/match_list.gd
-msgid "No match"
 msgstr ""
 
 #: src/ui_components/visual_calendar/visual_calendar.tscn
@@ -1019,14 +988,14 @@ msgid "Back"
 msgstr "Mundur"
 
 #: src/screens/settings/settings.tscn
-msgid "Input"
-msgstr ""
-
-#: src/screens/settings/settings.tscn
 msgid ""
 "All changed settings will be restored to the default value.\n"
 "Are you sure?"
 msgstr ""
+
+#: src/screens/settings/general/general_settings.tscn
+msgid "Version"
+msgstr "Versi"
 
 #: src/screens/settings/general/general_settings.tscn
 msgid "Language"
@@ -1074,16 +1043,16 @@ msgid "Default"
 msgstr "Standar"
 
 #: src/screens/settings/general/general_settings.tscn
+msgid "Themes"
+msgstr "Tema"
+
+#: src/screens/settings/general/general_settings.tscn
 msgid "Scale"
 msgstr "Skala"
 
 #: src/screens/settings/general/general_settings.tscn
 msgid "Screen fade animation"
 msgstr ""
-
-#: src/screens/settings/general/general_settings.tscn
-msgid "Version"
-msgstr "Versi"
 
 #: src/screens/settings/input/input_settings.tscn
 msgid "Vim mode"
@@ -1098,7 +1067,7 @@ msgid "No joypad connected"
 msgstr ""
 
 #: src/screens/settings/input/input_settings.tscn
-msgid "Input detection mode"
+msgid "Automatic Input detection"
 msgstr ""
 
 #: src/screens/settings/input/input_settings.tscn
@@ -1215,6 +1184,10 @@ msgid "Coming soon"
 msgstr ""
 
 #: src/screens/dashboard/dashboard.tscn
+msgid "Players"
+msgstr "Para pemain"
+
+#: src/screens/dashboard/dashboard.tscn
 msgid "Search player"
 msgstr ""
 
@@ -1235,12 +1208,13 @@ msgid "Hall of fame"
 msgstr ""
 
 #: src/screens/dashboard/dashboard.tscn
-msgid "Next match"
-msgstr ""
+msgid "Info"
+msgstr "Info"
 
 #: src/screens/dashboard/dashboard.tscn src/screens/menu/menu.tscn
 #: src/screens/setup/setup_world/setup_world.tscn
 #: src/screens/match_screen/match_screen.gd
+#: src/screens/setup/setup_initial/setup_initial.tscn
 msgid "Continue"
 msgstr "Lanjutkan"
 
@@ -1285,6 +1259,12 @@ msgid "Your surname"
 msgstr ""
 
 #: src/screens/setup/setup_world/setup_world.tscn
+#, fuzzy
+#| msgid "Game settings"
+msgid "Advanced settings"
+msgstr "Game settings"
+
+#: src/screens/setup/setup_world/setup_world.tscn
 msgid "Game settings"
 msgstr "Game settings"
 
@@ -1295,12 +1275,6 @@ msgstr ""
 #: src/screens/setup/setup_world/setup_world.tscn
 msgid "Start year"
 msgstr ""
-
-#: src/screens/setup/setup_world/setup_world.tscn
-#, fuzzy
-#| msgid "Game settings"
-msgid "Advanced settings"
-msgstr "Game settings"
 
 #: src/screens/setup/setup_world/setup_world.tscn
 #, fuzzy
@@ -1481,14 +1455,6 @@ msgid "December"
 msgstr ""
 
 #: src/enum.gd
-msgid "Automatic"
-msgstr ""
-
-#: src/enum.gd src/resources/formation/formation.gd
-msgid "Manual"
-msgstr ""
-
-#: src/enum.gd
 msgid "Mouse and Keyboard"
 msgstr ""
 
@@ -1655,6 +1621,10 @@ msgid "Pause"
 msgstr "Jeda"
 
 #: src/screens/match_screen/match_screen.tscn
+msgid "Overview"
+msgstr ""
+
+#: src/screens/match_screen/match_screen.tscn
 msgid "Simulate"
 msgstr "Simulasikan"
 
@@ -1717,10 +1687,6 @@ msgid "Corners"
 msgstr ""
 
 #: src/screens/settings/theme_picker/theme_picker.tscn
-msgid "Themes"
-msgstr "Tema"
-
-#: src/screens/settings/theme_picker/theme_picker.tscn
 msgid "Font color"
 msgstr ""
 
@@ -1762,20 +1728,6 @@ msgstr "Tanggal lahir"
 
 #: src/ui_components/player_list/player_list_view/views/contract/player_list_view_contract.tscn
 msgid "Is on loan"
-msgstr ""
-
-#: src/screens/about/about.tscn
-#, fuzzy
-#| msgid "Change"
-msgid "Changelog"
-msgstr "Ubah"
-
-#: src/screens/about/about.tscn
-msgid "Contributors"
-msgstr ""
-
-#: src/screens/about/about.tscn
-msgid "Licenses"
 msgstr ""
 
 #: src/screens/about/license/license.tscn
@@ -2643,6 +2595,10 @@ msgstr "Siprus"
 msgid "Auto"
 msgstr ""
 
+#: src/resources/formation/formation.gd
+msgid "Manual"
+msgstr ""
+
 #: src/utils/ui/theme_util.gd
 msgid "Light"
 msgstr ""
@@ -2685,20 +2641,12 @@ msgid "Confirm"
 msgstr "Konfirmasikan"
 
 #: src/ui_components/player_profile/transfers/visual_buy_offer/visual_buy_offer.tscn
-msgid "Buy"
-msgstr ""
-
-#: src/ui_components/player_profile/transfers/visual_buy_offer/visual_buy_offer.tscn
 msgid "Make an offer to buy the player."
 msgstr ""
 
 #: src/ui_components/player_profile/transfers/visual_buy_offer/visual_buy_offer.tscn
 msgid "Money"
 msgstr "Uang"
-
-#: src/ui_components/player_profile/transfers/visual_buy_offer/visual_buy_offer.tscn
-msgid "Loan"
-msgstr "Pinjaman"
 
 #: src/ui_components/player_profile/transfers/visual_buy_offer/visual_buy_offer.tscn
 msgid "Make an offer to get the player on loan."
@@ -2719,6 +2667,35 @@ msgstr "Anggaran gaji"
 #: src/ui_components/player_profile/transfers/visual_buy_offer/visual_buy_offer.tscn
 msgid "Additional money"
 msgstr ""
+
+#: src/ui_components/visual_calendar/visual_match_list/visual_match_list.gd
+msgid "No match"
+msgstr ""
+
+#: src/ui_components/visual_calendar/visual_match_list/match_info/match_info.tscn
+msgid "vs"
+msgstr ""
+
+#: src/screens/setup/setup_initial/setup_initial.tscn
+msgid "Hello! Choose a language"
+msgstr ""
+
+#: src/screens/setup/setup_initial/setup_initial.tscn
+msgid "and pick a theme"
+msgstr ""
+
+#, fuzzy
+#~| msgid "Transfer"
+#~ msgid "Transfers"
+#~ msgstr "Transfer"
+
+#, fuzzy
+#~| msgid "Change"
+#~ msgid "Changelog"
+#~ msgstr "Ubah"
+
+#~ msgid "Loan"
+#~ msgstr "Pinjaman"
 
 #~ msgid "Notes"
 #~ msgstr "Catatan"
