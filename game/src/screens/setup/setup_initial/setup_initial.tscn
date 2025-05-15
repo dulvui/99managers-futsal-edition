@@ -74,7 +74,7 @@ label_settings = ExtResource("3_5eu05")
 horizontal_alignment = 1
 
 [node name="LanguagePicker" parent="MarginContainer/VBoxContainer" instance=ExtResource("5_q3moo")]
-custom_minimum_size = Vector2(400, 0)
+custom_minimum_size = Vector2(600, 0)
 layout_mode = 2
 size_flags_horizontal = 4
 
@@ -87,6 +87,7 @@ horizontal_alignment = 1
 autowrap_mode = 2
 
 [node name="ThemePicker" parent="MarginContainer/VBoxContainer" instance=ExtResource("6_jw7dd")]
+custom_minimum_size = Vector2(600, 0)
 layout_mode = 2
 size_flags_horizontal = 4
 show_custom = false

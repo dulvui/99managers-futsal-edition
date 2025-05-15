@@ -28,6 +28,7 @@ func _ready() -> void:
 		var button: Button = DefaultButton.new()
 		button.text = LANGUAGES[language_key]
 		button.button_group = button_group
+		button.toggle_mode = true
 		# toggle active language
 		button.button_pressed = Global.config.language == language_key
 		button.pressed.connect(_on_button_pressed.bind(language_key))

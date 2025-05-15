@@ -1,8 +1,7 @@
-[gd_scene load_steps=4 format=3 uid="uid://can4wvc3g3b84"]
+[gd_scene load_steps=3 format=3 uid="uid://can4wvc3g3b84"]
 
 [ext_resource type="Script" uid="uid://b8mouc7d1l74i" path="res://src/screens/settings/theme_picker/theme_picker.gd" id="1_io0vq"]
 [ext_resource type="Script" uid="uid://cnyyowwlb04kl" path="res://src/ui_components/base/defaults/default_button.gd" id="2_2ccni"]
-[ext_resource type="PackedScene" uid="uid://b2mwv4cl5sm6t" path="res://src/ui_components/base/swtich_option_button/switch_option_button.tscn" id="3_ykm8n"]
 
 [node name="ThemePicker" type="VBoxContainer"]
 anchors_preset = -1
@@ -12,10 +11,10 @@ offset_right = -240.0
 offset_bottom = -30.24
 script = ExtResource("1_io0vq")
 
-[node name="OptionButton" parent="." instance=ExtResource("3_ykm8n")]
+[node name="Themes" type="HFlowContainer" parent="."]
 unique_name_in_owner = true
-custom_minimum_size = Vector2(240, 30)
 layout_mode = 2
+alignment = 1
 
 [node name="Custom" type="VBoxContainer" parent="."]
 unique_name_in_owner = true
@@ -98,7 +97,6 @@ color_modes_visible = false
 presets_visible = false
 metadata/_edit_use_anchors_ = true
 
-[connection signal="item_selected" from="OptionButton" to="." method="_on_option_button_item_selected"]
 [connection signal="pressed" from="Custom/Font/FontColorButton" to="." method="_on_font_color_button_pressed"]
 [connection signal="pressed" from="Custom/Style/StyleColorButton" to="." method="_on_style_color_button_pressed"]
 [connection signal="pressed" from="Custom/Background/BackgroundColorButton" to="." method="_on_background_color_button_pressed"]

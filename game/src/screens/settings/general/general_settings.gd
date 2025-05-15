@@ -45,8 +45,6 @@ func setup() -> void:
 	formats_example_label.text = "%s %s" % [
 		FormatUtil.date(31, 12, 2000), FormatUtil.currency(1234)
 	]
-	# theme
-	theme_picker.setup()
 	# generic
 	version_label.text = "v" + Global.version
 

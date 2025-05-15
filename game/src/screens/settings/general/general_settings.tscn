@@ -37,14 +37,14 @@ size_flags_horizontal = 3
 text = "v1.0.0"
 horizontal_alignment = 2
 
-[node name="LanguageLabel" type="Label" parent="."]
-layout_mode = 2
-text = "Language"
-label_settings = ExtResource("1_6o6h0")
-
 [node name="Langauge" type="VBoxContainer" parent="."]
 layout_mode = 2
 theme_override_constants/separation = 15
+
+[node name="LanguageLabel" type="Label" parent="Langauge"]
+layout_mode = 2
+text = "Language"
+label_settings = ExtResource("1_6o6h0")
 
 [node name="LanguagePicker" parent="Langauge" instance=ExtResource("2_p1exx")]
 layout_mode = 2
@@ -165,7 +165,7 @@ size_flags_vertical = 4
 text = "Default"
 script = ExtResource("3_n2piq")
 
-[node name="Theme" type="HBoxContainer" parent="Interface"]
+[node name="Theme" type="VBoxContainer" parent="Interface"]
 layout_mode = 2
 
 [node name="ThemeLabel" type="Label" parent="Interface/Theme"]

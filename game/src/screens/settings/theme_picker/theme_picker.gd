@@ -15,7 +15,7 @@ var active_color_type: ColorType
 
 @export var show_custom: bool = true
 
-@onready var options: SwitchOptionButton = %OptionButton
+@onready var themes: HFlowContainer = %Themes
 @onready var custom: VBoxContainer = %Custom
 @onready var color_picker_popup: PopupPanel = %ColorPopupPanel
 @onready var color_picker: ColorPicker = %ColorPicker
@@ -26,11 +26,28 @@ func _ready() -> void:
 
 
 func setup() -> void:
-	options.setup(ThemeUtil.get_theme_names(show_custom), Global.config.theme_index)
+	# clear buttons
+	for child: Node in themes.get_children():
+		child.queue_free()
+
+	# create buttons
+	var button_group: ButtonGroup = ButtonGroup.new()
+	var index: int = 0
+	for theme_name: String in ThemeUtil.get_theme_names(show_custom):
+		var button: Button = DefaultButton.new()
+		button.text = tr(theme_name)
+		button.button_group = button_group
+		button.toggle_mode = true
+		# toggle active themes
+		button.button_pressed = index == Global.config.theme_index
+		button.pressed.connect(_on_button_pressed.bind(index))
+		themes.add_child(button)
+		index += 1
+
 	custom.visible = show_custom
 
 
-func _on_option_button_item_selected(index: int) -> void:
+func _on_button_pressed(index: int) -> void:
 	Global.config.theme_index = index
 	Main.apply_theme(index)
 	DataUtil.save_config()
