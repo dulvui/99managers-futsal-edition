@@ -5,8 +5,12 @@
 extends Control
 
 
+@onready var theme_picker: ThemePicker = %ThemePicker
+
+
 func _ready() -> void:
 	InputUtil.start_focus(self)
+	theme_picker.themes.alignment = FlowContainer.ALIGNMENT_CENTER
 
 
 func _on_continue_button_pressed() -> void:

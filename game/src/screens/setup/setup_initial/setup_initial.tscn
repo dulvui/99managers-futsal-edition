@@ -87,6 +87,7 @@ horizontal_alignment = 1
 autowrap_mode = 2
 
 [node name="ThemePicker" parent="MarginContainer/VBoxContainer" instance=ExtResource("6_jw7dd")]
+unique_name_in_owner = true
 custom_minimum_size = Vector2(600, 0)
 layout_mode = 2
 size_flags_horizontal = 4

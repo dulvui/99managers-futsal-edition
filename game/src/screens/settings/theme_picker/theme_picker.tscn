@@ -14,7 +14,6 @@ script = ExtResource("1_io0vq")
 [node name="Themes" type="HFlowContainer" parent="."]
 unique_name_in_owner = true
 layout_mode = 2
-alignment = 1
 
 [node name="Custom" type="VBoxContainer" parent="."]
 unique_name_in_owner = true
