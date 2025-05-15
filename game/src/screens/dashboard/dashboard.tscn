@@ -53,10 +53,10 @@ grow_vertical = 2
 [node name="PlayerSilhouette" parent="." instance=ExtResource("3_ua0am")]
 layout_mode = 1
 anchors_preset = -1
-anchor_left = 0.251834
-anchor_top = 0.7
-anchor_right = 0.251834
-anchor_bottom = 0.7
+anchor_left = 0.881001
+anchor_top = 0.674074
+anchor_right = 0.881001
+anchor_bottom = 0.674074
 offset_left = -299.521
 offset_right = 300.481
 grow_horizontal = 1
