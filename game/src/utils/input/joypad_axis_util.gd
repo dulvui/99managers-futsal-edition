@@ -11,7 +11,7 @@ extends Node
 signal r2
 signal l2
 
-const THRESHOLD: float = 1
+const THRESHOLD: float = 0.8
 
 # ui events to map for joypad axis helper
 var ui_left_event: InputEventAction
@@ -21,8 +21,23 @@ var ui_down_event: InputEventAction
 var trigger_right_event: InputEventAction
 var trigger_left_event: InputEventAction
 
+# flags to keep pressed state and prevent multiple triggers
+var left: bool
+var right: bool
+var up: bool
+var down: bool
+var trigger_right: bool
+var trigger_left: bool
+
 
 func _ready() -> void:
+	left = false
+	right = false
+	up = false
+	down = false
+	trigger_right = false
+	trigger_left = false
+
 	# setup axis helper events
 	ui_left_event = InputEventAction.new()
 	ui_left_event.action = "ui_left"
@@ -48,7 +63,7 @@ func _ready() -> void:
 	InputMap.add_action("R2")
 	trigger_right_event = InputEventAction.new()
 	trigger_right_event.action = "R2"
-	trigger_right_event.pressed = false
+	trigger_right_event.pressed = true
 
 
 func handle_event(event: InputEvent) -> void:
@@ -60,12 +75,22 @@ func handle_event(event: InputEvent) -> void:
 	match motion_event.axis:
 		JOY_AXIS_TRIGGER_LEFT:
 			if motion_event.axis_value >= THRESHOLD:
+				if trigger_left:
+					return
+				trigger_left = true
 				l2.emit()
 				Input.parse_input_event(trigger_left_event)
+			else:
+				trigger_left = false
 		JOY_AXIS_TRIGGER_RIGHT:
 			if motion_event.axis_value >= THRESHOLD:
+				if trigger_right:
+					return
+				trigger_right = true
 				r2.emit()
 				Input.parse_input_event(trigger_right_event)
+			else:
+				trigger_right = false
 		JOY_AXIS_LEFT_X, JOY_AXIS_RIGHT_X:
 			if motion_event.axis_value <= -THRESHOLD:
 				Input.parse_input_event(ui_left_event)
