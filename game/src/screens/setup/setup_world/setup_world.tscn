@@ -133,39 +133,6 @@ text = "Nationality"
 unique_name_in_owner = true
 layout_mode = 2
 
-[node name="Settings" type="VBoxContainer" parent="MarginContainer/VBoxContainer/Main"]
-layout_mode = 2
-size_flags_horizontal = 5
-
-[node name="SettingsLabel" type="Label" parent="MarginContainer/VBoxContainer/Main/Settings"]
-layout_mode = 2
-text = "Game settings"
-label_settings = ExtResource("3_mfpia")
-
-[node name="Container" type="GridContainer" parent="MarginContainer/VBoxContainer/Main/Settings"]
-layout_mode = 2
-columns = 2
-
-[node name="PlayerNamesLabel" type="Label" parent="MarginContainer/VBoxContainer/Main/Settings/Container"]
-custom_minimum_size = Vector2(240, 0)
-layout_mode = 2
-text = "Player names"
-
-[node name="PlayerNames" parent="MarginContainer/VBoxContainer/Main/Settings/Container" instance=ExtResource("7_jd2a7")]
-unique_name_in_owner = true
-custom_minimum_size = Vector2(340, 30)
-layout_mode = 2
-
-[node name="StartYearLabel" type="Label" parent="MarginContainer/VBoxContainer/Main/Settings/Container"]
-custom_minimum_size = Vector2(240, 0)
-layout_mode = 2
-text = "Start year"
-
-[node name="StartYear" parent="MarginContainer/VBoxContainer/Main/Settings/Container" instance=ExtResource("7_jd2a7")]
-unique_name_in_owner = true
-custom_minimum_size = Vector2(340, 30)
-layout_mode = 2
-
 [node name="AdvancedStettingsButton" type="CheckButton" parent="MarginContainer/VBoxContainer/Main"]
 layout_mode = 2
 size_flags_horizontal = 0
@@ -175,6 +142,39 @@ metadata/_custom_type_script = "uid://b7ipi7vefbgps"
 
 [node name="AdvancedSettings" type="VBoxContainer" parent="MarginContainer/VBoxContainer/Main"]
 unique_name_in_owner = true
+layout_mode = 2
+
+[node name="GameSettings" type="VBoxContainer" parent="MarginContainer/VBoxContainer/Main/AdvancedSettings"]
+layout_mode = 2
+size_flags_horizontal = 5
+
+[node name="SettingsLabel" type="Label" parent="MarginContainer/VBoxContainer/Main/AdvancedSettings/GameSettings"]
+layout_mode = 2
+text = "Game settings"
+label_settings = ExtResource("3_mfpia")
+
+[node name="Container" type="GridContainer" parent="MarginContainer/VBoxContainer/Main/AdvancedSettings/GameSettings"]
+layout_mode = 2
+columns = 2
+
+[node name="PlayerNamesLabel" type="Label" parent="MarginContainer/VBoxContainer/Main/AdvancedSettings/GameSettings/Container"]
+custom_minimum_size = Vector2(240, 0)
+layout_mode = 2
+text = "Player names"
+
+[node name="PlayerNames" parent="MarginContainer/VBoxContainer/Main/AdvancedSettings/GameSettings/Container" instance=ExtResource("7_jd2a7")]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(340, 30)
+layout_mode = 2
+
+[node name="StartYearLabel" type="Label" parent="MarginContainer/VBoxContainer/Main/AdvancedSettings/GameSettings/Container"]
+custom_minimum_size = Vector2(240, 0)
+layout_mode = 2
+text = "Start year"
+
+[node name="StartYear" parent="MarginContainer/VBoxContainer/Main/AdvancedSettings/GameSettings/Container" instance=ExtResource("7_jd2a7")]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(340, 30)
 layout_mode = 2
 
 [node name="Files" type="VBoxContainer" parent="MarginContainer/VBoxContainer/Main/AdvancedSettings"]
@@ -326,9 +326,9 @@ type = 2
 
 [connection signal="pressed" from="MarginContainer/VBoxContainer/TopBar/Back" to="." method="_on_back_pressed"]
 [connection signal="pressed" from="MarginContainer/VBoxContainer/TopBar/Continue" to="." method="_on_continue_pressed"]
-[connection signal="item_selected" from="MarginContainer/VBoxContainer/Main/Settings/Container/PlayerNames" to="." method="_on_player_names_item_selected"]
-[connection signal="item_selected" from="MarginContainer/VBoxContainer/Main/Settings/Container/StartYear" to="." method="_on_start_year_item_selected"]
 [connection signal="toggled" from="MarginContainer/VBoxContainer/Main/AdvancedStettingsButton" to="." method="_on_advanced_stettings_button_toggled"]
+[connection signal="item_selected" from="MarginContainer/VBoxContainer/Main/AdvancedSettings/GameSettings/Container/PlayerNames" to="." method="_on_player_names_item_selected"]
+[connection signal="item_selected" from="MarginContainer/VBoxContainer/Main/AdvancedSettings/GameSettings/Container/StartYear" to="." method="_on_start_year_item_selected"]
 [connection signal="pressed" from="MarginContainer/VBoxContainer/Main/AdvancedSettings/Files/FilesMoreInfo" to="." method="_on_files_more_info_pressed"]
 [connection signal="toggled" from="MarginContainer/VBoxContainer/Main/AdvancedSettings/Files/FileButtons/DefaultFileButton" to="." method="_on_default_file_button_toggled"]
 [connection signal="pressed" from="MarginContainer/VBoxContainer/Main/AdvancedSettings/Files/FileButtons/TemplateButton" to="." method="_on_template_button_pressed"]

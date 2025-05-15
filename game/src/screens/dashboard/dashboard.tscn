@@ -283,7 +283,7 @@ theme_override_constants/separation = 20
 
 [node name="PrevViewButton" type="Button" parent="HBoxContainer/MainContainer/Top/TopBar"]
 unique_name_in_owner = true
-custom_minimum_size = Vector2(50, 0)
+custom_minimum_size = Vector2(60, 0)
 layout_mode = 2
 focus_neighbor_left = NodePath("../../../../ButtonsContainer/Buttons/EmailButton")
 focus_neighbor_right = NodePath("../NextViewButton")
@@ -298,7 +298,7 @@ metadata/_custom_type_script = "uid://cnyyowwlb04kl"
 
 [node name="NextViewButton" type="Button" parent="HBoxContainer/MainContainer/Top/TopBar"]
 unique_name_in_owner = true
-custom_minimum_size = Vector2(50, 0)
+custom_minimum_size = Vector2(60, 0)
 layout_mode = 2
 focus_neighbor_left = NodePath("../PrevViewButton")
 focus_neighbor_right = NodePath("../ContinueButton")
