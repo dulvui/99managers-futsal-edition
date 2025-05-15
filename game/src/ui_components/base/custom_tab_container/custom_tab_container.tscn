@@ -24,6 +24,7 @@ unique_name_in_owner = true
 layout_mode = 2
 
 [node name="Prev" type="Button" parent="ButtonsBar"]
+auto_translate_mode = 2
 custom_minimum_size = Vector2(50, 0)
 layout_mode = 2
 text = "<"
@@ -37,6 +38,7 @@ unique_name_in_owner = true
 layout_mode = 2
 
 [node name="Next" type="Button" parent="ButtonsBar"]
+auto_translate_mode = 2
 custom_minimum_size = Vector2(50, 0)
 layout_mode = 2
 text = ">"

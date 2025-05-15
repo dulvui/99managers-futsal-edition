@@ -80,7 +80,7 @@ func _set_shortcut_glyph() -> void:
 
 		# always fallback to text, if no icon set
 		if icon != null and icon_behaviour == IconBehaviour.REPLACE_TEXT:
-			text = ""
+			text = "" # NO_TRANSLATE
 		else:
 			text = text_backup
 
@@ -89,7 +89,7 @@ func _set_shortcut_glyph() -> void:
 
 		# always fallback to text, if no icon set
 		if icon != null and icon_behaviour == IconBehaviour.REPLACE_TEXT:
-			text = ""
+			text = "" # NO_TRANSLATE
 		else:
 			text = text_backup
 

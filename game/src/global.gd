@@ -21,6 +21,7 @@ var match_speed: Enum.MatchSpeed
 var match_paused: bool
 
 # resources
+# NEW resources need to be reset in reset_data
 var world: World
 # active resources references, from world
 var team: Team
@@ -71,12 +72,14 @@ func initialize_game(testing: bool = false) -> void:
 
 
 func reset_data() -> void:
-	team = null
 	world = null
+	team = null
 	league = null
+	manager = null
+	match_list = null
 	transfer_list = null
 	inbox = null
-	manager = null
+	calendar = null
 
 
 func next_day() -> void:

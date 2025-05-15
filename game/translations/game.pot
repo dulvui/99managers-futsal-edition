@@ -15,7 +15,6 @@
 # res://src/ui_components/base/swtich_option_button/switch_option_button.tscn
 # res://src/ui_components/base/defaults/default_option_button.gd
 # res://src/ui_components/base/defaults/default_button.gd
-# res://src/ui_components/base/defaults/default_tab_container.gd
 # res://src/ui_components/base/color_label/color_label.gd
 # res://src/ui_components/base/color_label/color_label.tscn
 # res://src/ui_components/base/search_line_edit/search_line_edit.gd
@@ -55,10 +54,6 @@
 # res://src/ui_components/visual_calendar/visual_calendar.gd
 # res://src/ui_components/visual_calendar/visual_day/visual_day.tscn
 # res://src/ui_components/visual_calendar/visual_day/visual_day.gd
-# res://src/ui_components/visual_calendar/match_list/match_info/match_info.tscn
-# res://src/ui_components/visual_calendar/match_list/match_info/match_info.gd
-# res://src/ui_components/visual_calendar/match_list/match_list.gd
-# res://src/ui_components/visual_calendar/match_list/match_list.tscn
 # res://src/ui_components/visual_calendar/visual_calendar.tscn
 # res://src/ui_components/tree_overviews/competition_tree/competitions_tree.tscn
 # res://src/ui_components/tree_overviews/competition_tree/competitions_tree.gd
@@ -84,8 +79,6 @@
 # res://src/screens/menu/menu.tscn
 # res://src/screens/setup/setup_world/setup_world.tscn
 # res://src/screens/setup/setup_world/setup_world.gd
-# res://src/screens/setup/setup_language/setup_language.gd
-# res://src/screens/setup/setup_language/setup_language.tscn
 # res://src/screens/setup/setup_team/setup_team.tscn
 # res://src/screens/setup/setup_team/setup_team.gd
 # res://src/screens/splash/splash_screen.tscn
@@ -136,6 +129,12 @@
 # res://src/ui_components/player_profile/transfers/visual_contract_offer/visual_contract_offer.tscn
 # res://src/ui_components/player_profile/transfers/visual_buy_offer/visual_buy_offer.gd
 # res://src/ui_components/player_profile/transfers/visual_buy_offer/visual_buy_offer.tscn
+# res://src/ui_components/visual_calendar/visual_match_list/visual_match_list.gd
+# res://src/ui_components/visual_calendar/visual_match_list/visual_match_list.tscn
+# res://src/ui_components/visual_calendar/visual_match_list/match_info/match_info.gd
+# res://src/ui_components/visual_calendar/visual_match_list/match_info/match_info.tscn
+# res://src/screens/setup/setup_initial/setup_initial.gd
+# res://src/screens/setup/setup_initial/setup_initial.tscn
 #
 # FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
 #
@@ -148,11 +147,6 @@ msgstr ""
 "Content-Transfer-Encoding: 8-bit\n"
 
 #: src/ui_components/team_profile/team_profile.tscn
-#: src/screens/dashboard/dashboard.tscn
-msgid "Info"
-msgstr ""
-
-#: src/ui_components/team_profile/team_profile.tscn
 #: src/ui_components/team_profile/team_profile.gd
 msgid "Budget"
 msgstr ""
@@ -161,11 +155,6 @@ msgstr ""
 #: src/screens/dashboard/dashboard.tscn
 #: src/generators/generator.gd
 msgid "Stadium"
-msgstr ""
-
-#: src/ui_components/team_profile/team_profile.tscn
-#: src/screens/dashboard/dashboard.tscn
-msgid "Players"
 msgstr ""
 
 #: src/ui_components/team_profile/team_profile.gd
@@ -191,7 +180,6 @@ msgstr ""
 #: src/ui_components/player_list/player_list.gd
 #: src/ui_components/player_profile/player_profile.tscn
 #: src/ui_components/player_profile/contract_view/contract_view.tscn
-#: src/screens/settings/settings.tscn
 msgid "General"
 msgstr ""
 
@@ -216,7 +204,6 @@ msgid "Mental"
 msgstr ""
 
 #: src/ui_components/player_list/player_list.gd
-#: src/ui_components/player_profile/player_profile.tscn
 msgid "Contract"
 msgstr ""
 
@@ -229,11 +216,11 @@ msgid "All Teams"
 msgstr ""
 
 #: src/ui_components/player_list/player_list.gd
-msgid "All positions"
+msgid "All Leagues"
 msgstr ""
 
 #: src/ui_components/player_list/player_list.gd
-msgid "All Leagues"
+msgid "All positions"
 msgstr ""
 
 #: src/ui_components/info/info.tscn
@@ -644,20 +631,11 @@ msgid "Blocking"
 msgstr ""
 
 #: src/ui_components/player_profile/player_profile.tscn
-#: src/screens/match_screen/match_screen.tscn
-msgid "Overview"
-msgstr ""
-
-#: src/ui_components/player_profile/player_profile.tscn
 msgid "Attributes"
 msgstr ""
 
 #: src/ui_components/player_profile/player_profile.tscn
 msgid "Statistics\n"
-msgstr ""
-
-#: src/ui_components/player_profile/player_profile.tscn
-msgid "Transfers"
 msgstr ""
 
 #: src/ui_components/player_profile/player_profile.tscn
@@ -776,28 +754,20 @@ msgid "Average vote"
 msgstr ""
 
 #: src/ui_components/visual_calendar/visual_day/visual_day.gd
-#: src/ui_components/visual_calendar/match_list/match_info/match_info.tscn
 #: src/screens/match_screen/match_screen.tscn
+#: src/ui_components/visual_calendar/visual_match_list/match_info/match_info.tscn
 msgid "Home"
 msgstr ""
 
 #: src/ui_components/visual_calendar/visual_day/visual_day.gd
-#: src/ui_components/visual_calendar/match_list/match_info/match_info.tscn
 #: src/screens/match_screen/match_screen.tscn
+#: src/ui_components/visual_calendar/visual_match_list/match_info/match_info.tscn
 msgid "Away"
 msgstr ""
 
 #: src/ui_components/visual_calendar/visual_day/visual_day.gd
 #: src/screens/dashboard/dashboard.tscn
 msgid "Transfermarket"
-msgstr ""
-
-#: src/ui_components/visual_calendar/match_list/match_info/match_info.tscn
-msgid "vs"
-msgstr ""
-
-#: src/ui_components/visual_calendar/match_list/match_list.gd
-msgid "No match"
 msgstr ""
 
 #: src/ui_components/visual_calendar/visual_calendar.tscn
@@ -864,13 +834,13 @@ msgid "Back"
 msgstr ""
 
 #: src/screens/settings/settings.tscn
-msgid "Input"
-msgstr ""
-
-#: src/screens/settings/settings.tscn
 msgid ""
 "All changed settings will be restored to the default value.\n"
 "Are you sure?"
+msgstr ""
+
+#: src/screens/settings/general/general_settings.tscn
+msgid "Version"
 msgstr ""
 
 #: src/screens/settings/general/general_settings.tscn
@@ -915,15 +885,15 @@ msgid "Default"
 msgstr ""
 
 #: src/screens/settings/general/general_settings.tscn
+msgid "Themes"
+msgstr ""
+
+#: src/screens/settings/general/general_settings.tscn
 msgid "Scale"
 msgstr ""
 
 #: src/screens/settings/general/general_settings.tscn
 msgid "Screen fade animation"
-msgstr ""
-
-#: src/screens/settings/general/general_settings.tscn
-msgid "Version"
 msgstr ""
 
 #: src/screens/settings/input/input_settings.tscn
@@ -939,7 +909,7 @@ msgid "No joypad connected"
 msgstr ""
 
 #: src/screens/settings/input/input_settings.tscn
-msgid "Input detection mode"
+msgid "Automatic Input detection"
 msgstr ""
 
 #: src/screens/settings/input/input_settings.tscn
@@ -1052,6 +1022,10 @@ msgid "Coming soon"
 msgstr ""
 
 #: src/screens/dashboard/dashboard.tscn
+msgid "Players"
+msgstr ""
+
+#: src/screens/dashboard/dashboard.tscn
 msgid "Search player"
 msgstr ""
 
@@ -1072,13 +1046,14 @@ msgid "Hall of fame"
 msgstr ""
 
 #: src/screens/dashboard/dashboard.tscn
-msgid "Next match"
+msgid "Info"
 msgstr ""
 
 #: src/screens/dashboard/dashboard.tscn
 #: src/screens/menu/menu.tscn
 #: src/screens/setup/setup_world/setup_world.tscn
 #: src/screens/match_screen/match_screen.gd
+#: src/screens/setup/setup_initial/setup_initial.tscn
 msgid "Continue"
 msgstr ""
 
@@ -1120,6 +1095,10 @@ msgid "Your surname"
 msgstr ""
 
 #: src/screens/setup/setup_world/setup_world.tscn
+msgid "Advanced settings"
+msgstr ""
+
+#: src/screens/setup/setup_world/setup_world.tscn
 msgid "Game settings"
 msgstr ""
 
@@ -1129,10 +1108,6 @@ msgstr ""
 
 #: src/screens/setup/setup_world/setup_world.tscn
 msgid "Start year"
-msgstr ""
-
-#: src/screens/setup/setup_world/setup_world.tscn
-msgid "Advanced settings"
 msgstr ""
 
 #: src/screens/setup/setup_world/setup_world.tscn
@@ -1297,15 +1272,6 @@ msgstr ""
 
 #: src/enum.gd
 msgid "December"
-msgstr ""
-
-#: src/enum.gd
-msgid "Automatic"
-msgstr ""
-
-#: src/enum.gd
-#: src/resources/formation/formation.gd
-msgid "Manual"
 msgstr ""
 
 #: src/enum.gd
@@ -1475,6 +1441,10 @@ msgid "Pause"
 msgstr ""
 
 #: src/screens/match_screen/match_screen.tscn
+msgid "Overview"
+msgstr ""
+
+#: src/screens/match_screen/match_screen.tscn
 msgid "Simulate"
 msgstr ""
 
@@ -1537,10 +1507,6 @@ msgid "Corners"
 msgstr ""
 
 #: src/screens/settings/theme_picker/theme_picker.tscn
-msgid "Themes"
-msgstr ""
-
-#: src/screens/settings/theme_picker/theme_picker.tscn
 msgid "Font color"
 msgstr ""
 
@@ -1582,18 +1548,6 @@ msgstr ""
 
 #: src/ui_components/player_list/player_list_view/views/contract/player_list_view_contract.tscn
 msgid "Is on loan"
-msgstr ""
-
-#: src/screens/about/about.tscn
-msgid "Changelog"
-msgstr ""
-
-#: src/screens/about/about.tscn
-msgid "Contributors"
-msgstr ""
-
-#: src/screens/about/about.tscn
-msgid "Licenses"
 msgstr ""
 
 #: src/screens/about/license/license.tscn
@@ -2444,6 +2398,10 @@ msgstr ""
 msgid "Auto"
 msgstr ""
 
+#: src/resources/formation/formation.gd
+msgid "Manual"
+msgstr ""
+
 #: src/utils/ui/theme_util.gd
 msgid "Light"
 msgstr ""
@@ -2486,19 +2444,11 @@ msgid "Confirm"
 msgstr ""
 
 #: src/ui_components/player_profile/transfers/visual_buy_offer/visual_buy_offer.tscn
-msgid "Buy"
-msgstr ""
-
-#: src/ui_components/player_profile/transfers/visual_buy_offer/visual_buy_offer.tscn
 msgid "Make an offer to buy the player."
 msgstr ""
 
 #: src/ui_components/player_profile/transfers/visual_buy_offer/visual_buy_offer.tscn
 msgid "Money"
-msgstr ""
-
-#: src/ui_components/player_profile/transfers/visual_buy_offer/visual_buy_offer.tscn
-msgid "Loan"
 msgstr ""
 
 #: src/ui_components/player_profile/transfers/visual_buy_offer/visual_buy_offer.tscn
@@ -2515,4 +2465,20 @@ msgstr ""
 
 #: src/ui_components/player_profile/transfers/visual_buy_offer/visual_buy_offer.tscn
 msgid "Additional money"
+msgstr ""
+
+#: src/ui_components/visual_calendar/visual_match_list/visual_match_list.gd
+msgid "No match"
+msgstr ""
+
+#: src/ui_components/visual_calendar/visual_match_list/match_info/match_info.tscn
+msgid "vs"
+msgstr ""
+
+#: src/screens/setup/setup_initial/setup_initial.tscn
+msgid "Hello! Choose a language"
+msgstr ""
+
+#: src/screens/setup/setup_initial/setup_initial.tscn
+msgid "and pick a theme"
 msgstr ""
