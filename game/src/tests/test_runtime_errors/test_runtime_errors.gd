@@ -11,7 +11,7 @@ func test() -> void:
 
 	print("test: load all scenes...")
 	var scene_paths: Array[String] = find_files("res://src/", ".tscn")
-	# load scripts and check for possibe runtime errors while loading
+	# load scripts and check for possible runtime errors while loading
 	for path: String in scene_paths:
 		var TestScene: PackedScene = load(path)
 		assert(TestScene != null)
@@ -21,7 +21,7 @@ func test() -> void:
 
 	print("test: load all scripts...")
 	var script_paths: Array[String] = find_files("res://src/", ".gd")
-	# load scripts and check for possibe runtime errors while loading
+	# load scripts and check for possible runtime errors while loading
 	for path: String in script_paths:
 		var script: GDScript = load(path)
 		assert(script != null)
