@@ -3,7 +3,7 @@
 [ext_resource type="Script" uid="uid://b5am0hpfqg1uf" path="res://src/ui_components/visual_competitions/visual_knockout/visual_knockout.gd" id="1_webha"]
 [ext_resource type="LabelSettings" uid="uid://cc2vi4onhgmnw" path="res://theme_base/label/label_settings_bold.tres" id="2_0fvbo"]
 [ext_resource type="LabelSettings" uid="uid://b4gu78rjvdfx4" path="res://theme_base/label/label_settings_title.tres" id="2_5q8ms"]
-[ext_resource type="PackedScene" uid="uid://sswh30in3uin" path="res://src/ui_components/visual_calendar/match_list/match_info/match_info.tscn" id="4_5hpte"]
+[ext_resource type="PackedScene" uid="uid://sswh30in3uin" path="res://src/ui_components/visual_calendar/visual_match_list/match_info/match_info.tscn" id="4_5hpte"]
 
 [node name="VisualKnockout" type="VBoxContainer"]
 anchors_preset = 15
