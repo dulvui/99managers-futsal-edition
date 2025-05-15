@@ -86,7 +86,7 @@ const SCENE_SAVE_STATE_ENTRY: String = "res://src/screens/save_states_screen/sav
 # ui components
 const SCENE_COLOR_LABEL: String = "res://src/ui_components/base/color_label/color_label.tscn"
 const SCENE_FORMATION_PLAYER: String = "res://src/ui_components/visual_formation/player/formation_player.tscn"
-const SCENE_MATCH_INFO: String = "res://src/ui_components/visual_calendar/match_list/match_info/match_info.tscn"
+const SCENE_MATCH_INFO: String = "res://src/ui_components/visual_calendar/visual_match_list/match_info/match_info.tscn"
 
 #
 # Property access
