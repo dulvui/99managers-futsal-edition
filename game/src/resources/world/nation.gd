@@ -215,8 +215,9 @@ func promote_and_relegate() -> void:
 		# save to history and create new competitions
 		league.archive_season()
 
-		for p_team: TeamBasic in league.get_teams_basic():
-			league.table.add_team(p_team)
-			# reassign all league ids
+		# create new tables
+		for p_team: Team in league.teams:
+			# first update league id
 			p_team.league_id = league.id
+			league.table.add_team(p_team.to_basic())
 

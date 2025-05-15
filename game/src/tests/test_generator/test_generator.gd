@@ -11,8 +11,8 @@ const TEST_WORLD_CSV_WITH_ERRORS: String = "res://data/world/test-data-with-erro
 
 func test() -> void:
 	print("test: generator...")
-	# test_required_properties()
-	# test_determenistic_generation()
+	test_required_properties()
+	test_determenistic_generation()
 	test_history()
 	print("test: generator done.")
 
@@ -199,10 +199,12 @@ func test_history() -> void:
 					assert(team.name in team_names[league.name])
 					assert(team.name in team_names[league.name])
 					assert(team.id in team_ids[league.name])
+					assert(team.league_id == league.id)
 				# check table
 				for value: TableValue in league.table.teams:
 					assert(value.team.name in team_names[league.name])
 					assert(value.team.id in team_ids[league.name])
+					assert(value.team.league_id == league.id)
 
 	# TODO test player history
 	# history.generate_player_history(world)
