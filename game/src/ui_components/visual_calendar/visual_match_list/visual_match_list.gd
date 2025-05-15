@@ -95,5 +95,3 @@ func _add_matches(match_day: MatchDay, competition: Competition) -> void:
 		matches_list.add_child(match_row)
 		match_row.setup(matchz)
 
-	matches_list.add_child(HSeparator.new())
-

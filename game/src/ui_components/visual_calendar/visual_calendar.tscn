@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" uid="uid://7lhmiodk6pqu" path="res://src/ui_components/visual_calendar/visual_calendar.gd" id="2_7vx37"]
 [ext_resource type="Script" uid="uid://cnyyowwlb04kl" path="res://src/ui_components/base/defaults/default_button.gd" id="2_nyqm0"]
-[ext_resource type="PackedScene" uid="uid://dv6e6h4lw1bqy" path="res://src/ui_components/visual_calendar/match_list/match_list.tscn" id="3_cy82g"]
+[ext_resource type="PackedScene" uid="uid://dv6e6h4lw1bqy" path="res://src/ui_components/visual_calendar/visual_match_list/visual_match_list.tscn" id="3_cy82g"]
 
 [sub_resource type="InputEventJoypadMotion" id="InputEventJoypadMotion_ogukf"]
 axis = 4
@@ -49,7 +49,7 @@ text = "<"
 script = ExtResource("2_nyqm0")
 joypad_motion_event = SubResource("InputEventJoypadMotion_ogukf")
 
-[node name="Page" type="Label" parent="Calendar/Paginator"]
+[node name="Date" type="Label" parent="Calendar/Paginator"]
 unique_name_in_owner = true
 custom_minimum_size = Vector2(150, 0)
 layout_mode = 2
@@ -120,9 +120,9 @@ layout_mode = 2
 text = "Sunday"
 horizontal_alignment = 1
 
-[node name="MatchList" parent="." instance=ExtResource("3_cy82g")]
+[node name="VisualMatchList" parent="." instance=ExtResource("3_cy82g")]
 unique_name_in_owner = true
-custom_minimum_size = Vector2(240, 0)
+custom_minimum_size = Vector2(260, 0)
 layout_mode = 2
 
 [connection signal="pressed" from="Calendar/Paginator/Prev" to="." method="_on_prev_pressed"]

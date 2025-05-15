@@ -1,6 +1,6 @@
 [gd_scene load_steps=2 format=3 uid="uid://sswh30in3uin"]
 
-[ext_resource type="Script" uid="uid://durm22w7xk4kn" path="res://src/ui_components/visual_calendar/match_list/match_info/match_info.gd" id="1_kuvam"]
+[ext_resource type="Script" uid="uid://durm22w7xk4kn" path="res://src/ui_components/visual_calendar/visual_match_list/match_info/match_info.gd" id="1_kuvam"]
 
 [node name="MatchInfo" type="HBoxContainer"]
 auto_translate_mode = 2

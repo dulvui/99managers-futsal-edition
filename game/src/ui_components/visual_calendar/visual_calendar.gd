@@ -13,9 +13,9 @@ var current_month: int
 var current_year: int
 var max_months: int
 
-@onready var match_list: VisualMatchList = %MatchList
+@onready var visual_match_list: VisualMatchList = %VisualMatchList
 @onready var days: GridContainer = %Days
-@onready var page_label: Label = %Page
+@onready var date_label: Label = %Date
 
 
 func _ready() -> void:
@@ -31,7 +31,7 @@ func setup(reset_days: bool = true) -> void:
 		current_year = Global.calendar.date.year
 
 	setup_days()
-	match_list.setup(Global.calendar.day())
+	visual_match_list.setup(Global.calendar.day())
 
 
 func setup_days() -> void:
@@ -68,15 +68,15 @@ func setup_days() -> void:
 
 	var active_year: String = str(current_year + int((current_month - 1) / 12.0))
 	var active_month: String = Enum.get_month_text(current_month)
-	page_label.text = active_month + " " + active_year
+	date_label.text = active_month + " " + active_year
 
 
 func _on_calendar_day_pressed(day: Day, matchz: Match = null) -> void:
 	if matchz == null:
-		match_list.setup(day)
+		visual_match_list.setup(day)
 	else:
 		var competition: Competition = Global.world.get_competition_by_id(matchz.competition_id)
-		match_list.setup(day, competition)
+		visual_match_list.setup(day, competition)
 
 
 func _on_prev_pressed() -> void:
