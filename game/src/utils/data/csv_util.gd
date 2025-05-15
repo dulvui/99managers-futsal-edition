@@ -215,6 +215,7 @@ func csv_to_match_days(csv: Array[PackedStringArray]) -> Array[MatchDays]:
 		var match_days_index: int =_get_int_or_default()
 		var day: int =_get_int_or_default()
 		var month: int =_get_int_or_default()
+		var year: int =_get_int_or_default()
 		var id: int = _get_int_or_default()
 		var home_id: int = _get_int_or_default()
 		var home_name: String = _get_string_or_default()
@@ -243,6 +244,7 @@ func csv_to_match_days(csv: Array[PackedStringArray]) -> Array[MatchDays]:
 			match_day = MatchDay.new()
 			match_day.day = day
 			match_day.month = month
+			match_day.year = year
 			match_days.days.append(match_day)
 
 		var matchz: Match = Match.new()
@@ -294,6 +296,7 @@ func match_days_to_csv(match_days_list: Array[MatchDays]) -> Array[PackedStringA
 				line.append(str(index))
 				line.append(str(match_day.day))
 				line.append(str(match_day.month))
+				line.append(str(match_day.year))
 				line.append(str(matchz.id))
 				line.append(str(matchz.home.id))
 				line.append(matchz.home.name)
