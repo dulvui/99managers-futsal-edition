@@ -66,6 +66,7 @@ func csv_to_teams(csv: Array[PackedStringArray], world: World) -> void:
 			league = League.new()
 			league.set_id()
 			league.name = league_name
+			league.nation_name = nation.name
 			league.pyramid_level = nation.leagues.size() + 1
 			nation.leagues.append(league)
 
