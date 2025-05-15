@@ -10,12 +10,13 @@ const TEAMS: int = 10
 
 func test() -> void:
 	print("test: match combination...")
-	var league: League = Tests.create_mock_league(TEAMS)
-	test_combinations(league)
+	Global.reset_data()
+	test_combinations()
 	print("test: match combination done.")
 
 
-func test_combinations(league: League) -> void:
+func test_combinations() -> void:
+	var league: League = Tests.create_mock_league(TEAMS)
 	print("test: combinations...")
 	var match_util: MatchUtil = MatchUtil.new()
 	var match_days: MatchDays = match_util.create_combinations(league, league.get_teams_basic())

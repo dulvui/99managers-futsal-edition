@@ -16,3 +16,4 @@ func _ready() -> void:
 
 func test() -> void:
 	pass
+

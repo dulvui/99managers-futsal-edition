@@ -8,7 +8,9 @@ extends Test
 
 func test() -> void:
 	print("test: res util...")
+	Global.reset_data()
 	test_from_to_json()
+	# Global.reset_data()
 	# test_compressions()
 	print("test: res util done.")
 

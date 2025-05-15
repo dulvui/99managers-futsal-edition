@@ -8,6 +8,7 @@ extends Test
 
 func test() -> void:
 	print("test: calendar...")
+	Global.reset_data()
 	test_months_and_days_size()
 	print("test: calendar done.")
 

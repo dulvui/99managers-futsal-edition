@@ -8,6 +8,7 @@ extends Test
 
 func test() -> void:
 	print("test: game loop...")
+	Global.reset_data()
 	test_full_season()
 	print("test: game loop done.")
 

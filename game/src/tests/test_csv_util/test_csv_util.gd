@@ -8,6 +8,7 @@ extends Test
 
 func test() -> void:
 	print("test: csv util...")
+	Global.reset_data()
 	test_save_world()
 	print("test: csv util done.")
 

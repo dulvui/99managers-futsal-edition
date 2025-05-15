@@ -8,8 +8,13 @@ extends Test
 
 func test() -> void:
 	print("test: match engine...")
+
+	Global.reset_data()
 	test_deterministic_simulations()
+
+	Global.reset_data()
 	test_benchmark()
+
 	print("test: match engine done.")
 
 

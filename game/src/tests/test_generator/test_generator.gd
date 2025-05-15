@@ -11,8 +11,13 @@ const TEST_WORLD_CSV_WITH_ERRORS: String = "res://data/world/test-data-with-erro
 
 func test() -> void:
 	print("test: generator...")
+	Global.reset_data()
 	test_required_properties()
+
+	Global.reset_data()
 	test_determenistic_generation()
+
+	Global.reset_data()
 	test_history()
 	print("test: generator done.")
 
