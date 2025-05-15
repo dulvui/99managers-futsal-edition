@@ -5,10 +5,16 @@
 class_name DefaultButton
 extends Button
 
+enum IconBehaviour {
+	ALIGN_RIGHT,
+	ALIGN_LEFT,
+	REPLACE_TEXT,
+}
+
 @export var key_event: InputEventKey
 @export var joypad_button_event: InputEventJoypadButton
 @export var joypad_motion_event: InputEventJoypadMotion
-@export var replace_text_with_icon: bool = false
+@export var icon_behaviour: IconBehaviour
 
 var text_backup: String
 
@@ -19,10 +25,15 @@ func _ready() -> void:
 	if tooltip_text.is_empty() and text.length() > 1:
 		tooltip_text = text
 
-	if replace_text_with_icon:
-		icon_alignment = HORIZONTAL_ALIGNMENT_CENTER
-	else:
+	if icon_behaviour == IconBehaviour.ALIGN_RIGHT:
 		icon_alignment = HORIZONTAL_ALIGNMENT_RIGHT
+		alignment = HORIZONTAL_ALIGNMENT_LEFT
+	elif icon_behaviour == IconBehaviour.ALIGN_LEFT:
+		icon_alignment = HORIZONTAL_ALIGNMENT_LEFT
+		alignment = HORIZONTAL_ALIGNMENT_RIGHT
+	elif icon_behaviour == IconBehaviour.REPLACE_TEXT:
+		icon_alignment = HORIZONTAL_ALIGNMENT_CENTER
+
 	expand_icon = true
 	shortcut_in_tooltip = false
 
@@ -68,7 +79,7 @@ func _set_shortcut_glyph() -> void:
 		icon = JoypadUtil.get_button_icon(joypad_button_event.button_index)
 
 		# always fallback to text, if no icon set
-		if icon != null and replace_text_with_icon:
+		if icon != null and icon_behaviour == IconBehaviour.REPLACE_TEXT:
 			text = ""
 		else:
 			text = text_backup
@@ -77,7 +88,7 @@ func _set_shortcut_glyph() -> void:
 		icon = JoypadUtil.get_axis_icon(joypad_motion_event.axis)
 
 		# always fallback to text, if no icon set
-		if icon != null and replace_text_with_icon:
+		if icon != null and icon_behaviour == IconBehaviour.REPLACE_TEXT:
 			text = ""
 		else:
 			text = text_backup

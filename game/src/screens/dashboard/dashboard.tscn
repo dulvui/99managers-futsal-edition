@@ -290,9 +290,10 @@ focus_neighbor_right = NodePath("../NextViewButton")
 focus_next = NodePath("../NextViewButton")
 focus_previous = NodePath("../../../../ButtonsContainer/Buttons/EmailButton")
 text = "<"
+icon_alignment = 1
 script = ExtResource("3_kbasy")
 joypad_button_event = SubResource("InputEventJoypadButton_aex81")
-replace_text_with_icon = true
+icon_behaviour = 1
 metadata/_custom_type_script = "uid://cnyyowwlb04kl"
 
 [node name="NextViewButton" type="Button" parent="HBoxContainer/MainContainer/Top/TopBar"]
@@ -306,7 +307,6 @@ focus_previous = NodePath("../PrevViewButton")
 text = ">"
 script = ExtResource("3_kbasy")
 joypad_button_event = SubResource("InputEventJoypadButton_rbkg6")
-replace_text_with_icon = true
 metadata/_custom_type_script = "uid://cnyyowwlb04kl"
 
 [node name="ManagerName" type="Label" parent="HBoxContainer/MainContainer/Top/TopBar"]

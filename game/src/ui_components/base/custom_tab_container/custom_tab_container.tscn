@@ -29,7 +29,7 @@ layout_mode = 2
 text = "<"
 script = ExtResource("2_kx3tm")
 joypad_button_event = SubResource("InputEventJoypadButton_vhcpw")
-replace_text_with_icon = true
+icon_behaviour = 2
 metadata/_custom_type_script = "uid://cnyyowwlb04kl"
 
 [node name="Buttons" type="HBoxContainer" parent="ButtonsBar"]
@@ -42,7 +42,7 @@ layout_mode = 2
 text = ">"
 script = ExtResource("2_kx3tm")
 joypad_button_event = SubResource("InputEventJoypadButton_qfq5t")
-replace_text_with_icon = true
+icon_behaviour = 2
 metadata/_custom_type_script = "uid://cnyyowwlb04kl"
 
 [connection signal="pressed" from="ButtonsBar/Prev" to="." method="_on_prev_pressed"]
