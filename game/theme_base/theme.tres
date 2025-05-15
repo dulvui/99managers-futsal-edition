@@ -1,4 +1,4 @@
-[gd_resource type="Theme" load_steps=23 format=3 uid="uid://pt1hrfiuwfpg"]
+[gd_resource type="Theme" load_steps=24 format=3 uid="uid://pt1hrfiuwfpg"]
 
 [ext_resource type="StyleBox" uid="uid://dyng6f1l62yql" path="res://theme_base/styles/box/box_disabled.tres" id="1_e26vn"]
 [ext_resource type="StyleBox" uid="uid://bb782pesemrwx" path="res://theme_base/styles/box/box_focus.tres" id="2_sokwu"]
@@ -23,6 +23,8 @@
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_t3oya"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_37ir0"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_l61qj"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_x4qio"]
 
@@ -106,6 +108,10 @@ Tree/colors/font_disabled_color = Color(0.875, 0.875, 0.875, 0.5)
 Tree/colors/font_hovered_color = Color(0.95, 0.95, 0.95, 1)
 Tree/colors/font_outline_color = Color(0, 0, 0, 1)
 Tree/colors/font_selected_color = Color(1, 1, 1, 1)
+Tree/constants/button_margin = 4
+Tree/constants/draw_guides = 0
+Tree/constants/draw_relationship_lines = 0
+Tree/styles/focus = SubResource("StyleBoxEmpty_l61qj")
 Tree/styles/panel = SubResource("StyleBoxEmpty_x4qio")
 Tree/styles/selected = ExtResource("5_5kcn0")
 Tree/styles/selected_focus = ExtResource("5_5kcn0")
