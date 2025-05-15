@@ -31,12 +31,8 @@ func generate_club_history(world: World) -> void:
 				for team: Team in league.teams:
 					leagues_by_teams[league.name].append(team)
 
-	# to keep track which team ids need to be swapped
-	var teams_id_mapping: Dictionary[int, int] = {}
-	var teams_name_mapping: Dictionary[String, String] = {}
-
 	# calculate random results for x years
-	for year: int in HISTORY_YEARS - 1:
+	for year: int in HISTORY_YEARS:
 		for continent: Continent in world.continents:
 			for nation: Nation in continent.nations:
 				for league: League in nation.leagues:
@@ -89,7 +85,9 @@ func generate_club_history(world: World) -> void:
 
 		Global.match_list.archive_season()
 
-	# save team swaps
+	# get which team ids/names need to be swapped
+	var teams_id_mapping: Dictionary[int, int] = {}
+	var teams_name_mapping: Dictionary[String, String] = {}
 	for continent: Continent in world.continents:
 		for nation: Nation in continent.nations:
 			for league: League in nation.leagues:

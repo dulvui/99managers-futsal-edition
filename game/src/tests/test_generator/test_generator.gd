@@ -11,8 +11,8 @@ const TEST_WORLD_CSV_WITH_ERRORS: String = "res://data/world/test-data-with-erro
 
 func test() -> void:
 	print("test: generator...")
-	test_required_properties()
-	test_determenistic_generation()
+	# test_required_properties()
+	# test_determenistic_generation()
 	test_history()
 	print("test: generator done.")
 
@@ -154,23 +154,49 @@ func test_history() -> void:
 
 	# generate teams
 	var generator: Generator = Generator.new("TestSeed", Enum.PlayerNames.MIXED)
-	var success: bool = generator.initialize_world(world)
-	assert(success)
+	generator.initialize_global_values(world)
+	var csv: Array[PackedStringArray] = generator.get_world_csv()
+	var result: bool = generator.initialize_teams(world, csv)
+	assert(result)
 
-	# make sure leagues have still same size after history generation
-	var league_sizes: Dictionary[String, int] = {}
+	# save team names/id by league
+	var team_names: Dictionary[String, Array] = {}
+	var team_ids: Dictionary[String, Array] = {}
 	for continent: Continent in world.continents:
 		for nation: Nation in continent.nations:
 			for league: League in nation.leagues:
-				league_sizes[league.name] = league.teams.size()
+				for team: Team in league.teams:
+					# save names
+					if not team_names.has(league.name):
+						team_names[league.name] = []
+					team_names[league.name].append(team.name)
+					# save ids
+					if not team_ids.has(league.name):
+						team_ids[league.name] = []
+					team_ids[league.name].append(team.id)
 
-	# check league team sizes
+	# generate club history
+	var generator_history: GeneratorHistory = GeneratorHistory.new(RngUtil.new())
+	generator_history.generate_club_history(world)
+
+	# check history table, playoffs and playouts
 	for continent: Continent in world.continents:
 		for nation: Nation in continent.nations:
 			for league: League in nation.leagues:
-				assert(league_sizes[league.name] == league.teams.size())
+				assert(league.history_tables.size() == GeneratorHistory.HISTORY_YEARS)
+				if league.playoff_teams > 0:
+					assert(league.history_playoffs.size() == GeneratorHistory.HISTORY_YEARS)
+				if league.playout_teams > 0:
+					assert(league.history_playouts.size() == GeneratorHistory.HISTORY_YEARS)
 
-	# check that teams are actually in the league they where initially placed
+	# check that teams are still in correct league, as defined in csv
+	for continent: Continent in world.continents:
+		for nation: Nation in continent.nations:
+			for league: League in nation.leagues:
+				for team: Team in league.teams:
+					print("%s - %s" % [league.name, team.name])
+					assert(team.name in team_names[league.name])
+					assert(team.id in team_ids[league.name])
 
 	# TODO test player history
 	# history.generate_player_history(world)

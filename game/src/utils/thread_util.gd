@@ -83,6 +83,10 @@ func _generate_world(
 		call_deferred("_loading_done")
 		return
 
+	# NEEDED TO HAVE CORRECT WORLD ASSIGNED
+	# OTHERWISE NOT ALL CHANGES MADE IN THREAD ARE SAVED
+	Global.world = world
+
 	call_deferred("_loading_done")
 
 
