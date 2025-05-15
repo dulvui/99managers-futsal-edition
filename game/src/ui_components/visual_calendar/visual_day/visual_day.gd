@@ -38,7 +38,6 @@ func setup(p_date: Day = Day.new(), matchz: Match = null) -> void:
 	else:
 		competition.hide()
 
-	# show active day as important button
 	if date.is_same_day(Global.calendar.day()):
 		button.theme_type_variation = ThemeUtil.BUTTON_IMPORTANT
 
@@ -50,10 +49,16 @@ func setup(p_date: Day = Day.new(), matchz: Match = null) -> void:
 
 func unselect() -> void:
 	ThemeUtil.remove_bold(month_day_label)
+	ThemeUtil.remove_bold(team_name_label)
+	ThemeUtil.remove_bold(competition_name)
+	ThemeUtil.remove_bold(market_label)
 
 
 func select() -> void:
 	ThemeUtil.bold(month_day_label)
+	ThemeUtil.bold(team_name_label)
+	ThemeUtil.bold(competition_name)
+	ThemeUtil.bold(market_label)
 
 
 func _on_button_pressed() -> void:

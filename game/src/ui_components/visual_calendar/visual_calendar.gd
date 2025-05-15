@@ -24,10 +24,11 @@ func _ready() -> void:
 	setup()
 
 
-func setup() -> void:
-	max_months = Global.calendar.months.size()
-	current_month = Global.calendar.date.month
-	current_year = Global.calendar.date.year
+func setup(reset_days: bool = true) -> void:
+	if reset_days:
+		max_months = Global.calendar.months.size()
+		current_month = Global.calendar.date.month
+		current_year = Global.calendar.date.year
 
 	setup_days()
 	match_list.setup(Global.calendar.day())
@@ -82,17 +83,17 @@ func _on_prev_pressed() -> void:
 	current_month -= 1
 	if current_month < 1:
 		current_month = 1
-	setup()
+	setup(false)
 
 
 func _on_next_pressed() -> void:
 	current_month += 1
 	if current_month > max_months:
 		current_month = max_months
-	setup()
+	setup(false)
 
 
 func _on_today_pressed() -> void:
 	current_month = Global.calendar.date.month
-	setup()
+	setup(false)
 
