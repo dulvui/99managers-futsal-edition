@@ -30,10 +30,10 @@ func setup(
 		label.queue_free()
 
 	# transform table dictionary to array
-	var table_array: Array[TableValues] = table.to_sorted_array()
+	var table_array: Array[TableValue] = table.to_sorted_array()
 
 	var pos: int = 1
-	for team: TableValues in table_array:
+	for team: TableValue in table_array:
 		var pos_label: ColorLabel = ColorLabelScene.instantiate()
 		# _style_label(team.team.id, pos_label)
 		pos_label.text = str(pos)
@@ -116,12 +116,12 @@ func _style_label(team_id: int, label: Label) -> void:
 		ThemeUtil.bold(label)
 
 
-func _form_row(team_id: int, forms: Array[TableValues.Form]) -> HBoxContainer:
+func _form_row(team_id: int, forms: Array[TableValue.Form]) -> HBoxContainer:
 	var box: HBoxContainer = HBoxContainer.new()
 
 	# iterate over last 5 form values
 	for i: int in range(max(forms.size() - 5, 0), forms.size()):
-		var form: TableValues.Form = forms[i]
+		var form: TableValue.Form = forms[i]
 		var label: Label = Label.new()
 		label.horizontal_alignment = HORIZONTAL_ALIGNMENT_CENTER
 		label.mouse_filter = Control.MOUSE_FILTER_PASS
@@ -129,11 +129,11 @@ func _form_row(team_id: int, forms: Array[TableValues.Form]) -> HBoxContainer:
 		if team_id == Global.team.id:
 			ThemeUtil.bold(label)
 
-		if form == TableValues.Form.WIN:
+		if form == TableValue.Form.WIN:
 			label.text = tr("Victory").substr(0, 1)
 			label.tooltip_text = tr("Victory")
 			label.label_settings = ThemeUtil.label_settings_high
-		elif form == TableValues.Form.DRAW:
+		elif form == TableValue.Form.DRAW:
 			label.text = tr("Draw").substr(0, 1)
 			label.tooltip_text = tr("Draw")
 			label.label_settings = ThemeUtil.label_settings_mid

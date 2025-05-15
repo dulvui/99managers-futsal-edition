@@ -61,7 +61,7 @@ func get_continental_cup_qualified_teams() -> Array[TeamBasic]:
 		return []
 
 	var league: League = get_league_by_pyramid_level(1)
-	var table: Array[TableValues] = league.table.to_sorted_array()
+	var table: Array[TableValue] = league.table.to_sorted_array()
 
 	# always qualify all teams for now
 	# TODO: find better way to define number of teams
@@ -111,7 +111,7 @@ func promote_and_relegate() -> void:
 	# get teams that will relegate/promote
 	for league: League in leagues:
 		# last/first x teams will be promoted relegated
-		var sorted_table: Array[TableValues] = league.table.to_sorted_array()
+		var sorted_table: Array[TableValue] = league.table.to_sorted_array()
 
 		# assign direct relegated
 		var relegated: Array[Team] = league.teams.filter(

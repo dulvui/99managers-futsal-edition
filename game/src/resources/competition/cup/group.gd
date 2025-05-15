@@ -41,7 +41,7 @@ func sort_teams_by_table_pos() -> void:
 func is_over() -> bool:
 	# on the premise, that teams play twice against each other
 	var over_count: int = 0
-	for table_value: TableValues in table.teams:
+	for table_value: TableValue in table.teams:
 		if table_value.games_played == teams.size() - 2:
 			over_count += 1
 

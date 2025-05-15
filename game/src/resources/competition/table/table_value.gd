@@ -2,7 +2,7 @@
 
 # SPDX-License-Identifier: AGPL-3.0-or-later
 
-class_name TableValues
+class_name TableValue
 extends JSONResource
 
 enum Form {

@@ -37,7 +37,7 @@ func initialize_playoffs(league: League) -> void:
 		return
 
 	var teams: Array[TeamBasic] = []
-	var sorted_table: Array[TableValues] = league.table.to_sorted_array()
+	var sorted_table: Array[TableValue] = league.table.to_sorted_array()
 
 	# remove directly promoted
 	for i: int in league.direct_promotion_teams:
@@ -45,7 +45,7 @@ func initialize_playoffs(league: League) -> void:
 
 	# remaining teams in order are playoff teams
 	for i: int in league.playoff_teams:
-		var value: TableValues = sorted_table.pop_front()
+		var value: TableValue = sorted_table.pop_front()
 		if value == null:
 			push_error("no team left for playoff")
 		else:
@@ -61,7 +61,7 @@ func initialize_playouts(league: League) -> void:
 		return
 
 	var teams: Array[TeamBasic] = []
-	var sorted_table: Array[TableValues] = league.table.to_sorted_array()
+	var sorted_table: Array[TableValue] = league.table.to_sorted_array()
 
 	# remove directly relegated
 	for i: int in league.direct_relegation_teams:
@@ -69,7 +69,7 @@ func initialize_playouts(league: League) -> void:
 
 	# remaining teams in order are playoff teams
 	for i: int in league.playout_teams:
-		var value: TableValues = sorted_table.pop_back()
+		var value: TableValue = sorted_table.pop_back()
 		if value == null:
 			push_error("no team left for playout")
 		else:
