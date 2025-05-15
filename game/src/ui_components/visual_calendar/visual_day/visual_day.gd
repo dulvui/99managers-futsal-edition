@@ -9,12 +9,12 @@ signal show_match_list
 
 var date: Day
 
+@onready var competition: VBoxContainer = %Competition
 @onready var month_day_label: Label = %MonthDay
 @onready var market_label: Label = %Market
-@onready var competition: VBoxContainer = %Competition
 @onready var competition_name: Label = %CompetitionName
 @onready var team_name_label: Label = %TeamName
-@onready var day_color: ColorRect = $DayColor
+@onready var button: Button = $Button
 
 
 func setup(p_date: Day = Day.new(), matchz: Match = null) -> void:
@@ -38,8 +38,9 @@ func setup(p_date: Day = Day.new(), matchz: Match = null) -> void:
 	else:
 		competition.hide()
 
+	# show active day as important button
 	if date.is_same_day(Global.calendar.day()):
-		day_color.color = ThemeUtil.configuration.style_important_color
+		button.theme_type_variation = ThemeUtil.BUTTON_IMPORTANT
 
 	# check if market is active
 	if date.market:

@@ -22,17 +22,7 @@ theme_override_constants/margin_right = 0
 theme_override_constants/margin_bottom = 0
 script = ExtResource("2_ub0fh")
 
-[node name="DayColor" type="ColorRect" parent="."]
-layout_mode = 2
-
-[node name="MarginContainer" type="MarginContainer" parent="."]
-layout_mode = 2
-theme_override_constants/margin_left = 4
-theme_override_constants/margin_top = 4
-theme_override_constants/margin_right = 4
-theme_override_constants/margin_bottom = 4
-
-[node name="Button" type="Button" parent="MarginContainer"]
+[node name="Button" type="Button" parent="."]
 unique_name_in_owner = true
 auto_translate_mode = 2
 layout_mode = 2
@@ -41,7 +31,7 @@ text_overrun_behavior = 3
 clip_text = true
 script = ExtResource("3_8v23p")
 
-[node name="MarginContainer" type="MarginContainer" parent="MarginContainer/Button"]
+[node name="MarginContainer" type="MarginContainer" parent="Button"]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -53,20 +43,20 @@ theme_override_constants/margin_top = 5
 theme_override_constants/margin_right = 5
 theme_override_constants/margin_bottom = 5
 
-[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer/Button/MarginContainer"]
+[node name="VBoxContainer" type="VBoxContainer" parent="Button/MarginContainer"]
 layout_mode = 2
 theme_override_constants/separation = 3
 
-[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer/Button/MarginContainer/VBoxContainer"]
+[node name="HBoxContainer" type="HBoxContainer" parent="Button/MarginContainer/VBoxContainer"]
 layout_mode = 2
 
-[node name="Market" type="Label" parent="MarginContainer/Button/MarginContainer/VBoxContainer/HBoxContainer"]
+[node name="Market" type="Label" parent="Button/MarginContainer/VBoxContainer/HBoxContainer"]
 unique_name_in_owner = true
 layout_mode = 2
 size_flags_horizontal = 3
 text_overrun_behavior = 3
 
-[node name="MonthDay" type="Label" parent="MarginContainer/Button/MarginContainer/VBoxContainer/HBoxContainer"]
+[node name="MonthDay" type="Label" parent="Button/MarginContainer/VBoxContainer/HBoxContainer"]
 unique_name_in_owner = true
 auto_translate_mode = 2
 custom_minimum_size = Vector2(24, 0)
@@ -75,14 +65,14 @@ text = "31"
 horizontal_alignment = 2
 text_overrun_behavior = 1
 
-[node name="Competition" type="VBoxContainer" parent="MarginContainer/Button/MarginContainer/VBoxContainer"]
+[node name="Competition" type="VBoxContainer" parent="Button/MarginContainer/VBoxContainer"]
 unique_name_in_owner = true
 layout_mode = 2
 size_flags_vertical = 3
 theme_override_constants/separation = 0
 alignment = 1
 
-[node name="TeamName" type="Label" parent="MarginContainer/Button/MarginContainer/VBoxContainer/Competition"]
+[node name="TeamName" type="Label" parent="Button/MarginContainer/VBoxContainer/Competition"]
 unique_name_in_owner = true
 auto_translate_mode = 2
 layout_mode = 2
@@ -90,7 +80,7 @@ size_flags_vertical = 6
 text = "ROMA"
 text_overrun_behavior = 3
 
-[node name="CompetitionName" type="Label" parent="MarginContainer/Button/MarginContainer/VBoxContainer/Competition"]
+[node name="CompetitionName" type="Label" parent="Button/MarginContainer/VBoxContainer/Competition"]
 unique_name_in_owner = true
 auto_translate_mode = 2
 visible = false
@@ -99,4 +89,4 @@ size_flags_horizontal = 3
 text = "SERIE A"
 text_overrun_behavior = 3
 
-[connection signal="pressed" from="MarginContainer/Button" to="." method="_on_button_pressed"]
+[connection signal="pressed" from="Button" to="." method="_on_button_pressed"]

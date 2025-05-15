@@ -21,14 +21,14 @@ var max_months: int
 func _ready() -> void:
 	if Tests.is_run_as_current_scene(self):
 		Tests.init_empty_mock_world()
-
-	max_months = Global.calendar.months.size()
-	current_month = Global.calendar.date.month
-	current_year = Global.calendar.date.year
 	setup()
 
 
 func setup() -> void:
+	max_months = Global.calendar.months.size()
+	current_month = Global.calendar.date.month
+	current_year = Global.calendar.date.year
+
 	setup_days()
 	match_list.setup(Global.calendar.day())
 

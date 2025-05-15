@@ -48,7 +48,6 @@ layout_mode = 2
 text = "<"
 script = ExtResource("2_nyqm0")
 joypad_motion_event = SubResource("InputEventJoypadMotion_ogukf")
-replace_text_with_icon = true
 
 [node name="Page" type="Label" parent="Calendar/Paginator"]
 unique_name_in_owner = true
@@ -63,7 +62,6 @@ layout_mode = 2
 text = ">"
 script = ExtResource("2_nyqm0")
 joypad_motion_event = SubResource("InputEventJoypadMotion_1gkpm")
-replace_text_with_icon = true
 
 [node name="Today" type="Button" parent="Calendar/Paginator"]
 custom_minimum_size = Vector2(100, 0)
