@@ -97,13 +97,18 @@ func generate_club_history(world: World) -> void:
 					teams_id_mapping[current_team.id] = initial_team.id
 					teams_name_mapping[current_team.name] = initial_team.name
 
-	# swap team names and ids in leagues
+	# swap team names and ids in leagues teams and tables
 	for continent: Continent in world.continents:
 		for nation: Nation in continent.nations:
 			for league: League in nation.leagues:
+				# teams
 				for team: Team in league.teams:
 					team.id = teams_id_mapping[team.id]
 					team.name = teams_name_mapping[team.name]
+				# table
+				for value: TableValue in league.table.teams:
+					value.team.id = teams_id_mapping[value.team.id]
+					value.team.name = teams_name_mapping[value.team.name]
 
 	# swap team names and ids in matches
 	for match_days: MatchDays in Global.match_list.history_match_days:

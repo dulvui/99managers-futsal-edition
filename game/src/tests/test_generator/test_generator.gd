@@ -193,10 +193,16 @@ func test_history() -> void:
 	for continent: Continent in world.continents:
 		for nation: Nation in continent.nations:
 			for league: League in nation.leagues:
+				# check teams
 				for team: Team in league.teams:
-					print("%s - %s" % [league.name, team.name])
+					# print("%s - %s" % [league.name, team.name])
+					assert(team.name in team_names[league.name])
 					assert(team.name in team_names[league.name])
 					assert(team.id in team_ids[league.name])
+				# check table
+				for value: TableValue in league.table.teams:
+					assert(value.team.name in team_names[league.name])
+					assert(value.team.id in team_ids[league.name])
 
 	# TODO test player history
 	# history.generate_player_history(world)
