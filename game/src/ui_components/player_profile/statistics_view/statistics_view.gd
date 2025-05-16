@@ -63,3 +63,4 @@ func _add_statistics(statistics: Statistics, team_name: String) -> void:
 	value_labels.append(yellow_cards)
 	value_labels.append(red_cards)
 	value_labels.append(average_vote)
+

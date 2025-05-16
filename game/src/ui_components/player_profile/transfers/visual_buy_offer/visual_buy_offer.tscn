@@ -19,99 +19,90 @@ theme = ExtResource("1_wbo0e")
 script = ExtResource("2_2p6ux")
 
 [node name="CustomTabContainer" parent="." instance=ExtResource("3_wbo0e")]
+unique_name_in_owner = true
 layout_mode = 2
 size_flags_vertical = 3
 
-[node name="Buy" type="MarginContainer" parent="CustomTabContainer"]
-layout_mode = 2
-size_flags_vertical = 3
-theme_override_constants/margin_left = 0
-theme_override_constants/margin_right = 0
-
-[node name="Buy" type="VBoxContainer" parent="CustomTabContainer/Buy"]
+[node name="Buy" type="VBoxContainer" parent="CustomTabContainer"]
+unique_name_in_owner = true
 layout_mode = 2
 size_flags_vertical = 0
 
-[node name="BuyDescription" type="Label" parent="CustomTabContainer/Buy/Buy"]
+[node name="BuyDescription" type="Label" parent="CustomTabContainer/Buy"]
 unique_name_in_owner = true
 layout_mode = 2
 text = "Make an offer to buy the player."
 
-[node name="Money" type="HBoxContainer" parent="CustomTabContainer/Buy/Buy"]
+[node name="Money" type="HBoxContainer" parent="CustomTabContainer/Buy"]
 layout_mode = 2
 
-[node name="MoneyLabel" type="Label" parent="CustomTabContainer/Buy/Buy/Money"]
+[node name="MoneyLabel" type="Label" parent="CustomTabContainer/Buy/Money"]
 layout_mode = 2
 size_flags_horizontal = 3
 text = "Money"
 
-[node name="BuyMoney" parent="CustomTabContainer/Buy/Buy/Money" instance=ExtResource("4_kmj1m")]
+[node name="BuyMoney" parent="CustomTabContainer/Buy/Money" instance=ExtResource("4_kmj1m")]
 unique_name_in_owner = true
 layout_mode = 2
 
-[node name="Date" type="HBoxContainer" parent="CustomTabContainer/Buy/Buy"]
+[node name="Date" type="HBoxContainer" parent="CustomTabContainer/Buy"]
 layout_mode = 2
 
-[node name="DateLabel" type="Label" parent="CustomTabContainer/Buy/Buy/Date"]
+[node name="DateLabel" type="Label" parent="CustomTabContainer/Buy/Date"]
 layout_mode = 2
 size_flags_horizontal = 3
 text = "Date"
 
-[node name="BuyDate" parent="CustomTabContainer/Buy/Buy/Date" instance=ExtResource("5_5dllx")]
+[node name="BuyDate" parent="CustomTabContainer/Buy/Date" instance=ExtResource("5_5dllx")]
 unique_name_in_owner = true
 layout_mode = 2
 
-[node name="Loan" type="MarginContainer" parent="CustomTabContainer"]
+[node name="Loan" type="VBoxContainer" parent="CustomTabContainer"]
+unique_name_in_owner = true
 visible = false
-layout_mode = 2
-size_flags_vertical = 3
-theme_override_constants/margin_left = 0
-theme_override_constants/margin_right = 0
-
-[node name="Loan" type="VBoxContainer" parent="CustomTabContainer/Loan"]
 custom_minimum_size = Vector2(960, 0)
 layout_mode = 2
 size_flags_vertical = 0
 theme = ExtResource("1_wbo0e")
 
-[node name="LoanDescription" type="Label" parent="CustomTabContainer/Loan/Loan"]
+[node name="LoanDescription" type="Label" parent="CustomTabContainer/Loan"]
 unique_name_in_owner = true
 layout_mode = 2
 text = "Make an offer to get the player on loan."
 
-[node name="Duration" type="HBoxContainer" parent="CustomTabContainer/Loan/Loan"]
+[node name="Duration" type="HBoxContainer" parent="CustomTabContainer/Loan"]
 layout_mode = 2
 
-[node name="DurationLabel" type="Label" parent="CustomTabContainer/Loan/Loan/Duration"]
+[node name="DurationLabel" type="Label" parent="CustomTabContainer/Loan/Duration"]
 layout_mode = 2
 size_flags_horizontal = 3
 text = "Loan duration"
 
-[node name="LoanDuration" parent="CustomTabContainer/Loan/Loan/Duration" instance=ExtResource("5_5dllx")]
+[node name="LoanDuration" parent="CustomTabContainer/Loan/Duration" instance=ExtResource("5_5dllx")]
 unique_name_in_owner = true
 layout_mode = 2
 
-[node name="Salary" type="HBoxContainer" parent="CustomTabContainer/Loan/Loan"]
+[node name="Salary" type="HBoxContainer" parent="CustomTabContainer/Loan"]
 layout_mode = 2
 
-[node name="SalaryLabel" type="Label" parent="CustomTabContainer/Loan/Loan/Salary"]
+[node name="SalaryLabel" type="Label" parent="CustomTabContainer/Loan/Salary"]
 layout_mode = 2
 size_flags_horizontal = 3
 text = "Salary percentage"
 
-[node name="Salary" parent="CustomTabContainer/Loan/Loan/Salary" instance=ExtResource("5_5dllx")]
+[node name="Salary" parent="CustomTabContainer/Loan/Salary" instance=ExtResource("5_5dllx")]
 unique_name_in_owner = true
 layout_mode = 2
 
-[node name="Money" type="HBoxContainer" parent="CustomTabContainer/Loan/Loan"]
+[node name="Money" type="HBoxContainer" parent="CustomTabContainer/Loan"]
 layout_mode = 2
 
-[node name="MoneyLabel" type="Label" parent="CustomTabContainer/Loan/Loan/Money"]
+[node name="MoneyLabel" type="Label" parent="CustomTabContainer/Loan/Money"]
 layout_mode = 2
 size_flags_horizontal = 3
 text = "Additional money"
 
-[node name="LoanMoney" parent="CustomTabContainer/Loan/Loan/Money" instance=ExtResource("4_kmj1m")]
+[node name="LoanMoney" parent="CustomTabContainer/Loan/Money" instance=ExtResource("4_kmj1m")]
 unique_name_in_owner = true
 layout_mode = 2
 

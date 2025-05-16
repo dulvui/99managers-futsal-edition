@@ -23,7 +23,7 @@ func _ready() -> void:
 		Tests.setup_mock_world()
 		setup(Global.team)
 
-	custom_tab_container.setup([tr("Players"), tr("Info")])
+	custom_tab_container.setup([tr("Info"), tr("Players")])
 
 
 func setup(team: Team) -> void:

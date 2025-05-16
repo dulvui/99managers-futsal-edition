@@ -12,8 +12,7 @@ var player: Player
 @onready var attributes_view: AttributesView = %Attributes
 @onready var statistics_view: StatisticsView = %Statistics
 @onready var contract_view: ContractView = %Contract
-@onready var buy_offer: VisualBuyOffer = %BuyOffer
-@onready var contract_offer: VisualContractOffer = %ContractOffer
+@onready var buy_offer: VisualBuyOffer = %Transfer
 
 
 func _ready() -> void:
@@ -22,7 +21,7 @@ func _ready() -> void:
 		Global.team = Tests.create_mock_team()
 		set_player(Tests.create_mock_player())
 
-	custom_tab_container.setup([tr("Overview"), tr("Transfers"), tr("Contract")])
+	custom_tab_container.setup([tr("Overview"), tr("Transfer"), tr("Contract")])
 
 
 func set_player(p_player: Player) -> void:
@@ -34,14 +33,6 @@ func set_player(p_player: Player) -> void:
 	contract_view.setup(player)
 
 	buy_offer.setup(player)
-
-	# hide contract offer if already playing for team
-	if player.team_id == Global.team.id:
-		contract_offer.hide()
-	# hide contract offer if contract is not expiring by the next year
-	if player.contract.end_date.year >= Global.calendar.date.year + 1:
-		contract_offer.hide()
-	contract_offer.setup(player)
 
 	# always show info view, when setting new player
 	info_view.show()
