@@ -47,6 +47,7 @@ text = "Language"
 label_settings = ExtResource("1_6o6h0")
 
 [node name="LanguagePicker" parent="Langauge" instance=ExtResource("2_p1exx")]
+unique_name_in_owner = true
 layout_mode = 2
 alignment = 0
 
@@ -240,6 +241,7 @@ layout_mode = 2
 script = ExtResource("7_yomby")
 metadata/_custom_type_script = "uid://b7ipi7vefbgps"
 
+[connection signal="language_change" from="Langauge/LanguagePicker" to="." method="_on_language_picker_language_change"]
 [connection signal="meta_clicked" from="Langauge/TranslationsLink" to="." method="_on_translations_link_meta_clicked"]
 [connection signal="item_selected" from="Formats/Dates/DatesOptionsButton" to="." method="_on_dates_options_button_item_selected"]
 [connection signal="item_selected" from="Formats/Currencies/CurrenciesOptionsButton" to="." method="_on_currencies_options_button_item_selected"]

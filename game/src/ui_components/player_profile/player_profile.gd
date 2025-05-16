@@ -7,6 +7,7 @@ extends MarginContainer
 
 var player: Player
 
+@onready var custom_tab_container: CustomTabContainer = %CustomTabContainer
 @onready var info_view: InfoView = %Info
 @onready var attributes_view: AttributesView = %Attributes
 @onready var statistics_view: StatisticsView = %Statistics
@@ -20,6 +21,8 @@ func _ready() -> void:
 		Tests.init_empty_mock_world()
 		Global.team = Tests.create_mock_team()
 		set_player(Tests.create_mock_player())
+
+	custom_tab_container.setup([tr("Overview"), tr("Transfers"), tr("Contract")])
 
 
 func set_player(p_player: Player) -> void:

@@ -17,6 +17,9 @@ func test() -> void:
 		assert(TestScene != null)
 		var instance: Node = TestScene.instantiate()
 		assert(instance != null)
+		# add_child(instance)
+		# remove_child(instance)
+		# instance.queue_free()
 	print("test: load all scene done.")
 
 	print("test: load all scripts...")

@@ -10,6 +10,8 @@ signal confirm
 var team: Team
 var player: Player
 
+@onready var custom_tab_container: CustomTabContainer = %CustomTabContainer
+
 # buy
 @onready var buy_description: Label = %BuyDescription
 @onready var buy_date: SwitchOptionButton = %BuyDate
@@ -23,8 +25,9 @@ var player: Player
 
 func _ready() -> void:
 	buy_date.setup(Enum.offer_timings)
-
 	# loan_date.setup()
+
+	custom_tab_container.setup([tr("Buy"), tr("Loan")])
 
 
 func setup(p_player: Player) -> void:

@@ -83,30 +83,19 @@ script = ExtResource("4_ss020")
 joypad_button_event = SubResource("InputEventJoypadButton_nppw4")
 
 [node name="CustomTabContainer" parent="MarginContainer/Main" instance=ExtResource("5_tww0x")]
+unique_name_in_owner = true
 custom_minimum_size = Vector2(800, 0)
 layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 3
 
-[node name="General" type="MarginContainer" parent="MarginContainer/Main/CustomTabContainer"]
-layout_mode = 2
-size_flags_vertical = 3
-theme_override_constants/margin_left = 0
-theme_override_constants/margin_right = 0
-
-[node name="General" parent="MarginContainer/Main/CustomTabContainer/General" instance=ExtResource("6_ncaym")]
+[node name="GAZZO" parent="MarginContainer/Main/CustomTabContainer" instance=ExtResource("6_ncaym")]
 unique_name_in_owner = true
 layout_mode = 2
 
-[node name="Input" type="MarginContainer" parent="MarginContainer/Main/CustomTabContainer"]
+[node name="Input" parent="MarginContainer/Main/CustomTabContainer" instance=ExtResource("7_4kh8n")]
+unique_name_in_owner = true
 visible = false
-layout_mode = 2
-size_flags_vertical = 3
-theme_override_constants/margin_left = 0
-theme_override_constants/margin_right = 0
-
-[node name="Input" parent="MarginContainer/Main/CustomTabContainer/Input" instance=ExtResource("7_4kh8n")]
-unique_name_in_owner = true
 layout_mode = 2
 
 [node name="DefaultDialog" parent="." instance=ExtResource("8_bm5uu")]

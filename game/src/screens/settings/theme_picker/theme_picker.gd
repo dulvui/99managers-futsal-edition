@@ -12,6 +12,7 @@ enum ColorType {
 }
 
 var active_color_type: ColorType
+var buttons: Array[Button]
 
 @export var show_custom: bool = true
 

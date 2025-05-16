@@ -5,6 +5,7 @@
 class_name TeamProfile
 extends MarginContainer
 
+@onready var custom_tab_container: CustomTabContainer = %CustomTabContainer
 @onready var player_list: PlayerList = %Players
 
 @onready var name_label: Label = %Name
@@ -21,6 +22,8 @@ func _ready() -> void:
 	if Tests.is_run_as_current_scene(self):
 		Tests.setup_mock_world()
 		setup(Global.team)
+
+	custom_tab_container.setup([tr("Players"), tr("Info")])
 
 
 func setup(team: Team) -> void:

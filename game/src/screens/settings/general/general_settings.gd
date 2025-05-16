@@ -5,6 +5,7 @@
 class_name GeneralSettings
 extends VBoxContainer
 
+@onready var language_picker: LanguagePicker = %LanguagePicker
 # audio
 @onready var ui_sfx_volume: HSlider = %UISfxVolumeSlider
 # ui
@@ -140,4 +141,8 @@ func _on_dates_options_button_item_selected(index: int) -> void:
 		FormatUtil.date(31, 12, 2000), FormatUtil.currency(1234)
 	]
 	DataUtil.save_config()
+
+
+func _on_language_picker_language_change() -> void:
+	theme_picker.setup()
 
