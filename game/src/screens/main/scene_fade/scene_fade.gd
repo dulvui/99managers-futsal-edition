@@ -15,26 +15,27 @@ func _ready() -> void:
 	hide()
 
 
-func fade_in(duration: float = DURATION) -> void:
-	# hide scene fade immediatly, if scenefade settings is disabled
+func fade_in(factor: float = 1.0) -> void:
+	# hide scene fade immediate, if scenefade settings is disabled
 	if not Global.config.scene_fade:
 		hide()
 		return
 
 	# already visible
 	if visible:
+		print("alredy visible")
 		return
 
 	show()
 	var tween: Tween = create_tween()
-	tween.tween_property(self, "modulate", Color.WHITE, duration)
+	tween.tween_property(self, "modulate", Color.WHITE, DURATION * factor)
 	await tween.finished
 
 	await get_tree().create_timer(DELAY).timeout
 
 
-func fade_out(duration: float = DURATION) -> void:
-	# hide scene fade immediatly, if scenefade settings is disabled
+func fade_out(factor: float = 1.0) -> void:
+	# hide scene fade immediate, if scenefade settings is disabled
 	if not Global.config.scene_fade:
 		hide()
 		return
@@ -44,10 +45,10 @@ func fade_out(duration: float = DURATION) -> void:
 		return
 
 	var tween: Tween = create_tween()
-	tween.tween_property(self, "modulate", Color.TRANSPARENT, duration)
+	tween.tween_property(self, "modulate", Color.TRANSPARENT, DURATION * factor)
 	await tween.finished
 
-	await get_tree().create_timer(DELAY).timeout
-
 	hide()
+
+	await get_tree().create_timer(DELAY).timeout
 

@@ -48,5 +48,3 @@ offset_top = -22.0
 grow_horizontal = 0
 grow_vertical = 0
 text = "v0.2.4"
-
-[connection signal="loaded" from="LoadingScreen" to="." method="_on_loading_screen_loaded"]

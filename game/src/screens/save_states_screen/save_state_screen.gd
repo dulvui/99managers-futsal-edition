@@ -27,6 +27,7 @@ func _ready() -> void:
 			entry.setup(save_state)
 
 	DataUtil.loading_failed.connect(_on_loading_failed)
+	ThreadUtil.loading_done.connect(_on_loading_done)
 
 	save_states_path.text = ProjectSettings.globalize_path(DataUtil.SAVE_STATES_PATH)
 	trash_notice.visible = not OS.get_name() in "iOS,Web"
@@ -40,6 +41,10 @@ func _on_loading_failed() -> void:
 	Main.hide_loading_screen()
 	# reload screen to show corrupt button
 	Main.change_scene(Const.SCREEN_SAVE_STATES)
+
+
+func _on_loading_done() -> void:
+	Main.change_scene(Const.SCREEN_DASHBOARD)
 
 
 func _on_save_states_path_copy_pressed() -> void:

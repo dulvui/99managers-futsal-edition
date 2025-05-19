@@ -206,7 +206,8 @@ func load_data() -> void:
 		loading_failed.emit()
 		return
 	Global.transfer_list = csv_util.csv_to_transfer_list(csv)
-	Main.call_deferred("update_loading_progress", 0.9)
+
+	Main.call_deferred("update_loading_progress", 1.0)
 
 	# assign all global references
 	IdUtil.id_by_type = active.id_by_type
@@ -214,7 +215,6 @@ func load_data() -> void:
 	Global.manager = Global.team.staff.manager
 	Global.league = Global.world.get_league_by_id(Global.team.league_id)
 
-	Main.call_deferred("update_loading_progress", 1.0)
 
 
 func save_data() -> void:

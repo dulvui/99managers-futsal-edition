@@ -36,7 +36,7 @@ var advanced_settings: bool
 func _ready() -> void:
 	InputUtil.start_focus(self)
 
-	Main.loaded.connect(_on_world_generated)
+	ThreadUtil.loading_done.connect(_on_world_generated)
 
 	# setup ui components
 	advanced_settings_box.hide()
@@ -175,7 +175,6 @@ func _on_continue_pressed() -> void:
 	Global.generation_seed = final_seed
 	Global.generation_player_names = player_names
 
-	Main.manual_hide_loading_screen()
 	# await and make sure loading screen is visible, before it can be hidden on error
 	await Main.show_loading_screen(tr("Generating teams and players"))
 
@@ -192,6 +191,7 @@ func _on_world_generated() -> void:
 	else:
 		# wait loading screen is hidden
 		await Main.hide_loading_screen()
+
 		# add errors
 		file_error_dialog.append_text(tr("Errors"))
 		for error: Enum.GenerationError in Global.generation_errors:

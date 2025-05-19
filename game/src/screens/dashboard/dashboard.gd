@@ -62,6 +62,8 @@ func _ready() -> void:
 	if Tests.is_run_as_current_scene(self):
 		Tests.setup_mock_world(true)
 
+	var start_time: int = Time.get_ticks_msec()
+
 	team = Global.team
 
 	manager_label.text = Global.manager.get_full_name()
@@ -95,6 +97,11 @@ func _ready() -> void:
 
 	# connect inbox refresh sinal
 	Global.inbox.refresh.connect(_update_email_button)
+
+	ThreadUtil.loading_done.connect(_on_saving_done)
+
+	var end_time: int = Time.get_ticks_msec()
+	print("dashboard took %d ms to load" % (end_time - start_time))
 
 
 func _on_search_action() -> void:
@@ -323,9 +330,12 @@ func _on_menu_button_pressed() -> void:
 
 
 func _on_save_confirm_dialog_confirmed() -> void:
-	Main.set_scene_on_load(Const.SCREEN_MENU)
 	Main.show_loading_screen(tr("Saving game"))
 	ThreadUtil.save_all_data()
+
+
+func _on_saving_done() -> void:
+	Main.change_scene(Const.SCREEN_MENU)
 
 
 func _on_save_confirm_dialog_denied() -> void:

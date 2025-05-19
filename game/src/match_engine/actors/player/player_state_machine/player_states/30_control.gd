@@ -28,12 +28,12 @@ func _init() -> void:
 func enter() -> void:
 	owner.player.collision_timer = 0
 
-	# goal keeper should immediatly pass ball
+	# goal keeper should immediate pass ball
 	if owner.player.is_goalkeeper:
 		set_state(PlayerStateFindBestPass.new())
 		return
 
-	# use players shooting attributes, to players with better shooging
+	# use players shooting attributes, to players with better shooting
 	# make more and better attempts
 	# how many aim attempts the player takes
 	shooting_ability = owner.player.res.attributes.technical.shooting

@@ -4,11 +4,7 @@
 
 extends Control
 
-signal loaded
-
 var previous_scenes: Array[String]
-var scene_name_on_load: String
-var manual_hide: bool
 
 @onready var version: Label = %Version
 @onready var content: Control = %Content
@@ -17,29 +13,27 @@ var manual_hide: bool
 
 
 func _ready() -> void:
-	theme = ThemeUtil.get_active_theme()
-	loading_screen.hide()
-
 	previous_scenes = []
-	scene_name_on_load = ""
-	manual_hide = false
-
 	version.text = "v" + Global.version
 
-	ThreadUtil.loading_done.connect(loading_done)
-
+	loading_screen.hide()
 	scene_fade.fade_in()
 
 
 func change_scene(scene_path: String, keep_current_scene: bool = false) -> void:
+	_append_scene_to_buffer(scene_path)
+
+	# load and instantiate scene before showing screen fade
+	# for smoother transition
+	var scene: PackedScene = load(scene_path)
+	var instance: Node = scene.instantiate()
+
 	await scene_fade.fade_in()
 
 	if not keep_current_scene:
 		_clear_content()
-	_append_scene_to_buffer(scene_path)
 
-	var scene: PackedScene = load(scene_path)
-	content.add_child(scene.instantiate())
+	content.add_child(instance)
 
 	if loading_screen.visible:
 		await hide_loading_screen()
@@ -75,40 +69,17 @@ func show_loading_screen(p_message: String, p_indeterminate: bool = false) -> vo
 
 	loading_screen.start(p_message, p_indeterminate)
 
-	await scene_fade.fade_in()
+	await scene_fade.fade_in(2.0)
 	loading_screen.show()
 	await scene_fade.fade_out()
 
 
-func set_scene_on_load(p_scene_name_on_load: String) -> void:
-	scene_name_on_load = p_scene_name_on_load
-
-
-func manual_hide_loading_screen() -> void:
-	manual_hide = true
-
-
 func hide_loading_screen() -> void:
-	manual_hide = false
-
 	await scene_fade.fade_in()
 	loading_screen.hide()
 	await scene_fade.fade_out()
 
 	_toggle_input(true)
-
-
-func loading_done() -> void:
-	loaded.emit()
-
-	if not scene_name_on_load.is_empty():
-		change_scene(scene_name_on_load)
-	elif not manual_hide:
-		hide_loading_screen()
-
-	# reset values
-	manual_hide = false
-	scene_name_on_load = ""
 
 
 func check_layout_direction() -> void:

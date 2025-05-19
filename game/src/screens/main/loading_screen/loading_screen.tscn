@@ -83,5 +83,3 @@ theme_override_styles/background = SubResource("StyleBoxEmpty_h3hvg")
 max_value = 1.0
 value = 0.5
 show_percentage = false
-
-[connection signal="visibility_changed" from="." to="." method="_on_visibility_changed"]

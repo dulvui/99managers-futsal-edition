@@ -31,6 +31,7 @@ func _ready() -> void:
 	Main.check_layout_direction()
 
 	DataUtil.loading_failed.connect(_on_loading_failed)
+	ThreadUtil.loading_done.connect(_on_loading_done)
 
 	# always reset data in menu, to clear memory
 	Global.reset_data()
@@ -41,8 +42,7 @@ func _on_new_game_pressed() -> void:
 
 
 func _on_continue_game_pressed() -> void:
-	Main.set_scene_on_load(Const.SCREEN_DASHBOARD)
-	await Main.show_loading_screen(tr("Loading game"))
+	Main.show_loading_screen(tr("Loading game"))
 	Global.load_save_state()
 
 
@@ -58,8 +58,12 @@ func _on_load_game_pressed() -> void:
 	Main.change_scene(Const.SCREEN_SAVE_STATES)
 
 
+func _on_loading_done() -> void:
+	Main.change_scene(Const.SCREEN_DASHBOARD)
+
+
 func _on_loading_failed() -> void:
-	Main.call_deferred("change_scene", Const.SCREEN_SAVE_STATES)
+	Main.change_scene(Const.SCREEN_SAVE_STATES)
 
 
 func _on_exit_pressed() -> void:

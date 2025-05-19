@@ -54,7 +54,6 @@ func _on_load_pressed() -> void:
 	print("load save state with id ", save_state.id)
 	Global.save_states.active_id = save_state.id
 	if Global.load_save_state():
-		Main.set_scene_on_load(Const.SCREEN_DASHBOARD)
 		Main.show_loading_screen(tr("Loading game"))
 
 
@@ -74,3 +73,4 @@ func _on_delete_dialog_confirmed() -> void:
 
 func _on_corrupt_pressed() -> void:
 	corrupt_dialog.popup()
+
