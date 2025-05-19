@@ -30,6 +30,8 @@ func change_scene(scene_path: String, keep_current_scene: bool = false) -> void:
 
 	await scene_fade.fade_in()
 
+	# keep current scene in stack, for easier back button
+	# like in world setup to preserve settings
 	if not keep_current_scene:
 		_clear_content()
 
@@ -64,10 +66,10 @@ func update_loading_progress(progress: float) -> void:
 	loading_screen.update(progress)
 
 
-func show_loading_screen(p_message: String, p_indeterminate: bool = false) -> void:
+func show_loading_screen(p_message: String) -> void:
 	_toggle_input(false)
 
-	loading_screen.start(p_message, p_indeterminate)
+	loading_screen.start(p_message)
 
 	await scene_fade.fade_in(2.0)
 	loading_screen.show()

@@ -22,8 +22,7 @@ func fade_in(factor: float = 1.0) -> void:
 		return
 
 	# already visible
-	if visible:
-		print("alredy visible")
+	if visible and modulate == Color.WHITE:
 		return
 
 	show()
@@ -41,7 +40,7 @@ func fade_out(factor: float = 1.0) -> void:
 		return
 
 	# already hidden
-	if not visible:
+	if not visible and modulate == Color.TRANSPARENT:
 		return
 
 	var tween: Tween = create_tween()
