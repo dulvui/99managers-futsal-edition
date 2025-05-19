@@ -219,6 +219,18 @@ func _sort_players(sort_key: String) -> void:
 		return
 
 	_set_sorting(sort_key)
+
+	# surname and value
+	if sort_key in ["surname", "value"]:
+		players.sort_custom(func(a: Player, b: Player) -> bool:
+			if sorting[sort_key]:
+				return _sort_player(a, sort_key) > _sort_player(b, sort_key)
+			else:
+				return _sort_player(a, sort_key) < _sort_player(b, sort_key)
+		)
+		return
+
+	# rest
 	match active_view:
 		Views.MENTAL:
 			players.sort_custom(func(a: Player, b: Player) -> bool:
@@ -250,12 +262,12 @@ func _sort_players(sort_key: String) -> void:
 			)
 		Views.CONTRACT:
 			players.sort_custom(func(a: Player, b: Player) -> bool:
-				# start/end date
+				# date
 				if "date" in sort_key:
 					var date_a: Dictionary = a.contract.get(sort_key)
-					var date_b: Dictionary = a.contract.get(sort_key)
+					var date_b: Dictionary = b.contract.get(sort_key)
 					return _sort_date(date_a, date_b, sorting[sort_key])
-				# all other properties
+
 				if sorting[sort_key]:
 					return a.contract.get(sort_key) > b.contract.get(sort_key)
 				else:
@@ -270,6 +282,7 @@ func _sort_players(sort_key: String) -> void:
 			)
 		_:
 			players.sort_custom(func(a: Player, b: Player) -> bool:
+				# date
 				if "date" in sort_key:
 					var date_a: Dictionary = a.get(sort_key)
 					var date_b: Dictionary = b.get(sort_key)

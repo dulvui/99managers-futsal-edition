@@ -24,13 +24,13 @@ script = ExtResource("3_oalsw")
 sort_key = "acceleration"
 metadata/_custom_type_script = "uid://cha13r617yhur"
 
-[node name="Stamina" type="Button" parent="Header/Buttons" index="3"]
+[node name="Resistance" type="Button" parent="Header/Buttons" index="3"]
 custom_minimum_size = Vector2(94, 0)
 layout_mode = 2
 text = "Stamina"
 text_overrun_behavior = 1
 script = ExtResource("3_oalsw")
-sort_key = "stamina"
+sort_key = "resistance"
 metadata/_custom_type_script = "uid://cha13r617yhur"
 
 [node name="Strength" type="Button" parent="Header/Buttons" index="4"]
