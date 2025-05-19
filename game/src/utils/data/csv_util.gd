@@ -648,6 +648,7 @@ func _player_to_line(
 	# now internal data, not coming from user at setup
 	#
 	player_line.append(str(player.id))
+	player_line.append(str(player.prestige))
 	player_line.append(str(player.morality))
 	player_line.append(str(player.form))
 	player_line.append(str(player.stamina))
@@ -754,6 +755,7 @@ func _line_to_player(
 	# now internal data, not coming from user at setup
 	#
 	player.id = _get_int_or_default()
+	player.prestige = _get_float_or_default()
 	player.morality = _get_int_or_default() as Enum.Morality
 	player.form = _get_int_or_default() as Enum.Form
 	player.stamina = _get_float_or_default()
