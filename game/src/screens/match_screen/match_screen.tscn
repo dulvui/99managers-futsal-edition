@@ -151,8 +151,6 @@ alignment = 1
 unique_name_in_owner = true
 custom_minimum_size = Vector2(180, 0)
 layout_mode = 2
-size_flags_horizontal = 4
-size_flags_vertical = 4
 text = "Overview"
 script = ExtResource("4_fwmog")
 
@@ -160,8 +158,6 @@ script = ExtResource("4_fwmog")
 unique_name_in_owner = true
 custom_minimum_size = Vector2(180, 0)
 layout_mode = 2
-size_flags_horizontal = 4
-size_flags_vertical = 4
 text = "Pause"
 script = ExtResource("4_fwmog")
 
@@ -173,7 +169,6 @@ alignment = 2
 [node name="PanelContainer" type="PanelContainer" parent="Main/Content/TopBar/Right"]
 custom_minimum_size = Vector2(240, 0)
 layout_mode = 2
-size_flags_vertical = 4
 
 [node name="Speed" type="HBoxContainer" parent="Main/Content/TopBar/Right/PanelContainer"]
 layout_mode = 2
@@ -185,8 +180,6 @@ unique_name_in_owner = true
 auto_translate_mode = 2
 custom_minimum_size = Vector2(50, 0)
 layout_mode = 2
-size_flags_horizontal = 4
-size_flags_vertical = 4
 text = "<"
 script = ExtResource("4_fwmog")
 
@@ -203,8 +196,6 @@ unique_name_in_owner = true
 auto_translate_mode = 2
 custom_minimum_size = Vector2(50, 0)
 layout_mode = 2
-size_flags_horizontal = 4
-size_flags_vertical = 4
 text = ">"
 script = ExtResource("4_fwmog")
 
@@ -212,8 +203,6 @@ script = ExtResource("4_fwmog")
 unique_name_in_owner = true
 custom_minimum_size = Vector2(180, 0)
 layout_mode = 2
-size_flags_horizontal = 4
-size_flags_vertical = 4
 text = "Simulate"
 script = ExtResource("4_fwmog")
 
@@ -222,8 +211,6 @@ unique_name_in_owner = true
 visible = false
 custom_minimum_size = Vector2(180, 0)
 layout_mode = 2
-size_flags_horizontal = 4
-size_flags_vertical = 4
 text = "Dashboard"
 script = ExtResource("4_fwmog")
 

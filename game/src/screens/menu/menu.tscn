@@ -86,8 +86,6 @@ metadata/_edit_use_anchors_ = true
 [node name="ContinueGame" type="Button" parent="MarginContainer/VBoxContainer/Buttons"]
 unique_name_in_owner = true
 layout_mode = 2
-size_flags_horizontal = 5
-size_flags_vertical = 4
 theme_type_variation = &"ImportantButton"
 text = "Continue"
 script = ExtResource("4_nkxl6")
@@ -96,40 +94,30 @@ joypad_button_event = SubResource("InputEventJoypadButton_itbqv")
 [node name="NewGame" type="Button" parent="MarginContainer/VBoxContainer/Buttons"]
 unique_name_in_owner = true
 layout_mode = 2
-size_flags_horizontal = 5
-size_flags_vertical = 4
 text = "New game"
 script = ExtResource("4_nkxl6")
 
 [node name="LoadGame" type="Button" parent="MarginContainer/VBoxContainer/Buttons"]
 unique_name_in_owner = true
 layout_mode = 2
-size_flags_horizontal = 5
-size_flags_vertical = 4
 text = "Load game"
 script = ExtResource("4_nkxl6")
 
 [node name="Settings" type="Button" parent="MarginContainer/VBoxContainer/Buttons"]
 unique_name_in_owner = true
 layout_mode = 2
-size_flags_horizontal = 5
-size_flags_vertical = 4
 text = "Settings"
 script = ExtResource("4_nkxl6")
 
 [node name="About" type="Button" parent="MarginContainer/VBoxContainer/Buttons"]
 unique_name_in_owner = true
 layout_mode = 2
-size_flags_horizontal = 5
-size_flags_vertical = 4
 text = "About"
 script = ExtResource("4_nkxl6")
 
 [node name="Exit" type="Button" parent="MarginContainer/VBoxContainer/Buttons"]
 unique_name_in_owner = true
 layout_mode = 2
-size_flags_horizontal = 5
-size_flags_vertical = 4
 focus_neighbor_left = NodePath("../../Links/Website")
 focus_neighbor_bottom = NodePath("../../Links/WishlistSteam")
 text = "Exit"
@@ -226,6 +214,7 @@ uri = "https://store.steampowered.com/app/3334770"
 [node name="ExitConfirmDialog" parent="." instance=ExtResource("6_1a2kt")]
 unique_name_in_owner = true
 size = Vector2i(400, 180)
+visible = false
 custom_title = "Exit game"
 custom_text = "You are exiting the game. Proceed?"
 type = 0

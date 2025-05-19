@@ -17,6 +17,7 @@ func test() -> void:
 		assert(TestScene != null)
 		var instance: Node = TestScene.instantiate()
 		assert(instance != null)
+		# TODO: make sure every can run _ready without null pointers first
 		# add_child(instance)
 		# remove_child(instance)
 		# instance.queue_free()

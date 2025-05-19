@@ -1,8 +1,10 @@
-[gd_scene load_steps=4 format=3 uid="uid://btngec2y1weql"]
+[gd_scene load_steps=5 format=3 uid="uid://btngec2y1weql"]
 
 [ext_resource type="Script" uid="uid://bfh2q3trewvon" path="res://src/screens/main/loading_screen/loading_screen.gd" id="2_sfhks"]
 [ext_resource type="LabelSettings" uid="uid://b4gu78rjvdfx4" path="res://theme_base/label/label_settings_title.tres" id="4_jlxu5"]
 [ext_resource type="PackedScene" uid="uid://ck1i6uxkqg3pi" path="res://src/ui_components/player_silhouette/player_silhouette.tscn" id="4_vsrlt"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_h3hvg"]
 
 [node name="LoadingScreen" type="Control"]
 layout_mode = 3
@@ -57,12 +59,29 @@ text = "Loading"
 label_settings = ExtResource("4_jlxu5")
 horizontal_alignment = 1
 
-[node name="LoadingProgressBar" type="ProgressBar" parent="VBoxContainer"]
+[node name="BackgroundProgress" type="ProgressBar" parent="VBoxContainer"]
 unique_name_in_owner = true
-custom_minimum_size = Vector2(0, 14)
+custom_minimum_size = Vector2(0, 20)
 layout_mode = 2
 max_value = 1.0
+fill_mode = 1
 show_percentage = false
+indeterminate = true
+editor_preview_indeterminate = true
 metadata/_edit_use_anchors_ = true
+
+[node name="LoadingProgressBar" type="ProgressBar" parent="VBoxContainer/BackgroundProgress"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(0, 14)
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/background = SubResource("StyleBoxEmpty_h3hvg")
+max_value = 1.0
+value = 0.5
+show_percentage = false
 
 [connection signal="visibility_changed" from="." to="." method="_on_visibility_changed"]

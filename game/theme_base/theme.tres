@@ -1,4 +1,4 @@
-[gd_resource type="Theme" load_steps=24 format=3 uid="uid://pt1hrfiuwfpg"]
+[gd_resource type="Theme" load_steps=25 format=3 uid="uid://pt1hrfiuwfpg"]
 
 [ext_resource type="StyleBox" uid="uid://dyng6f1l62yql" path="res://theme_base/styles/box/box_disabled.tres" id="1_e26vn"]
 [ext_resource type="StyleBox" uid="uid://bb782pesemrwx" path="res://theme_base/styles/box/box_focus.tres" id="2_sokwu"]
@@ -17,6 +17,7 @@
 [ext_resource type="StyleBox" uid="uid://7wyiohndriti" path="res://theme_base/styles/lines/line_v_focus.tres" id="15_nx1tw"]
 [ext_resource type="StyleBox" uid="uid://t8c45v0p86mn" path="res://theme_base/styles/box/box_background_bordered.tres" id="15_qea21"]
 [ext_resource type="StyleBox" uid="uid://b2r2brhh36eea" path="res://theme_base/styles/lines/line_v_thin.tres" id="16_88jne"]
+[ext_resource type="StyleBox" uid="uid://p2i8146lydw5" path="res://theme_base/styles/box/box_background_secondary.tres" id="16_t3oya"]
 [ext_resource type="StyleBox" uid="uid://4kr88nosj3w8" path="res://theme_base/styles/lines/line_v_normal.tres" id="17_mp45d"]
 [ext_resource type="FontVariation" uid="uid://j3o56lsudgvn" path="res://theme_base/label/font.tres" id="19_bsuoa"]
 
@@ -85,8 +86,8 @@ PopupMenu/styles/hover = ExtResource("5_5kcn0")
 PopupMenu/styles/panel = ExtResource("4_pcab3")
 PopupPanel/styles/panel = ExtResource("15_qea21")
 ProgressBar/colors/font_color = Color(0.95, 0.95, 0.95, 1)
-ProgressBar/styles/background = ExtResource("4_pcab3")
-ProgressBar/styles/fill = ExtResource("1_e26vn")
+ProgressBar/styles/background = ExtResource("16_t3oya")
+ProgressBar/styles/fill = ExtResource("12_katxo")
 RichTextLabel/colors/default_color = Color(1, 1, 1, 1)
 TabContainer/colors/font_disabled_color = Color(0.875, 0.875, 0.875, 0.5)
 TabContainer/colors/font_hovered_color = Color(0.95, 0.95, 0.95, 1)
