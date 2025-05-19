@@ -66,16 +66,28 @@ func initialize() -> void:
 	meta_game_date = Global.calendar.date
 
 
-func delete() -> void:
+func delete() -> Error:
+	var err: Error = OK
+
+	# don't delete if ID is empty
+	if id.length() == 0:
+		return err
+
 	var user_dir: DirAccess = DirAccess.open(DataUtil.SAVE_STATES_PATH)
+	err = DirAccess.get_open_error()
+	if err != OK:
+		return err
+
 	if user_dir:
 		# delete whole folder
-		var err: int = user_dir.change_dir(DataUtil.SAVE_STATES_PATH)
+		err = user_dir.change_dir(DataUtil.SAVE_STATES_PATH)
 		if err == OK and user_dir.dir_exists(id):
 			# move to trash not not implemented on iOS and Web
 			if OS.get_name() in "iOS,Web":
-				user_dir.remove(id + "/")
+				err = user_dir.remove(id + "/")
 			else:
-				OS.move_to_trash(
+				err = OS.move_to_trash(
 					ProjectSettings.globalize_path(DataUtil.SAVE_STATES_PATH + id + "/")
 				)
+	return err
+
