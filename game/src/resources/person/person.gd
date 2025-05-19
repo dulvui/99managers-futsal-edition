@@ -20,7 +20,7 @@ enum Role {
 @export var name: String
 @export var surname: String
 @export var birth_date: Dictionary
-@export var prestige: int
+@export var prestige: float
 @export var role: Role
 @export var skintone: String
 @export var haircolor: String
@@ -34,7 +34,7 @@ func _init(
 	p_name: String = "",
 	p_surname: String = "",
 	p_birth_date: Dictionary = {},
-	p_prestige: int = 10,
+	p_prestige: float = 0.0,
 	p_skintone: String = "",
 	p_haircolor: String = "",
 	p_eyecolor: String = "",

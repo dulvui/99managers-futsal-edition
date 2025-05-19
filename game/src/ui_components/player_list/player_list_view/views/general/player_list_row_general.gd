@@ -7,7 +7,7 @@ extends PlayerListRow
 
 @onready var team: Label = %Team
 @onready var positionz: Label = %Position
-@onready var prestige: Label = %Prestige
+@onready var stars: Label = %Stars
 @onready var nation: Label = %Nation
 @onready var birth_date: Label = %BirthDate
 
@@ -21,7 +21,7 @@ func setup(player: Player, index: int) -> void:
 		team.text = player.team
 
 	positionz.text = Enum.get_position_type_text(player.position.main)
-	prestige.text = player.get_prestige_stars()
+	stars.text = FormatUtil.stars(player.prestige)
 	nation.text = tr(player.nation)
 	birth_date.text = FormatUtil.day(player.birth_date)
 

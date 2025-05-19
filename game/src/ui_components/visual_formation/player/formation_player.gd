@@ -7,22 +7,19 @@ extends Control
 
 signal select
 
-var color: Color
 var player: Player
 
-@onready var name_label: Label = $MarginContainer/VBoxContainer/Name
-@onready var prestige: Label = $MarginContainer/VBoxContainer/Prestige
-@onready var nr_label: Label = $MarginContainer/VBoxContainer/Nr
-@onready var state_color: ColorRect = $ColorRect
-@onready var stamina: ProgressBar = $MarginContainer/VBoxContainer/Stamina
+@onready var name_label: Label = %Name
+@onready var stars: Label = %Stars
+@onready var nr_label: Label = %Nr
+@onready var stamina: ProgressBar =%Stamina
 
 
 func _ready() -> void:
 	if player:
 		nr_label.text = str(player.nr)
 		name_label.text = player.surname
-		state_color.color = color
-		prestige.text = player.get_prestige_stars()
+		stars.text = FormatUtil.stars(player.prestige)
 		stamina.value = player.stamina
 
 

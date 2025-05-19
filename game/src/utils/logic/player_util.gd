@@ -57,7 +57,7 @@ func players_progress_season() -> void:
 
 func _player_season_progress(player: Player) -> void:
 	# add random noise
-	var prestige_factor: int = player.prestige + rng_util.randi_range(-NOISE, NOISE)
+	var prestige_factor: float = player.prestige + rng_util.randi_range(-NOISE, NOISE)
 	# age factor only affects fisical attributes neagtively
 	# high prestige player has smaller age factor, that means his physical attributes
 	# dergade less and later
@@ -73,8 +73,8 @@ func _player_season_progress(player: Player) -> void:
 	# check bounds prestige_factor
 	if prestige_factor < 1:
 		prestige_factor = 1
-	if prestige_factor > Const.MAX_PRESTIGE:
-		prestige_factor = Const.MAX_PRESTIGE
+	if prestige_factor > Const.MAX_ATTRIBUTES:
+		prestige_factor = Const.MAX_ATTRIBUTES
 
 	# increment all atrtibutes from 0 to 3
 
@@ -82,9 +82,9 @@ func _player_season_progress(player: Player) -> void:
 	for attribute: Dictionary in player.attributes.mental.get_property_list():
 		if attribute.usage == Const.CUSTOM_PROPERTY_EXPORT: # custom properties
 			# random value from 0 to 300
-			var value: int = (
-				rng_util.randi_range(1, Const.MAX_PRESTIGE)
-				+ rng_util.randi_range(1, prestige_factor)
+			var value: float = (
+				rng_util.randf_range(1, Const.MAX_ATTRIBUTES)
+				+ rng_util.randf_range(1, prestige_factor)
 				+ prestige_factor
 			)
 			value /= 100
@@ -95,9 +95,9 @@ func _player_season_progress(player: Player) -> void:
 	# physical
 	for attribute: Dictionary in player.attributes.physical.get_property_list():
 		if attribute.usage == Const.CUSTOM_PROPERTY_EXPORT: # custom properties
-			var value: int = (
-				rng_util.randi_range(1, Const.MAX_PRESTIGE)
-				+ rng_util.randi_range(1, prestige_factor)
+			var value: float = (
+				rng_util.randf_range(1, Const.MAX_ATTRIBUTES)
+				+ rng_util.randf_range(1, prestige_factor)
 				+ prestige_factor
 			)
 			value /= 100 * age_factor
@@ -108,9 +108,9 @@ func _player_season_progress(player: Player) -> void:
 	# technical
 	for attribute: Dictionary in player.attributes.technical.get_property_list():
 		if attribute.usage == Const.CUSTOM_PROPERTY_EXPORT: # custom properties
-			var value: int = (
-				rng_util.randi_range(1, Const.MAX_PRESTIGE)
-				+ rng_util.randi_range(1, prestige_factor)
+			var value: float = (
+				rng_util.randf_range(1, Const.MAX_ATTRIBUTES)
+				+ rng_util.randf_range(1, prestige_factor)
 				+ prestige_factor
 			)
 			value /= 100
@@ -121,13 +121,15 @@ func _player_season_progress(player: Player) -> void:
 	#goalkeeper
 	for attribute: Dictionary in player.attributes.goalkeeper.get_property_list():
 		if attribute.usage == Const.CUSTOM_PROPERTY_EXPORT: # custom properties
-			var value: int = (
-				rng_util.randi_range(1, Const.MAX_PRESTIGE)
-				+ rng_util.randi_range(1, prestige_factor)
+			var value: float = (
+				rng_util.randf_range(1, Const.MAX_ATTRIBUTES)
+				+ rng_util.randf_range(1, prestige_factor)
 				+ prestige_factor
 			)
 			value /= 100 * age_factor
 			player.attributes.goalkeeper[attribute.name] = min(
 				player.attributes.goalkeeper[attribute.name] + value, 20
 			)
+
+	player.update_prestige()
 

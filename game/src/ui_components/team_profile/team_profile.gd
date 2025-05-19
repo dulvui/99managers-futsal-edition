@@ -9,8 +9,7 @@ extends MarginContainer
 @onready var player_list: PlayerList = %Players
 
 @onready var name_label: Label = %Name
-@onready var prestige_stars_label: Label = %PresitgeStars
-@onready var prestige_label: Label = %Presitge
+@onready var prestige_label: Label = %PrestigeStars
 @onready var budget_label: Label = %Budget
 @onready var salary_budget_label: Label = %SalaryBudget
 @onready var stadium_name_label: Label = %StadiumName
@@ -33,8 +32,7 @@ func setup(team: Team) -> void:
 
 func _set_labels(team: Team) -> void:
 	name_label.text = team.name
-	prestige_stars_label.text = tr("Prestige") + " " + team.get_prestige_stars()
-	prestige_label.text = str(team.get_prestige())
+	prestige_label.text = FormatUtil.stars(team.prestige)
 	budget_label.text = tr("Budget") + " " + FormatUtil.currency(team.finances.balance[-1])
 	salary_budget_label.text = (
 		tr("Salary budget") + " " + FormatUtil.currency(team.finances.get_salary_budget())

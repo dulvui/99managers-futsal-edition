@@ -40,3 +40,4 @@ func setup(players: Array[Player], row_scene: PackedScene) -> void:
 
 func _on_player_list_header_sort(index: int) -> void:
 	sort.emit(index)
+

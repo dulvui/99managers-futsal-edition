@@ -190,7 +190,7 @@ func get_best_players_by_nationality(nation: Nation) -> Array[Player]:
 		func(player: Player) -> bool: return player.position.main in Position.defense_types
 	)
 	best_defenders.sort_custom(
-		func(a: Player, b: Player) -> bool: return a.get_overall() > b.get_overall()
+		func(a: Player, b: Player) -> bool: return a.prestige > b.prestige
 	)
 	best_players.append_array(best_defenders.slice(0, 5))
 
@@ -199,7 +199,7 @@ func get_best_players_by_nationality(nation: Nation) -> Array[Player]:
 		func(player: Player) -> bool: return player.position.main in Position.center_types
 	)
 	best_centers.sort_custom(
-		func(a: Player, b: Player) -> bool: return a.get_overall() > b.get_overall()
+		func(a: Player, b: Player) -> bool: return a.prestige > b.prestige
 	)
 	best_players.append_array(best_centers.slice(0, 5))
 
@@ -208,7 +208,7 @@ func get_best_players_by_nationality(nation: Nation) -> Array[Player]:
 		func(player: Player) -> bool: return player.position.main in Position.attack_types
 	)
 	best_attackers.sort_custom(
-		func(a: Player, b: Player) -> bool: return a.get_overall() > b.get_overall()
+		func(a: Player, b: Player) -> bool: return a.prestige > b.prestige
 	)
 	best_players.append_array(best_attackers.slice(0, 5))
 

@@ -38,11 +38,7 @@ unique_name_in_owner = true
 layout_mode = 2
 label_settings = ExtResource("2_e0wm0")
 
-[node name="PresitgeStars" type="Label" parent="CustomTabContainer/Info/Info"]
-unique_name_in_owner = true
-layout_mode = 2
-
-[node name="Presitge" type="Label" parent="CustomTabContainer/Info/Info"]
+[node name="PrestigeStars" type="Label" parent="CustomTabContainer/Info/Info"]
 unique_name_in_owner = true
 layout_mode = 2
 

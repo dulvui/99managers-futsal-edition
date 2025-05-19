@@ -16,7 +16,6 @@ var team_id: int
 @onready var team_link: LinkButton = %TeamLink
 @onready var nr: Label = %Nr
 @onready var attributes_average: Label = %AttributesAverage
-@onready var prestige: Label = %Prestige
 @onready var value: Label = %Value
 
 
@@ -34,9 +33,8 @@ func setup(player: Player) -> void:
 	foot.text = "%s %d/20 - %s %d/20" % [tr("Left"), player.foot_left, tr("Right"), player.foot_right]
 	nationality.text = tr(player.nation)
 	team_link.text = player.team
-	prestige.text = str(player.prestige)
 	nr.text = str(player.nr)
-	attributes_average.text = "%.2f" % player.get_overall()
+	attributes_average.text = "%.2f" % player.prestige
 	value.text = FormatUtil.currency(player.value)
 
 	team_id = player.team_id

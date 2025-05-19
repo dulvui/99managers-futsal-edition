@@ -100,15 +100,6 @@ unique_name_in_owner = true
 auto_translate_mode = 2
 layout_mode = 2
 
-[node name="PrestigeLabel" type="Label" parent="."]
-layout_mode = 2
-text = "Prestige"
-
-[node name="Prestige" type="Label" parent="."]
-unique_name_in_owner = true
-auto_translate_mode = 2
-layout_mode = 2
-
 [node name="ValueLabel" type="Label" parent="."]
 layout_mode = 2
 text = "Value"

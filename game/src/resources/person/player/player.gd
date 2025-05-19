@@ -35,7 +35,6 @@ func _init(
 	p_value: int = 0,
 	p_nr: int = 0,
 	p_loyality: int = 0,
-	p_prestige: int = 0,
 	p_injury_factor: int = 0,
 	p_stamina: float = 0,
 	p_name: String = "",
@@ -61,7 +60,6 @@ func _init(
 	value = p_value
 	nr = p_nr
 	loyality = p_loyality
-	prestige = p_prestige
 	injury_factor = p_injury_factor
 	stamina = p_stamina
 	name = p_name
@@ -88,19 +86,10 @@ func get_goalkeeper_attributes() -> int:
 	return attributes.goalkeeper.sum()
 
 
-func get_overall() -> float:
+func update_prestige() -> void:
 	if position.main == Position.Type.G:
-		return attributes.goal_keeper_average()
-	return attributes.field_player_average()
-
-
-func get_prestige_stars() -> String:
-	var relation: float = Const.MAX_PRESTIGE / 4.0
-	var star_factor: float = Const.MAX_PRESTIGE / relation
-	var stars: int = max(1, prestige / star_factor)
-	var spaces: int = 5 - stars
-	# creates right padding ex: "*** "
-	return "*".repeat(stars) + " ".repeat(spaces)
+		prestige = attributes.goal_keeper_average()
+	prestige = attributes.field_player_average()
 
 
 func recover_stamina(factor: int = 1) -> void:
@@ -109,10 +98,10 @@ func recover_stamina(factor: int = 1) -> void:
 
 func consume_stamina(speed: float) -> void:
 	# consume stamina with calc 21 - [20,1]
-	# best case Const.MAX_PRESTIGE * 1
-	# worst case Const.MAX_PRESTIGE * 20
+	# best case Const.MAX_ATTRIBUTES * 1
+	# worst case Const.MAX_ATTRIBUTES * 20
 	var consumation: float = (
-		Const.STAMINA_FACTOR * (Const.MAX_PRESTIGE + 1 - attributes.physical.resistance) * speed
+		Const.STAMINA_FACTOR * (Const.MAX_ATTRIBUTES + 1 - attributes.physical.resistance) * speed
 	)
 	# print("stamina: %d consumtion: %f"%[attributes.physical.resistance, consumation])
 	stamina = maxf(0, stamina - consumation)

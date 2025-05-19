@@ -224,10 +224,11 @@ func initialize_national_teams(world: World) -> void:
 			nation.team.name = nation.name
 			# add nations best players
 			nation.team.players = world.get_best_players_by_nationality(nation)
-			nation.team.staff = _create_staff(nation.team.get_prestige(), nation, 1)
+			nation.team.staff = _create_staff(int(nation.team.prestige), nation, 1)
 			nation.team.formation = nation.team.staff.manager.formation
 			# TODO replace with actual national colors
 			_set_random_shirt_colors(nation.team)
+			nation.team.update_prestige()
 
 
 func _init_date_ranges() -> void:
@@ -700,8 +701,8 @@ func _get_player_prestige(team_prestige: int) -> int:
 
 
 func _get_team_prestige(pyramid_level: int) -> int:
-	var minp: int = Const.MAX_PRESTIGE - pyramid_level * ((rng_util.randi() % 5) + 1)
-	var maxp: int = Const.MAX_PRESTIGE - ((pyramid_level - 1) * 3)
+	var minp: int = Const.MAX_ATTRIBUTES - pyramid_level * ((rng_util.randi() % 5) + 1)
+	var maxp: int = Const.MAX_ATTRIBUTES - ((pyramid_level - 1) * 3)
 	return _in_bounds(rng_util.randi_range(minp, maxp))
 
 
@@ -759,7 +760,7 @@ func _generate_missing_properties(
 		else:
 			team.stadium.year_renewed = year_built
 
-	team.staff = _create_staff(team.get_prestige(), nation, league.pyramid_level)
+	team.staff = _create_staff(int(team.prestige), nation, league.pyramid_level)
 
 	# assign manager preffered formation to team
 	team.formation = team.staff.manager.formation
@@ -782,6 +783,7 @@ func _generate_missing_properties(
 	# after formation has been choosen, to assign correct players positions
 	_assign_players_to_team(league, team, nation, temp_team_prestige)
 
+	team.update_prestige(true)
 	team.assign_shirt_numbers()
 
 
@@ -820,7 +822,7 @@ func _set_random_player_contract(player: Player) -> void:
 	var contract: PlayerContract = PlayerContract.new()
 	var age: int = player.get_age(start_date)
 
-	contract.income = (player.prestige + age) * 1000
+	contract.income = int(player.prestige + age) * 1000
 	contract.buy_clause = 0
 	# TODO: find way to have loan players on start
 	contract.is_on_loan = false
@@ -874,7 +876,7 @@ func _set_random_staff_contract(member: StaffMember) -> void:
 	var contract: Contract = Contract.new()
 	var age: int = member.get_age(start_date)
 
-	contract.income = (member.prestige + age) * 1000
+	contract.income = int(member.prestige + age) * 1000
 
 	# calculate start and end date
 	var duration: int = rng_util.randi_range(2, Const.CONTRACT_MAX_DURATION)
@@ -935,13 +937,13 @@ func _abs_noise(factor: int = NOISE) -> int:
 	return rng_util.randi_range(0, factor)
 
 
-func _in_bounds_random(value: int, max_bound: int = Const.MAX_PRESTIGE) -> int:
+func _in_bounds_random(value: int, max_bound: int = Const.MAX_ATTRIBUTES) -> int:
 	var random_value: int = value + _noise()
 	return _in_bounds(random_value, max_bound)
 
 
 # returns value between 1 and 20
-func _in_bounds(value: int, max_bound: int = Const.MAX_PRESTIGE) -> int:
+func _in_bounds(value: int, max_bound: int = Const.MAX_ATTRIBUTES) -> int:
 	return maxi(mini(value, max_bound), 1)
 
 

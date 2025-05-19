@@ -8,6 +8,7 @@ extends JSONResource
 @export var id: int
 @export var name: String
 @export var league_id: int
+@export var prestige: float
 
 @export var formation: Formation
 @export var finances: Finances
@@ -28,6 +29,7 @@ func _init(
 	p_id: int = -1,
 	p_name: String = "",
 	p_league_id: int = -1,
+	p_prestige: float = 0.0,
 	p_players: Array[Player] = [],
 	p_finances: Finances = Finances.new(),
 	p_formation: Formation = Formation.new(),
@@ -39,6 +41,7 @@ func _init(
 	id = p_id
 	name = p_name
 	league_id = p_league_id
+	prestige = p_prestige
 	finances = p_finances
 	players = p_players
 	staff = p_staff
@@ -132,24 +135,18 @@ func get_away_color(versus_color: String) -> String:
 	return colors[0]
 
 
-func get_prestige() -> int:
+func update_prestige(also_players: bool = false) -> void:
 	# prevent division by 0
 	if players.size() == 0:
-		return 0
+		prestige = 0
+		return
 
-	var value: int = 0
+	var value: float = 0
 	for player: Player in players:
-		value += int(player.get_overall())
-	return int(value / float(players.size()))
-
-
-func get_prestige_stars() -> String:
-	var relation: int = int(Const.MAX_PRESTIGE / 4.0)
-	var star_factor: float = Const.MAX_PRESTIGE / float(relation)
-	var stars: int = max(1, get_prestige() / star_factor)
-	var spaces: int = 5 - stars
-	# creates right padding example: '*** '
-	return "*".repeat(stars) + " ".repeat(spaces)
+		if also_players:
+			player.update_prestige()
+		value += player.prestige
+	prestige = value / float(players.size())
 
 
 func to_basic() -> TeamBasic:

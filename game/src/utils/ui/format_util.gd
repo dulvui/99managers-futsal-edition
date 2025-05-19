@@ -85,3 +85,10 @@ func number(value: int) -> String:
 	# print(string + " becomes '" + formatted + "'")
 	return formatted
 
+
+func stars(prestige: float) -> String:
+	var relation: float = Const.MAX_ATTRIBUTES / 4.0
+	var star_factor: float = Const.MAX_ATTRIBUTES / relation
+	var amount: int = max(1, prestige / star_factor)
+	return "★".repeat(amount)
+

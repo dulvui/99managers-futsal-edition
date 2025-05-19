@@ -3,7 +3,7 @@
 [ext_resource type="Theme" uid="uid://pt1hrfiuwfpg" path="res://theme_base/theme.tres" id="1_cn0l1"]
 [ext_resource type="Script" uid="uid://e7ger2qqrsmi" path="res://src/ui_components/visual_formation/player/formation_player.gd" id="2_315wa"]
 [ext_resource type="Script" uid="uid://cnyyowwlb04kl" path="res://src/ui_components/base/defaults/default_button.gd" id="3_jqqop"]
-[ext_resource type="LabelSettings" uid="uid://b4gu78rjvdfx4" path="res://theme_base/label/label_settings_title.tres" id="4_nv2a6"]
+[ext_resource type="LabelSettings" uid="uid://cc2vi4onhgmnw" path="res://theme_base/label/label_settings_bold.tres" id="4_ixmq0"]
 
 [node name="FormationPlayer" type="MarginContainer"]
 custom_minimum_size = Vector2(130, 130)
@@ -22,54 +22,45 @@ theme_override_constants/margin_bottom = 0
 script = ExtResource("2_315wa")
 metadata/_edit_use_anchors_ = true
 
-[node name="ColorRect" type="ColorRect" parent="."]
-layout_mode = 2
-mouse_filter = 2
-color = Color(0.811765, 0.105882, 0.341176, 1)
-metadata/_edit_use_anchors_ = true
-
-[node name="MarginContainer" type="MarginContainer" parent="."]
-layout_mode = 2
-theme_override_constants/margin_left = 6
-theme_override_constants/margin_top = 6
-theme_override_constants/margin_right = 6
-theme_override_constants/margin_bottom = 6
-
-[node name="Select" type="Button" parent="MarginContainer"]
+[node name="Select" type="Button" parent="."]
 layout_mode = 2
 script = ExtResource("3_jqqop")
 
-[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer"]
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
 layout_mode = 2
 mouse_filter = 2
 alignment = 1
 
-[node name="Stamina" type="ProgressBar" parent="MarginContainer/VBoxContainer"]
+[node name="Name" type="Label" parent="VBoxContainer"]
+unique_name_in_owner = true
+auto_translate_mode = 2
+layout_mode = 2
+text = "Dalvai"
+label_settings = ExtResource("4_ixmq0")
+horizontal_alignment = 1
+text_overrun_behavior = 3
+
+[node name="Nr" type="Label" parent="VBoxContainer"]
+unique_name_in_owner = true
+auto_translate_mode = 2
+layout_mode = 2
+text = "10"
+label_settings = ExtResource("4_ixmq0")
+horizontal_alignment = 1
+
+[node name="Stars" type="Label" parent="VBoxContainer"]
+unique_name_in_owner = true
+auto_translate_mode = 2
+layout_mode = 2
+text = "★★★★★"
+horizontal_alignment = 1
+
+[node name="Stamina" type="ProgressBar" parent="VBoxContainer"]
+unique_name_in_owner = true
 custom_minimum_size = Vector2(0, 10)
 layout_mode = 2
 max_value = 1.0
 value = 1.0
 show_percentage = false
 
-[node name="Name" type="Label" parent="MarginContainer/VBoxContainer"]
-auto_translate_mode = 2
-layout_mode = 2
-text = "Dalvai"
-horizontal_alignment = 1
-text_overrun_behavior = 3
-
-[node name="Nr" type="Label" parent="MarginContainer/VBoxContainer"]
-auto_translate_mode = 2
-layout_mode = 2
-text = "10"
-label_settings = ExtResource("4_nv2a6")
-horizontal_alignment = 1
-
-[node name="Prestige" type="Label" parent="MarginContainer/VBoxContainer"]
-auto_translate_mode = 2
-visible = false
-layout_mode = 2
-text = "*****"
-horizontal_alignment = 1
-
-[connection signal="pressed" from="MarginContainer/Select" to="." method="_on_select_pressed"]
+[connection signal="pressed" from="Select" to="." method="_on_select_pressed"]

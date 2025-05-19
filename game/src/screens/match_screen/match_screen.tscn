@@ -82,7 +82,7 @@ vertical_alignment = 1
 
 [node name="HomeColor" type="ColorRect" parent="Main/Content/TopBar/PanelContainer/Info"]
 unique_name_in_owner = true
-custom_minimum_size = Vector2(30, 30)
+custom_minimum_size = Vector2(10, 30)
 layout_mode = 2
 
 [node name="HomeFouls" type="Label" parent="Main/Content/TopBar/PanelContainer/Info"]
@@ -138,7 +138,7 @@ horizontal_alignment = 1
 
 [node name="AwayColor" type="ColorRect" parent="Main/Content/TopBar/PanelContainer/Info"]
 unique_name_in_owner = true
-custom_minimum_size = Vector2(30, 30)
+custom_minimum_size = Vector2(10, 30)
 layout_mode = 2
 
 [node name="Center" type="HBoxContainer" parent="Main/Content/TopBar"]

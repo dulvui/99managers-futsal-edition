@@ -90,7 +90,7 @@ func set_players() -> void:
 		sub.queue_free()
 
 	var pos_count: int = 0
-	# add golakeeper
+	# add goalkeeper
 	if team.formation.goalkeeper > 0:
 		var formation_player: VisualFormationPlayer = FormationPlayer.instantiate()
 		formation_player.set_player(team.get_goalkeeper())
