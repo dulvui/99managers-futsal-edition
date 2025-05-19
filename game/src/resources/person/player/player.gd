@@ -36,7 +36,7 @@ func _init(
 	p_nr: int = 0,
 	p_loyality: int = 0,
 	p_injury_factor: int = 0,
-	p_stamina: float = 0,
+	p_stamina: float = Const.MAX_ATTRIBUTES,
 	p_name: String = "",
 	p_league: String = "",
 	p_league_id: int = 0,
@@ -93,7 +93,7 @@ func update_prestige() -> void:
 
 
 func recover_stamina(factor: int = 1) -> void:
-	stamina = minf(attributes.physical.resistance, stamina + (Const.STAMINA_FACTOR * factor))
+	stamina = minf(Const.MAX_ATTRIBUTES, stamina + (Const.STAMINA_FACTOR * factor))
 
 
 func consume_stamina(speed: float) -> void:
