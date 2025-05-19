@@ -3,11 +3,12 @@
 [ext_resource type="Script" uid="uid://cnyyowwlb04kl" path="res://src/ui_components/base/defaults/default_button.gd" id="1_ep0lr"]
 
 [node name="PlayerListRow" type="MarginContainer"]
+custom_minimum_size = Vector2(600, 0)
 anchors_preset = -1
-anchor_right = 1.0
-anchor_bottom = 0.0212963
-grow_horizontal = 2
-grow_vertical = 2
+anchor_right = 0.312
+anchor_bottom = 0.029
+offset_right = -81.04
+offset_bottom = -0.320002
 size_flags_horizontal = 3
 size_flags_vertical = 0
 theme_override_constants/margin_left = 0
@@ -18,8 +19,10 @@ metadata/_edit_use_anchors_ = true
 
 [node name="Button" type="Button" parent="."]
 unique_name_in_owner = true
+auto_translate_mode = 2
 modulate = Color(1, 1, 1, 0.392157)
 layout_mode = 2
+text = " "
 script = ExtResource("1_ep0lr")
 metadata/_custom_type_script = "uid://cnyyowwlb04kl"
 
@@ -42,8 +45,9 @@ theme_override_constants/margin_bottom = 0
 unique_name_in_owner = true
 auto_translate_mode = 2
 layout_mode = 2
-size_flags_horizontal = 3
+size_flags_vertical = 1
 text = "Name"
+vertical_alignment = 1
 text_overrun_behavior = 1
 
 [node name="Value" type="Label" parent="Items"]
@@ -51,5 +55,7 @@ unique_name_in_owner = true
 auto_translate_mode = 2
 custom_minimum_size = Vector2(200, 0)
 layout_mode = 2
+size_flags_vertical = 1
 text = "20000"
 horizontal_alignment = 1
+vertical_alignment = 1

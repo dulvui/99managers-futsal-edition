@@ -18,7 +18,6 @@ anchor_right = 0.289583
 anchor_bottom = 0.0240741
 grow_horizontal = 2
 grow_vertical = 2
-theme_override_constants/separation = 0
 script = ExtResource("1_cm80e")
 metadata/_edit_use_anchors_ = true
 
