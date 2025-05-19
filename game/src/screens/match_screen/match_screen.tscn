@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=3 uid="uid://0u70bm8qumdr"]
+[gd_scene load_steps=13 format=3 uid="uid://0u70bm8qumdr"]
 
 [ext_resource type="Theme" uid="uid://pt1hrfiuwfpg" path="res://theme_base/theme.tres" id="1_kso5g"]
 [ext_resource type="Script" uid="uid://c5jjgbvpum1at" path="res://src/screens/match_screen/match_screen.gd" id="2_m8spm"]
@@ -10,6 +10,7 @@
 [ext_resource type="PackedScene" uid="uid://5agy8ull675s" path="res://src/screens/match_screen/events/match_events.tscn" id="8_46kqv"]
 [ext_resource type="PackedScene" uid="uid://i4nnwgwck615" path="res://src/ui_components/visual_formation/visual_formation.tscn" id="9_0djf7"]
 [ext_resource type="PackedScene" uid="uid://bj7f2r54xkpt1" path="res://src/ui_components/visual_formation/players_bar/players_bar.tscn" id="10_poqjf"]
+[ext_resource type="StyleBox" uid="uid://p2i8146lydw5" path="res://theme_base/styles/box/box_background_secondary.tres" id="10_rtyvd"]
 [ext_resource type="PackedScene" uid="uid://bpvg2vhxml3a1" path="res://src/ui_components/base/confirm_dialog/default_confirm_dialog.tscn" id="11_c2tcg"]
 
 [node name="MatchScreen" type="Control"]
@@ -276,6 +277,7 @@ theme_override_constants/separation = 20
 unique_name_in_owner = true
 custom_minimum_size = Vector2(0, 32)
 layout_mode = 2
+theme_override_styles/background = ExtResource("10_rtyvd")
 min_value = 1.0
 step = 1.0
 value = 50.0
