@@ -127,6 +127,8 @@ func update() -> void:
 			push_error("clock not running for over 20 seconds...")
 			breakpoint
 
+		return
+
 	# clock running
 	ticks_clock += 1
 	ticks_clock_not_running = 0
