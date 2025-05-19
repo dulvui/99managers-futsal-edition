@@ -25,6 +25,7 @@ grow_vertical = 2
 color = Color(0, 0, 0, 1)
 
 [node name="Godot" type="TextureRect" parent="."]
+modulate = Color(0.101961, 0.101961, 0.101961, 1)
 layout_mode = 1
 anchors_preset = -1
 anchor_left = 0.5
