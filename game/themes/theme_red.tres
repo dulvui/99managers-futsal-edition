@@ -6,7 +6,7 @@
 script = ExtResource("1_6c7b7")
 name = "RED"
 font_color = Color(0.969137, 0.969137, 0.969137, 1)
-style_color = Color(0.605243, 0, 0.225228, 1)
-style_important_color = Color(0.906542, 5.5206e-05, 0.351453, 1)
-background_color = Color(1, 0.740573, 0.698339, 1)
-background_secondary_color = Color(1, 0.477854, 0.410057, 1)
+style_color = Color(0.947858, 0.171003, 0.154931, 1)
+style_important_color = Color(0.965647, 0.597012, 0.195255, 1)
+background_color = Color(0.723948, 0.0828221, 0.0882186, 1)
+background_secondary_color = Color(0.481268, 2.14122e-05, 1.02037e-05, 1)

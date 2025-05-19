@@ -7,6 +7,6 @@ script = ExtResource("1_88nk5")
 name = "LIGHT"
 font_color = Color(0, 0, 0, 1)
 style_color = Color(0.817521, 0.817521, 0.817521, 1)
-style_important_color = Color(0.728911, 0.269462, 0.0915733, 1)
+style_important_color = Color(0.456026, 0.66096, 0.981966, 1)
 background_color = Color(0.93845, 0.93845, 0.93845, 1)
 background_secondary_color = Color(0.838897, 0.838897, 0.838897, 1)
