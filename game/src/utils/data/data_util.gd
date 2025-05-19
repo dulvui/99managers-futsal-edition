@@ -89,7 +89,7 @@ func load_data() -> void:
 
 	var world: World = World.new()
 
-	Main.call_deferred("update_loading_progress", 0.1)
+	Main.call_deferred("update_loading_progress", 0.2)
 
 	# load main data from json
 	if not _validate_file(path + DATA_FILE):
@@ -102,7 +102,7 @@ func load_data() -> void:
 
 	Global.world = world
 
-	Main.call_deferred("update_loading_progress", 0.2)
+	Main.call_deferred("update_loading_progress", 0.3)
 
 	# players csv
 	var csv_path: String = path + Const.CSV_PLAYERS_FILE
@@ -116,7 +116,7 @@ func load_data() -> void:
 		loading_failed.emit()
 		return
 	csv_util.csv_to_players(csv, world)
-	Main.call_deferred("update_loading_progress", 0.3)
+	Main.call_deferred("update_loading_progress", 0.5)
 
 	# free_agents csv
 	csv_path = path + Const.CSV_FREE_AGENTS_FILE
@@ -130,7 +130,7 @@ func load_data() -> void:
 		loading_failed.emit()
 		return
 	csv_util.csv_to_free_agents(csv, world)
-	Main.call_deferred("update_loading_progress", 0.4)
+	Main.call_deferred("update_loading_progress", 0.6)
 
 	# history match days csv, read only
 	csv_path = path + Const.CSV_MATCH_HISTORY_FILE
@@ -145,7 +145,7 @@ func load_data() -> void:
 		return
 	Global.match_list = MatchList.new()
 	Global.match_list.history_match_days = csv_util.csv_to_match_days(csv)
-	Main.call_deferred("update_loading_progress", 0.5)
+	Main.call_deferred("update_loading_progress", 0.7)
 
 	# match days csv
 	csv_path = path + Const.CSV_MATCH_LIST_FILE
@@ -164,7 +164,7 @@ func load_data() -> void:
 		Global.match_list.match_days = match_days[0]
 	else:
 		push_error("error while loading matchdays, match days from csv is not 1")
-	Main.call_deferred("update_loading_progress", 0.6)
+	Main.call_deferred("update_loading_progress", 0.8)
 
 	# calendar csv
 	csv_path = path + Const.CSV_CALENDAR_FILE
@@ -178,7 +178,6 @@ func load_data() -> void:
 		loading_failed.emit()
 		return
 	Global.calendar = csv_util.csv_to_calendar(csv)
-	Main.call_deferred("update_loading_progress", 0.7)
 
 	# inbox csv
 	csv_path = path + Const.CSV_INBOX_FILE
@@ -192,7 +191,8 @@ func load_data() -> void:
 		loading_failed.emit()
 		return
 	Global.inbox = csv_util.csv_to_inbox(csv)
-	Main.call_deferred("update_loading_progress", 0.8)
+
+	Main.call_deferred("update_loading_progress", 1.0)
 
 	# offer list csv
 	csv_path = path + Const.CSV_OFFER_LIST_FILE
@@ -207,8 +207,6 @@ func load_data() -> void:
 		return
 	Global.transfer_list = csv_util.csv_to_transfer_list(csv)
 
-	Main.call_deferred("update_loading_progress", 1.0)
-
 	# assign all global references
 	IdUtil.id_by_type = active.id_by_type
 	Global.team = Global.world.get_active_team()
@@ -219,7 +217,7 @@ func load_data() -> void:
 
 func save_data() -> void:
 	print("save data...")
-	Main.call_deferred("update_loading_progress", 0.1)
+	Main.call_deferred("update_loading_progress", 0.2)
 
 	var active: SaveState = Global.save_states.get_active()
 	if active == null:
@@ -290,7 +288,7 @@ func save_data() -> void:
 	)
 	checksum_list.save(path + Const.CSV_CALENDAR_FILE)
 	backup_util.create(path + Const.CSV_CALENDAR_FILE)
-	Main.call_deferred("update_loading_progress", 0.7)
+	Main.call_deferred("update_loading_progress", 0.8)
 
 	# inbox
 	csv_util.save_csv(
@@ -299,7 +297,7 @@ func save_data() -> void:
 	)
 	checksum_list.save(path + Const.CSV_INBOX_FILE)
 	backup_util.create(path + Const.CSV_INBOX_FILE)
-	Main.call_deferred("update_loading_progress", 0.8)
+	Main.call_deferred("update_loading_progress", 1.0)
 
 	# offer list
 	csv_util.save_csv(
@@ -312,8 +310,6 @@ func save_data() -> void:
 	# save checksum
 	json_util.save(path + CHECKSUM_FILE, checksum_list)
 	backup_util.create(path + CHECKSUM_FILE)
-
-	Main.call_deferred("update_loading_progress", 1.0)
 
 
 func _validate_file(path: String) -> bool:
