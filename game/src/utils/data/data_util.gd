@@ -205,7 +205,7 @@ func load_data() -> void:
 	if err != OK:
 		loading_failed.emit()
 		return
-	Global.transfer_list = csv_util.csv_to_transfer_list(csv)
+	Global.offer_list = csv_util.csv_to_offer_list(csv)
 
 	# assign all global references
 	IdUtil.id_by_type = active.id_by_type
@@ -302,7 +302,7 @@ func save_data() -> void:
 	# offer list
 	csv_util.save_csv(
 		path + Const.CSV_OFFER_LIST_FILE,
-		csv_util.transfer_list_to_csv(Global.transfer_list)
+		csv_util.offer_list_to_csv(Global.offer_list)
 	)
 	checksum_list.save(path + Const.CSV_OFFER_LIST_FILE)
 	backup_util.create(path + Const.CSV_OFFER_LIST_FILE)

@@ -1,9 +1,11 @@
-# SPDX-FileCopyrightText: 2023 Simon Dalvai <info@simondalvai.org>
+# SPDX-FileCopyrightText: 2025 Simon Dalvai <info@simondalvai.org>
 
 # SPDX-License-Identifier: AGPL-3.0-or-later
 
 class_name BuyOffer
 extends Offer
+
+# buy offer made to a team
 
 var amount: int
 var current_team: TeamBasic

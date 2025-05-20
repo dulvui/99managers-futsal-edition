@@ -33,7 +33,7 @@ func _ready() -> void:
 func setup(p_player: Player) -> void:
 	player = p_player
 
-	# var transfer: Offer = Global.transfer_list.get_offer_by_player_id(player.id)
+	# var transfer: Offer = Global.offer_list.get_offer_by_player_id(player.id)
 	# if transfer != null:
 	# 	if transfer.type == Transfer.Type.LOAN:
 	# 		hide()

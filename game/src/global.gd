@@ -29,7 +29,7 @@ var league: League
 var manager: Manager
 # csv
 var match_list: MatchList
-var transfer_list: TransferList
+var offer_list: OfferList
 var inbox: Inbox
 var calendar: Calendar
 
@@ -77,7 +77,7 @@ func reset_data() -> void:
 	league = null
 	manager = null
 	match_list = null
-	transfer_list = null
+	offer_list = null
 	inbox = null
 	calendar = null
 
@@ -88,7 +88,7 @@ func next_day() -> void:
 	if match_list.is_match_day():
 		inbox.next_match(match_list.get_active_match(calendar.day()))
 
-	transfer_list.update_day()
+	offer_list.update_day()
 
 	# new week starts
 	if calendar.day().weekday == Enum.Weekdays.MONDAY:

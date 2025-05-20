@@ -127,7 +127,7 @@ func initialize_global_values(world: World) -> void:
 	Global.calendar.initialize()
 
 	# other csv resources
-	Global.transfer_list = TransferList.new()
+	Global.offer_list = OfferList.new()
 	Global.inbox = Inbox.new()
 	Global.match_list = MatchList.new()
 

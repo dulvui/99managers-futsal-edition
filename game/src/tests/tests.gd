@@ -90,7 +90,7 @@ static func init_empty_mock_world() -> void:
 	Global.world = World.new()
 	Global.calendar = Calendar.new()
 	Global.calendar.initialize()
-	Global.transfer_list = TransferList.new()
+	Global.offer_list = OfferList.new()
 	Global.match_list = MatchList.new()
 	Global.inbox = Inbox.new()
 
