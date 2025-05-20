@@ -144,8 +144,7 @@ func update() -> void:
 		# TODO save post reflection and
 		# check if directon goes still towards goal
 		goals.check_post_collisions(ball)
-		if not _check_goal_line():
-			_check_touch_line()
+		_check_lines()
 
 		# _check_ball_wall_collisions()
 		_check_ball_players_collisions()
@@ -201,32 +200,7 @@ func get_ticks_to_reach(from: Vector2, to: Vector2, force: float, friction: floa
 	return ticks
 
 
-func _check_touch_line() -> void:
-	# left
-	if ball.pos.y < line_top:
-		var intersection: Variant = Geometry2D.segment_intersects_segment(
-			ball.last_pos, ball.pos, top_left, top_right
-		)
-		if intersection:
-			clock_running = false
-			var vector: Vector2 = intersection
-			ball.set_pos(vector)
-			touch_line_out.emit()
-			return
-	# right
-	if ball.pos.y > line_bottom:
-		var intersection: Variant = Geometry2D.segment_intersects_segment(
-			ball.last_pos, ball.pos, bottom_left, bottom_right
-		)
-		if intersection:
-			clock_running = false
-			var vector: Vector2 = intersection
-			ball.set_pos(vector)
-			touch_line_out.emit()
-			return
-
-
-func _check_goal_line() -> bool:
+func _check_lines() -> bool:
 	# left
 	if ball.pos.x < line_left:
 		clock_running = false
@@ -264,6 +238,29 @@ func _check_goal_line() -> bool:
 
 		goal_line_out_right.emit()
 		return true
+
+	# top
+	if ball.pos.y < line_top:
+		var intersection: Variant = Geometry2D.segment_intersects_segment(
+			ball.last_pos, ball.pos, top_left, top_right
+		)
+		if intersection:
+			clock_running = false
+			var vector: Vector2 = intersection
+			ball.set_pos(vector)
+			touch_line_out.emit()
+			return true
+	# bottom
+	if ball.pos.y > line_bottom:
+		var intersection: Variant = Geometry2D.segment_intersects_segment(
+			ball.last_pos, ball.pos, bottom_left, bottom_right
+		)
+		if intersection:
+			clock_running = false
+			var vector: Vector2 = intersection
+			ball.set_pos(vector)
+			touch_line_out.emit()
+			return true
 
 	return false
 
