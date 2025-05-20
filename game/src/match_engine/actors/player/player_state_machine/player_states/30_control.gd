@@ -5,8 +5,8 @@
 class_name PlayerStateControl
 extends PlayerStateMachineState
 
-# half field width
-const MAX_SHOOT_DISTANCE_SQUARED: int = int(pow(SimField.WIDTH / 4.0, 2))
+# min distance from where shoot attempt is made
+const MIN_SHOOT_DISTANCE_SQUARED: int = int(pow(SimField.WIDTH / 3.0, 2))
 
 var opponent_goal: Vector2
 
@@ -81,7 +81,7 @@ func execute() -> void:
 func should_shoot() -> bool:
 	# check if player is close enough to shoot
 	var distance_squared: float = owner.player.pos.distance_squared_to(opponent_goal)
-	if distance_squared > MAX_SHOOT_DISTANCE_SQUARED:
+	if distance_squared < MIN_SHOOT_DISTANCE_SQUARED:
 		return false
 
 	# define force

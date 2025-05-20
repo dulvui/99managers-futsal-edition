@@ -55,6 +55,7 @@ func pass_ball() -> void:
 				best_player = player
 
 	owner.team.player_receive_ball(best_player)
-	owner.ball.impulse(owner.team.player_receive_ball().pos, 20)
+	var direction: Vector2 = owner.ball.pos.direction_to(best_player.pos)
+	owner.ball.impulse(direction, 20)
 	owner.team.stats.passes += 1
 
