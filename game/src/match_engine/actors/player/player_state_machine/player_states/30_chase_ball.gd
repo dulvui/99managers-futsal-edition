@@ -17,7 +17,7 @@ func execute() -> void:
 	if not owner.team.has_ball:
 		var controlling_player: SimPlayer = owner.team.team_opponents.player_control()
 		if owner.player.collides(controlling_player):
-			# TODO take aggressivity and other attributes into account
+			# TODO take aggressive and other attributes into account
 			owner.team.stats.tackles += 1
 			if owner.rng.rand100(98):
 				# TODO check yellow/red card

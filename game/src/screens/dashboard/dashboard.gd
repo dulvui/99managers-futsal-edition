@@ -76,6 +76,13 @@ func _ready() -> void:
 	finances.setup(Global.team)
 	stadium.setup(Global.team.stadium)
 
+	# update formation stadium colors on change in stadium
+	stadium.color_change.connect(
+		func(colors: StadiumColors) -> void:
+			formation.field.set_colors(colors)
+			formation.goals.set_colors(colors)
+	)
+
 	if Global.match_list.is_match_day():
 		continue_button.text = tr("Start match")
 		match_ready = true

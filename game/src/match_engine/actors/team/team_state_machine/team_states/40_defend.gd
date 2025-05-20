@@ -15,6 +15,9 @@ func enter() -> void:
 	for player: SimPlayer in owner.team.players:
 		player.set_state(PlayerStateDefend.new())
 
+	# chase ball
+	owner.team.player_chase(owner.team.player_nearest_to_ball([owner.team.players[0]]))
+
 
 func execute() -> void:
 	if owner.team.has_ball:
@@ -26,8 +29,6 @@ func execute() -> void:
 
 	if owner.field.kickin:
 		return
-
-	# owner.team.player_chase(owner.team.player_nearest_to_ball([owner.team.players[0]]))
 
 
 func exit() -> void:

@@ -14,6 +14,15 @@ The single changes are separated in the following section for better visibility
 **Data** changes to data related topics like saving/loading or player attributes
 **Logic** changes to game logic outside of the Match Engine
 
+## Checklist before release
+Needed tasks before every new release
+
+- [ ] Tests run without errors
+- [ ] Bump version
+- [ ] Update and check changelog
+- [ ] Copy changelog to game
+- [ ] Update contributors in game
+
 # [0.3.2]
 ## [Unreleased]
 
@@ -25,6 +34,9 @@ The single changes are separated in the following section for better visibility
     - (Simple) Stadium detail view in dashboard
     - Change date and currency format in settings
     - Show player/team generation progress during game setup
+    - Show loading screen progress on game load and save
+    - Change field and goal colors for your stadium, from a preset
+    - Different field and goal colors for every team's stadium, from a preset
 - Data
     - Generate missing attributes for players of custom csv file
     - Free agent players
@@ -36,11 +48,11 @@ The single changes are separated in the following section for better visibility
     - Better pass/shoot trajectory detection
 - UI
     - Player profile has now tabs: Overview, Transfers, Contract
-    - Show loading progress on game load and save
     - Make light theme default
     - Remove secondary backgrounds in dashboard and other ui elements
     - Hide vim mode in settings, until implemented correctly
     - Make automatic input type detection a check button, instead of a option button
+    - Rounded buttons
 - Data
     - Realistic contract start and end dates
     - Remove data compression ability, all data is readable json/csv files now
@@ -55,6 +67,7 @@ The single changes are separated in the following section for better visibility
     - Faster loading/saving of game data by saving matches as csv
     - Save and load all players data like contract and statistics
 - Logic
+    - Teams start now seasons in league assigned in csv
     - Fixed issues in seasonal finances calculation
     - Reset default settings resets all possible settings
 

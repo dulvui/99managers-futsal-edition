@@ -1,7 +1,10 @@
-[gd_scene load_steps=3 format=3 uid="uid://dpfdl6oojbr15"]
+[gd_scene load_steps=6 format=3 uid="uid://dpfdl6oojbr15"]
 
 [ext_resource type="Script" uid="uid://c08cyqc18iiws" path="res://src/ui_components/visual_stadium/visual_stadium.gd" id="1_6f486"]
 [ext_resource type="LabelSettings" uid="uid://cc2vi4onhgmnw" path="res://theme_base/label/label_settings_bold.tres" id="2_w8wf6"]
+[ext_resource type="Script" uid="uid://b7ipi7vefbgps" path="res://src/ui_components/base/defaults/default_check_button.gd" id="3_1ly6m"]
+[ext_resource type="PackedScene" uid="uid://bkfkjsv3f5y8p" path="res://src/screens/match_screen/match_simulator/visual_match/visual_actors/visual_field/visual_field.tscn" id="3_vdfo5"]
+[ext_resource type="PackedScene" uid="uid://dvw1g6gn0s6bk" path="res://src/screens/match_screen/match_simulator/visual_match/visual_actors/visual_goals/visual_goals.tscn" id="4_plory"]
 
 [node name="VisualStadium" type="Control"]
 layout_mode = 3
@@ -14,7 +17,7 @@ size_flags_horizontal = 3
 size_flags_vertical = 3
 script = ExtResource("1_6f486")
 
-[node name="VBoxContainer" type="VBoxContainer" parent="."]
+[node name="HBoxContainer" type="HBoxContainer" parent="."]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -22,27 +25,88 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="Name" type="Label" parent="VBoxContainer"]
+[node name="VBoxContainer" type="VBoxContainer" parent="HBoxContainer"]
+custom_minimum_size = Vector2(600, 0)
+layout_mode = 2
+
+[node name="Info" type="VBoxContainer" parent="HBoxContainer/VBoxContainer"]
+custom_minimum_size = Vector2(600, 0)
+layout_mode = 2
+
+[node name="Name" type="Label" parent="HBoxContainer/VBoxContainer/Info"]
 unique_name_in_owner = true
 layout_mode = 2
 label_settings = ExtResource("2_w8wf6")
 
-[node name="Capacity" type="Label" parent="VBoxContainer"]
+[node name="Capacity" type="Label" parent="HBoxContainer/VBoxContainer/Info"]
 unique_name_in_owner = true
 layout_mode = 2
 
-[node name="YearBuilt" type="Label" parent="VBoxContainer"]
+[node name="YearBuilt" type="Label" parent="HBoxContainer/VBoxContainer/Info"]
 unique_name_in_owner = true
 layout_mode = 2
 
-[node name="YearRenewed" type="Label" parent="VBoxContainer"]
+[node name="YearRenewed" type="Label" parent="HBoxContainer/VBoxContainer/Info"]
 unique_name_in_owner = true
 layout_mode = 2
 
-[node name="TicketPrice" type="Label" parent="VBoxContainer"]
+[node name="TicketPrice" type="Label" parent="HBoxContainer/VBoxContainer/Info"]
 unique_name_in_owner = true
 layout_mode = 2
 
-[node name="MaintenanceCost" type="Label" parent="VBoxContainer"]
+[node name="MaintenanceCost" type="Label" parent="HBoxContainer/VBoxContainer/Info"]
 unique_name_in_owner = true
 layout_mode = 2
+
+[node name="Settings" type="VBoxContainer" parent="HBoxContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="Colors" type="HFlowContainer" parent="HBoxContainer/VBoxContainer/Settings"]
+unique_name_in_owner = true
+layout_mode = 2
+
+[node name="ForceColor" type="CheckButton" parent="HBoxContainer/VBoxContainer/Settings"]
+layout_mode = 2
+text = "Use colors in all stadiums"
+script = ExtResource("3_1ly6m")
+metadata/_custom_type_script = "uid://b7ipi7vefbgps"
+
+[node name="Label" type="Label" parent="HBoxContainer/VBoxContainer/Settings"]
+layout_mode = 2
+text = "Note: Custom colors coming in future versions."
+
+[node name="Field" type="Control" parent="HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="SubViewportContainer" type="SubViewportContainer" parent="HBoxContainer/Field"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 3
+stretch = true
+
+[node name="SubViewport" type="SubViewport" parent="HBoxContainer/Field/SubViewportContainer"]
+unique_name_in_owner = true
+disable_3d = true
+handle_input_locally = false
+size = Vector2i(1316, 1080)
+size_2d_override_stretch = true
+render_target_update_mode = 4
+
+[node name="Camera2D" type="Camera2D" parent="HBoxContainer/Field/SubViewportContainer/SubViewport"]
+unique_name_in_owner = true
+position = Vector2(635, 405)
+ignore_rotation = false
+zoom = Vector2(0.9, 0.9)
+position_smoothing_enabled = true
+position_smoothing_speed = 15.0
+
+[node name="VisualField" parent="HBoxContainer/Field/SubViewportContainer/SubViewport" instance=ExtResource("3_vdfo5")]
+unique_name_in_owner = true
+
+[node name="VisualGoals" parent="HBoxContainer/Field/SubViewportContainer/SubViewport" instance=ExtResource("4_plory")]
+unique_name_in_owner = true

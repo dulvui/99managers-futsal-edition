@@ -5,6 +5,8 @@
 class_name VisualMatch
 extends Node2D
 
+var colors: StadiumColorsList
+
 @onready var home_team: VisualTeam = $VisualTeamHome
 @onready var away_team: VisualTeam = $VisualTeamAway
 @onready var ball: VisualBall = $VisualBall
@@ -12,20 +14,34 @@ extends Node2D
 @onready var goals: VisualGoals = $VisualGoals
 
 
+func _ready() -> void:
+	colors = StadiumColorsList.new()
+
+	field.setup(SimField.new())
+	goals.setup(SimField.new())
+
+
 func setup(simulator: MatchSimulator) -> void:
-	field.setup(simulator.engine.field)
-	goals.setup(simulator.engine.field)
+	var home: SimTeam = simulator.engine.home_team
+	var away: SimTeam = simulator.engine.away_team
+
 	ball.setup(simulator.engine.field.ball.pos)
 
-	var home_color: String = simulator.engine.home_team.res.get_home_color()
-	var away_color: String = simulator.engine.away_team.res.get_away_color(home_color)
+	# set stadium colors to home team
+	var stadium_color: StadiumColors = colors.list[home.res.stadium.colors_index]
+	field.set_colors(stadium_color)
+	goals.set_colors(stadium_color)
+
+	# setup teams
+	var home_color: String = home.res.get_home_color()
+	var away_color: String = away.res.get_away_color(home_color)
 
 	var home_pos: Array[Vector2] = []
 	var home_info: Array[String] = []
 	var home_skintones: Array[String] = []
 	var home_hair_colors: Array[String] = []
 	var home_eye_colors: Array[String] = []
-	for player: SimPlayer in simulator.engine.home_team.players:
+	for player: SimPlayer in home.players:
 		home_pos.append(player.pos)
 		home_info.append(str(player.res.nr) + " " + player.res.surname)
 		home_skintones.append(player.res.skintone)
@@ -40,7 +56,7 @@ func setup(simulator: MatchSimulator) -> void:
 	var away_skintones: Array[String] = []
 	var away_hair_colors: Array[String] = []
 	var away_eye_colors: Array[String] = []
-	for player: SimPlayer in simulator.engine.away_team.players:
+	for player: SimPlayer in away.players:
 		away_pos.append(player.pos)
 		away_info.append(str(player.res.nr) + " " + player.res.surname)
 		away_skintones.append(player.res.skintone)

@@ -6,7 +6,7 @@ class_name PlayerStateControl
 extends PlayerStateMachineState
 
 # half field width
-const MAX_SHOOT_DISTANCE_SQUARED: int = int(pow(SimField.WIDTH / 2.0, 2))
+const MAX_SHOOT_DISTANCE_SQUARED: int = int(pow(SimField.WIDTH / 4.0, 2))
 
 var opponent_goal: Vector2
 

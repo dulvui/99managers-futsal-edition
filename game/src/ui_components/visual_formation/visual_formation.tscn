@@ -1,10 +1,11 @@
-[gd_scene load_steps=6 format=3 uid="uid://i4nnwgwck615"]
+[gd_scene load_steps=7 format=3 uid="uid://i4nnwgwck615"]
 
 [ext_resource type="Script" uid="uid://c6myfh7dwvqmk" path="res://src/ui_components/visual_formation/visual_formation.gd" id="1"]
 [ext_resource type="Theme" uid="uid://pt1hrfiuwfpg" path="res://theme_base/theme.tres" id="2"]
 [ext_resource type="LabelSettings" uid="uid://cc2vi4onhgmnw" path="res://theme_base/label/label_settings_bold.tres" id="3_uuj0v"]
 [ext_resource type="PackedScene" uid="uid://bkfkjsv3f5y8p" path="res://src/screens/match_screen/match_simulator/visual_match/visual_actors/visual_field/visual_field.tscn" id="4_4hfjo"]
 [ext_resource type="PackedScene" uid="uid://b2mwv4cl5sm6t" path="res://src/ui_components/base/swtich_option_button/switch_option_button.tscn" id="4_bi7d8"]
+[ext_resource type="PackedScene" uid="uid://dvw1g6gn0s6bk" path="res://src/screens/match_screen/match_simulator/visual_match/visual_actors/visual_goals/visual_goals.tscn" id="6_kxidc"]
 
 [node name="VisualFormation" type="HBoxContainer"]
 anchors_preset = 15
@@ -96,6 +97,17 @@ unique_name_in_owner = true
 layout_mode = 2
 disabled = true
 
+[node name="Subs" type="ScrollContainer" parent="."]
+custom_minimum_size = Vector2(200, 0)
+layout_mode = 2
+follow_focus = true
+
+[node name="SubsList" type="VBoxContainer" parent="Subs"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+alignment = 1
+
 [node name="Field" type="Control" parent="."]
 layout_mode = 2
 size_flags_horizontal = 3
@@ -128,6 +140,9 @@ position_smoothing_enabled = true
 position_smoothing_speed = 15.0
 
 [node name="VisualField" parent="Field/SubViewportContainer/SubViewport" instance=ExtResource("4_4hfjo")]
+unique_name_in_owner = true
+
+[node name="VisualGoals" parent="Field/SubViewportContainer/SubViewport" instance=ExtResource("6_kxidc")]
 unique_name_in_owner = true
 
 [node name="LineUp" type="VBoxContainer" parent="Field"]
@@ -163,17 +178,6 @@ alignment = 1
 unique_name_in_owner = true
 layout_mode = 2
 size_flags_vertical = 3
-alignment = 1
-
-[node name="Subs" type="ScrollContainer" parent="."]
-custom_minimum_size = Vector2(200, 0)
-layout_mode = 2
-follow_focus = true
-
-[node name="SubsList" type="VBoxContainer" parent="Subs"]
-unique_name_in_owner = true
-layout_mode = 2
-size_flags_horizontal = 3
 alignment = 1
 
 [connection signal="item_selected" from="Tactics/FormationSelect" to="." method="_on_formation_button_item_selected"]

@@ -36,6 +36,8 @@ const EYE_COLORS: Array[String] = [
 	"000000",
 ]
 
+var stadium_colors: StadiumColorsList
+
 var leagues_data: Dictionary = {}
 
 # for birthdays range
@@ -52,6 +54,7 @@ var contract_min_year: int
 var names: GeneratorNames
 var all_nations: Array[Nation]
 
+
 var player_names: Enum.PlayerNames
 var rng_util: RngUtil
 var csv_util: CSVUtil
@@ -64,6 +67,7 @@ func _init(
 	rng_util = RngUtil.new(generation_seed, p_player_names)
 	player_names = p_player_names
 	csv_util = CSVUtil.new()
+	stadium_colors = StadiumColorsList.new()
 
 
 func initialize_world(world: World, world_file_path: String = Const.WORLD_CSV_PATH) -> bool:
@@ -759,10 +763,11 @@ func _generate_missing_properties(
 			team.stadium.year_renewed = year_built + rng_util.randi_range(0, year - stadium_age)
 		else:
 			team.stadium.year_renewed = year_built
+	team.stadium.colors_index = rng_util.randi_range(0, stadium_colors.list.size() - 1)
 
 	team.staff = _create_staff(int(team.prestige), nation, league.pyramid_level)
 
-	# assign manager preffered formation to team
+	# assign manager preferred formation to team
 	team.formation = team.staff.manager.formation
 
 	# calc budget, after players/stuff have been created

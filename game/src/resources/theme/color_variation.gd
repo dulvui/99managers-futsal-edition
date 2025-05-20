@@ -20,7 +20,7 @@ func _init(color: Color) -> void:
 	hover = color.lightened(0.3)
 	disabled = color.darkened(0.4)
 
-	# alpsha channel
+	# alpha channel
 	focus.a = color.a * 0.9
 	pressed.a = color.a * 0.9
 	hover.a = color.a * 0.9

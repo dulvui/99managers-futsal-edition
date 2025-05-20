@@ -42,8 +42,6 @@ var _player_support: SimPlayer
 var _player_receive_ball: SimPlayer
 # key players defense
 var _player_chase: SimPlayer
-# key players generic
-var _player_nearest_to_ball: SimPlayer
 
 
 func _init(p_rng: RngUtil) -> void:
@@ -213,12 +211,10 @@ func reset_key_players() -> void:
 	_player_control = null
 	_player_support = null
 	_player_receive_ball = null
-	_player_nearest_to_ball = null
 
 
 func player_nearest_to_ball(exclude: Array[SimPlayer] = []) -> SimPlayer:
-	_player_nearest_to_ball = find_nearest_player_to(field.ball.pos, exclude)
-	return _player_nearest_to_ball
+	return find_nearest_player_to(field.ball.pos, exclude)
 
 
 func player_control(p_player: SimPlayer = null) -> SimPlayer:
@@ -252,13 +248,15 @@ func player_chase(p_player: SimPlayer = null) -> SimPlayer:
 func find_nearest_player_to(position: Vector2, exclude: Array[SimPlayer] = []) -> SimPlayer:
 	var nearest: SimPlayer = null
 	for player: SimPlayer in players:
-		if not player in exclude:
-			if nearest == null:
-				nearest = player
-				continue
+		if player in exclude:
+			continue
 
-			if player.pos.distance_squared_to(position) < nearest.pos.distance_squared_to(position):
-				nearest = player
+		if nearest == null:
+			nearest = player
+			continue
+
+		if player.pos.distance_squared_to(position) < nearest.pos.distance_squared_to(position):
+			nearest = player
 	return nearest
 
 

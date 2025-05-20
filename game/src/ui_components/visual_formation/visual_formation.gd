@@ -15,6 +15,8 @@ var team: Team
 var change_players: Array[VisualFormationPlayer]
 var only_lineup: bool
 
+var colors: StadiumColorsList
+
 @onready var formation_select: SwitchOptionButton = %FormationSelect
 @onready var change_strategy_select: SwitchOptionButton = %ChangeStrategySelect
 @onready var tactic_select_offense: SwitchOptionButton = %TacticSelectOffense
@@ -23,6 +25,7 @@ var only_lineup: bool
 @onready var tactic_select_marking: SwitchOptionButton = %TacticSelectMarking
 
 @onready var field: VisualField = %VisualField
+@onready var goals: VisualGoals = %VisualGoals
 @onready var camera: Camera2D = %Camera2D
 
 @onready var lineup: VBoxContainer = %LineUp
@@ -42,14 +45,21 @@ func _ready() -> void:
 	change_players = []
 	camera.zoom = Vector2(1.5 / Global.config.theme_scale, 1.5 / Global.config.theme_scale)
 
-	field.setup(SimField.new())
+	colors = StadiumColorsList.new()
+
+	var active_color: StadiumColors = colors.list[0]
+	if Global.team:
+		active_color = colors.select(Global.team.stadium.colors_index)
+
+	field.setup(SimField.new(), active_color)
+	goals.setup(SimField.new(), active_color)
 
 
 func setup(p_only_lineup: bool, p_team: Team = Global.team) -> void:
 	only_lineup = p_only_lineup
 	team = p_team
 
-	# set up fomation options
+	# set up formation options
 	formation_select.setup(Formation.VARIATIONS_TEXT, team.formation.variation)
 	change_strategy_select.setup(Formation.CHANGE_STRATEGY_TEXT, team.formation.change_strategy)
 
@@ -217,3 +227,4 @@ func _on_tactic_select_pressing_item_selected(index: int) -> void:
 func _on_tactic_offense_intensity_value_changed(value: float) -> void:
 	team.formation.tactic_offense.intensity = int(value)
 	tactic_request.emit()
+

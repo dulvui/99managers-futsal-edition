@@ -6,14 +6,21 @@ class_name VisualField
 extends Node2D
 
 var field: SimField
+var colors: StadiumColors
 var field_rect: Rect2
 var outbounds_rect: Rect2
 
 @onready var lines: Node2D = $Lines
 
 
-func setup(p_field: SimField) -> void:
+func _ready() -> void:
+	# _draw gets called before setup, so default value needed
+	colors = StadiumColors.new()
+
+
+func setup(p_field: SimField, p_colors: StadiumColors = StadiumColors.new()) -> void:
 	field = p_field
+	colors = p_colors
 
 	field_rect = Rect2(field.line_left, field.line_top, field.WIDTH, field.HEIGHT)
 	outbounds_rect = field_rect.grow(500)
@@ -39,47 +46,53 @@ func setup(p_field: SimField) -> void:
 	lines.add_child(middle_line)
 
 
+func set_colors(p_colors: StadiumColors) -> void:
+	colors = p_colors
+	queue_redraw()
+
+
 func _draw() -> void:
 	# outbound color
-	draw_rect(outbounds_rect, Color.CADET_BLUE)
+	draw_rect(outbounds_rect, colors.outbound)
 
 	# floor color
-	draw_rect(field_rect, Color.ORANGE)
+	draw_rect(field_rect, colors.floorz)
 
 	# center circle
-	draw_circle(field.center, field.CENTER_CIRCLE_RADIUS + field.LINE_WIDTH, Color.WHITE)
-	draw_circle(field.center, field.CENTER_CIRCLE_RADIUS, Color.ORANGE)
+	draw_circle(field.center, field.CENTER_CIRCLE_RADIUS + field.LINE_WIDTH, colors.line)
+	draw_circle(field.center, field.CENTER_CIRCLE_RADIUS, colors.center_circle)
 	# center spot
-	draw_circle(field.center, 3, Color.WHITE, true)
+	draw_circle(field.center, 3, colors.line, true)
 	# penalty 6m circle
-	draw_circle(field.penalty_areas.spot_left, 3, Color.WHITE, true)
-	draw_circle(field.penalty_areas.spot_right, 3, Color.WHITE, true)
+	draw_circle(field.penalty_areas.spot_left, 3, colors.line, true)
+	draw_circle(field.penalty_areas.spot_right, 3, colors.line, true)
 	# penalty 10m circle
-	draw_circle(field.penalty_areas.spot_10m_left, 3, Color.WHITE, true)
-	draw_circle(field.penalty_areas.spot_10m_right, 3, Color.WHITE, true)
+	draw_circle(field.penalty_areas.spot_10m_left, 3, colors.line, true)
+	draw_circle(field.penalty_areas.spot_10m_right, 3, colors.line, true)
 
 	# outer lines
 	draw_line(
 		Vector2(field.line_left, field.line_top),
 		Vector2(field.line_right, field.line_top),
-		Color.WHITE,
+		colors.line,
 		field.LINE_WIDTH
 	)
 	draw_line(
 		Vector2(field.line_right, field.line_top),
 		Vector2(field.line_right, field.line_bottom),
-		Color.WHITE,
+		colors.line,
 		field.LINE_WIDTH
 	)
 	draw_line(
 		Vector2(field.line_right, field.line_bottom),
 		Vector2(field.line_left, field.line_bottom),
-		Color.WHITE,
+		colors.line,
 		field.LINE_WIDTH
 	)
 	draw_line(
 		Vector2(field.line_left, field.line_top),
 		Vector2(field.line_left, field.line_bottom),
-		Color.WHITE,
+		colors.line,
 		field.LINE_WIDTH
 	)
+
