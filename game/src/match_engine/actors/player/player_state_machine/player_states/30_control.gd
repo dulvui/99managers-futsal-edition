@@ -81,7 +81,7 @@ func execute() -> void:
 func should_shoot() -> bool:
 	# check if player is close enough to shoot
 	var distance_squared: float = owner.player.pos.distance_squared_to(opponent_goal)
-	if distance_squared < MIN_SHOOT_DISTANCE_SQUARED:
+	if distance_squared > MIN_SHOOT_DISTANCE_SQUARED:
 		return false
 
 	# define force

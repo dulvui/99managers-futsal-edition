@@ -55,7 +55,7 @@ func test_deterministic_simulations() -> void:
 
 		# check results
 		for j: int in MATCH_AMOUNT:
-			print("check %d - %d" % [matches[j].home_goals, matches[j - 1].home_goals])
+			# print("check %d - %d" % [matches[j].home_goals, matches[j - 1].away_goals])
 			assert(matches[j].home_goals == matches[j - 1].home_goals)
 			assert(matches[j].away_goals == matches[j - 1].away_goals)
 

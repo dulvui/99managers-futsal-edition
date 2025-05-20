@@ -95,8 +95,7 @@ func setup(matchz: Match, p_home_team: Team = null, p_away_team: Team = null) ->
 	Global.match_paused = false
 
 	# visual rng
-	visual_rng = RngUtil.new()
-	visual_rng.seed = matchz.id
+	visual_rng = RngUtil.new(str(matchz.id))
 
 	# buffers
 	ball_buffer = MatchBufferBall.new()
