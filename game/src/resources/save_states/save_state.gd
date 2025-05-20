@@ -14,6 +14,8 @@ extends JSONResource
 @export var current_season: int
 @export var match_speed: Enum.MatchSpeed
 @export var id_by_type: Dictionary
+@export var stadium_force_color: bool
+@export var is_corrupt: bool
 # metadata, only used for state entry
 @export var meta_team_name: String
 @export var meta_manager_name: String
@@ -21,7 +23,6 @@ extends JSONResource
 @export var meta_last_save: Dictionary
 @export var meta_game_date: Dictionary
 @export var meta_create_date: Dictionary
-@export var is_corrupt: bool
 
 
 func _init(
@@ -33,12 +34,13 @@ func _init(
 	p_id_by_type: Dictionary = {},
 	p_config_version: String = Global.config_version,
 	p_start_date: Dictionary = {},
+	p_stadium_force_color: bool = false,
+	p_is_corrupt: bool = false,
 	p_meta_team_name: String = "",
 	p_meta_manager_name: String = "",
 	p_meta_team_position: String = "",
 	p_meta_last_save: Dictionary = {},
 	p_meta_game_date: Dictionary = {},
-	p_is_corrupt: bool = false,
 ) -> void:
 	id = p_id
 	config_version = p_config_version
@@ -48,12 +50,14 @@ func _init(
 	current_season = p_current_season
 	match_speed = p_match_speed
 	id_by_type = p_id_by_type
+	stadium_force_color = p_stadium_force_color
+	is_corrupt = p_is_corrupt
+
 	meta_team_name = p_meta_team_name
 	meta_manager_name = p_meta_manager_name
 	meta_team_position = p_meta_team_position
 	meta_last_save = p_meta_last_save
 	meta_game_date = p_meta_game_date
-	is_corrupt = p_is_corrupt
 
 
 func initialize() -> void:

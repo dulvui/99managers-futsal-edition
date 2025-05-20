@@ -77,6 +77,7 @@ unique_name_in_owner = true
 layout_mode = 2
 
 [node name="ForceColor" type="CheckButton" parent="HBoxContainer/VBoxContainer/ColorSettings"]
+unique_name_in_owner = true
 layout_mode = 2
 text = "Use your color in all stadiums"
 script = ExtResource("3_1ly6m")
@@ -117,3 +118,5 @@ unique_name_in_owner = true
 
 [node name="VisualGoals" parent="HBoxContainer/Field/SubViewportContainer/SubViewport" instance=ExtResource("4_plory")]
 unique_name_in_owner = true
+
+[connection signal="toggled" from="HBoxContainer/VBoxContainer/ColorSettings/ForceColor" to="." method="_on_force_color_toggled"]

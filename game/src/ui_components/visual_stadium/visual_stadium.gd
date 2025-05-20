@@ -20,6 +20,7 @@ var colors: StadiumColorsList
 @onready var goals: VisualGoals = %VisualGoals
 @onready var camera: Camera2D = %Camera2D
 @onready var color_buttons: HFlowContainer = %Colors
+@onready var force_color_button: DefaultCheckButton = %ForceColor
 
 
 func _ready() -> void:
@@ -31,7 +32,8 @@ func _ready() -> void:
 
 	field.set_colors(active_color)
 	goals.set_colors(active_color)
-	camera.zoom = Vector2(0.9 / Global.config.theme_scale, 0.9 / Global.config.theme_scale)
+	if Global.config:
+		camera.zoom = Vector2(0.9 / Global.config.theme_scale, 0.9 / Global.config.theme_scale)
 
 	# setup color buttons
 	var button_group: ButtonGroup = ButtonGroup.new()
@@ -46,6 +48,10 @@ func _ready() -> void:
 		button.pressed.connect(_on_color_button_pressed.bind(index))
 		color_buttons.add_child(button)
 		index += 1
+
+	# set force color button pressed
+	if Global.save_states.active:
+		force_color_button.button_pressed = Global.save_states.active.stadium_force_color
 
 
 func setup(stadium: Stadium) -> void:
@@ -70,4 +76,10 @@ func _on_color_button_pressed(index: int) -> void:
 		Global.team.stadium.colors_index = index
 
 	color_change.emit(selected)
+
+
+
+func _on_force_color_toggled(toggled_on: bool) -> void:
+	if Global.save_states.active:
+		Global.save_states.active.stadium_force_color = toggled_on
 

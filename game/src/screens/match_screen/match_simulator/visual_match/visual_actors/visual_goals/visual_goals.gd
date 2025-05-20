@@ -74,7 +74,7 @@ func _draw() -> void:
 
 	draw_multiline(
 		net_points,
-		colors.goal_1,
+		colors.line,
 		field.LINE_WIDTH * .3,
 		true
 	)

@@ -26,6 +26,12 @@ func setup(simulator: MatchSimulator) -> void:
 
 	# set stadium colors to home team
 	var stadium_color: StadiumColors = colors.list[home.res.stadium.colors_index]
+
+	# force own stadium colors, if set
+	if Global.save_states.active and Global.save_states.active.stadium_force_color:
+		if Global.team and Global.team.stadium:
+			stadium_color = colors.list[Global.team.stadium.colors_index]
+
 	field.set_colors(stadium_color)
 	goals.set_colors(stadium_color)
 
