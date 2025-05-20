@@ -73,6 +73,7 @@ func _draw() -> void:
 			field.LINE_WIDTH * .2,
 			field.LINE_WIDTH * .2
 		)
+
 	# net horizontal
 	for i: int in range(0, 18):
 		draw_line(

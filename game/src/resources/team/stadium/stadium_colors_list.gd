@@ -12,24 +12,59 @@ func _init() -> void:
 	index = 0
 	list = []
 
-	# default
-	list.append(StadiumColors.new(tr("Orange")))
-
-	# blue
 	list.append(
 		StadiumColors.new(
-			tr("Blue"),
-			Color.BLUE,
-			Color.CADET_BLUE,
+			tr("Orange"),
+			Color.ORANGE,
+			Color.ORANGE_RED,
 		)
 	)
 
-	# red
+	list.append(
+		StadiumColors.new(
+			tr("Blue"),
+			Color.MEDIUM_AQUAMARINE,
+			Color.CADET_BLUE,
+			Color.PEACH_PUFF,
+		)
+	)
+
 	list.append(
 		StadiumColors.new(
 			tr("Red"),
-			Color.RED,
+			Color.MAROON,
 			Color.FIREBRICK,
+			Color.PINK,
+		)
+	)
+
+	list.append(
+		StadiumColors.new(
+			tr("Green"),
+			Color.LIGHT_SEA_GREEN,
+			Color.LIGHT_GREEN,
+			Color.LIGHT_YELLOW,
+			Color.DARK_GREEN,
+		)
+	)
+
+	list.append(
+		StadiumColors.new(
+			tr("White"),
+			Color.WHITE,
+			Color.WHITE,
+			Color.BLACK,
+			Color.WHITE,
+		)
+	)
+
+	list.append(
+		StadiumColors.new(
+			tr("Black"),
+			Color.BLACK,
+			Color.BLACK,
+			Color.WHITE,
+			Color.BLACK,
 		)
 	)
 
