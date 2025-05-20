@@ -63,10 +63,11 @@ func _init(field: SimField, goals: SimGoals) -> void:
 	for i: int in right.size():
 		right[i] += Vector2(field.WIDTH, 0)
 
-	# caclulate penalty spots
+	# calculate penalty spots
 	spot_left = Vector2(field.line_left + RADIUS, field.center.y)
 	spot_right = Vector2(field.line_right - RADIUS, field.center.y)
 
 	const SPOT_10_M: int = 10 * field.PIXEL_FACTOR
 	spot_10m_left = Vector2(field.line_left + SPOT_10_M, field.center.y)
 	spot_10m_right = Vector2(field.line_right - SPOT_10_M, field.center.y)
+

@@ -19,7 +19,7 @@ const BORDER_SIZE: int = 2 * PIXEL_FACTOR
 const WIDTH: int = 42 * PIXEL_FACTOR
 const HEIGHT: int = 25 * PIXEL_FACTOR
 const CENTER_CIRCLE_RADIUS: int = 3 * PIXEL_FACTOR
-const LINE_WIDTH: float = 0.10 * PIXEL_FACTOR # in cm
+const LINE_WIDTH: float = 0.08 * PIXEL_FACTOR # in cm
 
 # distance between wall and line
 const WALL_DISTANCE: int = 5 * PIXEL_FACTOR
@@ -50,13 +50,13 @@ var free_kick: bool
 var penalties: bool
 
 # flag to see if during penalties goalkeeper and player are ready
-# could potentially be replaced with referree
+# could potentially be replaced with referee
 var penalty_ready: bool
 
 var free_kick_spot: Vector2
 
-# add all resources here, so they can be accessedeasily
-# especiially inside the state machines
+# add all resources here, so they can be accessed easily
+# especially inside the state machines
 var ball: SimBall
 var left_team: SimTeam
 var right_team: SimTeam

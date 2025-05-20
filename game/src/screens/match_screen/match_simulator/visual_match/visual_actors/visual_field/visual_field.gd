@@ -10,94 +10,71 @@ var colors: StadiumColors
 var field_rect: Rect2
 var outbounds_rect: Rect2
 
-@onready var lines: Node2D = $Lines
-
 
 func _ready() -> void:
-	# _draw gets called before setup, so default value needed
 	colors = StadiumColors.new()
-
-
-func setup(p_field: SimField, p_colors: StadiumColors = StadiumColors.new()) -> void:
-	field = p_field
-	colors = p_colors
+	# assuming fields are always the same size
+	# if in future fields have different sizes, this needs to be called as setup with redraw
+	field = SimField.new()
 
 	field_rect = Rect2(field.line_left, field.line_top, field.WIDTH, field.HEIGHT)
 	outbounds_rect = field_rect.grow(500)
-
-	# penalty area lines
-	var penalty_area_line_left: Line2D = Line2D.new()
-	for point: Vector2 in field.penalty_areas.left:
-		penalty_area_line_left.add_point(point)
-	lines.add_child(penalty_area_line_left)
-
-	var penalty_area_line_right: Line2D = Line2D.new()
-	for point: Vector2 in field.penalty_areas.right:
-		penalty_area_line_right.add_point(point)
-	lines.add_child(penalty_area_line_right)
-
-	# middle line
-	var middle_line: Line2D = Line2D.new()
-	middle_line.add_point(Vector2(field.center.x, field.line_top))
-	middle_line.add_point(Vector2(field.center.x, field.line_bottom))
-	lines.add_child(middle_line)
-
-	# set color and width to all lines
-	for line: Line2D in lines.get_children():
-		line.default_color = colors.line
-		line.width = field.LINE_WIDTH
 
 
 func set_colors(p_colors: StadiumColors) -> void:
 	colors = p_colors
 	queue_redraw()
-	for line: Line2D in lines.get_children():
-		line.default_color = colors.line
-	lines.queue_redraw()
 
 
 func _draw() -> void:
 	# outbound color
-	draw_rect(outbounds_rect, colors.outbound)
+	draw_rect(outbounds_rect, colors.outbound, true, true)
 
 	# floor color
-	draw_rect(field_rect, colors.floorz)
+	draw_rect(field_rect, colors.floorz, true, true)
 
 	# center circle
-	draw_circle(field.center, field.CENTER_CIRCLE_RADIUS + field.LINE_WIDTH, colors.line)
-	draw_circle(field.center, field.CENTER_CIRCLE_RADIUS, colors.center_circle)
-	# center spot
-	draw_circle(field.center, 3, colors.line, true)
-	# penalty 6m circle
-	draw_circle(field.penalty_areas.spot_left, 3, colors.line, true)
-	draw_circle(field.penalty_areas.spot_right, 3, colors.line, true)
-	# penalty 10m circle
-	draw_circle(field.penalty_areas.spot_10m_left, 3, colors.line, true)
-	draw_circle(field.penalty_areas.spot_10m_right, 3, colors.line, true)
+	draw_circle(field.center, field.CENTER_CIRCLE_RADIUS, colors.center_circle, true, -1.0, true)
+	# center circle line
+	draw_circle(
+		field.center, field.CENTER_CIRCLE_RADIUS, colors.line, false, field.LINE_WIDTH, true
+	)
 
-	# outer lines
-	draw_line(
-		Vector2(field.line_left, field.line_top),
-		Vector2(field.line_right, field.line_top),
+	# penalty areas
+	draw_colored_polygon(field.penalty_areas.left, colors.center_circle)
+	draw_colored_polygon(field.penalty_areas.right, colors.center_circle)
+
+	# center spot
+	draw_circle(field.center, 3, colors.line, true, -1.0, true)
+	# penalty 6m circle
+	draw_circle(field.penalty_areas.spot_left, 3, colors.line, true, -1.0, true)
+	draw_circle(field.penalty_areas.spot_right, 3, colors.line, true, -1.0, true)
+	# penalty 10m circle
+	draw_circle(field.penalty_areas.spot_10m_left, 3, colors.line, true, -1.0, true)
+	draw_circle(field.penalty_areas.spot_10m_right, 3, colors.line, true, -1.0, true)
+
+	# lines
+	draw_multiline(
+		[
+			# outer lines
+			Vector2(field.line_left, field.line_top),
+			Vector2(field.line_right, field.line_top),
+			Vector2(field.line_right, field.line_top),
+			Vector2(field.line_right, field.line_bottom),
+			Vector2(field.line_right, field.line_bottom),
+			Vector2(field.line_left, field.line_bottom),
+			Vector2(field.line_left, field.line_top),
+			Vector2(field.line_left, field.line_bottom),
+			# middle line
+			Vector2(field.center.x, field.line_top),
+			Vector2(field.center.x, field.line_bottom),
+		],
 		colors.line,
-		field.LINE_WIDTH
+		field.LINE_WIDTH,
+		true
 	)
-	draw_line(
-		Vector2(field.line_right, field.line_top),
-		Vector2(field.line_right, field.line_bottom),
-		colors.line,
-		field.LINE_WIDTH
-	)
-	draw_line(
-		Vector2(field.line_right, field.line_bottom),
-		Vector2(field.line_left, field.line_bottom),
-		colors.line,
-		field.LINE_WIDTH
-	)
-	draw_line(
-		Vector2(field.line_left, field.line_top),
-		Vector2(field.line_left, field.line_bottom),
-		colors.line,
-		field.LINE_WIDTH
-	)
+
+	# penalty areas lines
+	draw_polyline(field.penalty_areas.left, colors.line, field.LINE_WIDTH, true)
+	draw_polyline(field.penalty_areas.right, colors.line, field.LINE_WIDTH, true)
 

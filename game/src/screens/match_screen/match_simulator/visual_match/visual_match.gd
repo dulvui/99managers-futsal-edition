@@ -17,9 +17,6 @@ var colors: StadiumColorsList
 func _ready() -> void:
 	colors = StadiumColorsList.new()
 
-	field.setup(SimField.new())
-	goals.setup(SimField.new())
-
 
 func setup(simulator: MatchSimulator) -> void:
 	var home: SimTeam = simulator.engine.home_team

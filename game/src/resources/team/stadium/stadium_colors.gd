@@ -18,7 +18,7 @@ var goal_2: Color
 func _init(
 	p_name: String = "",
 	p_floorz: Color = Color.ORANGE,
-	p_center_circle: Color = Color.ORANGE,
+	p_center_circle: Color = Color.MEDIUM_AQUAMARINE,
 	p_line: Color = Color.WHITE,
 	p_outbound: Color = Color.CADET_BLUE,
 	p_goal_1: Color = Color.WHITE,

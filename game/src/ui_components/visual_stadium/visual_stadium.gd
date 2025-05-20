@@ -29,15 +29,14 @@ func _ready() -> void:
 	if Global.team:
 		active_color = colors.select(Global.team.stadium.colors_index)
 
-	field.setup(SimField.new(), active_color)
-	goals.setup(SimField.new(), active_color)
+	field.set_colors(active_color)
+	goals.set_colors(active_color)
 	camera.zoom = Vector2(0.9 / Global.config.theme_scale, 0.9 / Global.config.theme_scale)
 
 	# setup color buttons
 	var button_group: ButtonGroup = ButtonGroup.new()
 	var index: int = 0
 	for color: StadiumColors in colors.list:
-		print(color.name)
 		var button: DefaultButton = DefaultButton.new()
 		button.button_group = button_group
 		button.toggle_mode = true

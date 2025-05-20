@@ -51,8 +51,8 @@ func _ready() -> void:
 	if Global.team:
 		active_color = colors.select(Global.team.stadium.colors_index)
 
-	field.setup(SimField.new(), active_color)
-	goals.setup(SimField.new(), active_color)
+	field.set_colors(active_color)
+	goals.set_colors(active_color)
 
 
 func setup(p_only_lineup: bool, p_team: Team = Global.team) -> void:

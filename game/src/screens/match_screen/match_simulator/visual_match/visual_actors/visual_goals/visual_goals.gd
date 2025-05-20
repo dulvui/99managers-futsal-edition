@@ -12,13 +12,10 @@ var colors: StadiumColors
 
 
 func _ready() -> void:
-	# _draw gets called before setup, so default value needed
 	colors = StadiumColors.new()
-
-
-func setup(p_field: SimField, p_colors: StadiumColors = StadiumColors.new()) -> void:
-	field = p_field
-	colors = p_colors
+	# assuming fields are always the same size
+	# if in future fields have different sizes, this needs to be called as setup with redraw
+	field = SimField.new()
 
 
 func set_colors(p_colors: StadiumColors) -> void:
@@ -28,66 +25,57 @@ func set_colors(p_colors: StadiumColors) -> void:
 
 func _draw() -> void:
 	# posts
-	draw_line(
-		field.goals.post_top_left,
-		field.goals.post_bottom_left,
+	draw_multiline(
+		[
+			field.goals.post_top_left,
+			field.goals.post_bottom_left,
+			field.goals.post_top_right,
+			field.goals.post_bottom_right,
+		],
 		colors.goal_1,
 		field.LINE_WIDTH * 1.5,
-		field.LINE_WIDTH * 1.5
-	)
-	draw_line(
-		field.goals.post_top_right,
-		field.goals.post_bottom_right,
-		colors.goal_1,
-		field.LINE_WIDTH * 1.5,
-		field.LINE_WIDTH * 1.5
+		true
 	)
 	draw_dashed_line(
 		field.goals.post_top_left,
 		field.goals.post_bottom_left,
 		colors.goal_2,
 		field.LINE_WIDTH * 1.5,
-		field.LINE_WIDTH * 1.5
+		field.LINE_WIDTH * 1.5,
+		true,
+		true
 	)
 	draw_dashed_line(
 		field.goals.post_top_right,
 		field.goals.post_bottom_right,
 		colors.goal_2,
 		field.LINE_WIDTH * 1.5,
-		field.LINE_WIDTH * 1.5
+		field.LINE_WIDTH * 1.5,
+		true,
+		true
 	)
 
-	# net vertical
+	# net lines
+	var net_points: PackedVector2Array = PackedVector2Array()
+
+	# vertical lines
 	for i: int in range(1, 9):
-		draw_line(
-			field.goals.post_top_left - Vector2(i * 5, 0),
-			field.goals.post_bottom_left - Vector2(i * 5, 0),
-			colors.goal_1,
-			field.LINE_WIDTH * .2,
-			field.LINE_WIDTH * .2
-		)
-		draw_line(
-			field.goals.post_top_right + Vector2(i * 5, 0),
-			field.goals.post_bottom_right + Vector2(i * 5, 0),
-			colors.goal_1,
-			field.LINE_WIDTH * .2,
-			field.LINE_WIDTH * .2
-		)
+		net_points.append(field.goals.post_top_left - Vector2(i * 5, 0))
+		net_points.append(field.goals.post_bottom_left - Vector2(i * 5, 0))
+		net_points.append(field.goals.post_top_right + Vector2(i * 5, 0))
+		net_points.append(field.goals.post_bottom_right + Vector2(i * 5, 0))
 
 	# net horizontal
 	for i: int in range(0, 18):
-		draw_line(
-			field.goals.post_top_left + Vector2(-40, i * 5),
-			field.goals.post_top_left + Vector2(-3, i * 5),
-			colors.goal_1,
-			field.LINE_WIDTH * .2,
-			field.LINE_WIDTH * .2
-		)
-		draw_line(
-			field.goals.post_top_right + Vector2(40, i * 5),
-			field.goals.post_top_right + Vector2(3, i * 5),
-			colors.goal_1,
-			field.LINE_WIDTH * .2,
-			field.LINE_WIDTH * .2
-		)
+		net_points.append(field.goals.post_top_left + Vector2(-40, i * 5))
+		net_points.append(field.goals.post_top_left + Vector2(-3, i * 5))
+		net_points.append(field.goals.post_top_right + Vector2(40, i * 5))
+		net_points.append(field.goals.post_top_right + Vector2(3, i * 5))
+
+	draw_multiline(
+		net_points,
+		colors.goal_1,
+		field.LINE_WIDTH * .3,
+		true
+	)
 

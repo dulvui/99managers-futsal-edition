@@ -1,8 +1,8 @@
 [gd_scene load_steps=6 format=3 uid="uid://dpfdl6oojbr15"]
 
 [ext_resource type="Script" uid="uid://c08cyqc18iiws" path="res://src/ui_components/visual_stadium/visual_stadium.gd" id="1_6f486"]
-[ext_resource type="LabelSettings" uid="uid://cc2vi4onhgmnw" path="res://theme_base/label/label_settings_bold.tres" id="2_w8wf6"]
 [ext_resource type="Script" uid="uid://b7ipi7vefbgps" path="res://src/ui_components/base/defaults/default_check_button.gd" id="3_1ly6m"]
+[ext_resource type="LabelSettings" uid="uid://b4gu78rjvdfx4" path="res://theme_base/label/label_settings_title.tres" id="3_txxll"]
 [ext_resource type="PackedScene" uid="uid://bkfkjsv3f5y8p" path="res://src/screens/match_screen/match_simulator/visual_match/visual_actors/visual_field/visual_field.tscn" id="3_vdfo5"]
 [ext_resource type="PackedScene" uid="uid://dvw1g6gn0s6bk" path="res://src/screens/match_screen/match_simulator/visual_match/visual_actors/visual_goals/visual_goals.tscn" id="4_plory"]
 
@@ -24,10 +24,12 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+theme_override_constants/separation = 45
 
 [node name="VBoxContainer" type="VBoxContainer" parent="HBoxContainer"]
 custom_minimum_size = Vector2(600, 0)
 layout_mode = 2
+theme_override_constants/separation = 45
 
 [node name="Info" type="VBoxContainer" parent="HBoxContainer/VBoxContainer"]
 custom_minimum_size = Vector2(600, 0)
@@ -36,7 +38,7 @@ layout_mode = 2
 [node name="Name" type="Label" parent="HBoxContainer/VBoxContainer/Info"]
 unique_name_in_owner = true
 layout_mode = 2
-label_settings = ExtResource("2_w8wf6")
+label_settings = ExtResource("3_txxll")
 
 [node name="Capacity" type="Label" parent="HBoxContainer/VBoxContainer/Info"]
 unique_name_in_owner = true
@@ -58,22 +60,27 @@ layout_mode = 2
 unique_name_in_owner = true
 layout_mode = 2
 
-[node name="Settings" type="VBoxContainer" parent="HBoxContainer/VBoxContainer"]
+[node name="ColorSettings" type="VBoxContainer" parent="HBoxContainer/VBoxContainer"]
 layout_mode = 2
 
-[node name="Colors" type="HFlowContainer" parent="HBoxContainer/VBoxContainer/Settings"]
+[node name="Title" type="Label" parent="HBoxContainer/VBoxContainer/ColorSettings"]
+layout_mode = 2
+text = "Colors"
+label_settings = ExtResource("3_txxll")
+
+[node name="Description" type="Label" parent="HBoxContainer/VBoxContainer/ColorSettings"]
+layout_mode = 2
+text = "Change the colors of the field"
+
+[node name="Colors" type="HFlowContainer" parent="HBoxContainer/VBoxContainer/ColorSettings"]
 unique_name_in_owner = true
 layout_mode = 2
 
-[node name="ForceColor" type="CheckButton" parent="HBoxContainer/VBoxContainer/Settings"]
+[node name="ForceColor" type="CheckButton" parent="HBoxContainer/VBoxContainer/ColorSettings"]
 layout_mode = 2
-text = "Use colors in all stadiums"
+text = "Use your color in all stadiums"
 script = ExtResource("3_1ly6m")
 metadata/_custom_type_script = "uid://b7ipi7vefbgps"
-
-[node name="Label" type="Label" parent="HBoxContainer/VBoxContainer/Settings"]
-layout_mode = 2
-text = "Note: Custom colors coming in future versions."
 
 [node name="Field" type="Control" parent="HBoxContainer"]
 layout_mode = 2
@@ -93,7 +100,7 @@ stretch = true
 unique_name_in_owner = true
 disable_3d = true
 handle_input_locally = false
-size = Vector2i(1316, 1080)
+size = Vector2i(1275, 1080)
 size_2d_override_stretch = true
 render_target_update_mode = 4
 
