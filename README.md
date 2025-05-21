@@ -4,6 +4,11 @@ SPDX-FileCopyrightText: 2023 Simon Dalvai <info@simondalvai.org>
 SPDX-License-Identifier: CC0-1.0
 -->
 
+# MOVED TO CODEBERG
+The main repository is on now [Codeberg](https://codeberg.org/dulvui/99managers-futsal-edition).
+
+--
+
 # 99 Managers Futsal Edition
 A Futsal Manager game created with the Godot Engine.  
 **[Wishlist now on Steam!](https://store.steampowered.com/app/3334770/99_Managers_Futsal_Edition/)**  
@@ -11,15 +16,9 @@ A Futsal Manager game created with the Godot Engine.
 
 Join [Matrix](https://matrix.to/#/%23s9i.org:matrix.org) or [Discord](https://discord.gg/a5DSHZKkA8) if you have questions and want to stay updated.
 
-# Repositories and issue tracker
-The main repository is on [Codeberg](https://codeberg.org/dulvui/99managers-futsal-edition),
-which is where the issue tracker may be found and where contributions are accepted.
-A read-only mirror exists on [Github](https://github.com/dulvui/99managers-futsal-edition).  
-Note: You can use your Github account to sign in on Codeberg.
-
-The idea of mirroring a Codeberg repository to other git platforms was inspired by [riverwm](https://codeberg.org/river/river).
-
+# Issue tracker
 All issues from the Codeberg issue tracker and other sources like e-mail or forums, are listed in the [issues.md](/issues.md) file.
+Note: You can use your Github account to sign in on Codeberg.
 
 # Translations
 If you would like to add more languages or want to improve existing, you can do so on [Weblate](https://hosted.weblate.org/engage/99-managers-futsal-edition/).  
