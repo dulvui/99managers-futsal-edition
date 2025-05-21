@@ -5,9 +5,10 @@ SPDX-License-Identifier: CC0-1.0
 -->
 
 # MOVED TO CODEBERG
-The main repository is on now [Codeberg](https://codeberg.org/dulvui/99managers-futsal-edition).
+The main repository is on now [Codeberg](https://codeberg.org/dulvui/99managers-futsal-edition).  
+FOSS should be hosted by FOSS.
 
---
+----
 
 # 99 Managers Futsal Edition
 A Futsal Manager game created with the Godot Engine.  
